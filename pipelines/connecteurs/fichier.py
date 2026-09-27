@@ -18,13 +18,20 @@ import httpx
 DELAI = httpx.Timeout(30.0, read=600.0)
 
 
-def telecharger_url(url: str, destination: Path) -> Path:
+def telecharger_url(url: str, destination: Path, essais: int = 3) -> Path:
+    """Télécharge `url` ; réessaie sur coupure réseau (justice.gouv.fr tronque parfois un transfert)."""
     destination.parent.mkdir(parents=True, exist_ok=True)
-    with httpx.stream("GET", url, timeout=DELAI, follow_redirects=True) as reponse:
-        reponse.raise_for_status()
-        with destination.open("wb") as f:
-            for bloc in reponse.iter_bytes(1 << 20):
-                f.write(bloc)
+    for essai in range(1, essais + 1):
+        try:
+            with httpx.stream("GET", url, timeout=DELAI, follow_redirects=True) as reponse:
+                reponse.raise_for_status()
+                with destination.open("wb") as f:
+                    for bloc in reponse.iter_bytes(1 << 20):
+                        f.write(bloc)
+            return destination
+        except httpx.TransportError:
+            if essai == essais:
+                raise
     return destination
 
 

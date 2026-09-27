@@ -1,0 +1,21 @@
+id: justice.detenus
+libelle: Personnes détenues (écrouées et hébergées en établissement pénitentiaire)
+unite: personnes, au 1er du mois
+sens: neutre
+sources: [justice-ecroues-mensuel]
+maille: [france]
+formule: indicateurs/justice/detenus.sql
+format: "{:,.0f} personnes détenues"
+limites: >
+  Stock au 1er du mois, pas les entrées de l'année. Exclut les personnes écrouées non détenues (surveillance
+  électronique, placement extérieur sans hébergement). Série disponible depuis juillet 2022 dans les classeurs
+  retenus (25 mois par classeur) ; les séries plus anciennes sont dans les publications annuelles du ministère.
+construction: >
+  Source justice-ecroues-mensuel, onglet Tab2 (« Evolution mensuelle des personnes écrouées détenues selon la
+  catégorie pénale »), colonne « Ecroués détenus », champ France entière (métropole et outre-mer). Normalisé en
+  lignes tableau = Tab2, mesure = detenus, niveau = Total France entière, date = 1er du mois. Un même mois
+  figurant dans plusieurs classeurs, on retient la valeur du classeur dont la date (date_fichier) est la plus
+  récente. Période = AAAA-MM. Valeur en nombre, sans arrondi.
+comparaison_ue: voir justice.taux_detention_ue
+version: 1.0.0
+relu_par: null

@@ -1,0 +1,20 @@
+id: immigration.taux_execution_eloignements_ue
+libelle: Retours effectifs rapportés aux décisions d'éloignement de l'année
+unite: "% des décisions de l'année"
+sens: plus_haut_mieux
+sources: [eurostat-migr-eiord, eurostat-migr-eirtn]
+maille: [france, pays]
+formule: indicateurs/immigration/taux_execution_eloignements_ue.sql
+format: "{:.1f} %"
+limites: >
+  Rapport de deux flux de la même année, pas part des décisions d'une année effectivement exécutées : un retour
+  peut suivre une décision antérieure, et une même personne peut recevoir plusieurs décisions. Retours vers un
+  autre État membre compris. Sensible aux pratiques nationales de prononcé des décisions (dénominateur).
+construction: >
+  Numérateur : Eurostat migr_eirtn, citizen = TOTAL, c_dest = TOTAL, age = TOTAL, sex = T, unit = PER.
+  Dénominateur : Eurostat migr_eiord, citizen = TOTAL, age = TOTAL, sex = T, unit = PER, même code pays (partie
+  de geo avant « : ») et même année. Valeur = 100 × numérateur / dénominateur, arrondie à 0,1 ; lignes à
+  dénominateur nul exclues. Agrégats Eurostat (EU27_2020) traités comme un pays. Maille france = ligne FR recopiée.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

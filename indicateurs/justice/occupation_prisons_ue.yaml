@@ -1,0 +1,22 @@
+id: justice.occupation_prisons_ue
+libelle: Taux d'occupation des prisons (comparaison européenne)
+unite: détenus pour 100 places officielles
+sens: plus_bas_mieux
+sources: [eurostat-crim-pris-cap]
+maille: [france, pays]
+formule: indicateurs/justice/occupation_prisons_ue.sql
+format: "{:.1f} %"
+limites: >
+  Capacité « officielle » déclarée par chaque pays selon sa propre définition (pour la France, différente des places
+  opérationnelles du ministère : la valeur française est plus basse que justice.densite_carcerale). Date de référence
+  annuelle propre à chaque pays. Agrégat UE calculé par le projet, pas publié par Eurostat.
+construction: >
+  Eurostat crim_pris_cap, unit = NR (nombre). Numérateur : indic_cr = PRIS_ACT_CAP (personnes détenues) ;
+  dénominateur : indic_cr = PRIS_OFF_CAP (capacité officielle), même pays et même année. Valeur = 100 × numérateur
+  / dénominateur, arrondie à 0,1, pour chaque pays où les deux sont renseignés. Code pays = partie de geo avant
+  « : ». EU27_2020 : 100 × somme des détenus / somme des capacités des 27 États membres (AT, BE, BG, CY, CZ, DE,
+  DK, EE, EL, ES, FI, FR, HR, HU, IE, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK), seulement les années où les
+  27 ont les deux valeurs, arrondi à 0,1. Maille france = ligne FR recopiée.
+comparaison_ue: maille pays, agrégat EU27_2020 calculé
+version: 1.0.0
+relu_par: null
