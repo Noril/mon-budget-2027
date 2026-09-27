@@ -1,0 +1,25 @@
+id: culture.frequentation_musees
+libelle: Entrées dans les musées de France
+unite: entrées par an
+sens: plus_haut_mieux
+sources: [culture-frequentation-musees, insee-cog-communes, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/culture/frequentation_musees.sql
+format: "{:,.0f} entrées"
+limites: >
+  Musées ayant l'appellation « musée de France » (environ 1 050 à 1 170 selon l'année, publics et privés à
+  but non lucratif) : hors monuments, châteaux sans appellation et centres d'art. Les entrées d'un public
+  surtout touristique pèsent lourd (Paris) ; un visiteur compte autant de fois qu'il entre. Certains sites
+  déclarent une fréquentation cumulée pour plusieurs musées, et le nombre de musées répondants varie d'une année
+  à l'autre. 2020 et 2021 : fermetures liées à l'épidémie de covid-19. Pas de série européenne comparable.
+construction: >
+  Source culture-frequentation-musees, une ligne par musée (IDPatrimostat) et par année ; colonne total
+  (entrées payantes + gratuites) lue en entier, lignes où elle est vide écartées (une par an au plus). Maille
+  France (code FR) : somme de total par année, toutes lignes, Saint-Pierre-et-Miquelon compris. Maille
+  département : codeInseeCommune rattaché au département par le COG 2026 (insee-cog-communes : COM et ARM
+  portent DEP, COMD et COMA héritent du DEP de leur COMPARENT ; un code présent en COM et en COMD prend la ligne
+  COM), à défaut deux premiers caractères du code (trois s'il commence par 97) ; somme par département et année,
+  départements du COG seulement (libellé insee-cog-departements).
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

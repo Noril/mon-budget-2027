@@ -1,0 +1,23 @@
+id: democratie.participation_legislatives
+libelle: Participation au premier tour des élections législatives
+unite: "% des inscrits"
+sens: plus_haut_mieux
+sources: [interieur-legislatives-departements, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/democratie/participation_legislatives.sql
+format: "{:.2f} %"
+limites: >
+  Rapporte les votants aux inscrits, pas à la population en âge de voter. Premier tour seulement : au second,
+  seules les circonscriptions en ballottage votent. 2024 est un scrutin anticipé (dissolution), tenu trois
+  semaines après les européennes : la participation n'est pas comparable à celle d'un scrutin couplé à la
+  présidentielle comme 2022. Pas de comparaison européenne (calendriers et modes de scrutin nationaux différents).
+construction: >
+  Source interieur-legislatives-departements, lignes scrutin = legislatives et tour = 1 (fichiers 2022 et
+  2024 par département). Valeur = 100 × votants / inscrits, arrondie à 2 décimales. Maille département :
+  code_departement (zéro initial ajouté aux codes « 1 » à « 9 » du fichier 2024 ; ZA… convertis en 971…)
+  présent dans le COG 2026 (insee-cog-departements, jointure sur DEP). Maille France (code FR) : somme des
+  votants de toutes les lignes, y compris outre-mer hors départements et Français établis hors de France,
+  divisée par la somme de leurs inscrits.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

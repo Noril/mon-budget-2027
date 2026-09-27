@@ -1,0 +1,25 @@
+id: democratie.confiance_parlement
+libelle: Confiance dans le parlement national
+unite: "% des personnes interrogées"
+sens: plus_haut_mieux
+sources: [eurobarometre-standard-confiance]
+maille: [france, pays]
+formule: indicateurs/democratie/confiance_parlement.sql
+format: "{:.0f} %"
+limites: >
+  Sondage (environ 1 000 personnes de 15 ans et plus par pays, en face à face) : marge d'erreur de l'ordre de
+  ± 3 points par pays, parts arrondies à l'unité par la Commission, donc un écart d'un ou deux points d'une vague
+  à l'autre n'est pas significatif. La question porte sur l'institution (la consigne de certaines vagues demande de
+  nommer la chambre basse) et capte aussi le contexte politique du moment. Sept vagues (printemps 2023 à printemps 2026).
+construction: >
+  Source eurobarometre-standard-confiance (volume A de chaque vague), lignes institution = parlement : item de la
+  question QA6 « How much trust do you have in certain institutions? » dont le libellé anglais contient
+  « Parliament » sans « European ». Valeur = 100 × confiance (ligne « Tend to trust » du classeur, part des
+  réponses « plutôt confiance », entre 0 et 1), arrondie à l'unité ; les « ne sait pas » restent au dénominateur.
+  Période = année de la date de fin du terrain, suivie de « -S1 » si ce mois est de janvier à juin, « -S2 »
+  sinon (vague 105 : terrain du 12 mars au 5 avril 2026 -> 2026-S1). Maille pays : codes à deux lettres de
+  l'en-tête (États membres, candidats, UK) et UE27 recodé EU27_2020 ; lignes DEW et DEE (Allemagne de l'Ouest et
+  de l'Est) écartées. Maille France = ligne FR recopiée.
+comparaison_ue: maille pays, agrégat EU27_2020 (moyenne pondérée de l'Eurobaromètre)
+version: 1.0.0
+relu_par: null

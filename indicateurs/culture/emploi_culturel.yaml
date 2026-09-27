@@ -1,0 +1,21 @@
+id: culture.emploi_culturel
+libelle: Emploi culturel
+unite: "% de l'emploi total"
+sens: neutre
+sources: [eurostat-cult-emp-sex]
+maille: [france, pays]
+formule: indicateurs/culture/emploi_culturel.sql
+format: "{:.1f} %"
+limites: >
+  Définition européenne (ESSnet-Culture) : personnes ayant une profession culturelle (dans tout secteur) ou
+  travaillant dans un secteur culturel (même sur un métier non culturel), d'après l'enquête Emploi ; arrondi à
+  0,1 point. Ruptures de série en 2021 (nouveau règlement européen) et 2024 pour la France. La part reflète la
+  structure de l'économie autant que la politique culturelle : sens neutre.
+construction: >
+  Source eurostat-cult-emp-sex (Eurostat cult_emp_sex), lignes sex = T (deux sexes) et unit = PC_EMP
+  (pourcentage de l'emploi total), valeur OBS_VALUE telle quelle ; les drapeaux (b rupture, d définition
+  différente, u peu fiable) ne sont pas filtrés. Code = partie de geo avant « : » (FR, DE, EU27_2020…),
+  libellé = partie après. Maille France = ligne FR recopiée.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null
