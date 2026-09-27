@@ -1,0 +1,20 @@
+id: justice.taux_detention_ue
+libelle: Personnes détenues pour 100 000 habitants (comparaison européenne)
+unite: détenus pour 100 000 habitants
+sens: neutre
+sources: [eurostat-crim-pris-cap, eurostat-demo-gind]
+maille: [france, pays]
+formule: indicateurs/justice/taux_detention_ue.sql
+format: "{:.1f} pour 100 000 habitants"
+limites: >
+  Date de référence et champ (prévenus, mineurs, personnes internées) propres à chaque pays. Rapporté à la
+  population au 1er janvier de la même année. Agrégat UE calculé par le projet.
+construction: >
+  Numérateur : Eurostat crim_pris_cap, indic_cr = PRIS_ACT_CAP, unit = NR. Dénominateur : Eurostat demo_gind,
+  indic_de = JAN (population au 1er janvier), même code pays (partie de geo avant « : ») et même année
+  (TIME_PERIOD). Valeur = 100 000 × numérateur / dénominateur, arrondie à 0,1. EU27_2020 : somme des détenus des
+  27 États membres / somme de leurs populations, seulement les années où les 27 ont les deux valeurs (la population
+  EU27_2020 publiée par Eurostat n'est pas utilisée). Maille france = ligne FR recopiée.
+comparaison_ue: maille pays, agrégat EU27_2020 calculé
+version: 1.0.0
+relu_par: null

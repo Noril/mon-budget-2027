@@ -1,0 +1,20 @@
+id: immigration.taux_protection_global
+libelle: "Taux de protection global (OFPRA et CNDA) rapporté aux décisions de l'OFPRA"
+unite: "% des décisions de l'OFPRA"
+sens: neutre
+sources: [ofpra-decisions-departement, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/immigration/taux_protection_global.sql
+format: "{:.1f} %"
+limites: >
+  Les protections accordées par la CNDA une année portent sur des décisions OFPRA d'années antérieures : rapport de flux de la même année, pas taux par cohorte de demandeurs. Varie surtout avec la composition par nationalité des demandes. Département de domiciliation ; petits
+  effectifs dans certains départements (taux instables).
+construction: >
+  Source ofpra-decisions-departement (un CSV par année ; année = annee_fichier). Numérateur : refugie + protection_subsidiaire + cnda_refugie + cnda_protection_subsidiaire.
+  Dénominateur : refugie + protection_subsidiaire + rejet (clôtures exclues, comme la colonne taux_admission de
+  la source). Valeur = 100 × numérateur / dénominateur, arrondie à 0,1. Maille France (code FR) : ligne
+  niveau = Total. Maille département : lignes niveau = Département jointes au COG 2026 (insee-cog-departements,
+  code_departement = DEP) ; N/D et 9715 (Saint-Martin) exclus de cette maille. Lignes à dénominateur nul exclues.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

@@ -1,0 +1,19 @@
+id: immigration.premiers_titres_ue
+libelle: "Premiers titres de séjour délivrés pour 1 000 habitants"
+unite: premiers titres pour 1 000 habitants
+sens: neutre
+sources: [eurostat-migr-resfirst, eurostat-demo-gind]
+maille: [france, pays]
+formule: indicateurs/immigration/premiers_titres_ue.sql
+format: "{:.1f} pour 1 000 habitants"
+limites: >
+  Premiers titres d'au moins trois mois délivrés à des ressortissants de pays tiers (Eurostat) ; pour la France, égal au total DGEF. Les protections temporaires (Ukrainiens) ne sont pas des titres de séjour au sens de cette série.
+construction: >
+  Numérateur : Eurostat migr_resfirst, reason = TOTAL, citizen = TOTAL, duration = TOTAL, unit = PER, valeur OBS_VALUE en
+  personnes. Dénominateur : Eurostat demo_gind, indic_de = JAN (population au 1er janvier), même code pays et
+  même année (TIME_PERIOD). Valeur = 1 000 × numérateur / dénominateur, arrondie à 0,1. Code pays = partie
+  de geo avant « : » (FR, DE, EU27_2020…), y compris les agrégats publiés par Eurostat (EU27_2020 : numérateur et
+  population de l'agrégat Eurostat). Pays sans population dans demo_gind exclus. Maille france = ligne FR recopiée.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

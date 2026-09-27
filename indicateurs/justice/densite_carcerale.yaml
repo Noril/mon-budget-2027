@@ -1,0 +1,19 @@
+id: justice.densite_carcerale
+libelle: Densité carcérale (détenus pour 100 places opérationnelles)
+unite: "%"
+sens: plus_bas_mieux
+sources: [justice-ecroues-mensuel]
+maille: [france]
+formule: indicateurs/justice/densite_carcerale.sql
+format: "{:.1f} %"
+limites: >
+  Moyenne nationale : masque l'écart entre maisons d'arrêt (prévenus et courtes peines, 175 % au 1er août 2026)
+  et établissements pour peine (proches de 100 %). Seuls les mois dont le classeur a été retrouvé sont couverts.
+construction: >
+  Source justice-ecroues-mensuel, onglet Tab6, ligne « Total France entière » : colonne « Ecroués détenus »
+  (mesure = detenus) divisée par la colonne « Capacité opérationnelle » (mesure = capacite_operationnelle), même
+  classeur. Valeur = 100 × détenus / places, arrondie à 0,1 ; elle reproduit la colonne « Densité carcérale » du
+  tableau. Période = AAAA-MM (1er du mois).
+comparaison_ue: voir justice.occupation_prisons_ue (capacité officielle, définition Eurostat)
+version: 1.0.0
+relu_par: null
