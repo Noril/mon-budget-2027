@@ -1,0 +1,21 @@
+id: defense.personnel_militaire_otan
+libelle: Personnel militaire (définition OTAN)
+unite: milliers de militaires
+sens: neutre
+sources: [otan-depenses-defense]
+maille: [france, pays]
+formule: indicateurs/defense/personnel_militaire_otan.sql
+format: "{:.1f} milliers"
+limites: >
+  Personnel militaire d'active déclaré par chaque Allié, gendarmerie comprise lorsqu'elle est déclarée comme
+  force déployable, réservistes exclus ; moyenne annuelle ou effectif à date selon les pays. Pour la France, le
+  périmètre (environ 200 000) diffère de la série du ministère des Armées (defense.effectifs_militaires, en ETPT,
+  hors gendarmerie). Valeurs 2025 et 2026 estimées. Nombre absolu, non rapporté à la population.
+construction: >
+  Classeur OTAN def-exp-2026-en.xlsx, onglet « Table 7 » (« Military personnel »), bloc « Thousands » ; valeur
+  telle que publiée (milliers, arrondie à 0,1), par pays et agrégat, 2014 à 2026 (estimations comprises). Codes
+  pays : même correspondance explicite que defense.depenses_otan_pib (Greece = EL, United Kingdom = UK, « NATO
+  Europe and Canada » = OTAN_EUR_CA, « NATO Total » = OTAN). Maille france = ligne France recopiée avec le code FR.
+comparaison_ue: maille pays, pays membres de l'OTAN et agrégats OTAN (pas d'agrégat UE27)
+version: 1.0.0
+relu_par: null

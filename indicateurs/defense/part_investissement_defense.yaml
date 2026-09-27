@@ -1,0 +1,22 @@
+id: defense.part_investissement_defense
+libelle: Part de l'investissement (formation brute de capital fixe) dans les dépenses publiques de défense
+unite: "% des dépenses de défense"
+sens: neutre
+sources: [eurostat-gov-10a-exp-defense]
+maille: [france, pays]
+formule: indicateurs/defense/part_investissement_defense.sql
+format: "{:.1f} %"
+limites: >
+  En comptabilité nationale (SEC 2010), les systèmes d'armes sont enregistrés en formation brute de capital fixe
+  (P51G) à la livraison, et non au paiement : l'indicateur suit les livraisons d'équipements (ainsi que les
+  infrastructures et la R&D de défense capitalisée), avec des à-coups selon le calendrier des grands programmes.
+  Notion différente de la catégorie « équipement » de l'OTAN (defense.part_equipement_otan), qui suit les
+  paiements. Montants en millions d'euros courants ; deux dernières années provisoires.
+construction: >
+  Eurostat gov_10a_exp, unit = MIO_EUR, sector = S13, cofog99 = GF02. Numérateur : na_item = P51G ; dénominateur :
+  na_item = TE, même pays et même année. Valeur = 100 × P51G / TE, sans arrondi ; paires incomplètes ou TE nul
+  écartés. Code pays = partie de geo avant « : », libellé = partie après. Maille france = ligne geo FR recopiée
+  avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null
