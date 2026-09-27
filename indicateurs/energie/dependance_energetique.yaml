@@ -1,0 +1,20 @@
+id: energie.dependance_energetique
+libelle: Dépendance énergétique (importations nettes rapportées à l'énergie disponible)
+unite: "% de l'énergie disponible brute"
+sens: plus_bas_mieux
+sources: [eurostat-nrg-ind-id]
+maille: [france, pays]
+formule: indicateurs/energie/dependance_energetique.sql
+format: "{:.1f} %"
+limites: >
+  Convention statistique internationale : l'électricité nucléaire compte comme production nationale, bien que tout
+  l'uranium soit importé ; sans cette convention, la dépendance de la France serait bien plus forte. Les stocks et les
+  soutes maritimes internationales entrent dans le calcul. Une valeur supérieure à 100 % traduit un stockage, une
+  valeur négative un pays exportateur net.
+construction: >
+  Eurostat nrg_ind_id, siec = TOTAL (tous produits), unit = PC, valeur OBS_VALUE reprise sans calcul ni arrondi
+  (trois décimales). Code pays = partie de geo avant « : », libellé = partie après. Maille france = ligne FR
+  recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

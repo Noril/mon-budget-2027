@@ -1,0 +1,22 @@
+id: energie.prix_electricite_menages
+libelle: Prix de l'électricité pour les ménages, toutes taxes comprises
+unite: centimes d'euro par kWh
+sens: neutre
+sources: [eurostat-nrg-pc-204]
+maille: [france, pays]
+formule: indicateurs/energie/prix_electricite_menages.sql
+format: "{:.2f} c€/kWh"
+limites: >
+  Prix moyen du semestre pour la tranche de consommation de référence DC (2 500 à 4 999 kWh par an, ménage sans
+  chauffage électrique), abonnement et toutes taxes compris, en euros courants et non en parités de pouvoir d'achat.
+  Le niveau mêle coût de production, réseaux et fiscalité : un prix bas peut refléter un bouclier tarifaire financé
+  par l'impôt, d'où un sens neutre. En France, le tarif réglementé et l'accise (bouclier 2022-2024) pèsent fortement
+  sur les variations.
+construction: >
+  Eurostat nrg_pc_204, siec = E7000, nrg_cons = KWH2500-4999, unit = KWH, tax = I_TAX, currency = EUR. Valeur =
+  100 × OBS_VALUE (euros par kWh convertis en centimes), arrondie à 2 décimales. Période = TIME_PERIOD semestriel
+  (AAAA-S1, AAAA-S2). Code pays = partie de geo avant « : », libellé = partie après. Maille france = ligne FR recopiée
+  avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

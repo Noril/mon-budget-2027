@@ -1,0 +1,20 @@
+id: transports.part_modale_rail_fret
+libelle: Part du rail dans le transport intérieur de marchandises
+unite: "% des tonnes-kilomètres terrestres"
+sens: plus_haut_mieux
+sources: [eurostat-tran-hv-frmod]
+maille: [france, pays]
+formule: indicateurs/transports/part_modale_rail_fret.sql
+format: "{:.1f} %"
+limites: >
+  Part du rail dans l'ensemble route + rail + voies navigables intérieures, en tonnes-kilomètres ; exclut les
+  oléoducs, le maritime et l'aérien. La route est comptée pour les poids lourds immatriculés dans le pays, où qu'ils
+  roulent, alors que le rail et le fluvial le sont sur le territoire : dans un pays de transit comme la France, où
+  circulent beaucoup de camions étrangers, la part du rail en est surestimée. Objectif national de doubler la part du
+  fret ferroviaire (18 % en 2030, stratégie de 2021).
+construction: >
+  Eurostat tran_hv_frmod, tra_mode = RAIL, unit = PC, valeur OBS_VALUE reprise sans calcul (une décimale). Code pays =
+  partie de geo avant « : », libellé = partie après. Maille france = ligne FR recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null
