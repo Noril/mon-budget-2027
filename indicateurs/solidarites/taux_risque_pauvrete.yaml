@@ -1,0 +1,21 @@
+id: solidarites.taux_risque_pauvrete
+libelle: Taux de risque de pauvreté au seuil de 60 % du revenu médian (EU-SILC)
+unite: "% de la population"
+sens: plus_bas_mieux
+sources: [eurostat-ilc-li02]
+maille: [france, pays]
+formule: indicateurs/solidarites/taux_risque_pauvrete.sql
+format: "{:.1f} %"
+limites: >
+  Période = année d'enquête EU-SILC ; les revenus sont ceux de l'année précédente (la valeur 2025 porte sur les
+  revenus 2024). Seuil propre à chaque pays (60 % de son revenu médian) : mesure la pauvreté relative, pas le niveau
+  de vie absolu. Pour la France, l'EU-SILC est tiré de l'enquête SRCV et diffère du taux officiel ERFS
+  (solidarites.taux_pauvrete_erfs).
+construction: >
+  Eurostat ilc_li02, filtres statinfo = MED_EI, unit = PC, rskpovth = B_60, sex = T, age = TOTAL (codes = partie des
+  colonnes avant « : »). Valeur = OBS_VALUE (en %, une décimale), sans arrondi ; OBS_VALUE vide exclu. Code pays =
+  partie de geo avant « : » (FR, DE, EU27_2020…), libellé = partie après. Maille france = ligne geo FR recopiée avec le
+  code FR et le libellé « France ». Période = TIME_PERIOD.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

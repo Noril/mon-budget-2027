@@ -1,0 +1,22 @@
+id: solidarites.niveau_vie_median
+libelle: Niveau de vie médian annuel (données fiscales localisées)
+unite: euros par an et par unité de consommation
+sens: plus_haut_mieux
+sources: [insee-filosofi, insee-cog-regions, insee-cog-departements]
+maille: [france, region, departement]
+formule: indicateurs/solidarites/niveau_vie_median.sql
+format: "{:.0f} € par an"
+limites: >
+  Niveau de vie = revenu disponible du ménage divisé par le nombre d'unités de consommation, en euros courants de
+  l'année des revenus. Filosofi couvre la France métropolitaine et La Réunion : la maille france (code FR) est la
+  France métropolitaine. Ne tient pas compte des écarts de coût de la vie (logement notamment) entre territoires.
+  Un seul millésime (revenus 2023) dans la source.
+construction: >
+  Source insee-filosofi (Melodi DS_FILOSOFI_CC, format long), lignes FILOSOFI_MEASURE = MED_SL (UNIT_MEASURE = EUR_YR,
+  arrondi à la dizaine d'euros par l'INSEE), OBS_VALUE lu tel quel, sans arrondi. Exclues : CONF_STATUS = C et
+  OBS_VALUE vide. Maille france : GEO_OBJECT = FRANCE et GEO = FM, code FR, libellé « France métropolitaine ». Maille
+  region : GEO_OBJECT = REG, libellé du COG 2026 (insee-cog-regions). Maille departement : GEO_OBJECT = DEP, code = GEO,
+  libellé du COG 2026 (insee-cog-departements). Période = TIME_PERIOD.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

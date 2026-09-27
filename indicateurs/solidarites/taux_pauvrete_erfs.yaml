@@ -1,0 +1,19 @@
+id: solidarites.taux_pauvrete_erfs
+libelle: Taux de pauvreté monétaire au seuil de 60 % du niveau de vie médian (mesure officielle, enquête ERFS)
+unite: "% de la population"
+sens: plus_bas_mieux
+sources: [insee-erfs-retropole]
+maille: [france]
+formule: indicateurs/solidarites/taux_pauvrete_erfs.sql
+format: "{:.1f} %"
+limites: >
+  France métropolitaine, personnes vivant dans un ménage ordinaire (hors étudiants, sans-abri, personnes en
+  institution). Séries rétropolées par l'INSEE pour neutraliser les changements de méthode : les valeurs anciennes
+  peuvent différer des publications d'origine. Revenus de l'année N publiés à l'automne N+2.
+construction: >
+  Source insee-erfs-retropole (Melodi DS_ERFS_RETROPOLE), lignes ERFS_MEASURE = PR_MD60, GEO = FM, EMPSTA_ENQ = _T,
+  AGE = _T, TPH = _T, MUN_DENSITY_LEVEL = _T (ensemble de la population) ; OBS_VALUE déjà en %, une décimale, lu
+  sans arrondi ; lignes à OBS_VALUE vide exclues. Maille france seule, code FR ; période = TIME_PERIOD (année des revenus).
+comparaison_ue: voir solidarites.taux_risque_pauvrete (EU-SILC, maille pays)
+version: 1.0.0
+relu_par: null

@@ -1,0 +1,28 @@
+id: solidarites.part_pop_prime_activite
+libelle: Part de la population couverte par la prime d'activité (allocataires CAF, conjoints et enfants)
+unite: "% de la population municipale"
+sens: neutre
+sources: [caf-allocataires-departement, insee-populations-reference, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/solidarites/part_pop_prime_activite.sql
+format: "{:.1f} %"
+limites: >
+  Champ CAF seul : les foyers relevant de la MSA (quelques pour cent des allocataires de la prime d'activité,
+  davantage dans les départements ruraux) ne sont pas comptés, ce qui sous-estime le taux surtout en zone agricole.
+  Couvre les foyers bénéficiaires de la prime d'activité, qu'ils perçoivent ou non aussi le RSA. Situation en décembre de chaque
+  année (mois de droit). Dénominateur unique pour toutes les années : population municipale 2023 (populations de
+  référence INSEE), ce qui biaise légèrement les années éloignées de 2023. Mayotte exclue (pas de population de
+  référence 2023) ; Saint-Martin, résidents à l'étranger et département inconnu exclus. Sens neutre : un taux élevé
+  traduit à la fois la pauvreté et le recours effectif au droit.
+construction: >
+  Numérateur : source caf-allocataires-departement (data.caf.fr, jeu s_ben_dep), colonne indnbp_ppa (personnes
+  couvertes : allocataire, conjoint, enfants et autres personnes à charge), lignes dont dtreffre est en décembre
+  (mois = 12) ; plusieurs lignes pour un même mois et un même numdep (décembre 2020 à 2022) sont additionnées.
+  Dénominateur : insee-populations-reference, GEO_OBJECT = DEP, POPREF_MEASURE = PMUN (population municipale 2023),
+  jointure numdep = GEO ; les codes sans population (976, 978, 99, XX) sont exclus. Valeur = 100 × couverts /
+  population, arrondie à 2 décimales. Libellé du département : insee-cog-departements (numdep = DEP). Maille france
+  (code FR, « France hors Mayotte ») : 100 × somme des couverts / somme des populations des départements retenus,
+  arrondie à 2 décimales. Période = année de dtreffre.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

@@ -1,0 +1,143 @@
+# Catalogue des sources : Solidarités (pauvreté, inégalités, minima sociaux, protection sociale). Validé par schemas/source.schema.json.
+
+- id: insee-filosofi
+  titre: Filosofi, niveau de vie, taux de pauvreté et décomposition du revenu disponible (2023)
+  producteur: INSEE
+  doc: https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DS_FILOSOFI_CC
+  acces:
+    mode: fichier
+    urls: [https://api.insee.fr/melodi/file/DS_FILOSOFI_CC/DS_FILOSOFI_CC_2023_CSV_FR]
+    motif: "*_data.csv"
+    format: ZIP de CSV (séparateur ;), format long Melodi (jeu DS_FILOSOFI_CC), 58 Mo décompressé
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [france, region, departement, epci, commune]
+  millesime: annuel (revenus 2023, publiés en août 2026) ; un seul millésime par fichier
+  fraicheur_max_jours: 450
+  domaines: [solidarites]
+  controles:
+    lignes_min: 1000000
+    colonnes: [GEO, GEO_OBJECT, FILOSOFI_MEASURE, UNIT_MEASURE, CONF_STATUS, OBS_STATUS, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Champ : France métropolitaine et La Réunion (Guadeloupe, Martinique, Guyane, Mayotte absents). GEO_OBJECT = FRANCE
+    (GEO = FM, France métropolitaine), REG, DEP, EPCI, COM, ARM, etc. Secret statistique : CONF_STATUS = C
+    (confidentiel) et OBS_STATUS = O (valeur manquante), OBS_VALUE alors vide ; aucune cellule départementale
+    masquée en 2023. Changer l'URL (…_2024_CSV_FR) au millésime suivant.
+
+- id: insee-erfs-retropole
+  titre: Indicateurs de pauvreté et de niveau de vie de 1996 à 2024 (ERFS, données rétropolées)
+  producteur: INSEE
+  doc: https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DS_ERFS_RETROPOLE
+  acces:
+    mode: fichier
+    urls: [https://api.insee.fr/melodi/file/DS_ERFS_RETROPOLE/DS_ERFS_RETROPOLE_CSV_FR]
+    motif: "*_data.csv"
+    format: ZIP de CSV (séparateur ;), format long Melodi (jeu DS_ERFS_RETROPOLE)
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [france]
+  millesime: annuel (revenus N publiés à l'automne N+2)
+  fraicheur_max_jours: 450
+  domaines: [solidarites]
+  controles:
+    lignes_min: 1000
+    colonnes: [GEO, EMPSTA_ENQ, AGE, TPH, MUN_DENSITY_LEVEL, ERFS_MEASURE, UNIT_MEASURE, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Enquête Revenus fiscaux et sociaux, France métropolitaine (GEO = FM), séries rétropolées pour corriger les ruptures
+    de méthode. Mesure officielle du taux de pauvreté national, différente de Filosofi (exhaustif fiscal, sans les
+    revenus du patrimoine non imposables) et de l'EU-SILC.
+
+- id: eurostat-ilc-li02
+  titre: Taux de risque de pauvreté selon le seuil, l'âge et le sexe (EU-SILC)
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/ilc_li02/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/ilc_li02
+    cle: A.MED_EI.PC.B_60.T.TOTAL.
+    parametres: {format: SDMX-CSV, lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (année d'enquête N, revenus N-1)
+  domaines: [solidarites]
+  controles:
+    lignes_min: 700
+    colonnes: [statinfo, unit, rskpovth, sex, age, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Clé : annuel, seuil relatif au revenu équivalent médian (MED_EI), pourcentage, seuil 60 % (B_60), deux sexes,
+    tous âges ; tous pays et agrégats UE.
+
+- id: eurostat-ilc-di11
+  titre: Rapport interquintile de revenu S80/S20 selon l'âge et le sexe (EU-SILC)
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/ilc_di11/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/ilc_di11
+    cle: A.TOTAL.T.RAT.
+    parametres: {format: SDMX-CSV, lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (année d'enquête N, revenus N-1)
+  domaines: [solidarites]
+  controles:
+    lignes_min: 650
+    colonnes: [age, sex, unit, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: "Clé : annuel, tous âges, deux sexes, ratio ; tous pays et agrégats UE."
+
+- id: eurostat-spr-exp-type
+  titre: Dépenses de protection sociale par type (SESPROS)
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/spr_exp_type/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/spr_exp_type
+    cle: A.TOTAL.PC_GDP.
+    parametres: {format: SDMX-CSV, lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (N-1 provisoire pour quelques pays, N-2 pour l'agrégat UE)
+  domaines: [solidarites]
+  controles:
+    lignes_min: 800
+    colonnes: [spdeps, unit, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Clé : annuel, dépenses totales (TOTAL : prestations, frais de fonctionnement, autres dépenses) en % du PIB.
+    Le jeu spr_exp_sum cité dans la documentation n'est pas diffusé par l'API SDMX (ERR_NOT_FOUND_2) ; spr_exp_type
+    donne le même total. OBS_FLAG = p : provisoire.
+
+- id: caf-allocataires-departement
+  titre: Allocataires des CAF selon la prestation, par département (mensuel)
+  producteur: Caisse nationale des allocations familiales (CNAF)
+  doc: https://data.caf.fr/explore/dataset/s_ben_dep/
+  acces:
+    mode: opendatasoft
+    portail: https://data.caf.fr
+    jeu: s_ben_dep
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [departement]
+  millesime: mensuel (depuis juin 2016, publié avec environ six mois de décalage)
+  fraicheur_max_jours: 120
+  domaines: [solidarites]
+  controles:
+    lignes_min: 10000
+    colonnes: [dtreffre, numdep, indfoy_rsa, indnbp_rsa, indfoy_ppa, indnbp_ppa]
+  statut: actif
+  notes: >
+    Une ligne par mois et par département de résidence (dtreffre = 1er jour du mois de droit). Préfixes : indfoy_ =
+    foyers allocataires, indnbp_ = personnes couvertes (allocataire, conjoint, enfants et autres personnes à charge),
+    indmtt_ = montant. Codes hors département : 978 (Saint-Martin), 99 (étranger), XX (inconnu). Certains mois
+    (décembre 2020 à 2022) comptent plusieurs lignes par département, dont des lignes résiduelles de quelques
+    foyers : les additionner. Champ CAF seul : les allocataires de la MSA ne sont pas comptés.

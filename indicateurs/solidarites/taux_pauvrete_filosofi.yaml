@@ -1,0 +1,24 @@
+id: solidarites.taux_pauvrete_filosofi
+libelle: Taux de pauvreté monétaire au seuil de 60 % du niveau de vie médian (données fiscales localisées)
+unite: "% de la population"
+sens: plus_bas_mieux
+sources: [insee-filosofi, insee-cog-regions, insee-cog-departements]
+maille: [france, region, departement]
+formule: indicateurs/solidarites/taux_pauvrete_filosofi.sql
+format: "{:.1f} %"
+limites: >
+  Filosofi couvre la France métropolitaine et La Réunion seulement : la maille france (code FR) est la France
+  métropolitaine, les Antilles, la Guyane et Mayotte n'ont pas de valeur. Seuil national (60 % du niveau de vie médian
+  métropolitain) appliqué partout, sans correction des écarts de coût de la vie. Taux « localisé » issu des sources
+  fiscales et sociales exhaustives : il diffère du taux officiel de l'enquête ERFS (solidarites.taux_pauvrete_erfs)
+  et de l'EU-SILC (solidarites.taux_risque_pauvrete). Un seul millésime (revenus 2023) dans la source.
+construction: >
+  Source insee-filosofi (Melodi DS_FILOSOFI_CC, format long), lignes FILOSOFI_MEASURE = PR_MD60 (déjà en %, une
+  décimale), OBS_VALUE lu tel quel, sans arrondi. Exclues : CONF_STATUS = C (secret statistique) et OBS_VALUE vide
+  (OBS_STATUS = O). Maille france : GEO_OBJECT = FRANCE et GEO = FM, code FR, libellé « France métropolitaine ».
+  Maille region : GEO_OBJECT = REG, code = GEO, libellé du COG 2026 (insee-cog-regions, jointure GEO = REG).
+  Maille departement : GEO_OBJECT = DEP, code = GEO (01…95, 2A, 2B, 974), libellé du COG 2026 (insee-cog-departements,
+  jointure GEO = DEP). Période = TIME_PERIOD (année des revenus).
+comparaison_ue: voir solidarites.taux_risque_pauvrete (EU-SILC, maille pays)
+version: 1.0.0
+relu_par: null
