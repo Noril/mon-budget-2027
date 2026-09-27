@@ -70,3 +70,26 @@
     colonnes: [GEO, GEO_OBJECT, POPREF_MEASURE, TIME_PERIOD, OBS_VALUE]
   statut: actif
   notes: Format long Melodi ; POPREF_MEASURE = PMUN (municipale), PCAP (comptée à part), PTOT.
+
+- id: insee-estimations-population
+  titre: Estimations de population au 1er janvier, par département, région et France (1975-2026)
+  producteur: INSEE
+  doc: https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DS_ESTIMATION_POPULATION
+  acces:
+    mode: fichier
+    urls: [https://api.insee.fr/melodi/file/DS_ESTIMATION_POPULATION/DS_ESTIMATION_POPULATION_CSV_FR]
+    motif: "*_data.csv"
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [departement, region, france]
+  millesime: annuel (janvier ; les trois dernières années sont provisoires)
+  fraicheur_max_jours: 450
+  domaines: [transverse]
+  controles:
+    lignes_min: 400000
+    colonnes: [GEO, GEO_OBJECT, EP_MEASURE, AGE, SEX, TIME_PERIOD, OBS_VALUE, OBS_STATUS]
+  statut: actif
+  notes: >
+    Format long Melodi. Population totale au 1er janvier : EP_MEASURE = POP_JAN_1ST, AGE = _T, SEX = _T.
+    GEO_OBJECT = DEP (101 départements, Mayotte comprise), REG, FRANCE (FM métropole, F France hors Mayotte…).
+    OBS_STATUS = P pour les années provisoires. Dénominateur des ratios par habitant départementaux annuels.

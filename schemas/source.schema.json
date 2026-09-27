@@ -14,7 +14,7 @@
       "required": ["mode"],
       "additionalProperties": false,
       "properties": {
-        "mode": {"enum": ["opendatasoft", "fichier", "sdmx", "api-rest", "sparql", "pdf"]},
+        "mode": {"enum": ["opendatasoft", "fichier", "sdmx", "dido", "api-rest", "sparql", "pdf"]},
         "portail": {"type": "string", "description": "opendatasoft : racine du portail, ex. https://data.ameli.fr"},
         "jeu": {"type": "string", "description": "opendatasoft : identifiant du jeu"},
         "url": {"type": "string", "description": "sdmx : racine de la requête de données, jusqu'au flux inclus"},

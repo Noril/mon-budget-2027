@@ -1,0 +1,25 @@
+id: ecologie.conso_enaf
+libelle: Consommation d'espaces naturels, agricoles et forestiers
+unite: hectares consommés dans l'année
+sens: plus_bas_mieux
+sources: [cerema-conso-enaf, insee-cog-communes, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/ecologie/conso_enaf.sql
+format: "{:,.0f} ha"
+limites: >
+  Mesure issue des fichiers fonciers (parcelles passées d'un usage naturel, agricole ou forestier à un usage bâti ou
+  aménagé) : c'est l'indicateur de référence de la loi Climat et résilience pour la période 2021-2031, pas
+  l'artificialisation au sens de l'OCS GE. Les dernières années sont sous-estimées (mutations cadastrales enregistrées
+  avec retard) et révisées au millésime suivant. Surface brute, non rapportée à la population ni à la surface du
+  département. Mayotte absente de la source.
+construction: >
+  Source cerema-conso-enaf (une ligne par commune, COG 2025), colonnes nafAAartBB avec BB = AA + 1 (naf11art12 …
+  naf24art25), en m² : consommation entre le 1er janvier 20AA et le 1er janvier 20BB, affectée à l'année 20AA
+  (période 2024 = du 1er janvier 2024 au 1er janvier 2025). Les colonnes pluriannuelles (naf11art21, naf21art25…)
+  sont ignorées. Rattachement de idcom au département par le COG 2026 (insee-cog-communes) : TYPECOM COM ou ARM porte
+  DEP ; COMD et COMA le tiennent de leur COMPARENT ; un code présent en COM et en COMD prend la ligne COM (toutes les
+  communes de la source sont retrouvées). Valeur = somme des m² / 10 000, arrondie à 0,1 ha. France (code FR) :
+  toutes les communes.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null
