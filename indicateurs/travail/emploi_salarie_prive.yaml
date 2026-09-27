@@ -16,7 +16,8 @@ construction: >
   toutes les lignes (tous grands secteurs, toutes tranches d'effectif, y compris « inconnu » et « nca »), valeurs
   vides ignorées. Maille departement = code_departement présent comme DEP dans le COG 2026, libellé du COG.
   Maille region = somme des départements par REG du COG 2026. Maille france = somme de toutes les lignes.
-  Arrondi à l'unité après sommation (les effectifs portent des décimales depuis 2022).
+  Arrondi à l'unité après sommation, les demis arrondis en s'éloignant de zéro (156 912,5 -> 156 913), comme
+  ROUND de DuckDB ; les effectifs portent des décimales depuis 2022.
 comparaison_ue: null
 version: 1.0.0
 relu_par: null
