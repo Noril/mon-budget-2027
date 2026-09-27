@@ -1,0 +1,150 @@
+# Catalogue des sources : Éducation (scolaire). Validé par schemas/source.schema.json.
+
+- id: depp-ips-colleges
+  titre: Indice de position sociale (IPS) des collèges, à partir de la rentrée 2023
+  producteur: Ministère de l'Éducation nationale (DEPP)
+  doc: https://data.education.gouv.fr/explore/dataset/fr-en-ips-colleges-ap2023/
+  acces:
+    mode: opendatasoft
+    portail: https://data.education.gouv.fr
+    jeu: fr-en-ips-colleges-ap2023
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [etablissement, departement, academie, france]
+  millesime: annuel (rentrée scolaire)
+  fraicheur_max_jours: 450
+  domaines: [education]
+  controles:
+    lignes_min: 20000
+    colonnes: [rentree_scolaire, code_du_departement, code_insee_de_la_commune, uai, secteur, ips, ecart_type_de_l_ips, ips_national]
+  statut: actif
+  notes: >
+    Collèges publics et privés sous contrat, France métropolitaine et DROM. IPS calculé avec la PCS 2020 : non
+    comparable avec la série antérieure (jeu fr-en-ips_colleges, rentrées 2016 à 2022). Pas d'effectifs d'élèves :
+    les pondérations viennent de depp-effectifs-colleges.
+
+- id: depp-effectifs-colleges
+  titre: Effectifs d'élèves par niveau, sexe et langue vivante, par collège
+  producteur: Ministère de l'Éducation nationale (DEPP)
+  doc: https://data.education.gouv.fr/explore/dataset/fr-en-college-effectifs-niveau-sexe-lv/
+  acces:
+    mode: opendatasoft
+    portail: https://data.education.gouv.fr
+    jeu: fr-en-college-effectifs-niveau-sexe-lv
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [etablissement]
+  millesime: annuel (constat de rentrée)
+  fraicheur_max_jours: 450
+  domaines: [education]
+  controles:
+    lignes_min: 50000
+    colonnes: [rentree_scolaire, numero_college, code_dept, secteur, nombre_eleves_total]
+  statut: actif
+  notes: rentree_scolaire = année de la rentrée (2025 = rentrée 2025-2026). Effectifs y compris SEGPA et ULIS.
+
+- id: depp-dnb-departements
+  titre: Résultats du diplôme national du brevet par département, série et sexe
+  producteur: Ministère de l'Éducation nationale (DEPP)
+  doc: https://data.education.gouv.fr/explore/dataset/fr-en-dnb-par-departement/
+  acces:
+    mode: opendatasoft
+    portail: https://data.education.gouv.fr
+    jeu: fr-en-dnb-par-departement
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [departement]
+  millesime: annuel (session de juin)
+  fraicheur_max_jours: 450
+  domaines: [education]
+  controles:
+    lignes_min: 1200
+    colonnes: [session, dep_sco, libelle_dep, serie, genre, presents, admis, taux_reussite]
+  statut: actif
+  notes: Sessions 2023 à 2025 ; une ligne par département, série (générale, professionnelle) et sexe, sans totaux.
+
+- id: depp-va-colleges
+  titre: Indicateurs de valeur ajoutée des collèges (réussite au brevet par collège)
+  producteur: Ministère de l'Éducation nationale (DEPP)
+  doc: https://data.education.gouv.fr/explore/dataset/fr-en-indicateurs-valeur-ajoutee-colleges/
+  acces:
+    mode: opendatasoft
+    portail: https://data.education.gouv.fr
+    jeu: fr-en-indicateurs-valeur-ajoutee-colleges
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [etablissement]
+  millesime: annuel (session du brevet)
+  fraicheur_max_jours: 450
+  domaines: [education]
+  controles:
+    lignes_min: 25000
+    colonnes: [session, uai, code_departement, secteur, nb_candidats_g, taux_de_reussite_g]
+  statut: actif
+  notes: Sessions 2022 à 2025. Taux de réussite déjà arrondis à l'unité ; série générale (suffixe _g) et professionnelle (_p).
+
+- id: depp-evaluations-6e-departements
+  titre: Évaluations nationales de début de sixième, résultats par département
+  producteur: Ministère de l'Éducation nationale (DEPP)
+  doc: https://data.education.gouv.fr/explore/dataset/fr-en-evaluations_nationales_6eme_departement/
+  acces:
+    mode: opendatasoft
+    portail: https://data.education.gouv.fr
+    jeu: fr-en-evaluations_nationales_6eme_departement
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [departement, france]
+  millesime: annuel (évaluations de septembre)
+  fraicheur_max_jours: 450
+  domaines: [education]
+  controles:
+    lignes_min: 5000
+    colonnes: [annee, code_departement, libelle_departement, discipline, caracteristique, score_moyen, groupe_1, groupe_2]
+  statut: actif
+  notes: >
+    Années 2017 à 2025. Score sur une échelle de moyenne 250 et d'écart-type 50 en 2017. Groupes de maîtrise 1
+    (le plus faible) à 6. Ligne nationale : code_departement vide, libelle_departement = NATIONAL.
+
+- id: eurostat-edat-lfse-14
+  titre: Jeunes ayant quitté prématurément l'éducation et la formation (18-24 ans)
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/edat_lfse_14/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/edat_lfse_14
+    cle: A.T.POP.Y18-24.PC.
+    parametres: {format: SDMX-CSV, startPeriod: "2000", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (enquête Forces de travail)
+  domaines: [education]
+  controles:
+    lignes_min: 800
+    colonnes: [sex, wstatus, age, unit, geo, TIME_PERIOD, OBS_VALUE, OBS_FLAG]
+  statut: actif
+  notes: >
+    Clé : annuel, deux sexes, toute la population (POP), 18-24 ans, en %. Part des 18-24 ans au plus diplômés du
+    premier cycle du secondaire (CITE 0-2) et hors éducation ou formation les quatre dernières semaines.
+
+- id: eurostat-edat-lfse-03
+  titre: Population par niveau d'éducation atteint, sexe et âge
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/edat_lfse_03/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/edat_lfse_03
+    cle: A.T.Y25-34.PC.ED5-8.
+    parametres: {format: SDMX-CSV, startPeriod: "2000", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (enquête Forces de travail)
+  domaines: [education]
+  controles:
+    lignes_min: 800
+    colonnes: [sex, age, unit, isced11, geo, TIME_PERIOD, OBS_VALUE, OBS_FLAG]
+  statut: actif
+  notes: Clé filtrée sur les 25-34 ans, deux sexes, diplômés du supérieur (CITE 5-8), en % de la classe d'âge.

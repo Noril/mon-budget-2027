@@ -1,0 +1,18 @@
+id: education.diplomes_superieur_25_34
+libelle: Part des 25-34 ans diplômés de l'enseignement supérieur
+unite: "% des 25-34 ans"
+sens: plus_haut_mieux
+sources: [eurostat-edat-lfse-03]
+maille: [france, pays]
+formule: indicateurs/education/diplomes_superieur_25_34.sql
+format: "{:.1f} %"
+limites: >
+  Enquête Forces de travail (échantillon) ; CITE 5-8 inclut les diplômes courts (BTS, BUT). Ruptures de série
+  signalées par Eurostat (drapeau b). Objectif européen 2030 : au moins 45 %.
+construction: >
+  Eurostat edat_lfse_03, sex = T, age = Y25-34, unit = PC, isced11 = ED5-8. Valeur = OBS_VALUE telle quelle (en %,
+  arrondie à 0,1 par Eurostat) ; valeurs vides exclues ; drapeaux ignorés. Code pays = partie de geo avant « : »,
+  libellé = partie après. Maille france = ligne FR recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

@@ -1,0 +1,23 @@
+id: education.ecart_dnb_ips
+libelle: Écart de réussite au brevet entre collèges favorisés et défavorisés
+unite: points de pourcentage
+sens: plus_bas_mieux
+sources: [depp-va-colleges, depp-ips-colleges, insee-cog-communes]
+maille: [france]
+formule: indicateurs/education/ecart_dnb_ips.sql
+format: "{:.1f} points"
+limites: >
+  Série générale seulement. Taux de réussite par collège déjà arrondis à l'unité par la DEPP. Écart entre groupes de
+  collèges, pas entre élèves : sous-estime l'écart social individuel. Sessions 2024 et 2025 (IPS PCS 2020 disponibles
+  à partir de la rentrée 2023).
+construction: >
+  IPS : collèges de depp-ips-colleges à ips non vide, rattachés au COG 2026 comme education.ips_colleges (communes
+  hors COG exclues) ; la rentrée « AAAA-(AAAA+1) » est associée à la session AAAA+1. Seuils par session =
+  quantile_cont(ips, 0,25) et quantile_cont(ips, 0,75) sur tous ces collèges, sans pondération. Brevet : lignes de
+  depp-va-colleges avec nb_candidats_g > 0 et taux_de_reussite_g non vide, jointure uai et année de session.
+  Quart défavorisé : ips < premier quartile ; quart favorisé : ips > troisième quartile. Taux de chaque quart =
+  somme(nb_candidats_g × taux_de_reussite_g) / somme(nb_candidats_g). Valeur = taux favorisé − taux défavorisé,
+  arrondie à 0,1 ; code FR.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null
