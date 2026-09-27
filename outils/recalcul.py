@@ -6,6 +6,7 @@
 from __future__ import annotations
 
 import importlib
+import importlib.util
 import sys
 
 import duckdb
@@ -106,9 +107,25 @@ def recalculer(id_indicateur: str) -> int:
     return 1 if en_ecart else 0
 
 
+def recalculer_tous() -> int:
+    """Recalcule chaque indicateur qui a sa vérification ; échoue si un écart apparaît ou si une vérification manque."""
+    ids = sorted(d["id"] for _, d in definitions_indicateurs())
+    sans_verification = [i for i in ids if importlib.util.find_spec(f"verifications.{i.replace('.', '_')}") is None]
+    en_ecart = [i for i in ids if i not in sans_verification and recalculer(i)]
+    print(f"\n{len(ids) - len(sans_verification) - len(en_ecart)} indicateurs sans écart, "
+          f"{len(en_ecart)} en écart, {len(sans_verification)} sans vérification.")
+    for i in en_ecart:
+        print(f"ÉCART {i}", file=sys.stderr)
+    for i in sans_verification:
+        print(f"NON VÉRIFIÉ {i}", file=sys.stderr)
+    return 1 if en_ecart or sans_verification else 0
+
+
 def main() -> int:
+    if sys.argv[1:] == ["--tous"]:
+        return recalculer_tous()
     if len(sys.argv) != 2:
-        print("usage : uv run python -m outils.recalcul <id.indicateur>", file=sys.stderr)
+        print("usage : uv run python -m outils.recalcul <id.indicateur> | --tous", file=sys.stderr)
         return 2
     return recalculer(sys.argv[1])
 
