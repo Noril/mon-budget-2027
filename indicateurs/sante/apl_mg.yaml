@@ -1,0 +1,15 @@
+id: sante.apl_mg
+libelle: Accessibilité potentielle localisée aux médecins généralistes
+unite: consultations par an et par habitant standardisé
+sens: plus_haut_mieux
+sources: [drees-apl, insee-cog-communes, insee-cog-departements, insee-cog-regions]
+maille: [france, region, departement, commune]
+formule: indicateurs/sante/apl_mg.sql
+format: "{:.1f} consultations par an et par habitant"
+limites: >
+  Mesure une offre potentielle (activité des médecins, distance, besoins selon l'âge), pas les délais ni le fait
+  d'avoir un médecin traitant. Au-dessus de la commune, moyenne pondérée par la population standardisée, comme le
+  prescrit la DREES. Mayotte hors champ. Les millésimes ne sont comparables qu'au sein d'une même version de méthode.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

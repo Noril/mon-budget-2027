@@ -1,0 +1,15 @@
+id: sante.pop_apl_mg_faible
+libelle: Part de la population vivant dans une commune où l'APL aux généralistes est inférieure à 2,5
+unite: "% de la population"
+sens: plus_bas_mieux
+sources: [drees-apl, insee-cog-communes, insee-cog-departements, insee-cog-regions]
+maille: [france, region, departement]
+formule: indicateurs/sante/pop_apl_mg_faible.sql
+format: "{:.1f} %"
+limites: >
+  Le seuil de 2,5 consultations par an et par habitant est une convention à faire valider par le comité
+  scientifique. Compté sur la population totale (non standardisée), comme le prescrit la DREES pour les seuils.
+  Mayotte hors champ.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

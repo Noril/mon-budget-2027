@@ -31,7 +31,8 @@ def resoudre(appel, definitions: dict) -> tuple[str, str]:
     d = definitions[appel.indicateur]
     lignage = lire_json(INDICATEURS_CALCULES / f"{nom}.lignage.json")
     sources = "; ".join(
-        f"{m['producteur'].get('titre') or s} ({m['urls'][0]}), récupéré le {m['recupere_le']}, sha256 {m['sha256'][:12]}"
+        f"{m['producteur'].get('titre') or s} ({m['fichiers'][0]['url']}), récupéré le {m['recupere_le']}, "
+        f"sha256 {m['fichiers'][0]['sha256'][:12]}"
         for s, m in lignage["sources"].items()
     )
     note = (

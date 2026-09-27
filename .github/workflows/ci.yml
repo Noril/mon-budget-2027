@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
       - run: uv sync
-      - run: uv run python -m pipelines.ingest ameli-ald-sans-mt
+      - run: uv run python -m pipelines.ingest ameli-ald-sans-mt drees-apl insee-cog-communes insee-cog-departements insee-cog-regions
       - run: uv run python -m pipelines.indicateurs
       - run: uv run python -m outils.construire
       - uses: actions/upload-artifact@v4
