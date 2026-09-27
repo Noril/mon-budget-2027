@@ -1,0 +1,22 @@
+id: defense.part_equipement_otan
+libelle: Part des dépenses d'équipement dans les dépenses de défense (définition OTAN)
+unite: "% des dépenses de défense"
+sens: neutre
+sources: [otan-depenses-defense]
+maille: [france, pays]
+formule: indicateurs/defense/part_equipement_otan.sql
+format: "{:.1f} %"
+limites: >
+  Catégorie « équipement » de l'OTAN : achats d'équipements majeurs et R&D consacrée à ces équipements, en
+  paiements de l'année. L'OTAN retient un repère de 20 %. Ne dit rien de l'origine des équipements (européenne
+  ou non) : aucune donnée ouverte par pays ne le mesure. Valeurs 2025 et 2026 estimées. Pays membres de l'OTAN
+  seulement (Islande absente, faute de forces armées) ; ni agrégat UE27 ni agrégat OTAN dans ce tableau.
+construction: >
+  Classeur OTAN def-exp-2026-en.xlsx, onglet « Table 8a », bloc « Equipment (a) » (le bloc « Personnel (b) » est
+  écarté). Valeur telle que publiée, en % des dépenses de défense « core », par pays et par année (2014 à 2026,
+  estimations comprises). Codes pays : même correspondance explicite des noms anglais vers les codes Eurostat que
+  defense.depenses_otan_pib (Greece = EL, United Kingdom = UK…). Maille france = ligne France recopiée avec le
+  code FR.
+comparaison_ue: maille pays, pays membres de l'OTAN (pas d'agrégat UE27)
+version: 1.0.0
+relu_par: null

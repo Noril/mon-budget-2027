@@ -1,0 +1,53 @@
+# Catalogue des sources : Europe et international (aide au développement, budget de l'UE). Validé par schemas/source.schema.json.
+
+- id: ocde-cad-apd-rnb
+  titre: Aide publique au développement en % du revenu national brut (CAD, tableau DAC1)
+  producteur: OCDE, Comité d'aide au développement
+  doc: https://data-explorer.oecd.org/vis?df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_DAC1%40DF_DAC1&df[ag]=OECD.DCD.FSD
+  acces:
+    mode: sdmx
+    url: https://sdmx.oecd.org/public/rest/data/OECD.DCD.FSD,DSD_DAC1@DF_DAC1,
+    cle: ._Z.2+11002._Z.1140+1160.PT_B5G.V
+    parametres: {startPeriod: "1990", format: csvfilewithlabels}
+    format: SDMX-CSV 2.0, une colonne de codes suivie d'une colonne de libellés par dimension
+    auth: aucune
+  licence: OCDE, CC BY 4.0
+  maille: [pays, france]
+  millesime: annuel (données préliminaires N-1 en avril, définitives en décembre)
+  domaines: [europe-international]
+  controles:
+    lignes_min: 1000
+    colonnes: [DONOR, MEASURE, FLOW_TYPE, UNIT_MEASURE, PRICE_BASE, TIME_PERIOD, OBS_VALUE, OBS_STATUS]
+  statut: actif
+  notes: >
+    Clé : tous donneurs (pays du CAD, autres donneurs déclarants et agrégats DAC, DACEU, DAC_EC, G7) ; APD en %
+    du RNB selon la méthode des versements nets (MEASURE 2, FLOW_TYPE 1140, jusqu'en 2017) et selon la méthode
+    de l'équivalent-don (MEASURE 11002, FLOW_TYPE 1160, mesure officielle depuis 2018) ; prix courants. Codes
+    pays ISO 3166 alpha-3. Les colonnes de libellés portent le nom des dimensions (Donor, Measure…), que DuckDB
+    renomme Donor_1, Measure_1… pour éviter la collision avec les codes.
+
+- id: ce-budget-ue-depenses-recettes
+  titre: EU spending and revenue 2000-2024 (dépenses et recettes du budget de l'UE par État membre)
+  producteur: Commission européenne, DG Budget
+  doc: https://commission.europa.eu/strategy-and-policy/eu-budget/long-term-eu-budget/2021-2027/spending-and-revenue_en
+  acces:
+    mode: fichier
+    urls: ["https://commission.europa.eu/document/download/45d0623a-529e-44d2-aae4-2ca9bac87ec3_en?filename=eu_budget_spending_and_revenue_2000-2023.xlsx"]
+    format: XLSX (servi sans extension), un onglet par année, montants en millions d'euros
+    auth: aucune
+  licence: Commission européenne, réutilisation autorisée avec mention de la source (décision 2011/833/UE, CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (exercice N-1 publié à l'été ; le fichier nommé « 2000-2023 » contient l'onglet 2024)
+  domaines: [europe-international]
+  normalisation: ue_depenses_recettes
+  controles:
+    lignes_min: 50000
+    colonnes: [annee, ligne, libelle, pays, valeur]
+  statut: actif
+  notes: >
+    Dépenses réparties par État membre bénéficiaire (rubriques du cadre financier, hors dépenses sur recettes
+    affectées, dont NextGenerationEU, présentées dans un tableau à part depuis 2021) ; recettes par État membre
+    (ressources propres traditionnelles, ressources TVA, RNB et plastique, corrections, « TOTAL national
+    contribution(s) » = contributions nationales hors droits de douane) ; RNB par État membre. Le solde
+    budgétaire opérationnel officiel de la Commission (qui retire aussi les dépenses administratives) n'y figure
+    pas. L'identifiant du document change à chaque mise à jour.

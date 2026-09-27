@@ -1,0 +1,26 @@
+id: defense.depenses_otan_pib
+libelle: Dépenses de défense au sens de l'OTAN (« core »)
+unite: "% du PIB"
+sens: neutre
+sources: [otan-depenses-defense]
+maille: [france, pays]
+formule: indicateurs/defense/depenses_otan_pib.sql
+format: "{:.2f} % du PIB"
+limites: >
+  Définition de l'OTAN, déclarée par chaque Allié : pensions des militaires comprises, forces de gendarmerie en
+  partie selon leur aptitude à être déployées, aide militaire (dont à l'Ukraine) comprise. L'édition 2026 isole
+  les dépenses « core » (objectif de 3,5 % du PIB fixé au sommet de La Haye en 2025), sans les dépenses de
+  résilience et d'infrastructures relevant de l'objectif complémentaire de 1,5 %. Ratio calculé par l'OTAN aux
+  prix de 2021 (« share of real GDP »), non comparable année par année aux ratios en valeur. Valeurs 2025 et 2026
+  estimées par l'OTAN (suffixe « e » dans la source), révisées à l'édition suivante. Pays membres de l'OTAN
+  seulement (ni Autriche, ni Irlande, ni Chypre, ni Malte) : pas d'agrégat UE27.
+construction: >
+  Classeur OTAN def-exp-2026-en.xlsx, onglet « Table 3 », premier bloc « Share of real GDP (%) » (le second bloc,
+  « Annual real change (%) », est écarté). Une valeur par pays et par année (2014 à 2026, estimations comprises),
+  telle que publiée (arrondie à 0,01). Code pays : correspondance explicite des noms anglais vers les codes
+  Eurostat (Greece = EL, United Kingdom = UK, Türkiye = TR, United States = US…), « NATO Europe and Canada » =
+  OTAN_EUR_CA, « NATO Total » = OTAN ; libellé = nom anglais de la source, sans l'astérisque de renvoi. Maille
+  france = ligne France recopiée avec le code FR.
+comparaison_ue: maille pays, pays membres de l'OTAN et agrégats OTAN (pas d'agrégat UE27)
+version: 1.0.0
+relu_par: null

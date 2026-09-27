@@ -1,0 +1,80 @@
+# Catalogue des sources : Défense. Validé par schemas/source.schema.json.
+
+- id: eurostat-gov-10a-exp-defense
+  titre: Dépenses des administrations publiques par fonction (COFOG), fonction Défense
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/gov_10a_exp
+    cle: A.PC_GDP+PC_TOT+MIO_EUR.S13.GF02.TE+P51G.
+    parametres: {format: SDMX-CSV, startPeriod: "1995", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (COFOG N-2 publié fin février, révisé en septembre)
+  domaines: [defense]
+  controles:
+    lignes_min: 4000
+    colonnes: [unit, sector, cofog99, na_item, geo, TIME_PERIOD, OBS_VALUE, OBS_FLAG]
+  statut: actif
+  notes: >
+    Clé : annuel ; en % du PIB (PC_GDP), en % du total des dépenses des APU (PC_TOT) et en millions d'euros
+    (MIO_EUR) ; administrations publiques (S13) ; fonction 02 Défense (GF02 : défense militaire, défense civile,
+    aide militaire à l'étranger, R&D de défense) ; dépenses totales (TE) et formation brute de capital fixe
+    (P51G, où figurent les systèmes d'armes en SEC 2010) ; tous pays et agrégats. Ratios arrondis à 0,1 par
+    Eurostat. Périmètre comptable national : les pensions des militaires sont en protection sociale (GF10), pas
+    en défense ; d'où un niveau inférieur à celui de l'OTAN.
+
+- id: otan-depenses-defense
+  titre: Defence expenditure of NATO countries (2014-2026)
+  producteur: OTAN (division Diplomatie publique)
+  doc: https://www.nato.int/en/news-and-events/articles/news/2025/08/28/defence-expenditure-of-nato-countries-2014-2025
+  acces:
+    mode: fichier
+    urls: [https://www.nato.int/content/dam/nato/webready/documents/finance/def-exp-2026-en.xlsx]
+    format: XLSX, un onglet par tableau (Table 1 à 8b), années en colonnes
+    auth: aucune
+  licence: OTAN, reproduction libre à des fins non commerciales avec mention de la source (conditions d'utilisation de nato.int)
+  maille: [pays, france]
+  millesime: annuel (publication à l'approche du sommet de l'OTAN, fin juin ; édition 2026 couvrant 2014-2026)
+  domaines: [defense]
+  normalisation: otan_depenses
+  controles:
+    lignes_min: 3000
+    colonnes: [tableau, titre, bloc, pays, annee, estimation, valeur]
+  statut: actif
+  notes: >
+    L'URL change à chaque édition (def-exp-AAAA-en.xlsx) : la mettre à jour chaque année. Définition OTAN des
+    dépenses de défense (pensions des militaires comprises, gendarmerie en partie selon les déclarations
+    nationales). L'édition 2026 publie les dépenses « core » (hors dépenses de résilience et d'infrastructures
+    liées à la défense du nouvel objectif de 1,5 % du sommet de La Haye), estimées pour 2025 et 2026. Ratios au
+    PIB calculés aux prix de 2021. Tableaux : 1 et 2 montants, 3 part du PIB et croissance réelle, 4 synthèse,
+    5 PIB, 6 par habitant, 7 personnel militaire (milliers), 8a et 8b répartition par catégorie (équipement,
+    personnel, infrastructures, autres). SIPRI non retenu : sa base Milex n'est pas publiée sous licence ouverte.
+
+- id: armees-militaires-carriere-contrat
+  titre: Évolution de la répartition des militaires de carrière et sous contrat par armée, sur 24 ans
+  producteur: Ministère des Armées (SGA, Observatoire social de la défense)
+  doc: https://www.data.gouv.fr/datasets/evolution-de-la-repartition-des-militaires-de-carriere-et-sous-contrat-sur-24-ans
+  acces:
+    mode: fichier
+    urls: [https://static.data.gouv.fr/resources/evolution-de-la-repartition-des-militaires-de-carriere-et-sous-contrat-sur-24-ans/20251003-080950/0-maj2025-evolution-de-la-repartition-des-militaires-de-carriere-et-sous-contrat-par-armee-sur-24-ans.xls]
+    format: XLS (Excel 97), un onglet, effectifs en ETPT par année, catégorie, armée et statut
+    auth: aucune
+  licence: Licence Ouverte 1.0 (fr-lo)
+  maille: [france]
+  millesime: annuel (bilan social, mise à jour en octobre pour l'année N-1 ; édition 2025 couvrant 2001-2024)
+  fraicheur_max_jours: 450
+  domaines: [defense]
+  normalisation: armees_effectifs
+  controles:
+    lignes_min: 1000
+    colonnes: [annee, categorie, armee, statut, etpt]
+  statut: actif
+  notes: >
+    Champ : militaires de carrière ou sous contrat du ministère des Armées, hors gendarmerie, en équivalents temps
+    plein travaillés (ETPT). Colonnes « Autres » (DGA, SSA, SCA, SEO…) et « Total (hors gendarmerie) » à partir
+    de 2002. Hors réservistes (jeu distinct « Évolution des effectifs de réservistes sous ESR ») et hors civils.
+    L'URL du fichier change à chaque mise à jour annuelle.

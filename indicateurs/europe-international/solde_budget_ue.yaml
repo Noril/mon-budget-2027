@@ -1,0 +1,29 @@
+id: europe_international.solde_budget_ue
+libelle: Solde entre dépenses de l'UE reçues et contributions nationales au budget de l'UE
+unite: millions d'euros
+sens: neutre
+sources: [ce-budget-ue-depenses-recettes]
+maille: [france, pays]
+formule: indicateurs/europe-international/solde_budget_ue.sql
+format: "{:,.0f} M€"
+limites: >
+  Solde comptable simple, négatif pour un contributeur net. Ce n'est pas le « solde budgétaire opérationnel »
+  officiel de la Commission, qui retire aussi les dépenses administratives (institutions installées à Bruxelles,
+  Luxembourg et Strasbourg) et ramène les contributions au prorata des dépenses réparties : les deux ordres de
+  grandeur sont proches mais pas identiques. Les droits de douane (ressources propres traditionnelles) sont
+  exclus des contributions, car perçus pour le compte de l'Union. Les subventions de NextGenerationEU (plan de
+  relance financé par l'emprunt commun, à partir de 2021) sont exclues des dépenses : elles figurent dans un
+  tableau à part et leur remboursement pèsera sur les budgets futurs. Une dépense « reçue » par un pays
+  (subventions agricoles, fonds de cohésion, programmes de recherche) n'est qu'une partie de ce qu'il retire de
+  l'Union (marché unique, biens publics communs) : le solde ne mesure pas un bénéfice. D'où le sens neutre.
+construction: >
+  Classeur de la Commission « EU spending and revenue », un onglet par année (2000 à 2024), colonnes par code
+  pays (UK jusqu'en 2020, EL pour la Grèce ; astérisque de renvoi retiré de « LU* » en 2022). Dépenses : ligne
+  dont le libellé est « TOTAL EXPENDITURE » (dépenses réparties par État membre, hors recettes affectées et hors
+  NextGenerationEU). Contributions : ligne « TOTAL national contribution » (jusqu'en 2020) ou « TOTAL National
+  contributions » (depuis 2021), astérisques de renvoi retirés : ressources TVA, RNB et plastique, corrections et
+  ajustements, hors droits de douane. Valeur = dépenses − contributions, en millions d'euros, sans arrondi ;
+  même pays et même année. Code et libellé = code pays du classeur. Maille france = colonne FR.
+comparaison_ue: maille pays, États membres (UE27 et Royaume-Uni jusqu'en 2020 ; pas d'agrégat, le solde de l'UE entière n'a pas de sens)
+version: 1.0.0
+relu_par: null
