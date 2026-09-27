@@ -1,0 +1,22 @@
+id: finances.solde_public
+libelle: Solde des administrations publiques
+unite: "% du PIB"
+sens: plus_haut_mieux
+sources: [insee-comptes-apu, insee-pib, eurostat-gov-10dd-edpt1]
+maille: [france, pays]
+formule: indicateurs/finances/solde_public.sql
+format: "{:.1f} % du PIB"
+limites: >
+  Solde au sens de la comptabilité nationale (capacité ou besoin de financement, B9), qui coïncide avec le déficit
+  au sens de Maastricht. Maille france : dernier millésime INSEE (fin août), éventuellement révisé par rapport à
+  la notification d'avril reprise par Eurostat (maille pays, code FR). Dernières années provisoires.
+construction: >
+  France : INSEE DD_CNA_APU, REF_SECTOR = S13, STO = B9, CONSOLIDATION = C, ACCOUNTING_ENTRY = B,
+  EXPENDITURE = _Z, UNIT_MEASURE = XDC (millions d'euros), rapporté au PIB INSEE DD_CNA_AGREGATS (STO = B1GQ,
+  PRICES = V, UNIT_MEASURE = XDC, TRANSFORMATION = N, COUNTERPART_AREA = W0) de la même année, × 100, sans
+  arrondi. Lignes identiques répétées dédoublonnées. Pays : Eurostat gov_10dd_edpt1, unit = MIO_NAC,
+  sector = S13, na_item B9 / na_item B1GQ × 100, par pays (colonne geo, code avant « : ») et année ; agrégats
+  EU27_2020 et zones euro compris. Négatif = déficit.
+comparaison_ue: maille pays (Eurostat gov_10dd_edpt1), agrégat EU27_2020
+version: 1.0.0
+relu_par: null
