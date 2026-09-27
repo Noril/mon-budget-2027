@@ -1,0 +1,134 @@
+# Catalogue des sources : Travail et emploi. Validé par schemas/source.schema.json.
+# Séries Eurostat filtrées sur les 27 États membres et l'agrégat EU27_2020.
+
+- id: insee-eec-series
+  titre: Activité, emploi et chômage, séries longues (enquête Emploi)
+  producteur: INSEE
+  doc: https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_EEC_SERIES
+  acces:
+    mode: fichier
+    urls: [https://api.insee.fr/melodi/file/DD_EEC_SERIES/DD_EEC_SERIES_CSV_FR]
+    motif: "*_data.csv"
+    format: ZIP de CSV (séparateur ;), format long Melodi (jeu DD_EEC_SERIES)
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [france]
+  millesime: annuel (moyennes annuelles publiées au printemps)
+  fraicheur_max_jours: 450
+  domaines: [travail]
+  controles:
+    lignes_min: 70000
+    colonnes: [EEC_MEASURE, SEX, AGE, EMPFORM, EMPSTA, PCS, EDUC, WKTIME, UNDEREMP, UNEMPDUR, COMPOHALO, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Au sens du BIT, France hors Mayotte, moyennes annuelles depuis 1975. Les mesures en taux (UNEMPRATE, EMPRATE…)
+    sont en pourcentage ; les effectifs en milliers (UNIT_MULT = 3). Lignes OBS_STATUS = N : valeur non diffusée.
+
+- id: insee-chomage-localise
+  titre: Taux de chômage localisé par département et région (trimestriel, CVS)
+  producteur: INSEE
+  doc: https://www.insee.fr/fr/statistiques/1893230
+  acces:
+    mode: fichier
+    urls: [https://bdm.insee.fr/series/sdmx/data/TAUX-CHOMAGE]
+    format: SDMX-ML 2.1 « structure-specific » (Banque de données macroéconomiques, flux TAUX-CHOMAGE)
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [france, region, departement]
+  millesime: trimestriel (environ 80 jours après la fin du trimestre)
+  domaines: [travail]
+  normalisation: insee_bdm
+  controles:
+    lignes_min: 15000
+    colonnes: [IDBANK, INDICATEUR, REF_AREA, FREQ, CORRECTION, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    REF_AREA : Dxx départements (D971 à D974 pour les DOM, Mayotte absente), Rxx régions, FM France métropolitaine,
+    FR-D976 France hors Mayotte. Trimestres codés AAAA-Qn. Dernière mise à jour lue dans l'attribut LAST_UPDATE.
+
+- id: eurostat-une-rt-a
+  titre: Taux de chômage annuel au sens du BIT (enquête sur les forces de travail)
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/une_rt_a/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/une_rt_a
+    cle: A.Y15-74.PC_ACT.T.BE+BG+CZ+DK+DE+EE+IE+EL+ES+FR+HR+IT+CY+LV+LT+LU+HU+MT+NL+AT+PL+PT+RO+SI+SK+FI+SE+EU27_2020
+    parametres: {format: SDMX-CSV, startPeriod: "2000", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel
+  domaines: [travail]
+  controles:
+    lignes_min: 400
+    colonnes: [age, unit, sex, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: 15-74 ans, deux sexes, en % de la population active.
+
+- id: eurostat-lfsi-emp-a
+  titre: Taux d'emploi annuel (enquête sur les forces de travail)
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/lfsi_emp_a/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/lfsi_emp_a
+    cle: A.EMP_LFS.T.Y20-64.PC_POP.BE+BG+CZ+DK+DE+EE+IE+EL+ES+FR+HR+IT+CY+LV+LT+LU+HU+MT+NL+AT+PL+PT+RO+SI+SK+FI+SE+EU27_2020
+    parametres: {format: SDMX-CSV, startPeriod: "2000", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel
+  domaines: [travail]
+  controles:
+    lignes_min: 400
+    colonnes: [indic_em, sex, age, unit, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: Emploi total (population résidente), 20-64 ans, deux sexes, en % de la population du même âge (cible UE 2030 = 78 %).
+
+- id: dares-defm-stock-trim
+  titre: Inscrits à France Travail, stock par catégorie, France, régions et départements (trimestriel, CVS-CJO)
+  producteur: DARES, France Travail
+  doc: https://data.dares.travail-emploi.gouv.fr/explore/dataset/dares_defm_stock_region_cvs_trim/
+  acces:
+    mode: opendatasoft
+    portail: https://data.dares.travail-emploi.gouv.fr
+    jeu: dares_defm_stock_region_cvs_trim
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [france, region, departement]
+  millesime: trimestriel (fin du mois suivant le trimestre)
+  fraicheur_max_jours: 150
+  domaines: [travail]
+  controles:
+    lignes_min: 250000
+    colonnes: [date, code_region, code_departement, type_de_donnees, categorie, sexe, tranche_d_age, anciennete, nombre_de_demandeurs_d_emploi]
+  statut: actif
+  notes: >
+    Moyennes trimestrielles CVS-CJO, trimestres codés AAAA-Tn. Totaux : code_region = « Total France » (hors Mayotte)
+    ou « Total France métropolitaine » ; code_departement = « Total » pour une région entière.
+
+- id: urssaf-effectifs-departements
+  titre: Établissements employeurs et effectifs salariés du secteur privé par département, grand secteur et tranche d'effectif (au 31 décembre)
+  producteur: URSSAF Caisse nationale
+  doc: https://open.urssaf.fr/explore/dataset/nombre-detablissements-employeurs-et-effectifs-salaries-du-secteur-prive-par-dep/
+  acces:
+    mode: opendatasoft
+    portail: https://open.urssaf.fr
+    jeu: nombre-detablissements-employeurs-et-effectifs-salaries-du-secteur-prive-par-dep
+    auth: aucune
+  licence: ODbL
+  maille: [france, region, departement]
+  millesime: annuel (fin d'année + environ 150 jours)
+  fraicheur_max_jours: 450
+  domaines: [travail]
+  controles:
+    lignes_min: 4000
+    colonnes: [code_departement, code_region, grand_secteur_d_activite, tranche_d_effectif, effectifs_salaries_2006, effectifs_salaries_2025]
+  statut: actif
+  notes: >
+    Format large : une colonne effectifs_salaries_AAAA et nombre_d_etablissements_AAAA par année depuis 2006
+    (une nouvelle colonne chaque printemps : ajouter l'année au contrôle). Champ : secteur privé, régime général,
+    hors particuliers employeurs ; apprentis inclus depuis juin 2023 (sur toute la série). Mayotte absente.

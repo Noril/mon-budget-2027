@@ -1,0 +1,22 @@
+id: travail.taux_chomage
+libelle: Taux de chômage au sens du BIT
+unite: "% de la population active"
+sens: plus_bas_mieux
+sources: [insee-eec-series, eurostat-une-rt-a]
+maille: [france, pays]
+formule: indicateurs/travail/taux_chomage.sql
+format: "{:.1f} %"
+limites: >
+  Moyenne annuelle d'une enquête par sondage (précision d'environ ± 0,3 point). Le chômage BIT ne compte ni le
+  halo autour du chômage (personnes souhaitant travailler mais non disponibles ou ne cherchant pas) ni le
+  sous-emploi. Maille france (INSEE, 15 ans ou plus) et ligne FR de la maille pays (Eurostat, 15-74 ans) peuvent
+  différer d'un dixième selon le millésime et le champ d'âge.
+construction: >
+  Maille france : jeu Melodi DD_EEC_SERIES, EEC_MEASURE = UNEMPRATE, SEX = _T, AGE = _T (15 ans ou plus),
+  EMPSTA = 2 (chômeur), et _T pour EMPFORM, PCS, EDUC, WKTIME, UNDEREMP, UNEMPDUR, COMPOHALO ; OBS_VALUE vide exclu ;
+  valeur telle quelle (une décimale), code FR, libellé « France hors Mayotte ». Maille pays : Eurostat une_rt_a,
+  age = Y15-74, unit = PC_ACT, sex = T ; valeur OBS_VALUE telle quelle ; code = partie de geo avant « : »
+  (FR, DE, EU27_2020…), libellé = partie après. Période = année.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

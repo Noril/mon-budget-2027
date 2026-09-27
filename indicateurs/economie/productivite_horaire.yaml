@@ -1,0 +1,21 @@
+id: economie.productivite_horaire
+libelle: Productivité du travail par heure travaillée
+unite: SPA de PIB par heure travaillée (UE27, prix courants)
+sens: plus_haut_mieux
+sources: [eurostat-nama-10-lp-ulc]
+maille: [france, pays]
+formule: indicateurs/economie/productivite_horaire.sql
+format: "{:.1f} SPA par heure"
+limites: >
+  Productivité apparente (PIB rapporté aux heures de tous les actifs occupés) : un taux d'emploi faible chez les
+  moins qualifiés la gonfle mécaniquement. Prix courants en SPA : comparaison entre pays pour une même année, pas
+  une mesure de la croissance de la productivité. Dernières années souvent provisoires.
+construction: >
+  Eurostat nama_10_lp_ulc, unit = CP_MPPS_EU27_2020 (prix courants, SPA UE27 à partir de 2020 ; libellé Eurostat
+  « millions de SPA » car PIB en millions de SPA divisé par des millions d'heures), na_item = NLPR_HW (productivité
+  nominale par heure travaillée). Valeur = OBS_VALUE tel quel (une décimale) ; observations vides exclues ; l'autre
+  unité du jeu (PC_EU27_2020_MPPS_CP, indice UE27 = 100) n'est pas utilisée. Code pays = partie de geo avant « : »,
+  libellé = partie après. Maille france = ligne geo FR recopiée avec le code FR. Période = année.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null
