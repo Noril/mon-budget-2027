@@ -1,0 +1,22 @@
+id: numerique.entreprises_ia
+libelle: Entreprises de 10 salariés ou plus utilisant l'intelligence artificielle
+unite: "% des entreprises de 10 salariés ou plus"
+sens: plus_haut_mieux
+sources: [eurostat-isoc-eb-ai]
+maille: [france, pays]
+formule: indicateurs/numerique/entreprises_ia.sql
+format: "{:.1f} %"
+limites: >
+  Déclaratif (enquête TIC auprès des entreprises) ; « utiliser l'IA » couvre au moins une des technologies listées
+  (fouille de texte, reconnaissance vocale, génération de langage, reconnaissance d'images, apprentissage
+  automatique, automatisation de processus, robots autonomes, génération d'images ou de sons), sans mesure de
+  l'intensité d'usage. Hors agriculture, industries extractives et secteur financier. Pas d'enquête IA en 2022 ;
+  la liste des technologies s'élargit en 2024 (IA générative), ce qui pèse sur la hausse 2023-2024.
+construction: >
+  Eurostat isoc_eb_ai, lignes size_emp = GE10, nace_r2 = C10-S951_X_K, indic_is = E_AI_TANY, unit = PC_ENT
+  (codes = partie des colonnes avant « : »). Valeur = OBS_VALUE telle que publiée (2 décimales), lignes à
+  OBS_VALUE vide exclues. Période = TIME_PERIOD (année). Maille pays : code = partie de geo avant « : »
+  (FR, DE, EU27_2020, EA…), libellé = partie après. Maille france = ligne geo FR recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

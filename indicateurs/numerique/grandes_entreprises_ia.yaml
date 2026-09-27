@@ -1,0 +1,19 @@
+id: numerique.grandes_entreprises_ia
+libelle: Entreprises de 250 salariés ou plus utilisant l'intelligence artificielle
+unite: "% des entreprises de 250 salariés ou plus"
+sens: plus_haut_mieux
+sources: [eurostat-isoc-eb-ai]
+maille: [france, pays]
+formule: indicateurs/numerique/grandes_entreprises_ia.sql
+format: "{:.1f} %"
+limites: >
+  Mêmes limites que numerique.entreprises_ia (déclaratif, pas d'intensité d'usage, liste de technologies élargie
+  en 2024). Sert à mesurer l'écart entre grandes entreprises et PME.
+construction: >
+  Eurostat isoc_eb_ai, lignes size_emp = GE250, nace_r2 = C10-S951_X_K, indic_is = E_AI_TANY, unit = PC_ENT
+  (codes = partie des colonnes avant « : »). Valeur = OBS_VALUE telle que publiée, lignes à OBS_VALUE vide
+  exclues. Période = TIME_PERIOD. Maille pays : code = partie de geo avant « : », libellé = partie après.
+  Maille france = ligne geo FR recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

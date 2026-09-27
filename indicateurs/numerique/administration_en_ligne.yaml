@@ -1,0 +1,20 @@
+id: numerique.administration_en_ligne
+libelle: Particuliers ayant interagi en ligne avec une administration au cours des douze derniers mois
+unite: "% des 16-74 ans"
+sens: plus_haut_mieux
+sources: [eurostat-isoc-ciegi-ac]
+maille: [france, pays]
+formule: indicateurs/numerique/administration_en_ligne.sql
+format: "{:.1f} %"
+limites: >
+  Déclaratif (enquête TIC ménages, 16 à 74 ans). Mesure le recours au canal en ligne, pas la qualité ni
+  l'aboutissement des démarches. Définition en vigueur depuis 2022 (site ou application d'une administration pour
+  s'informer, accéder à ses données, télécharger un formulaire, déclarer ou demander) : non comparable à la série
+  I_IUGOV12 d'avant 2022.
+construction: >
+  Eurostat isoc_ciegi_ac, lignes indic_is = I_IUGOV1, unit = PC_IND, ind_type = IND_TOTAL. Valeur = OBS_VALUE
+  telle que publiée, lignes vides exclues. Période = TIME_PERIOD. Maille pays : code = partie de geo avant « : »,
+  libellé = partie après. Maille france = ligne geo FR recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null
