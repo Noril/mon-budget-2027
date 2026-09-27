@@ -1,0 +1,20 @@
+id: energie.part_nucleaire_electricite
+libelle: Part du nucléaire dans la production brute d'électricité
+unite: "% de la production brute d'électricité"
+sens: neutre
+sources: [eurostat-nrg-bal-peh]
+maille: [france, pays]
+formule: indicateurs/energie/part_nucleaire_electricite.sql
+format: "{:.1f} %"
+limites: >
+  Production brute (consommation des centrales comprise), toutes installations, pompage compris dans le total.
+  Le poids du nucléaire dans le mix est un choix politique : l'indicateur décrit, il ne classe pas. Les chiffres
+  annuels d'Eurostat arrivent avec plus d'un an de retard ; pour l'année écoulée, voir energie.production_nucleaire
+  (RTE).
+construction: >
+  Eurostat nrg_bal_peh, nrg_bal = GEP (production brute d'électricité), unit = GWH. Valeur = 100 × siec N900H
+  (nucléaire) / siec TOTAL, même pays et même année, sans arrondi ; ligne omise si l'un manque ou si le total est nul.
+  Code pays = partie de geo avant « : », libellé = partie après. Maille france = ligne FR recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

@@ -1,0 +1,22 @@
+id: agriculture.solde_agroalimentaire
+libelle: Solde commercial des produits alimentaires, boissons et tabacs
+unite: milliards d'euros courants
+sens: plus_haut_mieux
+sources: [eurostat-ext-lt-intratrd]
+maille: [france, pays]
+formule: indicateurs/agriculture/solde_agroalimentaire.sql
+format: "{:+.1f} Md€"
+limites: >
+  Sections 0 (produits alimentaires et animaux vivants) et 1 (boissons et tabacs) de la classification type pour le
+  commerce international (CTCI), statistique des échanges de biens d'Eurostat : le périmètre diffère du solde
+  « agricole et agroalimentaire » publié par les douanes françaises (nomenclature CPF, qui ajoute notamment certains
+  produits bruts). Euros courants. Pour les États membres, solde avec le monde entier, échanges intra-européens compris ;
+  pour l'agrégat EU27_2020, solde avec le reste du monde seulement : les deux ne se comparent qu'en tendance.
+construction: >
+  Eurostat ext_lt_intratrd, indic_et = MIO_BAL_VAL (solde en millions d'euros), sitc06 = SITC0_1, partner = WORLD pour
+  chaque pays et partner = EXT_EU27_2020 pour geo = EU27_2020. Valeur = OBS_VALUE / 1 000 (milliards d'euros), sans
+  arrondi. Code pays = partie de geo avant « : », libellé = partie après. Maille france = ligne FR recopiée avec le
+  code FR.
+comparaison_ue: maille pays ; l'agrégat EU27_2020 mesure le solde hors UE, les États membres le solde avec le monde
+version: 1.0.0
+relu_par: null

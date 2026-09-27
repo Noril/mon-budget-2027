@@ -1,0 +1,20 @@
+id: energie.prix_electricite_entreprises
+libelle: Prix de l'électricité pour les entreprises, hors TVA et taxes récupérables
+unite: centimes d'euro par kWh
+sens: neutre
+sources: [eurostat-nrg-pc-205]
+maille: [france, pays]
+formule: indicateurs/energie/prix_electricite_entreprises.sql
+format: "{:.2f} c€/kWh"
+limites: >
+  Prix moyen du semestre pour la tranche de référence IC (500 à 1 999 MWh par an : PME industrielle, grande
+  surface), hors TVA et taxes récupérables, accises comprises, en euros courants. Les grands électro-intensifs
+  (tranches au-delà de 70 GWh) paient nettement moins. Un prix bas soutient la compétitivité mais peut reposer sur des
+  aides publiques ou un prix régulé du nucléaire : le sens est laissé neutre.
+construction: >
+  Eurostat nrg_pc_205, siec = E7000, nrg_cons = MWH500-1999, unit = KWH, tax = X_VAT, currency = EUR. Valeur =
+  100 × OBS_VALUE (centimes par kWh), arrondie à 2 décimales. Période = TIME_PERIOD semestriel (AAAA-S1, AAAA-S2).
+  Code pays = partie de geo avant « : », libellé = partie après. Maille france = ligne FR recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

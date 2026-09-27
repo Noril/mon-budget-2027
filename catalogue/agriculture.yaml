@@ -1,0 +1,119 @@
+# Catalogue des sources : Agriculture et alimentation. Validé par schemas/source.schema.json.
+
+- id: eurostat-aact-eaa06
+  titre: Indicateurs de revenu agricole (comptes économiques de l'agriculture)
+  producteur: Eurostat (d'après les comptes de l'agriculture nationaux ; Insee pour la France)
+  doc: https://ec.europa.eu/eurostat/databrowser/view/aact_eaa06/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/aact_eaa06
+    cle: A.IND_A.I10.
+    parametres: {format: SDMX-CSV, startPeriod: "2000", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (estimation de l'année N en décembre N, révisée en mai N+1 ; drapeau « e » sur la dernière année)
+  domaines: [agriculture]
+  controles:
+    lignes_min: 500
+    colonnes: [indic_agr, unit, geo, TIME_PERIOD, OBS_VALUE, OBS_FLAG]
+  statut: actif
+  notes: >
+    Indicateur A : indice du revenu réel des facteurs de l'agriculture (valeur ajoutée nette au coût des facteurs,
+    déflatée par l'indice des prix du PIB) par unité de travail annuel (UTA), base 2010 = 100. Un indice ne compare
+    pas les niveaux entre pays, seulement les évolutions depuis 2010.
+
+- id: eurostat-org-cropar
+  titre: Surfaces en agriculture biologique par culture
+  producteur: Eurostat (d'après l'Agence Bio pour la France)
+  doc: https://ec.europa.eu/eurostat/databrowser/view/org_cropar/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/org_cropar
+    cle: A.PC_UAA+HA.UAAXK0000.TOTAL.
+    parametres: {format: SDMX-CSV, startPeriod: "2012", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (année N publiée à l'été N+2)
+  domaines: [agriculture]
+  controles:
+    lignes_min: 400
+    colonnes: [unit, crops, agprdmet, geo, TIME_PERIOD, OBS_VALUE, OBS_FLAG]
+  statut: actif
+  notes: >
+    Surface agricole utilisée hors jardins familiaux (UAAXK0000), bio certifiée et en conversion (TOTAL), en hectares
+    et en % de la SAU (PC_UAA). L'agrégat EU27_2020 n'est publié que pour 2020 (au 27 septembre 2026).
+
+- id: eurostat-ef-m-farmang
+  titre: Exploitations agricoles par âge et sexe du chef d'exploitation (enquêtes sur la structure des exploitations)
+  producteur: Eurostat (recensements agricoles 2010 et 2020, enquêtes structure 2013, 2016, 2023 ; SSP-Agreste pour la France)
+  doc: https://ec.europa.eu/eurostat/databrowser/view/ef_m_farmang/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/ef_m_farmang
+    cle: A.TOTAL.T..TOTAL.TOTAL.HLD.
+    parametres: {format: SDMX-CSV, lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: triennal ou décennal (recensement 2020, enquête 2023 ; prochaine enquête 2026)
+  domaines: [agriculture]
+  controles:
+    lignes_min: 500
+    colonnes: [statinfo, sex, age, so_eur, uaarea, unit, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Clé : toutes exploitations (statinfo TOTAL), deux sexes, toutes tranches d'âge du chef (age), toutes classes de
+    production brute standard et de surface, en nombre d'exploitations (HLD). Champ européen : seuils de l'enquête
+    (1 ha de SAU ou équivalent en production), un peu plus large que le champ Agreste. EU27_2020 absent en 2023.
+
+- id: agencebio-surfaces-departement
+  titre: Surfaces et exploitations en agriculture biologique par département, 2008-2025
+  producteur: Agence Bio (données certifiées des organismes de contrôle)
+  doc: https://www.data.gouv.fr/datasets/historique-detaille-des-surfaces-cheptels-et-nombre-doperateurs-par-departement
+  acces:
+    mode: fichier
+    urls: [https://static.data.gouv.fr/resources/historique-detaille-des-surfaces-cheptels-et-nombre-doperateurs-par-departement/20260916-123140/donnees-dept-secretstat-14092026-sau.csv]
+    format: CSV (séparateur ,), une ligne par année et département, surfaces en hectares
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [departement]
+  millesime: annuel (année N publiée en septembre N+1)
+  domaines: [agriculture]
+  controles:
+    lignes_min: 1700
+    colonnes: [annee, codedepartement, departement, nb_exp, surfab, surfc123, surfbio]
+  statut: actif
+  notes: >
+    surfab = surface certifiée bio, surfc1 à surfc3 = en conversion (1re à 3e année), surfbio = surfab + surfc123.
+    « NC » : valeur couverte par le secret statistique (moins de trois exploitations). Codes 971 à 976 pour
+    l'outre-mer, 978 pour Saint-Martin. Chaque millésime est un nouveau fichier : changer l'URL à chaque mise à jour.
+
+- id: eurostat-ext-lt-intratrd
+  titre: Commerce extérieur de biens par groupe de produits CTCI (échanges annuels des États membres)
+  producteur: Eurostat (Comext ; douanes pour la France)
+  doc: https://ec.europa.eu/eurostat/databrowser/view/ext_lt_intratrd/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/ext_lt_intratrd
+    cle: A.MIO_BAL_VAL+MIO_EXP_VAL+MIO_IMP_VAL.SITC0_1.WORLD+EXT_EU27_2020.
+    parametres: {format: SDMX-CSV, startPeriod: "2002", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (année N publiée au printemps N+1)
+  domaines: [agriculture]
+  controles:
+    lignes_min: 2000
+    colonnes: [indic_et, sitc06, partner, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Produits alimentaires, boissons et tabacs (CTCI 0 et 1) ; exportations, importations et solde en millions
+    d'euros, avec le monde entier (WORLD) et hors UE (EXT_EU27_2020). Concept communautaire (statistique des
+    échanges de biens), qui diffère légèrement du chiffrage des douanes françaises (« produits agricoles et
+    agroalimentaires », CPF).

@@ -1,0 +1,22 @@
+id: agriculture.revenu_agricole_reel
+libelle: Revenu agricole réel par actif (indice du revenu réel des facteurs par unité de travail annuel)
+unite: indice, base 2010 = 100
+sens: plus_haut_mieux
+sources: [eurostat-aact-eaa06]
+maille: [france, pays]
+formule: indicateurs/agriculture/revenu_agricole_reel.sql
+format: "{:.1f} (base 100 en 2010)"
+limites: >
+  Valeur ajoutée nette de la branche agricole au coût des facteurs (subventions d'exploitation comprises, impôts
+  sur la production déduits), déflatée par l'indice de prix du PIB, divisée par le volume de travail (salarié et non
+  salarié) en UTA. Mesure la rémunération de tous les facteurs (travail, terre, capital), pas le revenu des ménages
+  agricoles, et n'en donne que l'évolution : un indice de 100 en France et en Allemagne ne signifie pas un même
+  niveau de revenu. Très volatil d'une année sur l'autre (récoltes, prix mondiaux). La dernière année est une
+  estimation (drapeau « e »), révisée au printemps suivant.
+construction: >
+  Eurostat aact_eaa06, indic_agr = IND_A (indicateur A), unit = I10 (indice 2010 = 100), valeur OBS_VALUE reprise
+  sans calcul ni arrondi (deux décimales), estimations marquées e dans OBS_FLAG gardées. Code pays = partie de geo
+  avant « : » (FR, DE, EU27_2020…), libellé = partie après. Maille france = ligne FR recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020 (comparaison des évolutions depuis 2010, pas des niveaux)
+version: 1.0.0
+relu_par: null
