@@ -1,0 +1,25 @@
+id: etat.agents_fp
+libelle: Agents de la fonction publique (trois versants, hors militaires)
+unite: agents
+sens: neutre
+sources: [insee-effectifs-fonction-publique, insee-cog-departements, insee-cog-regions]
+maille: [france, region, departement]
+formule: indicateurs/etat/agents_fp.sql
+format: "{:,.0f} agents"
+limites: >
+  Agents des trois versants (État, territoriale, hospitalière), fonctionnaires, contractuels et autres statuts.
+  Emplois principaux au 31 décembre, comptés au lieu de travail (un agent travaillant à Paris et habitant l'Essonne
+  compte pour Paris), rapportés aux habitants du territoire : les départements qui accueillent des administrations
+  centrales, des CHU ou des universités sont mécaniquement au-dessus. Hors militaires, hors contrats aidés et hors
+  salariés de droit privé des entreprises publiques ; les agents des cliniques privées, de l'enseignement privé sous
+  contrat (sauf enseignants rémunérés par l'État) et des délégations de service public n'y sont pas. Mayotte absente.
+  Les effectifs comptent des personnes, pas des équivalents temps plein.
+construction: >
+  Source insee-effectifs-fonction-publique (BDM, flux TCRED-TRAVAIL-EMPLOI-EFF-FP-RATIO), lignes INDICATEUR =
+  EFFECTIFS_FP_HMILIT_TOTAL, VERSANTS_FP = TOT, SEXE = 0 ; OBS_VALUE en milliers (vide ou NaN exclu), multiplié par
+  1 000 et arrondi à l'unité. Période = TIME_PERIOD (effectifs au 31 décembre). Maille france : REF_AREA FE (France
+  hors Mayotte), code FR. Maille departement : REF_AREA « D » + code DEP du COG 2026, libellé du COG. Maille region :
+  REF_AREA « R » + code REG du COG 2026, libellé du COG.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null
