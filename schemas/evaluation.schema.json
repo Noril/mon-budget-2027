@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Fiche de lecture du corpus d'évaluation (sources/)",
+  "type": "object",
+  "required": ["id", "titre", "auteurs", "annee", "producteur", "url", "type", "levier", "pays", "niveau_de_preuve", "licence_reutilisation"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+    "titre": {"type": "string"},
+    "auteurs": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "annee": {"type": "integer", "minimum": 1950, "maximum": 2100},
+    "producteur": {"type": "string"},
+    "url": {"type": "string", "format": "uri"},
+    "type": {"enum": ["evaluation-causale", "pilote-evalue", "revue-systematique", "etude-descriptive"]},
+    "levier": {"type": "string"},
+    "pays": {"type": "string"},
+    "niveau_de_preuve": {"enum": ["fort", "moyen", "faible"]},
+    "licence_reutilisation": {"type": "string"}
+  }
+}

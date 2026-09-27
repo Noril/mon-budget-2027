@@ -1,0 +1,20 @@
+id: sante.densite_mg_liberaux
+libelle: Densité de médecins généralistes libéraux
+unite: médecins pour 100 000 habitants
+sens: plus_haut_mieux
+sources: [ameli-demographie-ps]
+maille: [france, region, departement]
+formule: indicateurs/sante/densite_mg_liberaux.sql
+format: "{:.0f} généralistes libéraux pour 100 000 habitants"
+limites: >
+  Libéraux seulement (hors salariés des centres de santé et des hôpitaux). Compte des médecins, pas leur activité :
+  un généraliste à temps partiel pèse autant qu'un temps plein. Pour l'offre réellement accessible, voir sante.apl_mg.
+construction: >
+  Lignes profession_sante = « Ensemble des médecins généralistes », classe_age = tout_age, libelle_sexe = « tout sexe ».
+  Colonne densite, publiée par l'Assurance maladie pour 100 000 habitants, reprise telle quelle.
+  Période = année de la colonne annee (date au 1er janvier, ex. 2024-01-01 -> 2024).
+  Mailles : region = 99 -> France (code FR) ; departement = 999 -> région (code = region) ; sinon département.
+  Lignes sans densité exclues.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null
