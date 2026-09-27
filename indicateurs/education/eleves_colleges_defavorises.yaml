@@ -1,0 +1,24 @@
+id: education.eleves_colleges_defavorises
+libelle: Part des collégiens scolarisés dans un collège du quart le plus défavorisé
+unite: "% des collégiens"
+sens: neutre
+sources: [depp-ips-colleges, depp-effectifs-colleges, insee-cog-communes, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/education/eleves_colleges_defavorises.sql
+format: "{:.1f} %"
+limites: >
+  Le seuil est relatif (premier quartile national des IPS de collège de la rentrée, sans pondération) : la valeur
+  France reste proche de 25 % par construction ; l'intérêt est la répartition entre départements. Un taux élevé
+  signale une concentration de difficultés sociales, pas une moindre qualité d'enseignement. Série PCS 2020 à partir de la rentrée 2023.
+construction: >
+  Collèges de depp-ips-colleges à ips non vide, rattachés à un département par le COG 2026 comme
+  education.ips_colleges (communes hors COG exclues, y compris du calcul du seuil). Seuil par rentrée =
+  quantile_cont(ips, 0,25), quantile continu (interpolation linéaire) sur tous ces collèges, sans pondération.
+  Collège défavorisé : ips strictement inférieur au seuil. Effectifs : nombre_eleves_total de
+  depp-effectifs-colleges (jointure numero_college = uai, année de rentree_scolaire = 4 premiers caractères de la
+  rentrée IPS) ; collèges sans effectif ou à effectif nul exclus. Valeur = 100 × élèves des collèges défavorisés /
+  élèves de tous les collèges retenus du territoire (0 si aucun), arrondie à 0,1 ; période = rentrée
+  (« 2025-2026 »). Maille France : code FR.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

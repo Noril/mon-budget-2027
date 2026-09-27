@@ -1,0 +1,20 @@
+id: recherche.boursiers_admis_parcoursup
+libelle: Part des boursiers parmi les néo-bacheliers admis via Parcoursup
+unite: "% des néo-bacheliers admis"
+sens: neutre
+sources: [sies-parcoursup, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/recherche/boursiers_admis_parcoursup.sql
+format: "{:.1f} %"
+limites: >
+  Boursiers du secondaire (bourse de lycée) parmi les néo-bacheliers ayant accepté une proposition, toutes
+  formations. Département de la formation, pas du lycée d'origine. Dernière session seulement : le jeu du
+  producteur est remplacé chaque année.
+construction: >
+  Source sies-parcoursup, une ligne par formation. Valeur = 100 × somme(acc_brs) / somme(acc_neobac), arrondie à 0,1 ;
+  période = session. Maille département : dep rapproché de insee-cog-departements (libellé du COG) ; codes hors COG
+  (99 étranger, 20, collectivités d'outre-mer) exclus de cette maille. Maille France (code FR) : toutes les
+  formations, y compris celles hors COG.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

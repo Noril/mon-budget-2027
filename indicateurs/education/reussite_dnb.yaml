@@ -1,0 +1,20 @@
+id: education.reussite_dnb
+libelle: Taux de réussite au diplôme national du brevet
+unite: "% des présents"
+sens: plus_haut_mieux
+sources: [depp-dnb-departements, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/education/reussite_dnb.sql
+format: "{:.1f} %"
+limites: >
+  Un taux de réussite dépend des exigences de l'examen (part du contrôle continu, barème), qui changent d'une
+  session à l'autre : la baisse de 2024 suit la réforme de la notation. Département de scolarisation du candidat.
+  Sessions 2023 à 2025 seulement dans ce jeu.
+construction: >
+  Source depp-dnb-departements, une ligne par session, département (dep_sco), série (générale, professionnelle) et
+  sexe. Valeur = 100 × somme(admis) / somme(presents), toutes séries et deux sexes confondus, arrondie à 0,1 ;
+  période = année de session. Maille département : dep_sco rapproché de insee-cog-departements (libellé du COG).
+  Maille France (code FR) : toutes les lignes de la session.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

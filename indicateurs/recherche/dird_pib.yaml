@@ -1,0 +1,18 @@
+id: recherche.dird_pib
+libelle: Dépense intérieure de recherche et développement
+unite: "% du PIB"
+sens: plus_haut_mieux
+sources: [eurostat-rd-e-gerdtot]
+maille: [france, pays]
+formule: indicateurs/recherche/dird_pib.sql
+format: "{:.2f} % du PIB"
+limites: >
+  Dépense exécutée sur le territoire, quel que soit le financeur ; la dernière année est souvent provisoire
+  (drapeau p). Ne mesure ni l'efficacité ni la qualité de la recherche. Objectif de Lisbonne puis Europe 2020 : 3 %.
+construction: >
+  Eurostat rd_e_gerdtot, sectperf = TOTAL (tous secteurs d'exécution), unit = PC_GDP. Valeur = OBS_VALUE telle
+  quelle (en % du PIB, 2 décimales chez Eurostat) ; valeurs vides exclues ; drapeaux ignorés. Code pays = partie de
+  geo avant « : », libellé = partie après. Maille france = ligne FR recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null
