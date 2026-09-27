@@ -9,6 +9,10 @@ format: "{:.1f} %"
 limites: >
   Ne couvre que les patients en affection de longue durée, pas toute la population.
   Valeurs masquées (« NC ») pour certains territoires, dont Mayotte.
+construction: >
+  Colonne taux_patients_ald_sans_mt_integer, déjà en pourcentage (8.3 = 8,3 %), arrondie à 0,1.
+  Mailles : region = 99 -> France (code FR) ; departement = 999 -> région (code = region) ; sinon département.
+  Exclus : valeurs masquées (taux « NC », colonne numérique vide) et lignes region = inconnu.
 comparaison_ue: null
 version: 1.0.0
 relu_par: null
