@@ -41,8 +41,13 @@ def resumer(definition: dict, table: Path) -> dict:
             r |= {"periode_avant": avant, "france_avant": _valeur(table, "france", "FR", avant)}
 
     if "pays" in definition["maille"]:
+        # Dernière période où la France et la moyenne UE sont toutes deux publiées, sinon la dernière de la France
         (p_ue,) = duckdb.sql(
-            f"SELECT max(periode) FROM {t} WHERE maille = 'pays' AND code = 'FR' AND valeur IS NOT NULL"
+            f"""SELECT coalesce(
+                    (SELECT max(periode) FROM {t} WHERE maille = 'pays' AND code = 'FR' AND valeur IS NOT NULL
+                       AND periode IN (SELECT periode FROM {t} WHERE maille = 'pays' AND code = 'EU27_2020'
+                                       AND valeur IS NOT NULL)),
+                    (SELECT max(periode) FROM {t} WHERE maille = 'pays' AND code = 'FR' AND valeur IS NOT NULL))"""
         ).fetchone()
         if p_ue:
             pays = dict(duckdb.execute(

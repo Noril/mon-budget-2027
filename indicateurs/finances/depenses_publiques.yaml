@@ -1,7 +1,7 @@
 id: finances.depenses_publiques
 libelle: Dépenses publiques (administrations publiques)
 unite: "% du PIB"
-sens: plus_bas_mieux
+sens: neutre
 sources: [eurostat-gov-10a-main]
 maille: [france, pays]
 formule: indicateurs/finances/depenses_publiques.sql
