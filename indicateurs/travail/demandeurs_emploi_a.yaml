@@ -1,0 +1,23 @@
+id: travail.demandeurs_emploi_a
+libelle: Demandeurs d'emploi inscrits à France Travail en catégorie A
+unite: personnes (moyenne trimestrielle CVS-CJO)
+sens: plus_bas_mieux
+sources: [dares-defm-stock-trim, insee-cog-regions, insee-cog-departements]
+maille: [france, region, departement]
+formule: indicateurs/travail/demandeurs_emploi_a.sql
+format: "{:.0f} demandeurs d'emploi"
+limites: >
+  Mesure administrative : dépend des règles d'inscription et de gestion des listes (inscription automatique des
+  allocataires du RSA et des jeunes suivis depuis janvier 2025, loi pour le plein emploi), à ne pas confondre avec
+  le chômage BIT. Catégorie A = sans aucune activité dans le mois et tenus de chercher un emploi. Mayotte absente.
+  Effectifs en niveau : rapporter à la population pour comparer des départements.
+construction: >
+  Jeu DARES dares_defm_stock_region_cvs_trim : type_de_donnees = cvs-cjo, categorie = A, sexe = Total,
+  tranche_d_age = Total, anciennete = Total ; valeur = nombre_de_demandeurs_d_emploi tel quel (arrondi à la dizaine par
+  la DARES). Période = date (AAAA-Tn). Maille france = code_region « Total France » et code_departement « Total »,
+  code FR. Maille region = code_departement « Total » et code_region égal à un REG du COG 2026 (01 à 04 pour l'outre-mer),
+  libellé du COG. Maille departement = code_departement égal à un DEP du COG 2026, libellé du COG. Ligne « Total France
+  métropolitaine » non reprise.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

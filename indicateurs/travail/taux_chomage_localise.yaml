@@ -1,0 +1,22 @@
+id: travail.taux_chomage_localise
+libelle: Taux de chômage localisé
+unite: "% de la population active"
+sens: plus_bas_mieux
+sources: [insee-chomage-localise, insee-cog-regions, insee-cog-departements]
+maille: [france, region, departement]
+formule: indicateurs/travail/taux_chomage_localise.sql
+format: "{:.1f} %"
+limites: >
+  Estimation (synthèse de l'enquête Emploi, des demandeurs d'emploi et de l'emploi localisé), révisée à chaque
+  publication, à lire en niveau et en tendance plutôt qu'au dixième près. Chômeurs comptés au lieu de résidence.
+  Mayotte absente. Série CVS : pas de moyenne annuelle publiée, on garde les trimestres.
+construction: >
+  Flux BDM TAUX-CHOMAGE (SDMX), séries INDICATEUR = TAUX_CHOMAGE_LOCALISE, FREQ = T, CORRECTION = CVS ; OBS_VALUE
+  vide ou NaN exclu ; valeur telle quelle (une décimale). Période = TIME_PERIOD avec « -Q » remplacé par « -T »
+  (2026-Q2 -> 2026-T2). Maille france = REF_AREA FR-D976 (France hors Mayotte), code FR. Maille region = REF_AREA
+  « R » + code REG du COG 2026 (régions métropolitaines ; pas de série régionale pour l'outre-mer), libellé du COG.
+  Maille departement = REF_AREA « D » + code DEP du COG 2026 (D01…D95, D2A, D2B, D971 à D974), libellé du COG.
+  REF_AREA FM (France métropolitaine) non repris.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

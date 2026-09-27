@@ -1,0 +1,20 @@
+id: economie.pib_hab_spa
+libelle: PIB par habitant en standard de pouvoir d'achat
+unite: SPA par habitant (UE27, prix courants)
+sens: plus_haut_mieux
+sources: [eurostat-nama-10-pc]
+maille: [france, pays]
+formule: indicateurs/economie/pib_hab_spa.sql
+format: "{:.0f} SPA par habitant"
+limites: >
+  Le SPA corrige les écarts de niveau des prix entre pays, pas l'inflation : les montants sont en prix courants,
+  la comparaison vaut entre pays pour une même année, pas dans le temps. Mesure une production par habitant,
+  pas un revenu des ménages (le Luxembourg et l'Irlande sont gonflés par les frontaliers et les multinationales).
+construction: >
+  Eurostat nama_10_pc, unit = CP_PPS_EU27_2020_HAB (prix courants, SPA UE27 à partir de 2020, par habitant),
+  na_item = B1GQ (PIB aux prix du marché). Valeur = OBS_VALUE tel quel (une décimale), sans arrondi ; observations vides
+  exclues. Code pays = partie de la colonne geo avant « : » (FR, DE, EU27_2020…), libellé = partie après.
+  Maille france = ligne geo FR recopiée avec le code FR. Période = année (TIME_PERIOD), depuis 2000.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null
