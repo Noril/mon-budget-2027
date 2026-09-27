@@ -1,0 +1,116 @@
+# Catalogue des sources : Finances publiques et macroéconomie. Validé par schemas/source.schema.json.
+
+- id: insee-comptes-apu
+  titre: Comptes des administrations publiques (comptes nationaux annuels, base 2020)
+  producteur: INSEE
+  doc: https://www.insee.fr/fr/statistiques/8988934
+  acces:
+    mode: fichier
+    urls: [https://api.insee.fr/melodi/file/DD_CNA_APU/DD_CNA_APU_CSV_FR]
+    motif: "*_data.csv"
+    format: ZIP de CSV (séparateur ;), format long Melodi (jeu DD_CNA_APU)
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [france]
+  millesime: annuel (compte provisoire N-1 publié fin mai, semi-définitif fin août)
+  fraicheur_max_jours: 450
+  domaines: [finances]
+  controles:
+    lignes_min: 500000
+    colonnes: [REF_SECTOR, STO, CONSOLIDATION, ACCOUNTING_ENTRY, EXPENDITURE, UNIT_MEASURE, TIME_PERIOD, OBS_VALUE, OBS_STATUS]
+  statut: actif
+  notes: >
+    Montants en millions d'euros (UNIT_MULT = 6). Lignes répétées à l'identique d'un tableau à l'autre.
+    Anomalie constatée sur le millésime du 31 août 2026 : à partir de 2023, les séries « consolidées »
+    (CONSOLIDATION = C) de dépenses (OTE), recettes (OTR) et intérêts (D41) reprennent les montants non
+    consolidés (OTE 2023 = 75 % du PIB contre 57 % chez Eurostat) ; seul le solde B9 est fiable. Dette au sens
+    de Maastricht (INSTR_ASSET = GD) absente après 1994 : lue chez Eurostat.
+
+- id: insee-pib
+  titre: Produit intérieur brut et grands agrégats (comptes nationaux annuels, base 2020)
+  producteur: INSEE
+  doc: https://www.insee.fr/fr/statistiques/8988934
+  acces:
+    mode: fichier
+    urls: [https://api.insee.fr/melodi/file/DD_CNA_AGREGATS/DD_CNA_AGREGATS_CSV_FR]
+    motif: "*_data.csv"
+    format: ZIP de CSV (séparateur ;), format long Melodi (jeu DD_CNA_AGREGATS)
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [france]
+  millesime: annuel
+  fraicheur_max_jours: 450
+  domaines: [finances]
+  controles:
+    lignes_min: 150000
+    colonnes: [STO, PRICES, UNIT_MEASURE, TRANSFORMATION, COUNTERPART_AREA, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+
+- id: eurostat-gov-10dd-edpt1
+  titre: Déficit et dette publics (notification de la procédure de déficit excessif)
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/gov_10dd_edpt1/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/gov_10dd_edpt1
+    cle: A.MIO_NAC.S1+S13.B9+GD+D41PAY+B1GQ.
+    parametres: {format: SDMX-CSV, startPeriod: "1995", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: semestriel (notifications d'avril et d'octobre)
+  domaines: [finances]
+  controles:
+    lignes_min: 2000
+    colonnes: [unit, sector, na_item, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Clé : annuel, millions de monnaie nationale ; pour les APU (S13) solde (B9), dette brute consolidée
+    (GD), intérêts versés consolidés (D41PAY) ; pour l'économie totale (S1) le PIB (B1GQ) ; tous pays et agrégats UE.
+
+- id: eurostat-gov-10a-main
+  titre: Principaux agrégats des administrations publiques (dépenses, recettes)
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/gov_10a_main/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/gov_10a_main
+    cle: A.PC_GDP.S13.TE+TR.
+    parametres: {format: SDMX-CSV, startPeriod: "1995", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: semestriel
+  domaines: [finances]
+  controles:
+    lignes_min: 1500
+    colonnes: [unit, sector, na_item, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Dépenses (TE) et recettes (TR) consolidées en % du PIB, arrondies à 0,1 par Eurostat. Remplace pour la France
+    les séries OTE/OTR de l'INSEE Melodi, consolidées à tort depuis 2023 (voir insee-comptes-apu).
+
+- id: fmi-weo
+  titre: Perspectives de l'économie mondiale (WEO), France
+  producteur: Fonds monétaire international
+  doc: https://www.imf.org/en/Publications/WEO
+  acces:
+    mode: sdmx
+    url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO
+    cle: FRA.NGDP_RPCH+NGDP_D+PCPIPCH+NGDP+GGXONLB_NGDP+GGXCNL_NGDP+GGXWDG_NGDP.A
+    entetes: {Accept: application/vnd.sdmx.data+csv}
+    auth: aucune
+  licence: FMI, réutilisation des données avec citation (https://www.imf.org/external/terms.htm)
+  maille: [france]
+  millesime: semestriel (avril, octobre) ; projections sur cinq ans
+  domaines: [finances]
+  controles:
+    lignes_min: 300
+    colonnes: [INDICATOR, TIME_PERIOD, OBS_VALUE, PUBLICATION_DATE]
+  statut: actif
+  notes: >
+    Croissance réelle (NGDP_RPCH), déflateur du PIB (NGDP_D, indice), inflation IPC (PCPIPCH), PIB nominal (NGDP),
+    solde primaire (GGXONLB_NGDP), solde (GGXCNL_NGDP) et dette brute (GGXWDG_NGDP) en % du PIB. Sert aux
+    hypothèses de plan/hypotheses.yaml, pas aux indicateurs.

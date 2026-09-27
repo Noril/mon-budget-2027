@@ -1,0 +1,95 @@
+# Catalogue des sources : Santé. Validé par schemas/source.schema.json.
+
+- id: ameli-ald-sans-mt
+  titre: Part de patients en affection de longue durée sans médecin traitant
+  producteur: Assurance maladie (CNAM)
+  doc: https://data.ameli.fr/explore/dataset/patients-longueduree-annuelle/
+  acces:
+    mode: opendatasoft
+    portail: https://data.ameli.fr
+    jeu: patients-longueduree-annuelle
+    auth: aucune
+  licence: ODbL
+  maille: [france, region, departement]
+  millesime: annuel
+  fraicheur_max_jours: 450
+  domaines: [sante]
+  controles:
+    lignes_min: 900
+    colonnes: [annee, region, departement, taux_patients_ald_sans_mt_integer]
+  statut: actif
+
+- id: ameli-demographie-ps
+  titre: Professionnels de santé libéraux, effectifs et densités
+  producteur: Assurance maladie (CNAM)
+  doc: https://data.ameli.fr/explore/dataset/demographie-effectifs-et-les-densites/
+  acces:
+    mode: opendatasoft
+    portail: https://data.ameli.fr
+    jeu: demographie-effectifs-et-les-densites
+    auth: aucune
+  licence: ODbL
+  maille: [france, region, departement]
+  millesime: annuel
+  fraicheur_max_jours: 450
+  domaines: [sante]
+  controles:
+    lignes_min: 3000000
+    colonnes: [annee, profession_sante, departement, classe_age, effectif, densite]
+  statut: actif
+  notes: 3,4 millions de lignes ; export Parquet complet.
+
+- id: drees-apl
+  titre: Accessibilité potentielle localisée (APL)
+  producteur: DREES
+  doc: https://data.drees.solidarites-sante.gouv.fr/explore/dataset/530_l-accessibilite-potentielle-localisee-apl/
+  acces:
+    mode: opendatasoft
+    portail: https://data.drees.solidarites-sante.gouv.fr
+    jeu: 530_l-accessibilite-potentielle-localisee-apl
+    pieces: [indicateur_d_apl_aux_medecins_generalistes_xlsx]
+    format: xlsx en pièces jointes (pas d'enregistrements)
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [commune]
+  millesime: annuel
+  fraicheur_max_jours: 540
+  domaines: [sante]
+  normalisation: drees_apl
+  controles:
+    lignes_min: 100000
+    colonnes: [annee, code_commune, apl, pop_standardisee, pop_totale]
+  statut: actif
+  notes: >
+    Généralistes seulement pour l'instant (infirmiers, kinés, dentistes, sages-femmes : ajouter les pièces).
+    Un onglet par millésime ; la méthode change entre versions (V0, V1, V2) : ne comparer que des millésimes
+    d'une même version. Mayotte hors champ.
+
+- id: finess-etablissements
+  titre: FINESS, extraction du fichier des établissements
+  producteur: Ministère de la Santé
+  doc: https://www.data.gouv.fr/datasets/finess-extraction-du-fichier-des-etablissements
+  acces:
+    mode: fichier
+    format: csv (séparateur ;)
+    auth: aucune
+  licence: Licence Ouverte
+  maille: [commune]
+  domaines: [sante]
+  statut: a-brancher
+
+- id: eurostat-hlth-rs-prs2
+  titre: Personnel de santé pour 100 000 habitants
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/hlth_rs_prs2?geo=FR&lastTimePeriod=3
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/hlth_rs_prs2
+    auth: aucune
+  licence: Réutilisation libre Eurostat
+  maille: [france]
+  millesime: annuel
+  domaines: [sante]
+  statut: a-brancher
+
+# --- Finances publiques (plan/ : compte de la France) ---

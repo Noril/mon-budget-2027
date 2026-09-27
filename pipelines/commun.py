@@ -15,23 +15,30 @@ DONNEES = RACINE / "data"
 BRUT = DONNEES / "brut"
 NORMALISE = DONNEES / "normalise"
 INDICATEURS_CALCULES = DONNEES / "indicateurs"
-CATALOGUE = RACINE / "indicateurs" / "catalogue.yaml"
+CATALOGUE = RACINE / "catalogue"  # un fichier YAML par domaine, chacun une liste de sources
 
 
 class ControleEchoue(Exception):
     """Un contrôle de qualité bloque la chaîne en aval."""
 
 
+def sources_du_catalogue() -> list[tuple[Path, dict]]:
+    """Toutes les sources, avec le fichier de catalogue qui les déclare (doublons compris, pour la validation)."""
+    return [
+        (fichier, source)
+        for fichier in sorted(CATALOGUE.glob("*.yaml"))
+        for source in yaml.safe_load(fichier.read_text(encoding="utf-8")) or []
+    ]
+
+
 def charger_catalogue() -> dict[str, dict]:
-    sources = yaml.safe_load(CATALOGUE.read_text(encoding="utf-8"))
-    return {s["id"]: s for s in sources}
+    return {s["id"]: s for _, s in sources_du_catalogue()}
 
 
 def definitions_indicateurs() -> list[tuple[Path, dict]]:
     return [
         (chemin, yaml.safe_load(chemin.read_text(encoding="utf-8")))
         for chemin in sorted((RACINE / "indicateurs").rglob("*.yaml"))
-        if chemin != CATALOGUE
     ]
 
 

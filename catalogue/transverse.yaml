@@ -1,0 +1,72 @@
+# Catalogue des sources : Référentiels transverses (géographie, population). Validé par schemas/source.schema.json.
+
+- id: insee-cog-communes
+  titre: Code officiel géographique 2026, communes
+  producteur: INSEE
+  doc: https://www.insee.fr/fr/information/8740222
+  acces:
+    mode: fichier
+    urls: [https://www.insee.fr/fr/statistiques/fichier/8740222/v_commune_2026.csv]
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [commune]
+  millesime: annuel (situation au 1er janvier)
+  domaines: [transverse]
+  controles:
+    lignes_min: 34000
+    colonnes: [TYPECOM, COM, REG, DEP, LIBELLE, COMPARENT]
+  statut: actif
+  notes: Lignes TYPECOM = COMD (déléguées), COMA (associées), ARM (arrondissements) rattachées via COMPARENT.
+
+- id: insee-cog-departements
+  titre: Code officiel géographique 2026, départements
+  producteur: INSEE
+  doc: https://www.insee.fr/fr/information/8740222
+  acces:
+    mode: fichier
+    urls: [https://www.insee.fr/fr/statistiques/fichier/8740222/v_departement_2026.csv]
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [departement]
+  millesime: annuel
+  domaines: [transverse]
+  controles:
+    lignes_min: 100
+    colonnes: [DEP, REG, LIBELLE]
+  statut: actif
+
+- id: insee-cog-regions
+  titre: Code officiel géographique 2026, régions
+  producteur: INSEE
+  doc: https://www.insee.fr/fr/information/8740222
+  acces:
+    mode: fichier
+    urls: [https://www.insee.fr/fr/statistiques/fichier/8740222/v_region_2026.csv]
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [region]
+  millesime: annuel
+  domaines: [transverse]
+  controles:
+    lignes_min: 18
+    colonnes: [REG, LIBELLE]
+  statut: actif
+
+- id: insee-populations-reference
+  titre: Populations de référence 2023
+  producteur: INSEE
+  doc: https://www.insee.fr/fr/statistiques/8681011
+  acces:
+    mode: fichier
+    urls: [https://api.insee.fr/melodi/file/DS_POPULATIONS_REFERENCE/DS_POPULATIONS_REFERENCE_2023_CSV_FR]
+    motif: "*_data.csv"
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [commune, departement, region, france]
+  millesime: annuel (population au 1er janvier 2023, limites au 1er janvier 2025)
+  domaines: [transverse]
+  controles:
+    lignes_min: 100000
+    colonnes: [GEO, GEO_OBJECT, POPREF_MEASURE, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: Format long Melodi ; POPREF_MEASURE = PMUN (municipale), PCAP (comptée à part), PTOT.

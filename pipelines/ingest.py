@@ -26,7 +26,7 @@ from .commun import (
     maintenant,
     sha256,
 )
-from .connecteurs import CONNECTEURS
+from .connecteurs import connecteur as charger_connecteur
 from .normalisations import normaliser
 
 
@@ -39,7 +39,7 @@ def dernier_manifeste(id_source: str) -> dict | None:
 
 def ingerer(source: dict, force: bool = False) -> dict:
     """Renvoie le manifeste de l'instantané brut à utiliser (nouveau ou précédent si rien n'a changé)."""
-    connecteur = CONNECTEURS[source["acces"]["mode"]]
+    connecteur = charger_connecteur(source["acces"]["mode"])
     meta = connecteur.metadonnees(source)
     precedent = dernier_manifeste(source["id"])
     if precedent and not force and meta.get("modifie_le") and precedent["producteur"].get("modifie_le") == meta["modifie_le"]:
@@ -118,7 +118,7 @@ def main(argv: list[str] | None = None) -> int:
     echecs, alertes = [], []
     for id_source in ids:
         source = catalogue[id_source]
-        if source.get("statut") == "a-brancher" or source["acces"]["mode"] not in CONNECTEURS:
+        if source.get("statut") == "a-brancher" or charger_connecteur(source["acces"]["mode"]) is None:
             print(f"  ~ {id_source} : connecteur « {source['acces']['mode']} » pas encore branché")
             continue
         try:
