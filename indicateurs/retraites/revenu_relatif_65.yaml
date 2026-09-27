@@ -1,0 +1,21 @@
+id: retraites.revenu_relatif_65
+libelle: Revenu médian relatif des 65 ans ou plus (en % de celui des moins de 65 ans)
+unite: "% du niveau de vie médian des moins de 65 ans"
+sens: neutre
+sources: [eurostat-ilc-pnp2]
+maille: [france, pays]
+formule: indicateurs/retraites/revenu_relatif_65.sql
+format: "{:.0f} %"
+limites: >
+  Revenu disponible équivalent (niveau de vie du ménage) : intègre pensions, revenus du patrimoine et impôts, mais
+  pas le fait d'être propriétaire de son logement (loyers imputés exclus), ce qui sous-estime le niveau de vie
+  relatif des retraités, plus souvent propriétaires. Période = année d'enquête EU-SILC, revenus de l'année
+  précédente. Ratio publié à deux décimales : valeur en % précise au point près.
+construction: >
+  Eurostat ilc_pnp2, filtres statinfo = R_MED_I, age = Y_GE65, sex = T (codes = partie des colonnes avant « : ») ;
+  OBS_VALUE est un ratio (0,97). Valeur = 100 × OBS_VALUE, arrondie à 1 décimale ; OBS_VALUE vide exclu. Code pays =
+  partie de geo avant « : », libellé = partie après. Maille france = ligne geo FR recopiée avec le code FR et le
+  libellé « France ». Période = TIME_PERIOD.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

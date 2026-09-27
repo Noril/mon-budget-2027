@@ -1,0 +1,21 @@
+id: retraites.taux_remplacement_agrege
+libelle: Taux de remplacement agrégé (pension médiane des 65-74 ans / revenu d'activité médian des 50-59 ans)
+unite: "%"
+sens: plus_haut_mieux
+sources: [eurostat-ilc-pnp3]
+maille: [france, pays]
+formule: indicateurs/retraites/taux_remplacement_agrege.sql
+format: "{:.0f} %"
+limites: >
+  Compare deux générations différentes à la même date (pas le taux de remplacement individuel à la liquidation).
+  Montants bruts individuels, pensions de tous régimes, revenus d'activité hors prestations sociales. Période = année
+  d'enquête EU-SILC, revenus de l'année précédente. Eurostat publie un ratio arrondi à deux décimales : la valeur en %
+  n'est donc précise qu'au point près.
+construction: >
+  Eurostat ilc_pnp3, filtres sex = T, unit = PC (codes = partie des colonnes avant « : ») ; OBS_VALUE est un ratio
+  (0,61 malgré l'unité PC). Valeur = 100 × OBS_VALUE, arrondie à 1 décimale ; OBS_VALUE vide exclu. Code pays = partie
+  de geo avant « : », libellé = partie après. Maille france = ligne geo FR recopiée avec le code FR et le libellé
+  « France ». Période = TIME_PERIOD.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

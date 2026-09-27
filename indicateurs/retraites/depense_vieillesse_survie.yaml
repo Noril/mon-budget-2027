@@ -1,0 +1,21 @@
+id: retraites.depense_vieillesse_survie
+libelle: Prestations vieillesse et survie (retraites, réversions, autonomie des personnes âgées)
+unite: "% du PIB"
+sens: neutre
+sources: [eurostat-spr-exp-func]
+maille: [france, pays]
+formule: indicateurs/retraites/depense_vieillesse_survie.sql
+format: "{:.1f} % du PIB"
+limites: >
+  Fonctions SESPROS vieillesse et survie réunies : pensions de retraite et de réversion pour l'essentiel, mais aussi
+  minimum vieillesse, aide à l'autonomie et hébergement des personnes âgées ; les pensions d'invalidité sont dans une
+  autre fonction. Les pays classent différemment les préretraites et les pensions d'invalidité après l'âge légal.
+  Dernières années provisoires (OBS_FLAG = p).
+construction: >
+  Eurostat spr_exp_func, filtres spdeps = SPR (prestations), spfunc = OLD_SRV, unit = PC_GDP (codes = partie des
+  colonnes avant « : »). Valeur = OBS_VALUE (% du PIB, deux décimales), sans arrondi ; OBS_VALUE vide exclu ; valeurs
+  provisoires gardées. Code pays = partie de geo avant « : », libellé = partie après. Maille france = ligne geo FR
+  recopiée avec le code FR et le libellé « France ». Période = TIME_PERIOD.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null
