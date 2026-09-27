@@ -9,6 +9,8 @@ l'effectif N-1 est nul ou absent. Première année calculée : 2007.
 
 from __future__ import annotations
 
+from verifications._arrondi import arrondi
+
 import re
 
 import duckdb
@@ -68,7 +70,7 @@ def calculer() -> list[dict]:
         if precedent is None or precedent == 0:
             continue
         _, libelle = dep_info[code_dep]
-        valeur = round(100.0 * (effectif / precedent - 1.0), 2)
+        valeur = arrondi(100.0 * (effectif / precedent - 1.0), 2)
         resultat.append(
             {"maille": "departement", "code": code_dep, "libelle": libelle, "periode": str(annee), "valeur": valeur}
         )
@@ -77,7 +79,7 @@ def calculer() -> list[dict]:
         precedent = par_region.get((reg, annee - 1))
         if precedent is None or precedent == 0:
             continue
-        valeur = round(100.0 * (effectif / precedent - 1.0), 2)
+        valeur = arrondi(100.0 * (effectif / precedent - 1.0), 2)
         resultat.append(
             {"maille": "region", "code": reg, "libelle": reg_libelle.get(reg, reg), "periode": str(annee), "valeur": valeur}
         )
@@ -86,7 +88,7 @@ def calculer() -> list[dict]:
         precedent = par_france.get(annee - 1)
         if precedent is None or precedent == 0:
             continue
-        valeur = round(100.0 * (effectif / precedent - 1.0), 2)
+        valeur = arrondi(100.0 * (effectif / precedent - 1.0), 2)
         resultat.append({"maille": "france", "code": "FR", "libelle": "France", "periode": str(annee), "valeur": valeur})
 
     return resultat

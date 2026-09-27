@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from verifications._arrondi import arrondi
+
 import duckdb
 
 from pipelines.commun import NORMALISE
@@ -27,7 +29,7 @@ def calculer() -> list[dict]:
             continue
 
         code, _, libelle = ligne["geo"].partition(":")
-        valeur = round(100 * float(ligne["OBS_VALUE"]), 1)
+        valeur = arrondi(100 * float(ligne["OBS_VALUE"]), 1)
         periode = ligne["TIME_PERIOD"]
 
         resultat.append({"maille": "pays", "code": code, "libelle": libelle, "periode": periode, "valeur": valeur})
