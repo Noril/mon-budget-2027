@@ -41,8 +41,8 @@ Ce que j'accepte de sacrifier :
 - Recrutement ouvert (contrats, profils tech), rémunération liée aux résultats du service.
 - Refonte du statut lui-même.
 
-Ma position :
-Ce que j'accepte de sacrifier :
+Ma position : **réduire nettement la masse salariale publique**, aujourd'hui 12,4 % du PIB contre 10,2 % dans l'UE (2024). Cible évoquée : 10 % du PIB, à confirmer (voir la discussion du 27 sept. 2026 : un gel en valeur sur le quinquennat mène vers 10,7 %). *(27 sept. 2026)*
+Ce que j'accepte de sacrifier : *à préciser*
 
 ### 4. Souveraineté des outils : à quel prix ?
 
@@ -89,8 +89,8 @@ Ce que j'accepte de sacrifier :
 - **Ciblée** sur les plus fragiles, au risque de la complexité et du non-recours.
 - Retraites : âge légal, durée, ou système par comptes à pilotage automatique ?
 
-Ma position :
-Ce que j'accepte de sacrifier :
+Ma position : **rééquilibrer le régime des retraites** : il n'y a plus assez d'actifs par retraité et l'espérance de vie a nettement progressé. Levier à choisir. *(27 sept. 2026)*
+Ce que j'accepte de sacrifier : *à préciser*
 
 ### 9. Travail face à l'IA : protéger les emplois ou les personnes ?
 
