@@ -1,0 +1,19 @@
+id: immigration.primo_demandeurs_asile_ue
+libelle: "Primo-demandeurs d'asile pour 100 000 habitants"
+unite: primo-demandeurs pour 100 000 habitants
+sens: neutre
+sources: [eurostat-migr-asyappctza, eurostat-demo-gind]
+maille: [france, pays]
+formule: indicateurs/immigration/primo_demandeurs_asile_ue.sql
+format: "{:.1f} pour 100 000 habitants"
+limites: >
+  Personnes ayant déposé une première demande de protection internationale dans le pays dans l'année (Eurostat, d'après les ministères de l'Intérieur), mineurs compris ; pour la France, diffère légèrement du compte OFPRA. Rapporté à la population au 1er janvier de la même année.
+construction: >
+  Numérateur : Eurostat migr_asyappctza, citizen = TOTAL, applicant = FRST (primo-demandeurs), sex = T, age = TOTAL, unit = PER, valeur OBS_VALUE en
+  personnes. Dénominateur : Eurostat demo_gind, indic_de = JAN (population au 1er janvier), même code pays et
+  même année (TIME_PERIOD). Valeur = 100 000 × numérateur / dénominateur, arrondie à 0,1. Code pays = partie
+  de geo avant « : » (FR, DE, EU27_2020…), y compris les agrégats publiés par Eurostat (EU27_2020 : numérateur et
+  population de l'agrégat Eurostat). Pays sans population dans demo_gind exclus. Maille france = ligne FR recopiée.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

@@ -1,0 +1,27 @@
+# Catalogue des sources : Sécurité. Validé par schemas/source.schema.json.
+
+- id: ssmsi-delinquance-departementale
+  titre: Base statistique départementale de la délinquance enregistrée par la police et la gendarmerie nationales
+  producteur: Ministère de l'Intérieur (SSMSI)
+  doc: https://www.data.gouv.fr/datasets/bases-statistiques-communale-departementale-et-regionale-de-la-delinquance-enregistree-par-la-police-et-la-gendarmerie-nationales
+  acces:
+    mode: fichier
+    urls: [https://www.data.gouv.fr/api/1/datasets/r/2b27a675-e3bf-41ef-a852-5fb9ab483967]
+    format: CSV (séparateur ;, décimales à la virgule), lien stable data.gouv.fr vers la dernière édition
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [departement]
+  millesime: annuel (édition de juillet, géographie de l'année suivante) ; séries depuis 2016
+  fraicheur_max_jours: 450
+  domaines: [securite]
+  normalisation: csv_multiples
+  controles:
+    lignes_min: 15000
+    colonnes: [Code_departement, Code_region, annee, indicateur, unite_de_compte, nombre, taux_pour_mille, insee_pop, insee_log]
+  statut: actif
+  notes: >
+    18 indicateurs × 101 départements × années depuis 2016, format long. Faits constatés (plaintes et procédures
+    enregistrées), pas victimation : dépend du dépôt de plainte et de l'activité des services. Unité de compte
+    propre à chaque indicateur (victime, infraction, mis en cause, véhicule). insee_pop et insee_log : population
+    et logements du département au millésime indiqué (Mayotte : recensement 2017). La base communale (Parquet,
+    16 Mo) masque les petits effectifs ; la base départementale n'a pas de secret statistique.

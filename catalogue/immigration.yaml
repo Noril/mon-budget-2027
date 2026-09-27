@@ -1,0 +1,198 @@
+# Catalogue des sources : Immigration et asile. Validé par schemas/source.schema.json.
+
+- id: ofpra-demandes-departement
+  titre: Demandes d'asile déposées devant l'OFPRA, par département de domiciliation
+  producteur: Office français de protection des réfugiés et apatrides (OFPRA)
+  doc: https://www.data.gouv.fr/datasets/demandes-dasile-et-de-statut-dapatride-deposees-devant-lofpra
+  acces:
+    mode: fichier
+    urls:
+      - https://static.data.gouv.fr/resources/demandes-dasile-et-de-statut-dapatride-deposees-devant-lofpra/20230720-083019/ofpra-demandes-dept-2020.csv
+      - https://static.data.gouv.fr/resources/demandes-dasile-et-de-statut-dapatride-deposees-devant-lofpra/20230720-084029/ofpra-demandes-dept-2021.csv
+      - https://static.data.gouv.fr/resources/demandes-dasile-et-de-statut-dapatride-deposees-devant-lofpra/20230720-084814/ofpra-demandes-dept-2022.csv
+      - https://static.data.gouv.fr/resources/demandes-dasile-et-de-statut-dapatride-deposees-devant-lofpra/20240726-080750/ofpra-demandes-dept-2023.csv
+      - https://static.data.gouv.fr/resources/demandes-dasile-et-de-statut-dapatride-deposees-devant-lofpra/20250718-071456/ofpra-demandes-dept-2024.csv
+      - https://static.data.gouv.fr/resources/demandes-dasile-et-de-statut-dapatride-deposees-devant-lofpra/20260812-082944/ofpra-demandes-dept-2025.csv
+    format: un CSV par année (séparateur virgule)
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [france, region, departement]
+  millesime: annuel (publié en juillet-août de l'année suivante)
+  domaines: [immigration]
+  normalisation: csv_multiples
+  controles:
+    lignes_min: 700
+    colonnes: [niveau, code_departement, departement, premiere_demande, reexamen, reouverture, annee_fichier]
+  statut: actif
+  notes: >
+    Lignes niveau = Total (France), Région, Département ; code_departement « N/D » (non déterminé) et 9715
+    (Saint-Martin) en plus des départements. Premières demandes mineurs accompagnants compris. Un fichier par année :
+    ajouter l'URL de la nouvelle ressource chaque été.
+
+- id: ofpra-decisions-departement
+  titre: Décisions de l'OFPRA et de la CNDA sur les demandes d'asile, par département de domiciliation
+  producteur: Office français de protection des réfugiés et apatrides (OFPRA)
+  doc: https://www.data.gouv.fr/datasets/decisions-relatives-aux-demandes-dasile-et-de-statut-dapatride
+  acces:
+    mode: fichier
+    urls:
+      - https://static.data.gouv.fr/resources/decisions-relatives-aux-demandes-dasile-deposees-devant-lofpra/20230720-093541/ofpra-decisions-dept-2020.csv
+      - https://static.data.gouv.fr/resources/decisions-relatives-aux-demandes-dasile-deposees-devant-lofpra/20230720-093825/ofpra-decisions-dept-2021.csv
+      - https://static.data.gouv.fr/resources/decisions-relatives-aux-demandes-dasile-deposees-devant-lofpra/20230720-094004/ofpra-decisions-dept-2022.csv
+      - https://static.data.gouv.fr/resources/decisions-relatives-aux-demandes-dasile-et-de-statut-dapatride/20240726-075254/ofpra-decisions-dept-2023.csv
+      - https://static.data.gouv.fr/resources/decisions-relatives-aux-demandes-dasile-et-de-statut-dapatride/20250718-070926/ofpra-decisions-dept-2024.csv
+      - https://static.data.gouv.fr/resources/decisions-relatives-aux-demandes-dasile-et-de-statut-dapatride/20260812-082303/ofpra-decisions-dept-2025.csv
+    format: un CSV par année (séparateur virgule)
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [france, region, departement]
+  millesime: annuel
+  domaines: [immigration]
+  normalisation: csv_multiples
+  controles:
+    lignes_min: 700
+    colonnes: [niveau, code_departement, refugie, protection_subsidiaire, rejet, cloture, taux_admission, cnda_refugie, cnda_protection_subsidiaire, annee_fichier]
+  statut: actif
+  notes: >
+    Décisions OFPRA de l'année (réfugié, protection subsidiaire, rejet, clôture) et annulations de la CNDA
+    accordant une protection (cnda_*). taux_admission = (refugie + protection_subsidiaire) / (refugie +
+    protection_subsidiaire + rejet), clôtures exclues.
+
+- id: dgef-premiers-titres-motif
+  titre: Premiers titres de séjour délivrés, par motif et sous-motif
+  producteur: Ministère de l'Intérieur (DGEF, département des statistiques, des études et de la documentation)
+  doc: https://www.data.gouv.fr/datasets/stock-et-flux-des-titres-de-sejour-en-france-sur-lannee-2024
+  acces:
+    mode: fichier
+    urls:
+      - https://static.data.gouv.fr/resources/stock-et-flux-des-titres-de-sejour-en-france-sur-lannee-2015-1/20260819-102526/2015-sejour-flux-motif-sous-motif.csv
+      - https://static.data.gouv.fr/resources/stock-et-flux-des-titres-de-sejour-en-france-sur-lannee-2016/20260819-100315/2016-sejour-flux-motif-sous-motif.csv
+      - https://static.data.gouv.fr/resources/stock-et-flux-des-titres-de-sejour-en-france-sur-lannee-2017/20260819-135828/2017-sejour-flux-motif-sous-motif.csv
+      - https://static.data.gouv.fr/resources/stock-et-flux-des-titres-de-sejour-en-france-sur-lannee-2018/20260819-145553/2018-sejour-flux-motif-sous-motif.csv
+      - https://static.data.gouv.fr/resources/stock-et-flux-des-titres-de-sejour-en-france-sur-lannee-2019/20260820-083454/2019-sejour-flux-motif-sous-motif.csv
+      - https://static.data.gouv.fr/resources/stock-et-flux-des-titres-de-sejour-en-france-sur-lannee-2020/20260821-101708/2020-sejour-flux-motif-sous-motif.csv
+      - https://static.data.gouv.fr/resources/stock-et-flux-des-titres-de-sejour-en-france-sur-lannee-2021/20260821-115449/2021-sejour-flux-motif-sous-motif.csv
+      - https://static.data.gouv.fr/resources/stock-et-flux-des-titres-de-sejour-en-france-sur-lannee-2022/20260821-121553/2022-sejour-flux-motif-sous-motif.csv
+      - https://static.data.gouv.fr/resources/stock-et-flux-des-titres-de-sejour-en-france-sur-lannee-2023/20260821-124215/2023-sejour-flux-motif-sous-motif.csv
+      - https://static.data.gouv.fr/resources/stock-et-flux-des-titres-de-sejour-en-france-sur-lannee-2024/20260821-131354/2024-sejour-flux-motif-sous-motif.csv
+    format: un CSV par année (motif_principal, sous_motif, nb_titres), un jeu data.gouv.fr par année
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [france]
+  millesime: annuel (données définitives, republiées en août 2026 pour 2015-2024)
+  domaines: [immigration]
+  normalisation: csv_multiples
+  controles:
+    lignes_min: 400
+    colonnes: [motif_principal, sous_motif, nb_titres, annee_fichier]
+  statut: actif
+  notes: >
+    Flux de premiers titres (ressortissants de pays tiers), France entière, Mayotte comprise. Petits effectifs
+    secrétisés (« nc »). Lignes sous_motif = TOTAL : total du motif ; motif_principal = TOTAL : total par sous-motif.
+    L'année 2023 existe aussi dans un jeu antérieur (février 2025) : seule la republication d'août 2026 est retenue.
+
+- id: eurostat-migr-asyappctza
+  titre: Demandeurs d'asile et primo-demandeurs par nationalité, âge et sexe (données annuelles agrégées)
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/migr_asyappctza/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/migr_asyappctza
+    cle: A.TOTAL.FRST.T.PER.TOTAL.
+    parametres: {format: SDMX-CSV, startPeriod: "2008", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel
+  domaines: [immigration]
+  controles:
+    lignes_min: 300
+    colonnes: [citizen, applicant, sex, unit, age, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: Clé — toutes nationalités (TOTAL), primo-demandeurs (FRST), tous sexes et âges, en personnes ; tous pays déclarants.
+
+- id: eurostat-demo-gind
+  titre: Population au 1er janvier (indicateurs démographiques généraux)
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/demo_gind/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/demo_gind
+    cle: A.JAN.
+    parametres: {format: SDMX-CSV, startPeriod: "2008", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel
+  domaines: [immigration, transverse]
+  controles:
+    lignes_min: 1000
+    colonnes: [indic_de, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: Dénominateur des taux par habitant des comparaisons européennes (population au 1er janvier de l'année).
+
+- id: eurostat-migr-eiord
+  titre: Ressortissants de pays tiers faisant l'objet d'une obligation de quitter le territoire
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/migr_eiord/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/migr_eiord
+    cle: A.TOTAL.TOTAL.T.PER.
+    parametres: {format: SDMX-CSV, startPeriod: "2008", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel
+  domaines: [immigration]
+  controles:
+    lignes_min: 300
+    colonnes: [citizen, age, sex, unit, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+
+- id: eurostat-migr-eirtn
+  titre: Ressortissants de pays tiers ayant quitté le territoire à la suite d'une obligation de quitter le territoire
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/migr_eirtn/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/migr_eirtn
+    cle: A.TOTAL.TOTAL.TOTAL.T.PER.
+    parametres: {format: SDMX-CSV, startPeriod: "2008", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel
+  domaines: [immigration]
+  controles:
+    lignes_min: 300
+    colonnes: [citizen, c_dest, age, sex, unit, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Retours effectifs dans l'année, quelle que soit l'année de la décision : le rapport retours / décisions n'est pas
+    la part des décisions d'une année exécutées. Toutes destinations (pays tiers, autre État membre).
+
+- id: eurostat-migr-resfirst
+  titre: Premiers titres de séjour par motif, durée de validité et nationalité
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/migr_resfirst/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/migr_resfirst
+    cle: A..TOTAL.TOTAL.PER.
+    parametres: {format: SDMX-CSV, startPeriod: "2008", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel
+  domaines: [immigration]
+  controles:
+    lignes_min: 1000
+    colonnes: [reason, citizen, duration, unit, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: Motifs FAM (famille), EDUC (études), EMP (emploi), OTH (autres, dont protection), TOTAL.

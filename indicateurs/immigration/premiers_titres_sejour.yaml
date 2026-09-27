@@ -1,0 +1,20 @@
+id: immigration.premiers_titres_sejour
+libelle: "Premiers titres de séjour délivrés, tous motifs"
+unite: titres
+sens: neutre
+sources: [dgef-premiers-titres-motif]
+maille: [france]
+formule: indicateurs/immigration/premiers_titres_sejour.sql
+format: "{:,.0f} titres"
+limites: >
+  Premiers titres délivrés à des ressortissants de pays tiers (y compris les visas de long séjour valant titre de
+  séjour), France entière. Un titre délivré une année peut correspondre à une entrée d'une année antérieure
+  (régularisations, changements de statut). Motif économique : salariés, saisonniers, scientifiques, artistes,
+  actifs non salariés ; humanitaire : réfugiés, protection subsidiaire, étrangers malades, victimes.
+construction: >
+  Source dgef-premiers-titres-motif (un CSV par année ; année = annee_fichier, lue dans le nom du fichier).
+  Ligne motif_principal = « TOTAL » et sous_motif = « TOTAL » ; valeur = colonne nb_titres, en nombre, sans
+  arrondi.
+comparaison_ue: voir immigration.premiers_titres_ue (Eurostat migr_resfirst)
+version: 1.0.0
+relu_par: null
