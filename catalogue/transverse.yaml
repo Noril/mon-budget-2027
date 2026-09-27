@@ -93,3 +93,45 @@
     Format long Melodi. Population totale au 1er janvier : EP_MEASURE = POP_JAN_1ST, AGE = _T, SEX = _T.
     GEO_OBJECT = DEP (101 départements, Mayotte comprise), REG, FRANCE (FM métropole, F France hors Mayotte…).
     OBS_STATUS = P pour les années provisoires. Dénominateur des ratios par habitant départementaux annuels.
+
+- id: eurostat-population-moyenne
+  titre: Population moyenne annuelle (indicateurs démographiques)
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/demo_gind/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/demo_gind
+    cle: A.AVG.
+    parametres: {format: SDMX-CSV, startPeriod: "1990", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel
+  domaines: [ecologie, transverse]
+  controles:
+    lignes_min: 1500
+    colonnes: [indic_de, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: Population moyenne de l'année (AVG), dénominateur des ratios par habitant des comparaisons européennes.
+
+- id: eurostat-population-1er-janvier
+  titre: Population au 1er janvier (indicateurs démographiques généraux)
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/demo_gind/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/demo_gind
+    cle: A.JAN.
+    parametres: {format: SDMX-CSV, startPeriod: "2008", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel
+  domaines: [immigration, transverse]
+  controles:
+    lignes_min: 1000
+    colonnes: [indic_de, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: Dénominateur des taux par habitant des comparaisons européennes (population au 1er janvier de l'année).

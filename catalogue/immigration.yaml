@@ -112,27 +112,6 @@
   statut: actif
   notes: Clé — toutes nationalités (TOTAL), primo-demandeurs (FRST), tous sexes et âges, en personnes ; tous pays déclarants.
 
-- id: eurostat-demo-gind
-  titre: Population au 1er janvier (indicateurs démographiques généraux)
-  producteur: Eurostat
-  doc: https://ec.europa.eu/eurostat/databrowser/view/demo_gind/default/table
-  acces:
-    mode: sdmx
-    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/demo_gind
-    cle: A.JAN.
-    parametres: {format: SDMX-CSV, startPeriod: "2008", lang: fr, label: both}
-    format: SDMX-CSV, colonnes « code:libellé »
-    auth: aucune
-  licence: Réutilisation libre Eurostat (CC BY 4.0)
-  maille: [pays, france]
-  millesime: annuel
-  domaines: [immigration, transverse]
-  controles:
-    lignes_min: 1000
-    colonnes: [indic_de, geo, TIME_PERIOD, OBS_VALUE]
-  statut: actif
-  notes: Dénominateur des taux par habitant des comparaisons européennes (population au 1er janvier de l'année).
-
 - id: eurostat-migr-eiord
   titre: Ressortissants de pays tiers faisant l'objet d'une obligation de quitter le territoire
   producteur: Eurostat

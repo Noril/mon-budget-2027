@@ -2,7 +2,7 @@ id: immigration.primo_demandeurs_asile_ue
 libelle: "Primo-demandeurs d'asile pour 100 000 habitants"
 unite: primo-demandeurs pour 100 000 habitants
 sens: neutre
-sources: [eurostat-migr-asyappctza, eurostat-demo-gind]
+sources: [eurostat-migr-asyappctza, eurostat-population-1er-janvier]
 maille: [france, pays]
 formule: indicateurs/immigration/primo_demandeurs_asile_ue.sql
 format: "{:.1f} pour 100 000 habitants"

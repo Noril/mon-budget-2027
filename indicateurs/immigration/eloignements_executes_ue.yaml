@@ -2,7 +2,7 @@ id: immigration.eloignements_executes_ue
 libelle: "Retours effectifs après obligation de quitter le territoire, pour 100 000 habitants"
 unite: retours pour 100 000 habitants
 sens: neutre
-sources: [eurostat-migr-eirtn, eurostat-demo-gind]
+sources: [eurostat-migr-eirtn, eurostat-population-1er-janvier]
 maille: [france, pays]
 formule: indicateurs/immigration/eloignements_executes_ue.sql
 format: "{:.1f} pour 100 000 habitants"

@@ -2,7 +2,7 @@ id: ecologie.tues_route
 libelle: Personnes tuées sur les routes par million d'habitants
 unite: tués à 30 jours par million d'habitants
 sens: plus_bas_mieux
-sources: [onisr-baac, insee-estimations-population, insee-cog-departements, eurostat-tran-sf-roadus, eurostat-demo-gind]
+sources: [onisr-baac, insee-estimations-population, insee-cog-departements, eurostat-tran-sf-roadus, eurostat-population-moyenne]
 maille: [france, departement, pays]
 formule: indicateurs/ecologie/tues_route.sql
 format: "{:.1f} tués par million d'habitants"
