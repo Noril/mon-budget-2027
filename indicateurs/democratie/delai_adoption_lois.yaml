@@ -1,0 +1,24 @@
+id: democratie.delai_adoption_lois
+libelle: Délai médian entre le dépôt d'un texte et la promulgation de la loi
+unite: jours
+sens: neutre
+sources: [an-dossiers-legislatifs]
+maille: [france]
+formule: indicateurs/democratie/delai_adoption_lois.sql
+format: "{:.0f} jours"
+limites: >
+  Mesure la durée totale de la navette, du premier dépôt (projet du Gouvernement ou proposition de loi) à la
+  promulgation : les propositions de loi attendent souvent longtemps leur inscription à l'ordre du jour, les
+  lois de finances ont des délais constitutionnels courts. Un délai court n'est pas en soi un gain (procédure
+  accélérée, moindre délibération) : sens neutre. Médiane, peu sensible aux textes restés des années en attente.
+construction: >
+  Source an-dossiers-legislatifs, même champ que democratie.lois_promulguees (code_loi renseigné, titre_loi ne
+  commençant pas par « autorisant »), en écartant en plus les lignes dont date_promulgation ne commence pas par
+  l'année du code_loi (une seule : loi 2021-191 saisie au 0021-02-24). Par code_loi : date de promulgation =
+  plus petite date_promulgation, date de dépôt = plus petite date_premier_depot (plus ancien acte « *-DEPOT » du
+  dossier, première assemblée saisie). Délai = promulgation − dépôt, en jours. Valeur = médiane des délais des
+  lois de l'année (année = quatre premiers caractères de code_loi ; médiane de DuckDB, moyenne des deux valeurs
+  centrales si le nombre est pair). Années de 2018 à l'année précédant la plus récente présente.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

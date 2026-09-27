@@ -1,0 +1,24 @@
+id: democratie.participation_presidentielle
+libelle: Participation au premier tour de l'élection présidentielle
+unite: "% des inscrits"
+sens: plus_haut_mieux
+sources: [interieur-presidentielle-departements, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/democratie/participation_presidentielle.sql
+format: "{:.2f} %"
+limites: >
+  Rapporte les votants aux inscrits sur les listes électorales, pas à la population en âge de voter : les
+  non-inscrits et les mal-inscrits (inscrits ailleurs qu'à leur domicile) n'apparaissent pas. Votes blancs et
+  nuls comptés parmi les votants. Un seul scrutin branché (2022) ; l'édition 2017, publiée en XLS multi-onglets,
+  ne l'est pas. Comparaison européenne sans objet (régimes et modes d'élection du chef de l'État différents).
+construction: >
+  Source interieur-presidentielle-departements (fichiers « résultats par niveau département » du ministère de
+  l'Intérieur), lignes scrutin = presidentielle et tour = 1. Valeur = 100 × votants / inscrits, arrondie à
+  2 décimales. Maille département : lignes dont code_departement (code du fichier, avec zéro initial ;
+  ZA, ZB, ZC, ZD, ZM convertis en 971, 972, 973, 974, 976) figure dans le COG 2026 (insee-cog-departements,
+  jointure sur DEP, libellé du COG) : 101 départements. Maille France (code FR) : somme des votants de toutes les
+  lignes du fichier, y compris collectivités d'outre-mer, Nouvelle-Calédonie et Français établis hors de France
+  (ZZ), divisée par la somme de leurs inscrits : c'est le taux national officiel.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null
