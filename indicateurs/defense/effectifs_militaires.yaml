@@ -1,0 +1,22 @@
+id: defense.effectifs_militaires
+libelle: Militaires d'active du ministère des Armées (hors gendarmerie)
+unite: équivalents temps plein travaillés (ETPT)
+sens: neutre
+sources: [armees-militaires-carriere-contrat]
+maille: [france]
+formule: indicateurs/defense/effectifs_militaires.sql
+format: "{:,.0f} ETPT"
+limites: >
+  Militaires de carrière et sous contrat (officiers, sous-officiers, militaires du rang, volontaires) des trois
+  armées et des directions et services (DGA, service de santé, commissariat, énergie opérationnelle…), en
+  équivalents temps plein travaillés sur l'année : ni les réservistes, ni les civils de la défense, ni la
+  gendarmerie. Série commençant en 2002 : en 2001 la colonne « Total (hors gendarmerie) » n'est pas remplie
+  (services communs non ventilés). Les ETPT sont des moyennes annuelles, inférieures aux effectifs au 31 décembre.
+construction: >
+  Fichier XLS du ministère des Armées (bilan social), onglet « Ensemble ». Pour chaque année, ligne de l'année
+  (première colonne = l'année, deuxième = « effectif », soit toutes catégories confondues), colonnes « Total (hors
+  gendarmerie) » × « Carrière » et « contrat ». Valeur = somme des deux, sans arrondi (les ETPT sont fractionnaires
+  depuis 2019) ; années où l'une des deux cases est vide écartées (2001).
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

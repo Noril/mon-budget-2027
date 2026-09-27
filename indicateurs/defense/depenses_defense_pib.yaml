@@ -1,0 +1,22 @@
+id: defense.depenses_defense_pib
+libelle: Dépenses publiques de défense (fonction COFOG 02)
+unite: "% du PIB"
+sens: neutre
+sources: [eurostat-gov-10a-exp-defense]
+maille: [france, pays]
+formule: indicateurs/defense/depenses_defense_pib.sql
+format: "{:.1f} % du PIB"
+limites: >
+  Classification des fonctions des administrations publiques (COFOG) en comptabilité nationale : défense
+  militaire, défense civile, aide militaire à l'étranger, R&D de défense. Les pensions des militaires (classées en
+  protection sociale) et la gendarmerie (ordre public) en sont exclues, d'où un niveau inférieur à la définition
+  de l'OTAN (voir defense.depenses_otan_pib). Ratio arrondi à 0,1 point par Eurostat ; deux dernières années
+  provisoires (drapeau p). Le niveau souhaitable relève d'un choix politique, d'où le sens neutre.
+construction: >
+  Eurostat gov_10a_exp, unit = PC_GDP, sector = S13, cofog99 = GF02, na_item = TE ; valeur OBS_VALUE telle que
+  publiée (déjà en % du PIB), lignes sans valeur écartées, lignes identiques dédoublonnées. Code pays = partie de
+  la colonne geo avant « : » (FR, DE, EU27_2020, EA20…), libellé = partie après. Maille france = ligne geo FR
+  recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

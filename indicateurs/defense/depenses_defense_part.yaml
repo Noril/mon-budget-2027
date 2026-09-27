@@ -1,0 +1,21 @@
+id: defense.depenses_defense_part
+libelle: Part de la défense dans les dépenses publiques (fonction COFOG 02)
+unite: "% des dépenses publiques"
+sens: neutre
+sources: [eurostat-gov-10a-exp-defense]
+maille: [france, pays]
+formule: indicateurs/defense/depenses_defense_part.sql
+format: "{:.1f} % des dépenses publiques"
+limites: >
+  Même périmètre que defense.depenses_defense_pib (hors pensions militaires et gendarmerie). Le dénominateur est
+  le total des dépenses des administrations publiques, lui-même très différent d'un pays à l'autre (protection
+  sociale publique ou privée) : un pays à dépense publique élevée affiche mécaniquement une part plus faible.
+  Ratio arrondi à 0,1 point par Eurostat ; deux dernières années provisoires.
+construction: >
+  Eurostat gov_10a_exp, unit = PC_TOT (pourcentage du total des dépenses des APU), sector = S13, cofog99 = GF02,
+  na_item = TE ; valeur OBS_VALUE telle que publiée, lignes sans valeur écartées, lignes identiques dédoublonnées.
+  Code pays = partie de geo avant « : », libellé = partie après. Maille france = ligne geo FR recopiée avec le
+  code FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null
