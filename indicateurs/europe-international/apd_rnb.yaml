@@ -1,0 +1,26 @@
+id: europe_international.apd_rnb
+libelle: Aide publique au développement
+unite: "% du revenu national brut"
+sens: neutre
+sources: [ocde-cad-apd-rnb]
+maille: [france, pays]
+formule: indicateurs/europe-international/apd_rnb.sql
+format: "{:.2f} % du RNB"
+limites: >
+  Mesure officielle du CAD de l'OCDE : équivalent-don depuis 2018 (les prêts ne comptent que pour leur élément
+  de libéralité), versements nets auparavant ; rupture de série en 2018. L'APD comprend des dépenses faites sur
+  le territoire du donneur (accueil des réfugiés la première année, frais d'écolage des étudiants étrangers,
+  allègements de dette), qui pèsent lourd pour la France. Dernière année = données préliminaires d'avril,
+  révisées en décembre. La cible de 0,7 % du RNB est un engagement international (et, pour la France, un objectif
+  de la loi de programmation du 4 août 2021) ; le niveau souhaitable reste un choix politique, d'où le sens neutre.
+construction: >
+  OCDE, flux DSD_DAC1@DF_DAC1, SECTOR = _Z, TYING_STATUS = _Z, UNIT_MEASURE = PT_B5G, PRICE_BASE = V. Années
+  2018 et suivantes : MEASURE = 11002 (APD en % du RNB, équivalent-don) avec FLOW_TYPE = 1160 ; années antérieures
+  à 2018 : MEASURE = 2 (APD en % du RNB, versements nets) avec FLOW_TYPE = 1140. Valeur OBS_VALUE telle que publiée
+  (arrondie à 0,01). Code pays : codes ISO alpha-3 de la colonne DONOR convertis en codes Eurostat par une table
+  explicite (FRA = FR, DEU = DE, GRC = EL, GBR = UK…), agrégats gardés tels quels (DAC = pays du CAD, DACEU =
+  membres du CAD de l'UE, DAC_EC = membres du CAD y compris l'UE, G7) ; libellé = colonne Donor (anglais). Maille
+  france = ligne FRA recopiée avec le code FR.
+comparaison_ue: maille pays, pays donneurs et agrégats DAC, DACEU (pas d'agrégat EU27_2020)
+version: 1.0.0
+relu_par: null

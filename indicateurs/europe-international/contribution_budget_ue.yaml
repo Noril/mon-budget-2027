@@ -1,0 +1,22 @@
+id: europe_international.contribution_budget_ue
+libelle: Contribution nationale au budget de l'UE (hors droits de douane)
+unite: millions d'euros
+sens: neutre
+sources: [ce-budget-ue-depenses-recettes]
+maille: [france, pays]
+formule: indicateurs/europe-international/contribution_budget_ue.sql
+format: "{:,.0f} M€"
+limites: >
+  Contributions versées au titre des ressources propres fondées sur la TVA, le RNB et, depuis 2021, les déchets
+  d'emballages plastiques non recyclés, y compris corrections (rabais britannique puis réductions forfaitaires) et
+  ajustements des exercices antérieurs, en exécution (et non le prélèvement sur recettes voté en loi de finances,
+  qui s'en écarte chaque année). Hors droits de douane (ressources propres traditionnelles), perçus pour le compte
+  de l'Union. Euros courants.
+construction: >
+  Classeur de la Commission « EU spending and revenue », un onglet par année (2000 à 2024), colonnes par code
+  pays (UK jusqu'en 2020, EL pour la Grèce). Ligne dont le libellé est « TOTAL national contribution » (jusqu'en
+  2020) ou « TOTAL National contributions » (depuis 2021), astérisques de renvoi retirés ; valeur telle que
+  publiée, en millions d'euros. Code et libellé = code pays du classeur. Maille france = colonne FR.
+comparaison_ue: maille pays, États membres (UE27 et Royaume-Uni jusqu'en 2020 ; pas d'agrégat)
+version: 1.0.0
+relu_par: null

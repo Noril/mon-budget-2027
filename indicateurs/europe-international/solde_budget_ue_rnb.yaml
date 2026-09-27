@@ -1,0 +1,22 @@
+id: europe_international.solde_budget_ue_rnb
+libelle: Solde entre dépenses de l'UE reçues et contributions nationales, rapporté au RNB
+unite: "% du revenu national brut"
+sens: neutre
+sources: [ce-budget-ue-depenses-recettes]
+maille: [france, pays]
+formule: indicateurs/europe-international/solde_budget_ue_rnb.sql
+format: "{:.2f} % du RNB"
+limites: >
+  Mêmes réserves que europe_international.solde_budget_ue (solde comptable simple et non solde budgétaire
+  opérationnel officiel ; droits de douane et NextGenerationEU exclus ; le solde ne mesure pas un bénéfice).
+  RNB de chaque État membre repris du classeur de la Commission (SEC 2010, prévisions de printemps de l'année
+  suivante), qui peut différer du RNB publié ensuite par l'INSEE ou Eurostat.
+construction: >
+  Même lecture que europe_international.solde_budget_ue pour les dépenses (« TOTAL EXPENDITURE ») et les
+  contributions (« TOTAL national contribution » ou « TOTAL National contributions »). Dénominateur : ligne dont
+  le libellé commence par « Gross National Income (GNI) » (RNB en millions d'euros), même pays et même année.
+  Valeur = 100 × (dépenses − contributions) / RNB, sans arrondi. Code et libellé = code pays du classeur. Maille
+  france = colonne FR.
+comparaison_ue: maille pays, États membres (UE27 et Royaume-Uni jusqu'en 2020 ; pas d'agrégat)
+version: 1.0.0
+relu_par: null
