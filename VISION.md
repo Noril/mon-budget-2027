@@ -8,7 +8,7 @@ La vision fixe le cap ; elle ne se déduit pas des données, elle est testée pa
 
 *En une phrase : la France de 2032, si le programme réussit.*
 
-- Ma phrase :
+- Ma phrase : **un État qui coûte moins et sert mieux, grâce à l'automatisation et à l'IA.** Les gains servent à réduire la dette et à mieux payer, et mieux traiter, ceux qui restent au contact humain : soin, école, justice. *(position du porteur, 27 sept. 2026)*
 
 ## Orientation posée : un État efficace, moderne, automatisé
 
@@ -20,8 +20,9 @@ Point de départ du porteur : l'État doit rendre le même service, ou un meille
 - **Redéployer** vers le contact humain que la machine ne remplace pas : soignants, enseignants, greffiers, policiers, travailleurs sociaux.
 - **Partager**, avec une règle fixée d'avance (une part rendue au contribuable, une part redéployée).
 
-Ma position :
-Ce que j'accepte de sacrifier :
+Ma position : **partager entre désendettement et revalorisation des métiers de contact** (soin, école, justice). La clé de partage reste à fixer à partir de comparaisons avec d'autres États. Au-delà de l'automatisation, réduire largement le poids de la fonction publique et de l'État-providence. *(27 sept. 2026)*
+Ce que j'accepte de sacrifier : *à préciser*
+Questions ouvertes : quelle clé de partage ? quelles dépenses de l'État-providence en premier ? (en attente de la décomposition de la dépense par fonction, domaine `etat`)
 
 ### 2. Jusqu'où l'État décide-t-il automatiquement ?
 
