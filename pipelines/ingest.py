@@ -8,6 +8,7 @@
 from __future__ import annotations
 
 import argparse
+import shutil
 import sys
 from datetime import datetime, timezone
 
@@ -16,6 +17,7 @@ import duckdb
 from .commun import (
     BRUT,
     NORMALISE,
+    RACINE,
     ControleEchoue,
     charger_catalogue,
     commit_courant,
@@ -25,65 +27,57 @@ from .commun import (
     sha256,
 )
 from .connecteurs import CONNECTEURS
+from .normalisations import normaliser
 
 
 def dernier_manifeste(id_source: str) -> dict | None:
-    dossiers = sorted((BRUT / id_source).glob("*/manifeste.json"))
-    return lire_json(dossiers[-1]) if dossiers else None
+    for chemin in sorted((BRUT / id_source).glob("*/manifeste.json"), reverse=True):
+        if "fichiers" in (m := lire_json(chemin)):  # ignore les manifestes d'avant le format multi-fichiers
+            return m
+    return None
 
 
 def ingerer(source: dict, force: bool = False) -> dict:
+    """Renvoie le manifeste de l'instantané brut à utiliser (nouveau ou précédent si rien n'a changé)."""
     connecteur = CONNECTEURS[source["acces"]["mode"]]
     meta = connecteur.metadonnees(source)
-
     precedent = dernier_manifeste(source["id"])
-    if precedent and not force and precedent["producteur"].get("modifie_le") == meta["modifie_le"]:
+    if precedent and not force and meta.get("modifie_le") and precedent["producteur"].get("modifie_le") == meta["modifie_le"]:
         print(f"  = {source['id']} : inchangé chez le producteur ({meta['modifie_le']})")
         return precedent
 
-    horodatage = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    dossier = BRUT / source["id"] / horodatage
-    fichier = dossier / "donnees.parquet"
-    urls = connecteur.telecharger(source, fichier)
+    dossier = BRUT / source["id"] / datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    fichiers = [
+        {"url": url, "fichier": str(f.relative_to(RACINE)), "sha256": sha256(f), "octets": f.stat().st_size}
+        for url, f in connecteur.telecharger(source, dossier)
+    ]
+    if precedent and not force and [f["sha256"] for f in fichiers] == [f["sha256"] for f in precedent["fichiers"]]:
+        shutil.rmtree(dossier)
+        print(f"  = {source['id']} : fichiers identiques à l'instantané précédent")
+        return precedent
 
-    lignes = duckdb.sql(f"SELECT count(*) FROM read_parquet('{fichier}')").fetchone()[0]
     manifeste = {
         "source": source["id"],
         "recupere_le": maintenant(),
-        "urls": urls,
         "producteur": meta,
-        "fichier": str(fichier.relative_to(BRUT.parent.parent)),
-        "sha256": sha256(fichier),
-        "octets": fichier.stat().st_size,
-        "lignes": lignes,
+        "fichiers": fichiers,
         "commit_connecteur": commit_courant(),
     }
     ecrire_json(dossier / "manifeste.json", manifeste)
-    print(f"  + {source['id']} : {lignes} lignes, sha256 {manifeste['sha256'][:12]}")
+    print(f"  + {source['id']} : {len(fichiers)} fichier(s), {sum(f['octets'] for f in fichiers) // 1024} Ko")
     return manifeste
 
 
-def controler(source: dict, manifeste: dict, precedent: dict | None) -> list[str]:
+def controler(source: dict, lignes: int, colonnes: set[str], manifeste: dict, lignes_avant: int | None) -> list[str]:
     """Renvoie les alertes non bloquantes ; lève ControleEchoue si un contrôle bloque."""
     alertes = []
-    fichier = BRUT.parent.parent / manifeste["fichier"]
     controles = source.get("controles", {})
-
-    colonnes = {c[0] for c in duckdb.sql(f"DESCRIBE SELECT * FROM read_parquet('{fichier}')").fetchall()}
-    manquantes = set(controles.get("colonnes", [])) - colonnes
-    if manquantes:
+    if manquantes := set(controles.get("colonnes", [])) - colonnes:
         raise ControleEchoue(f"{source['id']} : colonnes manquantes {sorted(manquantes)}")
-
-    if manifeste["lignes"] < controles.get("lignes_min", 0):
-        raise ControleEchoue(
-            f"{source['id']} : {manifeste['lignes']} lignes, minimum attendu {controles['lignes_min']}"
-        )
-
-    if precedent and precedent["sha256"] != manifeste["sha256"] and precedent["lignes"]:
-        ecart = abs(manifeste["lignes"] - precedent["lignes"]) / precedent["lignes"]
-        if ecart > 0.2:
-            raise ControleEchoue(f"{source['id']} : volumétrie en écart de {ecart:.0%} avec l'ingestion précédente")
-
+    if lignes < controles.get("lignes_min", 0):
+        raise ControleEchoue(f"{source['id']} : {lignes} lignes, minimum attendu {controles['lignes_min']}")
+    if lignes_avant and abs(lignes - lignes_avant) / lignes_avant > 0.2:
+        raise ControleEchoue(f"{source['id']} : {lignes} lignes contre {lignes_avant} à l'ingestion précédente (écart > 20 %)")
     modifie = manifeste["producteur"].get("modifie_le")
     if modifie and "fraicheur_max_jours" in source:
         age = (datetime.now(timezone.utc) - datetime.fromisoformat(modifie)).days
@@ -92,12 +86,25 @@ def controler(source: dict, manifeste: dict, precedent: dict | None) -> list[str
     return alertes
 
 
-def normaliser(source: dict, manifeste: dict) -> None:
-    fichier = BRUT.parent.parent / manifeste["fichier"]
-    NORMALISE.mkdir(parents=True, exist_ok=True)
+def normaliser_et_controler(source: dict, manifeste: dict) -> list[str]:
     sortie = NORMALISE / f"{source['id']}.parquet"
-    duckdb.sql(f"COPY (SELECT * FROM read_parquet('{fichier}')) TO '{sortie}' (FORMAT parquet)")
-    ecrire_json(NORMALISE / f"{source['id']}.manifeste.json", manifeste)
+    a_jour = NORMALISE / f"{source['id']}.manifeste.json"
+    avant = lire_json(a_jour) if a_jour.exists() else None
+    provisoire = sortie.with_suffix(".tmp.parquet")
+    normaliser(source, [RACINE / f["fichier"] for f in manifeste["fichiers"]], provisoire)
+
+    lignes = duckdb.sql(f"SELECT count(*) FROM read_parquet('{provisoire}')").fetchone()[0]
+    colonnes = {c[0] for c in duckdb.sql(f"DESCRIBE SELECT * FROM read_parquet('{provisoire}')").fetchall()}
+    lignes_avant = avant["lignes"] if avant and avant["recupere_le"] != manifeste["recupere_le"] else None
+    try:
+        alertes = controler(source, lignes, colonnes, manifeste, lignes_avant)
+    except ControleEchoue:
+        provisoire.unlink()
+        raise
+    provisoire.replace(sortie)
+    ecrire_json(a_jour, manifeste | {"lignes": lignes, "normalise": str(sortie.relative_to(RACINE))})
+    print(f"    {source['id']} : {lignes} lignes normalisées")
+    return alertes
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -114,13 +121,12 @@ def main(argv: list[str] | None = None) -> int:
         if source.get("statut") == "a-brancher" or source["acces"]["mode"] not in CONNECTEURS:
             print(f"  ~ {id_source} : connecteur « {source['acces']['mode']} » pas encore branché")
             continue
-        precedent = dernier_manifeste(id_source)
         try:
-            manifeste = ingerer(source, force=args.force)
-            alertes += controler(source, manifeste, precedent)
-            normaliser(source, manifeste)
+            alertes += normaliser_et_controler(source, ingerer(source, force=args.force))
         except ControleEchoue as e:
             echecs.append(str(e))
+        except Exception as e:  # une source cassée ne bloque pas les autres
+            echecs.append(f"{id_source} : {type(e).__name__} : {e}")
 
     for a in alertes:
         print(f"ALERTE {a}")

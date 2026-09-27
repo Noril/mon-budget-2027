@@ -4,6 +4,7 @@ Domaine pilote (voir `decisions/0001-domaine-pilote.md`), sous l'angle de l'acc�
 
 ## Constats
 
+- [[acces-generalistes]] — brouillon
 - [[ald-sans-medecin-traitant]] — brouillon
 
 ## Indicateurs
@@ -11,8 +12,9 @@ Domaine pilote (voir `decisions/0001-domaine-pilote.md`), sous l'angle de l'acc�
 | Indicateur | Source | Maille | Statut |
 | --- | --- | --- | --- |
 | `sante.ald_sans_mt` | ameli-ald-sans-mt | France, région, département | calculé |
-| APL aux généralistes | drees-apl | commune | source à brancher |
-| Densité de généralistes libéraux | ameli-demographie-ps | département | à définir |
+| `sante.apl_mg` | drees-apl + COG | France, région, département, commune | calculé |
+| `sante.pop_apl_mg_faible` | drees-apl + COG | France, région, département | calculé, seuil à valider |
+| Densité de généralistes libéraux | ameli-demographie-ps | département | source ingérée, indicateur à définir |
 
 ## Propositions
 

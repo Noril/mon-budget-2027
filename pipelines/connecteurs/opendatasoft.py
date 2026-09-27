@@ -1,14 +1,18 @@
 """Connecteur des portails Opendatasoft (DREES, ameli, CAF, URSSAF, OFGL, Éducation…).
 
-Télécharge l'export Parquet complet d'un jeu et renvoie les métadonnées du producteur.
+Par défaut, télécharge l'export Parquet complet du jeu. Si `acces.pieces` est renseigné,
+télécharge ces pièces jointes à la place (jeux DREES livrés en XLSX).
 """
 
 from __future__ import annotations
 
+import re
 from datetime import datetime
 from pathlib import Path
 
 import httpx
+
+from .fichier import telecharger_url
 
 DELAI = httpx.Timeout(30.0, read=600.0)
 
@@ -31,13 +35,13 @@ def metadonnees(source: dict) -> dict:
     }
 
 
-def telecharger(source: dict, destination: Path) -> list[str]:
-    """Écrit l'export Parquet dans `destination` et renvoie les URL appelées."""
-    url = f"{_base(source)}/exports/parquet"
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    with httpx.stream("GET", url, timeout=DELAI, follow_redirects=True) as reponse:
-        reponse.raise_for_status()
-        with destination.open("wb") as f:
-            for bloc in reponse.iter_bytes(1 << 20):
-                f.write(bloc)
-    return [url]
+def telecharger(source: dict, dossier: Path) -> list[tuple[str, Path]]:
+    pieces = source["acces"].get("pieces")
+    if not pieces:
+        url = f"{_base(source)}/exports/parquet"
+        return [(url, telecharger_url(url, dossier / "donnees.parquet"))]
+    return [
+        (url, telecharger_url(url, dossier / re.sub(r"_(xlsx|xls|csv|zip|7z|pdf)$", r".\1", piece)))
+        for piece in pieces
+        for url in [f"{_base(source)}/attachments/{piece}"]
+    ]

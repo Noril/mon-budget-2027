@@ -49,14 +49,23 @@
     mode: opendatasoft
     portail: https://data.drees.solidarites-sante.gouv.fr
     jeu: 530_l-accessibilite-potentielle-localisee-apl
+    pieces: [indicateur_d_apl_aux_medecins_generalistes_xlsx]
     format: xlsx en pièces jointes (pas d'enregistrements)
     auth: aucune
   licence: Licence Ouverte 2.0
   maille: [commune]
   millesime: annuel
+  fraicheur_max_jours: 540
   domaines: [sante]
-  statut: a-brancher
-  notes: Connecteur « pièces jointes » à écrire ; la méthode change entre versions (V0, V1, V2).
+  normalisation: drees_apl
+  controles:
+    lignes_min: 100000
+    colonnes: [annee, code_commune, apl, pop_standardisee, pop_totale]
+  statut: actif
+  notes: >
+    Généralistes seulement pour l'instant (infirmiers, kinés, dentistes, sages-femmes : ajouter les pièces).
+    Un onglet par millésime ; la méthode change entre versions (V0, V1, V2) : ne comparer que des millésimes
+    d'une même version. Mayotte hors champ.
 
 - id: finess-etablissements
   titre: FINESS, extraction du fichier des établissements
@@ -71,33 +80,76 @@
   domaines: [sante]
   statut: a-brancher
 
-- id: insee-cog
-  titre: Code officiel géographique
+- id: insee-cog-communes
+  titre: Code officiel géographique 2026, communes
   producteur: INSEE
-  doc: https://www.insee.fr/fr/information/2560452
+  doc: https://www.insee.fr/fr/information/8740222
   acces:
     mode: fichier
-    format: zip de csv
+    urls: [https://www.insee.fr/fr/statistiques/fichier/8740222/v_commune_2026.csv]
     auth: aucune
   licence: Licence Ouverte 2.0
-  maille: [commune, departement, region]
+  maille: [commune]
+  millesime: annuel (situation au 1er janvier)
+  domaines: [transverse]
+  controles:
+    lignes_min: 34000
+    colonnes: [TYPECOM, COM, REG, DEP, LIBELLE, COMPARENT]
+  statut: actif
+  notes: Lignes TYPECOM = COMD (déléguées), COMA (associées), ARM (arrondissements) rattachées via COMPARENT.
+
+- id: insee-cog-departements
+  titre: Code officiel géographique 2026, départements
+  producteur: INSEE
+  doc: https://www.insee.fr/fr/information/8740222
+  acces:
+    mode: fichier
+    urls: [https://www.insee.fr/fr/statistiques/fichier/8740222/v_departement_2026.csv]
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [departement]
   millesime: annuel
   domaines: [transverse]
-  statut: a-brancher
+  controles:
+    lignes_min: 100
+    colonnes: [DEP, REG, LIBELLE]
+  statut: actif
+
+- id: insee-cog-regions
+  titre: Code officiel géographique 2026, régions
+  producteur: INSEE
+  doc: https://www.insee.fr/fr/information/8740222
+  acces:
+    mode: fichier
+    urls: [https://www.insee.fr/fr/statistiques/fichier/8740222/v_region_2026.csv]
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [region]
+  millesime: annuel
+  domaines: [transverse]
+  controles:
+    lignes_min: 18
+    colonnes: [REG, LIBELLE]
+  statut: actif
 
 - id: insee-populations-reference
-  titre: Populations de référence
+  titre: Populations de référence 2023
   producteur: INSEE
   doc: https://www.insee.fr/fr/statistiques/8681011
   acces:
-    mode: api-rest
-    url: https://api.insee.fr/melodi/
+    mode: fichier
+    urls: [https://api.insee.fr/melodi/file/DS_POPULATIONS_REFERENCE/DS_POPULATIONS_REFERENCE_2023_CSV_FR]
+    motif: "*_data.csv"
     auth: aucune
   licence: Licence Ouverte 2.0
   maille: [commune, departement, region, france]
-  millesime: annuel
+  millesime: annuel (population au 1er janvier 2023, limites au 1er janvier 2025)
   domaines: [transverse]
-  statut: a-brancher
+  controles:
+    lignes_min: 100000
+    colonnes: [GEO, GEO_OBJECT, POPREF_MEASURE, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: Format long Melodi ; POPREF_MEASURE = PMUN (municipale), PCAP (comptée à part), PTOT.
 
 - id: eurostat-hlth-rs-prs2
   titre: Personnel de santé pour 100 000 habitants
