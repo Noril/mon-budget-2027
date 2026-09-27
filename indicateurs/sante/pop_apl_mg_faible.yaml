@@ -10,6 +10,10 @@ limites: >
   Le seuil de 2,5 consultations par an et par habitant est une convention à faire valider par le comité
   scientifique. Compté sur la population totale (non standardisée), comme le prescrit la DREES pour les seuils.
   Mayotte hors champ.
+construction: >
+  Mêmes lignes et même rattachement géographique que sante.apl_mg. Valeur = 100 × population totale
+  (pop_totale) des communes où apl < 2,5 (strictement) / population totale, arrondie à 2 décimales ; 0 si
+  aucune commune sous le seuil. Pas de maille commune. Maille France : toutes les lignes.
 comparaison_ue: null
-version: 1.0.0
+version: 1.1.0
 relu_par: null

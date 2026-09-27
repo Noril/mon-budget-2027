@@ -10,6 +10,13 @@ limites: >
   Mesure une offre potentielle (activité des médecins, distance, besoins selon l'âge), pas les délais ni le fait
   d'avoir un médecin traitant. Au-dessus de la commune, moyenne pondérée par la population standardisée, comme le
   prescrit la DREES. Mayotte hors champ. Les millésimes ne sont comparables qu'au sein d'une même version de méthode.
+construction: >
+  Source drees-apl, colonne apl (3 décimales), un onglet par millésime ; maille commune = ligne telle quelle
+  (Paris, Lyon, Marseille par arrondissement). Rattachement au département et à la région par le COG 2026 :
+  TYPECOM COM ou ARM porte DEP et REG ; COMD et COMA les héritent de leur COMPARENT ; un code présent en COM et
+  en COMD prend la ligne COM. Toutes les lignes d'un millésime sont gardées, y compris une commune nouvelle et
+  une ancienne commune qu'elle a absorbée depuis. Agrégats : moyenne pondérée par pop_standardisee, arrondie à
+  3 décimales. Maille France : toutes les lignes, y compris les codes introuvables dans le COG.
 comparaison_ue: null
-version: 1.0.0
+version: 1.1.0
 relu_par: null
