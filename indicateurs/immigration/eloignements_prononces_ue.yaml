@@ -1,0 +1,19 @@
+id: immigration.eloignements_prononces_ue
+libelle: "Obligations de quitter le territoire prononcées pour 100 000 habitants"
+unite: décisions pour 100 000 habitants
+sens: neutre
+sources: [eurostat-migr-eiord, eurostat-demo-gind]
+maille: [france, pays]
+formule: indicateurs/immigration/eloignements_prononces_ue.sql
+format: "{:.1f} pour 100 000 habitants"
+limites: >
+  Ressortissants de pays tiers ayant fait l'objet d'une décision administrative ou judiciaire d'éloignement dans l'année (en France, surtout des OQTF). Pratiques nationales très différentes : certains pays prononcent une décision à chaque interpellation, d'autres non ; la France en prononce beaucoup.
+construction: >
+  Numérateur : Eurostat migr_eiord, citizen = TOTAL, age = TOTAL, sex = T, unit = PER, valeur OBS_VALUE en
+  personnes. Dénominateur : Eurostat demo_gind, indic_de = JAN (population au 1er janvier), même code pays et
+  même année (TIME_PERIOD). Valeur = 100 000 × numérateur / dénominateur, arrondie à 0,1. Code pays = partie
+  de geo avant « : » (FR, DE, EU27_2020…), y compris les agrégats publiés par Eurostat (EU27_2020 : numérateur et
+  population de l'agrégat Eurostat). Pays sans population dans demo_gind exclus. Maille france = ligne FR recopiée.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

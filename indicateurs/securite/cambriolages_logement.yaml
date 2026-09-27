@@ -1,0 +1,24 @@
+id: securite.cambriolages_logement
+libelle: "Cambriolages de logement enregistrés"
+unite: "infractions pour 1 000 logements"
+sens: plus_bas_mieux
+sources: [ssmsi-delinquance-departementale, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/securite/cambriolages_logement.sql
+format: "{:.2f} ‰"
+limites: >
+  Délinquance enregistrée par la police et la gendarmerie (plaintes et procédures), pas victimation : le niveau
+  dépend du dépôt de plainte et de l'activité des services. Cambriolages et tentatives visant des résidences principales et secondaires. Rapportés au nombre de logements (convention du SSMSI), pas aux habitants. Mayotte : population du recensement 2017.
+  Série depuis 2016 ; comparaisons européennes non retenues (Eurostat crim_off_cat : définitions et pratiques
+  d'enregistrement nationales non comparables, pas d'agrégat UE).
+construction: >
+  Source ssmsi-delinquance-departementale (format long, une ligne par département, année et indicateur).
+  Lignes retenues : colonne indicateur = « Cambriolages de logement ». Numérateur : somme de la colonne nombre
+  sur ces lignes, par Code_departement et annee. Dénominateur : colonne insee_log (logements du département,
+  identique sur toutes les lignes d'un département-année). Valeur = 1000 × numérateur / dénominateur, arrondie à
+  2 décimales ; la colonne taux_pour_mille de la source n'est pas utilisée. Maille département : les 101 codes,
+  libellé du COG 2026 (insee-cog-departements, jointure Code_departement = DEP). Maille France (code FR) : somme
+  des numérateurs des 101 départements / somme de leurs dénominateurs, même année, arrondie à 2 décimales.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

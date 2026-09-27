@@ -1,0 +1,19 @@
+id: justice.places_operationnelles
+libelle: Places opérationnelles en établissement pénitentiaire
+unite: places, au 1er du mois
+sens: neutre
+sources: [justice-ecroues-mensuel]
+maille: [france]
+formule: indicateurs/justice/places_operationnelles.sql
+format: "{:,.0f} places"
+limites: >
+  Places effectivement disponibles, plus faibles que la capacité théorique « norme circulaire ». Seuls les mois
+  dont le classeur a été retrouvé sont couverts (depuis juillet 2024, avec des trous en 2024).
+construction: >
+  Source justice-ecroues-mensuel, onglet Tab6 (« Effectifs des personnes écrouées détenues et densité carcérale »),
+  ligne « Total France entière », colonne « Capacité opérationnelle » (normalisée : tableau = Tab6, mesure =
+  capacite_operationnelle). Date = date du classeur (1er du mois, dernière date de son onglet Tab2).
+  Période = AAAA-MM. Valeur en nombre, sans arrondi.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

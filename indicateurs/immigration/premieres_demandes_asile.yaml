@@ -1,0 +1,21 @@
+id: immigration.premieres_demandes_asile
+libelle: Premières demandes d'asile introduites à l'OFPRA
+unite: demandes
+sens: neutre
+sources: [ofpra-demandes-departement, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/immigration/premieres_demandes_asile.sql
+format: "{:,.0f} premières demandes"
+limites: >
+  Premières demandes seulement (hors réexamens et réouvertures), mineurs accompagnants compris. Département de
+  domiciliation du demandeur, qui reflète surtout l'implantation des guichets et de l'hébergement. Diffère du
+  compte Eurostat des primo-demandeurs (date d'enregistrement en préfecture, champ des mineurs).
+construction: >
+  Source ofpra-demandes-departement (un CSV par année ; année = annee_fichier, lue dans le nom du fichier),
+  colonne premiere_demande. Maille France (code FR) : ligne niveau = Total. Maille département : lignes
+  niveau = Département, code_departement joint au COG 2026 (insee-cog-departements, DEP) ; les codes N/D (non
+  déterminé) et 9715 (Saint-Martin), absents du COG départemental, sont exclus de cette maille mais comptés dans
+  le total France. Valeur en nombre, sans arrondi.
+comparaison_ue: voir immigration.primo_demandeurs_asile_ue
+version: 1.0.0
+relu_par: null

@@ -1,0 +1,73 @@
+# Catalogue des sources : Justice. Validé par schemas/source.schema.json.
+
+- id: justice-ecroues-mensuel
+  titre: Statistique mensuelle des établissements et des personnes écrouées en France
+  producteur: Ministère de la Justice (DGAP-SSER)
+  doc: https://www.justice.gouv.fr/documentation/etudes-et-statistiques/statistiques-mensuelles-population-detenue-ecrouee-11
+  acces:
+    mode: fichier
+    urls:
+      - https://www.justice.gouv.fr/sites/default/files/2024-07/statistique_etablissements_personnes_ecrouees_01072024.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2024-09/statistique_etablissements_personnes_ecrouees_01092024.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2024-11/statistique_etablissements_personnes_ecrouees_01112024.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2024-12/statistique_etablissements_personnes_ecrouees_01122024.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2025-01/statistique_etablissements_personnes_ecrouees_01012025.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2025-02/statistique_etablissements_personnes_ecrouees_01022025.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2025-03/statistique_etablissements_personnes_ecrouees_01032025.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2025-04/statistique_etablissements_personnes_ecrouees_01042025.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2025-05/Statistique_des_etablissements_2025-05-01.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2025-06/statistique_etablissements_personnes_ecrouees_01062025.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2025-07/statistique_etablissements_personnes_ecrouees_01072025.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2025-08/statistique_etablissements_personnes_ecrouees_01082025.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2025-09/statistique_etablissements_personnes_ecrouees_01092025.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2025-10/statistique_etablissements_personnes_ecrouees_01102025.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2025-11/statistique_etablissements_personnes_ecrouees_01112025.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2025-12/statistique_etablissements_personnes_ecrouees_01122025.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2026-01/statistique_etablissements_personnes_ecrouees_01012026.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2026-03/statistique_etablissements_personnes_ecrouees_01022026.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2026-03/statistique_etablissements_personnes_ecrouees_01032026.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2026-04/statistique_etablissements_personnes_ecrouees_01042026.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2026-05/statistique_etablissements_personnes_ecrouees_01052026.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2026-06/statistique_etablissements_personnes_ecrouees_01062026.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2026-07/statistique_etablissements_personnes_ecrouees_01072026.xlsx
+      - https://www.justice.gouv.fr/sites/default/files/2026-08/statistique_etablissements_personnes_ecrouees_01082026.xlsx
+    format: un classeur XLSX par mois (situation au 1er du mois), une quarantaine d'onglets
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [france]
+  millesime: mensuel (situation au 1er du mois, publiée vers la fin du mois)
+  domaines: [justice]
+  normalisation: justice_ecroues
+  controles:
+    lignes_min: 1500
+    colonnes: [date_fichier, tableau, date, niveau, mesure, valeur]
+  statut: actif
+  notes: >
+    Pas de lien stable ni d'API : chaque mois ajoute une URL (chemin sites/default/files/<mois de mise en ligne>/),
+    à reprendre sur la page annuelle de justice.gouv.fr (« -11 » pour 2026, « -9 » pour 2025). Les fichiers de 2024
+    n'ont plus de page : seuls juillet, septembre, novembre et décembre ont été retrouvés à l'URL attendue. Le serveur
+    refuse HEAD (400). Le jeu data.gouv.fr « Statistique mensuelle de la population écrouée » est arrêté en mars 2019.
+    Seuls les onglets Tab2 (25 mois de détenus) et Tab6 (capacités et détenus du mois) sont normalisés.
+
+- id: eurostat-crim-pris-cap
+  titre: Capacité des prisons et nombre de personnes détenues
+  producteur: Eurostat (d'après l'enquête UNODC-Eurostat)
+  doc: https://ec.europa.eu/eurostat/databrowser/view/crim_pris_cap/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/crim_pris_cap
+    cle: A.PRIS_ACT_CAP+PRIS_OFF_CAP.NR.
+    parametres: {format: SDMX-CSV, startPeriod: "2008", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (situation au 31 décembre, ou date de référence nationale)
+  domaines: [justice]
+  controles:
+    lignes_min: 400
+    colonnes: [indic_cr, unit, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    PRIS_ACT_CAP = personnes détenues, PRIS_OFF_CAP = capacité officielle, en nombre. Pas d'agrégat UE publié.
+    La capacité officielle française retenue par Eurostat n'est pas la capacité opérationnelle du ministère.
