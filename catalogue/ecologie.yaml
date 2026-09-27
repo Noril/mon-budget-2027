@@ -1,0 +1,148 @@
+# Catalogue des sources : Écologie (climat, énergie, sols, transports). Validé par schemas/source.schema.json.
+
+- id: cerema-conso-enaf
+  titre: Consommation d'espaces naturels, agricoles et forestiers par commune, 1er janvier 2011 - 1er janvier 2025
+  producteur: Cerema (fichiers fonciers, portail national de l'artificialisation)
+  doc: https://www.data.gouv.fr/datasets/consommation-despaces-naturels-agricoles-et-forestiers-du-1er-janvier-2011-au-1er-janvier-2025
+  acces:
+    mode: fichier
+    urls: [https://static.data.gouv.fr/resources/consommation-despaces-naturels-agricoles-et-forestiers-du-1er-janvier-2011-au-1er-janvier-2025/20260724-142909/conso-com.csv]
+    format: CSV (séparateur ,), une ligne par commune (COG 2025), surfaces en m²
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [commune]
+  millesime: annuel (millésime 2011-2025 publié en juillet 2026)
+  domaines: [ecologie]
+  controles:
+    lignes_min: 34000
+    colonnes: [idcom, iddep, naf11art12, naf23art24, naf24art25, surfcom2025]
+  statut: actif
+  notes: >
+    Colonnes nafAAartBB : surface (m²) passée d'espace naturel, agricole ou forestier à artificialisé entre le
+    1er janvier 20AA et le 1er janvier 20BB ; artAAhabBB, actBB… la ventilent par destination (habitat, activité,
+    mixte, routes, fer, inconnue). Dictionnaire : https://doc-datafoncier.cerema.fr/doc/conso-enaf/. Chaque millésime
+    est publié comme un nouveau jeu de données : changer l'URL à chaque mise à jour.
+
+- id: eurostat-env-air-gge
+  titre: Émissions de gaz à effet de serre par secteur source (inventaires CCNUCC)
+  producteur: Eurostat (d'après l'Agence européenne pour l'environnement)
+  doc: https://ec.europa.eu/eurostat/databrowser/view/env_air_gge/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/env_air_gge
+    cle: A.MIO_T.GHG.TOTX4_MEMO.
+    parametres: {format: SDMX-CSV, startPeriod: "1990", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (inventaires soumis en avril, publiés en juin ; année N-2)
+  domaines: [ecologie]
+  controles:
+    lignes_min: 1000
+    colonnes: [unit, airpol, src_crf, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Clé : millions de tonnes équivalent CO2, ensemble des gaz à effet de serre (GHG), total hors UTCATF et hors
+    postes pour mémoire (TOTX4_MEMO : sans l'aviation et le transport maritime internationaux) ; tous pays et EU27_2020.
+
+- id: eurostat-demo-gind
+  titre: Population moyenne annuelle (indicateurs démographiques)
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/demo_gind/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/demo_gind
+    cle: A.AVG.
+    parametres: {format: SDMX-CSV, startPeriod: "1990", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel
+  domaines: [ecologie, transverse]
+  controles:
+    lignes_min: 1500
+    colonnes: [indic_de, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: Population moyenne de l'année (AVG), dénominateur des ratios par habitant des comparaisons européennes.
+
+- id: eurostat-nrg-ind-ren
+  titre: Part de l'énergie renouvelable dans la consommation finale brute d'énergie (directive 2018/2001)
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/nrg_ind_ren/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_ind_ren
+    cle: A.REN.PC.
+    parametres: {format: SDMX-CSV, startPeriod: "2004", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (SHARES, publié en début d'année N+2 ; estimation provisoire de N-1 marquée « p »)
+  domaines: [ecologie]
+  controles:
+    lignes_min: 600
+    colonnes: [nrg_bal, unit, geo, TIME_PERIOD, OBS_VALUE, OBS_FLAG]
+  statut: actif
+  notes: REN = part globale ; les parts sectorielles (REN_ELC, REN_HEAT_CL, REN_TRA) sont dans le même jeu.
+
+- id: eurostat-tran-sf-roadus
+  titre: Personnes tuées dans les accidents de la route
+  producteur: Eurostat (base CARE de la Commission)
+  doc: https://ec.europa.eu/eurostat/databrowser/view/tran_sf_roadus/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/tran_sf_roadus
+    cle: A.T.TOTAL.NR+P_MHAB.TOTAL.
+    parametres: {format: SDMX-CSV, startPeriod: "2000", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel
+  domaines: [ecologie]
+  controles:
+    lignes_min: 1000
+    colonnes: [sex, age, unit, pers_cat, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Tous sexes, tous âges, toutes catégories d'usagers ; en nombre (NR) et par million d'habitants (P_MHAB).
+    Anomalie constatée le 27 septembre 2026 : P_MHAB vaut 15 pour EU27_2020 alors que NR (19 933 tués en 2024)
+    rapporté à la population donne environ 44 ; les indicateurs recalculent donc le ratio à partir de NR.
+
+- id: onisr-baac
+  titre: Bases annuelles des accidents corporels de la circulation routière (BAAC), caractéristiques et usagers 2019-2024
+  producteur: ONISR (ministère de l'Intérieur)
+  doc: https://www.data.gouv.fr/datasets/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2024
+  acces:
+    mode: fichier
+    urls:
+      - https://static.data.gouv.fr/resources/base-de-donnees-accidents-corporels-de-la-circulation/20201105-104400/caracteristiques-2019.csv
+      - https://static.data.gouv.fr/resources/base-de-donnees-accidents-corporels-de-la-circulation/20201105-104232/usagers-2019.csv
+      - https://static.data.gouv.fr/resources/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2019/20211110-111202/caracteristiques-2020.csv
+      - https://static.data.gouv.fr/resources/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2019/20211110-111817/usagers-2020.csv
+      - https://static.data.gouv.fr/resources/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2020/20221024-113743/carcteristiques-2021.csv
+      - https://static.data.gouv.fr/resources/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2022/20231009-140337/usagers-2021.csv
+      - https://static.data.gouv.fr/resources/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2021/20231005-093927/carcteristiques-2022.csv
+      - https://static.data.gouv.fr/resources/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2021/20231005-094229/usagers-2022.csv
+      - https://static.data.gouv.fr/resources/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2023/20241028-103125/caract-2023.csv
+      - https://static.data.gouv.fr/resources/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2023/20241023-153328/usagers-2023.csv
+      - https://static.data.gouv.fr/resources/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2024/20251021-115900/caract-2024.csv
+      - https://static.data.gouv.fr/resources/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2024/20251021-115506/usagers-2024.csv
+    format: CSV (séparateur ;), deux fichiers par année (caractéristiques, usagers), ≈ 20 Mo par année
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [departement]
+  millesime: annuel (année N publiée en octobre N+1)
+  domaines: [ecologie]
+  normalisation: onisr_baac
+  controles:
+    lignes_min: 600
+    colonnes: [annee, dep, tues, usagers]
+  statut: actif
+  notes: >
+    Format homogène depuis 2019 (recodage des variables en 2019) : années antérieures non branchées. grav = 2 : tué
+    (décès dans les 30 jours). dep couvre la France entière, collectivités d'outre-mer comprises (975, 977, 978, 986,
+    987, 988). Ajouter les deux URL de l'année N à chaque publication.

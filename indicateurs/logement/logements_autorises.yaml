@@ -1,0 +1,26 @@
+id: logement.logements_autorises
+libelle: Logements autorisés pour 1 000 habitants
+unite: logements autorisés par an pour 1 000 habitants
+sens: neutre
+sources: [sdes-sitadel-departements, insee-estimations-population, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/logement/logements_autorises.sql
+format: "{:.2f} logements pour 1 000 habitants"
+limites: >
+  Mesure l'intention de construire (permis délivrés), pas les logements livrés : une part des autorisations est
+  annulée ou jamais mise en chantier. Données estimées en date réelle, révisées pendant plusieurs mois : la dernière
+  année complète peut encore bouger. Mayotte absente de Sitadel ; population au 1er janvier (provisoire pour les
+  trois dernières années), non la population moyenne de l'année. Un nombre élevé peut traduire aussi bien une
+  réponse à la demande qu'un étalement urbain : lire avec la consommation d'espaces (ecologie.conso_enaf).
+construction: >
+  Source sdes-sitadel-departements (fichier DiDo d264957b…, dernier millésime diffusé), lignes TYPE_LGT = « Tous Logements »,
+  colonne LOG_AUT (nombre de logements autorisés dans le mois), sommée sur les douze mois de l'année civile ; seules
+  les années dont les douze mois (colonne MOIS) figurent dans le fichier sont retenues. Dénominateur : source
+  insee-estimations-population, GEO_OBJECT = DEP, EP_MEASURE = POP_JAN_1ST, AGE = _T, SEX = _T, TIME_PERIOD = année,
+  OBS_VALUE (population au 1er janvier de l'année). Valeur = 1000 × logements / population, arrondie à 0,01.
+  Département : DEPARTEMENT_CODE rattaché au libellé du COG (insee-cog-departements, colonne DEP) ; 100 départements
+  (Mayotte absente de la source). France (code FR) : somme des logements des départements retenus divisée par la
+  somme de leurs populations.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null
