@@ -35,10 +35,13 @@ jobs:
       - run: uv run python -m outils.construire
       - name: Trajectoire de référence
         run: uv run python -m plan.trajectoire
+      - name: Tableau de bord global
+        run: uv run python -m outils.tableau_de_bord
       - uses: actions/upload-artifact@v4
         with:
           name: site-et-lignage
           path: |
             build/site
+            build/tableau-de-bord.md
             data/indicateurs/*.lignage.json
             data/brut/**/manifeste.json
