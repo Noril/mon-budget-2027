@@ -1,0 +1,116 @@
+# Catalogue des sources : Retraites. Validé par schemas/source.schema.json.
+
+- id: cnav-pension-moyenne
+  titre: Montant mensuel moyen de la retraite au 31 décembre par type de droit (régime général)
+  producteur: Caisse nationale d'assurance vieillesse (CNAV)
+  doc: https://data.assuranceretraite.fr/explore/dataset/montant-global-de-la-retraite-au-31-decembre-par-type-de-droit/
+  acces:
+    mode: opendatasoft
+    portail: https://data.assuranceretraite.fr
+    jeu: montant-global-de-la-retraite-au-31-decembre-par-type-de-droit
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [france]
+  millesime: annuel (situation au 31 décembre, publiée en mars N+1)
+  fraicheur_max_jours: 450
+  domaines: [retraites]
+  controles:
+    lignes_min: 100
+    colonnes: [annees_normees, categorie, montant_mensuel_moyen_de_la_retraite_globale_en_euros]
+  statut: actif
+  notes: >
+    Retraite de base du régime général seule (montant brut, minimum contributif et compléments compris, hors
+    complémentaires Agirc-Arrco et autres régimes). categorie = « Droit propre » (droit direct, servi seul ou avec
+    une réversion) ou « Droit dérivé » (réversion seule). Ruptures de série en 2006 (seconds droits) et 2020
+    (intégration des travailleurs indépendants), signalées par des astérisques dans la colonne annees.
+
+- id: cnav-age-attribution
+  titre: Âge moyen à l'attribution de la retraite (régime général)
+  producteur: Caisse nationale d'assurance vieillesse (CNAV)
+  doc: https://data.assuranceretraite.fr/explore/dataset/age-moyen-a-lattribution/
+  acces:
+    mode: opendatasoft
+    portail: https://data.assuranceretraite.fr
+    jeu: age-moyen-a-lattribution
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [france]
+  millesime: annuel (retraites attribuées dans l'année, publié en mars N+1)
+  fraicheur_max_jours: 450
+  domaines: [retraites]
+  controles:
+    lignes_min: 60
+    colonnes: [annee, droits_directs, droits_derives_1, total]
+  statut: actif
+  notes: >
+    Nouveaux retraités du régime général dans l'année. Ruptures de série en 1994 (DOM), 2006 (seconds droits) et
+    2020 (travailleurs indépendants).
+
+- id: eurostat-ilc-pnp3
+  titre: Taux de remplacement agrégé (EU-SILC)
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/ilc_pnp3/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/ilc_pnp3
+    cle: A.T.PC.
+    parametres: {format: SDMX-CSV, lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (année d'enquête N, revenus N-1)
+  domaines: [retraites]
+  controles:
+    lignes_min: 450
+    colonnes: [sex, unit, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Ratio de la pension individuelle brute médiane des 65-74 ans au revenu brut individuel d'activité médian des
+    50-59 ans (hors autres prestations sociales). Publié en ratio (0,61) malgré l'unité PC.
+
+- id: eurostat-ilc-pnp2
+  titre: Revenu médian relatif des 65 ans ou plus (EU-SILC)
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/ilc_pnp2/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/ilc_pnp2
+    cle: A.R_MED_I.Y_GE65.T.
+    parametres: {format: SDMX-CSV, lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (année d'enquête N, revenus N-1)
+  domaines: [retraites]
+  controles:
+    lignes_min: 650
+    colonnes: [statinfo, age, sex, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Revenu disponible équivalent médian des 65 ans ou plus rapporté à celui des moins de 65 ans (ratio).
+
+- id: eurostat-spr-exp-func
+  titre: Prestations de protection sociale par fonction (SESPROS)
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/spr_exp_func/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/spr_exp_func
+    cle: A.SPR.OLD_SRV.PC_GDP.
+    parametres: {format: SDMX-CSV, lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel
+  domaines: [retraites]
+  controles:
+    lignes_min: 800
+    colonnes: [spdeps, spfunc, unit, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Clé : annuel, prestations (SPR) des fonctions vieillesse et survie réunies (OLD_SRV), en % du PIB : pensions de
+    retraite et de réversion pour l'essentiel, mais aussi aide à l'autonomie des personnes âgées et minimum vieillesse.
+    OBS_FLAG = p : provisoire.

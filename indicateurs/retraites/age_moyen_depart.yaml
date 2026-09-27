@@ -1,0 +1,18 @@
+id: retraites.age_moyen_depart
+libelle: Âge moyen de départ à la retraite (attribution d'un droit direct au régime général)
+unite: ans
+sens: neutre
+sources: [cnav-age-attribution]
+maille: [france]
+formule: indicateurs/retraites/age_moyen_depart.sql
+format: "{:.1f} ans"
+limites: >
+  Nouveaux retraités de droit direct du régime général dans l'année, y compris les départs anticipés (carrières
+  longues, handicap, inaptitude). Ne couvre pas les fonctionnaires ni les régimes spéciaux, dont l'âge de départ est
+  différent. Ruptures de série en 1994 (DOM), 2006 (seconds droits) et 2020 (travailleurs indépendants).
+construction: >
+  Source cnav-age-attribution (data.assuranceretraite.fr), colonne droits_directs (âge moyen en années décimales),
+  sans arrondi ; lignes à valeur vide exclues. Période = année de la colonne annee. Maille france seule, code FR.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null
