@@ -1,0 +1,22 @@
+id: etat.depense_sante
+libelle: "Dépenses publiques, fonction GF07 : Santé"
+unite: "% du PIB"
+sens: neutre
+sources: [eurostat-gov-10a-exp]
+maille: [france, pays]
+formule: indicateurs/etat/depense_sante.sql
+format: "{:.1f} % du PIB"
+limites: >
+  Classification des fonctions des administrations publiques (COFOG), fonction GF07 « Santé » : dépenses totales
+  (fonctionnement, prestations, subventions, investissement, intérêts) de l'ensemble des administrations publiques
+  (État, organismes divers, collectivités locales, sécurité sociale), consolidées entre elles. Soins hospitaliers et ambulatoires, médicaments et appareils remboursés, santé publique. Les indemnités journalières maladie sont en protection sociale (GF10). La part des complémentaires privées n'y figure pas, ce qui pèse sur les comparaisons entre pays selon l'organisation de l'assurance maladie. Ratio arrondi à
+  0,1 point par Eurostat : l'écart France − UE se lit à 0,1 point près. Dernière année provisoire.
+construction: >
+  Eurostat gov_10a_exp, lignes unit = PC_GDP, sector = S13, cofog99 = GF07, na_item = TE (codes = partie des
+  colonnes avant « : »). Valeur = OBS_VALUE telle que publiée (% du PIB, une décimale), lignes vides exclues, lignes
+  identiques dédoublonnées ; valeurs provisoires (OBS_FLAG = p) gardées. Période = TIME_PERIOD. Maille pays : code =
+  partie de geo avant « : » (FR, DE, EU27_2020…), libellé = partie après. Maille france = ligne geo FR recopiée avec
+  le code FR et le libellé « France ».
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

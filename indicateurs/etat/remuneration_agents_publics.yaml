@@ -1,0 +1,23 @@
+id: etat.remuneration_agents_publics
+libelle: Rémunération des agents des administrations publiques
+unite: "% du PIB"
+sens: neutre
+sources: [eurostat-gov-10a-exp]
+maille: [france, pays]
+formule: indicateurs/etat/remuneration_agents_publics.sql
+format: "{:.1f} % du PIB"
+limites: >
+  Rémunération des salariés (D1) de l'ensemble des administrations publiques (État, collectivités, hôpitaux publics,
+  sécurité sociale) : salaires bruts et cotisations sociales employeurs, y compris les cotisations imputées qui
+  financent les pensions des fonctionnaires. Dépend du nombre d'agents comme de leur niveau de rémunération, et du
+  choix de chaque pays de produire un service en régie ou de l'acheter au privé (cliniques, écoles privées sous
+  contrat, sous-traitance) : un pays qui externalise affiche moins de rémunération et plus de consommations
+  intermédiaires ou de transferts. Ratio arrondi à 0,1 point par Eurostat.
+construction: >
+  Eurostat gov_10a_exp, lignes unit = PC_GDP, sector = S13, cofog99 = TOTAL, na_item = D1 (codes = partie des colonnes
+  avant « : »). Valeur = OBS_VALUE telle que publiée (% du PIB, une décimale), lignes vides exclues, lignes identiques
+  dédoublonnées ; valeurs provisoires gardées. Période = TIME_PERIOD. Maille pays : code = partie de geo avant « : »,
+  libellé = partie après. Maille france = ligne geo FR recopiée avec le code FR et le libellé « France ».
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

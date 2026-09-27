@@ -1,0 +1,25 @@
+id: etat.indice_gouvernement_numerique
+libelle: Indice de gouvernement numérique de l'OCDE (DGI)
+unite: indice de 0 à 1
+sens: plus_haut_mieux
+sources: [ocde-gouvernement-numerique]
+maille: [france, pays]
+formule: indicateurs/etat/indice_gouvernement_numerique.sql
+format: "{:.3f}"
+limites: >
+  Indice composite de maturité de l'administration numérique (stratégie, pilotage par les données, État plateforme,
+  ouverture, services centrés sur l'usager, proactivité), construit à partir d'un questionnaire rempli par les
+  administrations centrales elles-mêmes : il mesure les dispositifs en place (stratégies, outils partagés, règles),
+  pas la satisfaction des usagers ni le taux de démarches réellement dématérialisées. Deux éditions comparables
+  (2022, 2025) ; pays couverts variables (Allemagne absente en 2025). Pas d'agrégat UE publié : l'agrégat « UE_OCDE »
+  est la moyenne simple des États membres présents, comme la moyenne OCDE.
+construction: >
+  Source ocde-gouvernement-numerique (OCDE, DF_GOV_DGOGD_2025), lignes MEASURE = DG, UNIT_MEASURE = IX. Valeur =
+  OBS_VALUE telle que publiée (trois décimales), vide ou NaN exclu. Période = TIME_PERIOD (2022, 2025). Maille pays :
+  code ISO 3166 alpha-2 à la convention Eurostat (FRA -> FR, GRC -> EL, GBR -> UK…) et libellé français, table de
+  correspondance dans le SQL (pays absents de la table écartés) ; OECD_REP -> code OCDE. Agrégat UE_OCDE : moyenne arithmétique, arrondie à
+  3 décimales, des États membres de l'UE présents l'année considérée, libellé indiquant leur nombre. Maille france =
+  ligne FR recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat UE_OCDE (moyenne simple des États membres couverts) et moyenne OCDE
+version: 1.0.0
+relu_par: null
