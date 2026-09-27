@@ -1,0 +1,9 @@
+# Données brutes et calculées : hors git, rejouables depuis le catalogue
+data/
+build/
+
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store

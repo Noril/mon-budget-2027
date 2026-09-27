@@ -1,0 +1,14 @@
+id: sante.ald_sans_mt
+libelle: Part des patients en affection de longue durée sans médecin traitant
+unite: "% des patients en ALD"
+sens: plus_bas_mieux
+sources: [ameli-ald-sans-mt]
+maille: [france, region, departement]
+formule: indicateurs/sante/ald_sans_mt.sql
+format: "{:.1f} %"
+limites: >
+  Ne couvre que les patients en affection de longue durée, pas toute la population.
+  Valeurs masquées (« NC ») pour certains territoires, dont Mayotte.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null
