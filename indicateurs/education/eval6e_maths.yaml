@@ -1,0 +1,20 @@
+id: education.eval6e_maths
+libelle: Élèves de sixième en difficulté en mathématiques (deux groupes de maîtrise les plus faibles)
+unite: "% des élèves évalués"
+sens: plus_bas_mieux
+sources: [depp-evaluations-6e-departements, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/education/eval6e_maths.sql
+format: "{:.1f} %"
+limites: >
+  Évaluation standardisée passée en septembre de sixième, secteurs public et privé sous contrat. Les groupes de
+  maîtrise sont définis sur l'échelle de 2017 (moyenne 250, écart-type 50) et comparables d'une année à l'autre.
+  La valeur nationale est celle publiée par la DEPP (DROM compris).
+construction: >
+  Source depp-evaluations-6e-departements, lignes discipline = « Mathématiques » et caracteristique = « Ensemble ».
+  Valeur = groupe_1 + groupe_2 (parts en %, groupe 1 le plus faible), arrondie à 0,1 ; période = année de annee.
+  Maille département : code_departement rapproché de insee-cog-departements (libellé du COG). Maille France : ligne
+  à code_departement vide et libelle_departement = NATIONAL, code FR.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

@@ -1,0 +1,63 @@
+# Catalogue des sources : Enseignement supérieur et recherche. Validé par schemas/source.schema.json.
+
+- id: eurostat-rd-e-gerdtot
+  titre: Dépense intérieure de recherche et développement (DIRD) par secteur d'exécution
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/rd_e_gerdtot/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/rd_e_gerdtot
+    cle: A.TOTAL+BES+GOV+HES+PNP.PC_GDP.
+    parametres: {format: SDMX-CSV, startPeriod: "2000", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (dernière année souvent provisoire, drapeau p)
+  domaines: [recherche]
+  controles:
+    lignes_min: 2000
+    colonnes: [sectperf, unit, geo, TIME_PERIOD, OBS_VALUE, OBS_FLAG]
+  statut: actif
+  notes: >
+    Clé : annuel, en % du PIB, tous secteurs (TOTAL) et par secteur d'exécution : entreprises (BES), État (GOV),
+    enseignement supérieur (HES), institutions privées sans but lucratif (PNP).
+
+- id: sies-parcoursup
+  titre: Parcoursup, vœux de poursuite d'études et admissions par formation (dernière session)
+  producteur: Ministère de l'Enseignement supérieur et de la Recherche (SIES)
+  doc: https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/
+  acces:
+    mode: opendatasoft
+    portail: https://data.enseignementsup-recherche.gouv.fr
+    jeu: fr-esr-parcoursup
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [formation, departement, france]
+  millesime: annuel (session de l'année ; le jeu est remplacé chaque année, les sessions passées ont leur propre jeu)
+  fraicheur_max_jours: 450
+  domaines: [recherche]
+  controles:
+    lignes_min: 13000
+    colonnes: [session, cod_aff_form, dep, dep_lib, fili, select_form, acc_tot, acc_neobac, acc_brs]
+  statut: actif
+  notes: >
+    Une ligne par formation. Les candidats formulent plusieurs vœux : seules les admissions (acc_*) s'additionnent
+    d'une formation à l'autre, pas les vœux. Sessions antérieures : jeux fr-esr-parcoursup_2018 à _2024.
+
+- id: sies-insertion-master
+  titre: Insertion professionnelle des diplômés de master, données nationales
+  producteur: Ministère de l'Enseignement supérieur et de la Recherche (SIES)
+  doc: https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-insertion_professionnelle-master_donnees_nationales/
+  acces:
+    mode: opendatasoft
+    portail: https://data.enseignementsup-recherche.gouv.fr
+    jeu: fr-esr-insertion_professionnelle-master_donnees_nationales
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [france]
+  domaines: [recherche]
+  statut: a-brancher
+  notes: >
+    Enquête arrêtée à la promotion 2020 ; remplacée par InserSup (fr-esr-insersup, 1 million de lignes par
+    établissement et diplôme, sans agrégat national), qui demanderait un export filtré.

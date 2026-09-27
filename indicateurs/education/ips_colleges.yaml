@@ -1,0 +1,26 @@
+id: education.ips_colleges
+libelle: Indice de position sociale moyen des collégiens
+unite: points d'IPS
+sens: neutre
+sources: [depp-ips-colleges, depp-effectifs-colleges, insee-cog-communes, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/education/ips_colleges.sql
+format: "{:.1f}"
+limites: >
+  L'IPS résume les conditions sociales et culturelles d'origine des élèves (à partir de la PCS des parents) ; la
+  moyenne d'un territoire masque la ségrégation entre collèges (voir education.ips_colleges_dispersion). Série
+  calculée avec la PCS 2020 à partir de la rentrée 2023 : non comparable avec les IPS antérieurs. Collèges publics
+  et privés sous contrat ; collectivités d'outre-mer hors champ. Moyenne des IPS de collège pondérée par les
+  effectifs, et non moyenne des IPS d'élèves : proche mais pas égale à l'IPS national publié par la DEPP.
+construction: >
+  Source depp-ips-colleges, une ligne par collège (uai) et rentrée (rentree_scolaire, ex. « 2025-2026 », reprise
+  telle quelle comme période) ; lignes à ips vide exclues. Poids : nombre_eleves_total de depp-effectifs-colleges,
+  jointure numero_college = uai et année de rentree_scolaire (date) = 4 premiers caractères de la rentrée IPS ;
+  collèges sans effectif ou à effectif nul exclus. Département : code_insee_de_la_commune rapproché du COG 2026
+  (insee-cog-communes) ; COM et ARM portent DEP, COMD et COMA héritent du DEP de leur COMPARENT, un code présent en
+  COM et en COMD prend la ligne COM ; communes absentes du COG (collectivités d'outre-mer) exclues, y compris de la
+  maille France. Libellé du département : insee-cog-departements. Valeur = somme(ips × élèves) / somme(élèves),
+  arrondie à 0,1. Maille France : code FR, tous les collèges retenus.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

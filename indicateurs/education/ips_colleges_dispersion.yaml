@@ -1,0 +1,21 @@
+id: education.ips_colleges_dispersion
+libelle: Dispersion de l'indice de position sociale entre collèges
+unite: points d'IPS (écart-type)
+sens: plus_bas_mieux
+sources: [depp-ips-colleges, insee-cog-communes, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/education/ips_colleges_dispersion.sql
+format: "{:.1f} points"
+limites: >
+  Mesure l'écart de recrutement social entre collèges d'un même territoire, non pondéré par leur taille : un petit
+  collège pèse autant qu'un grand. Dépend aussi de la géographie résidentielle, pas seulement de la carte scolaire
+  et du privé. Série PCS 2020 à partir de la rentrée 2023.
+construction: >
+  Source depp-ips-colleges, lignes à ips vide exclues ; période = rentree_scolaire telle quelle (« 2025-2026 »).
+  Département par le COG 2026 comme education.ips_colleges (code_insee_de_la_commune -> DEP, COMD et COMA via
+  COMPARENT, communes hors COG exclues). Valeur = écart-type d'échantillon (dénominateur n - 1, stddev_samp) des ips
+  des collèges du département, sans pondération, arrondi à 0,1 ; départements de moins de 2 collèges omis. Maille
+  France : écart-type sur tous les collèges retenus, code FR.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null
