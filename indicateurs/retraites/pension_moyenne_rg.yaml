@@ -1,0 +1,21 @@
+id: retraites.pension_moyenne_rg
+libelle: Retraite de base moyenne de droit direct servie par le régime général (au 31 décembre)
+unite: euros bruts par mois (euros courants)
+sens: neutre
+sources: [cnav-pension-moyenne]
+maille: [france]
+formule: indicateurs/retraites/pension_moyenne_rg.sql
+format: "{:.0f} € bruts par mois"
+limites: >
+  Retraite de base du seul régime général : ni les complémentaires (Agirc-Arrco), ni les autres régimes de base
+  (fonction publique, MSA, régimes spéciaux). Pour un polypensionné, seule la part régime général est comptée, d'où un
+  montant bien inférieur à la pension totale moyenne tous régimes (DREES). Montant brut, avant CSG et CRDS, en euros
+  courants. Ruptures de série en 2006 (seconds droits) et en 2020 (intégration des travailleurs indépendants).
+construction: >
+  Source cnav-pension-moyenne (data.assuranceretraite.fr), lignes categorie = « Droit propre » (bénéficiaires d'un droit
+  direct, servi seul ou avec une réversion), colonne montant_mensuel_moyen_de_la_retraite_globale_en_euros (euros
+  courants, entiers), sans arrondi. Période = année de annees_normees (la colonne annees porte des astérisques de
+  rupture, non utilisée). La colonne corrigée de l'inflation n'est pas utilisée. Maille france seule, code FR.
+comparaison_ue: voir retraites.taux_remplacement_agrege (maille pays)
+version: 1.0.0
+relu_par: null

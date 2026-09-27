@@ -1,0 +1,20 @@
+id: solidarites.rapport_s80_s20
+libelle: Rapport interquintile de revenu S80/S20 (EU-SILC)
+unite: ratio (revenu total des 20 % les plus aisés / revenu total des 20 % les plus modestes)
+sens: plus_bas_mieux
+sources: [eurostat-ilc-di11]
+maille: [france, pays]
+formule: indicateurs/solidarites/rapport_s80_s20.sql
+format: "{:.2f}"
+limites: >
+  Période = année d'enquête EU-SILC, revenus de l'année précédente. Revenu disponible équivalent : après impôts
+  directs et prestations, sans les transferts en nature (santé, éducation, logement social) ni les impôts indirects.
+  Sensible à la mesure des hauts revenus du patrimoine, mal couverts par l'enquête.
+construction: >
+  Eurostat ilc_di11, filtres age = TOTAL, sex = T, unit = RAT (codes = partie des colonnes avant « : »). Valeur =
+  OBS_VALUE (ratio, deux décimales), sans arrondi ; OBS_VALUE vide exclu. Code pays = partie de geo avant « : »,
+  libellé = partie après. Maille france = ligne geo FR recopiée avec le code FR et le libellé « France ».
+  Période = TIME_PERIOD.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

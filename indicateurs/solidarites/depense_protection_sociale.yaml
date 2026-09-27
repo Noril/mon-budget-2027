@@ -1,0 +1,20 @@
+id: solidarites.depense_protection_sociale
+libelle: Dépenses de protection sociale
+unite: "% du PIB"
+sens: neutre
+sources: [eurostat-spr-exp-type]
+maille: [france, pays]
+formule: indicateurs/solidarites/depense_protection_sociale.sql
+format: "{:.1f} % du PIB"
+limites: >
+  Système européen SESPROS : prestations (maladie, invalidité, vieillesse, survie, famille, chômage, logement,
+  exclusion) versées par tous les régimes publics et privés obligatoires, plus frais de fonctionnement. Les dernières
+  années sont provisoires (OBS_FLAG = p) ; l'agrégat EU27_2020 paraît avec un an de retard sur la France.
+construction: >
+  Eurostat spr_exp_type, filtres spdeps = TOTAL, unit = PC_GDP (codes = partie des colonnes avant « : »). Valeur =
+  OBS_VALUE (% du PIB, deux décimales), sans arrondi ; OBS_VALUE vide exclu ; valeurs provisoires gardées. Code pays =
+  partie de geo avant « : », libellé = partie après. Maille france = ligne geo FR recopiée avec le code FR et le
+  libellé « France ». Période = TIME_PERIOD.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null
