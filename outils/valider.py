@@ -36,7 +36,8 @@ def valider() -> list[str]:
         ou = f"{fichier.relative_to(RACINE)}:{s.get('id')}"
         erreurs += _erreurs_schema(schema_source, s, ou)
         mode = s.get("acces", {}).get("mode")
-        if s.get("statut", "actif") == "actif" and mode not in connecteurs:
+        # même règle que pipelines.connecteurs.connecteur : « api-rest » -> api_rest.py
+        if s.get("statut", "actif") == "actif" and (mode or "").replace("-", "_") not in connecteurs:
             erreurs.append(f"{ou} : source active sans connecteur pipelines/connecteurs/{mode}.py")
 
     schema_indicateur = _schema("indicateur")

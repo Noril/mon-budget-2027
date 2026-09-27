@@ -1,0 +1,21 @@
+id: numerique.demarches_accessibles
+libelle: Part des démarches essentielles en ligne pleinement accessibles aux personnes handicapées
+unite: "% des démarches réalisables en ligne"
+sens: plus_haut_mieux
+sources: [dinum-observatoire-demarches]
+maille: [france]
+formule: indicateurs/numerique/demarches_accessibles.sql
+format: "{:.1f} %"
+limites: >
+  « Totale » correspond à une conformité totale déclarée au référentiel général d'amélioration de
+  l'accessibilité (RGAA), selon l'audit publié par l'administration ; une démarche « Partielle » peut être
+  largement utilisable. Même
+  périmètre mouvant de démarches que numerique.demarches_en_ligne.
+construction: >
+  Source dinum-observatoire-demarches, lignes où en_ligne vaut exactement « Oui » (voir
+  numerique.demarches_en_ligne). Valeur = 100 × nombre de ces lignes dont la colonne handicap (« Prise en compte
+  Handicap ») vaut exactement « Totale » / nombre de ces lignes, par édition (période = AAAA-MM), arrondie à 0,1.
+  Les autres modalités (« Partielle », « Non conforme », « À venir », « – », vide) comptent au dénominateur.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

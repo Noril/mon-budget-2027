@@ -1,0 +1,22 @@
+id: numerique.demarches_en_ligne
+libelle: Part des démarches administratives essentielles réalisables entièrement en ligne
+unite: "% des démarches suivies"
+sens: plus_haut_mieux
+sources: [dinum-observatoire-demarches]
+maille: [france]
+formule: indicateurs/numerique/demarches_en_ligne.sql
+format: "{:.1f} %"
+limites: >
+  Porte sur les quelque 245 démarches « essentielles » (les plus utilisées) choisies par la DINUM, dont la liste
+  évolue d'une édition à l'autre ; chaque démarche compte pour une, quel que soit son volume. « En ligne »
+  est déclaré par l'administration et ne dit rien de la qualité du parcours (voir satisfaction, accessibilité,
+  autonomie dans la source).
+construction: >
+  Source dinum-observatoire-demarches, une ligne par démarche et par édition (période = AAAA-MM de l'édition, lue
+  dans le nom du fichier). Colonne en_ligne (« Statut En ligne » depuis l'édition 10 environ, « Réalisable En
+  Ligne » avant). Valeur = 100 × nombre de lignes où en_ligne vaut exactement « Oui » / nombre total de lignes de
+  l'édition (y compris « Partiel », « Non », « À venir », « En cours de déploiement local », « Démarche
+  proactive » et vides), arrondie à 0,1.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

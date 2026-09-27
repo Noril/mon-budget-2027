@@ -1,0 +1,24 @@
+id: numerique.locaux_fibre
+libelle: Part des locaux raccordables à la fibre optique jusqu'à l'abonné (FttH)
+unite: "% des locaux"
+sens: plus_haut_mieux
+sources: [arcep-thd-deploiements-communes, insee-cog-communes, insee-cog-departements, insee-cog-regions]
+maille: [france, region, departement]
+formule: indicateurs/numerique/locaux_fibre.sql
+format: "{:.1f} %"
+limites: >
+  Raccordable ne veut pas dire raccordé ni abonné : mesure le déploiement du réseau, pas l'usage. Le nombre de
+  locaux est une estimation de l'ARCEP (fichiers fonciers, INSEE) révisée d'un trimestre à l'autre ; la part
+  peut dépasser légèrement la réalité dans les communes où les opérateurs déclarent plus de lignes que de
+  locaux estimés. Ne mesure ni la 4G/5G ni les autres technologies très haut débit (câble, radio, satellite).
+construction: >
+  Source arcep-thd-deploiements-communes, une ligne par commune (arrondissements pour Paris, Lyon, Marseille)
+  et par trimestre (AAAATn, lu dans le nom du fichier DBF) ; colonnes Locaux (locaux) et ftth (locaux
+  raccordables FttH). Lignes dont locaux ou ftth est vide exclues (45 communes en 2025T3). Rattachement au
+  département et à la région par le COG 2026 : TYPECOM COM ou ARM porte DEP et REG ; COMD et COMA les héritent de
+  leur COMPARENT ; un code présent en COM et en COMD prend la ligne COM. Valeur = 100 × somme(ftth) / somme(locaux)
+  sur les communes du territoire, arrondie à 0,1. Maille france : toutes les lignes, y compris Saint-Barthélemy
+  (977) et Saint-Martin (978), absents du COG des départements.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

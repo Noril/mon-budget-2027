@@ -1,0 +1,22 @@
+id: numerique.solde_services_tic
+libelle: Solde des échanges de services de télécommunications, d'informatique et d'information avec le reste du monde
+unite: milliards d'euros courants
+sens: plus_haut_mieux
+sources: [eurostat-bop-its6-det]
+maille: [france, pays]
+formule: indicateurs/numerique/solde_services_tic.sql
+format: "{:+.1f} Md€"
+limites: >
+  Balance des paiements (BPM6), poste SI : télécommunications, services informatiques (logiciels, informatique en
+  nuage, conseil) et d'information. N'inclut pas les redevances de propriété intellectuelle (poste SH), où
+  passent une partie des licences logicielles, ni la publicité en ligne. Les prix de transfert des groupes
+  (Irlande, Pays-Bas) localisent les flux là où les filiales facturent. En euros courants.
+construction: >
+  Eurostat bop_its6_det, lignes currency = MIO_EUR, bop_item = SI, stk_flow = BAL (solde = exportations moins
+  importations). Partenaire : WRL_REST pour chaque pays ; EXT_EU27_2020 pour geo = EU27_2020. Valeur = OBS_VALUE
+  divisée par 1 000 (millions -> milliards d'euros), sans arrondi ; lignes vides exclues. Période = TIME_PERIOD.
+  Maille pays : code = partie de geo avant « : », libellé = partie après. Maille france = ligne geo FR recopiée
+  avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020 (échanges hors UE)
+version: 1.0.0
+relu_par: null

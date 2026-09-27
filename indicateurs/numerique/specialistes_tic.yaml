@@ -1,0 +1,19 @@
+id: numerique.specialistes_tic
+libelle: Spécialistes des technologies de l'information et de la communication dans l'emploi
+unite: "% de l'emploi total"
+sens: plus_haut_mieux
+sources: [eurostat-isoc-sks-itspt]
+maille: [france, pays]
+formule: indicateurs/numerique/specialistes_tic.sql
+format: "{:.1f} %"
+limites: >
+  Définition large fondée sur les professions (CITP-08) : inclut techniciens et gestionnaires TIC, quel que soit le
+  secteur. Enquête Forces de travail : Eurostat signale des ruptures (2011, passage à la CITP-08 ; France 2021) et
+  des définitions nationales (drapeau « d »). Valeurs publiées à 0,1 près.
+construction: >
+  Eurostat isoc_sks_itspt, lignes unit = PC_EMP. Valeur = OBS_VALUE telle que publiée, lignes vides exclues.
+  Période = TIME_PERIOD. Maille pays : code = partie de geo avant « : », libellé = partie après. Maille france =
+  ligne geo FR recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null
