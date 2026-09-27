@@ -1,0 +1,21 @@
+id: energie.production_nucleaire
+libelle: Production d'électricité nucléaire
+unite: TWh par an
+sens: neutre
+sources: [odre-eco2mix-national]
+maille: [france]
+formule: indicateurs/energie/production_nucleaire.sql
+format: "{:.1f} TWh"
+limites: >
+  Production nette injectée sur le réseau, France métropolitaine hors Corse, d'après les mesures temps réel de RTE
+  consolidées (définitives jusqu'à l'année N-2). Calcul à partir des puissances moyennes mensuelles, le changement
+  d'heure étant ignoré (une heure de plus ou de moins sur l'année, soit moins de 0,05 TWh). Seules les années
+  complètes sont publiées. Peut différer de quelques TWh du bilan électrique annuel de RTE.
+construction: >
+  Source odre-eco2mix-national (moyennes mensuelles calculées par l'API ODRÉ en heure de Paris sur le jeu
+  eco2mix-national-cons-def). Pour chaque (annee, mois), énergie en MWh = nucleaire (puissance moyenne, MW) × 24 ×
+  nombre de jours du mois. Valeur annuelle = somme des douze mois / 1 000 000 (TWh), arrondie à 3 décimales ; années
+  à moins de douze mois exclues. Code FR.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

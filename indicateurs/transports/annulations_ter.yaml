@@ -1,0 +1,21 @@
+id: transports.annulations_ter
+libelle: Taux d'annulation des TER
+unite: "% des trains programmés"
+sens: plus_bas_mieux
+sources: [sncf-regularite-ter, insee-cog-regions]
+maille: [france, region]
+formule: indicateurs/transports/annulations_ter.sql
+format: "{:.2f} %"
+limites: >
+  Seules comptent les suppressions, totales ou partielles, annoncées après 16 h la veille de la circulation ; un train
+  supprimé plus tôt (grève annoncée, travaux) sort des trains programmés et n'apparaît pas. Même champ que transports.regularite_ter (onze régions, SNCF Voyageurs,
+  sans l'Île-de-France ni la Corse). Maille région à partir de 2018 seulement.
+construction: >
+  Source sncf-regularite-ter, même rattachement des noms de region aux régions actuelles que transports.regularite_ter.
+  Lignes où nombre_de_trains_annules est vide écartées. Valeur = 100 × somme de nombre_de_trains_annules / somme de
+  nombre_de_trains_programmes sur l'année civile, arrondie à 2 décimales. Maille region : années 2018 et suivantes,
+  région gardée si ses lignes couvrent les douze mois ; libellé = LIBELLE de insee-cog-regions. Maille france :
+  toutes les lignes, années couvrant douze mois.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

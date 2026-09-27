@@ -1,0 +1,20 @@
+id: energie.solde_exportateur_electricite
+libelle: Solde exportateur des échanges physiques d'électricité
+unite: TWh par an (positif = exportations nettes)
+sens: neutre
+sources: [odre-eco2mix-national]
+maille: [france]
+formule: indicateurs/energie/solde_exportateur_electricite.sql
+format: "{:+.1f} TWh"
+limites: >
+  Flux physiques mesurés aux frontières (France métropolitaine hors Corse), qui diffèrent des échanges contractuels
+  (transits). Calcul à partir des puissances moyennes mensuelles, changement d'heure ignoré. Un solde exportateur
+  élevé signale une production abondante mais aussi, selon les prix, des ventes à bas coût : le sens est neutre.
+  Seules les années complètes sont publiées.
+construction: >
+  Source odre-eco2mix-national. Pour chaque (annee, mois), énergie en MWh = ech_physiques (puissance moyenne, MW,
+  négative quand la France exporte) × 24 × nombre de jours du mois. Valeur annuelle = - somme des douze mois /
+  1 000 000 (TWh), arrondie à 3 décimales ; années à moins de douze mois exclues. Code FR.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null
