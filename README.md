@@ -7,7 +7,7 @@ Document de pilotage (plan, architecture, inventaire des données, pistes) : htt
 ## La chaîne
 
 ```
-catalogue.yaml ─► pipelines.ingest ─► data/brut/<source>/<horodatage>/  (fichier d'origine + manifeste sha256)
+catalogue/*.yaml ─► pipelines.ingest ─► data/brut/<source>/<horodatage>/  (fichier d'origine + manifeste sha256)
                                   └─► data/normalise/<source>.parquet   (contrôles : colonnes, volumétrie, fraîcheur)
 indicateurs/*.yaml + *.sql ─► pipelines.indicateurs ─► data/indicateurs/<id>@<version>.parquet + lignage.json
 domaines/**/*.md ─► outils.construire ─► build/site/  (chaque {{ind:…}} remplacé par sa valeur et une note de lignage)
@@ -37,7 +37,8 @@ VISION.md              le cap (P0, écrit par un humain)
 axes/                  axes transverses
 domaines/<domaine>/    README.md, diagnostic/*.md, propositions/*.md
 europe/                compétences UE
-indicateurs/           catalogue.yaml des sources, définitions YAML + SQL des indicateurs
+catalogue/             sources de données, un fichier YAML par domaine
+indicateurs/           définitions YAML + SQL des indicateurs, un dossier par domaine
 pipelines/             ingestion et calcul (données hors git, dans data/)
 outils/                validation et construction du site
 plan/                  compte de la France : hypothèses, trajectoire de la dette, scénarios (voir plan/README.md)

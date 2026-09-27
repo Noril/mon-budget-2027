@@ -8,10 +8,9 @@ from __future__ import annotations
 import json
 import sys
 
-import yaml
 from jsonschema import Draft202012Validator
 
-from pipelines.commun import CATALOGUE, RACINE, definitions_indicateurs
+from pipelines.commun import RACINE, definitions_indicateurs, sources_du_catalogue
 
 from .fiches import appels, chiffres_tapes, lire_fiche, toutes_les_fiches
 
@@ -27,13 +26,18 @@ def _erreurs_schema(validateur: Draft202012Validator, objet: dict, ou: str) -> l
 def valider() -> list[str]:
     erreurs: list[str] = []
 
-    sources = yaml.safe_load(CATALOGUE.read_text(encoding="utf-8"))
-    ids_sources = [s.get("id") for s in sources]
-    if len(ids_sources) != len(set(ids_sources)):
-        erreurs.append("catalogue : identifiants de source en double")
+    sources = sources_du_catalogue()
+    ids_sources = [s.get("id") for _, s in sources]
+    for doublon in sorted({i for i in ids_sources if ids_sources.count(i) > 1}):
+        erreurs.append(f"catalogue : source « {doublon} » déclarée plusieurs fois")
     schema_source = _schema("source")
-    for s in sources:
-        erreurs += _erreurs_schema(schema_source, s, f"catalogue:{s.get('id')}")
+    connecteurs = {p.stem for p in (RACINE / "pipelines" / "connecteurs").glob("*.py")}
+    for fichier, s in sources:
+        ou = f"{fichier.relative_to(RACINE)}:{s.get('id')}"
+        erreurs += _erreurs_schema(schema_source, s, ou)
+        mode = s.get("acces", {}).get("mode")
+        if s.get("statut", "actif") == "actif" and mode not in connecteurs:
+            erreurs.append(f"{ou} : source active sans connecteur pipelines/connecteurs/{mode}.py")
 
     schema_indicateur = _schema("indicateur")
     indicateurs = {}
