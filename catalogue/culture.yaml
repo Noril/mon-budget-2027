@@ -1,0 +1,73 @@
+# Catalogue des sources : Culture. Validé par schemas/source.schema.json.
+
+- id: eurostat-gov-10a-exp-culture
+  titre: Dépenses des administrations publiques par fonction (COFOG), loisirs, culture et culte
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/gov_10a_exp
+    cle: A.MIO_EUR+PC_GDP.S13.GF08+GF0802.TE.
+    parametres: {format: SDMX-CSV, startPeriod: "1995", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (fin février et fin août ; année N-1 provisoire)
+  domaines: [culture]
+  controles:
+    lignes_min: 3000
+    colonnes: [unit, sector, cofog99, na_item, geo, TIME_PERIOD, OBS_VALUE, OBS_FLAG]
+  statut: actif
+  notes: >
+    Administrations publiques (S13), dépenses totales (TE), fonctions GF08 (loisirs, culture et culte) et
+    GF0802 (services culturels), en millions d'euros courants (MIO_EUR) et en % du PIB (PC_GDP, arrondi à 0,1
+    par Eurostat). Le détail GF0802 n'est pas publié par tous les États pour toutes les années.
+
+- id: eurostat-cult-emp-sex
+  titre: Emploi culturel par sexe
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/cult_emp_sex/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/cult_emp_sex
+    cle: A.T.PC_EMP+THS_PER.
+    parametres: {format: SDMX-CSV, lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (enquête sur les forces de travail)
+  domaines: [culture]
+  controles:
+    lignes_min: 800
+    colonnes: [sex, unit, geo, TIME_PERIOD, OBS_VALUE, OBS_FLAG]
+  statut: actif
+  notes: >
+    Personnes de 15 à 74 ans occupant une profession culturelle ou travaillant dans une activité culturelle
+    (définition ESSnet-Culture). PC_EMP : % de l'emploi total ; THS_PER : milliers de personnes. Ruptures de
+    série (drapeau b) en 2021 (règlement IESS) et 2024 pour la France.
+
+- id: culture-frequentation-musees
+  titre: Fréquentation des musées de France (entrées totales, payantes et gratuites)
+  producteur: Ministère de la Culture (DEPS, Patrimostat)
+  doc: https://www.data.gouv.fr/fr/datasets/frequentation-des-musees-de-france-1/
+  acces:
+    mode: fichier
+    urls: [https://ministere-culture.s3.sbg.io.cloud.ovh.net/FREQ_MUSEES/ENTREES_ET_CATEGORIES_DE_PUBLIC.csv]
+    format: CSV séparateur « ; », UTF-8, une ligne par musée et par année
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [commune, departement, france]
+  millesime: annuel (année N-2 publiée en septembre)
+  fraicheur_max_jours: 500
+  domaines: [culture]
+  controles:
+    lignes_min: 11000
+    colonnes: [IDPatrimostat, codeInseeCommune, annee, payant, gratuit, total, ferme]
+  statut: actif
+  notes: >
+    Musées ayant l'appellation « musée de France » (environ 1 100 par an), 2014 à 2024. Certains sites
+    déclarent une fréquentation cumulée pour plusieurs musées (voir le jeu data.gouv.fr, colonne Observations
+    du fichier historique) ; les musées fermés (ferme = OUI) ont généralement une fréquentation nulle.
+    L'ancien portail data.culture.gouv.fr (Opendatasoft) redirige désormais vers culture.data.gouv.fr.

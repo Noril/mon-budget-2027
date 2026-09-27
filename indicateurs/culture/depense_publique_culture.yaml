@@ -1,0 +1,24 @@
+id: culture.depense_publique_culture
+libelle: Dépense publique en services culturels
+unite: "% du PIB"
+sens: neutre
+sources: [eurostat-gov-10a-exp-culture, eurostat-nama-10-gdp-echanges]
+maille: [france, pays]
+formule: indicateurs/culture/depense_publique_culture.sql
+format: "{:.2f} % du PIB"
+limites: >
+  Classification COFOG, groupe 08.2 « services culturels » : bibliothèques, musées, monuments, spectacle vivant,
+  aides à la création, toutes administrations publiques (État, collectivités locales, sécurité sociale)
+  consolidées. Exclut l'audiovisuel public et l'édition (08.3), le sport (08.1), l'enseignement artistique
+  (09) et les dépenses fiscales (crédits d'impôt, mécénat). Le niveau de dépense est un choix politique : sens
+  neutre. Année N-1 provisoire.
+construction: >
+  Numérateur : Eurostat gov_10a_exp (source eurostat-gov-10a-exp-culture), unit = MIO_EUR, sector = S13,
+  cofog99 = GF0802, na_item = TE (dépenses totales), millions d'euros courants. Dénominateur : Eurostat nama_10_gdp
+  (source eurostat-nama-10-gdp-echanges), unit = CP_MEUR, na_item = B1GQ, même pays (partie de geo avant « : »)
+  et même année. Valeur = 100 × numérateur / dénominateur, arrondie à 3 décimales (plus précis que la série
+  PC_GDP d'Eurostat, arrondie à 0,1). Maille pays : États membres présents dans les deux sources et EU27_2020 ;
+  maille France = ligne FR recopiée.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null
