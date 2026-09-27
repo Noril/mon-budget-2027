@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Définition d'un indicateur",
+  "type": "object",
+  "required": ["id", "libelle", "unite", "sens", "sources", "maille", "formule", "format", "limites", "version"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9_]+\\.[a-z0-9_]+$"},
+    "libelle": {"type": "string"},
+    "unite": {"type": "string"},
+    "sens": {"enum": ["plus_haut_mieux", "plus_bas_mieux", "neutre"]},
+    "sources": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "maille": {"type": "array", "items": {"enum": ["france", "region", "departement", "epci", "commune"]}, "minItems": 1},
+    "formule": {"type": "string", "description": "chemin du fichier SQL, relatif à la racine du dépôt"},
+    "format": {"type": "string", "description": "gabarit Python d'affichage, ex. '{:.1f} %'"},
+    "limites": {"type": "string"},
+    "comparaison_ue": {"type": ["string", "null"]},
+    "version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "relu_par": {"type": ["string", "null"]}
+  }
+}

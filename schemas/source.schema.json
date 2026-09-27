@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Source de données du catalogue",
+  "type": "object",
+  "required": ["id", "titre", "producteur", "doc", "acces", "licence", "maille", "domaines"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+    "titre": {"type": "string"},
+    "producteur": {"type": "string"},
+    "doc": {"type": "string", "format": "uri"},
+    "acces": {
+      "type": "object",
+      "required": ["mode"],
+      "additionalProperties": false,
+      "properties": {
+        "mode": {"enum": ["opendatasoft", "fichier", "sdmx", "api-rest", "sparql", "pdf"]},
+        "portail": {"type": "string", "description": "opendatasoft : racine du portail, ex. https://data.ameli.fr"},
+        "jeu": {"type": "string", "description": "opendatasoft : identifiant du jeu"},
+        "url": {"type": "string"},
+        "format": {"type": "string"},
+        "auth": {"type": "string", "description": "aucune, ou nom du secret CI"}
+      }
+    },
+    "licence": {"type": "string"},
+    "maille": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "millesime": {"type": "string"},
+    "fraicheur_max_jours": {"type": "integer", "minimum": 1},
+    "domaines": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "controles": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lignes_min": {"type": "integer", "minimum": 0},
+        "colonnes": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "statut": {"enum": ["actif", "a-brancher"], "default": "actif"},
+    "notes": {"type": "string"}
+  }
+}

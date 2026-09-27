@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "En-tête YAML d'une fiche (constat ou proposition)",
+  "type": "object",
+  "required": ["id", "type", "titre", "domaine", "statut", "indicateurs"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+    "type": {"enum": ["diagnostic", "proposition"]},
+    "titre": {"type": "string"},
+    "domaine": {"type": "string"},
+    "axes": {"type": "array", "items": {"type": "string"}},
+    "constats": {"type": "array", "items": {"type": "string"}, "description": "ids des fiches diagnostic sur lesquelles repose une proposition"},
+    "indicateurs": {"type": "array", "items": {"type": "string"}},
+    "preuves": {"type": "array", "items": {"type": "string"}, "description": "ids des fiches du corpus d'évaluation (sources/)"},
+    "cout": {"type": ["string", "null"]},
+    "arbitrages": {"type": "array", "items": {"type": "string"}, "description": "ids des décisions (decisions/)"},
+    "statut": {"enum": ["brouillon", "en-revue", "adoptee", "rejetee"]}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"type": {"const": "proposition"}}},
+      "then": {"required": ["axes", "constats", "preuves", "cout"]}
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  valider:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync
+      - name: Schémas, catalogue, fiches et liens
+        run: uv run python -m outils.valider
+      - run: uv run pytest -q
+
+  chaine:
+    # Une fiche traverse toute la chaîne : ingestion, contrôles, indicateurs, résolution des chiffres
+    runs-on: ubuntu-latest
+    needs: valider
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync
+      - run: uv run python -m pipelines.ingest ameli-ald-sans-mt
+      - run: uv run python -m pipelines.indicateurs
+      - run: uv run python -m outils.construire
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site-et-lignage
+          path: |
+            build/site
+            data/indicateurs/*.lignage.json
+            data/brut/**/manifeste.json

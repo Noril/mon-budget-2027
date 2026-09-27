@@ -1,0 +1,22 @@
+name: Ingestion hebdomadaire
+
+on:
+  schedule:
+    - cron: "0 4 * * 1"
+  workflow_dispatch:
+
+jobs:
+  ingerer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync
+      # Un contrôle en échec fait échouer le job : GitHub notifie les mainteneurs
+      - run: uv run python -m pipelines.ingest
+      - run: uv run python -m pipelines.indicateurs
+      # TODO(P1) : pousser data/ vers le stockage objet UE et ouvrir une PR si une valeur publiée change
+      - uses: actions/upload-artifact@v4
+        with:
+          name: donnees
+          path: data/
