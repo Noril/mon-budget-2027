@@ -13,7 +13,7 @@ indicateurs/*.yaml + *.sql ─► pipelines.indicateurs ─► data/indicateurs/
 domaines/**/*.md ─► outils.construire ─► build/site/  (chaque {{ind:…}} remplacé par sa valeur et une note de lignage)
 ```
 
-Un chiffre n'est jamais tapé dans une fiche : il est appelé.
+Un chiffre n'est jamais tapé dans une fiche : il est appelé. Tout indicateur est recalculé indépendamment (`verifications/`, `outils.recalcul`) par un autre modèle que celui qui l'a écrit ; les arrondis envoient les demis loin de zéro.
 
 ```markdown
 En 2025, {{ind:sante.ald_sans_mt@1.0.0 | france | 2025}} des patients en ALD n'ont pas de médecin traitant.

@@ -29,6 +29,8 @@ les données (pas les formules SQL du pipeline) :
 
 from __future__ import annotations
 
+from verifications._arrondi import arrondi
+
 import duckdb
 
 from pipelines.commun import NORMALISE
@@ -97,7 +99,7 @@ class _Accumulateur:
     def moyenne(self) -> float | None:
         if self.denominateur == 0:
             return None
-        return round(self.numerateur / self.denominateur, ARRONDI)
+        return arrondi(self.numerateur / self.denominateur, ARRONDI)
 
 
 def calculer() -> list[dict]:
@@ -124,7 +126,7 @@ def calculer() -> list[dict]:
                 "code": code_commune,
                 "libelle": ligne["commune"],
                 "periode": annee,
-                "valeur": round(apl, ARRONDI),
+                "valeur": arrondi(apl, ARRONDI),
             }
         )
 

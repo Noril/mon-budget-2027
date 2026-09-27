@@ -29,6 +29,8 @@ les formules SQL du pipeline) :
 
 from __future__ import annotations
 
+from verifications._arrondi import arrondi
+
 import duckdb
 
 from pipelines.commun import NORMALISE
@@ -99,7 +101,7 @@ class _Accumulateur:
     def part(self) -> float | None:
         if self.population_totale == 0:
             return None
-        return round(100.0 * self.population_sous_seuil / self.population_totale, ARRONDI)
+        return arrondi(100.0 * self.population_sous_seuil / self.population_totale, ARRONDI)
 
 
 def calculer() -> list[dict]:

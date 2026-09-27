@@ -6,6 +6,8 @@ Dénominateur : population municipale 2023 (populations de référence INSEE), f
 
 from __future__ import annotations
 
+from verifications._arrondi import arrondi
+
 import duckdb
 
 from pipelines.commun import NORMALISE
@@ -51,14 +53,14 @@ def calculer() -> list[dict]:
     totaux_annee: dict[int, list[float]] = {}
     for (numdep, annee), somme in couverts.items():
         population = populations[numdep]
-        valeur = round(100 * somme / population, 2)
+        valeur = arrondi(100 * somme / population, 2)
         resultat.append({"maille": "departement", "code": numdep, "libelle": numdep, "periode": str(annee), "valeur": valeur})
         totaux_annee.setdefault(annee, [0.0, 0.0])
         totaux_annee[annee][0] += somme
         totaux_annee[annee][1] += population
 
     for annee, (somme_couverts, somme_pop) in totaux_annee.items():
-        valeur = round(100 * somme_couverts / somme_pop, 2)
+        valeur = arrondi(100 * somme_couverts / somme_pop, 2)
         resultat.append({"maille": "france", "code": "FR", "libelle": "France hors Mayotte", "periode": str(annee), "valeur": valeur})
 
     return resultat

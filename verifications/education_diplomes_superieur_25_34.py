@@ -1,37 +1,29 @@
-"""Recalcul indépendant de retraites.revenu_relatif_65 (Eurostat ilc_pnp2)."""
+"""Recalcul indépendant de education.diplomes_superieur_25_34 à partir du Parquet normalisé Eurostat."""
 
 from __future__ import annotations
-
-from verifications._arrondi import arrondi
 
 import duckdb
 
 from pipelines.commun import NORMALISE
 
-FICHIER = NORMALISE / "eurostat-ilc-pnp2.parquet"
+FICHIER = NORMALISE / "eurostat-edat-lfse-03.parquet"
 
 
-def _lignes() -> list[dict]:
+def _lignes_brutes() -> list[dict]:
     con = duckdb.connect()
-    curseur = con.execute(f"select statinfo, age, sex, geo, TIME_PERIOD, OBS_VALUE from read_parquet('{FICHIER.as_posix()}')")
+    curseur = con.execute(f"select geo, TIME_PERIOD, OBS_VALUE from read_parquet('{FICHIER.as_posix()}')")
     colonnes = [d[0] for d in curseur.description]
     return [dict(zip(colonnes, ligne)) for ligne in curseur.fetchall()]
 
 
 def calculer() -> list[dict]:
     resultat: list[dict] = []
-    for ligne in _lignes():
-        if ligne["statinfo"].split(":")[0] != "R_MED_I":
+    for ligne in _lignes_brutes():
+        brut = ligne["OBS_VALUE"]
+        if brut is None or str(brut).strip() == "":
             continue
-        if ligne["age"].split(":")[0] != "Y_GE65":
-            continue
-        if ligne["sex"].split(":")[0] != "T":
-            continue
-        if ligne["OBS_VALUE"] is None or ligne["OBS_VALUE"] == "":
-            continue
-
+        valeur = float(brut)
         code, _, libelle = ligne["geo"].partition(":")
-        valeur = arrondi(100 * float(ligne["OBS_VALUE"]), 1)
         periode = ligne["TIME_PERIOD"]
 
         resultat.append({"maille": "pays", "code": code, "libelle": libelle, "periode": periode, "valeur": valeur})

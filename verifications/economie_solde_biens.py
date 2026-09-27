@@ -8,6 +8,8 @@ geo FR recopiée avec le code FR.
 
 from __future__ import annotations
 
+from verifications._arrondi import arrondi
+
 import duckdb
 
 from pipelines.commun import NORMALISE
@@ -53,7 +55,7 @@ def calculer() -> list[dict]:
     resultat: list[dict] = []
     cles = set(exports) & set(imports_) & set(pib)
     for code, annee in cles:
-        valeur = round(100.0 * (exports[(code, annee)] - imports_[(code, annee)]) / pib[(code, annee)], 2)
+        valeur = arrondi(100.0 * (exports[(code, annee)] - imports_[(code, annee)]) / pib[(code, annee)], 2)
         resultat.append({"maille": "pays", "code": code, "libelle": libelles[code], "periode": annee, "valeur": valeur})
         if code == "FR":
             resultat.append(
