@@ -1,0 +1,18 @@
+id: education.sorties_precoces
+libelle: Sorties précoces de l'éducation et de la formation (18-24 ans)
+unite: "% des 18-24 ans"
+sens: plus_bas_mieux
+sources: [eurostat-edat-lfse-14]
+maille: [france, pays]
+formule: indicateurs/education/sorties_precoces.sql
+format: "{:.1f} %"
+limites: >
+  Enquête Forces de travail (échantillon) : marge d'erreur de l'ordre d'un demi-point pour la France, ruptures de
+  série signalées par Eurostat (drapeau b, notamment 2021 et 2024). Objectif européen 2030 : moins de 9 %.
+construction: >
+  Eurostat edat_lfse_14, sex = T, wstatus = POP, age = Y18-24, unit = PC. Valeur = OBS_VALUE telle quelle (déjà en %,
+  arrondie à 0,1 par Eurostat) ; valeurs vides exclues ; drapeaux ignorés. Code pays = partie de geo avant « : »
+  (FR, EU27_2020…), libellé = partie après. Maille france = ligne FR recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

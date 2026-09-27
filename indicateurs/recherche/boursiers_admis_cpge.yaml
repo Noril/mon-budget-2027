@@ -1,0 +1,18 @@
+id: recherche.boursiers_admis_cpge
+libelle: Part des boursiers parmi les néo-bacheliers admis en classe préparatoire
+unite: "% des néo-bacheliers admis en CPGE"
+sens: plus_haut_mieux
+sources: [sies-parcoursup, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/recherche/boursiers_admis_cpge.sql
+format: "{:.1f} %"
+limites: >
+  Boursiers du secondaire parmi les néo-bacheliers ayant accepté une proposition en CPGE via Parcoursup ; à comparer
+  avec recherche.boursiers_admis_parcoursup (toutes formations). Département de la CPGE. Dernière session seulement.
+construction: >
+  Source sies-parcoursup, lignes fili = « CPGE ». Valeur = 100 × somme(acc_brs) / somme(acc_neobac), arrondie à 0,1 ;
+  période = session. Maille département : dep rapproché de insee-cog-departements (libellé du COG), codes hors COG
+  exclus, départements sans néo-bachelier admis omis. Maille France (code FR) : toutes les lignes CPGE.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null
