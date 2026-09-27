@@ -27,11 +27,8 @@ jobs:
       - name: Ingestion de toutes les sources actives
         run: uv run python -m pipelines.ingest
       - run: uv run python -m pipelines.indicateurs
-      - name: Recalcul indépendant (autre modèle, sans voir le SQL)
-        run: |
-          uv run python -m outils.recalcul sante.ald_sans_mt
-          uv run python -m outils.recalcul sante.apl_mg
-          uv run python -m outils.recalcul sante.pop_apl_mg_faible
+      - name: Recalcul indépendant de tous les indicateurs (autre modèle, sans voir le SQL)
+        run: uv run python -m outils.recalcul --tous
       - run: uv run python -m outils.construire
       - name: Trajectoire de référence
         run: uv run python -m plan.trajectoire

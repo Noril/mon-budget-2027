@@ -14,7 +14,7 @@
     "formule": {"type": "string", "description": "chemin du fichier SQL, relatif à la racine du dépôt"},
     "format": {"type": "string", "description": "gabarit Python d'affichage, ex. '{:.1f} %'"},
     "limites": {"type": "string"},
-    "construction": {"type": "string", "description": "règles de lecture de la source (codes spéciaux, exclusions, colonne et échelle), assez précises pour qu'un vérificateur recalcule sans voir le SQL. Convention par défaut du dépôt : les arrondis envoient les demis loin de zéro (ROUND de DuckDB)"},
+    "construction": {"type": "string", "description": "règles de lecture de la source (codes spéciaux, exclusions, colonne et échelle), assez précises pour qu'un vérificateur recalcule sans voir le SQL. Convention par défaut du dépôt : les arrondis suivent ROUND de DuckDB (x × 10^n en flottant, demis loin de zéro, ÷ 10^n)"},
     "comparaison_ue": {"type": ["string", "null"]},
     "version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
     "relu_par": {"type": ["string", "null"]}
