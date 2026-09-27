@@ -1,0 +1,128 @@
+# Catalogue des sources : État, administrations et fonction publique. Validé par schemas/source.schema.json.
+# Réutilise : insee-estimations-population, insee-cog-departements, insee-cog-regions (transverse.yaml).
+
+- id: eurostat-gov-10a-exp
+  titre: Dépenses des administrations publiques par fonction (COFOG), en % du PIB
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/gov_10a_exp
+    cle: A.PC_GDP.S13.GF01+GF02+GF03+GF04+GF05+GF06+GF07+GF08+GF09+GF10+TOTAL.TE+D1.
+    parametres: {format: SDMX-CSV, startPeriod: "1995", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (année N-2 publiée en février de l'année N, révisée en septembre)
+  domaines: [etat]
+  controles:
+    lignes_min: 15000
+    colonnes: [unit, sector, cofog99, na_item, geo, TIME_PERIOD, OBS_VALUE, OBS_FLAG]
+  statut: actif
+  notes: >
+    Clé : annuel, % du PIB, administrations publiques (S13), les dix fonctions COFOG de premier niveau (GF01 à GF10)
+    et leur total (TOTAL), pour le total des dépenses (TE) et la rémunération des salariés (D1) ; tous pays et
+    agrégats UE. Valeurs arrondies à 0,1 point par Eurostat ; dernière année souvent provisoire (OBS_FLAG = p).
+    TOTAL/TE est identique à gov_10a_main (finances.depenses_publiques).
+
+- id: insee-effectifs-fonction-publique
+  titre: Effectifs de la fonction publique par versant, département et région (SIASP, séries TCRED)
+  producteur: INSEE
+  doc: https://www.insee.fr/fr/statistiques/serie/010608465
+  acces:
+    mode: fichier
+    urls: [https://bdm.insee.fr/series/sdmx/data/TCRED-TRAVAIL-EMPLOI-EFF-FP-RATIO]
+    format: SDMX-ML 2.1 « structure-specific » (Banque de données macroéconomiques, flux TCRED-TRAVAIL-EMPLOI-EFF-FP-RATIO)
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [france, region, departement]
+  millesime: annuel (effectifs au 31 décembre N publiés vers août N+2)
+  domaines: [etat]
+  normalisation: insee_bdm
+  controles:
+    lignes_min: 10000
+    colonnes: [IDBANK, INDICATEUR, VERSANTS_FP, SEXE, REF_AREA, UNIT_MEASURE, TIME_PERIOD, OBS_VALUE, OBS_STATUS]
+  statut: actif
+  notes: >
+    Source SIASP (système d'information sur les agents des services publics), hors militaires, emplois principaux au
+    31 décembre, lieu de travail. INDICATEUR = EFFECTIFS_FP_HMILIT_TOTAL (VERSANTS_FP = TOT), EFFECTIFS_FP_HMILIT_ETAT
+    (FPE), EFFECTIFS_FP_TERRITORIALE (FPT), EFFECTIFS_FP_HOSPITALIERE (FPH), en milliers (UNIT_MEASURE = E1000),
+    SEXE = 0 ensemble, 2 femmes ; ratios pour 100 habitants et pour 100 emplois salariés. REF_AREA : Dxx
+    départements (Mayotte absente), Rxx régions, FE France hors Mayotte, FM métropole, F_H_IDF, 97X DOM non ventilé
+    (NaN depuis 2022). Séries 2010 ou 2011 à 2023.
+
+- id: ocde-emploi-public
+  titre: Emploi dans les administrations publiques en % de l'emploi total (Panorama des administrations publiques, mises à jour annuelles)
+  producteur: OCDE
+  doc: https://data-explorer.oecd.org/vis?df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_GOV%40DF_GOV_EMPPS_REP_YU&df[ag]=OECD.GOV.GIP
+  acces:
+    mode: sdmx
+    url: https://sdmx.oecd.org/public/rest/data/OECD.GOV.GIP,DSD_GOV@DF_GOV_EMPPS_REP_YU,1.0
+    cle: A..EMPG.PT_EMP+PS.S13...
+    entetes: {Accept: application/vnd.sdmx.data+csv}
+    format: SDMX-CSV (codes seuls)
+    auth: aucune
+  licence: OCDE, CC BY 4.0 (https://www.oecd.org/en/about/terms-conditions.html)
+  maille: [pays, france]
+  millesime: annuel (dernière année N-2)
+  domaines: [etat]
+  controles:
+    lignes_min: 1000
+    colonnes: [REF_AREA, MEASURE, UNIT_MEASURE, SECTOR, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    MEASURE = EMPG (emploi des administrations publiques, S13, comptes nationaux) ; UNIT_MEASURE = PT_EMP (% de
+    l'emploi total) ou PS (personnes, en milliers). REF_AREA en ISO3 (FRA, DEU…), OECD_REP = moyenne des pays de
+    l'OCDE. Pas d'agrégat UE : 25 États membres couverts (ni Chypre ni Malte), 24 avant 2014 (sans la Bulgarie).
+    L'API SDMX de l'OCDE limite le nombre de requêtes par heure.
+
+- id: ocde-gouvernement-numerique
+  titre: Indice de gouvernement numérique (DGI) et ses six dimensions (Panorama des administrations publiques 2025)
+  producteur: OCDE
+  doc: https://data-explorer.oecd.org/vis?df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_GOV%40DF_GOV_DGOGD_2025&df[ag]=OECD.GOV.GIP
+  acces:
+    mode: sdmx
+    url: https://sdmx.oecd.org/public/rest/data/OECD.GOV.GIP,DSD_GOV@DF_GOV_DGOGD_2025,1.0
+    cle: A..DG+DG_D+DG_DD+DG_OD+DG_PL+DG_PR+DG_UD.IX....
+    entetes: {Accept: application/vnd.sdmx.data+csv}
+    format: SDMX-CSV (codes seuls)
+    auth: aucune
+  licence: OCDE, CC BY 4.0 (https://www.oecd.org/en/about/terms-conditions.html)
+  maille: [pays, france]
+  millesime: enquête triennale (éditions 2019, 2022, 2025 ; ce flux porte 2022 et 2025)
+  domaines: [etat]
+  controles:
+    lignes_min: 400
+    colonnes: [REF_AREA, MEASURE, UNIT_MEASURE, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    MEASURE = DG (indice composite, de 0 à 1) et ses dimensions DG_D (numérique dès la conception), DG_DD (piloté par
+    les données), DG_PL (l'État plateforme), DG_OD (ouvert par défaut), DG_UD (centré sur l'usager), DG_PR
+    (proactivité), chacune notée sur 1/6. Enquête déclarative auprès des administrations centrales. Allemagne absente
+    de l'édition 2025.
+
+- id: ofgl-departements-consolides
+  titre: Comptes consolidés des départements (budget principal et budgets annexes), 2012 à 2025
+  producteur: Observatoire des finances et de la gestion publique locales (OFGL)
+  doc: https://data.ofgl.fr/explore/dataset/ofgl-base-departements-consolidee/
+  acces:
+    mode: opendatasoft
+    portail: https://data.ofgl.fr
+    jeu: ofgl-base-departements-consolidee
+    format: Parquet (export Opendatasoft), format long (une ligne par collectivité, exercice et agrégat)
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [departement, france]
+  millesime: annuel (comptes de gestion N publiés vers juillet N+1)
+  domaines: [etat]
+  controles:
+    lignes_min: 80000
+    colonnes: [exer, dep_code, dep_name, categ, siren, agregat, montant, ptot, euros_par_habitant]
+  statut: actif
+  notes: >
+    Montants en euros ; ptot = population totale de l'exercice. categ = DEPT (conseils départementaux, collectivité
+    européenne d'Alsace code 67A depuis 2021, et avant 2021 les deux départements alsaciens sous ce même code), ML
+    (Métropole de Lyon, code 691, depuis 2015), PARIS (Ville de Paris depuis 2019, budget communal et départemental
+    fusionnés). Corse (depuis 2018), Martinique et Guyane (depuis 2016) sont des collectivités uniques absentes du jeu.
+    Agrégats utilisés : « Dépenses de fonctionnement », « Recettes de fonctionnement », « Epargne brute ».

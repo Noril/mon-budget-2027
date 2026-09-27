@@ -1,0 +1,22 @@
+id: etat.depense_services_generaux
+libelle: "Dépenses publiques, fonction GF01 : Services généraux des administrations publiques"
+unite: "% du PIB"
+sens: neutre
+sources: [eurostat-gov-10a-exp]
+maille: [france, pays]
+formule: indicateurs/etat/depense_services_generaux.sql
+format: "{:.1f} % du PIB"
+limites: >
+  Classification des fonctions des administrations publiques (COFOG), fonction GF01 « Services généraux des administrations publiques » : dépenses totales
+  (fonctionnement, prestations, subventions, investissement, intérêts) de l'ensemble des administrations publiques
+  (État, organismes divers, collectivités locales, sécurité sociale), consolidées entre elles. Fonctionnement des organes exécutifs et législatifs, administration financière et fiscale, affaires étrangères, aide économique extérieure, services généraux, recherche fondamentale, et surtout les intérêts de la dette publique (sous-fonction GF0107, environ 2 points de PIB pour la France) et les transferts entre niveaux d'administration non ventilés. Une hausse peut donc venir de la charge d'intérêts et non du coût de l'administration. Ratio arrondi à
+  0,1 point par Eurostat : l'écart France − UE se lit à 0,1 point près. Dernière année provisoire.
+construction: >
+  Eurostat gov_10a_exp, lignes unit = PC_GDP, sector = S13, cofog99 = GF01, na_item = TE (codes = partie des
+  colonnes avant « : »). Valeur = OBS_VALUE telle que publiée (% du PIB, une décimale), lignes vides exclues, lignes
+  identiques dédoublonnées ; valeurs provisoires (OBS_FLAG = p) gardées. Période = TIME_PERIOD. Maille pays : code =
+  partie de geo avant « : » (FR, DE, EU27_2020…), libellé = partie après. Maille france = ligne geo FR recopiée avec
+  le code FR et le libellé « France ».
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

@@ -1,0 +1,27 @@
+id: etat.depenses_fonct_departements
+libelle: Dépenses de fonctionnement des départements par habitant
+unite: euros par habitant
+sens: neutre
+sources: [ofgl-departements-consolides, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/etat/depenses_fonct_departements.sql
+format: "{:.0f} € par habitant"
+limites: >
+  Dépenses réelles de fonctionnement des conseils départementaux (budget principal et budgets annexes consolidés),
+  en euros courants : pour les deux tiers des allocations individuelles de solidarité (RSA, APA, PCH), l'aide sociale
+  à l'enfance et l'hébergement des personnes handicapées, dont le niveau dépend des besoins sociaux et des barèmes
+  nationaux plus que de la gestion locale. Ne couvre ni les communes, ni les intercommunalités, ni les régions. Champ :
+  Paris écarté depuis 2019 (Ville de Paris, budget communal et départemental fusionnés) et Métropole de Lyon écartée
+  (le Rhône ne couvre plus que le territoire hors Métropole depuis 2015) ; Corse (depuis 2018), Martinique et Guyane
+  (depuis 2016), collectivités uniques, absentes. Alsace : une seule collectivité depuis 2021, même valeur affectée au
+  Bas-Rhin et au Haut-Rhin.
+construction: >
+  Source ofgl-departements-consolides (OFGL, jeu ofgl-base-departements-consolidee), lignes agregat = « Dépenses de
+  fonctionnement » et categ = DEPT, montant non vide et ptot > 0 ; année = année de exer. Valeur = somme de montant /
+  somme de ptot (population totale de l'exercice), arrondie à 2 décimales. Maille departement : dep_code rattaché au
+  code DEP du COG 2026, libellé du COG ; dep_code 67A : siren 226700011 -> 67, siren 226800019 -> 68, autre siren
+  (Collectivité européenne d'Alsace, depuis 2021) -> 67 et 68 avec la même valeur. Maille france (code FR) : toutes
+  les lignes categ = DEPT sauf dep_code 75, une seule fois chacune (pas de double compte de l'Alsace).
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

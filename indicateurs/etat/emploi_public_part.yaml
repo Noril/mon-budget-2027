@@ -1,0 +1,26 @@
+id: etat.emploi_public_part
+libelle: Emploi des administrations publiques dans l'emploi total
+unite: "% de l'emploi total"
+sens: neutre
+sources: [ocde-emploi-public]
+maille: [france, pays]
+formule: indicateurs/etat/emploi_public_part.sql
+format: "{:.1f} %"
+limites: >
+  Emploi du secteur des administrations publiques au sens des comptes nationaux (S13), toutes administrations
+  (centrales, locales, sécurité sociale), rapporté à l'emploi total. Exclut les entreprises publiques. La frontière
+  dépend de l'organisation de chaque pays : hôpitaux, écoles ou services sociaux gérés par des organismes privés
+  financés sur fonds publics (Pays-Bas, Belgique, Allemagne) sortent du champ, d'où des écarts qui ne mesurent pas
+  seulement la taille de l'État. Pas d'agrégat UE publié : l'agrégat « UE_OCDE » est calculé ici sur les 25 États
+  membres couverts par l'OCDE (sans Chypre ni Malte, moins de 0,5 % de l'emploi de l'UE).
+construction: >
+  Source ocde-emploi-public (OCDE, DF_GOV_EMPPS_REP_YU), lignes MEASURE = EMPG, SECTOR = S13. Maille pays : lignes
+  UNIT_MEASURE = PT_EMP, valeur = OBS_VALUE telle que publiée (deux décimales) ; code = code ISO 3166 alpha-2 à la
+  convention Eurostat (FRA -> FR, GRC -> EL, GBR -> UK…) et libellé français, table de correspondance dans le SQL ;
+  OECD_REP -> code OCDE (moyenne des pays de l'OCDE publiée). Agrégat UE_OCDE : sur les 25 États membres autres que CY et MT,
+  pour chaque année où les 25 ont à la fois PT_EMP et PS, valeur = 100 × somme des PS / somme
+  des (PS × 100 / PT_EMP), arrondi à 2 décimales (part pondérée par l'emploi total) ; années incomplètes exclues (avant 2014,
+  pas de Bulgarie). Maille france = ligne FR recopiée avec le code FR. Période = TIME_PERIOD.
+comparaison_ue: maille pays, agrégat UE_OCDE (25 États membres) et moyenne OCDE
+version: 1.0.0
+relu_par: null
