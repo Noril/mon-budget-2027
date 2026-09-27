@@ -1,0 +1,26 @@
+id: etat.taux_epargne_brute_departements
+libelle: Taux d'épargne brute des départements
+unite: "% des recettes de fonctionnement"
+sens: plus_haut_mieux
+sources: [ofgl-departements-consolides, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/etat/taux_epargne_brute_departements.sql
+format: "{:.1f} %"
+limites: >
+  Épargne brute (recettes réelles de fonctionnement moins dépenses réelles de fonctionnement, y compris les intérêts
+  de la dette) rapportée aux recettes de fonctionnement : part des recettes courantes disponible pour rembourser la
+  dette et investir. Repère usuel : sous 7 à 8 %, la situation devient tendue. Très sensible aux droits de mutation
+  (DMTO), qui suivent le marché immobilier. Même champ que etat.depenses_fonct_departements : conseils
+  départementaux seulement, Paris écarté depuis 2019, Métropole de Lyon écartée, Corse, Martinique et Guyane absentes,
+  Alsace unique depuis 2021 (même valeur pour le Bas-Rhin et le Haut-Rhin).
+construction: >
+  Source ofgl-departements-consolides (OFGL, jeu ofgl-base-departements-consolidee), lignes categ = DEPT. Par
+  collectivité (dep_code, siren) et année de exer : épargne = somme de montant pour agregat = « Epargne brute »,
+  recettes = somme de montant pour agregat = « Recettes de fonctionnement » ; collectivités sans épargne ou avec des
+  recettes nulles écartées. Valeur = 100 × somme des épargnes / somme des recettes, arrondie à 2 décimales. Maille
+  departement : dep_code rattaché au code DEP du COG 2026, libellé du COG ; dep_code 67A : siren 226700011 -> 67,
+  siren 226800019 -> 68, autre siren (Collectivité européenne d'Alsace) -> 67 et 68. Maille france (code FR) : toutes
+  les collectivités categ = DEPT sauf dep_code 75, une seule fois chacune.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

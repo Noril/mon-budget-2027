@@ -1,0 +1,29 @@
+id: etat.agents_fph_1000hab
+libelle: Agents de la fonction publique hospitalière, pour 1 000 habitants
+unite: agents pour 1 000 habitants
+sens: neutre
+sources: [insee-effectifs-fonction-publique, insee-estimations-population, insee-cog-departements, insee-cog-regions]
+maille: [france, region, departement]
+formule: indicateurs/etat/agents_fph_1000hab.sql
+format: "{:.1f} agents pour 1 000 habitants"
+limites: >
+  Agents de la fonction publique hospitalière (hôpitaux publics, établissements publics pour personnes âgées et médico-sociaux).
+  Emplois principaux au 31 décembre, comptés au lieu de travail (un agent travaillant à Paris et habitant l'Essonne
+  compte pour Paris), rapportés aux habitants du territoire : les départements qui accueillent des administrations
+  centrales, des CHU ou des universités sont mécaniquement au-dessus. Hors militaires, hors contrats aidés et hors
+  salariés de droit privé des entreprises publiques ; les agents des cliniques privées, de l'enseignement privé sous
+  contrat (sauf enseignants rémunérés par l'État) et des délégations de service public n'y sont pas. Mayotte absente.
+  Dénominateur : estimation de population au 1er janvier de l'année suivante (la plus proche du 31 décembre), provisoire
+  pour les dernières années.
+construction: >
+  Numérateur : source insee-effectifs-fonction-publique (BDM, flux TCRED-TRAVAIL-EMPLOI-EFF-FP-RATIO), lignes
+  INDICATEUR = EFFECTIFS_FP_HOSPITALIERE, VERSANTS_FP = FPH, SEXE = 0 ; OBS_VALUE en milliers (vide ou NaN exclu), multiplié par
+  1 000. Année N = TIME_PERIOD (effectifs au 31 décembre N). Dénominateur : source insee-estimations-population,
+  EP_MEASURE = POP_JAN_1ST, AGE = _T, SEX = _T, TIME_PERIOD = N + 1. Valeur = 1 000 × effectif / population, arrondie
+  à 2 décimales. Maille france : REF_AREA FE (France hors Mayotte) et population GEO = F_X_D976, code FR. Maille
+  departement : REF_AREA « D » + code DEP du COG 2026 (D01…D95, D2A, D2B, D971 à D974), population GEO_OBJECT = DEP
+  et GEO = DEP, libellé du COG. Maille region : REF_AREA « R » + code REG du COG 2026, population GEO_OBJECT = REG et
+  GEO = REG, libellé du COG. Années sans population N + 1 publiée exclues.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null
