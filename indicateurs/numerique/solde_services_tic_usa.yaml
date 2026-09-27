@@ -1,0 +1,20 @@
+id: numerique.solde_services_tic_usa
+libelle: Solde des échanges de services de télécommunications, d'informatique et d'information avec les États-Unis
+unite: milliards d'euros courants
+sens: plus_haut_mieux
+sources: [eurostat-bop-its6-det]
+maille: [france, pays]
+formule: indicateurs/numerique/solde_services_tic_usa.sql
+format: "{:+.1f} Md€"
+limites: >
+  Mêmes limites que numerique.solde_services_tic. La ventilation géographique suit le pays de la contrepartie
+  qui facture : les services d'un groupe américain facturés depuis sa filiale irlandaise comptent comme des
+  importations depuis l'Irlande, pas depuis les États-Unis ; le solde bilatéral sous-estime donc la dépendance
+  aux fournisseurs américains, et l'excédent de l'UE avec les États-Unis reflète surtout l'Irlande.
+construction: >
+  Eurostat bop_its6_det, lignes currency = MIO_EUR, bop_item = SI, stk_flow = BAL, partner = US. Valeur = OBS_VALUE
+  divisée par 1 000 (milliards d'euros), sans arrondi ; lignes vides exclues. Période = TIME_PERIOD. Maille pays :
+  code = partie de geo avant « : », libellé = partie après. Maille france = ligne geo FR recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null
