@@ -47,8 +47,23 @@ def valider() -> list[str]:
         if d.get("formule") and not (RACINE / d["formule"]).exists():
             erreurs.append(f"{ou} : formule introuvable {d['formule']}")
 
+    schema_evaluation = _schema("evaluation")
+    ids_evaluations = set()
+    for chemin in sorted((RACINE / "sources").glob("*.md")):
+        ou = str(chemin.relative_to(RACINE))
+        try:
+            entete, _ = lire_fiche(chemin)
+        except ValueError as e:
+            erreurs.append(f"{ou} : {e}")
+            continue
+        erreurs += _erreurs_schema(schema_evaluation, entete, ou)
+        if entete.get("id") != chemin.stem:
+            erreurs.append(f"{ou} : l'id « {entete.get('id')} » doit être le nom du fichier")
+        ids_evaluations.add(entete.get("id"))
+
     schema_fiche = _schema("fiche")
     ids_fiches = set()
+    renvois: list[tuple[str, str, str]] = []  # (fiche, champ, id visé)
     for chemin in toutes_les_fiches():
         ou = str(chemin.relative_to(RACINE))
         try:
@@ -63,6 +78,8 @@ def valider() -> list[str]:
         ids_fiches.add(entete.get("id"))
         if entete.get("id") != chemin.stem:
             erreurs.append(f"{ou} : l'id « {entete.get('id')} » doit être le nom du fichier")
+        for champ in ("constats", "preuves"):
+            renvois += [(ou, champ, cible) for cible in entete.get(champ) or []]
         for chiffre in chiffres_tapes(corps):
             erreurs.append(f"{ou} : chiffre tapé à la main « {chiffre.strip()} », appeler un indicateur à la place")
         declares = set(entete.get("indicateurs") or [])
@@ -77,6 +94,11 @@ def valider() -> list[str]:
                 erreurs.append(f"{ou} : {a.texte} appelle la version {a.version}, la définition est en {d['version']}")
             if a.maille not in d["maille"]:
                 erreurs.append(f"{ou} : maille « {a.maille} » non calculée pour {a.indicateur}")
+
+    for ou, champ, cible in renvois:
+        connus = ids_fiches if champ == "constats" else ids_evaluations
+        if cible not in connus:
+            erreurs.append(f"{ou} : {champ} renvoie à « {cible} », introuvable")
     return erreurs
 
 
