@@ -1,0 +1,26 @@
+id: democratie.lois_promulguees
+libelle: Lois promulguées dans l'année (hors accords internationaux)
+unite: lois
+sens: neutre
+sources: [an-dossiers-legislatifs]
+maille: [france]
+formule: indicateurs/democratie/lois_promulguees.sql
+format: "{:.0f} lois"
+limites: >
+  Compte des textes, pas leur volume ni leur portée : une loi de finances et une loi de deux articles pèsent
+  autant. Exclut les lois autorisant la ratification ou l'approbation d'accords internationaux (un quart des
+  lois promulguées depuis 2017), incluses dans les décomptes officiels du Secrétariat général du Gouvernement ; inclut lois de
+  finances, de financement de la sécurité sociale, organiques et constitutionnelles. Données de l'Assemblée
+  nationale : une loi dont le dossier ne figure dans aucun des fichiers des XVe à XVIIe législatures manquerait.
+  Plus de lois n'est ni mieux ni moins bien.
+construction: >
+  Source an-dossiers-legislatifs : une ligne par acte de promulgation (codeActe PROM-PUB) et par fichier de
+  législature. Lignes retenues : code_loi renseigné et titre_loi ne commençant pas par « autorisant » (insensible
+  à la casse ; couvre « autorisant la ratification », « autorisant l'approbation », « autorisant l'adhésion »).
+  Une loi = un code_loi distinct (les dossiers présents dans deux législatures sont comptés une fois). Année =
+  quatre premiers caractères de code_loi (numérotation officielle AAAA-N). Valeur = nombre de code_loi distincts
+  par année. Années retenues : de 2018 à l'année qui précède la plus récente des années présentes (année en
+  cours exclue car incomplète ; 2017 exclue car la XIVe législature n'est pas branchée).
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

@@ -1,0 +1,22 @@
+id: democratie.confiance_justice
+libelle: Confiance dans la justice
+unite: "% des personnes interrogées"
+sens: plus_haut_mieux
+sources: [eurobarometre-standard-confiance]
+maille: [france, pays]
+formule: indicateurs/democratie/confiance_justice.sql
+format: "{:.0f} %"
+limites: >
+  Sondage (environ 1 000 personnes de 15 ans et plus par pays) : marge d'erreur de l'ordre de ± 3 points, parts
+  arrondies à l'unité. Mesure une perception générale du « système judiciaire », pas l'expérience des
+  justiciables. Item absent de la vague 100 (automne 2023) : six vagues de printemps 2023 à printemps 2026.
+construction: >
+  Source eurobarometre-standard-confiance (volume A de chaque vague), lignes institution = justice : item de la
+  question QA6 « How much trust do you have in certain institutions? » dont le libellé anglais contient « legal
+  system » (« Justice, the (NATIONALITY) legal system »). Valeur = 100 × confiance (ligne « Tend to trust »),
+  arrondie à l'unité. Période = année de fin du terrain + « -S1 » (fin du terrain de janvier à juin) ou « -S2 ».
+  Maille pays : codes à deux lettres de l'en-tête et UE27 recodé EU27_2020 ; DEW et DEE écartées. Maille France =
+  ligne FR recopiée.
+comparaison_ue: maille pays, agrégat EU27_2020 (moyenne pondérée de l'Eurobaromètre)
+version: 1.0.0
+relu_par: null

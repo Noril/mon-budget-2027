@@ -1,0 +1,25 @@
+id: democratie.participation_europeennes
+libelle: Participation aux élections européennes
+unite: "% des inscrits"
+sens: plus_haut_mieux
+sources: [interieur-europeennes-departements, insee-cog-departements, pe-participation-europeennes]
+maille: [france, departement, pays]
+formule: indicateurs/democratie/participation_europeennes.sql
+format: "{:.2f} %"
+limites: >
+  Le vote est obligatoire en Belgique, au Luxembourg, en Bulgarie et en Grèce (sanction rarement appliquée
+  dans ces deux derniers) : les comparaisons entre pays en tiennent compte. Le Parlement européen publie les
+  taux nationaux tels que les États les calculent (inscrits ou électorat estimé). Moyenne UE seulement pour
+  2024 : les moyennes antérieures portent sur l'Union de l'époque (28 États en 2019, Royaume-Uni compris).
+  Italie 2024 : taux provisoire.
+construction: >
+  Mailles France et département : source interieur-europeennes-departements (scrutins 2019 et 2024, tour
+  unique). Valeur = 100 × votants / inscrits, arrondie à 2 décimales ; département = codes présents dans le
+  COG 2026 (insee-cog-departements, jointure sur DEP) ; France (code FR) = somme de toutes les lignes, Français
+  établis hors de France compris. Maille pays : source pe-participation-europeennes, colonne RATE telle
+  quelle (en %, deux décimales), code = COUNTRY_ID (EL = Grèce, UK = Royaume-Uni jusqu'en 2019), toutes années
+  de 1979 à 2024 ; ligne du fichier UE (COUNTRY_ID vide) retenue pour 2024 seulement, sous le code EU27_2020.
+  La valeur pays FR du Parlement européen coïncide avec la maille France (51,49 % en 2024).
+comparaison_ue: maille pays, agrégat EU27_2020 (2024)
+version: 1.0.0
+relu_par: null
