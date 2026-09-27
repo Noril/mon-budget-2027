@@ -1,0 +1,22 @@
+id: economie.inflation_ipc
+libelle: Inflation annuelle moyenne (indice des prix à la consommation, IPC)
+unite: "% sur un an (moyenne annuelle)"
+sens: neutre
+sources: [insee-ipc, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/economie/inflation_ipc.sql
+format: "{:.1f} %"
+limites: >
+  Évolution du prix moyen d'un panier représentatif de la consommation, pas du coût de la vie de chaque ménage
+  (poids propres du logement et de l'énergie ; achats de logement et remboursements d'emprunt hors indice). Maille départementale limitée aux
+  départements d'outre-mer (Guadeloupe, Martinique, Guyane et La Réunion depuis 2016 ; Mayotte depuis 2024) : c'est une
+  évolution, pas un écart de niveau de prix avec la métropole.
+construction: >
+  Jeu Melodi DS_IPC_PRINC (base 2025). Lignes IDX_TYPE = CPI, IND_TYPE = Y_VAR (variation annuelle moyenne, en %),
+  FREQ = A, COICOP_2018 = 00 (ensemble), TPH_CPI = _T (tous ménages), SEASONAL_ADJUST = N, PRODUCT_GROUP = _Z ;
+  OBS_VALUE vide exclu. Valeur = OBS_VALUE tel quel (une décimale). Maille france = GEO = F (France entière), code FR.
+  Maille departement = GEO présent dans la colonne DEP du COG 2026 (971, 972, 973, 974, 976), libellé du COG ;
+  GEO = FM (France métropolitaine) non repris. Période = année.
+comparaison_ue: voir economie.inflation_ipch (maille pays)
+version: 1.0.0
+relu_par: null

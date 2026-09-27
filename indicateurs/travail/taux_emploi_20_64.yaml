@@ -1,0 +1,20 @@
+id: travail.taux_emploi_20_64
+libelle: Taux d'emploi des 20-64 ans
+unite: "% de la population de 20 à 64 ans"
+sens: plus_haut_mieux
+sources: [eurostat-lfsi-emp-a]
+maille: [france, pays]
+formule: indicateurs/travail/taux_emploi_20_64.sql
+format: "{:.1f} %"
+limites: >
+  Une heure de travail rémunéré dans la semaine de référence suffit pour être en emploi : l'indicateur ne dit rien
+  du temps partiel ni de la qualité des emplois. Cible européenne pour 2030 : 78 % dans l'UE (engagement français :
+  78,5 %). Enquête par sondage, ruptures de série en 2021 (nouveau règlement européen).
+construction: >
+  Eurostat lfsi_emp_a, indic_em = EMP_LFS (emploi total, population résidente), sex = T, age = Y20-64,
+  unit = PC_POP (% de la population du même âge). Valeur = OBS_VALUE telle quelle (une décimale) ; observations vides
+  exclues. Code pays = partie de geo avant « : », libellé = partie après. Maille france = ligne geo FR recopiée
+  avec le code FR. Période = année.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

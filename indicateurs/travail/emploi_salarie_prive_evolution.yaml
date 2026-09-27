@@ -1,0 +1,19 @@
+id: travail.emploi_salarie_prive_evolution
+libelle: Évolution sur un an de l'emploi salarié du secteur privé
+unite: "% sur un an (au 31 décembre)"
+sens: plus_haut_mieux
+sources: [urssaf-effectifs-departements, insee-cog-departements, insee-cog-regions]
+maille: [france, region, departement]
+formule: indicateurs/travail/emploi_salarie_prive_evolution.sql
+format: "{:+.2f} %"
+limites: >
+  Mêmes champ et limites que travail.emploi_salarie_prive. Un transfert d'établissement (siège, changement de
+  régime) peut produire un saut local sans création ni destruction d'emplois. Première année calculée : 2007.
+construction: >
+  Mêmes effectifs que travail.emploi_salarie_prive, avant arrondi : somme de toutes les lignes du jeu URSSAF par
+  code_departement et année (colonnes effectifs_salaries_AAAA), puis par REG du COG 2026 (region) et pour toutes les
+  lignes (france, code FR) ; departement = codes présents comme DEP dans le COG 2026. Valeur de l'année N =
+  100 × (effectif N / effectif N−1 − 1), arrondie à 2 décimales ; pas de valeur si l'effectif N−1 est nul ou absent.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

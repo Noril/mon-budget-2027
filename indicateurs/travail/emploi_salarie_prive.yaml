@@ -1,0 +1,22 @@
+id: travail.emploi_salarie_prive
+libelle: Emploi salarié du secteur privé au 31 décembre
+unite: salariés
+sens: plus_haut_mieux
+sources: [urssaf-effectifs-departements, insee-cog-departements, insee-cog-regions]
+maille: [france, region, departement]
+formule: indicateurs/travail/emploi_salarie_prive.sql
+format: "{:.0f} salariés"
+limites: >
+  Champ URSSAF : établissements employeurs du secteur privé relevant du régime général, hors particuliers
+  employeurs et hors salariés agricoles (MSA) ; emploi compté au lieu de l'établissement, pas au domicile.
+  Apprentis inclus sur toute la série depuis la publication de juin 2023. Mayotte absente.
+construction: >
+  Jeu URSSAF nombre-detablissements-employeurs-et-effectifs-salaries-du-secteur-prive-par-dep (format large).
+  Chaque colonne effectifs_salaries_AAAA donne l'année AAAA (depuis 2006). Somme, par code_departement et année, de
+  toutes les lignes (tous grands secteurs, toutes tranches d'effectif, y compris « inconnu » et « nca »), valeurs
+  vides ignorées. Maille departement = code_departement présent comme DEP dans le COG 2026, libellé du COG.
+  Maille region = somme des départements par REG du COG 2026. Maille france = somme de toutes les lignes.
+  Arrondi à l'unité après sommation (les effectifs portent des décimales depuis 2022).
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

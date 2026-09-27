@@ -1,0 +1,117 @@
+# Catalogue des sources : Économie (croissance, productivité, prix, échanges). Validé par schemas/source.schema.json.
+# Séries Eurostat filtrées sur les 27 États membres et l'agrégat EU27_2020.
+
+- id: eurostat-nama-10-pc
+  titre: PIB par habitant en standard de pouvoir d'achat
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/nama_10_pc/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nama_10_pc
+    cle: A.CP_PPS_EU27_2020_HAB.B1GQ.BE+BG+CZ+DK+DE+EE+IE+EL+ES+FR+HR+IT+CY+LV+LT+LU+HU+MT+NL+AT+PL+PT+RO+SI+SK+FI+SE+EU27_2020
+    parametres: {format: SDMX-CSV, startPeriod: "2000", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (comptes nationaux, révisions en avril et septembre)
+  domaines: [economie]
+  controles:
+    lignes_min: 600
+    colonnes: [unit, na_item, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: PIB aux prix du marché (B1GQ), prix courants, SPA UE27 (2020) par habitant.
+
+- id: eurostat-nama-10-lp-ulc
+  titre: Productivité du travail par heure travaillée
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/nama_10_lp_ulc/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nama_10_lp_ulc
+    cle: A.CP_MPPS_EU27_2020+PC_EU27_2020_MPPS_CP.NLPR_HW.BE+BG+CZ+DK+DE+EE+IE+EL+ES+FR+HR+IT+CY+LV+LT+LU+HU+MT+NL+AT+PL+PT+RO+SI+SK+FI+SE+EU27_2020
+    parametres: {format: SDMX-CSV, startPeriod: "2000", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel
+  domaines: [economie]
+  controles:
+    lignes_min: 1200
+    colonnes: [unit, na_item, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Productivité nominale par heure travaillée (NLPR_HW) en SPA par heure (CP_MPPS_EU27_2020, libellé Eurostat
+    « millions de SPA » : PIB en millions de SPA rapporté aux millions d'heures) et en indice UE27 = 100
+    (PC_EU27_2020_MPPS_CP). Valeurs récentes souvent provisoires (OBS_FLAG = p).
+
+- id: eurostat-prc-hicp-aind
+  titre: Indice des prix à la consommation harmonisé (IPCH), variation annuelle moyenne
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_aind/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/prc_hicp_aind
+    cle: A.RCH_A_AVG.CP00.BE+BG+CZ+DK+DE+EE+IE+EL+ES+FR+HR+IT+CY+LV+LT+LU+HU+MT+NL+AT+PL+PT+RO+SI+SK+FI+SE+EU27_2020
+    parametres: {format: SDMX-CSV, startPeriod: "2000", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (publié en janvier-février pour l'année écoulée)
+  domaines: [economie]
+  controles:
+    lignes_min: 600
+    colonnes: [unit, coicop, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Taux de variation annuel moyen (RCH_A_AVG) de l'indice d'ensemble (CP00). Jeu en nomenclature ECOICOP 1 ;
+    Eurostat publie depuis 2026 les séries ECOICOP 2 dans prc_hicp_ainr (à suivre).
+
+- id: eurostat-nama-10-gdp-echanges
+  titre: PIB et échanges extérieurs de biens (comptes nationaux)
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/nama_10_gdp/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nama_10_gdp
+    cle: A.CP_MEUR.P61+P71+B1GQ.BE+BG+CZ+DK+DE+EE+IE+EL+ES+FR+HR+IT+CY+LV+LT+LU+HU+MT+NL+AT+PL+PT+RO+SI+SK+FI+SE+EU27_2020
+    parametres: {format: SDMX-CSV, startPeriod: "2000", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel
+  domaines: [economie]
+  controles:
+    lignes_min: 1800
+    colonnes: [unit, na_item, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Exportations (P61) et importations (P71) de biens, PIB (B1GQ), millions d'euros courants. Pour l'agrégat
+    EU27_2020, les flux incluent les échanges entre États membres.
+
+- id: insee-ipc
+  titre: Indice des prix à la consommation (IPC), jeu principal
+  producteur: INSEE
+  doc: https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DS_IPC_PRINC
+  acces:
+    mode: fichier
+    urls: [https://api.insee.fr/melodi/file/DS_IPC_PRINC/DS_IPC_PRINC_CSV_FR]
+    motif: "*_data.csv"
+    format: ZIP de CSV (séparateur ;), format long Melodi (jeu DS_IPC_PRINC)
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [france, departement]
+  millesime: mensuel (vers le 15 du mois suivant) ; moyennes annuelles publiées en janvier
+  fraicheur_max_jours: 60
+  domaines: [economie]
+  controles:
+    lignes_min: 400000
+    colonnes: [IDX_TYPE, IND_TYPE, COICOP_2018, SEASONAL_ADJUST, GEO, GEO_OBJECT, TPH_CPI, FREQ, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Base 2025, nomenclature COICOP 2018. GEO = F (France), FM (France métropolitaine), 971 à 974 et 976 (DOM,
+    Mayotte depuis 2023). IND_TYPE : IX (indice), Y_VAR (variation annuelle moyenne, %), YOY (glissement annuel),
+    M_VAR, IW (pondérations).

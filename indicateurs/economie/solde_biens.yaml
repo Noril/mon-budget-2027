@@ -1,0 +1,22 @@
+id: economie.solde_biens
+libelle: Solde des échanges extérieurs de biens
+unite: "% du PIB"
+sens: plus_haut_mieux
+sources: [eurostat-nama-10-gdp-echanges]
+maille: [france, pays]
+formule: indicateurs/economie/solde_biens.sql
+format: "{:+.1f} % du PIB"
+limites: >
+  Solde au sens des comptes nationaux (transferts de propriété), qui diffère du solde douanier (FAB-CAF, champ du
+  territoire douanier) publié chaque mois par les Douanes. Ne compte pas les services (tourisme, services
+  financiers), excédentaires pour la France. Pour l'agrégat EU27_2020, les flux incluent les échanges entre États
+  membres : le solde de l'UE vaut la somme des soldes nationaux, pas le solde extra-européen.
+construction: >
+  Eurostat nama_10_gdp, unit = CP_MEUR (prix courants, millions d'euros). Pour chaque pays et année :
+  exportations de biens (na_item = P61), importations de biens (P71), PIB aux prix du marché (B1GQ).
+  Valeur = 100 × (P61 − P71) / B1GQ, arrondie à 2 décimales ; lignes où l'un des trois manque exclues.
+  Code pays = partie de geo avant « : », libellé = partie après. Maille france = ligne geo FR recopiée avec le code FR.
+  Période = année.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

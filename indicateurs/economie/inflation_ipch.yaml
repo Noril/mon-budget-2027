@@ -1,0 +1,19 @@
+id: economie.inflation_ipch
+libelle: Inflation annuelle moyenne (indice des prix harmonisé, IPCH)
+unite: "% sur un an (moyenne annuelle)"
+sens: neutre
+sources: [eurostat-prc-hicp-aind]
+maille: [france, pays]
+formule: indicateurs/economie/inflation_ipch.sql
+format: "{:.1f} %"
+limites: >
+  L'IPCH sert aux comparaisons européennes et au mandat de la BCE (cible 2 % en zone euro) ; il diffère de l'IPC
+  de l'INSEE (pondérations, traitement de la santé et des loyers imputés), d'où des écarts certaines années
+  (2023 : 5,7 % en IPCH contre 4,9 % en IPC). Pour la France seule, préférer economie.inflation_ipc.
+construction: >
+  Eurostat prc_hicp_aind, unit = RCH_A_AVG (taux de variation annuel moyen, en %), coicop = CP00 (indice d'ensemble).
+  Valeur = OBS_VALUE tel quel (une décimale) ; observations vides exclues. Code pays = partie de geo avant « : »
+  (FR, DE, EU27_2020…), libellé = partie après. Maille france = ligne geo FR recopiée avec le code FR. Période = année.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null
