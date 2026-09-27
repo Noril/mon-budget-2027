@@ -1,0 +1,104 @@
+# Hypothèses de la trajectoire de référence 2026-2032 (plan/trajectoire.py).
+#
+# Règles :
+# - chaque valeur a une source ouverte (url) et une date de millésime ;
+# - `derivation` dit comment la valeur se lit ou se calcule dans la source ; plan/trajectoire.py recalcule
+#   chaque valeur depuis la zone normalisée (source du catalogue) et s'arrête si elles divergent
+#   (nouveau millésime : mettre à jour ce fichier, pas le code) ;
+# - une hypothèse sans source publique porte `a_trancher: true` et une valeur par défaut conventionnelle,
+#   décrite dans `convention`. Elle attend un arbitrage (decisions/).
+#
+# Unités : % (0.858 = 0,858 %), ou points de PIB pour le solde primaire.
+
+millesime: FMI, Perspectives de l'économie mondiale (WEO), avril 2026
+annees: [2026, 2027, 2028, 2029, 2030, 2031, 2032]
+
+hypotheses:
+
+  - id: croissance_reelle
+    variable: croissance
+    libelle: Croissance du PIB en volume
+    unite: "% par an"
+    source: fmi-weo
+    url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_RPCH.A
+    date: 2026-04-14
+    derivation: {type: serie, serie: NGDP_RPCH}
+    valeurs: {2026: 0.858, 2027: 0.876, 2028: 1.217, 2029: 1.160, 2030: 1.106, 2031: 1.058}
+
+  - id: croissance_reelle_2032
+    variable: croissance
+    libelle: Croissance du PIB en volume, 2032 (au-delà de l'horizon du FMI)
+    unite: "% par an"
+    a_trancher: true
+    convention: valeur 2031 du FMI reconduite (le WEO s'arrête à 2031)
+    derivation: {type: reconduction, hypothese: croissance_reelle, annee: 2031}
+    valeurs: {2032: 1.058}
+
+  - id: deflateur
+    variable: inflation
+    libelle: Évolution du déflateur du PIB (inflation retenue pour le PIB nominal)
+    unite: "% par an"
+    source: fmi-weo
+    url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+    date: 2026-04-14
+    derivation: {type: variation, serie: NGDP_D, formule: "100 × (NGDP_D(t) / NGDP_D(t−1) − 1)"}
+    valeurs: {2026: 1.358, 2027: 1.460, 2028: 1.862, 2029: 1.863, 2030: 1.860, 2031: 1.757}
+    note: >
+      Le déflateur du PIB, et non l'inflation des prix à la consommation (PCPIPCH, ingérée pour information),
+      fait passer de la croissance en volume à la croissance nominale.
+
+  - id: deflateur_2032
+    variable: inflation
+    libelle: Évolution du déflateur du PIB, 2032
+    unite: "% par an"
+    a_trancher: true
+    convention: valeur 2031 du FMI reconduite
+    derivation: {type: reconduction, hypothese: deflateur, annee: 2031}
+    valeurs: {2032: 1.757}
+
+  - id: taux_apparent
+    variable: taux
+    libelle: Taux d'intérêt apparent de la dette
+    unite: "% par an"
+    source: fmi-weo
+    url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.GGXONLB_NGDP+GGXCNL_NGDP+GGXWDG_NGDP+NGDP.A
+    date: 2026-04-14
+    derivation:
+      type: taux_implicite
+      formule: "100 × (GGXONLB_NGDP(t) − GGXCNL_NGDP(t)) × NGDP(t) / (GGXWDG_NGDP(t−1) × NGDP(t−1))"
+    valeurs: {2026: 1.965, 2027: 2.144, 2028: 2.297, 2029: 2.391, 2030: 2.583, 2031: 2.786}
+    note: >
+      Taux implicite des projections du FMI : intérêts nets (solde primaire moins solde) rapportés à la dette de
+      l'année précédente. Le FMI ne publie pas ce taux ; il se déduit de ses séries. Intérêts nets des intérêts
+      reçus, alors que l'indicateur observé finances.charge_interets est brut (écart de l'ordre de 0,1 à 0,2 point
+      de PIB).
+
+  - id: taux_apparent_2032
+    variable: taux
+    libelle: Taux d'intérêt apparent de la dette, 2032
+    unite: "% par an"
+    a_trancher: true
+    convention: valeur 2031 reconduite ; la hausse régulière du taux apparent (refinancement à taux de marché) se poursuivrait en réalité
+    derivation: {type: reconduction, hypothese: taux_apparent, annee: 2031}
+    valeurs: {2032: 2.786}
+
+  - id: solde_primaire
+    variable: solde_primaire
+    libelle: Solde primaire à politique inchangée
+    unite: points de PIB
+    a_trancher: true
+    convention: >
+      Solde primaire gelé à son dernier niveau observé (finances.solde_public + finances.charge_interets de la
+      dernière année commune), pour toutes les années 2026-2032. Aucune source publique ne fournit une
+      trajectoire « à politique inchangée » stricto sensu jusqu'en 2032 ; le gel est la convention la plus simple.
+      La valeur se lit dans les indicateurs au moment du calcul : elle n'est pas tapée ici.
+    derivation: {type: gel_observe, indicateurs: [finances.solde_public, finances.charge_interets]}
+    variante_sourcee:
+      id: fmi
+      libelle: Solde primaire des projections du FMI (budget 2026 et effort structurel minimal de 0,5 point par an de la procédure de déficit excessif)
+      source: fmi-weo
+      url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.GGXONLB_NGDP.A
+      date: 2026-04-14
+      derivation: {type: serie, serie: GGXONLB_NGDP}
+      valeurs: {2026: -2.711, 2027: -2.308, 2028: -1.576, 2029: -0.998, 2030: -0.313, 2031: 0.388}
+      prolongement_2032: {a_trancher: true, convention: valeur 2031 reconduite, valeur: 0.388}

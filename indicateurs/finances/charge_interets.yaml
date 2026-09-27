@@ -1,0 +1,20 @@
+id: finances.charge_interets
+libelle: Charge d'intérêts des administrations publiques
+unite: "% du PIB"
+sens: plus_bas_mieux
+sources: [eurostat-gov-10dd-edpt1]
+maille: [france, pays]
+formule: indicateurs/finances/charge_interets.sql
+format: "{:.2f} % du PIB"
+limites: >
+  Intérêts versés au sens de la comptabilité nationale (droits constatés, y compris l'indexation sur l'inflation
+  des titres indexés), consolidés entre administrations, bruts des intérêts reçus. Diffère de la « charge de la
+  dette » budgétaire de l'État. Les séries consolidées de l'INSEE Melodi ne sont pas utilisées : depuis 2023 elles
+  reprennent les montants non consolidés (voir le catalogue).
+construction: >
+  Eurostat gov_10dd_edpt1, unit = MIO_NAC (millions de monnaie nationale). Numérateur : sector = S13, na_item = D41PAY (intérêts versés, consolidés). Dénominateur : sector = S1,
+  na_item = B1GQ de la même année et du même pays. Valeur = 100 × D41PAY / B1GQ, sans arrondi.
+  Code pays = partie de geo avant « : ». Maille france = ligne geo FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

@@ -1,0 +1,16 @@
+# Exemple de scénario : format d'inscription du coût des propositions (valeurs fictives, pour tester la mécanique).
+# Signe : effet sur le solde primaire. Négatif = coût (dépense nouvelle ou recette perdue), positif = économie.
+# Unités : md_eur (milliards d'euros courants, convertis avec le PIB nominal de la référence) ou pts_pib.
+id: exemple
+libelle: Exemple fictif, une dépense montant en charge et une économie
+mesures:
+  - id: exemple-depense
+    fiche: null  # chemin de la fiche proposition (domaines/<domaine>/propositions/<id>.md), dont l'en-tête `cout` renvoie ici
+    effet_solde_primaire:
+      unite: md_eur
+      valeurs: {2027: -2.0, 2028: -4.0, 2029: -6.0, 2030: -6.0, 2031: -6.0, 2032: -6.0}
+  - id: exemple-economie
+    fiche: null
+    effet_solde_primaire:
+      unite: pts_pib
+      valeurs: {2028: 0.1, 2029: 0.1, 2030: 0.1, 2031: 0.1, 2032: 0.1}

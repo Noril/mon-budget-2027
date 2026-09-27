@@ -1,0 +1,19 @@
+id: finances.pib_nominal
+libelle: Produit intérieur brut nominal
+unite: milliards d'euros courants
+sens: neutre
+sources: [insee-pib]
+maille: [france]
+formule: indicateurs/finances/pib_nominal.sql
+format: "{:,.1f} Md€"
+limites: >
+  Les deux ou trois dernières années sont provisoires ou semi-définitives et révisées chaque année (fin mai,
+  fin août). Sert de dénominateur au solde public et de niveau de départ au modèle de plan/trajectoire.py.
+construction: >
+  Jeu Melodi DD_CNA_AGREGATS, lignes STO = B1GQ (PIB aux prix du marché), PRICES = V (valeur, prix courants),
+  UNIT_MEASURE = XDC (euros), TRANSFORMATION = N (niveau), COUNTERPART_AREA = W0. OBS_VALUE est en millions
+  d'euros (UNIT_MULT = 6) : divisé par 1 000. Lignes identiques répétées d'un tableau à l'autre dédoublonnées.
+  Toutes les années publiées, statut provisoire compris (OBS_STATUS = P).
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

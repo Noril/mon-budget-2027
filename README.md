@@ -40,6 +40,7 @@ europe/                compétences UE
 indicateurs/           catalogue.yaml des sources, définitions YAML + SQL des indicateurs
 pipelines/             ingestion et calcul (données hors git, dans data/)
 outils/                validation et construction du site
+plan/                  compte de la France : hypothèses, trajectoire de la dette, scénarios (voir plan/README.md)
 schemas/               JSON Schema des sources, indicateurs, fiches
 sources/               fiches de lecture du corpus d'évaluation
 decisions/             journal des arbitrages

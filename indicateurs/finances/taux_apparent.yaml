@@ -1,0 +1,18 @@
+id: finances.taux_apparent
+libelle: Taux d'intérêt apparent de la dette publique
+unite: "% par an"
+sens: plus_bas_mieux
+sources: [eurostat-gov-10dd-edpt1]
+maille: [france, pays]
+formule: indicateurs/finances/taux_apparent.sql
+format: "{:.2f} %"
+limites: >
+  Rapport comptable, pas un taux de marché : mélange des titres émis à des époques et taux différents, et inclut
+  l'indexation des titres indexés sur l'inflation. La dette de Maastricht est en valeur nominale (pas de marché).
+construction: >
+  Eurostat gov_10dd_edpt1, unit = MIO_NAC (millions de monnaie nationale), sector = S13. Valeur de l'année t = 100 × D41PAY(t) / GD(t − 1), où GD(t − 1) est la dette brute
+  consolidée au 31 décembre de l'année précédente, même pays. Pas de valeur pour la première année de la série
+  (1995) ni quand l'un des deux termes manque. Code pays = partie de geo avant « : ». Maille france = ligne geo FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

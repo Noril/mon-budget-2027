@@ -1,0 +1,20 @@
+id: finances.depenses_publiques
+libelle: Dépenses publiques (administrations publiques)
+unite: "% du PIB"
+sens: plus_bas_mieux
+sources: [eurostat-gov-10a-main]
+maille: [france, pays]
+formule: indicateurs/finances/depenses_publiques.sql
+format: "{:.1f} % du PIB"
+limites: >
+  Total des dépenses consolidées des administrations publiques (État, collectivités, sécurité sociale), au sens de
+  la comptabilité nationale. Ratio arrondi à 0,1 point par Eurostat. Pour la France, le jeu INSEE Melodi
+  DD_CNA_APU n'est pas utilisé : depuis 2023, sa série « consolidée » reprend les montants non consolidés
+  (environ 75 % du PIB pour les dépenses), voir le catalogue.
+construction: >
+  Eurostat gov_10a_main, unit = PC_GDP, sector = S13, na_item = TE, valeur OBS_VALUE telle que publiée (déjà en %
+  du PIB). Code pays = partie de la colonne geo avant « : » (FR, DE, EU27_2020…), libellé = partie après.
+  Maille france = ligne geo FR recopiée avec le code FR. Lignes identiques dédoublonnées.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

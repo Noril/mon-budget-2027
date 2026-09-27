@@ -10,7 +10,7 @@
     "unite": {"type": "string"},
     "sens": {"enum": ["plus_haut_mieux", "plus_bas_mieux", "neutre"]},
     "sources": {"type": "array", "items": {"type": "string"}, "minItems": 1},
-    "maille": {"type": "array", "items": {"enum": ["france", "region", "departement", "epci", "commune"]}, "minItems": 1},
+    "maille": {"type": "array", "items": {"enum": ["france", "region", "departement", "epci", "commune", "pays"], "description": "pays : code géographique Eurostat (FR, DE, EU27_2020…), appelé par « pays=DE »"}, "minItems": 1},
     "formule": {"type": "string", "description": "chemin du fichier SQL, relatif à la racine du dépôt"},
     "format": {"type": "string", "description": "gabarit Python d'affichage, ex. '{:.1f} %'"},
     "limites": {"type": "string"},

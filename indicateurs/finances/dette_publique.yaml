@@ -1,0 +1,21 @@
+id: finances.dette_publique
+libelle: Dette publique au sens de Maastricht
+unite: "% du PIB"
+sens: plus_bas_mieux
+sources: [eurostat-gov-10dd-edpt1]
+maille: [france, pays]
+formule: indicateurs/finances/dette_publique.sql
+format: "{:.1f} % du PIB"
+limites: >
+  Dette brute consolidée en valeur nominale, en fin d'année : ne déduit ni la trésorerie ni les actifs des
+  administrations. Millésime de la dernière notification PDE (avril ou octobre) : le PIB peut différer de celui
+  de l'INSEE publié fin août. Le jeu INSEE Melodi DD_CNA_APU ne contient la dette de Maastricht que jusqu'en 1994,
+  d'où le recours à Eurostat (qui reprend la notification de l'INSEE) pour la France aussi.
+construction: >
+  Eurostat gov_10dd_edpt1, unit = MIO_NAC (millions de monnaie nationale). Numérateur : sector = S13, na_item = GD (dette brute consolidée). Dénominateur : sector = S1,
+  na_item = B1GQ (PIB aux prix du marché) de la même année et du même pays. Valeur = 100 × GD / B1GQ, sans arrondi.
+  Code pays = partie de la colonne geo avant « : » (FR, DE, EU27_2020, EA20…) ; libellé = partie après.
+  Maille france = ligne geo FR recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null
