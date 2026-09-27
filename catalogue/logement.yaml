@@ -1,0 +1,78 @@
+# Catalogue des sources : Logement (construction, prix, parc social). Validé par schemas/source.schema.json.
+
+- id: sdes-sitadel-departements
+  titre: Logements autorisés et commencés, séries mensuelles départementales (Sitadel, données estimées en date réelle)
+  producteur: SDES (ministère de la Transition écologique)
+  doc: https://www.statistiques.developpement-durable.gouv.fr/catalogue?page=datafile&datafileRid=d264957b-c6d2-4efa-bf5e-6a8da836550a
+  acces:
+    mode: dido
+    url: https://data.statistiques.developpement-durable.gouv.fr/dido/api/v1/datafiles/d264957b-c6d2-4efa-bf5e-6a8da836550a
+    format: CSV (séparateur ;), un enregistrement par mois, département et type de logement
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [departement]
+  millesime: mensuel (fin de mois) ; séries depuis janvier 2000
+  fraicheur_max_jours: 70
+  domaines: [logement]
+  normalisation: dido
+  controles:
+    lignes_min: 90000
+    colonnes: [ANNEE, MOIS, DEPARTEMENT_CODE, DEPARTEMENT_LIBELLE, TYPE_LGT, LOG_AUT, LOG_COM, millesime]
+  statut: actif
+  notes: >
+    Choisi à la place du fichier communal en date de prise en compte (rid 577a8a66-4157-4787-b00a-031b61afea61) :
+    celui-ci compte des dizaines de millions de lignes (mois × commune × type), ses données « brutes, à titre
+    indicatif » ne sont pas comparables aux séries estimées en date réelle publiées par le SDES, et son seul
+    millésime (2026-09) n'était pas encore diffusé le 27 septembre 2026. Série départementale estimée en date réelle :
+    96 000 lignes, 100 départements (hors Mayotte), TYPE_LGT = Tous Logements, Individuel, Collectif et Residence.
+    Les derniers mois sont révisés à chaque millésime.
+
+- id: dgfip-dvf-statistiques
+  titre: Statistiques DVF, prix au m² mensuels par département et pour la France (demandes de valeurs foncières)
+  producteur: DGFiP, agrégats data.gouv.fr (Etalab)
+  doc: https://www.data.gouv.fr/datasets/statistiques-dvf
+  acces:
+    mode: fichier
+    urls: ["https://tabular-api.data.gouv.fr/api/resources/03fba98d-885b-43c0-8986-d299cabc29da/data/csv/?echelle_geo__in=nation,departement"]
+    format: CSV (séparateur ,), extrait filtré (échelles nation et département) du fichier stats_dvf.csv via l'API tabulaire
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [france, departement]
+  millesime: semestriel (avril, octobre) ; cinq dernières années glissantes
+  domaines: [logement]
+  normalisation: dvf_stats
+  controles:
+    lignes_min: 5000
+    colonnes: [code_geo, echelle_geo, annee_mois, nb_ventes_apt_maison, moy_prix_m2_apt_maison, med_prix_m2_apt_maison]
+  statut: actif
+  notes: >
+    Le fichier complet stats_dvf.csv (277 Mo, jusqu'à la section cadastrale) dépasse le seuil de 200 Mo : seules les
+    lignes nation et département sont demandées à l'API tabulaire de data.gouv.fr (≈ 6 000 lignes, 600 Ko). DVF ne
+    couvre ni l'Alsace-Moselle (57, 67, 68 : livre foncier) ni Mayotte. Prix au m² de surface réelle bâtie, ventes
+    de maisons et d'appartements ; les médianes étant mensuelles, seules les moyennes s'agrègent exactement à l'année.
+    Le fichier géolocalisé geo-dvf (files.data.gouv.fr/geo-dvf) reste la voie pour une médiane annuelle.
+
+- id: sdes-rpls-logements
+  titre: Répertoire des logements locatifs des bailleurs sociaux (RPLS), données détaillées au logement, extrait département × étiquette DPE
+  producteur: SDES (ministère de la Transition écologique)
+  doc: https://www.statistiques.developpement-durable.gouv.fr/catalogue?page=datafile&datafileRid=f3c2f2cb-8fb1-40fd-8733-964247744c9a
+  acces:
+    mode: dido
+    url: https://data.statistiques.developpement-durable.gouv.fr/dido/api/v1/datafiles/f3c2f2cb-8fb1-40fd-8733-964247744c9a
+    parametres: {columns: "DEP_CODE,DPEENERGIE"}
+    format: CSV (séparateur ;), une ligne par logement social, deux colonnes demandées
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [departement]
+  millesime: annuel (parc au 1er janvier, diffusé en fin d'année suivante ou en janvier)
+  fraicheur_max_jours: 450
+  domaines: [logement]
+  normalisation: dido
+  controles:
+    lignes_min: 5000000
+    colonnes: [DEP_CODE, DPEENERGIE, millesime]
+  statut: actif
+  notes: >
+    Fichier complet : 5,4 millions de logements × 80 colonnes (adresse, coordonnées…), bien au-delà de 200 Mo ; seules
+    DEP_CODE et DPEENERGIE sont demandées (≈ 47 Mo, trois minutes de téléchargement). Le fichier détaillé ne contient
+    ni la vacance ni le loyer : ces indicateurs du RPLS ne sont publiés qu'en tableaux agrégés du SDES, non branchés.

@@ -1,0 +1,20 @@
+id: ecologie.part_renouvelables
+libelle: Part des énergies renouvelables dans la consommation finale brute d'énergie
+unite: "% de la consommation finale brute d'énergie"
+sens: plus_haut_mieux
+sources: [eurostat-nrg-ind-ren]
+maille: [france, pays]
+formule: indicateurs/ecologie/part_renouvelables.sql
+format: "{:.1f} %"
+limites: >
+  Indicateur de la directive sur les énergies renouvelables (objectif européen de 42,5 % en 2030 ; la France
+  n'a pas atteint sa cible nationale de 23 % pour 2020). Le nucléaire, bas carbone, n'est pas renouvelable : la
+  France paraît en retard sur ce critère tout en ayant une électricité peu émettrice. La dernière année est une
+  estimation provisoire d'Eurostat (drapeau « p », une décimale) révisée l'année suivante.
+construction: >
+  Eurostat nrg_ind_ren, nrg_bal = REN (part globale), unit = PC (pourcentage), valeur OBS_VALUE reprise sans calcul ni
+  arrondi (trois décimales, une seule pour les estimations provisoires marquées p dans OBS_FLAG, gardées). Code pays =
+  partie de geo avant « : » (FR, DE, EU27_2020…), libellé = partie après. Maille france = ligne FR recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

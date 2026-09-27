@@ -1,0 +1,25 @@
+id: logement.prix_m2_logements
+libelle: Prix moyen au m² des logements vendus (maisons et appartements)
+unite: euros par m² de surface bâtie
+sens: neutre
+sources: [dgfip-dvf-statistiques, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/logement/prix_m2_logements.sql
+format: "{:,.0f} €/m²"
+limites: >
+  Moyenne et non médiane : sensible aux ventes atypiques (les médianes publiées sont mensuelles et ne s'agrègent pas
+  à l'année). Mélange neuf (VEFA) et ancien, maisons et appartements : un département où l'on vend surtout des
+  appartements urbains paraît plus cher à qualité égale. Prix de mutation (hors frais), pas de loyer ni de
+  taux d'effort. Ni l'Alsace-Moselle (57, 67, 68) ni Mayotte ne sont dans DVF ; la France est donc hors de ces
+  quatre départements. Seules les cinq dernières années sont diffusées.
+construction: >
+  Source dgfip-dvf-statistiques (lignes echelle_geo = nation ou departement du fichier stats_dvf.csv d'Etalab),
+  colonnes nb_ventes_apt_maison (nombre de ventes de maisons et d'appartements du mois) et moy_prix_m2_apt_maison
+  (prix moyen au m² du mois, en euros entiers). Année = 4 premiers caractères de annee_mois ; seules les années
+  dont les 12 mois figurent pour la ligne nation sont retenues. Valeur annuelle = somme(nb_ventes × prix moyen) /
+  somme(nb_ventes) sur les mois de l'année où nb_ventes > 0 et le prix est renseigné, arrondie à l'euro.
+  Département : code_geo rattaché au libellé du COG (insee-cog-departements, colonne DEP). France (code FR) : ligne
+  nation de la source, même calcul.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null
