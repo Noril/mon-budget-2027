@@ -7,7 +7,7 @@ WITH n AS (
 ),
 p AS (
     SELECT split_part(geo, ':', 1) AS code, TIME_PERIOD AS periode, CAST(OBS_VALUE AS DOUBLE) AS population
-    FROM {{source:eurostat-demo-gind}}
+    FROM {{source:eurostat-population-1er-janvier}}
     WHERE split_part(indic_de, ':', 1) = 'JAN' AND OBS_VALUE IS NOT NULL
 ),
 v AS (SELECT n.*, round(1e5 * n.nombre / p.population, 1) AS valeur FROM n JOIN p USING (code, periode) WHERE p.population > 0)

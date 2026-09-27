@@ -2,7 +2,7 @@ id: immigration.eloignements_prononces_ue
 libelle: "Obligations de quitter le territoire prononcées pour 100 000 habitants"
 unite: décisions pour 100 000 habitants
 sens: neutre
-sources: [eurostat-migr-eiord, eurostat-demo-gind]
+sources: [eurostat-migr-eiord, eurostat-population-1er-janvier]
 maille: [france, pays]
 formule: indicateurs/immigration/eloignements_prononces_ue.sql
 format: "{:.1f} pour 100 000 habitants"

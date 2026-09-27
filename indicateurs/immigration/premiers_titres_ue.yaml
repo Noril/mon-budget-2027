@@ -2,7 +2,7 @@ id: immigration.premiers_titres_ue
 libelle: "Premiers titres de séjour délivrés pour 1 000 habitants"
 unite: premiers titres pour 1 000 habitants
 sens: neutre
-sources: [eurostat-migr-resfirst, eurostat-demo-gind]
+sources: [eurostat-migr-resfirst, eurostat-population-1er-janvier]
 maille: [france, pays]
 formule: indicateurs/immigration/premiers_titres_ue.sql
 format: "{:.1f} pour 1 000 habitants"

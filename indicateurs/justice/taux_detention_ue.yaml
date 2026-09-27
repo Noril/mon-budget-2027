@@ -2,7 +2,7 @@ id: justice.taux_detention_ue
 libelle: Personnes détenues pour 100 000 habitants (comparaison européenne)
 unite: détenus pour 100 000 habitants
 sens: neutre
-sources: [eurostat-crim-pris-cap, eurostat-demo-gind]
+sources: [eurostat-crim-pris-cap, eurostat-population-1er-janvier]
 maille: [france, pays]
 formule: indicateurs/justice/taux_detention_ue.sql
 format: "{:.1f} pour 100 000 habitants"

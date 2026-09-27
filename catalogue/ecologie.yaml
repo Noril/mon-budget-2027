@@ -46,27 +46,6 @@
     Clé : millions de tonnes équivalent CO2, ensemble des gaz à effet de serre (GHG), total hors UTCATF et hors
     postes pour mémoire (TOTX4_MEMO : sans l'aviation et le transport maritime internationaux) ; tous pays et EU27_2020.
 
-- id: eurostat-demo-gind
-  titre: Population moyenne annuelle (indicateurs démographiques)
-  producteur: Eurostat
-  doc: https://ec.europa.eu/eurostat/databrowser/view/demo_gind/default/table
-  acces:
-    mode: sdmx
-    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/demo_gind
-    cle: A.AVG.
-    parametres: {format: SDMX-CSV, startPeriod: "1990", lang: fr, label: both}
-    format: SDMX-CSV, colonnes « code:libellé »
-    auth: aucune
-  licence: Réutilisation libre Eurostat (CC BY 4.0)
-  maille: [pays, france]
-  millesime: annuel
-  domaines: [ecologie, transverse]
-  controles:
-    lignes_min: 1500
-    colonnes: [indic_de, geo, TIME_PERIOD, OBS_VALUE]
-  statut: actif
-  notes: Population moyenne de l'année (AVG), dénominateur des ratios par habitant des comparaisons européennes.
-
 - id: eurostat-nrg-ind-ren
   titre: Part de l'énergie renouvelable dans la consommation finale brute d'énergie (directive 2018/2001)
   producteur: Eurostat

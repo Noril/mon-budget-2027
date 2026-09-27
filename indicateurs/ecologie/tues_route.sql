@@ -21,7 +21,7 @@ eu AS (
 ),
 eupop AS (
     SELECT split_part(geo, ':', 1) AS code, TIME_PERIOD AS periode, CAST(OBS_VALUE AS DOUBLE) AS pop
-    FROM {{source:eurostat-demo-gind}}
+    FROM {{source:eurostat-population-moyenne}}
     WHERE split_part(indic_de, ':', 1) = 'AVG' AND OBS_VALUE IS NOT NULL
 )
 SELECT 'departement' AS maille, dep AS code, libelle, periode, round(1e6 * tues / pop, 1) AS valeur
