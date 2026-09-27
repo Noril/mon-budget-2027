@@ -1,0 +1,22 @@
+id: ecologie.ges_par_habitant
+libelle: Émissions de gaz à effet de serre par habitant
+unite: tonnes équivalent CO2 par habitant et par an
+sens: plus_bas_mieux
+sources: [eurostat-env-air-gge, eurostat-demo-gind]
+maille: [france, pays]
+formule: indicateurs/ecologie/ges_par_habitant.sql
+format: "{:.2f} t éq. CO2 par habitant"
+limites: >
+  Émissions territoriales (inventaire CCNUCC) : n'inclut ni les émissions importées (empreinte carbone, bien plus
+  élevée pour la France), ni l'aviation et le transport maritime internationaux, ni les puits de carbone des sols et
+  forêts (UTCATF). Inventaire publié avec deux ans de décalage. La France de l'inventaire européen couvre la métropole
+  et les départements d'outre-mer.
+construction: >
+  Numérateur : Eurostat env_air_gge, unit = MIO_T (millions de tonnes), airpol = GHG (tous gaz en équivalent CO2),
+  src_crf = TOTX4_MEMO (total hors UTCATF et hors postes pour mémoire). Dénominateur : Eurostat demo_gind,
+  indic_de = AVG (population moyenne de l'année), même pays (code geo) et même année. Valeur = 10^6 × émissions /
+  population, arrondie à 0,01. Code pays = partie de geo avant « : » (FR, DE, EU27_2020…), libellé = partie après ;
+  seuls les couples pays-année présents dans les deux jeux sont gardés. Maille france = ligne FR recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

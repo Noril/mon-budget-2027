@@ -1,0 +1,24 @@
+id: logement.parc_social_dpe_fg
+libelle: Part des logements sociaux classés F ou G au diagnostic de performance énergétique
+unite: "% des logements sociaux dont l'étiquette DPE énergie est connue"
+sens: plus_bas_mieux
+sources: [sdes-rpls-logements, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/logement/parc_social_dpe_fg.sql
+format: "{:.1f} %"
+limites: >
+  Environ 12 % des logements du répertoire n'ont pas d'étiquette renseignée ; ils sont exclus du dénominateur.
+  Les DPE réalisés avant la réforme de juillet 2021 (méthode sur factures) coexistent avec les nouveaux :
+  les étiquettes ne sont pas toutes comparables. Parc des bailleurs sociaux seulement (le parc privé, où se concentre
+  l'essentiel des passoires, n'est pas couvert). Aucune étiquette n'est renseignée pour les départements
+  d'outre-mer : l'indicateur ne couvre que la métropole. Une seule date : le parc au 1er janvier du millésime diffusé.
+construction: >
+  Source sdes-rpls-logements (RPLS détaillé, colonnes DEP_CODE et DPEENERGIE, une ligne par logement), colonne millesime
+  (AAAA-MM, ajoutée à la normalisation) : période = ses quatre premiers caractères (parc au 1er janvier de cette année).
+  Lignes retenues : DPEENERGIE parmi A, B, C, D, E, F, G (vide exclu). Valeur = 100 × nombre de lignes F ou G / nombre
+  de lignes retenues, arrondie à 0,1. Département : DEP_CODE rattaché au libellé du COG (insee-cog-departements,
+  colonne DEP) ; les cinq départements d'outre-mer n'ont aucune étiquette renseignée et n'apparaissent donc pas.
+  France (code FR, libellé France métropolitaine) : toutes les lignes retenues.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null
