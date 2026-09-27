@@ -1,0 +1,22 @@
+id: agriculture.chefs_55_ans_et_plus
+libelle: Part des exploitations agricoles dont le chef a 55 ans ou plus
+unite: "% des exploitations"
+sens: plus_bas_mieux
+sources: [eurostat-ef-m-farmang]
+maille: [france, pays]
+formule: indicateurs/agriculture/chefs_55_ans_et_plus.sql
+format: "{:.1f} %"
+limites: >
+  Âge du chef d'exploitation (exploitant principal) seulement, pas des coexploitants. Mesure l'ampleur des départs à
+  la retraite à venir dans les dix ans, donc l'enjeu de renouvellement des générations. Enquêtes espacées (2010,
+  2013, 2016, 2020, 2023) ; l'agrégat EU27_2020 manque en 2023. Dans les pays où dominent les très petites exploitations
+  (Roumanie notamment), de nombreux chefs âgés exploitent une parcelle de subsistance, ce qui tire la moyenne
+  européenne vers le haut.
+construction: >
+  Eurostat ef_m_farmang, statinfo = TOTAL, sex = T, so_eur = TOTAL, uaarea = TOTAL, unit = HLD. Valeur =
+  100 × (age Y55-64 + age Y_GE65) / age TOTAL, même pays et même année, sans arrondi ; la ligne est omise si l'une des
+  trois valeurs manque. Codes geo de deux lettres (pays) et commençant par EU (agrégats) seulement. Code pays = partie
+  de geo avant « : », libellé = partie après. Maille france = ligne FR recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020 (jusqu'en 2020)
+version: 1.0.0
+relu_par: null

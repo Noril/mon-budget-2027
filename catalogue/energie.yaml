@@ -1,0 +1,121 @@
+# Catalogue des sources : Énergie (prix, dépendance, mix électrique). Validé par schemas/source.schema.json.
+
+- id: eurostat-nrg-pc-204
+  titre: Prix de l'électricité pour les ménages (semestriel, depuis 2007)
+  producteur: Eurostat (d'après le SDES pour la France)
+  doc: https://ec.europa.eu/eurostat/databrowser/view/nrg_pc_204/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_pc_204
+    cle: S.E7000.KWH2500-4999.KWH.I_TAX+X_VAT.EUR.
+    parametres: {format: SDMX-CSV, startPeriod: "2007-S1", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: semestriel (semestre S publié environ cinq mois après sa fin)
+  domaines: [energie]
+  controles:
+    lignes_min: 1000
+    colonnes: [siec, nrg_cons, unit, tax, currency, geo, TIME_PERIOD, OBS_VALUE, OBS_FLAG]
+  statut: actif
+  notes: >
+    Tranche de consommation de référence DC (2 500 à 4 999 kWh par an), euros par kWh, toutes taxes comprises
+    (I_TAX) et hors TVA (X_VAT). Prix moyen de la tranche, abonnement compris.
+
+- id: eurostat-nrg-pc-205
+  titre: Prix de l'électricité pour les consommateurs non résidentiels (semestriel, depuis 2007)
+  producteur: Eurostat (d'après le SDES pour la France)
+  doc: https://ec.europa.eu/eurostat/databrowser/view/nrg_pc_205/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_pc_205
+    cle: S.E7000.MWH500-1999.KWH.X_VAT.EUR.
+    parametres: {format: SDMX-CSV, startPeriod: "2007-S1", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: semestriel
+  domaines: [energie]
+  controles:
+    lignes_min: 800
+    colonnes: [siec, nrg_cons, unit, tax, currency, geo, TIME_PERIOD, OBS_VALUE, OBS_FLAG]
+  statut: actif
+  notes: >
+    Tranche de consommation de référence IC (500 à 1 999 MWh par an : PME industrielle, grand magasin…), euros par
+    kWh, hors TVA et taxes récupérables (X_VAT), accises comprises.
+
+- id: eurostat-nrg-ind-id
+  titre: Dépendance énergétique par produit
+  producteur: Eurostat (bilans énergétiques)
+  doc: https://ec.europa.eu/eurostat/databrowser/view/nrg_ind_id/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_ind_id
+    cle: A.TOTAL.PC.
+    parametres: {format: SDMX-CSV, startPeriod: "1990", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (année N-2 publiée au début de l'année N)
+  domaines: [energie]
+  controles:
+    lignes_min: 800
+    colonnes: [siec, unit, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Importations nettes / énergie disponible brute (soutes maritimes internationales comprises), en %, tous
+    produits. Convention internationale : la chaleur nucléaire est une production primaire nationale, même si
+    l'uranium est importé.
+
+- id: eurostat-nrg-bal-peh
+  titre: Production brute d'électricité et de chaleur par combustible
+  producteur: Eurostat (bilans énergétiques)
+  doc: https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_peh/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_bal_peh
+    cle: A.GEP.TOTAL+N900H+RA000+FE.GWH.
+    parametres: {format: SDMX-CSV, startPeriod: "1990", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (année N-2 publiée au printemps de l'année N)
+  domaines: [energie]
+  controles:
+    lignes_min: 3000
+    colonnes: [nrg_bal, siec, unit, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Production brute d'électricité (GEP), en GWh : totale (TOTAL), nucléaire (N900H), renouvelable (RA000),
+    fossile (FE).
+
+- id: odre-eco2mix-national
+  titre: Production et consommation d'électricité en France, éCO2mix national consolidé et définitif, moyennes mensuelles
+  producteur: RTE (portail ODRÉ)
+  doc: https://odre.opendatasoft.com/explore/dataset/eco2mix-national-cons-def/
+  acces:
+    mode: api-rest
+    url: https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/eco2mix-national-cons-def/exports/csv
+    parametres:
+      select: "avg(consommation) as consommation, avg(nucleaire) as nucleaire, avg(fioul) as fioul, avg(charbon) as charbon, avg(gaz) as gaz, avg(eolien) as eolien, avg(solaire) as solaire, avg(hydraulique) as hydraulique, avg(bioenergies) as bioenergies, avg(pompage) as pompage, avg(ech_physiques) as ech_physiques, count(nucleaire) as pas"
+      group_by: "year(date_heure) as annee, month(date_heure) as mois, nature"
+      timezone: Europe/Paris
+    format: CSV (séparateur ;), une ligne par année, mois et nature des données ; puissances moyennes en MW
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [france]
+  millesime: mensuel (données consolidées du mois M publiées en M+1, définitives au printemps de l'année suivante)
+  domaines: [energie]
+  controles:
+    lignes_min: 170
+    colonnes: [annee, mois, nature, consommation, nucleaire, eolien, solaire, hydraulique, ech_physiques, pas]
+  statut: actif
+  notes: >
+    Le jeu brut (pas de 15 minutes depuis 2012, 500 000 lignes) est agrégé côté serveur en moyennes mensuelles de
+    puissance (MW) par filière, en heure de Paris ; pas = nombre de pas renseignés pour le nucléaire (demi-heures
+    jusqu'ici). Énergie du mois (MWh) = puissance moyenne × heures du mois. ech_physiques : solde des échanges
+    physiques, négatif quand la France exporte. Périmètre France métropolitaine hors Corse.

@@ -1,0 +1,19 @@
+id: transports.regularite_tgv
+libelle: Régularité des TGV (part des trains arrivés à l'heure)
+unite: "% des trains ayant circulé"
+sens: plus_haut_mieux
+sources: [sncf-regularite-tgv]
+maille: [france]
+formule: indicateurs/transports/regularite_tgv.sql
+format: "{:.1f} %"
+limites: >
+  Régularité « composite » : un TGV est à l'heure s'il arrive au terminus avec moins de 5 minutes de retard pour un
+  trajet de moins de 1 h 30, 10 minutes de 1 h 30 à 3 h, 15 minutes au-delà. Le jeu ne donne pas le nombre de trains : la valeur annuelle est la moyenne simple des douze
+  taux mensuels, qui peut différer de quelques dixièmes du taux annuel pondéré publié par l'AQST.
+construction: >
+  Source sncf-regularite-tgv, colonne regularite_composite (%), une ligne par mois (date). Valeur annuelle = moyenne
+  arithmétique des douze valeurs mensuelles de l'année civile, arrondie à 2 décimales ; années à moins de douze mois
+  exclues. Code FR.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

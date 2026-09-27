@@ -1,0 +1,22 @@
+id: agriculture.surface_bio
+libelle: Surface cultivée en agriculture biologique (certifiée et en conversion)
+unite: hectares
+sens: neutre
+sources: [agencebio-surfaces-departement, insee-cog-departements]
+maille: [france, departement]
+formule: indicateurs/agriculture/surface_bio.sql
+format: "{:,.0f} ha"
+limites: >
+  Surface absolue : dépend de la taille agricole du département, à rapporter à sa SAU (non publiée dans ce fichier)
+  pour comparer les territoires. Les valeurs couvertes par le secret statistique (« NC », moins de trois exploitations,
+  surtout en petite couronne parisienne) manquent au département et au total. Données certifiées de l'Agence Bio :
+  le total national peut différer de quelques milliers d'hectares de celui qu'Eurostat publie.
+construction: >
+  Source agencebio-surfaces-departement, colonne surfbio (hectares, = surfab certifiée + surfc123 en conversion),
+  lue en nombre ; les lignes « NC » (non convertibles en nombre) sont écartées. Maille departement : ligne
+  (annee, codedepartement) rattachée par égalité de codedepartement avec DEP de insee-cog-departements (COG 2026),
+  libellé LIBELLE du COG ; Saint-Martin (978), absent du COG des départements, n'a pas de ligne départementale.
+  Maille france : somme de toutes les lignes de l'année (978 compris). Valeurs arrondies à 2 décimales ; période = annee.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

@@ -1,0 +1,21 @@
+id: agriculture.part_sau_bio
+libelle: Part de la surface agricole utilisée en agriculture biologique
+unite: "% de la surface agricole utilisée"
+sens: plus_haut_mieux
+sources: [eurostat-org-cropar]
+maille: [france, pays]
+formule: indicateurs/agriculture/part_sau_bio.sql
+format: "{:.1f} %"
+limites: >
+  Surfaces certifiées et en conversion, rapportées à la SAU hors jardins familiaux. Objectif européen de la stratégie
+  « De la ferme à la table » : 25 % de la surface agricole en bio en 2030. Estimations d'Eurostat (drapeau « e »)
+  pour la France, dont le numérateur vient de l'Agence Bio et le dénominateur de la statistique agricole annuelle.
+  L'agrégat EU27_2020 n'est publié que pour 2012-2020 : la comparaison à l'UE s'arrête en 2020. Le « mieux » suppose
+  que l'extension du bio est un objectif, ce qui est celui des politiques européenne et française.
+construction: >
+  Eurostat org_cropar, unit = PC_UAA (% de la SAU), crops = UAAXK0000 (SAU hors jardins familiaux), agprdmet = TOTAL
+  (certifié et en conversion), valeur OBS_VALUE reprise sans calcul ni arrondi (deux décimales). Code pays = partie de
+  geo avant « : », libellé = partie après. Maille france = ligne FR recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020 (jusqu'en 2020)
+version: 1.0.0
+relu_par: null

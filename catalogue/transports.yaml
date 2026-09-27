@@ -1,0 +1,92 @@
+# Catalogue des sources : Transports (parts modales, ferroviaire). Validé par schemas/source.schema.json.
+
+- id: eurostat-tran-hv-psmod
+  titre: Répartition modale du transport intérieur de voyageurs
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/tran_hv_psmod/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/tran_hv_psmod
+    cle: A.PC..
+    parametres: {format: SDMX-CSV, startPeriod: "1990", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (année N-2 publiée à l'été N)
+  domaines: [transports]
+  controles:
+    lignes_min: 2000
+    colonnes: [unit, vehicle, geo, TIME_PERIOD, OBS_VALUE, OBS_FLAG]
+  statut: actif
+  notes: >
+    Parts en % des voyageurs-kilomètres terrestres intérieurs : voitures particulières (CAR), autocars et bus
+    (BUS_TOT), trains (TRN). Hors aérien, deux-roues, tramways et métros.
+
+- id: eurostat-tran-hv-frmod
+  titre: Répartition modale du transport intérieur de marchandises
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/tran_hv_frmod/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/tran_hv_frmod
+    cle: A.PC..
+    parametres: {format: SDMX-CSV, startPeriod: "1990", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel
+  domaines: [transports]
+  controles:
+    lignes_min: 2000
+    colonnes: [unit, tra_mode, geo, TIME_PERIOD, OBS_VALUE, OBS_FLAG]
+  statut: actif
+  notes: >
+    Parts en % des tonnes-kilomètres terrestres : route (ROAD), rail (RAIL), voies navigables (IWW). Route :
+    véhicules immatriculés dans le pays, où qu'ils circulent ; rail et fluvial : trafic sur le territoire.
+
+- id: sncf-regularite-ter
+  titre: Régularité mensuelle des TER par région
+  producteur: SNCF Voyageurs
+  doc: https://ressources.data.sncf.com/explore/dataset/regularite-mensuelle-ter/
+  acces:
+    mode: opendatasoft
+    portail: https://ressources.data.sncf.com
+    jeu: regularite-mensuelle-ter
+    auth: aucune
+  licence: ODbL
+  maille: [region]
+  millesime: mensuel (mois M publié vers le 10 du mois M+1)
+  domaines: [transports]
+  controles:
+    lignes_min: 2000
+    colonnes: [date, region, nombre_de_trains_programmes, nombre_de_trains_ayant_circule, nombre_de_trains_annules, nombre_de_trains_en_retard_a_l_arrivee]
+  statut: actif
+  notes: >
+    Depuis janvier 2013, onze régions (hors Île-de-France, dont les TER sont des Transilien, et hors Corse).
+    Régularité à cinq minutes au terminus = 1 - trains en retard à l'arrivée / trains ayant circulé ; les trains
+    supprimés ne comptent pas comme en retard. Une suppression annoncée avant 16 h la veille n'est pas comptée.
+    Lots ouverts à la concurrence publiés séparément depuis 2025 (Etoile Amiens, Loire Océan, Sud Azur).
+
+- id: sncf-regularite-tgv
+  titre: Régularité mensuelle des TGV, ensemble du réseau
+  producteur: SNCF Voyageurs
+  doc: https://ressources.data.sncf.com/explore/dataset/reglarite-mensuelle-tgv-nationale/
+  acces:
+    mode: opendatasoft
+    portail: https://ressources.data.sncf.com
+    jeu: reglarite-mensuelle-tgv-nationale
+    auth: aucune
+  licence: ODbL
+  maille: [france]
+  millesime: mensuel (publication avec deux à trois mois de décalage)
+  domaines: [transports]
+  controles:
+    lignes_min: 130
+    colonnes: [date, regularite_composite, ponctualite_origine]
+  statut: actif
+  notes: >
+    Régularité composite en % (trains arrivés à l'heure, seuil de retard variable selon la durée du trajet : 5 min
+    jusqu'à 1 h 30, 10 min jusqu'à 3 h, 15 min au-delà), depuis janvier 2015. Pas de nombre de trains : la
+    moyenne annuelle est une moyenne simple des mois.

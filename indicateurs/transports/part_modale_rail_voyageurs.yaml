@@ -1,0 +1,20 @@
+id: transports.part_modale_rail_voyageurs
+libelle: Part du train dans le transport intérieur de voyageurs
+unite: "% des voyageurs-kilomètres terrestres"
+sens: plus_haut_mieux
+sources: [eurostat-tran-hv-psmod]
+maille: [france, pays]
+formule: indicateurs/transports/part_modale_rail_voyageurs.sql
+format: "{:.1f} %"
+limites: >
+  Part du train dans l'ensemble voitures particulières + autocars et bus + trains, en voyageurs-kilomètres sur le
+  territoire ; exclut l'avion, les deux-roues, la marche, le tramway et le métro. Les voitures sont estimées à partir
+  des enquêtes et des modèles nationaux, d'où de nombreuses estimations (drapeau « e », « b » pour une rupture de série).
+  Le report modal vers le rail est un objectif constant des politiques climatiques françaises et européennes.
+construction: >
+  Eurostat tran_hv_psmod, vehicle = TRN (trains), unit = PC, valeur OBS_VALUE reprise sans calcul (une décimale),
+  estimations gardées. Code pays = partie de geo avant « : », libellé = partie après. Maille france = ligne FR
+  recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null
