@@ -1,0 +1,24 @@
+id: numerique.emploi_informatique
+libelle: Salariés du privé dans les activités informatiques et les services d'information (NAF 62 et 63)
+unite: salariés au 31 décembre
+sens: plus_haut_mieux
+sources: [urssaf-effectifs-informatique, insee-cog-communes, insee-cog-departements, insee-cog-regions]
+maille: [france, region, departement]
+formule: indicateurs/numerique/emploi_informatique.sql
+format: "{:,.0f} salariés"
+limites: >
+  Secteur privé seulement (hors fonction publique, hors indépendants et freelances, nombreux dans le conseil
+  informatique) ; classement par activité principale (APE) de l'établissement, pas par métier : les
+  informaticiens des banques ou de l'industrie n'y sont pas, les fonctions support des ESN y sont. Effectifs
+  localisés à l'établissement employeur, pas au lieu de travail effectif (télétravail, missions chez le client).
+construction: >
+  Source urssaf-effectifs-informatique (déjà filtrée sur les codes APE commençant par 62 ou 63), une ligne par
+  commune et code APE, une colonne effectifs_salaries_AAAA par année (effectifs au 31 décembre). Passage en
+  format long (année = 4 derniers caractères du nom de colonne) ; cellule vide = aucun salarié, ignorée dans les
+  sommes. Rattachement au département et à la région par le COG 2026 à partir de code_commune (COM ou ARM portent
+  DEP et REG ; COMD et COMA les héritent de leur COMPARENT ; un code en COM et en COMD prend la ligne COM), et non
+  par la colonne code_departement de l'URSSAF. Valeur = somme des effectifs, sans arrondi. Maille france : toutes
+  les lignes.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null

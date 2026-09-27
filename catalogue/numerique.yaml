@@ -1,0 +1,227 @@
+# Catalogue des sources : Numérique (technologie, IA, État numérisé). Validé par schemas/source.schema.json.
+
+- id: eurostat-isoc-eb-ai
+  titre: Usage de l'intelligence artificielle dans les entreprises, par taille
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/isoc_eb_ai/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_eb_ai
+    cle: A.GE10+10-49+50-249+GE250.C10-S951_X_K.E_AI_TANY.PC_ENT.
+    parametres: {format: SDMX-CSV, lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (enquête TIC entreprises, publication en juin de l'année suivante ; 2021, puis annuel depuis 2023)
+  domaines: [numerique]
+  controles:
+    lignes_min: 300
+    colonnes: [size_emp, nace_r2, indic_is, unit, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Clé : entreprises utilisant au moins une technologie d'IA (E_AI_TANY), en % des entreprises, ensemble des
+    activités hors agriculture et secteur financier (C10-S951_X_K), par taille (GE10 = 10 salariés ou plus,
+    10-49, 50-249, GE250) ; tous pays et agrégats. Le détail par secteur est dans isoc_eb_ain2 (non branché :
+    le format d'indicateur n'a pas de dimension sectorielle).
+
+- id: eurostat-isoc-ai-iaiu
+  titre: Usage des outils d'intelligence artificielle générative par les particuliers
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/isoc_ai_iaiu/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_ai_iaiu
+    cle: A.IND_TOTAL.I_IUAI+I_IUAIWP.PC_IND.
+    parametres: {format: SDMX-CSV, lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (enquête TIC ménages ; première année 2025)
+  domaines: [numerique]
+  controles:
+    lignes_min: 50
+    colonnes: [ind_type, indic_is, unit, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Particuliers de 16 à 74 ans (IND_TOTAL) ayant utilisé un outil d'IA générative au cours des trois derniers
+    mois (I_IUAI), dont à des fins professionnelles (I_IUAIWP), en % des particuliers (PC_IND).
+
+- id: eurostat-isoc-ciegi-ac
+  titre: Interactions en ligne des particuliers avec les administrations publiques
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/isoc_ciegi_ac/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_ciegi_ac
+    cle: A.I_IUGOV1+I_IGOVTAX2.PC_IND.IND_TOTAL.
+    parametres: {format: SDMX-CSV, lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (enquête TIC ménages)
+  domaines: [numerique]
+  controles:
+    lignes_min: 100
+    colonnes: [indic_is, unit, ind_type, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    I_IUGOV1 : particuliers de 16 à 74 ans ayant interagi en ligne avec une administration au cours des douze
+    derniers mois (définition en vigueur depuis 2022 ; la série I_IUGOV12 antérieure n'est pas comparable).
+    I_IGOVTAX2 : déclaration d'impôts en ligne (depuis 2024).
+
+- id: eurostat-isoc-sks-itspt
+  titre: Spécialistes des technologies de l'information et de la communication dans l'emploi
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/isoc_sks_itspt/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_sks_itspt
+    cle: A.PC_EMP+THS_PER.
+    parametres: {format: SDMX-CSV, lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel (enquête Forces de travail, définition large fondée sur les professions CITP-08)
+  domaines: [numerique]
+  controles:
+    lignes_min: 1000
+    colonnes: [unit, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: Rupture de série en 2011 (passage à la CITP-08).
+
+- id: eurostat-bop-its6-det
+  titre: Échanges internationaux de services TIC (balance des paiements, BPM6)
+  producteur: Eurostat
+  doc: https://ec.europa.eu/eurostat/databrowser/view/bop_its6_det/default/table
+  acces:
+    mode: sdmx
+    url: https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/bop_its6_det
+    cle: A.MIO_EUR.SI.BAL+CRE+DEB.WRL_REST+EXT_EU27_2020+US.
+    parametres: {format: SDMX-CSV, startPeriod: "2010", lang: fr, label: both}
+    format: SDMX-CSV, colonnes « code:libellé »
+    auth: aucune
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
+  maille: [pays, france]
+  millesime: annuel
+  domaines: [numerique]
+  controles:
+    lignes_min: 1000
+    colonnes: [currency, bop_item, stk_flow, partner, geo, TIME_PERIOD, OBS_VALUE]
+  statut: actif
+  notes: >
+    Poste SI (services de télécommunications, d'informatique et d'information), en millions d'euros : solde
+    (BAL), exportations (CRE), importations (DEB), avec le reste du monde (WRL_REST), hors UE (EXT_EU27_2020)
+    et les États-Unis (US). Pour l'agrégat EU27_2020, WRL_REST additionne les échanges intra-UE : le total
+    pertinent est EXT_EU27_2020.
+
+- id: arcep-thd-deploiements-communes
+  titre: Le marché du haut et très haut débit fixe (déploiements), fichiers communes trimestriels
+  producteur: ARCEP
+  doc: https://www.data.gouv.fr/datasets/le-marche-du-haut-et-tres-haut-debit-fixe-deploiements
+  acces:
+    mode: fichier
+    urls:
+      - https://static.data.gouv.fr/resources/le-marche-du-haut-et-tres-haut-debit-fixe-deploiements/20250924-134036/2025t2-communes.zip
+      - https://static.data.gouv.fr/resources/le-marche-du-haut-et-tres-haut-debit-fixe-deploiements/20251209-164121/2025t3-commune.zip
+      - https://static.data.gouv.fr/resources/le-marche-du-haut-et-tres-haut-debit-fixe-deploiements/20260313-073338/2025t4-commune.zip
+      - https://static.data.gouv.fr/resources/le-marche-du-haut-et-tres-haut-debit-fixe-deploiements/20260611-154027/2026t1-commune.zip
+      - https://static.data.gouv.fr/resources/le-marche-du-haut-et-tres-haut-debit-fixe-deploiements/20260910-162103/2026t2-commune.zip
+    format: un ZIP de shapefile par trimestre (environ 33 Mo), table attributaire DBF lue seule
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [commune]
+  millesime: trimestriel (publication environ deux mois et demi après la fin du trimestre)
+  domaines: [numerique]
+  normalisation: arcep_thd
+  controles:
+    lignes_min: 150000
+    colonnes: [trimestre, code_commune, code_departement, locaux, ftth]
+  statut: actif
+  notes: >
+    Colonnes lues : INSEE_COM, NOM_COM, INSEE_DEP, Locaux (nombre de locaux, estimation ARCEP), ftth (locaux
+    raccordables en FttH). Chaque trimestre a sa propre URL : ajouter la nouvelle ressource « AAAATn-Commune »
+    à chaque publication. Les fichiers « Immeuble » (plus de 800 Mo) ne sont pas utilisés.
+
+- id: urssaf-effectifs-informatique
+  titre: Établissements employeurs et effectifs salariés du secteur privé par commune et APE, activités informatiques (NAF 62 et 63)
+  producteur: URSSAF
+  doc: https://open.urssaf.fr/explore/dataset/etablissements-et-effectifs-salaries-au-niveau-commune-x-ape-last/
+  acces:
+    mode: api-rest
+    url: https://open.urssaf.fr/api/explore/v2.1/catalog/datasets/etablissements-et-effectifs-salaries-au-niveau-commune-x-ape-last/exports/parquet
+    parametres: {where: 'startswith(code_ape, "62") or startswith(code_ape, "63")'}
+    format: export Parquet Opendatasoft filtré côté serveur (une colonne par année, 2006 à la dernière)
+    auth: aucune
+  licence: ODbL
+  maille: [commune, departement, region, france]
+  millesime: annuel (effectifs au 31 décembre, publiés en mai de l'année suivante)
+  fraicheur_max_jours: 450
+  domaines: [numerique]
+  controles:
+    lignes_min: 12000
+    colonnes: [code_commune, code_departement, code_ape, effectifs_salaries_2020, effectifs_salaries_2025]
+  statut: actif
+  notes: >
+    Jeu complet : 1,2 million de lignes, filtré sur les codes APE des divisions 62 (programmation, conseil et
+    autres activités informatiques) et 63 (services d'information). Secteur privé (hors particuliers
+    employeurs) ; une cellule vide signifie aucun établissement ou effectif ce 31 décembre. Ajouter une colonne
+    « effectifs_salaries_AAAA » chaque année au contrôle.
+
+- id: top500-listes
+  titre: Listes TOP500 des supercalculateurs
+  producteur: TOP500 (Prometeus GmbH, universités de Mannheim et du Tennessee, NERSC)
+  doc: https://top500.org/lists/top500/
+  acces:
+    mode: fichier
+    urls:
+      - https://top500.org/lists/top500/2024/06/download/TOP500_202406.xlsx/
+      - https://top500.org/lists/top500/2024/11/download/TOP500_202411.xlsx/
+      - https://top500.org/lists/top500/2025/06/download/TOP500_202506.xlsx/
+      - https://top500.org/lists/top500/2025/11/download/TOP500_202511.xlsx/
+      - https://top500.org/lists/top500/2026/06/download/TOP500_202606.xlsx/
+    format: un classeur xlsx par liste semestrielle, accessible sans compte
+    auth: aucune
+  licence: Données publiques du TOP500, réutilisation avec citation de la source (https://top500.org)
+  maille: [pays]
+  millesime: semestriel (juin et novembre)
+  domaines: [numerique]
+  normalisation: top500
+  controles:
+    lignes_min: 2500
+    colonnes: [liste, rang, pays, rmax_tflops]
+  statut: actif
+  notes: >
+    Ajouter l'URL de chaque nouvelle liste. Ne recense que les machines dont les performances ont été soumises
+    (les systèmes privés ou militaires non déclarés, dont une partie de la puissance chinoise et des grappes
+    d'IA des hyperscalers, en sont absents).
+
+- id: dinum-observatoire-demarches
+  titre: Observatoire de la qualité des démarches en ligne
+  producteur: Direction interministérielle du numérique (DINUM)
+  doc: https://www.data.gouv.fr/datasets/observatoire-de-la-qualite-des-demarches-en-ligne
+  acces:
+    mode: fichier
+    urls:
+      - https://static.data.gouv.fr/resources/observatoire-de-la-qualite-des-demarches-en-ligne/20250528-080303/observatoire-2-edition-9-avril-2025-.ods
+      - https://static.data.gouv.fr/resources/observatoire-de-la-qualite-des-demarches-en-ligne/20251017-152416/observatoire-2-edition-10-juillet-2025-.ods
+      - https://static.data.gouv.fr/resources/observatoire-de-la-qualite-des-demarches-en-ligne/20251127-104013/observatoire-2-edition-11-octobre-2025-.ods
+      - https://static.data.gouv.fr/resources/observatoire-de-la-qualite-des-demarches-en-ligne/20260316-141916/observatoire-2-edition-12-janvier-2026-.ods
+      - https://static.data.gouv.fr/resources/observatoire-de-la-qualite-des-demarches-en-ligne/20260623-131847/observatoire-2-edition-13-avril-2026-.ods
+    format: un classeur ODS par édition trimestrielle, une ligne par démarche essentielle
+    auth: aucune
+  licence: Licence Ouverte 2.0
+  maille: [france]
+  millesime: trimestriel (Observatoire 2, depuis 2023)
+  domaines: [numerique]
+  normalisation: dinum_observatoire
+  controles:
+    lignes_min: 1000
+    colonnes: [edition, periode, id_demarche, en_ligne, volumetrie_totale, volumetrie_en_ligne]
+  statut: actif
+  notes: >
+    Ajouter l'URL de chaque nouvelle édition. Les intitulés de colonnes varient d'une édition à l'autre (voir
+    pipelines/normalisations/dinum_observatoire.py). Le périmètre des démarches suivies évolue aussi.

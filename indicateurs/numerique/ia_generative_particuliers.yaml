@@ -1,0 +1,19 @@
+id: numerique.ia_generative_particuliers
+libelle: Particuliers de 16 à 74 ans ayant utilisé l'IA générative au cours des trois derniers mois
+unite: "% des 16-74 ans"
+sens: neutre
+sources: [eurostat-isoc-ai-iaiu]
+maille: [france, pays]
+formule: indicateurs/numerique/ia_generative_particuliers.sql
+format: "{:.1f} %"
+limites: >
+  Déclaratif (enquête TIC auprès des ménages, 16 à 74 ans) ; tout usage, privé, professionnel ou scolaire, sans
+  mesure de fréquence. Première collecte en 2025 : pas encore d'évolution.
+construction: >
+  Eurostat isoc_ai_iaiu, lignes ind_type = IND_TOTAL, indic_is = I_IUAI, unit = PC_IND (en % de tous les
+  particuliers, pas des seuls internautes). Valeur = OBS_VALUE telle que publiée, lignes vides exclues. Période =
+  TIME_PERIOD. Maille pays : code = partie de geo avant « : », libellé = partie après. Maille france = ligne geo FR
+  recopiée avec le code FR.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

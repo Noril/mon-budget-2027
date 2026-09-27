@@ -1,0 +1,25 @@
+id: numerique.top500_puissance
+libelle: Part dans la puissance de calcul cumulée des 500 premiers supercalculateurs (TOP500)
+unite: "% de la puissance Rmax du TOP500"
+sens: plus_haut_mieux
+sources: [top500-listes]
+maille: [france, pays]
+formule: indicateurs/numerique/top500_puissance.sql
+format: "{:.1f} %"
+limites: >
+  Ne compte que les machines déclarées au TOP500 et mesurées sur le test LINPACK (calcul scientifique en double
+  précision) : les grappes de processeurs graphiques des entreprises d'IA et des fournisseurs d'informatique en
+  nuage, rarement soumises, en sont largement absentes, comme une partie des machines chinoises depuis 2019. Une
+  machine est comptée dans le pays de son site, quel que soit son financeur (EuroHPC finance des machines
+  installées en Finlande, en Italie, en Espagne…). Indicateur de capacité publique de calcul, pas de capacité
+  d'entraînement de modèles d'IA.
+construction: >
+  Source top500-listes, une ligne par supercalculateur et par liste (période = AAAA-MM de la liste, lu dans le nom
+  du fichier). Pour chaque liste : total = somme de la colonne Rmax [TFlop/s] des 500 machines ; part d'un pays =
+  100 × somme des Rmax des machines dont Country vaut ce pays / total, arrondie à 0,01. Pays retenus : les 27
+  États membres (codes Eurostat, Grèce = EL), États-Unis (US), Chine (CN), Japon (JP), Royaume-Uni (UK), Corée du
+  Sud (KR), Suisse (CH), Norvège (NO) ; un pays absent d'une liste n'a pas de ligne. EU27_2020 = somme des
+  27 États membres. Maille france = ligne FR recopiée.
+comparaison_ue: maille pays, agrégat EU27_2020
+version: 1.0.0
+relu_par: null

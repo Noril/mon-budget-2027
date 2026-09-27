@@ -1,0 +1,19 @@
+id: numerique.emploi_informatique_evol5
+libelle: Évolution sur cinq ans des salariés du privé dans les activités informatiques (NAF 62 et 63)
+unite: "% sur cinq ans"
+sens: plus_haut_mieux
+sources: [urssaf-effectifs-informatique, insee-cog-communes, insee-cog-departements, insee-cog-regions]
+maille: [france, region, departement]
+formule: indicateurs/numerique/emploi_informatique_evol5.sql
+format: "{:+.1f} %"
+limites: >
+  Mêmes limites que numerique.emploi_informatique. Dans les petits départements, quelques établissements
+  suffisent à faire varier fortement le taux (arrivée ou départ d'une ESN, changement de code APE ou de siège).
+construction: >
+  Mêmes lecture, filtre et rattachement que numerique.emploi_informatique (effectifs au 31 décembre, codes APE
+  62 et 63, cellule vide ignorée, rattachement par le COG 2026 en suivant COMPARENT). Pour chaque territoire et
+  chaque année N à partir de 2011 : valeur = 100 × (effectifs N / effectifs N-5 − 1), arrondie à 0,1 ;
+  territoire-année exclu si l'année N-5 est absente ou nulle. Période = N.
+comparaison_ue: null
+version: 1.0.0
+relu_par: null
