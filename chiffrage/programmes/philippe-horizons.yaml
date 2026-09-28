@@ -1,4 +1,4 @@
-# Programme Édouard Philippe (Horizons) — phase 1 : collecte, citations verbatim, non chiffré.
+# Programme Édouard Philippe (Horizons) — citations verbatim (phase 1) et chiffrage (phase 2).
 id: philippe-horizons
 candidat: Édouard Philippe
 parti: Horizons
@@ -52,8 +52,10 @@ annonce_candidat:
 notes: 'Programme non publié en entier au 29 septembre 2026 : quatre pages « priorités » du site de campagne, discours du
   5 juillet, entretiens (Échos, Figaro, AFP, RTL). La réforme des retraites (âge, paramètres) est annoncée mais pas détaillée
   ; c''est la principale source d''incertitude. Les pages « priorités » ne sont pas datées. Le programme européen d''Horizons
-  (2024) repris par certains agrégateurs n''est pas retenu. Phase 1 : mesures à chiffrer marquées raison_non_chiffrable =
-  A_CHIFFRER ; les mesures non budgétaires sont préfixées NON_BUDGETAIRE.'
+  (2024) repris par certains agrégateurs n''est pas retenu. Phase 2 (29 septembre 2026) : chiffrage à droit constant (chiffrage/REFERENCE.md)
+  avec les barèmes communs ; mesures non budgétaires préfixées NON_BUDGETAIRE. Le « deal fiscal » est chiffré en deux lignes
+  : la baisse d''impôts de production (coût) et la baisse d''aides, enveloppe non détaillée (règle 6 : 0 en central). L''objectif
+  de déficit à 2 % n''est pas une mesure.'
 mesures:
 - id: impots-production-moins-50md
   libelle: Baisser de 50 Md€ par an les impôts de production
@@ -68,10 +70,52 @@ mesures:
   interpretation: 'Baisse de 50 Md€/an des impôts de production (CVAE, C3S, CFE cités par l''entourage, Public Sénat 6 nov.
     2025), dès le premier PLF. Chiffrée séparément de la contrepartie (baisse des aides) pour rendre visible l''hypothèse
     de neutralité. Référence : la législation au 1er janvier 2027 prévoit déjà la fin de la CVAE (calendrier à vérifier) :
-    ne compter que l''écart.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
-  effets_retour: Le candidat invoque un choc de compétitivité (« produire plus pour gagner plus ») ; non compté.
+    ne compter que l''écart. Phase 2 : la contrepartie (aides-entreprises-moins-50md) est chiffrée à part selon la règle 6.'
+  effets_retour: Le candidat attend un choc de compétitivité (investissement, emploi) ; non compté.
+  chiffrable: true
+  nature: baisse_recette
+  effet_solde_primaire:
+    central: -56.05
+    bas: -60.53
+    haut: -46.3
+    montee_en_charge: &id001
+      '2027': 0
+      '2028': 1
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+    annuel:
+      '2027': 0.0
+      '2028': -53.94
+      '2029': -55.58
+      '2030': -53.0
+      '2031': -54.5
+      '2032': -56.05
+  calcul:
+    formule: -(baisse - cvae) * f
+    parametres:
+      baisse:
+        valeur: 50
+        unite: Md€/an (montant nominal annoncé en 2025)
+        source: https://www.publicsenat.fr/actualites/economie/entreprises-un-deal-a-250-milliards-deuros-sur-un-quinquennat-que-represente-la-proposition-dedouard-philippe
+      cvae:
+        valeur: 3.7
+        unite: Md€/an (2025)
+        bareme: cvae_restante
+        note: CVAE citée par l'entourage parmi les impôts visés ; sa suppression en 2030 est déjà dans la référence
+      f: &id002
+        valeur: 1.2106
+        unite: facteur 2025→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP.A
+        note: facteur PIB nominal (FMI WEO avril 2026, plan/hypotheses.yaml), indiqué en tête de chiffrage/baremes.yaml
+    explication: 'Baisse de 50 Md€ (euros 2025) des impôts de production dès le premier budget (LFI 2028), portée en euros
+      2032 avec le PIB (une baisse de taux suit l''assiette). La CVAE, dont la suppression en 2030 est déjà votée, ne coûte
+      rien en 2032 : si elle fait partie des 50 Md€ (central), le coût net est de 46,3 Md€ en euros 2025. Bas : CVAE hors
+      des 50 Md€ (50 Md€ pleins). Haut : montant figé en euros courants 2025. Effets annuels : en 2028-2029 la CVAE existe
+      encore dans la référence, la baisse coûte 50 Md€ pleins (× 1,0787 et × 1,1116, PIB nominal) ; à partir de 2030, 46,3
+      Md€ × facteur PIB de l''année.'
+  confiance: moyenne
 - id: aides-entreprises-moins-50md
   libelle: Supprimer 50 Md€ d'aides publiques « improductives » aux entreprises
   domaine: aides aux entreprises
@@ -82,11 +126,36 @@ mesures:
     date: '2025-11-06'
     support: presse (publication LinkedIn du candidat)
   precision: partielle
-  interpretation: Aides visées non listées ; l'entourage exclut les allègements généraux de cotisations (« sans réduire les
-    allègements généraux »). Le gisement d'aides hors allègements généraux doit être documenté pour juger la faisabilité des
-    50 Md€ (fourchette basse si gisement insuffisant).
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  interpretation: 'Aides visées non listées ; l''entourage exclut les allègements généraux de cotisations (« sans réduire
+    les allègements généraux »). Le gisement d''aides hors allègements généraux doit être documenté pour juger la faisabilité
+    des 50 Md€ (fourchette basse si gisement insuffisant). Règle 6 appliquée : l''entourage exclut les allègements généraux
+    (72 Md€) du périmètre.'
+  chiffrable: true
+  nature: economie
+  effet_solde_primaire:
+    central: 0.0
+    bas: 0.0
+    haut: 60.53
+    montee_en_charge: *id001
+  calcul:
+    formule: montant * f * part_documentee
+    parametres:
+      montant:
+        valeur: 50
+        unite: Md€/an (euros 2025)
+        source: https://www.publicsenat.fr/actualites/economie/entreprises-un-deal-a-250-milliards-deuros-sur-un-quinquennat-que-represente-la-proposition-dedouard-philippe
+      f: *id002
+      part_documentee:
+        valeur: 0.0
+        unite: part
+        source: https://www.publicsenat.fr/actualites/economie/entreprises-un-deal-a-250-milliards-deuros-sur-un-quinquennat-que-represente-la-proposition-dedouard-philippe
+        note: 'aucune aide nommée ni chiffrée par le candidat (« réduire certaines aides sectorielles ») : règle 6'
+    explication: 'Enveloppe d''économies non détaillée (règle 6) : central = part documentée = 0 ; haut = 50 Md€ annoncés,
+      en euros 2032 (60,5 Md€) ; bas = 0. L''écart d''affichage de ce seul poste est de 60,5 Md€ : le « deal » n''est neutre
+      que si ces aides sont effectivement identifiées. Pour mémoire, le gisement hors allègements généraux (exclus par l''entourage)
+      comprend notamment les dépenses fiscales aux entreprises (barème depenses_fiscales_total, 91,8 Md€ toutes dépenses fiscales
+      confondues, ménages compris).'
+  confiance: faible
 - id: deficit-2pct-2032
   libelle: Ramener le déficit public à 2 % du PIB en 2032 (enveloppe d'économies non détaillée)
   domaine: finances publiques
@@ -101,7 +170,9 @@ mesures:
     identifiées ci-dessous, haut = effort implicite pour passer de ~5 % à 2 % du PIB, bas = 0. La règle d''or est une mesure
     institutionnelle (voir regle-or). Le candidat exclut les dépenses militaires de la règle (IFRAP).'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Objectif de solde (2 % du PIB en 2032) sans montant d''économies annoncé : ce n''est pas une mesure.
+    L''écart entre cet objectif et le solde obtenu par les mesures chiffrées se lit sur la trajectoire (outils.chiffrage)
+    ; l''ajouter comme enveloppe reviendrait à supposer l''objectif atteint.'
 - id: baisse-depenses-sociales-niches
   libelle: Baisser les dépenses sociales et supprimer des niches fiscales plutôt qu'augmenter les impôts
   domaine: finances publiques
@@ -131,9 +202,42 @@ mesures:
   interpretation: 'Âge cible non annoncé au 29 sept. 2026 (le candidat refuse « tout chiffre totémique », Figaro 30 juin 2026
     ; LCP 23 sept. : paramètres « dans les prochains jours ou semaines »). Hypothèses pour la phase 2 : âge légal porté à
     65 (bas), 66 (central), 67 ans (haut), au rythme de 3 mois par génération, par rapport à la législation au 1er janvier
-    2027 (réforme 2023 suspendue jusqu''en 2028). Référendum sur les retraites annoncé (IFRAP).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    2027 (réforme 2023 suspendue jusqu''en 2028). Référendum sur les retraites annoncé (IFRAP). Phase 2 : effet en 2032 limité
+    par le calendrier de la référence ; l''effet de long terme d''un âge à 66-67 ans est bien supérieur (après 2034).'
+  chiffrable: true
+  nature: economie
+  effet_solde_primaire:
+    central: 3.3
+    bas: 0.0
+    haut: 7.9
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.1
+      '2029': 0.3
+      '2030': 0.5
+      '2031': 0.75
+      '2032': 1
+  calcul:
+    formule: annees * gain_par_an
+    parametres:
+      annees:
+        valeur: 0.5
+        unite: année d'âge effectif supplémentaire en 2032 par rapport à la référence
+        source: https://solidarites.gouv.fr/loi-de-financement-de-la-securite-sociale-2026-les-mesures-phares
+        note: 'hypothèse de lecture : la référence reprend en 2028 la montée vers 64 ans (génération 1969) ; un âge cible
+          de 65-67 ans au rythme habituel (3 mois par génération) ne touche que les générations 1970 et suivantes, qui atteignent
+          64 ans en 2034. Un effet en 2032 suppose une accélération du calendrier dès 2028 : 6 mois par génération au lieu
+          de 3 donnent environ un demi-an d''âge supplémentaire en 2032 sur les générations 1966-1968.'
+      gain_par_an:
+        valeur: 6.6
+        unite: Md€ 2032 par année d'âge
+        bareme: retraites_age_legal_1_an
+    explication: 'Gain d''une année d''âge légal (barème retraites_age_legal_1_an, 6,6 Md€ en 2032) × supplément d''âge effectif
+      atteint en 2032. Bas : aucune accélération (le relèvement au-delà de 64 ans ne joue qu''après 2033) → 0 en 2032. Haut
+      : un an d''âge effectif en plus, borne haute du barème (7,9).'
+  effets_retour: 'Effet sur l''emploi des seniors et les recettes hors système de retraite (DG Trésor : 7,2 Md€ en 2035 pour
+    un an d''âge) : non compté.'
+  confiance: faible
 - id: retraites-capitalisation-10-15pct
   libelle: Créer un pilier de capitalisation représentant 10 à 15 % des pensions d'ici 15 ans
   domaine: retraites
@@ -149,8 +253,38 @@ mesures:
   interpretation: Financement non précisé (capitalisation « collective », Capital 24 sept. 2026). Si alimentée par une part
     des cotisations aujourd'hui affectées à la répartition, coût de transition pour les régimes publics ; si par de l'épargne
     nouvelle (livret capital France, PER), effet nul ou dépense fiscale. Hypothèse centrale à arrêter en phase 2.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: mixte
+  effet_solde_primaire:
+    central: 0.0
+    bas: -9.2
+    haut: 0.0
+    montee_en_charge: &id003
+      '2027': 0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1
+  calcul:
+    formule: 0 - points * rendement_point * f
+    parametres:
+      points:
+        valeur: 0.0
+        unite: points de cotisation vieillesse détournés vers la capitalisation
+        source: https://www.lefigaro.fr/elections/presidentielles/presidentielle-2027-edouard-philippe-refute-promettre-aux-francais-du-sang-et-des-larmes-20260630
+        note: 'financement non précisé ; central : épargne nouvelle (livret capital France, épargne salariale), sans effet
+          sur les régimes publics'
+      rendement_point:
+        valeur: 6.2
+        unite: Md€ par point (2025)
+        bareme: retraites_cotisation_vieillesse_1_point
+      f: *id002
+    explication: 'Central 0 : pilier alimenté par de l''épargne nouvelle. Bas : un point de cotisation retiré à la répartition
+      (borne haute du barème, 7,6 Md€ en 2025) × 1,2106 = 9,2 Md€ de recettes perdues en 2032 (coût de transition). Pour atteindre
+      10-15 % des pensions en 15 ans, un seul point est un minimum.'
+  effets_retour: Le candidat attend un financement accru de l'économie ; non compté.
+  confiance: faible
 - id: retraites-contribution-retraites
   libelle: Demander aux retraités de contribuer davantage au financement du système social
   domaine: retraites
@@ -162,9 +296,32 @@ mesures:
   precision: vague
   interpretation: 'Levier non précisé. Lectures possibles : alignement de la CSG des retraités imposables sur celle des actifs
     (8,3 % → 9,2 %), suppression ou plafonnement de l''abattement de 10 % à l''IR, sous-indexation des pensions. Presse (Planet)
-    évoque ces pistes sans citation du candidat. Fourchette large : bas = 0, haut = une des pistes.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    évoque ces pistes sans citation du candidat. Fourchette large : bas = 0, haut = une des pistes. Phase 2 : lecture en équivalent
+    sous-indexation ; à revoir dès que le candidat précise le levier.'
+  chiffrable: true
+  nature: economie
+  effet_solde_primaire:
+    central: 5.0
+    bas: 0.0
+    haut: 10.0
+    montee_en_charge: *id001
+  calcul:
+    formule: points * revalo_point
+    parametres:
+      points:
+        valeur: 1.0
+        unite: point de revalorisation équivalent
+        source: https://www.planet.fr/politique-retraites-ce-que-le-programme-dedouard-philippe-reserve-vraiment-a-vos-pensions.2998778.29334.html
+        note: 'hypothèse de lecture : l''effort demandé aux retraités équivaut à un point de sous-indexation une fois (même
+          ordre que l''alignement de la CSG des retraités imposables 8,3 % → 9,2 % ou qu''un gel « jusqu''à 6 milliards »
+          cité par la presse)'
+      revalo_point:
+        valeur: 5.0
+        unite: Md€ 2032 par point
+        bareme: retraites_revalo_1pct
+    explication: 'Aucun levier précisé : un point de revalorisation des pensions (5,0 Md€ en 2032, effet permanent) sert d''unité.
+      Bas 0 (aucune mesure), haut 2 points.'
+  confiance: faible
 - id: chomage-12-mois-moins-50-ans
   libelle: Limiter à 12 mois la durée d'indemnisation chômage pour les moins de 50 ans
   domaine: assurance chômage
@@ -178,8 +335,51 @@ mesures:
   interpretation: 'Durée maximale actuelle : 18 mois pour les moins de 55 ans (15 mois en cas de rupture conventionnelle à
     partir du 1er sept. 2026). La borne d''âge passerait de 55 à 50 ans pour les durées longues (à préciser : les 50-54 ans
     gardent-ils 18 ou 22,5 mois ?).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: economie
+  effet_solde_primaire:
+    central: 5.21
+    bas: 2.6
+    haut: 7.81
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.4
+      '2029': 0.9
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: economie_6_mois * ratio * f
+    parametres:
+      economie_6_mois:
+        valeur: 4.5
+        unite: Md€/an (horizon 2027)
+        source: https://www.unedic.org/publications/reforme-2023-premiers-effets-de-la-reforme-de-contracyclicite
+        note: '« une fois la mesure pleinement montée en charge – à l''horizon 2027 [...] – les moindres dépenses pour le
+          régime seraient de l''ordre de 4,5 Md€ par an » (réforme 2023 : durée maximale 24 → 18 mois)'
+      ratio:
+        valeur: 1.0
+        unite: économie de la baisse 18 → 12 mois rapportée à celle de 24 → 18 mois
+        source: https://www.unedic.org/publications/reforme-2023-premiers-effets-de-la-reforme-de-contracyclicite
+        note: 'hypothèse de lecture : même amputation de six mois de durée maximale, sur les moins de 50 ans au lieu des moins
+          de 53 ans ; davantage d''allocataires atteignent 12 mois que 18 mois (effet à la hausse), le champ est un peu plus
+          étroit (effet à la baisse)'
+      f:
+        valeur: 1.157
+        unite: facteur 2027→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP.A
+        note: 1,2106 / 1,0463 (PIB nominal 2027 / 2025 selon plan/hypotheses.yaml)
+    explication: 'Transposition de l''économie Unédic de la réforme 2023 (six mois de durée maximale en moins : 4,5 Md€/an
+      en 2027), portée en euros 2032. Aucune donnée publique ne donne la part des dépenses au-delà du 12e mois pour les moins
+      de 50 ans : fourchette de 0,5 à 1,5 fois.'
+  chiffrages_tiers:
+  - auteur: Unédic (réforme 2023, référence de calcul)
+    montant_md: 4.5
+    url: https://www.unedic.org/publications/reforme-2023-premiers-effets-de-la-reforme-de-contracyclicite
+    date: '2025-12-17'
+    commentaire: Économie de la baisse de 24 à 18 mois, pas de la mesure du candidat.
+  effets_retour: Retour à l'emploi plus rapide invoqué (modèle allemand) ; non compté.
+  confiance: faible
 - id: arrets-maladie-carence
   libelle: Renforcer les jours de carence d'ordre public sur les arrêts maladie courts
   domaine: santé / indemnités journalières
@@ -194,7 +394,11 @@ mesures:
   interpretation: Carence d'ordre public (non compensable par l'employeur) d'un à deux jours sur les arrêts courts, public
     et privé. Les IJ « mieux indemnisées » pour les arrêts longs créent un coût partiel. Le candidat cite 17 Md€/an d'IJ maladie.
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Dans le privé, la Sécurité sociale n''indemnise déjà pas les trois premiers jours : rendre la carence
+    « d''ordre public » (non compensable) profite aux employeurs, pas aux APU. Dans la fonction publique, un jour de carence
+    rapporte environ 108 M€ (Public Sénat, 2025) et le passage à trois jours a été voté au Sénat pour 2026 : l''effet résiduel
+    est inférieur à 0,2 Md€ et dépend du droit 2026 exact ; la meilleure indemnisation des arrêts longs, en sens inverse,
+    n''est pas paramétrée.'
 - id: financement-social-hors-travail
   libelle: Rééquilibrer le financement de la protection sociale hors du travail pour augmenter le salaire net
   domaine: prélèvements sociaux
@@ -210,7 +414,8 @@ mesures:
     du net » (Public Sénat, 2 sept. 2026). Bascule cotisations → impôt à large assiette (TVA ou CSG) : présumée neutre pour
     le solde, montant de la bascule inconnu. À chiffrer en neutre avec fourchette si une asymétrie est documentée.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Bascule des cotisations vers un impôt à large assiette présentée comme à rendement constant, sans
+    montant : effet nul par construction sur le solde (rien à chiffrer tant que l''asymétrie n''est pas documentée).'
 - id: enseignants-plus-20pct
   libelle: Augmenter de 20 % la rémunération moyenne des enseignants sur le quinquennat
   domaine: éducation
@@ -228,9 +433,47 @@ mesures:
   interpretation: 'Hausse de 20 % de la rémunération moyenne, montée linéaire 2028-2032 ; financée selon le candidat par la
     baisse démographique (non comptée en économie sauf mesure explicite de suppression de postes). Périmètre : enseignants
     du public (et du privé sous contrat ?) à préciser.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
-  effets_retour: Retour de cotisations et d'impôts sur les salaires versés à compter (règle 3).
+  effets_retour: Attractivité du métier ; non compté.
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -6.58
+    bas: -9.05
+    haut: -6.31
+    montee_en_charge: *id003
+  calcul:
+    formule: -taux * etpt * cout_etpt / 1000 * part_hors_cas * (1 - retour)
+    parametres:
+      taux:
+        valeur: 0.2
+        unite: hausse de la rémunération moyenne
+        source: https://lcp.fr/actualites/presidentielle-salaires-des-enseignants-sanctions-pour-les-parents-ce-que-propose
+      etpt:
+        valeur: 0.793863
+        unite: millions d'ETPT (programmes 140 et 141, PLF 2026)
+        source: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
+        note: 341 897 + 451 966 ETPT, lus dans la dérivation du barème cout_enseignant_charge
+      cout_etpt:
+        valeur: 85000
+        unite: € par ETPT (2026)
+        bareme: cout_enseignant_charge
+      part_hors_cas:
+        valeur: 0.65
+        unite: part du titre 2 hors CAS Pensions
+        source: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
+        note: CAS Pensions ≈ 35 % du titre 2 (limites du barème cout_enseignant_charge) ; la contribution au CAS est un flux
+          interne à l'État
+      retour:
+        valeur: 0.25
+        unite: part du coût brut revenant aux APU (CSG, cotisations salariales, IR)
+        source: https://www.senat.fr/rap/a25-145-5/a25-145-5.html
+        note: « environ un quart », limites du barème point_indice_1pct
+    explication: 'Masse du titre 2 enseignants du public (0,794 M ETPT × 85 000 €, PLF 2026) hors CAS Pensions, × 20 %, nette
+      du retour de prélèvements (un quart). Convention de droit constant (REFERENCE.md) : point d''indice gelé en référence,
+      la hausse s''applique au niveau de rémunération actuel sans projection au PIB. Montée linéaire sur le quinquennat. Enseignants
+      du privé sous contrat non inclus (sous-estimation). La baisse démographique invoquée n''est pas comptée en économie
+      faute de suppression de postes annoncée.'
+  confiance: moyenne
 - id: soutien-scolaire-universel
   libelle: Créer un service public universel du soutien scolaire (assistant IA et brigades)
   domaine: éducation
@@ -242,7 +485,8 @@ mesures:
     support: site du candidat
   precision: vague
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Ni volume d''heures ni rémunération des intervenants (bénévoles, anciens professeurs, IA) : trop
+    vague pour être chiffré.'
 - id: part-fiscale-deuxieme-enfant
   libelle: Accorder une part entière de quotient familial dès le deuxième enfant
   domaine: fiscalité des ménages
@@ -255,8 +499,37 @@ mesures:
   precision: precise
   interpretation: Le deuxième enfant ouvrirait une part entière au lieu d'une demi-part ; plafonnement du quotient familial
     supposé inchangé.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: baisse_recette
+  effet_solde_primaire:
+    central: -4.19
+    bas: -4.19
+    haut: -3.4
+    montee_en_charge: *id001
+  calcul:
+    formule: -cout_2024 * f
+    parametres:
+      cout_2024:
+        valeur: 3.4
+        unite: Md€ (2024)
+        source: https://web.archive.org/web/2024id_/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/instituer-une-part-fiscale-complete-des-le-deuxieme-enfant/
+        note: « Le chiffrage de cette mesure sur la base du modèle LexImpact [...] aboutit à un coût de 3,4 Md€ en 2024 »
+      f: &id004
+        valeur: 1.2336
+        unite: facteur 2024→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP.A
+        note: facteur PIB nominal (FMI WEO avril 2026, plan/hypotheses.yaml), indiqué en tête de chiffrage/baremes.yaml (valeur
+          2024→2032 citée dans les barèmes c3s_rendement et masse_salariale_apu)
+    explication: 'Chiffrage LexImpact (Institut Montaigne) de la même mesure proposée par le RN en 2024, porté en euros 2032
+      (barème et plafonds du quotient familial indexés en référence, revenus au PIB). Haut : montant 2024 non projeté.'
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (modèle LexImpact), mesure identique du RN
+    montant_md: 3.4
+    url: https://web.archive.org/web/2024id_/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/instituer-une-part-fiscale-complete-des-le-deuxieme-enfant/
+    date: 2024-06
+    commentaire: Coût 2024 ; baisse d'IR pour 8 % des foyers.
+  effets_retour: Effet nataliste invoqué ; non compté.
+  confiance: moyenne
 - id: aide-unique-familles
   libelle: Fusionner les prestations familiales en une aide unique et universelle
   domaine: politique familiale
@@ -281,7 +554,8 @@ mesures:
   interpretation: Montant et durée du prêt non précisés ; coût = bonification d'intérêts (crédit d'impôt aux banques, comme
     le PTZ).
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Montant et durée du prêt non précisés : le coût d''un PTZ (bonification d''intérêts) dépend entièrement
+    de ces paramètres.'
 - id: temps-partiel-parental
   libelle: 'Temps partiel parental : 80 % payé 100 % pendant 2 mois'
   domaine: politique familiale
@@ -295,7 +569,8 @@ mesures:
   interpretation: 'Hypothèse : complément de 20 % du salaire pendant 2 mois pris en charge par la branche famille, pour les
     parents reprenant après congé parental.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: Nombre de bénéficiaires (parents reprenant après un congé parental) et prise en charge (employeur
+    ou branche famille) non précisés ; effet vraisemblablement faible, non documenté.
 - id: donations-plafonds-hausse
   libelle: Augmenter très sensiblement les abattements sur les donations pendant les trois premières années
   domaine: fiscalité du patrimoine
@@ -311,7 +586,8 @@ mesures:
   interpretation: 'Mesure temporaire (2027-2030) : effet d''anticipation (droits perdus sur donations avancées, droits de
     succession ultérieurs réduits). Ampleur de la hausse non précisée.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: Mesure temporaire (trois premières années du quinquennat) sans effet en régime de croisière 2032
+    ; ampleur de la hausse non précisée. Coût transitoire 2028-2030 et moindres droits de succession ultérieurs non chiffrés.
 - id: pacte-dutreil-maintien
   libelle: Maintenir le pacte Dutreil
   domaine: fiscalité du patrimoine
@@ -349,8 +625,29 @@ mesures:
   precision: precise
   interpretation: 'Fonds « unique » : une partie pourrait regrouper des crédits existants (fonds Barnier, Fonds vert…) ; le
     net nouveau est à établir.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -2.0
+    bas: -2.37
+    haut: -1.0
+    montee_en_charge: *id001
+  calcul:
+    formule: -montant * part_nouvelle
+    parametres:
+      montant:
+        valeur: 2.0
+        unite: Md€/an
+        source: https://www.franceinfo.fr/elections/presidentielle/edouard-philippe-souhaite-doter-la-france-d-une-veritable-politique-de-securite-climatique_8197976.html
+      part_nouvelle:
+        valeur: 1.0
+        unite: part de crédits nouveaux
+        source: https://www.franceinfo.fr/elections/presidentielle/edouard-philippe-souhaite-doter-la-france-d-une-veritable-politique-de-securite-climatique_8197976.html
+        note: '« fonds unique » : le regroupement de crédits existants n''est pas précisé'
+    explication: '2 Md€ par an de crédits nouveaux (montant nominal). Bas : montant indexé sur le PIB (2 × 1,1842). Haut :
+      la moitié provient de fonds existants regroupés. Le Canadair et les trois plans (baignade, infrastructures, montagne)
+      sont supposés financés par ce fonds.'
+  confiance: moyenne
 - id: fonds-vert-doublement
   libelle: Doubler le Fonds vert, recentré sur l'adaptation et la climatisation des bâtiments publics
   domaine: écologie / adaptation
@@ -362,8 +659,26 @@ mesures:
   precision: precise
   interpretation: Doublement par rapport au montant voté pour 2027 ; recoupement possible avec fonds-adaptation-2md (à traiter
     sans double compte).
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -1.07
+    bas: -1.27
+    haut: -0.84
+    montee_en_charge: *id001
+  calcul:
+    formule: -cp_2026
+    parametres:
+      cp_2026:
+        valeur: 1.07
+        unite: Md€ de crédits de paiement (LFI 2026)
+        source: https://www.banquedesterritoires.fr/budget-2026-les-derniers-arbitrages-du-gouvernement-sur-les-finances-locales-dont-le-dilico
+        note: « 837 millions d'euros en autorisation d'engagement (AE) et 1,070 milliard en crédits de paiement (CP) sont
+          inscrits pour 2026 »
+    explication: 'Doubler le Fonds vert = ajouter l''équivalent des crédits 2026 (1,07 Md€ de CP). Bas : montant indexé sur
+      le PIB (× 1,1842). Haut : base des AE (0,837 Md€). Recoupement possible avec le fonds d''adaptation de 2 Md€ (même objet)
+      : compté séparément, le candidat présentant les deux.'
+  confiance: moyenne
 - id: climatisation-lieux-fragiles
   libelle: Climatiser massivement les lieux accueillant des personnes fragiles
   domaine: écologie / adaptation
@@ -390,7 +705,8 @@ mesures:
   interpretation: Probablement financés par le fonds d'adaptation de 2 Md€ ; le Canadair (programme industriel) est une dépense
     d'investissement distincte à documenter.
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: Supposés financés par le fonds d'adaptation de 2 Md€ (compté dans fonds-adaptation-2md) ; le coût
+    propre du programme d'avion bombardier d'eau n'est pas documenté.
 - id: plan-baignade-piscines
   libelle: 'Plan baignade national : rivières baignables et rénovation des piscines'
   domaine: écologie
@@ -429,7 +745,7 @@ mesures:
   interpretation: Montant non annoncé ; la phase 2 peut s'appuyer sur un plan de référence public (plan fret 2021, stratégie
     nationale) si le candidat ne précise pas.
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Aucun montant ni objectif chiffré (part modale, crédits) : trop vague pour être chiffré.'
 - id: stockage-eau
   libelle: Développer le stockage de l'eau
   domaine: écologie
@@ -465,8 +781,43 @@ mesures:
   precision: precise
   interpretation: Coût = places supplémentaires en écoles/universités publiques × coût annuel par étudiant ingénieur × durée
     des études.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -2.12
+    bas: -4.23
+    haut: -1.38
+    montee_en_charge: *id003
+  calcul:
+    formule: -diplomes_supp * duree_cycle * part_montee * cout_etudiant / 1e9 * f
+    parametres:
+      diplomes_supp:
+        valeur: 60000
+        unite: diplômés supplémentaires par an
+        source: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante
+        note: de 40 000 à 100 000 par an
+      duree_cycle:
+        valeur: 3
+        unite: années de cycle ingénieur
+        source: https://publication.enseignementsup-recherche.gouv.fr/eesr/FR/T496/la_depense_d_education_pour_l_enseignement_superieur/
+        note: cycle ingénieur de trois ans après une classe préparatoire ou un premier cycle
+      part_montee:
+        valeur: 0.5
+        unite: part de l'effectif supplémentaire présente en 2032
+        source: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante
+        note: 'objectif atteint « en cinq ans » : montée linéaire des entrées, la moitié des promotions supplémentaires en
+          cours en 2032'
+      cout_etudiant:
+        valeur: 19070
+        unite: € par étudiant et par an (CPGE, 2024)
+        source: https://publication.enseignementsup-recherche.gouv.fr/eesr/FR/T496/la_depense_d_education_pour_l_enseignement_superieur/
+        note: '« 19 070 euros pour un élève en CPGE » : faute de chiffre publié pour les écoles d''ingénieurs, la CPGE sert
+          de proxy'
+      f: *id004
+    explication: '60 000 diplômés de plus par an sur un cycle de trois ans, dont la moitié en cours en 2032, au coût d''un
+      élève de CPGE (proxy), porté en euros 2032. Suppose un financement public intégral (écoles privées et consulaires :
+      surestimation). Bas : effectif complet. Haut : coût d''un étudiant d''université (12 460 €).'
+  confiance: faible
 - id: livret-capital-france
   libelle: Livret capital France et capitalisation retraite pour financer les champions technologiques
   domaine: épargne
@@ -491,8 +842,50 @@ mesures:
   precision: precise
   interpretation: Coût = réservistes supplémentaires × coût annuel moyen d'un réserviste + volontaires SMV supplémentaires
     × coût annuel par volontaire.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -3.69
+    bas: -3.69
+    haut: -2.04
+    montee_en_charge: *id003
+  calcul:
+    formule: -(reservistes_supp * cout_reserviste * f26 + volontaires_supp * cout_smv * f24) / 1e9
+    parametres:
+      reservistes_supp:
+        valeur: 205000
+        unite: réservistes
+        source: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
+        note: de 45 000 à 250 000
+      cout_reserviste:
+        valeur: 6135
+        unite: € par réserviste et par an (2026)
+        source: https://www.senat.fr/rap/a25-141-7/a25-141-7_mono.html
+        note: '« presque 319 millions d''euros » de masse salariale pour « 52 000 réservistes à fin 2026 » (rapports du Sénat
+          sur le PLF 2026) : 319 / 52 000'
+      volontaires_supp:
+        valeur: 47000
+        unite: volontaires par an
+        source: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
+        note: de 3 000 à 50 000
+      cout_smv:
+        valeur: 38000
+        unite: € par volontaire (2022)
+        source: https://www.senat.fr/rap/r23-034/r23-034_mono.html
+        note: « Le SMV a coûté 53 millions d'euros en 2022 [...] Cela représente un coût d'environ 38 000 euros par volontaire
+          »
+      f26:
+        valeur: 1.1842
+        unite: facteur 2026→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP.A
+        note: 1,2106 / 1,0223 (croissance nominale 2026 = 0,858 % de volume et 1,358 % de déflateur, plan/hypotheses.yaml)
+      f24: *id004
+    explication: 'Réservistes supplémentaires × masse salariale moyenne par réserviste (2026), plus volontaires supplémentaires
+      × coût par volontaire du SMV (2022, porté avec le facteur 2024→2032, prudent). Haut : volontaires comptés à leur seule
+      solde (≈ 9 500 €, 279 M€ pour 29 500 appelés du service national 2026-2030), l''encadrement et l''infrastructure étant
+      mutualisés. Une partie de la montée de la réserve et le service national de 2026 figurent déjà dans la LPM actualisée
+      (référence) : surestimation possible.'
+  confiance: moyenne
 - id: lpm-massification
   libelle: 'Nouvelle LPM de la massification : drones, munitions, flotte navale'
   domaine: défense
@@ -509,7 +902,8 @@ mesures:
   interpretation: 'Au-delà de la LPM actualisée (436 Md€ 2024-2030). Montant non annoncé : fourchette à construire (ex. 0
     à +0,5 pt de PIB) ou non chiffrable.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Ni montant ni cible en points de PIB au-delà de la LPM actualisée (référence) : trop vague pour
+    être chiffré.'
 - id: sante-stabiliser-depenses
   libelle: Stabiliser les dépenses de santé (prévention, technologies)
   domaine: santé
@@ -523,7 +917,8 @@ mesures:
   interpretation: '« Stabiliser » : lecture en volume (ONDAM progressant comme l''inflation) ou en valeur ; économie = écart
     à la tendance de l''ONDAM de la référence.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Aucune mesure identifiée ; la référence n''a pas de tendanciel de dépense (REFERENCE.md) : « stabiliser
+    » une dépense sans mesure n''a pas d''effet mesurable par rapport à la référence.'
 - id: reorganisation-etat-agences
   libelle: Regrouper ou privatiser agences et opérateurs de l'État
   domaine: État
@@ -537,7 +932,7 @@ mesures:
   interpretation: Aucun montant ; à rapprocher de l'appel aux agences et collectivités à « se serrer la ceinture » (meeting
     du 5 juillet).
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Ni agences nommées ni montant : trop vague pour être chiffré.'
 - id: fonction-publique-non-remplacement
   libelle: Recruter 7 000 fonctionnaires de moins que les départs en 2027
   domaine: fonction publique
@@ -551,7 +946,8 @@ mesures:
   interpretation: 'Piste citée pour financer les aides carburant de 2027 ; pérennité au-delà de 2027 non dite. Hypothèse :
     réduction de 7 000 ETP pérenne.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: Suggestion adressée au gouvernement actuel pour le budget 2027 (financer les aides carburant), pas
+    une mesure du quinquennat ; effet de l'ordre de 0,3 Md€ si pérennisé.
 - id: amendes-prestations-sociales
   libelle: Recouvrement forcé des amendes non payées sur les prestations sociales
   domaine: justice / recettes
@@ -563,7 +959,8 @@ mesures:
     support: site du candidat
   precision: precise
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: Montant des amendes non recouvrées sur des allocataires non documenté ; effet vraisemblablement inférieur
+    à 0,1 Md€.
 - id: mineurs-narco-etablissements
   libelle: Établissements de réinsertion et de soin pour mineurs condamnés pour narcotrafic
   domaine: justice
@@ -574,7 +971,7 @@ mesures:
     support: site du candidat
   precision: vague
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: Nombre de places non précisé ; effet vraisemblablement inférieur à 0,1 Md€.
 - id: agriculture-plan-transmission
   libelle: Plan de transmission et modernisation agricole, 100 territoires de souveraineté alimentaire
   domaine: agriculture
@@ -587,7 +984,7 @@ mesures:
     support: site du candidat
   precision: vague
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Ni montant ni instrument : trop vague pour être chiffré.'
 - id: regle-or-constitution
   libelle: Règle d'or de maîtrise des déficits dans la Constitution
   domaine: institutions
