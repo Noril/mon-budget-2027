@@ -44,3 +44,25 @@ Millésime cible : 2032 en euros courants, référentiel = législation au 1er j
 - Charges de service public de l'énergie pour les nouveaux contrats EnR (CRE, délibération annuelle) selon prix de marché.
 - LPM : annuités 2027-2030 de la LPM actualisée adoptée contre la version +50 Md€ du Sénat.
 - Coût à la place de CEF/EPM et coût journalier d'un détenu (justice des mineurs, courtes peines).
+
+## Barèmes à ajouter (phase 2)
+
+Paramètres utilisés sans barème commun (sourcés dans la mesure) ou manquants, qui rendraient le chiffrage plus robuste :
+
+- `hs_exoneration_part_salariale` : part salariale de l'exonération des heures supplémentaires (2 306 / 5 428 M€, Cour des comptes NEB 2026) ; heures supplémentaires par tranche annuelle (1 607-1 623 h, au-delà).
+- `cotisations_patronales_non_contributives` : rendement d'un point de cotisation famille, maladie, FNAL, versement mobilité après RGDU.
+- `forfait_social_par_assiette` : ventilation Acoss (participation légale, supra-légale, intéressement, PER, abondements).
+- `cfe_etablissements_industriels` : produit de CFE des établissements industriels (DGFiP, REI).
+- `logements_neufs_annuels` : autorisations et mises en chantier (SDES Sitadel ; 379 222 autorisés en 2025).
+- `unedic_ruptures_conventionnelles` : dépense d'allocation et durée moyenne après rupture conventionnelle (Unédic) ; chiffrage Unédic des règles de juin 2024.
+- `seniors_trimestres_complets_avant_age_legal` : effectif et salaire des salariés éligibles (Cnav, Drees EIR).
+- `cumul_emploi_retraite` : cumulants, revenus d'activité et cotisations (Drees) ; flux de surcote.
+- `retraites_taux_plein_65_decote_7pct` : simulation COR/Cnav d'un âge minimal 63 ans avec décote 7 %/an jusqu'à 65 ans et taux plein automatique à 65 ans.
+- `dmtg_titres_hors_dutreil` : droits de mutation sur transmissions d'entreprises hors pacte Dutreil.
+- `interets_emprunt_residence_principale_familles` : foyers avec enfants mineurs accédants et intérêts payés (ERFS, Banque de France).
+- `ptz_cout_generation` : coût budgétaire d'une génération de PTZ et part de l'ancien.
+- `revenus_fonciers_bati` : revenus fonciers et BIC meublés, valeur du bâti loué (DGFiP).
+- `hebergement_urgence_cout_place` et part des places occupées par des étrangers en situation irrégulière (Cour des comptes).
+- `cspe_contrats_futurs_enr` : charges de service public prévisionnelles des contrats EnR 2028-2032 (CRE).
+- `enseignants_prive_sous_contrat` : effectif et rémunération (programme 139).
+- `apd_cad_mission` : APD au sens du CAD et crédits de la mission APD.
