@@ -1,0 +1,1625 @@
+id: melenchon-lfi
+candidat: Jean-Luc Mélenchon
+parti: La France insoumise
+statut_candidature: déclaré le 3 mai 2026 ; meeting de lancement à Saint-Denis le 7 juin 2026 ; recherche des 500 parrainages
+  en cours
+date_collecte: '2026-09-29'
+sources:
+- titre: 'L''Avenir en commun, édition 2025 (831 mesures), livre-programme en ligne sur melenchon2027.fr (copies Wayback d''août-septembre
+    2026 : le site, protégé par Cloudflare, indique « L''Avenir en commun est en cours de réactualisation »)'
+  url: https://web.archive.org/web/20260926110036/https://melenchon2027.fr/programme2025/livre/
+  date: 2025-01
+- titre: 'Groupe LFI à l''Assemblée nationale, « Budget 2026 : pour une bifurcation écologique et sociale » (contre-budget
+    chiffré : 167,9 Md€ de dépenses, 183,6 Md€ de recettes)'
+  url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+  date: '2025-10-24'
+- titre: 'La France insoumise, page d''accueil (encart « Le programme » : retraite à 60 ans, SMIC à 1700 € net, blocage des
+    prix, ISF, règle verte)'
+  url: https://lafranceinsoumise.fr/
+  date: '2026-09-29'
+- titre: 'L''Express : le SMIC à 1 700 € annoncé au meeting de Saint-Denis (7 juin 2026)'
+  url: https://www.lexpress.fr/economie/jean-luc-melenchon-et-le-smic-a-1-700-euros-cest-un-mauvais-outil-de-lutte-contre-la-pauvrete-TL3NGV6CXVCDVH6WPVLHJ5BUFY/
+  date: '2026-06-09'
+- titre: 'franceinfo : gel de la dette détenue par la BCE (universités d''été, 23 août 2026)'
+  url: https://www.franceinfo.fr/economie/crise/crise-de-la-dette/cinq-questions-sur-la-proposition-de-jean-luc-melenchon-de-geler-une-partie-de-la-dette-francaise_8160833.html
+  date: '2026-08-27'
+- titre: 'LCP : débat des candidats devant le Medef (27 août 2026)'
+  url: https://lcp.fr/actualites/presidentielle-2027-ce-qu-il-faut-retenir-du-premier-debat-entre-les-candidats-440670
+  date: '2026-08-27'
+- titre: 'franceinfo et La Dépêche : discours de la braderie de Lille (5 septembre 2026)'
+  url: https://www.franceinfo.fr/politique/melenchon/pouvoir-d-achat-rn-jean-luc-melenchon-a-delivre-un-discours-de-campagne-depuis-la-braderie-de-lille_8178941.html
+  date: '2026-09-05'
+- titre: 'franceinfo : discours de la Fête de l''Humanité (12 septembre 2026)'
+  url: https://www.franceinfo.fr/elections/presidentielle/en-meeting-a-la-fete-de-l-humanite-jean-luc-melenchon-attire-les-foules-et-plaide-pour-le-blocage-des-prix_8190017.html
+  date: '2026-09-13'
+- titre: 'LCP : que proposent les candidats sur les retraites'
+  url: https://lcp.fr/actualites/presidentielle-que-proposent-les-candidats-a-l-elysee-sur-les-retraites-441751
+  date: '2026-09-23'
+- titre: 'LCP : le programme remanié sera présenté les 6 et 7 novembre 2026'
+  url: https://lcp.fr/actualites/presidentielle-le-programme-remanie-de-la-nouvelle-france-de-jean-luc-melenchon-sera
+  date: '2026-09-23'
+annonce_candidat:
+  cout_md: 167.9
+  financement_md: 183.6
+  texte: 'Pas de chiffrage global du programme présidentiel 2027 à la date de collecte : la nouvelle version de L''Avenir
+    en commun et son chiffrage sont annoncés pour le 6 novembre 2026. Dernier chiffrage d''ensemble publié par LFI : le contre-budget
+    2026 du groupe parlementaire (24 octobre 2025), qui reprend l''essentiel des mesures de L''AEC 2025. Son « tableau d''équilibre
+    » : recettes 183,6 Md€, pertes de recettes 4,5 Md€, dépenses 167,9 Md€, économies en dépenses 15,4 Md€, solde +26,7 Md€
+    (première année ; plusieurs mesures, dont la retraite à 60 ans, « appelées à monter en charge » ; effets de relance invoqués
+    en sus : « au bout de cinq ans, on sera en dessous des 3 % de déficit », É. Coquerel). Méthode revendiquée : variantes
+    du modèle FR-BDF de la Banque de France. Jean-Luc Mélenchon, braderie de Lille (5/09/2026) : « Il n''y a rien dans ce
+    que je vous propose qui n''ait été médité, réfléchi, calculé » (La Dépêche).'
+  url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+notes: 'Base : L''Avenir en commun, édition 2025 (janvier 2025, 831 mesures), programme officiel du candidat jusqu''à la publication
+  de la version remaniée annoncée pour le 6 novembre 2026 (LCP, 23/09/2026 ; six chapitres : écologie, économie, social, sciences,
+  démocratie, géopolitique ; convention au Bourget le 7 novembre). Les pages de melenchon2027.fr et programme.lafranceinsoumise.fr
+  sont protégées par Cloudflare : les citations viennent des copies Wayback (août-septembre 2026) ; quelques sections n''ont
+  pas pu être récupérées (logement, transports, grands chantiers : chapitre 7 s5-s6, chapitre 13 s2 et s4, chapitre 5 s1 et
+  s4, chapitre 16 s1), d''où le recours au contre-budget 2026 pour ces volets. Ajouts et inflexions de campagne 2026 : SMIC
+  à 1 700 € net (Saint-Denis, 7 juin ; AEC 2025 : 1 600 €), cantine bio gratuite pour tous, échelle mobile des salaires, blocage
+  des prix et des loyers, état d''urgence sociale, gel/annulation de la dette détenue par l''Eurosystème. Le contre-budget
+  2026 (groupe LFI, octobre 2025) est un document du parti, pas le programme du candidat : ses montants sont indiqués dans
+  interpretation comme montants revendiqués, jamais comme chiffrage tiers. Les chiffrages de l''Institut Montaigne portent
+  sur l''AEC 2022 (SMIC 1 400 €, pensions à 1 400 €…) : ordres de grandeur à réactualiser. Collecte : citations vérifiées
+  comme sous-chaînes exactes des textes extraits par curl (espaces, apostrophes et césures de PDF normalisés), le 29/09/2026.'
+mesures:
+- id: retraite-60-ans
+  libelle: Retour de l'âge légal à 60 ans avec 40 annuités (abrogation de la réforme 2023)
+  domaine: retraites
+  citation:
+    texte: Abroger la réforme d'Emmanuel Macron passant l'âge de départ à la retraite à 64 ans et restaurer le droit à la
+      retraite à 60 ans à taux plein pour 40 annuités de cotisations
+    url: https://web.archive.org/web/20260907170933/https://melenchon2027.fr/programme2025/livre/chapitre8/s8/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-09-07)'
+  precision: precise
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Reconfirmé en campagne : « le plus vite possible » (LCP, 23/09/2026) ; page
+    d''accueil LFI (« La retraite à 60 ans »). Lecture retenue : âge d''ouverture des droits 60 ans et durée d''assurance
+    ramenée à 40 ans (160 trimestres) pour le taux plein, par rapport à la législation au 1/1/2027 (réforme 2023, éventuellement
+    suspendue). Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
+    : 10,3 Md€ (« Abrogation de la réforme des retraites, retour à 60 ans et 40 annuités », « appelée à monter en charge »).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 85.8
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/retablir-la-retraite-a-60-ans-apres-40-ans-annees-de-cotisation/
+    date: '2022'
+    commentaire: 'Scénario médian 2027 (retour sur les mesures d''âge depuis 1993, calcul sur les 10 meilleures années) ;
+      bas 36 Md€ (âge et trimestres seuls), haut 112,8 Md€ ; inclut minimum de pension à 1 400 € et trimestres RSA. Contre-chiffrage
+      de l''équipe de campagne 2022 : 71,5 Md€ de coûts.'
+- id: pension-minimale-smic
+  libelle: Pensions portées au moins au SMIC revalorisé pour une carrière complète ; minimum vieillesse au seuil de pauvreté
+  domaine: retraites
+  citation:
+    texte: Porter a minima au niveau du SMIC revalorisé toutes les pensions pour une carrière complète (salarié, indépendant,
+      agriculteur), et le minimum vieillesse au niveau du seuil de pauvreté
+    url: https://web.archive.org/web/20260907170933/https://melenchon2027.fr/programme2025/livre/chapitre8/s8/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-09-07)'
+  precision: partielle
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). SMIC revalorisé = 1 600 € net (AEC 2025) ou 1 700 € net (campagne 2026) : paramètre
+    à trancher. Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
+    : 8,2 Md€ (minimum contributif) + 5 Md€ (retraites agricoles au SMIC, y compris retraités actuels).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 12.72
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/retablir-la-retraite-a-60-ans-apres-40-ans-annees-de-cotisation/
+    date: '2022'
+    commentaire: 'MICO à 1 400 € pour carrière complète : 12,05 Md€ ; minimum vieillesse : 0,67 Md€ (paramètres 2022).'
+- id: indexation-pensions-salaires
+  libelle: Indexation des pensions sur les salaires
+  domaine: retraites
+  citation:
+    texte: Indexer le montant des retraites sur les salaires
+    url: https://web.archive.org/web/20260907170933/https://melenchon2027.fr/programme2025/livre/chapitre8/s8/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-09-07)'
+  precision: precise
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Coût = écart salaires/prix appliqué à la masse des pensions. Montant revendiqué
+    par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge) : 3,3 Md€.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: suppression-decote
+  libelle: Suppression de la décote
+  domaine: retraites
+  citation:
+    texte: Supprimer la décote qui représente une double peine pour les retraités, a fortiori les femmes et les plus précaires
+    url: https://web.archive.org/web/20260907170933/https://melenchon2027.fr/programme2025/livre/chapitre8/s8/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-09-07)'
+  precision: precise
+  interpretation: 'Nouvelle formulation de l''édition 2025. Chevauche le retour à 60 ans/40 annuités (Institut Montaigne 2022
+    incluait la décote dans ses scénarios) : chiffrer sans double compte.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: trimestres-rsa
+  libelle: Validation de trimestres de retraite au titre du RSA
+  domaine: retraites
+  citation:
+    texte: Prendre en compte le revenu de solidarité active (RSA) pour valider des trimestres en vue de la retraite
+    url: https://web.archive.org/web/20260907170933/https://melenchon2027.fr/programme2025/livre/chapitre8/s8/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-09-07)'
+  precision: precise
+  interpretation: Engagement déjà présent dans L'AEC 2022, reconfirmé par l'édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026).
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 7.7
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/retablir-la-retraite-a-60-ans-apres-40-ans-annees-de-cotisation/
+    date: '2022'
+    commentaire: 'Intégration des années de RSA comme années cotisées (équipe de campagne 2022 : 1,9 Md€).'
+- id: hausse-cotisation-vieillesse
+  libelle: Hausse de 0,25 point par an du taux de cotisation vieillesse et cotisations sur dividendes, intéressement, participation,
+    épargne salariale
+  domaine: retraites
+  citation:
+    texte: Augmenter de 0,25 point par an durant le quinquennat le taux de cotisation vieillesse et soumettre à cotisation
+      les dividendes, les revenus d'intéressement, de participation, d'épargne salariale, ainsi que les revenus financiers
+      des entreprises
+    url: https://web.archive.org/web/20260907170933/https://melenchon2027.fr/programme2025/livre/chapitre8/s8/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-09-07)'
+  precision: precise
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Mesure de recette : +1,25 point en 2031-2032. Montant revendiqué par LFI dans
+    le contre-budget 2026 (octobre 2025, première année, avant montée en charge) : 3,2 Md€ la première année (+0,25 point)
+    ; « Soumettre les dividendes, la participation, l''épargne salariale, les rachats d''actions à cotisations » : 15,5 Md€
+    (traité ici dans la même mesure pour éviter le double compte).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 8.0
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/assujettir-aux-cotisations-sociales-les-revenus-dinteressement-de-participation-et-depargne-salariale/
+    date: '2022'
+    commentaire: 'Intéressement, participation, épargne salariale seuls : 6,9 à 9 Md€ (équipe de campagne 2022 : 8,2 Md€)
+      ; +0,25 pt/an sur le mandat : 16 Md€ selon l''équipe de campagne 2022.'
+- id: smic-1700-net
+  libelle: SMIC porté à 1 700 € net par mois
+  domaine: travail
+  citation:
+    texte: Lors de son premier meeting à Saint-Denis le 7 juin, le leader insoumis a promis de porter le Smic net à 1 700
+      euros par mois, soit une hausse immédiate de près de 14 %.
+    url: https://www.lexpress.fr/economie/jean-luc-melenchon-et-le-smic-a-1-700-euros-cest-un-mauvais-outil-de-lutte-contre-la-pauvrete-TL3NGV6CXVCDVH6WPVLHJ5BUFY/
+    date: '2026-06-09'
+    support: presse (L'Express), meeting de Saint-Denis du 7 juin 2026
+  precision: precise
+  interpretation: 'L''AEC 2025 écrit « Porter immédiatement le SMIC mensuel à 1600 euros net » (chapitre 8, s4) ; la campagne
+    2026 porte la cible à 1 700 € net (page d''accueil de LFI : « Le SMIC à 1700€ net »). On retient 1 700 € net au 1er janvier
+    2027 de référence. Effets APU directs : masse salariale publique, allègements généraux et prime d''activité, cotisations
+    et impôts en retour, fonds de péréquation pour les TPE-PME « financé par le redéploiement des aides aux grandes entreprises
+    » (contre-budget). Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en
+    charge) : 1,6 Md€ pour le SMIC à 1 600 € net.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 2.7
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/augmenter-le-smic-a-1-400-e-net/
+    date: '2022'
+    commentaire: 'SMIC à 1 400 € net (2022) : coût APU d''environ 2,7 Md€ par an (allègements, fonction publique).'
+- id: echelle-mobile-salaires
+  libelle: Indexation des salaires sur l'inflation (échelle mobile), privé et fonction publique
+  domaine: travail
+  citation:
+    texte: Porter immédiatement le SMIC mensuel à 1600 euros net et indexer les salaires sur l'inflation dans le privé et
+      dans la fonction publique
+    url: https://web.archive.org/web/20260829202700/https://melenchon2027.fr/programme2025/livre/chapitre8/s4/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: partielle
+  interpretation: 'Reprise en campagne sous le nom d''« échelle mobile des salaires » (braderie de Lille, 5/09/2026 ; Fête
+    de l''Humanité, 12/09/2026). Effet budgétaire direct : indexation du point d''indice sur les prix (voir aussi point-indice-10-pct)
+    ; pour le privé, effet via allègements et prestations indexées. Le montant du SMIC de cette citation est remplacé par
+    1 700 € (mesure smic-1700-net).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: point-indice-10-pct
+  libelle: Point d'indice des fonctionnaires +10 %, dégel inscrit dans la loi, compensation aux collectivités
+  domaine: etat
+  citation:
+    texte: Revaloriser la valeur du point d'indice des fonctionnaires de 10 % et inscrire son dégel dans la loi, compenser
+      intégralement cette augmentation pour les collectivités territoriales
+    url: https://web.archive.org/web/20260730211950/https://melenchon2027.fr/programme2025/livre/chapitre9/s1/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-07-30)'
+  precision: precise
+  interpretation: 'Section « Créer un état d''urgence sociale » (mesures immédiates). Montant revendiqué par LFI dans le contre-budget
+    2026 (octobre 2025, première année, avant montée en charge) : 22 Md€ (« Revaloriser le point d''indice des fonctionnaires
+    de 10%, indexer l''indice sur l''inflation et recomposer les grilles indiciaires pour prendre en compte la hausse du SMIC
+    »). Coût brut à diminuer des cotisations et impôts en retour.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: revalorisation-enseignants
+  libelle: Rattrapage du gel du point d'indice depuis 2010 et revalorisation des grilles de l'Éducation nationale
+  domaine: education
+  citation:
+    texte: Rattraper le gel du point d'indice depuis 2010 et revaloriser les grilles salariales en engageant une négociation
+      avec les organisations syndicales et mettre fin au Pacte enseignant
+    url: https://web.archive.org/web/20260830154224/https://melenchon2027.fr/programme2025/livre/chapitre5/s3/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-30)'
+  precision: partielle
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Chevauche point-indice-10-pct : ne chiffrer que le supplément propre à l''Éducation
+    nationale. Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
+    : 5 Md€ (grilles, bâti scolaire, médecine et vie scolaire, montée en charge).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 13.4
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/rattraper-le-gel-du-point-dindice-depuis-2010-et-revaloriser-les-grilles-salariales-des-enseignants/
+    date: '2022'
+    commentaire: 'Hypothèse d''une revalorisation de 30 % des enseignants : 13,4 Md€ par an (12,2 à 16 Md€).'
+- id: titularisation-precaires-fp
+  libelle: Titularisation des contractuels des trois fonctions publiques
+  domaine: etat
+  citation:
+    texte: Titulariser les précaires des trois fonctions publiques
+    url: https://web.archive.org/web/20260829202757/https://melenchon2027.fr/programme2025/livre/chapitre8/s3/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: vague
+  interpretation: Coût = écart de rémunération et de cotisations (CAS pensions) entre contractuels et titulaires ; périmètre
+    et rythme non précisés.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: garantie-emploi
+  libelle: Garantie d'emploi au SMIC pour les chômeurs de longue durée dans les « secteurs d'urgence »
+  domaine: travail
+  citation:
+    texte: 'Créer une garantie d''emploi : tout chômeur de longue durée pourra se voir proposer d''être embauché au moins
+      au SMIC revalorisé dans un secteur d''urgence'
+    url: https://web.archive.org/web/20260829202703/https://melenchon2027.fr/programme2025/livre/chapitre8/s1/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: partielle
+  interpretation: Engagement déjà présent dans L'AEC 2022, reconfirmé par l'édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Volontariat ; nombre de bénéficiaires à hypothéser.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: null
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/creer-une-garantie-demploi-au-smic-pour-les-chomeurs-de-longue-duree-dans-un-secteur-durgence/
+    date: '2022'
+    commentaire: Coût de 8,2 à 20,4 Md€ par an selon le taux de recours (2022).
+- id: emploi-jeune-5-ans
+  libelle: « Emploi spécifique jeune » de cinq ans dans le non-marchand et le public
+  domaine: travail
+  citation:
+    texte: Instaurer un « emploi spécifique jeune » d'une durée de cinq ans, dans le secteur non marchand et public, pour
+      éliminer le chômage des jeunes
+    url: https://web.archive.org/web/20260829203254/https://melenchon2027.fr/programme2025/livre/chapitre10/s3/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: vague
+  interpretation: Volume non précisé ; chevauche la garantie d'emploi.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: sixieme-semaine-conges
+  libelle: Sixième semaine de congés payés
+  domaine: travail
+  citation:
+    texte: Généraliser une sixième semaine de congés payés pour tous les salariés
+    url: https://web.archive.org/web/20260829202700/https://melenchon2027.fr/programme2025/livre/chapitre8/s2/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: precise
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Effet APU : coût employeur public (remplacements) et éventuelle compensation
+    ; effet privé non budgétaire.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: null
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/generaliser-une-sixieme-semaine-de-conges-payes-pour-tous-les-salaries/
+    date: '2022'
+    commentaire: Coût pour les administrations publiques de 1,3 à 1,9 Md€ (2022).
+- id: temps-travail-35h-32h
+  libelle: Retour effectif aux 35 heures (heures supplémentaires majorées), 32 heures dans les métiers pénibles ou de nuit
+  domaine: travail
+  citation:
+    texte: Rétablir immédiatement la durée légale hebdomadaire à 35 heures (en majorant les heures supplémentaires, cotisations
+      incluses, à 25 % pour les 4 premières et 50 % au-delà), passer aux 32 heures dans les métiers pénibles ou de nuit, et
+      favoriser leur généralisation par la négociation collective
+    url: https://web.archive.org/web/20260829202700/https://melenchon2027.fr/programme2025/livre/chapitre8/s2/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: partielle
+  interpretation: 'Effet APU : 32 h dans les métiers pénibles ou de nuit de la fonction publique (hôpitaux, police…) = recrutements
+    compensatoires ; majoration des heures sup. dans le public. La fiscalisation et la socialisation des heures supplémentaires
+    sont traitées dans heures-sup-fiscalisation.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: assurance-chomage-abrogation
+  libelle: Abrogation des réformes de l'assurance chômage depuis 2019 ; indemnisation dès le premier jour
+  domaine: travail
+  citation:
+    texte: Revenir sur les réformes Macron en abrogeant l'éligibilité et les méthodes de calcul du montant et de la durée
+      de l'allocation pour indemniser les chômeurs en fonction de leurs derniers salaires grâce à une assurance calculée à
+      partir du premier jour de travail
+    url: https://web.archive.org/web/20260829202700/https://melenchon2027.fr/programme2025/livre/chapitre8/s5/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: partielle
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première
+    année, avant montée en charge) : 3 Md€ (« Abroger toutes les réformes de l''assurance chômage »).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: garantie-autonomie
+  libelle: 'Garantie d''autonomie : revenu porté au seuil de pauvreté pour toute personne (dont jeunes détachés du foyer parental)'
+  domaine: solidarites
+  citation:
+    texte: 'Créer une garantie d''autonomie qui permettra que nul ne soit privé de sa dignité pour vivre : le revenu mensuel
+      de chaque personne atteindra le seuil de pauvreté (1 216 euros pour une personne seule)'
+    url: https://web.archive.org/web/20260608122507/https://melenchon2027.fr/programme2025/livre/chapitre7/s4/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-06-08)'
+  precision: partielle
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Lecture : allocation différentielle portant le revenu au seuil de pauvreté
+    à 60 % (1 216 € dans le texte, 1 288 € dans le contre-budget). Le chapitre 10 (s3) l''étend aux jeunes « détachés du foyer
+    fiscal parental ». Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en
+    charge) : 10 Md€ pour le volet « jeunes », avec montée en charge. La hausse immédiate « des minima sociaux » (chapitre
+    9, s1) est absorbée par cette mesure.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: null
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/creer-une-garantie-dautonomie-de-trois-ans-sous-reserve-dune-formation-qualifiante-et-sous-conditions-de-ressources-pour-les-18-25-ans/
+    date: '2022'
+    commentaire: 'Volet jeunes (2022) : 12,3 Md€ (sous conditions de ressources) à 21,4 Md€ (sans condition), jusqu''à 37,7
+      Md€ avec effets de comportement.'
+- id: aah-smic
+  libelle: AAH portée au niveau du SMIC
+  domaine: solidarites
+  citation:
+    texte: Assurer l'autonomie financière des personnes en situation de handicap, en revalorisant l'AAH au niveau du SMIC
+    url: https://web.archive.org/web/20260829203316/https://melenchon2027.fr/programme2025/livre/chapitre10/s5/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: precise
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Niveau du SMIC net (1 600 ou 1 700 €) à trancher. Montant revendiqué par LFI
+    dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge) : 3 Md€.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: apl-10-pct
+  libelle: Revalorisation des APL de 10 %
+  domaine: logement
+  citation:
+    texte: Revaloriser les APL de 10 %
+    url: https://web.archive.org/web/20260730211950/https://melenchon2027.fr/programme2025/livre/chapitre9/s1/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-07-30)'
+  precision: precise
+  interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
+    : 1,7 Md€.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: asf-deconjugalisee
+  libelle: Allocation de soutien familial déconjugalisée et revalorisée
+  domaine: solidarites
+  citation:
+    texte: 'Garantir le droit de partir et lutter contre la précarité des mères isolées : déconjugaliser et revaloriser l''allocation
+      de soutien familial, défiscaliser les pensions alimentaires, réduire les délais de la justice familiale'
+    url: https://web.archive.org/web/20260829203154/https://melenchon2027.fr/programme2025/livre/chapitre10/s1/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: partielle
+  interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
+    : 0,9 Md€ (« Déconjugaliser et indexer l''allocation de soutien familial »). Défiscalisation des pensions alimentaires
+    : perte d''IR à ajouter.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: protections-periodiques-gratuites
+  libelle: Gratuité des protections périodiques
+  domaine: sante
+  citation:
+    texte: Assurer la gratuité des protections périodiques pour toutes et tous, quel que soit l'âge
+    url: https://web.archive.org/web/20260608122507/https://melenchon2027.fr/programme2025/livre/chapitre7/s4/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-06-08)'
+  precision: precise
+  interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
+    : 1,6 Md€ (avec l''arrêt menstruel).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: premiere-tranche-gratuite-energie-eau
+  libelle: Première tranche gratuite d'électricité, de chaleur, d'eau et de gaz
+  domaine: energie
+  citation:
+    texte: Instaurer une première tranche gratuite de consommation d'électricité, de chaleur, d'eau, de gaz
+    url: https://web.archive.org/web/20260608122507/https://melenchon2027.fr/programme2025/livre/chapitre7/s4/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-06-08)'
+  precision: vague
+  interpretation: 'Volume de la tranche non précisé. Financement possible par tarification progressive (neutre pour les APU)
+    ou par le budget : à préciser. Le contre-budget la renvoie aux années suivantes.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: zero-sans-abri
+  libelle: 'Objectif zéro sans-abri : places d''hébergement et réquisition de logements vacants'
+  domaine: logement
+  citation:
+    texte: 'Atteindre l''objectif de zéro sans-abri : augmentation significative des places d''accueil (estimées aujourd''hui
+      à 203 000) et simplification des dispositifs'
+    url: https://web.archive.org/web/20260608122507/https://melenchon2027.fr/programme2025/livre/chapitre7/s4/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-06-08)'
+  precision: partielle
+  interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
+    : environ 2,4 Md€ (réquisitions 1,7 Md€, hébergement d''urgence 0,6 Md€, dotations 0,12 Md€, hôtels 0,025 Md€).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: dependance-ehpad-publics
+  libelle: 'Service public de la dépendance : 10 000 places par an en EHPAD publics, 210 000 recrutements'
+  domaine: solidarites
+  citation:
+    texte: 'Former, qualifier et recruter en nombre suffisant le personnel nécessaire : au moins 210 000 personnes pour pouvoir
+      respecter un ratio minimal d''encadrement « au chevet » des résidents'
+    url: https://web.archive.org/web/20260829203314/https://melenchon2027.fr/programme2025/livre/chapitre10/s4/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: partielle
+  interpretation: 'Avec « Créer 10 000 places par an en EHPAD publics pendant cinq ans » (même section). Montant revendiqué
+    par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge) : 0,92 Md€ la première année
+    (places et moyens).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: violences-sexistes-2-6-md
+  libelle: Loi contre les violences sexistes et sexuelles dotée de 2,6 Md€
+  domaine: justice
+  citation:
+    texte: Adopter une loi de lutte contre le sexisme et les violences faites aux femmes, et allouer les 2,6 milliards de
+      budget demandé par les associations
+    url: https://web.archive.org/web/20260829203154/https://melenchon2027.fr/programme2025/livre/chapitre10/s1/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: precise
+  interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
+    : 2,9 Md€ (« loi intégrale »).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: gratuite-ecole-cantine
+  libelle: 'Gratuité réelle de l''école : cantine (bio), transports, périscolaire, fournitures et manuels'
+  domaine: education
+  citation:
+    texte: Assurer la gratuité réelle de l'éducation publique, y compris les cantines, le transport et les activités périscolaires,
+      fournir gratuitement aux élèves les manuels scolaires, ainsi que des fournitures sans marque
+    url: https://web.archive.org/web/20260830154224/https://melenchon2027.fr/programme2025/livre/chapitre5/s3/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-30)'
+  precision: precise
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Priorité de campagne : « Si nous gagnons cette élection, nous commencerons
+    immédiatement à faire en sorte que tous les enfants de France mangent gratuitement à la cantine bio » (braderie de Lille,
+    5/09/2026, La Dépêche). Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée
+    en charge) : 3,6 Md€.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 6.9
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/assurer-la-gratuite-de-leducation-publique-et-du-materiel-scolaire/
+    date: '2022'
+    commentaire: 6,9 Md€ par an limité au public, 8,3 Md€ avec le privé sous contrat, haut 8,7 Md€ (2022).
+- id: cantine-100-bio
+  libelle: Cantines scolaires 100 % biologiques et locales
+  domaine: education
+  citation:
+    texte: Porter l'alimentation dans les cantines scolaires à 100 % biologique et locale, réduire la part des protéines carnées
+      au profit des protéines végétales et imposer une option végétarienne quotidienne
+    url: https://web.archive.org/web/20260830154224/https://melenchon2027.fr/programme2025/livre/chapitre5/s3/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-30)'
+  precision: precise
+  interpretation: Engagement déjà présent dans L'AEC 2022, reconfirmé par l'édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Surcoût par repas × nombre de repas ; charge des collectivités ou de l'État
+    selon la compensation.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 2.3
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/porter-lalimentation-de-la-cantine-scolaire-a-100-biologique-et-locale/
+    date: '2022'
+    commentaire: 'Surcoût de 1,64 € par repas × 1,4 milliard de repas ; équipe de campagne 2022 : 1,19 Md€.'
+- id: classes-19-eleves
+  libelle: Effectifs par classe sous la moyenne européenne (19 élèves)
+  domaine: education
+  citation:
+    texte: Réduire partout les effectifs par classe pour faire mieux que la moyenne en Europe, qui est actuellement à 19 élèves
+      par classe, en priorisant les maternelles et les classes des actuelles REP
+    url: https://web.archive.org/web/20260830154224/https://melenchon2027.fr/programme2025/livre/chapitre5/s3/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-30)'
+  precision: partielle
+  interpretation: Engagement déjà présent dans L'AEC 2022, reconfirmé par l'édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Cible lue comme 19 élèves par classe au plus, en moyenne ; la baisse démographique
+    réduit le coût.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 6.8
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/reduire-les-effectifs-a-19-eleves-par-classe/
+    date: '2022'
+    commentaire: Scénario médian à l'horizon 2027 (4,6 à 11 Md€) ; 7,5 Md€ en rythme de croisière.
+- id: aesh-fonctionnaires
+  libelle: Corps de fonctionnaires pour les AESH, fin de la mutualisation
+  domaine: education
+  citation:
+    texte: Créer un corps de fonctionnaires pour les personnels d'accompagnement des élèves en situation de handicap (AESH),
+      recruter pour renforcer les capacités d'accueil et d'accompagnement et mettre fin à la mutualisation
+    url: https://web.archive.org/web/20260829203316/https://melenchon2027.fr/programme2025/livre/chapitre10/s5/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: partielle
+  interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
+    : 2,5 Md€.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: petite-enfance-500000-places
+  libelle: 'Service public de la petite enfance : 500 000 places en cinq ans, gratuité des crèches publiques'
+  domaine: education
+  citation:
+    texte: Créer un service public de la petite enfance et ouvrir 500 000 places en crèche et modes de garde adaptés sur cinq
+      ans
+    url: https://web.archive.org/web/20260829203336/https://melenchon2027.fr/programme2025/livre/chapitre5/s2/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: precise
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Avec « Garantir la gratuité des crèches publiques » (même section). Montant
+    revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge) : 1 Md€ la première
+    année.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 9.5
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/creer-un-service-public-de-la-petite-enfance-et-ouvrir-500-000-places-en-creche/
+    date: '2022'
+    commentaire: 17,5 Md€ d'investissement sur cinq ans et 9,5 Md€ par an de fonctionnement en année pleine (fourchette 17
+      à 40 Md€ sur la période).
+- id: gratuite-enseignement-superieur
+  libelle: Gratuité de l'enseignement supérieur, suppression de la CVEC, 15 000 logements étudiants par an
+  domaine: education
+  citation:
+    texte: Instaurer la gratuité de l'enseignement supérieur, de la licence au doctorat, quelle que soit la nationalité des
+      étudiants
+    url: https://web.archive.org/web/20260608125104/https://melenchon2027.fr/programme2025/livre/chapitre5/s6/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-06-08)'
+  precision: precise
+  interpretation: Engagement déjà présent dans L'AEC 2022, reconfirmé par l'édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Perte des droits d'inscription et de la CVEC ; « Construire 15 000 logements
+    supplémentaires par an » (même section).
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 0.7
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/construire-15-000-logements-universitaires-supplementaires-par-an/
+    date: '2022'
+    commentaire: 'Logements étudiants : effort annuel de 1,2 Md€, +0,7 Md€ par rapport à 2019.'
+- id: repas-crous-1-euro
+  libelle: Repas à 1 € dans les CROUS pour tous les étudiants
+  domaine: education
+  citation:
+    texte: Instaurer le repas à un euro dans tous les sites de restauration des centres régionaux des œuvre s universitaires
+      (CROUS)
+    url: https://web.archive.org/web/20260829203254/https://melenchon2027.fr/programme2025/livre/chapitre10/s3/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: precise
+  interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
+    : 0,06 Md€.'
+  chiffrable: false
+  raison_non_chiffrable: 'Effet budgétaire inférieur à 0,1 Md€ (contre-budget : 60 M€)'
+- id: conscription-citoyenne
+  libelle: Conscription citoyenne de neuf mois rémunérée au SMIC pour les moins de 25 ans
+  domaine: defense
+  citation:
+    texte: Mettre en place une conscription citoyenne de neuf mois, pour les femmes et les hommes de moins de 25 ans, rémunérée
+      au SMIC – revalorisé –
+    url: https://web.archive.org/web/20260829203336/https://melenchon2027.fr/programme2025/livre/chapitre5/s7/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: precise
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Remplace le SNU (économie : contre-budget, « Abroger le SNU : 130 millions
+    d''euros d''économies »). Inclut formation au permis de conduire.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 19.0
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/mettre-en-place-une-conscription-citoyenne-de-9-mois-remuneree-au-smic-pour-les-moins-de-25-ans/
+    date: '2022'
+    commentaire: Environ 19 Md€ par an pour 680 000 jeunes (85 % d'une classe d'âge), fourchette 18 à 19,5 Md€ ; permis 1,2
+      Md€ ; économies (JDC, SMV) 0,5 Md€.
+- id: recherche-investissement
+  libelle: Hausse de l'investissement public dans la recherche et l'enseignement supérieur
+  domaine: recherche
+  citation:
+    texte: Rehausser le niveau d'investissement public dans la recherche
+    url: https://web.archive.org/web/20260829203336/https://melenchon2027.fr/programme2025/livre/chapitre5/s5/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: vague
+  interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
+    : 1,6 Md€ (recherche universitaire) + 0,7 Md€ (30 000 postes à l''université, abrogation de Parcoursup).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: suppression-cir
+  libelle: Suppression du crédit d'impôt recherche au profit des universités et organismes
+  domaine: recherche
+  citation:
+    texte: Supprimer le Crédit impôt recherche au profit du financement des universités et instituts de recherche et mettre
+      en place des plans nationaux de recherche
+    url: https://web.archive.org/web/20260829203336/https://melenchon2027.fr/programme2025/livre/chapitre5/s5/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: precise
+  interpretation: 'Recette brute = coût du CIR ; le redéploiement vers la recherche publique est une dépense (effet net à
+    préciser). Le contre-budget ne retient qu''un « redimensionnement » : 3 Md€ de recettes.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: cent-pour-cent-secu
+  libelle: '« 100 % Sécu » : remboursement intégral des soins prescrits, intégration des complémentaires'
+  domaine: sante
+  citation:
+    texte: Reconstruire le service public hospitalier et instaurer le « 100 % Sécu » en remboursant à 100 % les soins de santé
+      prescrits et en intégrant les mutuelles dans la Sécurité sociale
+    url: https://web.archive.org/web/20260606164304/https://melenchon2027.fr/programme2025/livre/chapitre15/s2/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-06-06)'
+  precision: partielle
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Transfert des dépenses des complémentaires vers l''assurance maladie : dépense
+    publique en plus, cotisations ou impôts de substitution non précisés.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 22.5
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/instaurer-le-100-secu-en-remboursant-100-les-soins-de-sante-prescrits-et-en-integrant-les-mutuelles-dans-la-securite-sociale/
+    date: '2022'
+    commentaire: 'Estimation du HCAAM (janvier 2022) reprise : 18,8 Md€ de dépenses et 3,7 Md€ de pertes de recettes ; fourchette
+      15 à 26 Md€.'
+- id: recrutement-soignants
+  libelle: Plan pluriannuel de recrutement et de revalorisation des soignants
+  domaine: sante
+  citation:
+    texte: Engager un plan pluriannuel de recrutement des professionnels du soin et du médico-social (médecins, infirmiers,
+      aides-soignants et personnels administratifs), revaloriser les métiers, les salaires et la tarification de certains
+      actes libéraux des infirmiers
+    url: https://web.archive.org/web/20260606164304/https://melenchon2027.fr/programme2025/livre/chapitre15/s2/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-06-06)'
+  precision: vague
+  interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
+    : 1,3 Md€ (recrutement) + 1,3 Md€ (nuit et week-end à l''hôpital).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 4.4
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/recruter-100-000-soignants/
+    date: '2022'
+    commentaire: '100 000 soignants (2022) : 4,4 Md€ à l''horizon 2027, 16,2 Md€ cumulés sur le quinquennat.'
+- id: franchises-medicales
+  libelle: Abrogation de la hausse des franchises médicales de 2024
+  domaine: sante
+  citation:
+    texte: Abroger la hausse des franchises médicales de 2024
+    url: https://web.archive.org/web/20260606164304/https://melenchon2027.fr/programme2025/livre/chapitre15/s2/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-06-06)'
+  precision: precise
+  interpretation: 'Le contre-budget va plus loin : « Abolir les franchises médicales : 1,5 milliard d''euros ».'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: centres-sante-deserts
+  libelle: Réseau public de centres de santé et recrutement de médecins publics contre les déserts médicaux
+  domaine: sante
+  citation:
+    texte: Créer un réseau public de centres de santé pluridisciplinaires ou communautaires et de coopératives médicales en
+      lien avec des infirmiers référents et déployer de manière effective le statut d'infirmier de famille
+    url: https://web.archive.org/web/20260606164304/https://melenchon2027.fr/programme2025/livre/chapitre15/s2/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-06-06)'
+  precision: vague
+  interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
+    : 0,5 Md€ (régulation de l''installation, permanences de soins en centres de santé).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: logements-publics-200000
+  libelle: Construction de 200 000 logements publics par an aux normes écologiques
+  domaine: logement
+  citation:
+    texte: 'Construire 200 000 logements publics aux normes écologiques les plus ambitieuses : 2,9 milliard d''euros'
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
+  precision: precise
+  interpretation: Section logement de L'AEC 2025 non récupérée (chapitre 7, s5) ; engagement de 2022 repris dans le contre-budget
+    2026. Complété par « Revenir sur les coupes de Macron aux dépens des organismes HLM » (1,4 Md€).
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: null
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/construire-200-000-logements-publics-par-an-pendant-cinq-ans-aux-normes-ecologiques-les-plus-ambitieuses/
+    date: '2022'
+    commentaire: Coût pour les APU de 1,9 à 2,3 Md€ par an (2022).
+- id: garantie-universelle-loyers
+  libelle: Garantie universelle des loyers
+  domaine: logement
+  citation:
+    texte: 'Mettre en place la garantie universelle des loyers pour sécuriser les propriétaires et les locataires : variable'
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
+  precision: partielle
+  interpretation: Engagement 2022 repris dans le contre-budget 2026 (montant « variable »).
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 2.3
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/mettre-en-place-une-garantie-universelle-des-loyers/
+    date: '2022'
+    commentaire: 1,8 à 2,7 Md€ par an, médiane 2,3 Md€ (taux de sinistralité 2,5 %).
+- id: renovation-700000-logements
+  libelle: Rénovation énergétique d'au moins 700 000 logements par an
+  domaine: logement
+  citation:
+    texte: Refaire l'isolation d'au moins 700 000 logements par an
+    url: https://web.archive.org/web/20260821172237/https://melenchon2027.fr/programme2025/livre/chapitre13/s3/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-21)'
+  precision: partielle
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première
+    année, avant montée en charge) : 2,2 Md€ sous forme de « prêts publics remboursés lors de la vente du bien ou de sa transmission
+    » (effet sur le solde selon le traitement comptable des prêts) + 2,6 Md€ pour le tertiaire.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: plan-investissement-200-md
+  libelle: Plan de 200 Md€ d'investissements écologiquement et socialement utiles
+  domaine: ecologie
+  citation:
+    texte: Lancer un plan massif de 200 milliards d'euros d'investissements écologiquement et socialement utiles
+    url: https://web.archive.org/web/20260606164247/https://melenchon2027.fr/programme2025/livre/chapitre13/s1/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-06-06)'
+  precision: partielle
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Durée non précisée dans le texte (quinquennat en 2022, soit ~40 Md€/an) ; il
+    englobe une partie des mesures sectorielles (énergies renouvelables, rail, rénovation, industrie) : chiffrer comme enveloppe
+    (règle 6 du README) sans double compte. Le contre-budget 2026 revendique « près de 50 milliards d''euros » de dépenses
+    écologiques supplémentaires sur un an.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: energies-renouvelables
+  libelle: 'Planification du 100 % renouvelable : filières EnR, stockage, réseau'
+  domaine: energie
+  citation:
+    texte: 'Développer et renforcer des filières françaises de production d''énergie renouvelables : 10,6 milliards d''euros'
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
+  precision: partielle
+  interpretation: 'AEC 2025, chapitre 13 s3 : « Planifier le passage à 100 % d''énergies renouvelables ». Contre-budget :
+    + stockage 2 Md€, fonds chaleur 0,8 Md€, réseau 0,6 Md€.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: plan-rail-fret
+  libelle: Plan rail et fret, RER métropolitains, petites lignes, trains de nuit
+  domaine: transports
+  citation:
+    texte: 'Mettre en œuvre un plan rail et fret, créer des services express régionaux et rouvrir des petites lignes de train
+      : 6 milliards d''euros'
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
+  precision: partielle
+  interpretation: Section transports de L'AEC 2025 non récupérée ; engagement repris du contre-budget 2026 (+ train de nuit
+    1,5 Md€, ferroutage 0,6 Md€, plan vélo 0,7 Md€, transports en commun 0,4 Md€, moratoire autoroutier −1 Md€).
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: reconstruction-industrielle
+  libelle: Plan de reconstruction industrielle dans les secteurs stratégiques
+  domaine: economie
+  citation:
+    texte: Engager un plan de reconstruction industrielle pour mettre fin à la dépendance de la France dans les domaines stratégiques
+      (semi-conducteurs, médicaments, etc.) et pour soutenir la bifurcation écologique (recyclage des batteries, aciers nécessaires
+      aux énergies renouvelables, aluminium, etc.)
+    url: https://web.archive.org/web/20260608125818/https://melenchon2027.fr/programme2025/livre/chapitre9/s2/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-06-08)'
+  precision: vague
+  interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
+    : 5 Md€.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: agriculture-bio-installation
+  libelle: 'Révolution agricole : 300 000 emplois agricoles, caisse de défaisance des dettes des convertis au bio, installation'
+  domaine: agriculture
+  citation:
+    texte: Instaurer une agriculture relocalisée, diversifiée et écologique et créer 300 000 emplois agricoles
+    url: https://web.archive.org/web/20260606164247/https://melenchon2027.fr/programme2025/livre/chapitre13/s5/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-06-06)'
+  precision: vague
+  interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
+    : 1,2 Md€ (caisse de défaisance), 0,5 Md€ (bio et agroécologie), 1,5 Md€ (installation), 0,3 Md€ (cantines bio et locales).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: tarifs-reglementes-gaz
+  libelle: Tarifs réglementés de l'énergie au coût de production ; annulation des hausses du gaz depuis 2017
+  domaine: energie
+  citation:
+    texte: Annuler les hausses du tarif du gaz depuis 2017
+    url: https://web.archive.org/web/20260821172237/https://melenchon2027.fr/programme2025/livre/chapitre13/s3/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-21)'
+  precision: precise
+  interpretation: Engagement déjà présent dans L'AEC 2022, reconfirmé par l'édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Coût budgétaire si compensation aux fournisseurs ; dépend du prix de marché.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 4.5
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/annuler-les-hausses-de-tarif-du-gaz-depuis-2017/
+    date: '2022'
+    commentaire: Hypothèse médiane 4,5 Md€ (compensation généralisée, prix du gaz stabilisés à début 2022) ; 11,7 Md€ si les
+      prix poursuivaient leur hausse.
+- id: blocage-prix-energie-carburant
+  libelle: Blocage des prix des produits de première nécessité (alimentation, énergie, carburant)
+  domaine: economie
+  citation:
+    texte: Bloquer les prix des produits de première nécessité (alimentation, énergie, carburant) et interdire la « réduflation
+      »
+    url: https://web.archive.org/web/20260730211950/https://melenchon2027.fr/programme2025/livre/chapitre9/s1/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-07-30)'
+  precision: vague
+  interpretation: 'Priorité de campagne (braderie de Lille, Fête de l''Humanité : « le blocage des prix et le blocage des
+    marges »). Mesure réglementaire ; coût budgétaire si l''État compense les écarts (bouclier tarifaire) sur l''énergie et
+    le carburant : hypothèse à poser, fourchette large (0 à plusieurs Md€ selon les prix).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: abolir-hausse-accise-electricite
+  libelle: Suppression de la « taxe Macron de 10 % » sur les factures d'énergie
+  domaine: energie
+  citation:
+    texte: 'Abolir la taxe Macron de 10 % sur les factures d''énergie : 3,5 milliards d''euros de pertes de recettes'
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
+  precision: partielle
+  interpretation: 'Contre-budget 2026. Lecture : retour de l''accise sur l''électricité au niveau antérieur à sa hausse (à
+    préciser par le barème).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: tva-transports-5-5
+  libelle: TVA à 5,5 % sur les transports en commun
+  domaine: transports
+  citation:
+    texte: 'Baisser la TVA sur la tarification des transports en commun à 5,5 % : 1 milliard d''euros de pertes de recettes'
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
+  precision: precise
+  interpretation: Contre-budget 2026.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: renationalisations
+  libelle: Renationalisation d'EDF et d'Engie, retour sur les privatisations (autoroutes, aéroports, FDJ)
+  domaine: economie
+  citation:
+    texte: 'Annuler la libéralisation du marché de l''électricité et du gaz : stopper la privatisation des barrages hydroélectriques,
+      créer un pôle public de l''énergie en lien avec des coopératives locales en renationalisant EDF et Engie'
+    url: https://web.archive.org/web/20260821172237/https://melenchon2027.fr/programme2025/livre/chapitre13/s3/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-21)'
+  precision: partielle
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Chapitre 2 (s2) : « Revenir sur les privatisations (aéroports, autoroutes,
+    Française des Jeux, etc.) ». Le rachat d''actions est une opération financière (dette, pas solde) ; effets sur le solde
+    primaire : dividendes, péages et redevances perdus ou gagnés, indemnisation des concessions. Le contre-budget 2026 cite
+    aussi Atos, Suez, Alstom, Total, ArcelorMittal.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: null
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/annuler-la-liberalisation-du-marche-de-lelectricite-et-du-gaz-en-renationalisant-edf-et-engie/
+    date: '2022'
+    commentaire: Coût net sur cinq ans de 19,9 à 32,4 Md€ (rachat des actions Engie 27,7 à 37,7 Md€).
+- id: culture-1-pct-pib
+  libelle: Budget de la culture porté à 1 % du PIB
+  domaine: culture
+  citation:
+    texte: Porter le budget consacré à l'art, à la culture et à la création à 1 % du PIB par an
+    url: https://web.archive.org/web/20260829203336/https://melenchon2027.fr/programme2025/livre/chapitre11/s1/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: precise
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Avec la gratuité des musées (même section). Montant revendiqué par LFI dans
+    le contre-budget 2026 (octobre 2025, première année, avant montée en charge) : 1,8 Md€ (« Porter les moyens du ministère
+    de la culture à 1 % du PIB »).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 3.0
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/porter-le-budget-consacre-a-lart-a-la-culture-et-a-la-creation-a-1-du-pib-par-an/
+    date: '2022'
+    commentaire: Surcoût de près de 3 Md€ par an à l'horizon 2027.
+- id: sport-1-pct-budget
+  libelle: Budget des sports porté à 1 % du budget de l'État
+  domaine: culture
+  citation:
+    texte: 'Porter les moyens du ministère des sports à 1 % du budget de l''Etat : 2 milliards d''euros'
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
+  precision: precise
+  interpretation: Contre-budget 2026 (dont 50 000 équipements, Pass'Sport à 150 €).
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: aide-developpement-0-7
+  libelle: Aide publique au développement à 0,7 % du RNB
+  domaine: europe-international
+  citation:
+    texte: 'Consacrer 0,7 % du revenu national brut à une aide publique au développement (APD) débarrassée du carcan néolibéral
+      : 3 milliards d''euros'
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
+  precision: precise
+  interpretation: Contre-budget 2026 (montée en charge). Écart à la trajectoire d'APD de la loi de finances 2027.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: dotations-collectivites
+  libelle: Hausse et indexation de la DGF des collectivités
+  domaine: etat
+  citation:
+    texte: Nous proposons d'augmenter la dotation globale de fonctionnement (DGF) et l'indexer sur l'inflation
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
+  precision: partielle
+  interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
+    : 4,5 Md€. AEC 2025 (chapitre 7, s1) : « Renforcer les dotations de l''État pour les territoires et régions en retard
+    de développement ». Transfert entre administrations : effet nul sur le solde APU sauf dépenses supplémentaires des collectivités.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: contribution-ue
+  libelle: Réduction de la contribution française au budget de l'UE (contribution nette de 9 Md€)
+  domaine: europe-international
+  citation:
+    texte: Conditionner la contribution française au budget de l'Union européenne
+    url: https://web.archive.org/web/20260826110548/https://melenchon2027.fr/programme2025/livre/chapitre17/s1/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-26)'
+  precision: vague
+  interpretation: 'Le contre-budget 2026 précise : « Nous proposons de minorer d''autant la contribution française au budget
+    de l''Union européenne », soit 9 Md€ d''économies (contribution nette). Unilatéral, contraire au règlement ressources
+    propres : fourchette de 0 à 9 Md€.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: services-publics-proximite-postes
+  libelle: Rattrapage des postes manquants dans les services publics et plan proximité
+  domaine: etat
+  citation:
+    texte: 'Lancer le rattrapage des postes manquants de fonctionnaires à l''hôpital public, dans le soin et le médico-social,
+      à l''école publique, dans la justice, dans les services et les agences de l''État, en revalorisant les métiers et les
+      salaires : 2 milliards d''euros'
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
+  precision: vague
+  interpretation: 'AEC 2025 (chapitre 7, s1) : distance maximale de quinze à trente minutes aux services publics essentiels.
+    Contre-budget : + plan proximité 0,5 Md€, plan accessibilité 2,3 Md€, police judiciaire 0,2 Md€, prisons 0,4 Md€.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: defense-souveraine
+  libelle: Loi de programmation militaire d'indépendance, pôle public de l'armement
+  domaine: defense
+  citation:
+    texte: Rédiger un livre blanc et adopter une loi de programmation militaire visant à restaurer notre indépendance, notre
+      souveraineté industrielle et mettre en œuvre notre adaptation au changement climatique
+    url: https://web.archive.org/web/20260819115623/https://melenchon2027.fr/programme2025/livre/chapitre16/s2/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-19)'
+  precision: vague
+  interpretation: Aucun niveau de dépense annoncé ; sortie de l'« Europe de la défense » (chapitre 17). Sans montant, à traiter
+    comme non chiffrable en phase 2 si rien de plus n'est publié le 6 novembre.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: isf-climatique
+  libelle: Rétablissement d'un ISF renforcé avec volet climatique
+  domaine: fiscalite
+  citation:
+    texte: Rétablir et renforcer l'impôt de solidarité sur la fortune (ISF), incluant un volet climatique visant à taxer les
+      gros pollueurs
+    url: https://web.archive.org/web/20260829203005/https://melenchon2027.fr/programme2025/livre/chapitre6/s5/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: partielle
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Priorité de campagne (« Rétablir l''ISF », page d''accueil LFI). Remplace l''IFI
+    (à déduire). Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
+    : 15 Md€.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 3.5
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/retablir-et-renforcer-lisf-incluant-un-volet-climatique/
+    date: '2022'
+    commentaire: Nouvel ISF climatique ≈ 5,5 Md€ de recettes, soit +3,5 Md€ par rapport à l'IFI ; l'équipe de campagne 2022
+      revendiquait 10 Md€ hors volet climatique.
+- id: taxe-zucman-2-pct
+  libelle: Impôt plancher de 2 % sur le patrimoine des milliardaires (taxe Zucman)
+  domaine: fiscalite
+  citation:
+    texte: Introduire une garantie d'impôt de 2 % sur le patrimoine des milliardaires, dite taxe Zucman
+    url: https://web.archive.org/web/20260829203005/https://melenchon2027.fr/programme2025/livre/chapitre6/s5/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: partielle
+  interpretation: 'Nouveauté de l''édition 2025. Le contre-budget 2026 élargit l''assiette aux patrimoines de plus de 100
+    M€ (« Mettre en place la taxe Zucman de 2 % sur les patrimoines de plus de 100 millions d''euros : 20 milliards d''euros
+    de recettes ») ; seuil à trancher. Interaction avec l''ISF (imputation).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: impot-universel-zucman-multinationales
+  libelle: Impôt universel sur les entreprises (taxation selon l'activité réalisée en France), « taxe Zucman » sur les multinationales
+  domaine: fiscalite
+  citation:
+    texte: Instaurer un impôt universel sur les entreprises (basant leur taxation sur l'activité effectivement réalisée en
+      France) et sur les revenus des particuliers pour lutter contre l'évasion fiscale
+    url: https://web.archive.org/web/20260829203005/https://melenchon2027.fr/programme2025/livre/chapitre6/s5/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: partielle
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première
+    année, avant montée en charge) : 26 Md€ (« taxe Zucman sur les multinationales »).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 18.0
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/instaurer-un-impot-universel-sur-les-entreprises-et-sur-les-revenus-des-particuliers-faire-face-a-levasion-fiscale/
+    date: '2022'
+    commentaire: Environ 18 Md€ par an d'après le Tax Observatory, fourchette 2,2 à 26 Md€ (2022).
+  - auteur: Fondation IFRAP (programme du NFP, 2024)
+    montant_md: null
+    url: https://www.ifrap.org/budget-et-fiscalite/nouveau-front-populaire-pourquoi-le-chiffrage-du-programme-par-la-fondation-ifrap-differe-t-il-de-celui-du-parti
+    date: '2024-06-24'
+    commentaire: 'Juge « très théorique » le produit de 26 Md€ attendu par le NFP : suppose une coopération internationale
+      effective.'
+- id: suppression-flat-tax
+  libelle: 'Suppression du prélèvement forfaitaire unique : revenus du capital au barème'
+  domaine: fiscalite
+  citation:
+    texte: Supprimer la flat tax et imposer les revenus du capital comme ceux du travail
+    url: https://web.archive.org/web/20260829203005/https://melenchon2027.fr/programme2025/livre/chapitre6/s5/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: precise
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première
+    année, avant montée en charge) : 2,7 Md€.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 1.5
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/supprimer-la-flat-tax-et-imposer-les-revenus-du-capital-comme-ceux-du-travail/
+    date: '2022'
+    commentaire: Gain de 2,1 à 2,3 Md€ à assiette constante, 1,5 Md€ avec effets de comportement.
+- id: ir-14-tranches
+  libelle: Impôt sur le revenu à 14 tranches
+  domaine: fiscalite
+  citation:
+    texte: Rendre l'impôt sur le revenu plus progressif avec un barème à 14 tranches contre 5 aujourd'hui
+    url: https://web.archive.org/web/20260829203005/https://melenchon2027.fr/programme2025/livre/chapitre6/s5/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: partielle
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Barème non publié. Montant revendiqué par LFI dans le contre-budget 2026 (octobre
+    2025, première année, avant montée en charge) : 5,5 Md€ pour l''IR à 14 tranches et la CSG progressive ensemble.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 4.7
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/rendre-limpot-sur-le-revenu-plus-progressif-avec-un-bareme-a-14-tranches/
+    date: '2022'
+    commentaire: 'Hypothèse de barème de l''Institut : +4,7 Md€ par an.'
+- id: csg-progressive
+  libelle: CSG progressive à 14 tranches
+  domaine: fiscalite
+  citation:
+    texte: Rendre la CSG progressive avec 14 tranches
+    url: https://web.archive.org/web/20260829203005/https://melenchon2027.fr/programme2025/livre/chapitre6/s5/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: vague
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Barème non publié ; « les 90 % de contribuables gagnant moins de 4 000 euros
+    nets par mois paieront moins » (contre-budget). Signe de l''effet incertain : 0 si calibrée à rendement constant.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: null
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/rendre-la-csg-progressive-sur-14-tranches/
+    date: '2022'
+    commentaire: Pas de montant retenu ; à titre d'illustration, une CSG progressive à cinq tranches aurait un rendement diminué
+      de 39 Md€ par an.
+- id: successions-heritage-maximal
+  libelle: Droits de succession alourdis sur les hauts patrimoines, héritage maximal de 12 M€
+  domaine: fiscalite
+  citation:
+    texte: Augmenter les droits de succession sur les plus hauts patrimoines en comptabilisant l'ensemble des dons et héritages
+      reçus tout au long de la vie et créer un héritage maximal de 12 millions d'euros (soit 100 fois le patrimoine net médian)
+    url: https://web.archive.org/web/20260829203005/https://melenchon2027.fr/programme2025/livre/chapitre6/s5/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: partielle
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Réaffirmé à la Fête de l''Humanité (septembre 2026). Montant revendiqué par
+    LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge) : 10 Md€.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 9.0
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/augmenter-les-droits-de-succession-sur-les-plus-hauts-patrimoines-et-creer-un-heritage-maximal-de-12-me/
+    date: '2022'
+    commentaire: Médiane 9 Md€, fourchette 7 à 11 Md€.
+  - auteur: Fondation IFRAP (programme du NFP, 2024)
+    montant_md: 5.0
+    url: https://www.ifrap.org/budget-et-fiscalite/nouveau-front-populaire-pourquoi-le-chiffrage-du-programme-par-la-fondation-ifrap-differe-t-il-de-celui-du-parti
+    date: '2024-06-24'
+    commentaire: 'Pour le NFP (17 Md€ annoncés), l''IFRAP juge le produit « fantaisiste » : au plus +5 Md€ de DMTG.'
+- id: pacte-dutreil
+  libelle: Forte limitation du pacte Dutreil
+  domaine: fiscalite
+  citation:
+    texte: 'Limiter fortement la niche fiscale Dutreil : 3,5 milliards d''euros de recettes'
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
+  precision: partielle
+  interpretation: Contre-budget 2026 ; cohérent avec la réforme des successions de L'AEC 2025.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: is-progressif
+  libelle: Impôt sur les sociétés progressif selon le bénéfice et son usage ; IS majoré pour les très grandes entreprises
+  domaine: fiscalite
+  citation:
+    texte: Refonder l'impôt sur les sociétés pour établir l'égalité devant l'impôt entre PME et grands groupes, instaurer
+      un barème progressif en fonction des bénéfices réalisés et selon leur usage et favoriser l'investissement plutôt que
+      la distribution de dividendes
+    url: https://web.archive.org/web/20260829203005/https://melenchon2027.fr/programme2025/livre/chapitre6/s5/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: vague
+  interpretation: 'Barème non publié. Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année,
+    avant montée en charge) : 5 Md€ (« IS majoré pour les très grandes entreprises »).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: taxe-dividendes-rachats
+  libelle: Taxe de solidarité de 10 % sur les dividendes et taxe de 4 % sur les rachats d'actions
+  domaine: fiscalite
+  citation:
+    texte: 'Instaurer une taxe de solidarité sur les dividendes de 10 % : 6 milliards d''euros de recettes'
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
+  precision: precise
+  interpretation: 'Contre-budget 2026 ; avec « Mettre en place une taxe sur les rachats d''actions de 4% : 1 milliard d''euros
+    de recettes ».'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: taxe-transactions-financieres
+  libelle: Renforcement de la taxe sur les transactions financières
+  domaine: fiscalite
+  citation:
+    texte: 'Renforcer la taxe sur les transactions financières : 3 milliards d''euros de recettes'
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
+  precision: partielle
+  interpretation: Contre-budget 2026 ; taux et assiette non précisés.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: taxe-superprofits
+  libelle: Taxe permanente sur les superprofits, tous secteurs
+  domaine: fiscalite
+  citation:
+    texte: Établir une taxe permanente sur les superprofits étendue à l'ensemble des secteurs d'activité, pas uniquement au
+      secteur énergétique
+    url: https://web.archive.org/web/20260829203005/https://melenchon2027.fr/programme2025/livre/chapitre6/s5/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: vague
+  interpretation: Définition du superprofit et taux non précisés.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Fondation IFRAP (programme du NFP, 2024)
+    montant_md: null
+    url: https://www.ifrap.org/budget-et-fiscalite/nouveau-front-populaire-pourquoi-le-chiffrage-du-programme-par-la-fondation-ifrap-differe-t-il-de-celui-du-parti
+    date: '2024-06-24'
+    commentaire: Pour le NFP (15 Md€ annoncés), l'IFRAP juge la recette non récurrente avec la normalisation des prix de l'énergie.
+- id: lutte-fraude-fiscale
+  libelle: Moyens renforcés contre la fraude et l'évasion fiscales
+  domaine: fiscalite
+  citation:
+    texte: 'Faire de la lutte contre la fraude et l''évasion fiscales une priorité : tous les moyens humains et financiers
+      nécessaires doivent être débloqués et la France prendra des décisions unilatérales en cas de blocage des négociations
+      européennes ou internationales'
+    url: https://web.archive.org/web/20260829203005/https://melenchon2027.fr/programme2025/livre/chapitre6/s5/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: vague
+  interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
+    : 2 Md€ (montée en charge) ; exit tax : 25 M€.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: niches-fiscales
+  libelle: Suppression des niches fiscales injustes, inefficaces ou polluantes (dont aérien, kérosène, taxe au tonnage)
+  domaine: fiscalite
+  citation:
+    texte: Évaluer chacune des niches fiscales et supprimer les niches injustes, inefficaces socialement ou nuisibles écologiquement
+    url: https://web.archive.org/web/20260829203005/https://melenchon2027.fr/programme2025/livre/chapitre6/s5/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: vague
+  interpretation: 'Enveloppe non détaillée (règle 6). Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025,
+    première année, avant montée en charge) : 3 Md€ (autres niches) + 3 Md€ (privilèges fiscaux de l''aérien) + 0,8 Md€ (taxe
+    au tonnage). La transformation des réductions en crédits d''impôt (même phrase dans l''AEC) coûte.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Fondation IFRAP (programme du NFP, 2024)
+    montant_md: 5.0
+    url: https://www.ifrap.org/budget-et-fiscalite/nouveau-front-populaire-pourquoi-le-chiffrage-du-programme-par-la-fondation-ifrap-differe-t-il-de-celui-du-parti
+    date: '2024-06-24'
+    commentaire: Pour le NFP (25 Md€ de niches annoncés), l'IFRAP retient au plus 5 Md€ de niches supprimables d'ici 2027.
+- id: exonerations-cotisations-2-smic
+  libelle: Suppression des exonérations de cotisations patronales au-dessus de deux SMIC
+  domaine: fiscalite
+  citation:
+    texte: 'Supprimer les exonérations patronales au-dessus de deux Smic : 8 milliards d''euros de recettes'
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
+  precision: precise
+  interpretation: Contre-budget 2026. Interaction avec la hausse du SMIC (seuil de 2 SMIC relevé).
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: surcotisation-hauts-salaires
+  libelle: Surcotisation sur les hauts salaires
+  domaine: fiscalite
+  citation:
+    texte: 'Surcotisation sur les hauts salaires : 6 milliards d''euros de recettes'
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
+  precision: vague
+  interpretation: Contre-budget 2026 ; seuil et taux non précisés.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: heures-sup-fiscalisation
+  libelle: Fiscalisation et socialisation des heures supplémentaires
+  domaine: fiscalite
+  citation:
+    texte: 'Fiscalisation des heures supplémentaires : 1,8 milliard d''euros de recettes'
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
+  precision: precise
+  interpretation: 'Contre-budget 2026 ; avec « Socialisation des heures supplémentaires : 3,3 milliards d''euros ».'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: cvae-cfe-retablies
+  libelle: Rétablissement de la CVAE et retour sur la baisse de la CFE
+  domaine: fiscalite
+  citation:
+    texte: 'Rétablir la CVAE : 11 milliards d''euros de recettes'
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
+  precision: precise
+  interpretation: 'Contre-budget 2026 ; avec « Revenir sur la baisse de la CFE : 3,35 milliards d''euros de recettes » et
+    « Revenir sur les exonérations de TFPB » (3,75 Md€). Référence : législation au 1/1/2027 (CVAE en voie de suppression).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: taxe-habitation-aises
+  libelle: Taxe d'habitation rétablie pour les 20 % de ménages les plus aisés, barème progressif
+  domaine: fiscalite
+  citation:
+    texte: 'Rétablir la taxe d''habitation sur les 20% de ménages les plus aisés avec un barème progressif : 8 milliards d''euros
+      de recettes'
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
+  precision: partielle
+  interpretation: 'Contre-budget 2026. AEC 2025 : « Refonder la taxe foncière pour la rendre progressive ».'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: tva-premiere-necessite-luxe
+  libelle: Baisse de la TVA sur les produits de première nécessité, « TVA grand luxe » pour la financer
+  domaine: fiscalite
+  citation:
+    texte: Réduire la TVA sur les produits de première nécessité et réinstaurer une « TVA grand luxe » pour la financer
+    url: https://web.archive.org/web/20260829203005/https://melenchon2027.fr/programme2025/livre/chapitre6/s5/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: partielle
+  interpretation: Engagement déjà présent dans L'AEC 2022, reconfirmé par l'édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Présentée comme autofinancée ; taux non précisés.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: null
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/reduire-la-tva-sur-les-produits-de-premiere-necessite-et-reinstaurer-une-tva-grand-luxe-pour-la-financer/
+    date: '2022'
+    commentaire: Un point de taux réduit ≈ 2,07 Md€ ; baisse maximale (0,5 pt) 1,03 Md€ ; l'application des anciens taux majorés
+      rapportait 2,7 Md€ par an.
+- id: fiscalite-ecologique-importations
+  libelle: Taxe kilométrique aux frontières et droits de douane écologiques
+  domaine: fiscalite
+  citation:
+    texte: Instaurer une taxe kilométrique aux frontières de la France pour dissuader les délocalisations et l'importation
+      de produits trop éloignés
+    url: https://web.archive.org/web/20260608125818/https://melenchon2027.fr/programme2025/livre/chapitre9/s2/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-06-08)'
+  precision: vague
+  interpretation: 'Compatibilité avec le droit de l''UE (union douanière) douteuse. Montant revendiqué par LFI dans le contre-budget
+    2026 (octobre 2025, première année, avant montée en charge) : 1,75 Md€.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: fiscalite-locale-eau-mobilite
+  libelle: Hausse du versement mobilité, des redevances eau et de la taxe sur les billets d'avion
+  domaine: fiscalite
+  citation:
+    texte: 'Relever le versement mobilité pour financer les transports publics : 3 milliards d''euros de recettes'
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
+  precision: partielle
+  interpretation: Contre-budget 2026 ; avec TSBA (+1 Md€) et redevances de l'eau (≈ 1,4 Md€). Recettes affectées aux collectivités
+    et agences.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: dette-bce-perpetuelle
+  libelle: Gel ou annulation de la dette publique détenue par l'Eurosystème (dette perpétuelle à taux nul)
+  domaine: economie
+  citation:
+    texte: Jean-Luc Mélenchon souhaite geler la dette française détenue par la Banque de France au nom de la BCE en la transformant
+      en dette perpétuelle à taux nul.
+    url: https://www.franceinfo.fr/economie/crise/crise-de-la-dette/cinq-questions-sur-la-proposition-de-jean-luc-melenchon-de-geler-une-partie-de-la-dette-francaise_8160833.html
+    date: '2026-08-27'
+    support: presse (franceinfo), discours des universités d'été du 23 août 2026
+  precision: partielle
+  interpretation: 'AEC 2025 (chapitre 6, s4) : « Exiger de l''Union européenne que la Banque centrale européenne (BCE) transforme
+    la part de dette des États qu''elle possède en dettes perpétuelles à taux nul ». Relancée le 23/08/2026 (« au feu, au
+    frigo ou suspendue au plafond », braderie de Lille).'
+  chiffrable: false
+  raison_non_chiffrable: 'Hors solde primaire : effet sur la charge d''intérêts et le stock de dette, subordonné à une décision
+    de l''Eurosystème (Lagarde, Moulin : contraire à l''article 123 TFUE). Traité dans la trajectoire de dette, pas dans le
+    solde primaire.'
+  chiffrages_tiers:
+  - auteur: Fondation IFRAP
+    montant_md: null
+    url: https://www.ifrap.org/budget-et-fiscalite/annuler-la-dette-pourquoi-cest-impossible-et-dangereux
+    date: '2026-09-11'
+    commentaire: 'Juge l''opération juridiquement impossible (article 123 TFUE) ; montants en jeu : 18 à 20 % de la dette
+      publique.'
+- id: cades-dette-covid
+  libelle: Reprise par l'État de la dette Covid de la Sécurité sociale (CADES)
+  domaine: economie
+  citation:
+    texte: Retirer la dette Covid des comptes de la Sécurité sociale, réformer la Caisse d'amortissement de la dette sociale,
+      qui prive la Sécurité sociale de 18 milliards d'euros par an
+    url: https://web.archive.org/web/20260829202953/https://melenchon2027.fr/programme2025/livre/chapitre6/s4/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: partielle
+  chiffrable: false
+  raison_non_chiffrable: 'Transfert à l''intérieur des administrations publiques : sans effet sur le solde APU, sauf si la
+    CRDS/CSG affectée à la CADES est supprimée (non précisé).'
+- id: fin-oati
+  libelle: Fin des émissions d'obligations indexées sur l'inflation
+  domaine: economie
+  citation:
+    texte: Mettre fin à l'émission de titres de dette souveraine indexées sur l'inflation (OATi) qui ne servent qu'à enrichir
+      les créanciers de l'État et pèsent sur nos comptes publics
+    url: https://web.archive.org/web/20260829202953/https://melenchon2027.fr/programme2025/livre/chapitre6/s4/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: precise
+  chiffrable: false
+  raison_non_chiffrable: 'Charge d''intérêts : hors solde primaire.'
+- id: sixieme-republique
+  libelle: Assemblée constituante et passage à la 6e République
+  domaine: democratie
+  citation:
+    texte: Réunir une Assemblée constituante pour passer à la 6e République
+    url: https://web.archive.org/web/20260829200304/https://melenchon2027.fr/programme2025/livre/chapitre1/s1/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: partielle
+  chiffrable: false
+  raison_non_chiffrable: Réforme institutionnelle, sans effet budgétaire significatif.
+- id: etat-urgence-sociale
+  libelle: État d'urgence sociale et écologique
+  domaine: democratie
+  citation:
+    texte: 'Le candidat à l''élection présidentielle a listé plusieurs mesures qu''il compte mettre en place s''il est élu
+      l''an prochain : blocage des prix, hausse du Smic, échelle mobile des salaires... et a promis d''instaurer un « état
+      d''urgence sociale ».'
+    url: https://www.huffingtonpost.fr/politique/article/jean-luc-melenchon-promet-l-etat-d-urgence-sociale-s-il-gagne-la-presidentielle-2027-voici-en-quoi-cela-consiste-vraiment-clx1_325009.html
+    date: '2026-09-19'
+    support: presse (HuffPost), discours de la Fête de l'Humanité du 12 septembre 2026
+  precision: vague
+  interpretation: Procédure (décrets, ordonnances) ; les mesures qu'elle porte sont chiffrées séparément.
+  chiffrable: false
+  raison_non_chiffrable: Cadre juridique d'exécution, sans effet budgétaire propre.
+- id: blocage-loyers
+  libelle: Blocage et encadrement des loyers
+  domaine: logement
+  citation:
+    texte: 'Il a détaillé les mesures qu''il prendrait pour redonner du pouvoir d''achat aux Français s''il était élu à l''Élysée
+      : blocage des prix, blocage des loyers, augmentation du SMIC et de "tous les salaires intermédiaires", et mise en place
+      de "l''échelle mobile des salaires" pour que "quand les prix augmentent, les salaires aussi".'
+    url: https://www.ladepeche.fr/2026/09/06/presidentielle-2027-blocage-des-prix-hausse-du-smic-cantine-gratuite-jean-luc-melenchon-se-proclame-le-candidat-du-pouvoir-dachat-13538465.php
+    date: '2026-09-06'
+    support: presse (La Dépêche/AFP), discours de la braderie de Lille du 5 septembre 2026
+  precision: vague
+  chiffrable: false
+  raison_non_chiffrable: Mesure réglementaire ; effets indirects (APL) non directs.
+- id: salaire-maximum
+  libelle: Écart de salaires plafonné de 1 à 20 dans l'entreprise, plafonnement des dividendes
+  domaine: travail
+  citation:
+    texte: Fixer un salaire maximal autorisé pour limiter l'écart de 1 à 20 entre le salaire le plus bas et le salaire le
+      plus haut dans une entreprise
+    url: https://web.archive.org/web/20260829202700/https://melenchon2027.fr/programme2025/livre/chapitre8/s4/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: precise
+  chiffrable: false
+  raison_non_chiffrable: Réglementation du droit du travail ; effet budgétaire indirect (IR, cotisations) non chiffrable sans
+    hypothèse de comportement.
+- id: quota-precaires
+  libelle: Quotas maximaux de contrats précaires (10 % PME, 5 % grandes entreprises)
+  domaine: travail
+  citation:
+    texte: 'Instaurer un quota maximal de contrats précaires dans les entreprises : 10 % pour les petites et moyennes entreprises
+      (PME), 5 % pour les grandes entreprises'
+    url: https://web.archive.org/web/20260829202757/https://melenchon2027.fr/programme2025/livre/chapitre8/s3/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: precise
+  chiffrable: false
+  raison_non_chiffrable: Réglementation, sans effet budgétaire direct.
+- id: sortie-nucleaire
+  libelle: Sortie du nucléaire, abandon des EPR
+  domaine: energie
+  citation:
+    texte: 'Sortir du nucléaire : abandonner les projets d''EPR (European Pressurized Reactor – Réacteur pressurisé européen),
+      planifier le démantèlement, la réhabilitation et la reconversion des sites nucléaires et de l''ensemble de leur bassin
+      de vie'
+    url: https://web.archive.org/web/20260821172237/https://melenchon2027.fr/programme2025/livre/chapitre13/s3/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-21)'
+  precision: partielle
+  interpretation: Engagement déjà présent dans L'AEC 2022, reconfirmé par l'édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026).
+  chiffrable: false
+  raison_non_chiffrable: Effets surtout après 2032 et portés par EDF (hors APU tant qu'EDF est une société non financière)
+    ; le financement public des EPR2 éventuellement économisé relève de prêts (opérations financières).
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: null
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/sortir-du-nucleaire-par-labandon-des-projets-depr-demanteler-et-reconvertir-les-sites-existants/
+    date: '2022'
+    commentaire: 2 à 4 Md€ par an d'ici 2027 ; surcoût du système électrique de 16,9 à 18,5 Md€ par an à l'horizon 2050.
+- id: desobeissance-ue
+  libelle: Désobéissance aux règles européennes (budgétaires, concurrence) jugées bloquantes
+  domaine: europe-international
+  citation:
+    texte: Cesser d'appliquer unilatéralement les normes incompatibles avec nos engagements écologiques et sociaux telles
+      que la directive sur le détachement des travailleurs, les règles budgétaires, les règles de la concurrence, la libre
+      circulation des capitaux
+    url: https://web.archive.org/web/20260828111606/https://melenchon2027.fr/programme2025/livre/chapitre17/s2/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-28)'
+  precision: partielle
+  chiffrable: false
+  raison_non_chiffrable: Posture juridique et diplomatique, sans effet budgétaire direct (la contribution au budget de l'UE
+    est traitée à part).
+- id: cannabis-legalisation
+  libelle: Légalisation du cannabis sous monopole d'État
+  domaine: sante
+  citation:
+    texte: Légaliser et encadrer par un monopole d'État la consommation, la production et la vente de cannabis à des fins
+      récréatives dans des conditions permettant de lutter contre l'addiction
+    url: https://web.archive.org/web/20260606164304/https://melenchon2027.fr/programme2025/livre/chapitre15/s3/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-06-06)'
+  precision: precise
+  interpretation: Recettes fiscales et de monopole possibles, mais « Affecter les recettes des taxes sur le cannabis à des
+    programmes de lutte contre les addictions » (même section).
+  chiffrable: false
+  raison_non_chiffrable: 'Recettes affectées à des dépenses nouvelles de prévention : effet net supposé nul ; montant très
+    incertain.'
+- id: regularisation-travailleurs
+  libelle: Régularisation des travailleurs, étudiants et parents d'enfants scolarisés ; carte de séjour de dix ans
+  domaine: immigration
+  citation:
+    texte: Faciliter l'accès aux visas, régulariser les travailleurs, étudiants, parents d'enfants scolarisés et instituer
+      la carte de séjour de dix ans comme titre de séjour de référence
+    url: https://web.archive.org/web/20260821172156/https://melenchon2027.fr/programme2025/livre/chapitre16/s7/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-21)'
+  precision: partielle
+  chiffrable: false
+  raison_non_chiffrable: Effets budgétaires indirects (cotisations, prestations) dépendant d'hypothèses de comportement ;
+    non comptés (règle 3).
+- id: droit-sol-vote-etrangers
+  libelle: Droit du sol intégral et droit de vote des étrangers aux élections locales
+  domaine: democratie
+  citation:
+    texte: Instituer le droit de vote des étrangers aux élections locales
+    url: https://web.archive.org/web/20260829203154/https://melenchon2027.fr/programme2025/livre/chapitre10/s2/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: precise
+  chiffrable: false
+  raison_non_chiffrable: Mesure institutionnelle, sans effet budgétaire.
+- id: proportionnelle
+  libelle: Scrutin proportionnel pour l'Assemblée nationale
+  domaine: democratie
+  citation:
+    texte: Élire l'Assemblée nationale au scrutin proportionnel
+    url: https://web.archive.org/web/20260829200335/https://melenchon2027.fr/programme2025/livre/chapitre1/s2/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
+  precision: precise
+  chiffrable: false
+  raison_non_chiffrable: Mesure institutionnelle, sans effet budgétaire.
