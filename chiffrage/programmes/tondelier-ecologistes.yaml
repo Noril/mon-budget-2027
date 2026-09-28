@@ -158,6 +158,14 @@ mesures:
   effets_retour: >-
     Exil fiscal, optimisation (holdings, démembrement), risque constitutionnel : intégrés seulement via la borne basse.
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée (programme, archive Wayback). Fourchette 5-25 Md€ couvrant les estimations
+      publiques ; central 10 = moyenne des estimations basses des promoteurs et des détracteurs
+      (convention). Recouvrement avec l'ISF climatique non déduit (voir cette ligne).
 - id: isf-climatique
   libelle: Rétablissement de l'ISF avec une composante climatique
   domaine: fiscalite
@@ -197,6 +205,16 @@ mesures:
     explication: >-
       ISF 2017 rétabli, IFI supprimé, projeté en 2032 (barème). La composante climatique n'est pas paramétrée.
   confiance: moyenne
+  verification:
+    statut: conteste
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. Double compte à l'intérieur du programme, non quantifiable ici : l'impôt plancher
+      de 2 % sur les patrimoines de plus de 100 M€ (taxe Zucman) s'impute sur les impôts déjà payés, dont
+      l'ISF rétabli ; l'ISF 2017 (taux jusqu'à 1,5 %) sur ces mêmes contribuables est donc en partie compté
+      deux fois. Le barème isf_retabli_gain_net (3,1 Md€ net d'IFI) n'est pas ventilé par tranche ; l'écart
+      pourrait atteindre 1 à 2 Md€. Valeurs inchangées ; la composante climatique n'est pas paramétrée.
 - id: successions-grands-heritages
   libelle: >-
     Deux tranches supplémentaires de droits de succession (+10 points au-delà de 4 M€, +10 points au-delà de 13 M€),
@@ -261,6 +279,17 @@ mesures:
     Anticipation des transmissions, délocalisation, recours à l'assurance-vie (dont l'abattement est supprimé) : non
     comptés.
   confiance: faible
+  verification:
+    statut: conteste
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. Le central (10 Md€) reprend le chiffre annoncé par la candidate pour 2027 (15 Md€
+      ensuite), sans chiffrage indépendant. Le rendement actuel des DMTG est de l'ordre de 20 Md€ : 10 à 15
+      Md€ supplémentaires sur le seul 1 % supérieur représenteraient +50 à +75 % de ce rendement, ce qui
+      paraît élevé avant évitement (départs, donations préalables, assurance-vie). Le bas (1,5 Md€, seul
+      Dutreil) est très pessimiste ; désaccord non tranchable sans distribution des successions au-delà de
+      4 M€. Valeurs inchangées.
 - id: impot-minimal-grandes-entreprises
   libelle: >-
     Impôt minimal sur les bénéfices des sociétés de plus de 1 Md€ de chiffre d'affaires au prorata de l'activité en France,
@@ -367,6 +396,18 @@ mesures:
       (3 dixièmes à 0,3 Md€, haut 2,5/4 = 0,625 Md€). Bas : rendement 2025 non projeté.
   effets_retour: Baisse des distributions de dividendes et des transactions (non comptée au-delà de la borne TTF).
   confiance: moyenne
+  verification:
+    statut: conteste
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée (PDF, extraits assemblés). Le programme liste séparément « augmenter le taux de CSG
+      sur les revenus du capital de 3 points » et « augmenter la flat tax (PFU) de 3 points ». Le chiffrage
+      lit la seconde comme incluse dans la première ; la lecture naturelle d'une liste de deux actions est
+      cumulative (la hausse de PFU portant alors sur la part IR de 12,8 %), ce qui ajouterait environ 2 à 3
+      Md€ (ordre de grandeur, aucun barème du rendement d'un point de PFU) et que le haut (8,81) ne couvre
+      pas. Paramètres relus : CSG capital 1,91 Md€ par point (CCSS mai 2026) ; TTF 0,3 Md€ par dixième. La
+      LFSS 2026 (CSG capital à 10,6 %) ne change pas le rendement du point additionnel. Valeurs inchangées.
 - id: impot-revenu-reforme
   libelle: >-
     Baisse de l'IR sur les premières tranches, tranche à 60 % au-delà de 250 000 €, plafonnement global des niches par
@@ -443,6 +484,16 @@ mesures:
       revenus d'activité (barème csg_point_activite), si la progressivité exonère de fait les petits revenus de remplacement.
   effets_retour: 'Baisse du revenu disponible, effet sur la consommation : non compté.'
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. Point de CSG 17,94 Md€ relu dans le tableau CCSS 2026 (activité 12,03,
+      remplacement 3,9, capital 1,91). Réserves : la déductibilité partielle de la CSG de l'IR n'est pas
+      retranchée (-1 à -2 Md€) et les revenus de remplacement sont en partie exonérés ou à taux réduit,
+      donc 3,9 Md€ par point est un majorant ; le bas (activité seule, 14,56) couvre ces deux réserves.
+      Progressivité supposée neutre en moyenne.
 - id: exonerations-cotisations-rationalisation
   libelle: >-
     Suppression des allègements de cotisations au-delà de 1,6 SMIC et sur les heures supplémentaires, montants nominalisés
@@ -510,6 +561,15 @@ mesures:
     Effet emploi faible au-delà de 1,6 Smic selon Bozio-Wasmer ; hausse du coût du travail, possible baisse d'IS : non
     comptés.
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. Barème hs_exoneration_cout relu (salariale 2,306 ; déduction patronale 0,872 Md€,
+      PLFSS 2026 annexe 4). Le proxy Bozio-Wasmer (2,7 à 5,5 Md€ pour les taux réduits au-delà de 1,6 Smic)
+      est ancien et antérieur à la RGDU de 2026 : incertitude à ce niveau, portée par la fourchette.
+      Désindexation et conditionnalité non comptées (prudent).
 - id: tva-verte
   libelle: >-
     TVA différenciée selon l'impact environnemental et sanitaire (baisse sur première nécessité, bio, réparation, transports
@@ -651,6 +711,15 @@ mesures:
       haut 5,7 Md€ documents budgétaires 2025, source https://www.aladom.fr/actualites/secteur-service/11316/labattement-de-10-sur-les-pensions-histoire-dun-avantage-fiscal-que-personne-narrive-a-supprimer/),
       projetée en 2032.
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. Seule la suppression de l'abattement de 10 % des retraités est chiffrée (5,3 Md€
+      LCP, fourchette 4,5-5,7 Md€) ; enseignement privé et CIR sont dans leurs lignes dédiées (pas de
+      double compte) ; niches fossiles, voitures de fonction et achats non comptés (prudent, aucun montant
+      annoncé, règle 6 ciblée non applicable).
 - id: cir-recentrage
   libelle: >-
     Recentrage du crédit d'impôt recherche sur les PME et ETI, logique de subvention à 50 % des projets avec un laboratoire,
@@ -708,6 +777,14 @@ mesures:
       peuvent absorber l'économie.
   effets_retour: 'Délocalisation d''une partie de la R&D des grands groupes : non comptée.'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. 41 % de la créance CIR de 7,8 Md€ (2023) vont aux grandes entreprises : source
+      relue. Économie brute avant le cofinancement à 50 % et les 1 000 chaires non chiffrés, d'où bas = 0.
+      Confiance faible ; pas de double compte avec la ligne dépenses inutiles (qui n'inclut pas le CIR).
 - id: collectivites-cvae-dilico
   libelle: Rétablissement de la CVAE pour les collectivités, suppression du DILICO, RSA renationalisé
   domaine: collectivites
@@ -729,8 +806,8 @@ mesures:
   chiffrable: true
   nature: recette
   effet_solde_primaire:
-    central: 4.48
-    bas: 4.48
+    central: 3.36
+    bas: 3.36
     haut: 4.48
     montee_en_charge:
       '2027': 0
@@ -740,7 +817,7 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: cvae * facteur
+    formule: cvae * facteur * (1 - taux_is)
     parametres:
       cvae:
         valeur: 3.7
@@ -752,10 +829,25 @@ mesures:
         source: >-
           chiffrage/baremes.yaml (en-tête) : facteur PIB nominal 2025→2032, plan/hypotheses.yaml, FMI WEO avril 2026
           https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+      taux_is:
+        valeur: 0.25
+        unite: taux
+        source: https://www.fipeco.fr/fiche/Limp%C3%B4t-sur-les-soci%C3%A9t%C3%A9s
+        note: 'déductibilité de l''impôt de l''assiette de l''IS : retour mécanique (même convention que C3S, CFE, forfait social chez Retailleau)'
     explication: >-
       Maintien de la CVAE au-delà de 2030 au lieu de sa suppression votée (LFI 2026) : 3,7 Md€ × 1,2106 ≈ 4,5 Md€ en
-      2032 (dérivation du barème). Montée : la baisse votée commence en 2028.
+      2032 (dérivation du barème), net du manque à gagner d'IS de 25 % (la CVAE est déductible du résultat imposable) :
+      3,36 Md€. Haut : sans retour d'IS. Montée : la baisse votée commence en 2028.
   confiance: moyenne
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée (extraits assemblés, points de suspension). Corrigé : rétablir la CVAE rapporte
+      4,48 Md€ bruts en 2032 mais 3,36 Md€ nets, la CVAE étant déductible de l'IS (25 %) ; convention
+      identique à celle appliquée aux impôts de production dans les autres chiffrages. Central 4,48 -> 3,36
+      (-1,12 Md€), bas 3,36, haut 4,48. DILICO et RSA : transferts internes, neutres.
 - id: lutte-fraude-evasion
   libelle: Renforcement des moyens contre la fraude et l'évasion fiscales
   domaine: fiscalite
@@ -842,6 +934,16 @@ mesures:
       masse salariale publique, prestations, nets des recettes induites ; DG Trésor), projeté en 2032.
   effets_retour: 'Effet sur l''emploi peu qualifié (négatif) et sur la consommation (positif) : non comptés.'
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. Smic 1 867,02 € brut relu sur service-public.gouv.fr ; hausse de 5,6 % sur le Smic
+      revalorisé de 1,46 % ; coût de 0,31 Md€ par point (DG Trésor 2017, 240 M€, euros 2025) avec
+      fourchette 0,24-1,1. Le Smic légal dépasserait 2 000 € vers 2029-2030 avec l'inflation : la promesse
+      est lue comme un relèvement de niveau ensuite indexé (écart constant), ce qui est écrit dans
+      l'interprétation. Baisse du taux réduit d'IS et de la taxe sur les salaires non comptée.
 - id: point-indice-fonctionnaires
   libelle: >-
     Point d'indice indexé sur l'inflation, +10 % pour les catégories C, B et A ayant perdu du pouvoir d'achat
@@ -915,6 +1017,18 @@ mesures:
       × 11,03 = 31,0) et bas des +10 %. Haut : masse 2023 non projetée pour l''indexation (24,3). Montée : +10 % en
       cinq ans, indexation au rythme de l''inflation cumulée.'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. Indexation du point sur l'inflation coûtant 11,03 % × 2,5 Md€ (point gelé en
+      référence, REFERENCE.md, à droit constant) : cohérent. Pas de double compte avec les enseignants +15
+      % (hausse réelle hors inflation, additive) ni avec les chercheurs (non comptés). Réserve : la part de
+      61 % pour les catégories B et C est une part d'effectifs (DGAFP) ; en masse salariale la catégorie A
+      pèse davantage, donc la hausse de 10 % sur B et C coûte sans doute 10 à 20 % de moins (2 à 3 Md€), et
+      le +10 % aux A « qui ont perdu » est écarté (lecture basse). Ces écarts sont dans la fourchette
+      (-41,4 à -50,5).
 - id: securite-sociale-professionnelle
   libelle: >-
     Sécurité sociale professionnelle, salaire garanti deux ans en cas de perte d'emploi dans les secteurs exposés à la
@@ -982,7 +1096,7 @@ mesures:
   effet_solde_primaire:
     central: -6.4
     bas: -7.05
-    haut: -5.1
+    haut: -1.0
     montee_en_charge:
       '2027': 0.085
       '2028': 0.374
@@ -1016,8 +1130,23 @@ mesures:
         note: 'REFERENCE.md, « Indexations : droit constant »'
     explication: 'Coût = économies Unédic de la réforme 2019-2021 (2,3 Md€/an) + indexation des allocations sur l''inflation
       à droit constant (37,2 Md€ × 11,03 % = 4,1 Md€). Haut : seul le calcul de l''allocation (1,0 Md€), cité explicitement,
-      + indexation. Bas : réforme projetée en 2032 (× 1,2106) + indexation sur les allocations 2027 (38,7 Md€).'
+      sans coût d''indexation (lecture « usage constant » : l''ARE est revalorisée chaque année de fait, comme le barème de l''IR). Bas : réforme projetée en 2032 (× 1,2106) + indexation sur les allocations 2027 (38,7 Md€).'
   confiance: faible
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. Point examiné : traiter l'indexation des allocations sur l'inflation comme un
+      coût. REFERENCE.md met à zéro l'indexation prévue par la loi (pensions, prestations du CSS) mais
+      compte comme coût ce que la loi n'indexe pas (point d'indice). La revalorisation de l'ARE n'est pas
+      dans la loi : l'Unédic (prévisions de juin 2026, encadré 2) la décrit comme « potentielle » et «
+      soumise à la décision du Conseil d'administration ». Le traitement en coût (37,2 Md€ × 11,03 % = 4,1
+      Md€) est donc cohérent avec la règle. Mais l'usage est une revalorisation annuelle de fait, ce qui
+      plaide pour le traitement « usage constant » retenu pour l'IR (coût nul) : ce point de méthode est
+      ouvert et pèse 4,1 des 6,4 Md€. Corrigé : haut -5,1 -> -1,0 Md€ pour porter cette lecture dans la
+      fourchette ; central et bas inchangés. Le coût des réformes de 2023 et 2025 reste non compté
+      (minorant).
 - id: garantie-emploi-55-ans-tzcld
   libelle: >-
     Garantie d'emploi à 55 ans par l'extension de Territoires zéro chômeur de longue durée, soutien à l'IAE
@@ -1114,6 +1243,16 @@ mesures:
         bareme: retraites_retour_62_ans_2032
     explication: 'Barème : annulation des mesures d''âge de 2023 nette du gel déjà voté jusqu''au 1er janvier 2028.'
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. Barème retraites_retour_62_ans_2032 (15,7 Md€ Cnav 2032 moins 1,8 Md€ de
+      suspension déjà votée = 13,9 Md€) relu ; le gel voté est bien déduit du coût. Réserve de barème : il
+      s'agit du solde du système de retraite, pas de l'ensemble des APU (la Cour donne 13 Md€ contre 5,8
+      Md€ pour un an d'âge en 2035), donc le coût APU est probablement sous-estimé ; la retraite à 60 ans
+      pour carrières longues n'est pas comptée. Fourchette 8,9-20.
 - id: retraites-petites-pensions
   libelle: Hausse du minimum contributif et de l'ASPA jusqu'au seuil de pauvreté, pensions agricoles
   domaine: retraites
@@ -1167,6 +1306,15 @@ mesures:
     explication: >-
       Aspa portée au seuil de pauvreté pour les allocataires actuels (allocation différentielle : +244 € par mois).
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. Aspa 1 043,59 € relue (service-public.gouv.fr), seuil de pauvreté 1 288 € (Insee
+      2023), 754 460 allocataires. Coût 2,21 Md€ = 754 460 × 244 € × 12 ; minorant assumé (Mico, nouveaux
+      entrants, seuil non revalorisé) mais central = bas = haut, la fourchette ne le reflète pas ;
+      confiance à ne pas surestimer.
 - id: retraites-recettes-nouvelles
   libelle: >-
     Cotisations vieillesse sur l'épargne salariale et les actions gratuites, +1 point de cotisation déplafonnée au-delà
@@ -1218,6 +1366,16 @@ mesures:
       plafond ; haut : salariale déplafonnée).
   effets_retour: 'Hausse du coût du travail et baisse du salaire net : non comptées.'
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. +0,2 point par an pendant cinq ans = +1 point ; barème 6,2 Md€ par point (Cour des
+      comptes, 4,8-7,6). Réserves : le rendement brut n'est pas net de la déductibilité à l'IR et à l'IS
+      (-15 % environ) ni de la part des employeurs publics (transfert interne), donc le central est un peu
+      haut ; le point déplafonné au-delà du PSS et l'épargne salariale ne sont pas comptés (recettes
+      omises). Les deux écarts vont en sens contraire et restent dans 5,8-9,2.
 - id: garantie-autonomie-rsa
   libelle: >-
     Garantie d'autonomie remplaçant le RSA, à 50 % du SMIC net, sans contrepartie de 15 heures, ouverte dès 18 ans aux
@@ -1283,6 +1441,14 @@ mesures:
       haute), appliqués à la dépense de RSA 2023 projetée en 2032.
   effets_retour: 'Recours accru (non-recours du RSA d''environ un tiers), effets sur l''offre de travail : non comptés.'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. RSA 651,69 € et Smic net relus (service-public.gouv.fr) ; +21,5 % sur 11,7 Md€
+      (allocations CAF 2023) projetés au PIB : cohérent. Extension aux 18-24 ans non chiffrée (minorant) ;
+      interaction avec le Smic à 2 000 € signalée.
 - id: apl-revalorisation-10pct
   libelle: APL revalorisées de 10 %, abrogation de l'exclusion des étudiants extracommunautaires
   domaine: logement
@@ -1326,6 +1492,13 @@ mesures:
         note: PIB nominal 2026→2032
     explication: 10 % de la dépense d'aides personnelles au logement 2026, projetée en 2032.
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. 10 % de 16,1 Md€ (programme 109, PLF 2026) projetés : 1,91 Md€. Abrogation de la
+      mesure LFI 2026 sur les étudiants extra-européens non comptée (0,2 Md€ selon LR) ; minorant faible.
 - id: hebergement-logement-d-abord
   libelle: Logement d'abord, places d'hébergement inconditionnel (besoin estimé à 200 000 places)
   domaine: logement
@@ -1435,6 +1608,14 @@ mesures:
       Alignement du congé du second parent sur 16 semaines : coût par jour de l'allongement de 2021 × 84 jours, projeté
       en 2032 (haut : non projeté).
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. Coût par jour tiré de l'allongement du congé de paternité (522 M€ pour 14 jours,
+      PLFSS 2021) × 84 jours, projeté ; le passage à 100 % du salaire au-delà du plafond des IJ et le congé
+      de naissance à 80 % sur trois mois ne sont pas comptés (minorant, signalé).
 - id: etudiants-bourses-cvec-logement
   libelle: >-
     Bourses revalorisées et refondues, suppression de la CVEC, 150 000 logements étudiants et FJT, repas à 1 €
@@ -1505,6 +1686,13 @@ mesures:
     explication: >-
       +250 € par mois rapportés au montant maximal (+24 %) appliqués à la dépense d'AAH 2026, projetée en 2032.
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. AAH taux plein 1 041,59 € relue ; +250 € rapportés au maximum (+24 %) appliqués à
+      14,6 Md€ (2026) projetés : 4,15 Md€. Nouveaux entrants dus au plafond relevé non comptés.
 - id: autonomie-ehpad-service-public
   libelle: >-
     Service public de la dépendance, hausse des places et du taux d'encadrement en Ehpad, revalorisations
@@ -1561,6 +1749,14 @@ mesures:
         note: « dotée de 3 milliards d'euros »
     explication: Enveloppe annoncée, lue comme annuelle et supplémentaire, en euros courants.
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée (« dotée de 3 milliards d'euros »). Lecture annuelle et supplémentaire, signalée ;
+      à défaut de précision sur la période, le haut ne couvre pas la lecture « sur le quinquennat » (0,6
+      Md€ par an), c'est un choix prudent.
 - id: sante-remboursement-100pct-franchises
   libelle: Prise en charge à 100 % des soins essentiels par l'Assurance maladie, suppression des franchises
   domaine: sante
@@ -1611,6 +1807,18 @@ mesures:
           https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
     explication: Suppression des franchises et participations forfaitaires (2,5 Md€ en 2025), projetée en 2032.
   confiance: faible
+  verification:
+    statut: conteste
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. Le chiffrage ne compte que la suppression des franchises (2,5 Md€ Cour des
+      comptes). La promesse « prise en charge à 100 % des soins essentiels par l'Assurance maladie »,
+      mutuelles limitées aux soins optionnels, transfère à l'Assurance maladie une part des dépenses
+      aujourd'hui payées par les complémentaires (jusqu'à plus de 20 Md€ dans les scénarios Grande Sécu du
+      HCAAM 2022 selon l'interprétation, non rouvert ici). La fourchette (-2,5 à -3,03) ne contient donc
+      pas le cas défavorable, en contradiction avec la règle sur le bas. Périmètre des « soins essentiels »
+      inconnu : je ne peux pas chiffrer ; valeurs inchangées.
 - id: sante-centres-sante-hopital-recrutements
   libelle: >-
     2 000 centres de santé d'ici 2030, recrutements et revalorisations à l'hôpital et dans le médico-social
@@ -1683,6 +1891,13 @@ mesures:
       7 500 infirmières scolaires supplémentaires au coût chargé d'un soignant hospitalier (proxy). Les 800 postes de
       médecins et 1 000 de psychologues vacants sont déjà budgétés.
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. 7 500 infirmières × 56 000 € (proxy hospitalier) projetées ; postes vacants déjà
+      budgétés, hausse de 500 € non comptée (petit minorant).
 - id: classes-19-eleves
   libelle: Classes de primaire à 19 élèves en 2032 et à 12 en REP/REP+
   domaine: education
@@ -1743,6 +1958,15 @@ mesures:
       Postes nécessaires pour passer de 21 à 19 élèves en moyenne, à coût moyen d'un enseignant ; central : moitié de
       l'écart absorbée par la démographie ; bas : aucune ; haut : totalité.
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. Moyenne de 21 élèves (DEPP 2025) vers 19 sur 341 897 ETPT du premier degré, coût
+      85 000 €, moitié de l'écart absorbée par la démographie (hypothèse cohérente avec le référentiel à
+      effectifs constants). Réserve de barème : le coût par enseignant inclut le CAS Pensions. Classes à 12
+      en REP/REP+ non chiffrées séparément.
 - id: enseignants-plus-15pct
   libelle: >-
     Salaires des enseignants +15 % en cinq ans, hausse des effectifs et salaires des AESH, AED, CPE, infirmières
@@ -1798,6 +2022,15 @@ mesures:
       15 % de la masse salariale chargée des enseignants du public (premier et second degrés), projetée en 2032, en cinq
       ans.
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. 15 % × 793 863 ETPT × 85 000 € × 1,1845 = 11,99 Md€ ; lecture « hausse réelle hors
+      inflation », additive à l'indexation du point (pas de double compte : les deux hausses portent sur
+      des composantes différentes). Réserve de barème : CAS Pensions (82,28 %) dans le coût unitaire,
+      transfert interne aux APU ; privé sous contrat, AESH, AED non comptés.
 - id: enseignement-prive-financement-50pct
   libelle: >-
     Financement public de l'enseignement privé sous contrat ramené à 50 %, contre frais de scolarité et mixité sociale
@@ -1853,6 +2086,14 @@ mesures:
       Bas = 0 : le retour d'élèves vers le public, dû à la hausse des frais de scolarité, peut absorber l'économie.
   effets_retour: 'Transferts d''élèves vers le public, fermetures d''établissements : non chiffrés.'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. Financement public 10,4 Md€ sur 13,83 Md€ de coût total (Depp 2022) ramené à 50 %
+      : (10,4 - 6,9) × 1,28 = 4,45 Md€ ; bas 0 pour le retour d'élèves vers le public. Pas de double compte
+      avec la ligne dépenses inutiles.
 - id: bati-scolaire-renovation
   libelle: >-
     Fonds vert pour l'école de 2 Md€ par an (rénovation du bâti scolaire, 4 Md€ par an avec les collectivités sur 10
@@ -1901,6 +2142,16 @@ mesures:
       7 Md€ (qui finance notamment le rafraîchissement des écoles, franceinfo 26 août 2026). Bas : 4 Md€ si l'État n'est
       pas dans les 7 Md€. Haut : 0 si les collectivités redéploient d'autres investissements.
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée sur le dossier de presse (Wayback, texte coupé par des points de suspension).
+      L'État engage 2 Md€ par an et chaque euro déclenche un euro des collectivités. Central = part des
+      collectivités (2 Md€), la part de l'État étant supposée incluse dans les 7 Md€ du plan d'adaptation ;
+      cette hypothèse (franceinfo du 26 août) n'est pas certaine, d'où bas = -4,0. Recouvrement explicité,
+      pas de double compte en central.
 - id: universites-recherche-moyens
   libelle: >-
     Salaires de la recherche publique +10 % dès la première année, budgets des laboratoires, financement des universités
@@ -1963,6 +2214,14 @@ mesures:
         note: « Doter de 7 milliards d'euros par an d'ici 2032 »
     explication: Enveloppe annoncée, lue comme supplémentaire en 2032, en euros courants.
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. 7 Md€ par an supplémentaires en 2032, lecture supplémentaire signalée ; part de
+      l'État du bâti scolaire incluse, doublons avec pompiers et bâti scolaire écartés. Central = bas =
+      haut : si l'enveloppe intègre des crédits existants, le coût est surestimé.
 - id: renovation-500000-maprimerenov
   libelle: >-
     500 000 rénovations performantes par an via MaPrimeRénov', prise en charge intégrale pour les ménages modestes
@@ -2024,6 +2283,15 @@ mesures:
       promise.
   effets_retour: 'Recettes de TVA sur les travaux et baisse des dépenses d''énergie : non comptées.'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. (500 000 - 91 374) × 36 271 € (bilan Anah 2024, relu) × 1,2336 = 18,3 Md€ ; bas
+      avec l'aide moyenne des ménages modestes (41 608 €). Réserves : la part financée par les CEE (hors
+      APU) n'est pas déduite et le volume 2024 de référence est supérieur à celui de 2025-2026 (coût sous-
+      estimé).
 - id: sortie-fioul-gaz-chauffage
   libelle: Fin du chauffage au fioul en 2032, 300 000 changements de système par an, fonds chaleur renforcé
   domaine: energie
@@ -2090,6 +2358,13 @@ mesures:
         note: baisse d'APL comprise entre 90 et 98 % de la RLS
     explication: 'Suppression de la RLS : l''État reprend la baisse d''APL associée (90 à 98 % de la RLS).'
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. Suppression de la RLS coûte l'économie d'APL associée (0,9 Md€ × 98 %) ; TVA
+      réduite sur la construction HLM et FNAP non comptés faute de montant (minorant, signalé).
 - id: leasing-social-million
   libelle: Leasing social d'un million de véhicules électriques sur le quinquennat, bornes de recharge
   domaine: transports
@@ -2137,6 +2412,13 @@ mesures:
       200 000 véhicules par an à 7 000 € (bas : 13 000 €, aide budgétaire de l'édition 2024 ; haut : financement par
       les CEE, hors APU, comme en 2025).
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. 200 000 véhicules par an × 7 000 € (édition 2025) ; bas 13 000 € (édition 2024),
+      haut 0 si CEE ; hors bornes de recharge. Cohérent.
 - id: ticket-climat-transports
   libelle: >-
     Ticket climat mensuel à tarif unique pour les transports en commun hors TGV, gratuités ciblées, cars express
@@ -2304,6 +2586,15 @@ mesures:
     explication: >-
       Moitié de l'objectif décennal atteinte en 2032, aux coûts chargés d'un magistrat et d'un agent de catégorie B (proxy).
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. 9 000 magistrats, 10 000 greffiers et 7 000 attachés sur dix ans, moitié en 2032
+      (recrutement 2028-2032) aux coûts chargés de 138 700 € et 56 000 € (proxy) : 1,3 Md€.
+      L'interprétation parle de 6/10 de la cible, la formule de 5/10 ; écart de 0,2 Md€, négligeable.
+      Revalorisations et aide juridictionnelle non comptées.
 - id: prisons-numerus-clausus
   libelle: >-
     Numerus clausus carcéral, moratoire sur les nouvelles places de prison, développement de la probation
@@ -2362,6 +2653,14 @@ mesures:
     explication: Recettes fiscales selon le CAE (2 Md€ ; 2,8 Md€ pour 700 tonnes), en euros 2019 non projetés.
   effets_retour: 'Coûts sanitaires et économies de police et de justice : non comptés.'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. Recettes de 2 Md€ (CAE, note n° 52, 500 tonnes à 9 €/g, euros 2019) ; haut 2,8 Md€
+      (700 tonnes). Économies de répression non comptées, prudent. Estimation ancienne mais seule source
+      publique de référence.
 - id: regularisation-ame-puma
   libelle: >-
     Régularisation des travailleurs, étudiants et parents d'enfants scolarisés, AME et PUMA garanties, fin de la rétention
@@ -2486,6 +2785,16 @@ mesures:
         note: RNB assimilé au PIB
     explication: 'Retour à 0,7 % du RNB en 2032 ; haut : 0,55 %, cible de la loi de programmation du 4 août 2021.'
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: "2026-09-29"
+    commentaire: >-
+      Citation vérifiée. Central = bas = cas d'un retour à 0,7 % du RNB en 2032 (0,25 point × 36,2 Md€ =
+      9,05 Md€) ; haut 0,55 %. C'est la lecture haute du coût pour une « trajectoire » sans date, et l'APD
+      au sens CAD inclut des prêts et l'accueil des réfugiés qui ne pèsent pas tous sur le solde ; le
+      niveau de 2025 (0,45 %) est probablement supérieur au niveau voté pour 2026-2027 (coût sous-estimé de
+      ce côté).
 - id: pacte-fiscal-vert-trajectoire
   libelle: >-
     « Pacte fiscal vert » 2027-2032 (loi de programmation des finances publiques), renégociation de la trajectoire de
