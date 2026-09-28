@@ -2,521 +2,1308 @@ id: le-pen-rn
 candidat: Marine Le Pen
 parti: Rassemblement national
 statut_candidature: >-
-  Déclarée le 7 juillet 2026 (TF1, 20 h), au soir de l'arrêt de la cour d'appel de Paris qui a ramené sa peine
-  d'inéligibilité ferme à 15 mois (45 mois dont 30 avec sursis), déjà purgés depuis le jugement de première instance
-  du 31 mars 2025 : elle est éligible. Pourvoi en cassation en cours (la Cour de cassation a annoncé statuer au plus
-  tard début avril 2027, avant le premier tour du 18 avril 2027). Si l'inéligibilité était rétablie, Jordan Bardella,
-  président du RN et Premier ministre annoncé en cas de victoire (« ticket »), serait le candidat de recours.
-date_collecte: 2026-09-29
+  Déclarée le 7 juillet 2026 (TF1, 20 h), au soir de l'arrêt de la cour d'appel de Paris qui a ramené sa peine d'inéligibilité
+  ferme à 15 mois (45 mois dont 30 avec sursis), déjà purgés depuis le jugement de première instance du 31 mars 2025
+  : elle est éligible. Pourvoi en cassation en cours (la Cour de cassation a annoncé statuer au plus tard début avril
+  2027, avant le premier tour du 18 avril 2027). Si l'inéligibilité était rétablie, Jordan Bardella, président du RN
+  et Premier ministre annoncé en cas de victoire (« ticket »), serait le candidat de recours.
+date_collecte: '2026-09-29'
 sources:
-  - titre: "Contre-budget 2026 du groupe RN à l'Assemblée nationale (conférence de presse)"
+  - titre: Contre-budget 2026 du groupe RN à l'Assemblée nationale (conférence de presse)
     url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-    date: 2025-10-23
-  - titre: "Un projet, une méthode – programme des élections législatives anticipées (Jordan Bardella)"
+    date: '2025-10-23'
+  - titre: Un projet, une méthode – programme des élections législatives anticipées (Jordan Bardella)
     url: https://rassemblementnational.fr/documents/202406-programme.pdf
     date: 2024-06
-  - titre: "Lettre ouverte de Marine Le Pen aux professionnels de l'immobilier (plan présidentiel logement)"
-    url: https://rassemblementnational.fr/lettre-ouverte/lettre-ouverte-de-marine-le-pen-aux-professionnels-de-limmobilier
-    date: 2026-09-21
-  - titre: "Boulevard Voltaire – Devant le MEDEF, Marine Le Pen défend son épineuse réforme des retraites (REF du 27 août 2026)"
+  - titre: Lettre ouverte de Marine Le Pen aux professionnels de l'immobilier (plan présidentiel logement)
+    url: >-
+      https://rassemblementnational.fr/lettre-ouverte/lettre-ouverte-de-marine-le-pen-aux-professionnels-de-limmobilier
+    date: '2026-09-21'
+  - titre: >-
+      Boulevard Voltaire – Devant le MEDEF, Marine Le Pen défend son épineuse réforme des retraites (REF du 27 août 2026)
     url: https://www.bvoltaire.fr/devant-le-medef-marine-le-pen-defend-son-epineuse-reforme-des-retraites/
-    date: 2026-08-27
-  - titre: "Sud Radio (AFP) – Marine Le Pen défend ses réformes économiques devant le Medef"
+    date: '2026-08-27'
+  - titre: Sud Radio (AFP) – Marine Le Pen défend ses réformes économiques devant le Medef
     url: https://www.sudradio.fr/societe/marine-le-pen-et-la-delicate-operation-seduction-du-monde-economique
-    date: 2026-08-28
-  - titre: "Epoch Times – Marine Le Pen promet 125 milliards d'euros d'économies et défend une retraite à 60 ou 62 ans"
-    url: https://www.epochtimes.fr/marine-le-pen-promet-125-milliards-deuros-deconomies-et-defend-une-retraite-a-60-ou-62-ans-3335415.html
-    date: 2026-08-28
-  - titre: "AFP (Boursorama) – Salaires, carburants, mobilisations... le pouvoir d'achat s'impose dans la campagne"
-    url: https://www.boursorama.com/actualite-economique/actualites/salaires-carburants-mobilisations-le-pouvoir-d-achat-s-impose-dans-la-campagne-d6706e6c8501042962d517b99d95cad1
-    date: 2026-09-15
-  - titre: "La Dépêche – Pourquoi Marine Le Pen veut faire du logement son nouveau cheval de bataille (discours d'Hénin-Beaumont du 13 septembre 2026)"
-    url: https://www.ladepeche.fr/2026/09/14/decryptage-presidentielle-2027-pourquoi-marine-le-pen-veut-faire-du-logement-son-nouveau-cheval-de-bataille-elle-veut-montrer-quelle-a-des-mesures-13550575.php
-    date: 2026-09-14
-  - titre: "Le JDD – Entretien de Jordan Bardella « Je n'ai pas l'entreprise honteuse »"
-    url: https://www.lejdd.fr/politique/jordan-bardella-president-du-rn-je-nai-pas-lentreprise-honteuse-172413
-    date: 2026-04-25
-  - titre: "RTS – Marine Le Pen sera candidate à la présidentielle de 2027"
-    url: https://www.rts.ch/info/monde/2026/article/marine-le-pen-sera-candidate-a-la-presidentielle-de-2027-29297057.html
-    date: 2026-07-07
-  - titre: "Votons 2027 – fiche Marine Le Pen (statut d'éligibilité, pourvoi en cassation)"
+    date: '2026-08-28'
+  - titre: >-
+      Epoch Times – Marine Le Pen promet 125 milliards d'euros d'économies et défend une retraite à 60 ou 62 ans
+    url: >-
+      https://www.epochtimes.fr/marine-le-pen-promet-125-milliards-deuros-deconomies-et-defend-une-retraite-a-60-ou-62-ans-3335415.html
+    date: '2026-08-28'
+  - titre: >-
+      AFP (Boursorama) – Salaires, carburants, mobilisations... le pouvoir d'achat s'impose dans la campagne
+    url: >-
+      https://www.boursorama.com/actualite-economique/actualites/salaires-carburants-mobilisations-le-pouvoir-d-achat-s-impose-dans-la-campagne-d6706e6c8501042962d517b99d95cad1
+    date: '2026-09-15'
+  - titre: >-
+      La Dépêche – Pourquoi Marine Le Pen veut faire du logement son nouveau cheval de bataille (discours d'Hénin-Beaumont
+      du 13 septembre 2026)
+    url: >-
+      https://www.ladepeche.fr/2026/09/14/decryptage-presidentielle-2027-pourquoi-marine-le-pen-veut-faire-du-logement-son-nouveau-cheval-de-bataille-elle-veut-montrer-quelle-a-des-mesures-13550575.php
+    date: '2026-09-14'
+  - titre: Le JDD – Entretien de Jordan Bardella « Je n'ai pas l'entreprise honteuse »
+    url: >-
+      https://www.lejdd.fr/politique/jordan-bardella-president-du-rn-je-nai-pas-lentreprise-honteuse-172413
+    date: '2026-04-25'
+  - titre: RTS – Marine Le Pen sera candidate à la présidentielle de 2027
+    url: >-
+      https://www.rts.ch/info/monde/2026/article/marine-le-pen-sera-candidate-a-la-presidentielle-de-2027-29297057.html
+    date: '2026-07-07'
+  - titre: Votons 2027 – fiche Marine Le Pen (statut d'éligibilité, pourvoi en cassation)
     url: https://votons-2027.fr/candidats/le-pen/programme
-    date: 2026-09-29
-  - titre: "Public Sénat – Au RN, la réforme des retraites divise Jordan Bardella et Marine Le Pen"
-    url: https://www.publicsenat.fr/actualites/politique/au-rn-la-reforme-des-retraites-divise-jordan-bardella-et-marine-le-pen-sur-le-programme-pour-la-presidentielle-2027
-    date: 2026-06-12
-  - titre: "Communiqué RN (Jean-Paul Garraud) – Carburants : que Bruxelles laisse enfin les États baisser les taxes !"
-    url: https://rassemblementnational.fr/communiques/carburants-que-bruxelles-laisse-enfin-les-etats-baisser-les-taxes
-    date: 2026-09-24
+    date: '2026-09-29'
+  - titre: Public Sénat – Au RN, la réforme des retraites divise Jordan Bardella et Marine Le Pen
+    url: >-
+      https://www.publicsenat.fr/actualites/politique/au-rn-la-reforme-des-retraites-divise-jordan-bardella-et-marine-le-pen-sur-le-programme-pour-la-presidentielle-2027
+    date: '2026-06-12'
+  - titre: >-
+      Communiqué RN (Jean-Paul Garraud) – Carburants : que Bruxelles laisse enfin les États baisser les taxes !
+    url: >-
+      https://rassemblementnational.fr/communiques/carburants-que-bruxelles-laisse-enfin-les-etats-baisser-les-taxes
+    date: '2026-09-24'
 annonce_candidat:
   cout_md: null
   financement_md: 125
   texte: >-
     Au débat du Medef (REF, 27 août 2026) : « Nous présenterons juste avant le débat budgétaire notre trajectoire de
-    rétablissement des finances publiques avec 125 milliards d'euros d'économies » (horizon 2032, « objectif minimal »
-    selon le porte-parole Stéphane Rambaud) ; document non publié au 29 septembre 2026. Réforme des retraites chiffrée
+    rétablissement des finances publiques avec 125 milliards d'euros d'économies » (horizon 2032, « objectif minimal
+    » selon le porte-parole Stéphane Rambaud) ; document non publié au 29 septembre 2026. Réforme des retraites chiffrée
     par la candidate à « 9 milliards d'euros » (« déficit assumé »). Dernier chiffrage complet publié : contre-budget
-    2026 du groupe RN (23 octobre 2025, base PLF 2026) : 88,3 Md€ d'économies et recettes nouvelles, 52,7 Md€ de
-    baisses d'impôts et dépenses nouvelles, soit 35,6 Md€ d'amélioration nette du solde revendiquée.
-  url: https://www.epochtimes.fr/marine-le-pen-promet-125-milliards-deuros-deconomies-et-defend-une-retraite-a-60-ou-62-ans-3335415.html
+    2026 du groupe RN (23 octobre 2025, base PLF 2026) : 88,3 Md€ d'économies et recettes nouvelles, 52,7 Md€ de baisses
+    d'impôts et dépenses nouvelles, soit 35,6 Md€ d'amélioration nette du solde revendiquée.
+  url: >-
+    https://www.epochtimes.fr/marine-le-pen-promet-125-milliards-deuros-deconomies-et-defend-une-retraite-a-60-ou-62-ans-3335415.html
 notes: >-
   Pas de programme présidentiel 2027 complet publié au 29 septembre 2026 : le plan de 125 Md€ d'économies est annoncé
-  « avant le débat budgétaire » (début octobre). La collecte s'appuie sur (1) le contre-budget 2026 du groupe RN
-  (octobre 2025), dernier document chiffré ligne à ligne, dont les montants sont ceux du RN et non les nôtres, et dont
-  la base est le PLF 2026 : les lignes qui annulent des mesures du PLF 2026 n'ont d'effet par rapport à la législation
-  au 1er janvier 2027 que si ces mesures ont été adoptées en LFI/LFSS 2026 (à vérifier en phase 2) ; (2) les prises de
-  parole de la candidate en 2026 (Medef 27 août, Hénin-Beaumont 13 septembre, LCI 16 septembre, lettre ouverte du 21
-  septembre) ; (3) le programme législatif 2024, seulement pour les mesures reconfirmées depuis. Engagements 2022 non
-  reconfirmés et donc exclus : renationalisation des autoroutes, privatisation de l'audiovisuel public (le contre-budget
-  2026 prévoit seulement une baisse de dotation), plan santé de 20 Md€, budget de défense à 55 Md€ en 2027 (le programme
-  2024 veut « sanctuariser » la LPM), exonération d'IR des moins de 30 ans (attribuée à J. Bardella par des sites
-  secondaires, sans source primaire trouvée). Tension interne documentée : J. Bardella (mai 2026) a évoqué un relèvement de
-  l'âge légal ; l'arbitrage de juillet 2026 et le débat Medef ont confirmé la ligne 60/62 ans de la candidate. Le
-  conseiller économique F. Durvye a quitté la campagne le 27 août 2026.
+  « avant le débat budgétaire » (début octobre). La collecte s'appuie sur (1) le contre-budget 2026 du groupe RN (octobre
+  2025), dernier document chiffré ligne à ligne, dont les montants sont ceux du RN et non les nôtres, et dont la base
+  est le PLF 2026 : les lignes qui annulent des mesures du PLF 2026 n'ont d'effet par rapport à la législation au 1er
+  janvier 2027 que si ces mesures ont été adoptées en LFI/LFSS 2026 (à vérifier en phase 2) ; (2) les prises de parole
+  de la candidate en 2026 (Medef 27 août, Hénin-Beaumont 13 septembre, LCI 16 septembre, lettre ouverte du 21 septembre)
+  ; (3) le programme législatif 2024, seulement pour les mesures reconfirmées depuis. Engagements 2022 non reconfirmés
+  et donc exclus : renationalisation des autoroutes, privatisation de l'audiovisuel public (le contre-budget 2026 prévoit
+  seulement une baisse de dotation), plan santé de 20 Md€, budget de défense à 55 Md€ en 2027 (le programme 2024 veut
+  « sanctuariser » la LPM), exonération d'IR des moins de 30 ans (attribuée à J. Bardella par des sites secondaires,
+  sans source primaire trouvée). Tension interne documentée : J. Bardella (mai 2026) a évoqué un relèvement de l'âge
+  légal ; l'arbitrage de juillet 2026 et le débat Medef ont confirmé la ligne 60/62 ans de la candidate. Le conseiller
+  économique F. Durvye a quitté la campagne le 27 août 2026. Chiffrage (phase 2) : quand le seul chiffre disponible est
+  celui du candidat (ou de Sarah Knafo), il est projeté en 2032 au PIB nominal, le central le reprend et le bas retient
+  la moitié de l'économie (convention, paramètre « convention du chiffrage ») ; les enveloppes d'économies non détaillées
+  suivent la règle 6 (central 0, haut = écart d'affichage).
 mesures:
-  # --- Pouvoir d'achat et fiscalité des ménages ---------------------------------------------------------------
   - id: tva-energie-5-5
     libelle: Baisse de la TVA de 20 % à 5,5 % sur les énergies (carburants, électricité, gaz, fioul, bois)
     domaine: fiscalite
     citation:
-      texte: "Si LFI demande un blocage des prix à 1,70 euros le litre, Marine Le Pen exige une baisse de la TVA sur l'énergie de 20 à 5,5%, au cœur de son programme."
-      url: https://www.boursorama.com/actualite-economique/actualites/salaires-carburants-mobilisations-le-pouvoir-d-achat-s-impose-dans-la-campagne-d6706e6c8501042962d517b99d95cad1
-      date: 2026-09-15
+      texte: >-
+        Si LFI demande un blocage des prix à 1,70 euros le litre, Marine Le Pen exige une baisse de la TVA sur l'énergie
+        de 20 à 5,5%, au cœur de son programme.
+      url: >-
+        https://www.boursorama.com/actualite-economique/actualites/salaires-carburants-mobilisations-le-pouvoir-d-achat-s-impose-dans-la-campagne-d6706e6c8501042962d517b99d95cad1
+      date: '2026-09-15'
       support: presse
     precision: precise
     interpretation: >-
-      Mesure phare constante depuis 2022, reconfirmée en septembre 2026 (AFP ; LCI 16 septembre). Périmètre du
-      contre-budget 2026 : « Baisse TVA énergies 10,960 » Md€ (gaz, électricité, carburants, bois, fioul), montant du RN.
-      Le taux de 5,5 % s'applique déjà à l'abonnement électricité/gaz : chiffrer sur les consommations au taux normal.
-      Juridiquement contestée (directive TVA) : non retenu dans le montant, signalé en confiance.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+      Mesure phare constante depuis 2022, reconfirmée en septembre 2026 (AFP ; LCI 16 septembre). Périmètre du contre-budget
+      2026 : « Baisse TVA énergies 10,960 » Md€ (gaz, électricité, carburants, bois, fioul), montant du RN. Le taux de
+      5,5 % s'applique déjà à l'abonnement électricité/gaz : chiffrer sur les consommations au taux normal. Juridiquement
+      contestée (directive TVA) : non retenu dans le montant, signalé en confiance. Montée en charge : loi de finances
+      rectificative dès l'été 2027 (programme 2024), d'où 40 % en 2027. Compatibilité avec la directive TVA non acquise
+      pour les carburants (plancher) : non déduite.
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: -17.6
+      bas: -20.45
+      haut: -14.8
+      montee_en_charge:
+        '2027': 0.4
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: -(elec + gaz + carburants + fioul)
+      parametres:
+        elec:
+          valeur: 5.0
+          bareme: tva_energie_electricite_5_5
+          unite: Md€/an de recettes perdues (APU)
+        gaz:
+          valeur: 2.0
+          bareme: tva_energie_gaz_5_5
+          unite: Md€/an de recettes perdues (APU)
+        carburants:
+          valeur: 10.0
+          bareme: tva_energie_carburants_5_5
+          unite: Md€/an de recettes perdues (APU)
+        fioul:
+          valeur: 0.6
+          bareme: tva_energie_fioul_5_5
+          unite: Md€/an de recettes perdues (APU)
+      explication: >-
+        Somme des barèmes par énergie (électricité et gaz des ménages, carburants, fioul) ; bas = bornes hautes des barèmes,
+        haut = bornes basses. Bois de chauffage omis (déjà en partie à taux réduit, montant faible). Montants énergétiques
+        non projetés au PIB (volumes et prix).
+    chiffrages_tiers:
+      - auteur: Institut Montaigne (législatives 2024)
+        montant_md: -11.3
+        url: >-
+          https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/baisser-la-tva-de-20-a-55-pour-les-carburants-lelectricite-le-gaz-et-le-fioul-domestique
+        commentaire: fourchette 9 à 13,6 Md€ selon la réaction de la consommation
+      - auteur: Ministère de l'Économie (Bercy), cité par Public Sénat
+        montant_md: -16.8
+        url: >-
+          https://www.publicsenat.fr/actualites/politique/baisse-de-la-tva-sur-lenergie-proposee-par-le-rn-une-mesure-chiffree-a-17-milliards-selon-bercy
+      - auteur: Contre-budget RN 2026 (chiffrage du candidat)
+        montant_md: -10.96
+        url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+    effets_retour: >-
+      Le RN invoque un effet « déflationniste » et un retour de TVA sur les autres consommations (1,82 Md€ dans le contre-budget)
+      : non comptés.
+    confiance: moyenne
   - id: tva-100-produits-premiere-necessite
     libelle: Suppression de la TVA sur une centaine de produits de première nécessité
     domaine: fiscalite
     citation:
-      texte: "Suppression TVA 100 produits premières nécessité 3,500"
+      texte: Suppression TVA 100 produits premières nécessité 3,500
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: partielle
     interpretation: >-
       Le programme 2024 la réservait au cas de « forte inflation » (« suspension de la TVA sur une centaine de produits
       de première nécessité ») ; le contre-budget 2026 l'inscrit sans condition pour 3,5 Md€. Liste des produits non
       publiée. Mesure non réaffirmée oralement en 2026 : lecture permanente retenue, fourchette basse = 0 si conditionnelle.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: -5.8
+      bas: -10.86
+      haut: 0.0
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: -(cout_liste_restreinte * f)
+      parametres:
+        cout_liste_restreinte:
+          valeur: 4.7
+          source: >-
+            https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/supprimer-la-tva-sur-les-produits-de-premiere-necessite
+          unite: Md€ (coût actualisé 2023)
+          note: 'scénario 1 : liste restrictive de produits alimentaires et d''hygiène'
+        f:
+          valeur: 1.2336
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: PIB nominal 2032 / 2024
+      explication: >-
+        Institut Montaigne : 4,7 Md€ (liste restreinte) à 8,8 Md€ (liste étendue, amendement RN de 2023), euros 2023
+        projetés en 2032 avec le facteur 2024→2032 (légère sous-estimation). Haut = 0 : mesure réservée aux périodes
+        de forte inflation dans le programme 2024.
+    chiffrages_tiers:
+      - auteur: Institut Montaigne (législatives 2024)
+        montant_md: -4.7
+        url: >-
+          https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/supprimer-la-tva-sur-les-produits-de-premiere-necessite
+        commentaire: 4,7 à 8,8 Md€ selon la liste
+      - auteur: Contre-budget RN 2026 (chiffrage du candidat)
+        montant_md: -3.5
+        url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+    confiance: faible
   - id: ir-part-pleine-deuxieme-enfant
     libelle: Part fiscale pleine dès le deuxième enfant (quotient familial)
     domaine: fiscalite
     citation:
-      texte: "Part fiscale pleine dès le deuxième enfant 2,860"
+      texte: Part fiscale pleine dès le deuxième enfant 2,860
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: precise
     interpretation: Plafond du quotient familial par demi-part supplémentaire supposé inchangé.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: -4.19
+      bas: -4.19
+      haut: -3.39
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: -(cout_2024 * f)
+      parametres:
+        cout_2024:
+          valeur: 3.4
+          source: >-
+            https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/instituer-une-part-fiscale-complete-des-le-deuxieme-enfant
+          unite: Md€ (2024)
+          note: simulation LexImpact (Assemblée nationale), plafonnement du quotient familial compris
+        f:
+          valeur: 1.2336
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: PIB nominal 2032 / 2024
+      explication: Coût LexImpact 2024 projeté au PIB. Haut = chiffrage du RN (2,86 Md€ en 2026) projeté.
+    chiffrages_tiers:
+      - auteur: Institut Montaigne (législatives 2024, modèle LexImpact)
+        montant_md: -3.4
+        url: >-
+          https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/instituer-une-part-fiscale-complete-des-le-deuxieme-enfant
+      - auteur: Contre-budget RN 2026 (chiffrage du candidat)
+        montant_md: -2.86
+        url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+    confiance: moyenne
   - id: ir-demi-part-veufs
     libelle: Généralisation de la demi-part fiscale des veuves et veufs
     domaine: fiscalite
     citation:
-      texte: "Généralisation de la demi part pour les veuves et veufs 1,000"
+      texte: Généralisation de la demi part pour les veuves et veufs 1,000
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: precise
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: -1.18
+      bas: -1.18
+      haut: -0.59
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: -(cout_rn * f)
+      parametres:
+        cout_rn:
+          valeur: 1.0
+          source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+          unite: Md€ (2026)
+          note: 'seul chiffrage disponible : celui du candidat'
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+      explication: >-
+        Chiffre du contre-budget projeté au PIB ; aucun chiffrage indépendant trouvé. Haut = moitié (convention).
+    confiance: faible
   - id: indexation-bareme-ir-csg
     libelle: Indexation du barème de l'IR (et des seuils de CSG) sur l'inflation
     domaine: fiscalite
     citation:
-      texte: "Indexation du barème de l'IR et CSG sur l'inflation 1,900"
+      texte: Indexation du barème de l'IR et CSG sur l'inflation 1,900
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: precise
     interpretation: >-
       Réponse au gel du barème proposé par le PLF 2026. Effet nul par rapport à la législation 2027 si le barème a été
-      indexé en LFI 2026 ; sinon, coût du dégel. Vérifier la LFI 2026 en phase 2.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+      indexé en LFI 2026 ; sinon, coût du dégel. Vérifier la LFI 2026 en phase 2. Vérification (LFI 2026 promulguée le
+      19 février 2026) : barème indexé, gel non voté.
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: 0.0
+      bas: 0.0
+      haut: 0.0
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: 0 * point
+      parametres:
+        point:
+          valeur: 1.7
+          bareme: ir_indexation_1pct
+          unite: Md€/an par point d'indexation
+      explication: >-
+        Promesse déjà dans le droit : la LFI 2026 a indexé le barème de l'IR (+0,9 %, art. 4) et le gel des seuils de
+        CSG a été supprimé en LFSS 2026 (vie-publique.fr). Effet nul par rapport à la référence.
+    confiance: haute
   - id: annulations-mesures-fiscales-budget-2026
     libelle: Annulation d'un ensemble de hausses d'impôts et de rabots de niches des PLF/PLFSS 2026
     domaine: fiscalite
     citation:
       texte: >-
-        Suppression taxe petit colis 0,600
-        Suppression de l'abattement forfaitaire retraités (garder l'abattement 10%) 1,200
+        Suppression taxe petit colis 0,600 Suppression de l'abattement forfaitaire retraités (garder l'abattement 10%)
+        1,200
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: partielle
     interpretation: >-
       Regroupe les lignes du contre-budget qui refusent des mesures du PLF/PLFSS 2026 (montants RN, Md€) : taxe petits
-      colis 0,6 ; abattement retraités 1,2 ; niche frais de scolarité 0,454 ; IJ ALD 0,883 ; hausse taxes aérien 0,72 ;
-      biocarburant 0,289 ; taxe sur les avantages sociaux (tickets restaurant) 0,95 ; ACRE 0,092 ; JEI 0,025 ; LODEOM
+      colis 0,6 ; abattement retraités 1,2 ; niche frais de scolarité 0,454 ; IJ ALD 0,883 ; hausse taxes aérien 0,72
+      ; biocarburant 0,289 ; taxe sur les avantages sociaux (tickets restaurant) 0,95 ; ACRE 0,092 ; JEI 0,025 ; LODEOM
       0,35 ; exonération salariale des apprentis 0,32 ; forfait social ruptures conventionnelles 0,26 ; Dutreil 0,5 ;
-      super-IS des ETI 0,5 ; taxe sur les mutuelles (OCAM) 1,02 ; Madelin, streaming, vapotage, malus, médailles
-      (< 0,03 chacun). Effet par rapport à la législation au 1er janvier 2027 = somme des seules mesures effectivement
-      adoptées en 2026. Liste à rapprocher de la LFI et de la LFSS 2026.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
-  # --- Travail, retraites, prestations -------------------------------------------------------------------------
+      super-IS des ETI 0,5 ; taxe sur les mutuelles (OCAM) 1,02 ; Madelin, streaming, vapotage, malus, médailles (< 0,03
+      chacun). Effet par rapport à la législation au 1er janvier 2027 = somme des seules mesures effectivement adoptées
+      en 2026. Liste à rapprocher de la LFI et de la LFSS 2026. Vérification faite sur les textes adoptés de la LFI 2026
+      et de la LFSS 2026 et les décisions 2026-901 DC et 2025-899 DC.
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: -1.95
+      bas: -2.54
+      haut: -1.85
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: -(petits_colis + tsba + acre + ruptures) * f
+      parametres:
+        petits_colis:
+          valeur: 0.4
+          source: https://www.assemblee-nationale.fr/dyn/17/textes/l17t0227_texte-adopte-seance.pdf
+          unite: Md€ (2026)
+          note: 'taxe sur les petits colis votée (art. 82 LFI), état A : 400 M€'
+        tsba:
+          valeur: 0.8
+          source: https://fr.wikipedia.org/wiki/Taxe_de_solidarit%C3%A9_sur_les_billets_d%27avion
+          unite: Md€ par an
+          note: >-
+            hausse 2025 de la taxe de solidarité sur les billets d'avion, maintenue (« un peu plus de 800 millions »)
+        acre:
+          valeur: 0.184
+          source: >-
+            https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1089902/file/Lettre_rectificative_PLFSS2026-Annexe09%20v2.pdf
+          unite: Md€ par an à partir de 2027
+          note: réforme de l'ACRE votée (art. 23 LFSS)
+        ruptures:
+          valeur: 0.26
+          source: >-
+            https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1089902/file/Lettre_rectificative_PLFSS2026-Annexe09%20v2.pdf
+          unite: Md€ par an
+          note: contribution patronale sur les ruptures conventionnelles portée de 30 à 40 % (art. 15 LFSS)
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+      explication: >-
+        Seules les mesures du PLF/PLFSS 2026 effectivement votées ont un coût à annuler : taxe petits colis, hausse 2025
+        de la TSBA, réforme de l'ACRE, contribution sur les ruptures conventionnelles. Non votées (coût nul) : abattement
+        des retraités, frais de scolarité, IJ ALD, contribution de 8 % sur les avantages sociaux, apprentis, LODEOM,
+        JEI, niche biocarburants, vapotage, streaming ; éteintes après 2026 : contribution des OCAM (2026 seulement),
+        surtaxe d'IS (ETI déjà exclues). Bas : ajoute le pacte Dutreil durci en LFI (0,5 Md€ selon le RN, non chiffré
+        officiellement). Haut : TSBA au chiffre du RN (0,72).
+    confiance: moyenne
   - id: retraites-60-62-ans
-    libelle: Retour de l'âge légal à 62 ans (42 annuités), départ à 60 ans avec 40 annuités pour les carrières commencées avant 20 ans
+    libelle: >-
+      Retour de l'âge légal à 62 ans (42 annuités), départ à 60 ans avec 40 annuités pour les carrières commencées avant
+      20 ans
     domaine: retraites
     citation:
-      texte: "« Tous ceux qui ont commencé à avoir un emploi effectif au sens de l’INSEE avant 20 ans cotiseront 40 ans et partiront à 60 ans, puis progressivement, jusqu’à 24 ans et demi, on arrivera à 42 ans de cotisation et un âge légal de 62 ans. »"
+      texte: >-
+        « Tous ceux qui ont commencé à avoir un emploi effectif au sens de l’INSEE avant 20 ans cotiseront 40 ans et
+        partiront à 60 ans, puis progressivement, jusqu’à 24 ans et demi, on arrivera à 42 ans de cotisation et un âge
+        légal de 62 ans. »
       url: https://www.bvoltaire.fr/devant-le-medef-marine-le-pen-defend-son-epineuse-reforme-des-retraites/
-      date: 2026-08-27
+      date: '2026-08-27'
       support: presse
     precision: partielle
     interpretation: >-
-      Ligne 2022 et 2024 (« Abroger la réforme des retraites de Macron »), reconfirmée par l'arbitrage interne de
-      juillet 2026 et au Medef. La candidate chiffre la réforme à « 9 milliards d'euros » (Boulevard Voltaire) ; selon
-      Epoch Times, ce montant vise le volet d'exonération des seniors : ambiguïté à signaler. Référence : législation au
-      1er janvier 2027 (réforme 2023 suspendue par la LFSS 2026, âge et durée gelés jusqu'au 1er janvier 2028, puis
-      reprise vers 64 ans / 43 annuités) à confirmer en phase 2. Le contre-budget 2026 inscrivait 1,5 Md€ pour le
-      « Lancement de la réforme des retraites MLP » (première année seulement).
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+      Ligne 2022 et 2024 (« Abroger la réforme des retraites de Macron »), reconfirmée par l'arbitrage interne de juillet
+      2026 et au Medef. La candidate chiffre la réforme à « 9 milliards d'euros » (Boulevard Voltaire) ; selon Epoch
+      Times, ce montant vise le volet d'exonération des seniors : ambiguïté à signaler. Référence : législation au 1er
+      janvier 2027 (réforme 2023 suspendue par la LFSS 2026, âge et durée gelés jusqu'au 1er janvier 2028, puis reprise
+      vers 64 ans / 43 annuités) à confirmer en phase 2. Le contre-budget 2026 inscrivait 1,5 Md€ pour le « Lancement
+      de la réforme des retraites MLP » (première année seulement). Montée : aucun effet avant 2028 (âge gelé par la
+      suspension jusqu'au 1er janvier 2028), puis montée avec le calendrier que la mesure annule.
+    chiffrable: true
+    nature: depense
+    effet_solde_primaire:
+      central: -44.56
+      bas: -62.23
+      haut: -21.9
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 0.4
+        '2029': 0.7
+        '2030': 0.9
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: -((cout_montaigne_2027 - abrogation_2023_montaigne) * f2027 + retour_62)
+      parametres:
+        cout_montaigne_2027:
+          valeur: 34.7
+          source: >-
+            https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/abroger-la-reforme-des-retraites-et-pour-ceux-ayant-commence-a-travailler-avant-20-ans-partir-a-40-annuites-de-cotisations
+          unite: Md€ en 2027
+          note: coût total à horizon 2027, régime général, programme RN 2024 identique (40 annuités avant 20 ans)
+        abrogation_2023_montaigne:
+          valeur: 8.2
+          source: >-
+            https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/abroger-la-reforme-des-retraites-et-pour-ceux-ayant-commence-a-travailler-avant-20-ans-partir-a-40-annuites-de-cotisations
+          unite: Md€ en 2027
+          note: part due à l'abrogation de la réforme 2023, remplacée ici par le barème 2032
+        f2027:
+          valeur: 1.157
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: PIB nominal 2032 / 2027 = 1,2106 / (1,0223 × 1,0235)
+        retour_62:
+          valeur: 13.9
+          bareme: retraites_retour_62_ans_2032
+          unite: Md€ courants par an (solde du système de retraite), en 2032
+      explication: >-
+        Retour sur les mesures d'âge et de durée (2003, 2010, 2014) pour les carrières commencées avant 20 ans et en
+        partie pour les autres (Institut Montaigne, 26,5 Md€ en 2027, projetés en 2032) + annulation de la réforme 2023
+        nette de la suspension déjà votée (barème). Bas : scénario Montaigne avec les régimes complémentaires (44,7)
+        et borne haute du barème 2023. Haut : borne basse du barème 2023 (8,9) + IFRAP, moitié des assurés partant plus
+        tôt à 60 ans (13, barème retraites_age_60_depuis_62 bas).
     chiffrages_tiers:
       - auteur: Fondation IFRAP (législatives 2024)
         montant_md: -10
         url: https://www.ifrap.org/budget-et-fiscalite/le-vrai-cout-du-programme-du-rassemblement-national
-        date: 2024-06-20
+        date: '2024-06-20'
         commentaire: >-
-          « l'abrogation de la réforme des retraites de 2023 ne verrait probablement jamais le jour car infinançable avec
-          10 milliards de coût en 2027 » ; chiffrage du programme 2024, avant la suspension de la réforme par la LFSS 2026.
+          « l'abrogation de la réforme des retraites de 2023 ne verrait probablement jamais le jour car infinançable
+          avec 10 milliards de coût en 2027 » ; chiffrage du programme 2024, avant la suspension de la réforme par la
+          LFSS 2026.
+      - auteur: Institut Montaigne (législatives 2024)
+        montant_md: -34.7
+        url: >-
+          https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/abroger-la-reforme-des-retraites-et-pour-ceux-ayant-commence-a-travailler-avant-20-ans-partir-a-40-annuites-de-cotisations
+        commentaire: horizon 2027, régime général ; 31,5 (avant 20 ans seulement) à 44,7 Md€ (avec complémentaires)
+      - auteur: Marine Le Pen (débat Medef, 27 août 2026)
+        montant_md: -9
+        url: https://www.bvoltaire.fr/devant-le-medef-marine-le-pen-defend-son-epineuse-reforme-des-retraites/
+        commentaire: « 9 milliards d'euros » selon la candidate ; écart inexpliqué avec tous les chiffrages publics
+    effets_retour: >-
+      Moindres dépenses de chômage et d'invalidité des seniors partant plus tôt et effets sur l'emploi : non comptés.
+    confiance: faible
   - id: cumul-emploi-retraite-sans-cotisations
-    libelle: Suppression des cotisations retraite et chômage des actifs ayant l'âge et les trimestres qui continuent à travailler
+    libelle: >-
+      Suppression des cotisations retraite et chômage des actifs ayant l'âge et les trimestres qui continuent à travailler
     domaine: retraites
     citation:
-      texte: "\"Nous mettrons en place des incitations pour que ceux qui ont dépassé l'âge de la retraite et ont leurs trimestres puissent continuer à travailler s'ils le souhaitent\", a-t-elle néanmoins avancé, promettant pour ce faire de \"supprimer les cotisations retraite et les cotisations chômage\" de ces travailleurs seniors."
+      texte: >-
+        "Nous mettrons en place des incitations pour que ceux qui ont dépassé l'âge de la retraite et ont leurs trimestres
+        puissent continuer à travailler s'ils le souhaitent", a-t-elle néanmoins avancé, promettant pour ce faire de
+        "supprimer les cotisations retraite et les cotisations chômage" de ces travailleurs seniors.
       url: https://www.sudradio.fr/societe/marine-le-pen-et-la-delicate-operation-seduction-du-monde-economique
-      date: 2026-08-28
+      date: '2026-08-28'
       support: presse
     precision: partielle
     interpretation: >-
-      Cotisations salariales et patronales supposées (lecture haute) ; lecture basse : part salariale seulement.
-      Le coût de « 9 milliards d'euros en année pleine » cité par Epoch Times pourrait viser ce volet.
+      Cotisations salariales et patronales supposées (lecture haute) ; lecture basse : part salariale seulement. Le coût
+      de « 9 milliards d'euros en année pleine » cité par Epoch Times pourrait viser ce volet.
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: >-
+      Nombre de retraités en emploi et masse de leurs revenus d'activité non trouvés en source ouverte ; le cumul emploi-retraite
+      est en outre réformé au 1er janvier 2027 par la LFSS 2026 (art. 102), ce qui change l'assiette. La candidate chiffre
+      « ce volet » à 9 Md€ en année pleine (Epoch Times), chiffre ambigu (peut-être toute la réforme des retraites) :
+      non retenu faute de pouvoir le rejouer.
   - id: hausse-salaires-10-exoneree
     libelle: Exonération de cotisations patronales des hausses de salaire de 10 % (jusqu'à 3 SMIC, 3 à 5 ans)
     domaine: travail
     citation:
-      texte: "Marine Le Pen veut de son côté inciter les entreprises à augmenter les salaires de 10% en exonérant cette hausse de cotisations patronales."
-      url: https://www.boursorama.com/actualite-economique/actualites/salaires-carburants-mobilisations-le-pouvoir-d-achat-s-impose-dans-la-campagne-d6706e6c8501042962d517b99d95cad1
-      date: 2026-09-15
+      texte: >-
+        Marine Le Pen veut de son côté inciter les entreprises à augmenter les salaires de 10% en exonérant cette hausse
+        de cotisations patronales.
+      url: >-
+        https://www.boursorama.com/actualite-economique/actualites/salaires-carburants-mobilisations-le-pouvoir-d-achat-s-impose-dans-la-campagne-d6706e6c8501042962d517b99d95cad1
+      date: '2026-09-15'
       support: presse
     precision: partielle
     interpretation: >-
-      Paramètres du programme 2024 : « permettre aux entreprises d'augmenter les salaires de 10 % jusqu'à trois fois le
-      SMIC, en les exonérant de l'augmentation des cotisations patronales pendant trois à cinq ans ». Coût dépendant du
-      taux de recours (hypothèse clé) ; mesure temporaire : régime de croisière 2032 éventuellement nul si durée de 3 ans.
-      Absente du contre-budget 2026.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+      Paramètres du programme 2024 : « permettre aux entreprises d'augmenter les salaires de 10 % jusqu'à trois fois
+      le SMIC, en les exonérant de l'augmentation des cotisations patronales pendant trois à cinq ans ». Coût dépendant
+      du taux de recours (hypothèse clé) ; mesure temporaire : régime de croisière 2032 éventuellement nul si durée de
+      3 ans. Absente du contre-budget 2026.
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: -13.07
+      bas: -16.34
+      haut: -5.23
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 0.1
+        '2029': 0.4
+        '2030': 0.7
+        '2031': 0.9
+        '2032': 1.0
+    calcul:
+      formule: -(cout_2029 * f)
+      parametres:
+        cout_2029:
+          valeur: 12.0
+          source: >-
+            https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/exonerer-les-entreprises-des-cotisations-patronales-sur-les-hausses-de-10-des-grilles-de-salaires-pour-tous-les-salaries-sous-3-smic
+          unite: Md€ (quatrième année de la mesure)
+          note: 0,8 Md€ en 2025, 4,8 en 2027, 12 en 2029 ; manque à gagner brut à terme 15 Md€
+        f:
+          valeur: 1.0891
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: 'PIB nominal 2032 / 2029 (croissances nominales 2030-2032 : 2,99 %, 2,83 %, 2,83 %)'
+      explication: >-
+        Montée de Montaigne décalée de trois ans (mise en œuvre 2028) : 2032 = quatrième année = 12 Md€ ; bas = régime
+        de croisière (15 Md€), haut = recours limité (valeur de la deuxième année).
+    chiffrages_tiers:
+      - auteur: Institut Montaigne (législatives 2024)
+        montant_md: -12
+        url: >-
+          https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/exonerer-les-entreprises-des-cotisations-patronales-sur-les-hausses-de-10-des-grilles-de-salaires-pour-tous-les-salaries-sous-3-smic
+        commentaire: à la quatrième année (2029) ; 15 Md€ bruts à terme
+    effets_retour: >-
+      Le RN estime que les hausses n'auraient pas eu lieu sans la mesure (coût nul) ; impôt sur le revenu et CSG sur
+      les hausses : non comptés.
+    confiance: faible
   - id: indexation-pensions-prestations
     libelle: Indexation des retraites et dégel des prestations sociales
     domaine: social
     citation:
-      texte: "Indexation des retraites et dégel des prestations 3,610"
+      texte: Indexation des retraites et dégel des prestations 3,610
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: precise
     interpretation: >-
-      Réponse à l'« année blanche » du PLFSS 2026. Effet 2032 = rattrapage de la sous-indexation 2026 si elle a été
-      adoptée (effet de base permanent), nul sinon.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+      Réponse à l'« année blanche » du PLFSS 2026. Effet 2032 = rattrapage de la sous-indexation 2026 si elle a été adoptée
+      (effet de base permanent), nul sinon.
+    chiffrable: true
+    nature: depense
+    effet_solde_primaire:
+      central: 0.0
+      bas: 0.0
+      haut: 0.0
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: 0 * point
+      parametres:
+        point:
+          valeur: 5.0
+          bareme: retraites_revalo_1pct
+          unite: Md€ courants par an, en 2032, par point de revalorisation
+      explication: >-
+        Promesse déjà dans le droit : l'« année blanche » (gel des pensions et prestations 2026) et la sous-indexation
+        2027-2030 ont été supprimées par le Parlement (LFSS 2026, vie-publique.fr). Effet nul.
+    confiance: haute
   - id: prestations-solidarite-5-ans-travail
-    libelle: Prestations de solidarité réservées aux étrangers ayant 5 ans de travail à temps plein en France (priorité nationale)
+    libelle: >-
+      Prestations de solidarité réservées aux étrangers ayant 5 ans de travail à temps plein en France (priorité nationale)
     domaine: immigration
     citation:
-      texte: "Réserver le bénéfice des prestations de solidarités aux étrangers ayant au moins 5 ans ETP travaillés en France 6,100"
+      texte: >-
+        Réserver le bénéfice des prestations de solidarités aux étrangers ayant au moins 5 ans ETP travaillés en France
+        6,100
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: partielle
     interpretation: >-
       Reconfirmé par J. Bardella (JDD, avril 2026 : « les aides sociales non contributives seront réservées aux familles
-      françaises ») et dans le discours d'Hénin-Beaumont (logement social, APL). Liste des prestations (RSA, prime
-      d'activité, allocations familiales, APL, ASPA ?) à fixer. Constitutionnalité incertaine (CC, avril 2024) :
-      signalée, non déduite.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+      françaises ») et dans le discours d'Hénin-Beaumont (logement social, APL). Liste des prestations (RSA, prime d'activité,
+      allocations familiales, APL, ASPA ?) à fixer. Constitutionnalité incertaine (CC, avril 2024) : signalée, non déduite.
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 7.15
+      bas: 0.72
+      haut: 8.64
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 0.4
+        '2029': 0.7
+        '2030': 0.9
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: (cinq_ans + prestations_familiales) * f
+      parametres:
+        cinq_ans:
+          valeur: 2.5
+          source: >-
+            https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/reserver-le-benefice-du-rsa-et-des-prestations-de-solidarites-aux-etrangers-ayant-au-moins-5-ans-dequivalent-temps-plein-travaille-en-france
+          unite: Md€ par an (2024)
+          note: économie médiane (fourchette 0,58 à 3,1)
+        prestations_familiales:
+          valeur: 3.3
+          source: >-
+            https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/accorder-les-prestations-familiales-aux-seuls-foyers-dont-au-moins-un-des-parents-est-francais
+          unite: Md€ par an (2024)
+          note: prestations familiales réservées aux foyers dont un parent est français, estimation médiane
+        f:
+          valeur: 1.2336
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: PIB nominal 2032 / 2024
+      explication: >-
+        Deux volets du programme 2024 reconfirmés en 2026 (Bardella : aides non contributives réservées aux familles
+        françaises) : condition de 5 ans de travail pour le RSA et les prestations de solidarité, et prestations familiales
+        réservées aux Français (Montaigne, médianes), projetés. Ordre de grandeur cohérent avec l'IFRAP (6 à 7 Md€ de
+        prestations nationales versées aux étrangers en situation régulière). Bas : nouveaux entrants seulement (droits
+        acquis). Risque de censure constitutionnelle signalé, non déduit.
+    chiffrages_tiers:
+      - auteur: Institut Montaigne (législatives 2024)
+        montant_md: 2.5
+        url: >-
+          https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/reserver-le-benefice-du-rsa-et-des-prestations-de-solidarites-aux-etrangers-ayant-au-moins-5-ans-dequivalent-temps-plein-travaille-en-france
+        commentaire: volet 5 ans ; 0,6 à 3,1 Md€
+      - auteur: Fondation IFRAP
+        montant_md: null
+        url: >-
+          https://www.ifrap.org/budget-et-fiscalite/etrangers-en-situation-reguliere-les-conditions-pour-toucher-des-aides-sociales
+        commentaire: « entre 6 et 7 milliards d'euros » de prestations versées aux étrangers en situation régulière
+      - auteur: Contre-budget RN 2026 (chiffrage du candidat)
+        montant_md: 6.1
+        url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+    confiance: faible
   - id: priorite-nationale-logement-social
     libelle: Priorité nationale dans l'attribution des logements sociaux (et des APL)
     domaine: logement
     citation:
-      texte: "Elle veut \"donner la priorité d'accès au logement social aux Français\"."
-      url: https://www.ladepeche.fr/2026/09/14/decryptage-presidentielle-2027-pourquoi-marine-le-pen-veut-faire-du-logement-son-nouveau-cheval-de-bataille-elle-veut-montrer-quelle-a-des-mesures-13550575.php
-      date: 2026-09-14
+      texte: Elle veut "donner la priorité d'accès au logement social aux Français".
+      url: >-
+        https://www.ladepeche.fr/2026/09/14/decryptage-presidentielle-2027-pourquoi-marine-le-pen-veut-faire-du-logement-son-nouveau-cheval-de-bataille-elle-veut-montrer-quelle-a-des-mesures-13550575.php
+      date: '2026-09-14'
       support: presse
     precision: vague
     chiffrable: false
     raison_non_chiffrable: >-
-      Réallocation des logements sociaux sans effet budgétaire direct ; le volet APL est compris dans la mesure
-      prestations-solidarite-5-ans-travail (pas de double compte).
+      Réallocation des logements sociaux sans effet budgétaire direct ; le volet APL est compris dans la mesure prestations-solidarite-5-ans-travail
+      (pas de double compte).
   - id: chomeurs-etrangers-renvoi
     libelle: Renvoi des étrangers restés un an sans emploi et sans ressources
     domaine: immigration
     citation:
-      texte: "Renvoyer les étrangers qui n’ont pas eu d’emploi pendant 1 an et qui ne peuvent pas subvenir à leurs besoins 1,110"
+      texte: >-
+        Renvoyer les étrangers qui n’ont pas eu d’emploi pendant 1 an et qui ne peuvent pas subvenir à leurs besoins
+        1,110
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: partielle
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: >-
+      Nombre d'étrangers au chômage depuis plus d'un an et allocations versées non publiés (l'Unédic ne ventile pas par
+      nationalité) ; le coût des éloignements (4 414 € en moyenne selon la Cour des comptes) et le taux d'exécution sont
+      inconnus. Recoupe en partie la priorité nationale.
   - id: ame-en-amu
     libelle: Remplacement de l'aide médicale d'État par une aide médicale d'urgence
     domaine: immigration
     citation:
-      texte: "Remplacement AME par AMU 1,300"
+      texte: Remplacement AME par AMU 1,300
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: precise
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.86
+      bas: 0.0
+      haut: 1.7
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: economie_2024 * f
+      parametres:
+        economie_2024:
+          valeur: 0.7
+          source: >-
+            https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/suppression-de-laide-medicale-detat-ame-et-remplacement-par-laide-durgence-vitale
+          unite: Md€ (2024)
+          note: AME de droit commun moins les soins maintenus au titre de l'urgence vitale
+        f:
+          valeur: 1.2336
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: PIB nominal 2032 / 2024
+      explication: >-
+        Bas = 0 : report des soins vers l'hôpital (soins urgents, créances irrécouvrables) non estimé publiquement. Haut
+        = barème AME haut moins les soins urgents (0,132 Md€), projeté.
+    chiffrages_tiers:
+      - auteur: Institut Montaigne (législatives 2024)
+        montant_md: 0.7
+        url: >-
+          https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/suppression-de-laide-medicale-detat-ame-et-remplacement-par-laide-durgence-vitale
+      - auteur: Contre-budget RN 2026 (chiffrage du candidat)
+        montant_md: 1.3
+        url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+    confiance: moyenne
   - id: suppression-visa-soins
     libelle: Suppression du visa pour soins
     domaine: immigration
     citation:
-      texte: "Suppression visa pour soins 1,000"
+      texte: Suppression visa pour soins 1,000
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: precise
-    interpretation: >-
-      Le montant RN (1 Md€) paraît élevé au regard du volume de visas pour soins : à vérifier.
+    interpretation: 'Le montant RN (1 Md€) paraît élevé au regard du volume de visas pour soins : à vérifier.'
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: Nombre de visas pour soins et coûts associés non publiés.
   - id: fin-accord-franco-algerien-1968
     libelle: Dénonciation de l'accord franco-algérien de 1968
     domaine: immigration
     citation:
-      texte: "Fin de l'accord de 1968 avec l'Algérie 1,300"
+      texte: Fin de l'accord de 1968 avec l'Algérie 1,300
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: vague
-    interpretation: Mécanisme d'économie non précisé (prestations, titres de séjour) ; risque de double compte avec la priorité nationale.
+    interpretation: >-
+      Mécanisme d'économie non précisé (prestations, titres de séjour) ; risque de double compte avec la priorité nationale.
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: >-
+      Mécanisme d'économie non précisé : les ressortissants algériens relèveraient du droit commun des étrangers, dont
+      les restrictions de prestations (priorité nationale, conditions de séjour) sont déjà chiffrées dans prestations-solidarite-5-ans-travail
+      ; chiffrer à part ferait double compte.
   - id: frais-scolarite-etudiants-etrangers
     libelle: Hausse des frais de scolarité des étudiants étrangers hors conventions
     domaine: education
     citation:
-      texte: "Hausse des frais de scolarité des étudiants étrangers sauf conventions interétatiques 1,100"
+      texte: Hausse des frais de scolarité des étudiants étrangers sauf conventions interétatiques 1,100
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: partielle
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: recette
+    effet_solde_primaire:
+      central: 0.12
+      bas: 0.0
+      haut: 1.3
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: etudiants * part_exoneree * droits / 1e9 * f
+      parametres:
+        etudiants:
+          valeur: 108100
+          source: >-
+            https://www.ccomptes.fr/sites/default/files/2025-03/20250310-Attractivite-de-la-France-pour-les-etudiants-etrangers.pdf
+          unite: étudiants relevant des droits différenciés (2023-2024)
+        part_exoneree:
+          valeur: 0.3
+          source: https://www.etudiant.gouv.fr/fr/droits-d-inscription-1489
+          unite: part
+          note: exonérations plafonnées à 30 % des assujettis en 2026-2027 (droit en vigueur)
+        droits:
+          valeur: 3200
+          source: https://www.etudiant.gouv.fr/fr/droits-d-inscription-1489
+          unite: € par an
+          note: moyenne licence (2 895 €) / master (3 941 €), pondération approchée
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+      explication: >-
+        Les droits différenciés (2 895 € / 3 941 €) sont déjà dans le droit, exonérations plafonnées à 30 % : la promesse
+        ne rapporte plus que la fin des exonérations restantes. Haut : chiffre du RN (1,1 Md€), qui suppose une hausse
+        des droits au-delà du droit actuel.
+    confiance: faible
   - id: timbre-visas-touristiques
     libelle: Timbre fiscal sur les visas touristiques
     domaine: immigration
     citation:
-      texte: "Timbres sur les visa touristiques 0,800"
+      texte: Timbres sur les visa touristiques 0,800
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: partielle
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
-  # --- Entreprises ---------------------------------------------------------------------------------------------
+    raison_non_chiffrable: >-
+      Montant du timbre non précisé ; les droits de visa de court séjour (90 €) sont fixés par le code des visas de l'UE.
   - id: suppression-cfe
     libelle: Suppression de la cotisation foncière des entreprises (CFE)
     domaine: fiscalite
     citation:
-      texte: "Baisse impôt de production: suppression de la CFE 8,800"
+      texte: 'Baisse impôt de production: suppression de la CFE 8,800'
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: precise
     interpretation: >-
       Reconfirmé par J. Bardella (X, 2026 : « suppression des impôts de production »). Impôt local : compensation aux
-      collectivités par l'État supposée (coût APU inchangé). Retour d'IS (le RN compte « Retour IS baisse impôts de
-      production 1,100 ») : effet mécanique d'assiette admis par la méthode s'il est documenté.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+      collectivités par l'État supposée (coût APU inchangé). Retour d'IS (le RN compte « Retour IS baisse impôts de production
+      1,100 ») : effet mécanique d'assiette admis par la méthode s'il est documenté.
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: -7.6
+      bas: -9.5
+      haut: -7.6
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: -(cfe_2024 * f * (1 - retour_is))
+      parametres:
+        cfe_2024:
+          valeur: 7.7
+          source: https://www.fipeco.fr/fiche/Les-imp%C3%B4ts-sur-la-production
+          unite: Md€ (2024)
+          note: cotisation foncière des entreprises, comptabilité nationale
+        f:
+          valeur: 1.2336
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: PIB nominal 2032 / 2024
+        retour_is:
+          valeur: 0.2
+          source: >-
+            https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/baisse-des-impots-de-production-cvae-et-c3s
+          unite: part
+          note: « retour IS », estimé au taux moyen effectif de 20 % (Institut Montaigne, 2024)
+      explication: >-
+        Rendement projeté au PIB, net du retour d'IS (impôt déductible). Collectivités compensées par l'État (coût APU
+        inchangé). Bas : sans retour d'IS.
+    chiffrages_tiers:
+      - auteur: Contre-budget RN 2026 (chiffrage du candidat)
+        montant_md: -8.8
+        url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+    confiance: haute
   - id: suppression-cvae
     libelle: Suppression totale de la CVAE
     domaine: fiscalite
     citation:
-      texte: "Baisse impôt de production: suppression totale de la CVAE 2,600"
+      texte: 'Baisse impôt de production: suppression totale de la CVAE 2,600'
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: precise
     interpretation: >-
       La législation en vigueur prévoit déjà l'extinction progressive de la CVAE (reportée à 2030) : en 2032, l'effet
       par rapport à la législation est nul ; seule l'accélération 2027-2029 coûte.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: 0.0
+      bas: 0.0
+      haut: 0.0
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+      annuel:
+        '2027': 0.0
+        '2028': -3.7
+        '2029': -3.7
+        '2030': 0.0
+        '2031': 0.0
+        '2032': 0.0
+    calcul:
+      formule: 0 * cvae
+      parametres:
+        cvae:
+          valeur: 3.7
+          bareme: cvae_restante
+          unite: Md€/an
+      explication: >-
+        Suppression déjà votée pour 2030 (LFI 2026) : effet nul en 2032. L'avance coûte le rendement restant de la CVAE
+        (barème cvae_restante, 3,7 Md€) en 2028 et 2029, porté par effet_solde_primaire.annuel (convention de REFERENCE.md).
+        Mise en œuvre supposée en loi de finances pour 2028.
+    confiance: haute
   - id: suppression-c3s
     libelle: Suppression de la contribution sociale de solidarité des sociétés (C3S)
     domaine: fiscalite
     citation:
-      texte: "Baisse impôt de production: suppression de la C3S 4,800"
+      texte: 'Baisse impôt de production: suppression de la C3S 4,800'
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: precise
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: -5.13
+      bas: -6.41
+      haut: -5.13
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: -(c3s * f * (1 - retour_is))
+      parametres:
+        c3s:
+          valeur: 5.2
+          bareme: c3s_rendement
+          unite: Md€/an
+        f:
+          valeur: 1.2336
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: PIB nominal 2032 / 2024
+        retour_is:
+          valeur: 0.2
+          source: >-
+            https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/baisse-des-impots-de-production-cvae-et-c3s
+          unite: part
+          note: « retour IS », estimé au taux moyen effectif de 20 % (Institut Montaigne, 2024)
+      explication: 'Rendement 2024 projeté au PIB, net du retour d''IS (Montaigne, 20 %). Bas : sans retour d''IS.'
+    chiffrages_tiers:
+      - auteur: Contre-budget RN 2026 (chiffrage du candidat)
+        montant_md: -4.8
+        url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+    confiance: haute
   - id: fiscalite-entreprises-divers
-    libelle: Autres allègements ciblés (octroi de mer, crédit d'impôt péages des transporteurs, aides à l'investissement outre-mer)
+    libelle: >-
+      Autres allègements ciblés (octroi de mer, crédit d'impôt péages des transporteurs, aides à l'investissement outre-mer)
     domaine: fiscalite
     citation:
-      texte: "Réforme de l'octroi de mer 0,500"
+      texte: Réforme de l'octroi de mer 0,500
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: vague
     interpretation: >-
-      Regroupe « Réforme de l'octroi de mer 0,500 », « Crédit d'impôt pour les transporteurs routiers (déduction cout des
-      péages) 0,150 » et « Préserver les aides à l'investissement productif en outre-mer 0,100 ».
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
-  # --- Recettes nouvelles ------------------------------------------------------------------------------------------
+      Regroupe « Réforme de l'octroi de mer 0,500 », « Crédit d'impôt pour les transporteurs routiers (déduction cout
+      des péages) 0,150 » et « Préserver les aides à l'investissement productif en outre-mer 0,100 ».
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: -0.89
+      bas: -0.89
+      haut: -0.3
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: -((octroi + transporteurs + outremer) * f)
+      parametres:
+        octroi:
+          valeur: 0.5
+          source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+          unite: Md€ (2026)
+          note: chiffre du candidat
+        transporteurs:
+          valeur: 0.15
+          source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+          unite: Md€ (2026)
+          note: chiffre du candidat
+        outremer:
+          valeur: 0.1
+          source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+          unite: Md€ (2026)
+          note: chiffre du candidat
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+      explication: >-
+        Chiffres du contre-budget, projetés. Haut : sans la « réforme de l'octroi de mer », dont le contenu n'est pas
+        connu.
+    confiance: faible
   - id: impot-fortune-financiere
     libelle: Impôt sur la fortune financière (IFF) remplaçant l'IFI et la taxe sur les holdings
     domaine: fiscalite
     citation:
-      texte: "IFF à la place de la taxe sur les holdings et de l'IFI 4,000"
+      texte: IFF à la place de la taxe sur les holdings et de l'IFI 4,000
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: partielle
     interpretation: >-
       Barème non publié ; montant RN = recette nette de l'IFI (≈ 2,2 Md€) et de la taxe holdings supprimés ? À clarifier.
       Le RN exonérait la résidence principale et taxait les actifs financiers (2022).
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: >-
+      Barème, seuil et assiette de l'IFF non publiés ; le rendement net dépend aussi du sort de la taxe sur les holdings.
+      Montant du RN (4 Md€) non vérifiable.
   - id: taxe-rachats-actions
     libelle: Taxe sur les rachats d'actions
     domaine: fiscalite
     citation:
-      texte: "Taxe sur les rachats d'action 8,400"
+      texte: Taxe sur les rachats d'action 8,400
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: vague
     interpretation: >-
-      Taux non publié ; 8,4 Md€ suppose un taux très élevé sur ~30 Md€ de rachats annuels (CAC 40) : réaction d'assiette forte attendue.
+      Taux non publié ; 8,4 Md€ suppose un taux très élevé sur ~30 Md€ de rachats annuels (CAC 40) : réaction d'assiette
+      forte attendue.
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: >-
+      Taux et assiette non publiés : le rendement annoncé (8,4 Md€) ne peut être rapproché d'aucun paramètre ; la réaction
+      d'assiette (substitution des rachats par des dividendes) serait forte.
   - id: taxe-transactions-intrajournalieres
     libelle: Taxe sur les transactions financières intra-journalières
     domaine: fiscalite
     citation:
-      texte: "Taxe sur les transactions financières intra-journalières 3,000"
+      texte: Taxe sur les transactions financières intra-journalières 3,000
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: vague
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: >-
+      Taux non publié ; les opérations intrajournalières sont aujourd'hui hors du champ de la TTF (barème ttf_rendement)
+      et leur volume taxable après réaction est inconnu.
   - id: taxe-superdividendes
     libelle: Taxe sur les « superdividendes »
     domaine: fiscalite
     citation:
-      texte: "Taxe sur les superdividendes 0,750"
+      texte: Taxe sur les superdividendes 0,750
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: vague
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: Définition des « superdividendes » et taux non publiés.
   - id: rebudgetisation-cee
     libelle: Rebudgétisation des certificats d'économie d'énergie
     domaine: energie
     citation:
-      texte: "Rebudgétaitsation des Certificat d'économie d'énergie 6,000"
+      texte: Rebudgétaitsation des Certificat d'économie d'énergie 6,000
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: vague
     interpretation: >-
       Les CEE sont une obligation privée hors comptes publics. « Rebudgétiser » = remplacer l'obligation par une taxe
-      affectée au budget ? L'effet net sur le solde dépend de l'usage (si les dépenses d'efficacité énergétique
-      financées par les CEE sont reprises par l'État, effet ≈ 0). Lecture à arrêter en phase 2.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+      affectée au budget ? L'effet net sur le solde dépend de l'usage (si les dépenses d'efficacité énergétique financées
+      par les CEE sont reprises par l'État, effet ≈ 0). Lecture à arrêter en phase 2.
+    chiffrable: true
+    nature: recette
+    effet_solde_primaire:
+      central: 0.0
+      bas: 0.0
+      haut: 7.11
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: 0 * cee_rn
+      parametres:
+        cee_rn:
+          valeur: 6.0
+          source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+          unite: Md€ (2026)
+          note: chiffre du candidat
+      explication: >-
+        Remplacer l'obligation CEE par une taxe affectée au budget qui finance les mêmes économies d'énergie est neutre
+        pour le solde (central 0). Haut : la taxe est perçue sans reprise des dépenses (montant du RN).
+    confiance: faible
   - id: redevance-marche-energetique
     libelle: Redevance d'accès au marché électrique et gazier historique français
     domaine: energie
     citation:
-      texte: "Redevance d’accès au marché historique électrique et gazier français. 0,745"
+      texte: Redevance d’accès au marché historique électrique et gazier français. 0,745
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: vague
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: Assiette, redevables et taux de la redevance non publiés.
   - id: taxe-reseau-geants-numeriques
     libelle: Taxe sur l'utilisation du réseau par les géants du numérique
     domaine: fiscalite
     citation:
-      texte: "Taxe l'utilisation du réseau par les géants du numériques 0,550"
+      texte: Taxe l'utilisation du réseau par les géants du numériques 0,550
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: vague
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: >-
+      Assiette et taux non publiés ; une taxe sur l'usage des réseaux par les plateformes relève en partie du droit de
+      l'UE.
   - id: lutte-contre-fraudes
     libelle: Plan de lutte contre les fraudes fiscale et sociale
     domaine: etat
     citation:
-      texte: "Lutte contre les fraudes 3,500"
+      texte: Lutte contre les fraudes 3,500
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: vague
     interpretation: >-
       Programme 2024 : ministère dédié, carte Vitale biométrique, accès des organismes sociaux aux fichiers. Rendement
       incertain ; traité comme enveloppe peu documentée (fourchette basse proche de 0).
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: recette
+    effet_solde_primaire:
+      central: 0.84
+      bas: 0.0
+      haut: 4.14
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 0.4
+        '2029': 0.7
+        '2030': 0.9
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: recouvrement_2024 * f
+      parametres:
+        recouvrement_2024:
+          valeur: 0.68
+          source: >-
+            https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/HCFIPS/2026/HCFIPS%20-%20Synth%c3%a8se%20Fraude%20sociale%202025%20-%20Version%20finalis%c3%a9e.pdf
+          unite: Md€ recouvrés (2024)
+          note: 'règle du barème fraude_sociale_estimee : gain = doublement du recouvrement'
+        f:
+          valeur: 1.2336
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: PIB nominal 2032 / 2024
+      explication: >-
+        Barème fraude_sociale_estimee : central = gain supplémentaire documenté (doublement du recouvrement de la fraude
+        sociale), haut = montant annoncé par le RN (3,5 Md€ 2026 projeté), bas = 0.
+    chiffrages_tiers:
+      - auteur: Contre-budget RN 2026 (chiffrage du candidat)
+        montant_md: 3.5
+        url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+    confiance: faible
   - id: petites-recettes-diverses
     libelle: Suppression de niches (journalistes, conseillers régionaux) et CVEC affectée au budget général
     domaine: fiscalite
     citation:
       texte: >-
-        Suppression niche journalistes / conseillers régionaux 0,100
-        Affecter la CVEC (contribution à la vie étudiante et de campus) au budget général 0,170
+        Suppression niche journalistes / conseillers régionaux 0,100 Affecter la CVEC (contribution à la vie étudiante
+        et de campus) au budget général 0,170
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: precise
     chiffrable: false
     raison_non_chiffrable: >-
-      Effet inférieur au seuil de 0,1 Md€ pour la niche ; la réaffectation de la CVEC est un transfert interne aux
-      administrations publiques, sans effet sur le solde APU.
+      Effet inférieur au seuil de 0,1 Md€ pour la niche ; la réaffectation de la CVEC est un transfert interne aux administrations
+      publiques, sans effet sur le solde APU.
   - id: retours-fiscaux-revendiques
     libelle: Retours d'IS et de TVA revendiqués (baisse des impôts de production et des « dépenses contraintes »)
     domaine: fiscalite
     citation:
-      texte: >-
-        Retour IS baisse impôts de production 1,100
-        Retour TVA baisse "dépenses contraintes" 1,820
+      texte: Retour IS baisse impôts de production 1,100 Retour TVA baisse "dépenses contraintes" 1,820
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: partielle
     chiffrable: false
     raison_non_chiffrable: >-
       Effets de second tour (comportements de consommation, croissance) non comptés par la méthode (règle 3) ; le retour
       d'IS mécanique lié à la suppression d'impôts déductibles est intégré aux mesures d'impôts de production. Montants
       RN : 2,92 Md€, à citer dans effets_retour.
-  # --- Économies ------------------------------------------------------------------------------------------------
   - id: plan-125-md-economies
     libelle: Plan de « rétablissement des finances publiques » de 125 Md€ d'économies d'ici 2032
     domaine: etat
     citation:
-      texte: "« Nous présenterons juste avant le débat budgétaire notre trajectoire de rétablissement des finances publiques avec 125 milliards d’euros d’économies », a annoncé celle qui concourt pour la quatrième fois à l’élection présidentielle"
+      texte: >-
+        « Nous présenterons juste avant le débat budgétaire notre trajectoire de rétablissement des finances publiques
+        avec 125 milliards d’euros d’économies », a annoncé celle qui concourt pour la quatrième fois à l’élection présidentielle
       url: https://www.bvoltaire.fr/devant-le-medef-marine-le-pen-defend-son-epineuse-reforme-des-retraites/
-      date: 2026-08-27
+      date: '2026-08-27'
       support: presse
     precision: vague
     interpretation: >-
-      Enveloppe non détaillée au 29 septembre 2026 (règle 6) : central = part documentée par les mesures d'économies de
-      ce fichier (sans double compte), haut = 125, bas = 0. Selon J.-P. Tanguy, sources : immigration, millefeuille
-      administratif, formation professionnelle, contribution à l'UE ; « ni hausse des taxes ni hausse des impôts ».
-      À mettre à jour dès la publication du document (annoncée début octobre 2026).
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+      Enveloppe non détaillée au 29 septembre 2026 (règle 6) : central = part documentée par les mesures d'économies
+      de ce fichier (sans double compte), haut = 125, bas = 0. Selon J.-P. Tanguy, sources : immigration, millefeuille
+      administratif, formation professionnelle, contribution à l'UE ; « ni hausse des taxes ni hausse des impôts ». À
+      mettre à jour dès la publication du document (annoncée début octobre 2026).
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.0
+      bas: 0.0
+      haut: 85.85
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 0.2
+        '2029': 0.4
+        '2030': 0.6
+        '2031': 0.8
+        '2032': 1.0
+    calcul:
+      formule: 0 * annonce + 0 * documente
+      parametres:
+        annonce:
+          valeur: 125
+          source: https://www.bvoltaire.fr/devant-le-medef-marine-le-pen-defend-son-epineuse-reforme-des-retraites/
+          unite: Md€
+          note: « 125 milliards d'euros d'économies » (Medef, 27 août 2026), horizon 2032
+        documente:
+          valeur: 39.15
+          source: somme des mesures d'économie de ce fichier
+          unite: Md€ (2032)
+          note: >-
+            ame-en-amu, baisse-contribution-ue, prestations-solidarite-5-ans-travail, fin-soutien-enr-intermittentes,
+            maprimerenov-en-pret-100-renov, aide-publique-developpement, dgf-regions-epci, agences-operateurs-moins-20,
+            subventions-associations, train-de-vie-etat-et-petites-economies, fonds-vert, aides-apprentissage-avant-licence,
+            sante-medicaments-unite-ald
+      explication: >-
+        Règle 6. Les économies identifiables du programme sont chiffrées dans leurs propres mesures (somme des centraux
+        : 39.15 Md€) : central = 0 pour ne pas les compter deux fois. Haut = écart d'affichage entre l'annonce (125 Md€,
+        lue comme un niveau annuel en 2032) et cette somme. Bas = 0.
+    confiance: faible
   - id: regle-or-constitution
     libelle: Règle d'or budgétaire inscrite dans la Constitution
     domaine: institutions
     citation:
-      texte: "Stop à la \"folie normative\", plan de \"rétablissement des finances publiques\" avec 125 milliards d'euros d'économies, \"inscription dans la Constitution d'une règle d'or\" budgétaire..."
+      texte: >-
+        Stop à la "folie normative", plan de "rétablissement des finances publiques" avec 125 milliards d'euros d'économies,
+        "inscription dans la Constitution d'une règle d'or" budgétaire...
       url: https://www.sudradio.fr/societe/marine-le-pen-et-la-delicate-operation-seduction-du-monde-economique
-      date: 2026-08-28
+      date: '2026-08-28'
       support: presse
     precision: vague
     chiffrable: false
@@ -525,214 +1312,608 @@ mesures:
     libelle: Baisse de la contribution française au budget de l'Union européenne
     domaine: europe
     citation:
-      texte: "Baisse de la contribution de la France à l'UE 8,700"
+      texte: Baisse de la contribution de la France à l'UE 8,700
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: partielle
     interpretation: >-
-      Unilatérale (contraire aux décisions ressources propres) : faisabilité juridique nulle sans accord à 27. Citée par
-      la candidate au Medef parmi les sources des 125 Md€.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+      Unilatérale (contraire aux décisions ressources propres) : faisabilité juridique nulle sans accord à 27. Citée
+      par la candidate au Medef parmi les sources des 125 Md€.
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.0
+      bas: 0.0
+      haut: 10.3
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: 0 * baisse_rn
+      parametres:
+        baisse_rn:
+          valeur: 8.7
+          source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+          unite: Md€ (2026)
+          note: chiffre du candidat
+      explication: >-
+        Barème psr_ue : une réduction unilatérale de la contribution n'est pas juridiquement possible (décision relative
+        aux ressources propres, unanimité). Central et bas = 0 ; haut = montant du RN projeté.
+    confiance: faible
   - id: agences-operateurs-moins-20
     libelle: Baisse de 20 % des financements de certaines agences et opérateurs (OFB, Ademe…)
     domaine: etat
     citation:
-      texte: "Baisser de 20% les affectations financières ou les subventions à certaines agences et organismes (cf annexe) 7,700"
+      texte: >-
+        Baisser de 20% les affectations financières ou les subventions à certaines agences et organismes (cf annexe)
+        7,700
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: partielle
-    interpretation: Annexe listant les organismes non publiée avec le PDF ; revoir le fonctionnement des agences cité au Medef 2026.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    interpretation: >-
+      Annexe listant les organismes non publiée avec le PDF ; revoir le fonctionnement des agences cité au Medef 2026.
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 9.12
+      bas: 4.56
+      haut: 9.12
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: montant * f
+      parametres:
+        montant:
+          valeur: 7.7
+          source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+          unite: Md€ (2026)
+          note: chiffre du candidat (contre-budget 2026)
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+      explication: 'Chiffre du RN projeté (annexe listant les organismes non publiée). Bas : moitié (convention).'
+    confiance: faible
   - id: fin-soutien-enr-intermittentes
     libelle: Suppression des tarifs d'achat et compléments de rémunération des énergies intermittentes
     domaine: energie
     citation:
-      texte: "Suppression des tarifs préférentiels de rachat d'électricité (énergies intermittentes) 7,200"
+      texte: Suppression des tarifs préférentiels de rachat d'électricité (énergies intermittentes) 7,200
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: partielle
     interpretation: >-
       Les contrats en cours sont des engagements juridiques : lecture basse = nouveaux contrats seulement. Le coût du
       soutien (CSPE budgétaire) dépend du prix de marché de l'électricité (charges faibles quand les prix sont hauts).
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 3.12
+      bas: 0.0
+      haut: 8.53
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 0.0
+        '2029': 0.0
+        '2030': 0.33
+        '2031': 0.67
+        '2032': 1.0
+    calcul:
+      formule: croissance_annuelle * annees_non_engagees
+      parametres:
+        croissance_annuelle:
+          valeur: 1.04
+          source: https://www.cre.fr/fileadmin/Documents/Deliberations/2026/260715_2026-149_CSPE_2026-2027.pdf
+          unite: Md€ par an
+          note: hausse 2026→2027 des charges éolien + photovoltaïque (6,25 → 7,29 Md€, tableau 3)
+        annees_non_engagees:
+          valeur: 3
+          source: https://www.cre.fr/fileadmin/Documents/Deliberations/2026/260715_2026-149_CSPE_2026-2027.pdf
+          unite: années
+          note: >-
+            soutien déjà engagé jusqu'en 2029 (« environ +10 GWe estimés par la CRE entre 2026 et 2029 ») : 2030-2032
+      explication: >-
+        Les contrats signés restent dus (20 ans) : l'économie porte sur les nouveaux contrats non engagés (2030-2032),
+        approchés par la hausse annuelle récente des charges. Haut : montant du RN (rupture des contrats, suppose des
+        indemnisations non comptées). Très sensible au prix de marché de l'électricité (≈ 90 M€ par €/MWh, CRE).
+    chiffrages_tiers:
+      - auteur: Contre-budget RN 2026 (chiffrage du candidat)
+        montant_md: 7.2
+        url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+    confiance: faible
   - id: maprimerenov-en-pret-100-renov
     libelle: Remplacement de MaPrimeRénov' par un prêt à taux zéro « 100 % Rénov »
     domaine: logement
     citation:
-      texte: "Avec notre dispositif « 100 % Renov », nous permettrons aux ménages de financer leurs travaux grâce à un prêt à taux zéro."
-      url: https://rassemblementnational.fr/lettre-ouverte/lettre-ouverte-de-marine-le-pen-aux-professionnels-de-limmobilier
-      date: 2026-09-21
+      texte: >-
+        Avec notre dispositif « 100 % Renov », nous permettrons aux ménages de financer leurs travaux grâce à un prêt
+        à taux zéro.
+      url: >-
+        https://rassemblementnational.fr/lettre-ouverte/lettre-ouverte-de-marine-le-pen-aux-professionnels-de-limmobilier
+      date: '2026-09-21'
     precision: partielle
     interpretation: >-
-      Contre-budget 2026 : « Remplacement "Ma Primrenov" par "100%Renov" 3,400 » Md€ nets. Économie = crédits
-      MaPrimeRénov' moins coût budgétaire du PTZ (bonification d'intérêts).
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+      Contre-budget 2026 : « Remplacement "Ma Primrenov" par "100%Renov" 3,400 » Md€ nets. Économie = crédits MaPrimeRénov'
+      moins coût budgétaire du PTZ (bonification d'intérêts).
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 1.78
+      bas: 0.89
+      haut: 1.78
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: credits_anah * f
+      parametres:
+        credits_anah:
+          valeur: 1.5
+          source: https://www.senat.fr/rap/l25-139-35-1/l25-139-35-1_mono.html
+          unite: Md€ (PLF 2026)
+          note: crédits de l'État à l'Anah (programme 135), MaPrimeRénov' comprise
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+      explication: >-
+        Économie brute des crédits MaPrimeRénov' de l'État (la part CEE de l'Anah n'est pas de la dépense publique).
+        Le coût du prêt à taux zéro qui la remplace n'est pas publié : bas = moitié de l'économie (convention).
+    chiffrages_tiers:
+      - auteur: Contre-budget RN 2026 (chiffrage du candidat)
+        montant_md: 3.4
+        url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+    confiance: faible
   - id: aide-publique-developpement
     libelle: Réduction de l'aide publique au développement
     domaine: action-exterieure
     citation:
-      texte: "Rationalisation de l'Aide Publique au Développement 2,300"
+      texte: Rationalisation de l'Aide Publique au Développement 2,300
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: partielle
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 2.72
+      bas: 1.36
+      haut: 2.72
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: montant * f
+      parametres:
+        montant:
+          valeur: 2.3
+          source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+          unite: Md€ (2026)
+          note: chiffre du candidat (contre-budget 2026)
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+      explication: >-
+        Chiffre du RN projeté ; la mission APD compte 3,67 Md€ de CP en 2026 (Sénat), la baisse est donc réalisable budgétairement.
+        Bas : moitié (convention).
+    confiance: moyenne
   - id: dgf-regions-epci
     libelle: Baisse de la dotation globale de fonctionnement des régions et des intercommunalités
     domaine: collectivites
     citation:
-      texte: "Baisse de la DGF pour les régions et les EPCI 5,000"
+      texte: Baisse de la DGF pour les régions et les EPCI 5,000
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: partielle
     interpretation: >-
       Transfert État → collectivités : l'effet sur le solde APU dépend de l'ajustement des collectivités (dépenses ou
       impôts locaux, ou déficit d'investissement). Lecture centrale : économie partielle ; bas = 0.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 5.92
+      bas: 2.96
+      haut: 5.92
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: montant * f
+      parametres:
+        montant:
+          valeur: 5.0
+          source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+          unite: Md€ (2026)
+          note: chiffre du candidat (contre-budget 2026)
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+      explication: >-
+        Chiffre du RN projeté. Les collectivités doivent équilibrer leur section de fonctionnement : la baisse améliore
+        le solde APU sauf report sur l'emprunt d'investissement (bas : moitié, convention).
+    confiance: faible
   - id: subventions-associations
     libelle: Baisse des subventions aux associations « ne relevant pas de l'intérêt général »
     domaine: etat
     citation:
-      texte: "Baisser les subventions aux associations ne relevant pas de l'intérêt général 3,200"
+      texte: Baisser les subventions aux associations ne relevant pas de l'intérêt général 3,200
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: vague
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 3.79
+      bas: 1.89
+      haut: 3.79
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: montant * f
+      parametres:
+        montant:
+          valeur: 3.2
+          source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+          unite: Md€ (2026)
+          note: chiffre du candidat (contre-budget 2026)
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+      explication: >-
+        Chiffre du RN projeté ; l'État verse 7,3 Md€ de subventions aux associations (jaune 2026), le tri « intérêt général
+        » n'est pas défini. Bas : moitié (convention).
+    confiance: faible
   - id: train-de-vie-etat-et-petites-economies
     libelle: Train de vie de l'État, audiovisuel public, aides à la presse, CESER, plan vélo
     domaine: etat
     citation:
-      texte: "Baisse du train de vie de l'État (Elysée, AN, Sénat, CESE, etc) 0,513"
+      texte: Baisse du train de vie de l'État (Elysée, AN, Sénat, CESE, etc) 0,513
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: partielle
     interpretation: >-
-      Regroupe aussi « Baisse de la dotation à l'audiovisuel public 0,154 », « Suppression aides à la presse (hors
-      avantage postal) 0,177 », « Suppression des CESER 0,040 », « Suppression du plan vélo 0,031 » (total RN 0,915).
-      Au Medef 2026 : « Le premier qui doit faire un effort, c'est l'État. Il doit baisser drastiquement son train de vie. »
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+      Regroupe aussi « Baisse de la dotation à l'audiovisuel public 0,154 », « Suppression aides à la presse (hors avantage
+      postal) 0,177 », « Suppression des CESER 0,040 », « Suppression du plan vélo 0,031 » (total RN 0,915). Au Medef
+      2026 : « Le premier qui doit faire un effort, c'est l'État. Il doit baisser drastiquement son train de vie. »
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 1.08
+      bas: 0.54
+      haut: 1.08
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: montant * f
+      parametres:
+        montant:
+          valeur: 0.915
+          source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+          unite: Md€ (2026)
+          note: chiffre du candidat (contre-budget 2026)
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+      explication: >-
+        Somme des cinq lignes du RN (0,513 + 0,154 + 0,177 + 0,040 + 0,031), projetée ; dotations 2026 : Présidence 0,12,
+        Assemblée 0,61, Sénat 0,35 Md€ (Sénat).
+    confiance: moyenne
   - id: fonds-vert
     libelle: Suppression du fonds vert (hors inondations et feux de forêt)
     domaine: ecologie
     citation:
-      texte: "Suppression du fonds vert hors dépenses pour inondations et feux de forêts 0,460"
+      texte: Suppression du fonds vert hors dépenses pour inondations et feux de forêts 0,460
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: precise
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.54
+      bas: 0.27
+      haut: 0.54
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: montant * f
+      parametres:
+        montant:
+          valeur: 0.46
+          source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+          unite: Md€ (2026)
+          note: chiffre du candidat (contre-budget 2026)
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+      explication: Chiffre du RN projeté ; le fonds vert a 1,085 Md€ de CP en 2026 (Sénat).
+    confiance: moyenne
   - id: aides-apprentissage-avant-licence
     libelle: Aides à l'apprentissage réservées aux formations de niveau inférieur à la licence
     domaine: travail
     citation:
-      texte: "Réserver les chèques apprentissages aux étudiants avant licence 1,600"
+      texte: Réserver les chèques apprentissages aux étudiants avant licence 1,600
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: precise
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 1.89
+      bas: 0.95
+      haut: 1.89
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: montant * f
+      parametres:
+        montant:
+          valeur: 1.6
+          source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+          unite: Md€ (2026)
+          note: chiffre du candidat (contre-budget 2026)
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+      explication: >-
+        Chiffre du RN projeté ; l'aide à l'embauche d'apprentis a 2,37 Md€ de CP en 2026, déjà réduite de 31 % et limitée
+        à 750 € pour les niveaux bac+3 et plus : l'économie restante est probablement inférieure (bas : moitié).
+    confiance: faible
   - id: sante-medicaments-unite-ald
     libelle: Délivrance des médicaments à l'unité et contrôle systématique des ALD
     domaine: sante
     citation:
-      texte: >-
-        Délivrance des médicaments à l'unité 0,550
-        Contrôler systématiquement l’éligibilité à l’ALD 0,450
+      texte: Délivrance des médicaments à l'unité 0,550 Contrôler systématiquement l’éligibilité à l’ALD 0,450
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: partielle
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 1.18
+      bas: 0.59
+      haut: 1.18
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: montant * f
+      parametres:
+        montant:
+          valeur: 1.0
+          source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+          unite: Md€ (2026)
+          note: chiffre du candidat (contre-budget 2026)
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+      explication: >-
+        Chiffre du RN projeté ; aucune évaluation publique des économies de la délivrance à l'unité ni du contrôle des
+        ALD. Bas : moitié (convention).
+    confiance: faible
   - id: gestion-dette-btf
     libelle: Réforme de la gestion des BTF et moindre besoin d'emprunt
     domaine: dette
     citation:
       texte: >-
-        Réforme gestion des (BTF) bons du Trésor à taux fixe et à intérêt précompté 2,500
-        Economie baisse besoin d'emprunt 1,454
+        Réforme gestion des (BTF) bons du Trésor à taux fixe et à intérêt précompté 2,500 Economie baisse besoin d'emprunt
+        1,454
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: vague
     chiffrable: false
     raison_non_chiffrable: >-
       Charge d'intérêts : hors solde primaire (le moindre besoin d'emprunt est un effet de la trajectoire, calculé par
       plan/trajectoire.py ; la « réforme des BTF » relève de la comptabilisation des intérêts précomptés).
-  # --- Dépenses nouvelles ciblées -----------------------------------------------------------------------------
   - id: hausses-credits-ciblees
     libelle: Hausses de crédits (outre-mer, agriculture, protection sociale complémentaire des hospitaliers)
     domaine: etat
     citation:
-      texte: "Augmentation du budget de la mission Outre-mer pour renfoncer les infrastructures et la compétitivité des entreprises 0,700"
+      texte: >-
+        Augmentation du budget de la mission Outre-mer pour renfoncer les infrastructures et la compétitivité des entreprises
+        0,700
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: partielle
     interpretation: >-
       Regroupe aussi « Suppression de la baisse des crédits de la mission agriculture 0,500 » (effet nul si la baisse
       n'a pas été votée en LFI 2026) et « Mise en place dès 2026 de la protection sociale complémentaire pour les agents
       de la fonction publique hospitalière 0,460 ».
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: depense
+    effet_solde_primaire:
+      central: -1.48
+      bas: -1.97
+      haut: -1.48
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: -(outre_mer + psc_fph + agriculture) * f
+      parametres:
+        outre_mer:
+          valeur: 0.7
+          source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+          unite: Md€ (2026)
+          note: chiffre du candidat
+        psc_fph:
+          valeur: 0.46
+          source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+          unite: Md€ (2026)
+          note: chiffre du candidat
+        agriculture:
+          valeur: 0.09
+          source: >-
+            https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087945/file/PAP2026_BG_Agriculture_alimentation_foret_affaires_rurales_AC.pdf
+          unite: Md€ de CP
+          note: baisse effectivement votée des CP de la mission Agriculture (4,216 → 4,126 Md€, LFI 2025 → LFI 2026)
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+      explication: >-
+        Outre-mer et protection sociale complémentaire des hospitaliers au chiffre du RN ; « suppression de la baisse
+        des crédits agriculture » limitée à la baisse réellement votée (0,09 Md€ de CP au lieu de 0,5). Bas : montant
+        du RN pour l'agriculture.
+    confiance: moyenne
   - id: golden-share-atos-arcelor-opella
     libelle: Prise de participations (« golden share ») dans Atos, ArcelorMittal France et Opella
     domaine: industrie
     citation:
-      texte: "Achat d'une Golden share dans ATOS, Arcelor et Opella 0,496"
+      texte: Achat d'une Golden share dans ATOS, Arcelor et Opella 0,496
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: 2025-10-23
+      date: '2025-10-23'
     precision: precise
     chiffrable: false
     raison_non_chiffrable: >-
-      Opération financière ponctuelle (acquisition d'actifs) sans effet sur le solde public en comptabilité nationale ;
-      effet sur la dette seulement (0,5 Md€).
-  # --- Logement -----------------------------------------------------------------------------------------------------
+      Opération financière ponctuelle (acquisition d'actifs) sans effet sur le solde public en comptabilité nationale
+      ; effet sur la dette seulement (0,5 Md€).
   - id: plus-values-immobilieres-15-ans
     libelle: Exonération des plus-values immobilières après 15 ans de détention (au lieu de 22/30 ans)
     domaine: logement
     citation:
-      texte: "Les exonérations de plus-value seront ramenées à quinze ans."
-      url: https://rassemblementnational.fr/lettre-ouverte/lettre-ouverte-de-marine-le-pen-aux-professionnels-de-limmobilier
-      date: 2026-09-21
+      texte: Les exonérations de plus-value seront ramenées à quinze ans.
+      url: >-
+        https://rassemblementnational.fr/lettre-ouverte/lettre-ouverte-de-marine-le-pen-aux-professionnels-de-limmobilier
+      date: '2026-09-21'
     precision: partielle
     interpretation: Exonération totale d'IR et de prélèvements sociaux après 15 ans supposée (aujourd'hui 22 et 30 ans).
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: >-
+      Aucune donnée publique ne ventile les plus-values immobilières imposées par durée de détention (le produit de l'imposition
+      des revenus et plus-values immobiliers, 6,5 Md€ selon FIPECO, mêle revenus fonciers et plus-values) ; le coût dépend
+      aussi de l'effet d'anticipation des ventes.
   - id: abrogation-loi-sru
     libelle: Abrogation de la loi SRU (quotas de logements sociaux et prélèvements sur les communes)
     domaine: logement
     citation:
-      texte: "Nous abrogerons la loi SRU et redonnerons aux maires la liberté de décider pour leur commune."
-      url: https://rassemblementnational.fr/lettre-ouverte/lettre-ouverte-de-marine-le-pen-aux-professionnels-de-limmobilier
-      date: 2026-09-21
+      texte: Nous abrogerons la loi SRU et redonnerons aux maires la liberté de décider pour leur commune.
+      url: >-
+        https://rassemblementnational.fr/lettre-ouverte/lettre-ouverte-de-marine-le-pen-aux-professionnels-de-limmobilier
+      date: '2026-09-21'
     precision: precise
     chiffrable: false
     raison_non_chiffrable: >-
       Prélèvements SRU (≈ 0,1 Md€/an, redistribués aux EPF et au FNAP) : transfert interne aux APU, effet net sur le
       solde négligeable.
   - id: suppression-zan-normes-logement
-    libelle: Suppression du ZAN, simplification des normes, libération du foncier public, assouplissement DPE, portabilité des prêts
+    libelle: >-
+      Suppression du ZAN, simplification des normes, libération du foncier public, assouplissement DPE, portabilité des
+      prêts
     domaine: logement
     citation:
-      texte: "Nous supprimerons le ZAN et rendrons aux communes, en particulier aux communes rurales, la maîtrise de leur foncier."
-      url: https://rassemblementnational.fr/lettre-ouverte/lettre-ouverte-de-marine-le-pen-aux-professionnels-de-limmobilier
-      date: 2026-09-21
+      texte: >-
+        Nous supprimerons le ZAN et rendrons aux communes, en particulier aux communes rurales, la maîtrise de leur foncier.
+      url: >-
+        https://rassemblementnational.fr/lettre-ouverte/lettre-ouverte-de-marine-le-pen-aux-professionnels-de-limmobilier
+      date: '2026-09-21'
     precision: partielle
     chiffrable: false
     raison_non_chiffrable: Mesures réglementaires sans effet budgétaire direct.
-  # --- Énergie, Europe, non budgétaires -----------------------------------------------------------------------------
   - id: prix-national-electricite
     libelle: Sortie des règles européennes de fixation du prix de l'électricité (prix national)
     domaine: energie
     citation:
-      texte: "Nous allégerons les effets néfastes de certaines surtranspositions et nous retrouverons notamment un prix national de l’électricité qui, en abaissant les factures, redonnera à la France un véritable avantage compétitif."
-      url: https://www.lejdd.fr/politique/jordan-bardella-president-du-rn-je-nai-pas-lentreprise-honteuse-172413
-      date: 2026-04-25
+      texte: >-
+        Nous allégerons les effets néfastes de certaines surtranspositions et nous retrouverons notamment un prix national
+        de l’électricité qui, en abaissant les factures, redonnera à la France un véritable avantage compétitif.
+      url: >-
+        https://www.lejdd.fr/politique/jordan-bardella-president-du-rn-je-nai-pas-lentreprise-honteuse-172413
+      date: '2026-04-25'
       support: presse
     precision: vague
     chiffrable: false
@@ -743,43 +1924,46 @@ mesures:
     libelle: Abandon de l'ETS2 et baisse de la fiscalité des carburants au niveau européen
     domaine: energie
     citation:
-      texte: "Le texte demande enfin l’abandon de l’ETS2, nouvelle taxe carbone européenne prévue dès 2028."
-      url: https://rassemblementnational.fr/communiques/carburants-que-bruxelles-laisse-enfin-les-etats-baisser-les-taxes
-      date: 2026-09-24
+      texte: Le texte demande enfin l’abandon de l’ETS2, nouvelle taxe carbone européenne prévue dès 2028.
+      url: >-
+        https://rassemblementnational.fr/communiques/carburants-que-bruxelles-laisse-enfin-les-etats-baisser-les-taxes
+      date: '2026-09-24'
     precision: vague
     interpretation: >-
       Résolution d'un eurodéputé RN (J.-P. Garraud). Les recettes françaises des enchères ETS2 (à partir de 2028) seraient
       perdues, compensées en partie par la fin du Fonds social pour le climat ; pas d'engagement national chiffré.
     chiffrable: false
-    raison_non_chiffrable: Demande adressée à l'UE, sans engagement national précis ; effet dépendant d'une décision européenne.
+    raison_non_chiffrable: >-
+      Demande adressée à l'UE, sans engagement national précis ; effet dépendant d'une décision européenne.
   - id: defense-lpm
     libelle: Sanctuariser la trajectoire de la loi de programmation militaire
     domaine: defense
     citation:
-      texte: "Sanctuariser la trajectoire budgétaire de la Loi de Programmation Militaire"
+      texte: Sanctuariser la trajectoire budgétaire de la Loi de Programmation Militaire
       url: https://rassemblementnational.fr/documents/202406-programme.pdf
       date: 2024-06
     precision: partielle
     chiffrable: false
-    raison_non_chiffrable: >-
-      Conforme à la législation en vigueur (LPM) : pas d'écart à la référence.
+    raison_non_chiffrable: 'Conforme à la législation en vigueur (LPM) : pas d''écart à la référence.'
   - id: referendum-immigration-droit-du-sol
     libelle: Référendum sur l'immigration, suppression du droit du sol, priorité nationale constitutionnelle
     domaine: immigration
     citation:
-      texte: "Suppression du droit du sol"
+      texte: Suppression du droit du sol
       url: https://rassemblementnational.fr/documents/202406-programme.pdf
       date: 2024-06
     precision: partielle
     interpretation: >-
-      Reconfirmé par le porte-parole S. Rambaud (septembre 2026 : « la consultation du peuple par référendum sur la politique migratoire »).
+      Reconfirmé par le porte-parole S. Rambaud (septembre 2026 : « la consultation du peuple par référendum sur la politique
+      migratoire »).
     chiffrable: false
     raison_non_chiffrable: Réforme institutionnelle et du droit de la nationalité sans effet budgétaire direct.
   - id: securite-justice-penale
-    libelle: Peines planchers, présomption de légitime défense des policiers, majorité pénale à 16 ans, places de prison
+    libelle: >-
+      Peines planchers, présomption de légitime défense des policiers, majorité pénale à 16 ans, places de prison
     domaine: securite
     citation:
-      texte: "Instituer une présomption de légitime défense pour les forces de l’ordre"
+      texte: Instituer une présomption de légitime défense pour les forces de l’ordre
       url: https://rassemblementnational.fr/documents/202406-programme.pdf
       date: 2024-06
     precision: vague
@@ -791,8 +1975,11 @@ mesures:
     libelle: Toute révision de la Constitution soumise à référendum
     domaine: institutions
     citation:
-      texte: "Marine Le Pen propose que toute modification du texte fondamental ne puisse désormais être validée que par le peuple via un référendum."
-      url: https://presseagence.fr/paris-marine-le-pen-pouvoir-dachat-budget-et-institutions-au-coeur-de-son-projet/
+      texte: >-
+        Marine Le Pen propose que toute modification du texte fondamental ne puisse désormais être validée que par le
+        peuple via un référendum.
+      url: >-
+        https://presseagence.fr/paris-marine-le-pen-pouvoir-dachat-budget-et-institutions-au-coeur-de-son-projet/
       date: 2026-09
       support: presse
     precision: precise

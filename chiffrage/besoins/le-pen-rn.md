@@ -77,3 +77,24 @@ Montants en Md€ par an, régime 2032 sauf mention. Entre parenthèses : mesure
   intra-journalières (taxe-transactions-intrajournalieres) ; dividendes « exceptionnels » (taxe-superdividendes).
 - Volume annuel des CEE (Md€) et dépenses qu'ils financent (rebudgetisation-cee).
 - Rendement documenté des plans antifraude (lutte-contre-fraudes).
+
+## Barèmes à ajouter (phase 2 : paramètres sourcés utilisés faute de barème)
+
+- `cfe_rendement` : CFE 7,7 Md€ (2024, FIPECO « Les impôts sur la production ») ; `impots_production_entreprises` :
+  86,8 Md€ (2024, même source).
+- `is_retour_impots_production` : retour d'IS au taux moyen effectif de 20 % (Institut Montaigne, législatives 2024).
+- `retraites_40_annuites_avant_20_ans` : coût du départ à 60 ans avec 40 annuités pour les carrières commencées avant 20
+  ans (Institut Montaigne 2024 : 26,5 Md€ en 2027, hors abrogation 2023).
+- `exoneration_hausse_salaires_10pct` : Institut Montaigne 2024 (0,8 / 4,8 / 12 Md€ les années 1, 3, 5 ; 15 Md€ bruts à terme).
+- `quotient_familial_part_2e_enfant` : 3,4 Md€ (2024, LexImpact via Institut Montaigne).
+- `tva_produits_premiere_necessite_0` : 4,7 à 8,8 Md€ (2023, Institut Montaigne).
+- `preference_nationale_prestations` : Montaigne 2,5 (5 ans de travail) + 3,3 (prestations familiales) ; IFRAP 6 à 7 Md€.
+- `cspe_enr_croissance_annuelle` : CRE, délibération 2026-149 (éolien + PV 6,25 → 7,29 Md€ de 2026 à 2027 ; soutien
+  engagé jusqu'en 2029).
+- Crédits PLF 2026 (Sénat) : Anah 1,5 ; mission APD 3,67 ; fonds vert 1,085 ; aide à l'embauche d'apprentis 2,37 ; mission
+  Agriculture LFI 2026 4,126 (CP).
+- Mesures votées en LFI/LFSS 2026 et leurs rendements : taxe petits colis 0,40 ; hausse TSBA 2025 ≈ 0,8 ; ACRE 0,184 ;
+  ruptures conventionnelles 0,26 ; taxe holdings (≈ 0,9 au PLF, non chiffrée en LFI).
+- Manquants (mesures laissées non chiffrables) : nombre et revenus des retraités en cumul emploi-retraite ; plus-values
+  immobilières par durée de détention ; volume des rachats d'actions ; allocations chômage versées aux étrangers ; visas
+  pour soins.
