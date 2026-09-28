@@ -137,6 +137,20 @@ mesures:
     de relance. LFI invoque des effets de relance (multiplicateurs FR-BDF, « au bout de cinq ans, on sera en dessous des 3
     % de déficit ») : non comptés (règle 3).'
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Rejoué : 13,9 (retour 62 ans, Cnav 15,7 moins suspension 1,8) + 18 (0,5 pt de PIB, FIPECO) + 2,5 × 4,4 (durée)
+      = 42,9. Cohérent avec le droit du 29/09/2026 (170 trimestres gelés, reprise en 2028). Recouvrement partiel entre les
+      composantes : l''effet âge (FIPECO, durée constante) et l''effet durée (Cour des comptes, 4,4 majorant 2035) se chevauchent
+      pour les carrières longues partant à 60 ans (l''âge à 60 ne joue que pour ceux qui ont 160 trimestres), ; l''écart de
+      durée est pris de 170 à 160 trimestres alors que le calendrier Touraine en 2032 est proche de 171 (≈ +1 Md€ ignoré).
+      Ces deux effets de sens opposé restent dans la fourchette. Décote non ajoutée (pas de double compte), Mico et trimestres
+      RSA chiffrés à part. Borne basse (-75) inclut des effets d''activité (hors règle 3), à lire comme borne extrême. Montaigne
+      2022 (36 à 113 Md€, référence avant la réforme 2023, avec minimum et RSA) : notre central est inférieur à son bas projeté
+      (≈ 49 Md€ en 2032) car nous excluons décote, minimum et RSA (chiffrés à part ou non comptés). Barèmes retraites_retour_62_ans_2032
+      et retraites_age_60_depuis_62 suspects (voir rapport).'
 - id: pension-minimale-smic
   libelle: Pensions portées au moins au SMIC revalorisé pour une carrière complète ; minimum vieillesse au seuil de pauvreté
   domaine: retraites
@@ -156,9 +170,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -8.41
-    bas: -10.5
-    haut: -5.5
+    central: -15.63
+    bas: -17.35
+    haut: -8.41
     montee_en_charge:
       '2027': 0
       '2028': 1
@@ -167,34 +181,31 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: -(smic_net_cible - part_smic * smic_net_2026) / 100 * mico_100e * fp26
+    formule: -(cb_mico + cb_agricole) * fp26
     parametres:
-      smic_net_cible:
-        valeur: 1700
-        unite: € net par mois
-        source: https://www.lexpress.fr/economie/jean-luc-melenchon-et-le-smic-a-1-700-euros-cest-un-mauvais-outil-de-lutte-contre-la-pauvrete-TL3NGV6CXVCDVH6WPVLHJ5BUFY/
-        note: 'SMIC revalorisé retenu en central (décision de chiffrage : engagement du 7 juin 2026)'
-      part_smic:
-        valeur: 0.85
-        unite: part du SMIC net
-        source: https://blog.ipp.eu/2023/02/09/au-dela-des-1200-euros-quelles-perspectives-de-reforme-pour-les-petites-pensions/
-        note: objectif actuel de pension à 85 % du SMIC net pour une carrière complète au SMIC
-      smic_net_2026:
-        valeur: 1477.93
-        unite: € net par mois
-        source: https://www.service-public.gouv.fr/particuliers/vosdroits/F2300
-      mico_100e:
-        valeur: 1.6
-        unite: Md€ par an (régimes de base)
-        bareme: retraites_minimum_contributif_hausse_100e
+      cb_mico:
+        valeur: 8.2
+        unite: Md€ (2026, première année)
+        source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+        note: 'montant revendiqué par LFI, contre-budget 2026 : « Augmenter le minimum contributif (Mico) pour relever les
+          petites pensions : 8,2 milliards d''euros » ; « appelée à monter en charge »'
+      cb_agricole:
+        valeur: 5.0
+        unite: Md€ (2026, première année)
+        source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+        note: '« Assurer de réelles retraites agricoles en portant le minimum de pension au niveau du SMIC revalorisé, soit
+          1 600 euros net par mois, y compris pour les retraités actuels : 5 milliards d''euros »'
       fp26:
         valeur: 1.1842
         unite: facteur PIB nominal 2026→2032
         source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
         note: '1,2106 / (1,00858 × 1,01358) : croissance réelle et déflateur 2026 du FMI (plan/hypotheses.yaml)'
-    explication: 'Écart entre 1 700 € et le minimum actuel (85 % du SMIC net 2026 ≈ 1 256 €), soit 444 € par mois, valorisé
-      à 1,6 Md€ par tranche de 100 € (barème Mico, régimes de base) et projeté en 2032. Bas : 2,0 Md€ par tranche (haut indiqué
-      par le barème pour 2032) ; haut : SMIC à 1 600 € (344 € d''écart) sans projection.'
+    explication: 'Central : montants revendiqués par LFI pour le Mico (8,2) et les retraites agricoles au SMIC (5) dans le
+      contre-budget 2026 (première année, « appelée à monter en charge »), projetés en 2032 (× 1,1842) = 15,6 Md€. Le barème
+      linéaire (1,6 Md€ par tranche de 100 €, soit 8,4 Md€) sous-estime : le nombre de retraités à carrière complète sous
+      1 700 € net croît avec la cible, et le barème vaut pour le Mico seul. Bas : Institut Montaigne 2022 (MICO à 1 400 €
+      : 12,72 Md€ avec minimum vieillesse) × 1,3643 = 17,4 Md€ ; haut : ancienne valeur linéaire du barème (8,4 Md€). Le minimum
+      vieillesse au seuil de pauvreté n''est toujours pas chiffré.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 12.72
@@ -207,6 +218,13 @@ mesures:
     date: '2025-10-24'
     commentaire: Mico 8,2 Md€ + retraites agricoles au SMIC 5 Md€.
   confiance: faible
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Extrapolation linéaire du barème Mico (1,6 Md€/100 €) donnait -8,41, sous les 13,2 Md€ revendiqués par LFI
+      pour la seule première année et sous Montaigne (12,72 Md€ en 2022, 17,4 en 2032, non projetés) : la borne basse ne couvrait
+      même pas le chiffre du parti. Central ancien -8,41 (devient la borne haute).'
 - id: indexation-pensions-salaires
   libelle: Indexation des pensions sur les salaires
   domaine: retraites
@@ -261,6 +279,16 @@ mesures:
   effets_retour: 'CSG, CASA et impôt sur le revenu prélevés sur la hausse des pensions : retour partiel non chiffré par le
     barème.'
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Rejoué : 0,7 × 5 × 5,0 = 17,5. Droit constant respecté (pensions indexées sur les prix ; le coût est l''écart
+      salaires-prix cumulé 2028-2032). Cohérent avec les 3,3 Md€ de LFI pour la première année (0,7 × 5,0 = 3,5). Réserves
+      : coût brut, la CSG/CRDS/CASA et l''IR prélevés sur la hausse (retour certain d''environ 10 %) ne sont pas déduits,
+      contrairement au point d''indice (net d''un quart) : écart de convention favorable au programme dans le sens prudent
+      (surestime le coût d''environ 1,5 à 2 Md€) ; périmètre tous régimes (les complémentaires relèvent des partenaires sociaux)
+      retenu au central, régimes de base seuls au haut.'
 - id: suppression-decote
   libelle: Suppression de la décote
   domaine: retraites
@@ -291,9 +319,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -1.9
-    bas: -7.7
-    haut: -1.9
+    central: -2.59
+    bas: -10.51
+    haut: -2.59
     montee_en_charge:
       '2027': 0
       '2028': 0.2
@@ -302,15 +330,22 @@ mesures:
       '2031': 0.8
       '2032': 1
   calcul:
-    formule: -cout_equipe
+    formule: -cout_equipe * f22
     parametres:
       cout_equipe:
         valeur: 1.9
         unite: Md€ (euros 2022)
         source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/retablir-la-retraite-a-60-ans-apres-40-ans-annees-de-cotisation/
         note: contre-chiffrage de l'équipe de campagne 2022 transmis à l'Institut Montaigne
-    explication: 'Central : chiffrage de l''équipe de campagne (1,9 Md€) ; bas : Institut Montaigne (7,7 Md€). Montants 2022
-      non projetés. Montée lente : ne concerne que les nouveaux retraités.'
+      f22:
+        valeur: 1.3643
+        unite: facteur PIB nominal 2022→2032
+        source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2022 : 2 654,0 Md€ (INSEE, indicateur
+          finances.pib_nominal@1.0.0) ; 3 620,9 / 2 654,0'
+        note: 'les chiffrages Institut Montaigne de 2022 sont en euros 2022 : projetés en euros courants 2032 (vérification
+          du 2026-09-29)'
+    explication: 'Central : chiffrage de l''équipe de campagne 2022 (1,9 Md€ en euros 2022) projeté en euros 2032 (× 1,3643)
+      ; bas : Institut Montaigne (7,7 Md€) projeté. Montée lente : ne concerne que les nouveaux retraités.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 7.7
@@ -318,6 +353,12 @@ mesures:
     date: '2022'
     commentaire: 'Intégration des années de RSA comme années cotisées (équipe de campagne 2022 : 1,9 Md€).'
   confiance: faible
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Vérification : le montant Institut Montaigne est en euros 2022 ; projeté en euros 2032 (× 1,3643, PIB nominal
+      2022→2032) ; central ancien -1,9 Md€.'
 - id: hausse-cotisation-vieillesse
   libelle: Hausse de 0,25 point par an du taux de cotisation vieillesse et cotisations sur dividendes, intéressement, participation,
     épargne salariale
@@ -397,6 +438,14 @@ mesures:
     commentaire: 'Intéressement, participation, épargne salariale seuls : 6,9 à 9 Md€ (équipe de campagne 2022 : 8,2 Md€)
       ; +0,25 pt/an sur le mandat : 16 Md€ selon l''équipe de campagne 2022.'
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Rejoué : 1,25 × 6,2 × 1,2106 + 6,9 × 1,2336 = 17,9. Montants sourcés (Cour des comptes tableau 8 ; Montaigne
+      6,9-9 Md€ avec réaction des employeurs). Réserves : la part patronale d''employeurs publics (retour négatif) et l''effet
+      sur l''assiette de l''IR ne sont pas comptés ; l''intéressement est projeté depuis 2024 alors que le chiffrage est de
+      2022 (prudent pour une recette). Aucun double compte avec les dividendes (exclus explicitement).'
 - id: smic-1700-net
   libelle: SMIC porté à 1 700 € net par mois
   domaine: travail
@@ -460,6 +509,14 @@ mesures:
   effets_retour: 'Effets sur l''emploi peu qualifié (négatifs selon le groupe d''experts SMIC) et sur la consommation (invoqués
     par LFI) : non comptés.'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Rejoué : 15,03 × 0,31 × 1,2106 = 5,64. Le calcul est linéaire sur +15 % alors que la source (Groupe d''experts
+      SMIC 2017) vaut pour de petites hausses, et le barème smic_1pct_cout_apu (0,31 = quasi son bas 0,24, source de 2017,
+      sans actualisation RGDU) est suspect ; la borne basse (-20, IGF 1,1 Md€/point) couvre l''incertitude. Non compté : refonte
+      des grilles de la fonction publique pour passer sous 1 700 € net (LFI, contre-budget), qui recoupe partiellement point-indice-10-pct.'
 - id: echelle-mobile-salaires
   libelle: Indexation des salaires sur l'inflation (échelle mobile), privé et fonction publique
   domaine: travail
@@ -515,6 +572,19 @@ mesures:
       des autres salaires passe par la négociation et n''a pas d''effet budgétaire direct compté.'
   effets_retour: 'Indexation privée : effets sur les allègements et la prime d''activité, et effets inflationnistes, non comptés.'
   confiance: moyenne
+  verification:
+    statut: conteste
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Arithmétique rejouée (11,04 × 2,2 × 1,28 × 0,75 = 23,3) mais trois réserves, central non modifié : (1) inflation
+      comptée deux fois : la base 2032 est multipliée par 1,28 (PIB nominal, qui contient l''inflation) puis par l''inflation
+      cumulée ; avec un point gelé (base ≈ 2,5 Md€, comme le programme Tondelier) on obtient environ -20,7 ; (2) le quart
+      de retours est une hypothèse du barème non sourcée, alors que le brut 2,2 Md€ contient des cotisations employeurs internes
+      aux APU (CAS Pensions, CNRACL) : retours plus proches de 35 % ; (3) écart de convention avec le programme Tondelier,
+      qui compte -27,6 (11,04 × 2,5) sans aucun retour : avec la même convention, l''écart est de -4,3 Md€. Effet croisé non
+      compté : l''indexation s''applique sur un point déjà relevé de 10 % (≈ -2,3), qui compense à peu près le doublon d''inflation.
+      Pas de double compte avec le +10 % (rattrapage ponctuel, indexation sur les années suivantes) ; le privé n''a pas d''effet
+      direct compté.'
 - id: point-indice-10-pct
   libelle: Point d'indice des fonctionnaires +10 %, dégel inscrit dans la loi, compensation aux collectivités
   domaine: etat
@@ -564,6 +634,15 @@ mesures:
     date: '2025-10-24'
     commentaire: Inclut l'indexation sur l'inflation et la refonte des grilles.
   confiance: haute
+  verification:
+    statut: conteste
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Arithmétique rejouée (10 × 2,2 × 1,28 × 0,75 = 21,1), central non modifié. Mêmes réserves que echelle-mobile-salaires
+      : base × 1,28 (PIB nominal) alors que le point est gelé au droit constant (base ≈ 2,5 Md€ en 2027 → -18,8 net d''un
+      quart, -25 brut) ; quart de retours non sourcé (les cotisations CAS Pensions/CNRACL sont un flux interne : retour plus
+      proche de 35 %) ; écart de convention avec Tondelier (-27,6 pour l''indexation, sans retour). Le +10 % chevauche revalorisation-enseignants
+      (traité : seule la refonte des grilles s''ajoute) et la refonte des grilles liée au SMIC à 1 700 € (non comptée).'
 - id: revalorisation-enseignants
   libelle: Rattrapage du gel du point d'indice depuis 2010 et revalorisation des grilles de l'Éducation nationale
   domaine: education
@@ -617,6 +696,13 @@ mesures:
     date: '2022'
     commentaire: 'Hypothèse d''une revalorisation de 30 % des enseignants : 13,4 Md€ par an (12,2 à 16 Md€).'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 5 Md€ du contre-budget (grilles, bâti, médecine scolaire) × 1,1842 = 5,92 ; source retrouvée dans le contre-budget.
+      Recouvrement avec le +10 % de point d'indice traité (seule la refonte des grilles s'ajoute) ; le bas (Montaigne 13,4
+      Md€ pour +30 %, 2022 non projeté) est un ordre de grandeur cohérent.
 - id: titularisation-precaires-fp
   libelle: Titularisation des contractuels des trois fonctions publiques
   domaine: etat
@@ -646,9 +732,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -14.3
-    bas: -20.4
-    haut: -8.2
+    central: -19.51
+    bas: -27.83
+    haut: -11.19
     montee_en_charge:
       '2027': 0
       '2028': 0.3
@@ -657,7 +743,7 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: -(im_bas + im_haut) / 2
+    formule: -(im_bas + im_haut) / 2 * f22
     parametres:
       im_bas:
         valeur: 8.2
@@ -669,8 +755,16 @@ mesures:
         unite: Md€ (euros 2022)
         source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/creer-une-garantie-demploi-au-smic-pour-les-chomeurs-de-longue-duree-dans-un-secteur-durgence/
         note: estimation haute
-    explication: Milieu de la fourchette de l'Institut Montaigne (2022, SMIC à 1 400 €), non projeté ; le SMIC à 1 700 € relève
-      le coût (sous-estimation probable).
+      f22:
+        valeur: 1.3643
+        unite: facteur PIB nominal 2022→2032
+        source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2022 : 2 654,0 Md€ (INSEE, indicateur
+          finances.pib_nominal@1.0.0) ; 3 620,9 / 2 654,0'
+        note: 'les chiffrages Institut Montaigne de 2022 sont en euros 2022 : projetés en euros courants 2032 (vérification
+          du 2026-09-29)'
+    explication: 'Milieu de la fourchette de l''Institut Montaigne (2022, SMIC à 1 400 €, 8,2 à 20,4 Md€ en euros 2022) projeté
+      en euros 2032 (× 1,3643) ; le SMIC à 1 700 € relève encore le coût (non compté). Bas : haut de la fourchette projeté
+      ; haut : bas projeté.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: null
@@ -680,6 +774,12 @@ mesures:
   effets_retour: Économies d'indemnisation chômage et de RSA partiellement incluses dans la fourchette Montaigne ; effets
     d'activité non comptés.
   confiance: faible
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Vérification : le montant Institut Montaigne est en euros 2022 ; projeté en euros 2032 (× 1,3643, PIB nominal
+      2022→2032) ; central ancien -14,3 Md€.'
 - id: emploi-jeune-5-ans
   libelle: « Emploi spécifique jeune » de cinq ans dans le non-marchand et le public
   domaine: travail
@@ -708,9 +808,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -1.6
-    bas: -1.9
-    haut: -1.3
+    central: -2.18
+    bas: -2.59
+    haut: -1.77
     montee_en_charge: &id002
       '2027': 0
       '2028': 1
@@ -719,7 +819,7 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: -(im_bas + im_haut) / 2
+    formule: -(im_bas + im_haut) / 2 * f22
     parametres:
       im_bas:
         valeur: 1.3
@@ -731,7 +831,15 @@ mesures:
         unite: Md€ (euros 2022)
         source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/generaliser-une-sixieme-semaine-de-conges-payes-pour-tous-les-salaries/
         note: coût APU, estimation haute
-    explication: Coût pour les employeurs publics (Institut Montaigne 2022), non projeté.
+      f22:
+        valeur: 1.3643
+        unite: facteur PIB nominal 2022→2032
+        source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2022 : 2 654,0 Md€ (INSEE, indicateur
+          finances.pib_nominal@1.0.0) ; 3 620,9 / 2 654,0'
+        note: 'les chiffrages Institut Montaigne de 2022 sont en euros 2022 : projetés en euros courants 2032 (vérification
+          du 2026-09-29)'
+    explication: Coût pour les employeurs publics (Institut Montaigne 2022, 1,3 à 1,9 Md€ en euros 2022) projeté en euros
+      2032 (× 1,3643).
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: null
@@ -739,6 +847,12 @@ mesures:
     date: '2022'
     commentaire: Coût pour les administrations publiques de 1,3 à 1,9 Md€ (2022).
   confiance: faible
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Vérification : le montant Institut Montaigne est en euros 2022 ; projeté en euros 2032 (× 1,3643, PIB nominal
+      2022→2032) ; central ancien -1,6 Md€.'
 - id: temps-travail-35h-32h
   libelle: Retour effectif aux 35 heures (heures supplémentaires majorées), 32 heures dans les métiers pénibles ou de nuit
   domaine: travail
@@ -794,6 +908,12 @@ mesures:
     explication: 'Montant du contre-budget projeté en 2032. Faute de seconde source ouverte, la fourchette est conventionnelle
       : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: Contre-budget LFI (3 Md€) × 1,1842 = 3,55 ; montant retrouvé dans le PDF. Faute de contre-expertise ouverte,
+      fourchette conventionnelle. Pas de double compte avec garantie-emploi.
 - id: garantie-autonomie
   libelle: 'Garantie d''autonomie : revenu porté au seuil de pauvreté pour toute personne (dont jeunes détachés du foyer parental)'
   domaine: solidarites
@@ -814,8 +934,8 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -33.66
-    bas: -60.0
+    central: -41.46
+    bas: -73.51
     haut: -22.0
     montee_en_charge:
       '2027': 0
@@ -825,7 +945,7 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: -(jeunes + rsa * (seuil / rsa_forfait - 1) * fp)
+    formule: -(jeunes * f22 + rsa * (seuil / rsa_forfait - 1) * fp)
     parametres:
       jeunes:
         valeur: 21.4
@@ -850,10 +970,19 @@ mesures:
         unite: facteur PIB nominal 2025→2032
         source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
         note: FMI WEO avril 2026 via plan/hypotheses.yaml ; facteur repris en tête de chiffrage/baremes.yaml
-    explication: 'Volet jeunes : Institut Montaigne 2022 (21,4 Md€, scénario correspondant à « détachés du foyer fiscal parental
-      »). Volet adultes : minorant = dépense de RSA × (1 216 / 651,69 − 1), à bénéficiaires constants, projeté en 2032 (≈
-      12,4 Md€) ; l''entrée de nouveaux bénéficiaires (travailleurs pauvres, non-recourants) n''est pas comptée. Bas : scénario
-      Montaigne haut (37,7) + adultes ×1,8 ; haut : jeunes au montant du contre-budget (10 × 1,18) + adultes au central.'
+      f22:
+        valeur: 1.3643
+        unite: facteur PIB nominal 2022→2032
+        source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2022 : 2 654,0 Md€ (INSEE, indicateur
+          finances.pib_nominal@1.0.0) ; 3 620,9 / 2 654,0'
+        note: 'les chiffrages Institut Montaigne de 2022 sont en euros 2022 : projetés en euros courants 2032 (vérification
+          du 2026-09-29)'
+    explication: 'Volet jeunes : Institut Montaigne 2022 (21,4 Md€ en euros 2022, scénario « détachés du foyer fiscal parental
+      »), projeté en euros 2032 (× 1,3643). Volet adultes : minorant = dépense de RSA × (1 216 / 651,69 − 1), à bénéficiaires
+      constants, projeté en 2032 (≈ 12,3 Md€) ; l''entrée de nouveaux bénéficiaires (travailleurs pauvres, non-recourants
+      : le déficit de revenu de tous les ménages sous le seuil de pauvreté est de l''ordre de 30 Md€, hors jeunes) n''est
+      pas comptée. Bas : scénario Montaigne haut (37,7 projeté) + adultes × 1,8 ; haut : jeunes au montant du contre-budget
+      (10 × 1,18) + adultes non projetés.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: null
@@ -862,6 +991,13 @@ mesures:
     commentaire: 'Volet jeunes (2022) : 12,3 Md€ (sous conditions de ressources) à 21,4 Md€ (sans condition), jusqu''à 37,7
       Md€ avec effets de comportement.'
   confiance: faible
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Vérification : le montant Institut Montaigne est en euros 2022 ; projeté en euros 2032 (× 1,3643, PIB nominal
+      2022→2032) ; central ancien -33,66 Md€. Le volet adultes reste un minorant (bénéficiaires constants) : signalé, borne
+      basse élargie en conséquence. Pas de double compte avec aah-smic (AAH chiffrée à part, exclue ici).'
 - id: aah-smic
   libelle: AAH portée au niveau du SMIC
   domaine: solidarites
@@ -911,6 +1047,13 @@ mesures:
     date: '2025-10-24'
     commentaire: Première année ; sous-estimé au regard de l'écart AAH/SMIC.
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Rejoué : 14,6 × (1 700/1 041,59 − 1) × 1,2106 = 11,17 (le facteur 2026→2032, 1,1842, donnerait 10,9 : écart
+      0,2 Md€ sans effet). AAH 14,6 Md€ (Sénat PLF 2026) et plafond 1 041,59 € retrouvés. À bénéficiaires constants : minorant
+      (le bas -14 couvre +25 % de bénéficiaires). Chevauchement avec garantie-autonomie exclu (AAH à part).'
 - id: apl-10-pct
   libelle: Revalorisation des APL de 10 %
   domaine: logement
@@ -948,6 +1091,12 @@ mesures:
     explication: 10 % de la dépense d'aides personnelles au logement, projetée en 2032 ; fourchette ±20 % (hausse des bénéficiaires,
       retard de revalorisation).
   confiance: haute
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: '10 % × 16,1 Md€ (Sénat PLF 2026) × 1,2106 = 1,95 (facteur 2026→2032 : 1,91). Droit constant : barème APL
+      indexé sur l''IRL, la hausse de 10 % est un surplus.'
 - id: asf-deconjugalisee
   libelle: Allocation de soutien familial déconjugalisée et revalorisée
   domaine: solidarites
@@ -985,6 +1134,11 @@ mesures:
     explication: 'Montant du contre-budget projeté en 2032. Faute de seconde source ouverte, la fourchette est conventionnelle
       : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 0,9 Md€ (contre-budget) × 1,1842 = 1,07.
 - id: protections-periodiques-gratuites
   libelle: Gratuité des protections périodiques
   domaine: sante
@@ -1020,6 +1174,11 @@ mesures:
     explication: 'Montant du contre-budget (avec l''arrêt menstruel) projeté en 2032. Faute de seconde source ouverte, la
       fourchette est conventionnelle : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: '1,6 Md€ (contre-budget : protections menstruelles et arrêt menstruel) × 1,1842 = 1,89.'
 - id: premiere-tranche-gratuite-energie-eau
   libelle: Première tranche gratuite d'électricité, de chaleur, d'eau et de gaz
   domaine: energie
@@ -1070,6 +1229,11 @@ mesures:
     explication: 'Somme des lignes du contre-budget projetée en 2032. Faute de seconde source ouverte, la fourchette est conventionnelle
       : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: Somme des lignes du contre-budget 2,445 Md€ × 1,1842 = 2,9 ; arithmétique et projection correctes.
 - id: dependance-ehpad-publics
   libelle: 'Service public de la dépendance : 10 000 places par an en EHPAD publics, 210 000 recrutements'
   domaine: solidarites
@@ -1086,9 +1250,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -11.76
-    bas: -13.02
-    haut: -5.88
+    central: -13.93
+    bas: -15.42
+    haut: -6.96
     montee_en_charge:
       '2027': 0
       '2028': 0.2
@@ -1097,7 +1261,7 @@ mesures:
       '2031': 0.8
       '2032': 1
   calcul:
-    formule: -recrutements * cout_etp / 1e9
+    formule: -recrutements * cout_etp * fp26 / 1e9
     parametres:
       recrutements:
         valeur: 210000
@@ -1108,9 +1272,23 @@ mesures:
         unite: € par EQTP et par an
         bareme: cout_soignant_hospitalier_charge
         note: coût d'un soignant hospitalier, pris comme proxy du personnel d'EHPAD public
-    explication: '210 000 recrutements × coût chargé moyen (56 000 €). Bas : 62 000 € ; haut : moitié des recrutements réalisés
-      en 2032. Les 10 000 places par an en EHPAD publics (investissement) ne sont pas ajoutées faute de coût unitaire sourcé.'
+      fp26:
+        valeur: 1.1842
+        unite: facteur PIB nominal 2026→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: '1,2106 / (1,00858 × 1,01358) : croissance réelle et déflateur 2026 du FMI (plan/hypotheses.yaml)'
+    explication: '210 000 recrutements × coût chargé moyen (56 000 € : salaires 2023, cotisations 2026, barème) projeté en
+      euros 2032 (× 1,1842, masse salariale au rythme du PIB nominal). Bas : 62 000 € ; haut : moitié des recrutements réalisés
+      en 2032. Les 10 000 places par an en EHPAD publics (investissement) ne sont pas ajoutées faute de coût unitaire sourcé
+      : sous-estimation.'
   confiance: faible
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: '210 000 × 56 000 € = 11,76 Md€ en euros 2023-2026 non projetés vers 2032 ; ajout × 1,1842. Central ancien
+      -11,76. Réserves : les places d''EHPAD (investissement) ne sont pas chiffrées ; les cotisations CNRACL de l''employeur
+      (37,65 %) sont en partie un flux interne aux APU (coût net inférieur, non déduit).'
 - id: violences-sexistes-2-6-md
   libelle: Loi contre les violences sexistes et sexuelles dotée de 2,6 Md€
   domaine: justice
@@ -1140,6 +1318,12 @@ mesures:
         note: montant cité par le programme
     explication: 'Montant inscrit dans le programme (2,6 Md€) ; bas : 2,9 Md€ du contre-budget (« loi intégrale »).'
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 2,6 Md€ cité par le programme, sans projection (montant en euros courants 2026-2027) ; l'écart avec la projection
+      2032 (× 1,18 = 3,1) est de 0,5 Md€, sous le seuil de correction.
 - id: gratuite-ecole-cantine
   libelle: 'Gratuité réelle de l''école : cantine (bio), transports, périscolaire, fournitures et manuels'
   domaine: education
@@ -1158,8 +1342,8 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -6.9
-    bas: -8.7
+    central: -9.41
+    bas: -11.87
     haut: -4.26
     montee_en_charge:
       '2027': 0
@@ -1169,16 +1353,23 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: -im_public
+    formule: -im_public * f22
     parametres:
       im_public:
         valeur: 6.9
         unite: Md€ (euros 2022)
         source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/assurer-la-gratuite-de-leducation-publique-et-du-materiel-scolaire/
         note: gratuité limitée aux établissements publics
-    explication: 'Institut Montaigne 2022 (établissements publics), non projeté. Bas : estimation haute Montaigne (8,7, avec
-      le privé sous contrat) ; haut : contre-budget 2026 (3,6 × 1,18). La cantine gratuite est présentée comme immédiate (braderie
-      de Lille).'
+      f22:
+        valeur: 1.3643
+        unite: facteur PIB nominal 2022→2032
+        source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2022 : 2 654,0 Md€ (INSEE, indicateur
+          finances.pib_nominal@1.0.0) ; 3 620,9 / 2 654,0'
+        note: 'les chiffrages Institut Montaigne de 2022 sont en euros 2022 : projetés en euros courants 2032 (vérification
+          du 2026-09-29)'
+    explication: 'Institut Montaigne 2022 (établissements publics, 6,9 Md€ en euros 2022), projeté en euros 2032 (× 1,3643).
+      Bas : estimation haute Montaigne (8,7, avec le privé sous contrat) projetée ; haut : contre-budget 2026 (3,6 × 1,18).
+      La cantine gratuite est présentée comme immédiate (braderie de Lille).'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 6.9
@@ -1186,6 +1377,12 @@ mesures:
     date: '2022'
     commentaire: 6,9 Md€ par an limité au public, 8,3 Md€ avec le privé sous contrat, haut 8,7 Md€ (2022).
   confiance: moyenne
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Vérification : le montant Institut Montaigne est en euros 2022 ; projeté en euros 2032 (× 1,3643, PIB nominal
+      2022→2032) ; central ancien -6,9 Md€. Chevauchement avec cantine-100-bio limité (surcoût bio seul là-bas).'
 - id: cantine-100-bio
   libelle: Cantines scolaires 100 % biologiques et locales
   domaine: education
@@ -1203,20 +1400,27 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -2.3
-    bas: -2.8
-    haut: -1.19
+    central: -3.14
+    bas: -3.77
+    haut: -1.62
     montee_en_charge: *id003
   calcul:
-    formule: -surcout
+    formule: -surcout * f22
     parametres:
       surcout:
         valeur: 2.3
         unite: Md€ (euros 2022)
         source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/porter-lalimentation-de-la-cantine-scolaire-a-100-biologique-et-locale/
         note: 1,64 € de surcoût × 1,4 milliard de repas
-    explication: 'Surcoût du 100 % bio (Institut Montaigne) ; bas : +20 % (hausse des prix alimentaires depuis 2022, convention)
-      ; haut : chiffrage de l''équipe de campagne 2022 (1,19).'
+      f22:
+        valeur: 1.3643
+        unite: facteur PIB nominal 2022→2032
+        source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2022 : 2 654,0 Md€ (INSEE, indicateur
+          finances.pib_nominal@1.0.0) ; 3 620,9 / 2 654,0'
+        note: 'les chiffrages Institut Montaigne de 2022 sont en euros 2022 : projetés en euros courants 2032 (vérification
+          du 2026-09-29)'
+    explication: 'Surcoût du 100 % bio (Institut Montaigne, 2,3 Md€ en euros 2022) projeté en euros 2032 (× 1,3643). Bas :
+      +20 % ; haut : chiffrage de l''équipe de campagne 2022 (1,19 Md€) projeté.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 2.3
@@ -1224,6 +1428,12 @@ mesures:
     date: '2022'
     commentaire: 'Surcoût de 1,64 € par repas × 1,4 milliard de repas ; équipe de campagne 2022 : 1,19 Md€.'
   confiance: moyenne
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Vérification : le montant Institut Montaigne est en euros 2022 ; projeté en euros 2032 (× 1,3643, PIB nominal
+      2022→2032) ; central ancien -2,3 Md€.'
 - id: classes-19-eleves
   libelle: Effectifs par classe sous la moyenne européenne (19 élèves)
   domaine: education
@@ -1240,9 +1450,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -7.5
-    bas: -11.0
-    haut: -4.6
+    central: -10.23
+    bas: -15.01
+    haut: -6.28
     montee_en_charge:
       '2027': 0
       '2028': 0.2
@@ -1251,15 +1461,22 @@ mesures:
       '2031': 0.9
       '2032': 1
   calcul:
-    formule: -croisiere
+    formule: -croisiere * f22
     parametres:
       croisiere:
         valeur: 7.5
         unite: Md€ (euros 2022)
         source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/reduire-les-effectifs-a-19-eleves-par-classe/
         note: coût en rythme de croisière une fois les classes créées
-    explication: Institut Montaigne 2022 (rythme de croisière 7,5 Md€ ; fourchette 4,6 à 11). La baisse démographique des
-      effectifs scolaires réduit le coût (côté haut).
+      f22:
+        valeur: 1.3643
+        unite: facteur PIB nominal 2022→2032
+        source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2022 : 2 654,0 Md€ (INSEE, indicateur
+          finances.pib_nominal@1.0.0) ; 3 620,9 / 2 654,0'
+        note: 'les chiffrages Institut Montaigne de 2022 sont en euros 2022 : projetés en euros courants 2032 (vérification
+          du 2026-09-29)'
+    explication: Institut Montaigne 2022 (rythme de croisière 7,5 Md€ en euros 2022 ; fourchette 4,6 à 11) projeté en euros
+      2032 (× 1,3643). La baisse démographique des effectifs scolaires réduit le coût (côté haut).
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 6.8
@@ -1267,6 +1484,12 @@ mesures:
     date: '2022'
     commentaire: Scénario médian à l'horizon 2027 (4,6 à 11 Md€) ; 7,5 Md€ en rythme de croisière.
   confiance: moyenne
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Vérification : le montant Institut Montaigne est en euros 2022 ; projeté en euros 2032 (× 1,3643, PIB nominal
+      2022→2032) ; central ancien -7,5 Md€.'
 - id: aesh-fonctionnaires
   libelle: Corps de fonctionnaires pour les AESH, fin de la mutualisation
   domaine: education
@@ -1304,6 +1527,11 @@ mesures:
     explication: 'Montant du contre-budget projeté en 2032. Faute de seconde source ouverte, la fourchette est conventionnelle
       : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 2,5 Md€ (contre-budget, retrouvé) × 1,1842 = 2,96.
 - id: petite-enfance-500000-places
   libelle: 'Service public de la petite enfance : 500 000 places en cinq ans, gratuité des crèches publiques'
   domaine: education
@@ -1321,9 +1549,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -13.0
-    bas: -17.0
-    haut: -9.5
+    central: -17.74
+    bas: -23.06
+    haut: -12.96
     montee_en_charge:
       '2027': 0
       '2028': 0.2
@@ -1332,7 +1560,7 @@ mesures:
       '2031': 0.8
       '2032': 1
   calcul:
-    formule: -(fonctionnement + investissement / 5)
+    formule: -(fonctionnement + investissement / 5) * f22
     parametres:
       fonctionnement:
         valeur: 9.5
@@ -1344,8 +1572,16 @@ mesures:
         unite: Md€ (euros 2022)
         source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/creer-un-service-public-de-la-petite-enfance-et-ouvrir-500-000-places-en-creche/
         note: investissement sur cinq ans
-    explication: 'Institut Montaigne 2022 : fonctionnement 9,5 Md€ par an + investissement 17,5 Md€ étalé sur cinq ans. Bas
-      : +30 % (fourchette Montaigne jusqu''à 40 Md€ sur la période) ; haut : fonctionnement seul.'
+      f22:
+        valeur: 1.3643
+        unite: facteur PIB nominal 2022→2032
+        source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2022 : 2 654,0 Md€ (INSEE, indicateur
+          finances.pib_nominal@1.0.0) ; 3 620,9 / 2 654,0'
+        note: 'les chiffrages Institut Montaigne de 2022 sont en euros 2022 : projetés en euros courants 2032 (vérification
+          du 2026-09-29)'
+    explication: 'Institut Montaigne 2022 (euros 2022) : fonctionnement 9,5 Md€ par an + investissement 17,5 Md€ étalé sur
+      cinq ans, projetés en euros 2032 (× 1,3643). Bas : +30 % (fourchette Montaigne jusqu''à 40 Md€ sur la période) ; haut
+      : fonctionnement seul.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 9.5
@@ -1354,6 +1590,12 @@ mesures:
     commentaire: 17,5 Md€ d'investissement sur cinq ans et 9,5 Md€ par an de fonctionnement en année pleine (fourchette 17
       à 40 Md€ sur la période).
   confiance: faible
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Vérification : le montant Institut Montaigne est en euros 2022 ; projeté en euros 2032 (× 1,3643, PIB nominal
+      2022→2032) ; central ancien -13,0 Md€.'
 - id: gratuite-enseignement-superieur
   libelle: Gratuité de l'enseignement supérieur, suppression de la CVEC, 15 000 logements étudiants par an
   domaine: education
@@ -1406,9 +1648,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -23.07
-    bas: -23.7
-    haut: -20.6
+    central: -27.32
+    bas: -28.04
+    haut: -24.39
     montee_en_charge:
       '2027': 0
       '2028': 0.3
@@ -1417,7 +1659,7 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: -im * smic_cible / smic_im
+    formule: -im * smic_cible / smic_im * fp26
     parametres:
       im:
         valeur: 19.0
@@ -1432,8 +1674,14 @@ mesures:
         valeur: 1400
         unite: € net (SMIC revalorisé du programme 2022)
         source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/augmenter-le-smic-a-1-400-e-net/
-    explication: 'Institut Montaigne (19 Md€ au SMIC de 1 400 €) porté au SMIC de 1 700 € (×1,21). Bas : 19,5 × 1,21 ; haut
-      : 18 × 1 600/1 400. Économie du SNU (0,13 Md€) négligée.'
+      fp26:
+        valeur: 1.1842
+        unite: facteur PIB nominal 2026→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: '1,2106 / (1,00858 × 1,01358) : croissance réelle et déflateur 2026 du FMI (plan/hypotheses.yaml)'
+    explication: 'Institut Montaigne (19 Md€ pour le SMIC de 1 400 € net de 2022) porté au SMIC de 1 700 € net (× 1,21, ce
+      qui absorbe l''inflation 2022-2026 sur la solde), puis projeté de 2026 à 2032 (× 1,1842, PIB nominal). Bas : 19,5 ×
+      1,21 × 1,1842 ; haut : 18 × 1 600/1 400 × 1,1842 (hors SMIC à 1 700). Économie du SNU (0,13 Md€) négligée.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 19.0
@@ -1442,6 +1690,14 @@ mesures:
     commentaire: Environ 19 Md€ par an pour 680 000 jeunes (85 % d'une classe d'âge), fourchette 18 à 19,5 Md€ ; permis 1,2
       Md€ ; économies (JDC, SMV) 0,5 Md€.
   confiance: moyenne
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Montaigne 2022 (19 Md€ pour 680 000 jeunes, SMIC 1 400 €) : ratio SMIC 1 700/1 400 appliqué mais aucune
+      projection vers 2032 ; ajout × 1,1842 (2026→2032, le ratio de SMIC ayant déjà absorbé l''inflation 2022-2026). Central
+      ancien -23,07. Ordre de grandeur recoupé : 680 000 × 9 mois × 1 700 € net ≈ 10,4 Md€ de solde net, plus cotisations,
+      permis (1,2 Md€), encadrement et hébergement.'
 - id: recherche-investissement
   libelle: Hausse de l'investissement public dans la recherche et l'enseignement supérieur
   domaine: recherche
@@ -1478,6 +1734,11 @@ mesures:
     explication: 'Montant du contre-budget projeté en 2032. Faute de seconde source ouverte, la fourchette est conventionnelle
       : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 2,3 Md€ (1,6 + 0,7, contre-budget) × 1,1842 = 2,72.
 - id: suppression-cir
   libelle: Suppression du crédit d'impôt recherche au profit des universités et organismes
   domaine: recherche
@@ -1524,6 +1785,14 @@ mesures:
       « au profit du financement des universités et instituts de recherche » est une dépense, comptée dans recherche-investissement.'
   effets_retour: 'Baisse possible de la R&D privée et des recettes d''IS associées : non comptée.'
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Rejoué : 7,7 × 1,2106 = 9,32 (Sénat, PLF 2025). Recette brute : le redéploiement vers la recherche publique
+      est compté à part dans recherche-investissement (2,7 Md€, contre-budget) ; le contre-budget ne retient que 3 Md€ (bas).
+      Pas de double compte avec niches-fiscales (CIR exclu). Réaction de l''assiette (repli de la R&D privée, baisse de l''IS)
+      non comptée : central généreux mais borné (bas 3).'
 - id: cent-pour-cent-secu
   libelle: '« 100 % Sécu » : remboursement intégral des soins prescrits, intégration des complémentaires'
   domaine: sante
@@ -1540,9 +1809,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -22.5
-    bas: -27.2
-    haut: -15.0
+    central: -30.7
+    bas: -35.47
+    haut: -20.46
     montee_en_charge:
       '2027': 0
       '2028': 0.5
@@ -1551,15 +1820,23 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: -hcaam
+    formule: -hcaam * f22
     parametres:
       hcaam:
         valeur: 22.5
         unite: Md€ (euros 2022)
         source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/instaurer-le-100-secu-en-remboursant-100-les-soins-de-sante-prescrits-et-en-integrant-les-mutuelles-dans-la-securite-sociale/
         note: 'estimation du HCAAM (janvier 2022) : 18,8 Md€ de dépenses + 3,7 Md€ de pertes de recettes'
-    explication: 'Coût APU du « 100 % Sécu » selon le HCAAM (2022, non projeté). Bas : 22,5 × facteur PIB 2022-2032 approché
-      par 1,2106 (minorant du facteur) ; haut : bas de la fourchette Montaigne (15).'
+      f22:
+        valeur: 1.3643
+        unite: facteur PIB nominal 2022→2032
+        source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2022 : 2 654,0 Md€ (INSEE, indicateur
+          finances.pib_nominal@1.0.0) ; 3 620,9 / 2 654,0'
+        note: 'les chiffrages Institut Montaigne de 2022 sont en euros 2022 : projetés en euros courants 2032 (vérification
+          du 2026-09-29)'
+    explication: 'Coût APU du « 100 % Sécu » selon le HCAAM (janvier 2022, 22,5 Md€ en euros 2022) projeté en euros 2032 (×
+      1,3643 ; la dépense de santé croît au moins comme le PIB). Bas : haut de la fourchette Montaigne (26) projeté ; haut
+      : bas de la fourchette Montaigne (15) projeté.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 22.5
@@ -1570,6 +1847,13 @@ mesures:
   effets_retour: 'Suppression des primes de complémentaire santé pour les ménages et entreprises (gain de pouvoir d''achat)
     ; financement par cotisations non précisé : non compté.'
   confiance: moyenne
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Vérification : le montant Institut Montaigne est en euros 2022 ; projeté en euros 2032 (× 1,3643, PIB nominal
+      2022→2032) ; central ancien -22,5 Md€. Assiette et contenu (18,8 Md€ de dépenses + 3,7 Md€ de pertes de recettes) inchangés
+      ; financement non précisé non compté.'
 - id: recrutement-soignants
   libelle: Plan pluriannuel de recrutement et de revalorisation des soignants
   domaine: sante
@@ -1614,6 +1898,13 @@ mesures:
     date: '2022'
     commentaire: '100 000 soignants (2022) : 4,4 Md€ à l''horizon 2027, 16,2 Md€ cumulés sur le quinquennat.'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: '2,6 Md€ (1,3 + 1,3) × 1,1842 = 3,08 ; ligne « plan pluriannuel de recrutement : 1,3 Md€ » retrouvée dans
+      le PDF ; bas Montaigne (4,4 Md€ à l''horizon 2027, 2022) cohérent. Recouvrement possible avec dependance-ehpad-publics
+      (210 000 recrutements) : non déduit.'
 - id: franchises-medicales
   libelle: Abrogation de la hausse des franchises médicales de 2024
   domaine: sante
@@ -1652,6 +1943,12 @@ mesures:
     explication: 'Abroger la hausse de 2024 coûte le supplément de rendement (2,5 − 1,3 Md€), projeté en 2032. Bas : suppression
       totale des franchises (2,5 × 1,21, version du contre-budget) ; haut : non projeté.'
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Rejoué : (2,5 − 1,3) × 1,2106 = 1,45 ; bas : suppression totale (2,5 × 1,2106 = 3,03). Droit constant :
+      la hausse de 2024 est en vigueur.'
 - id: centres-sante-deserts
   libelle: Réseau public de centres de santé et recrutement de médecins publics contre les déserts médicaux
   domaine: sante
@@ -1688,6 +1985,11 @@ mesures:
     explication: 'Montant du contre-budget projeté en 2032. Faute de seconde source ouverte, la fourchette est conventionnelle
       : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 0,5 Md€ (contre-budget) × 1,1842 = 0,59.
 - id: logements-publics-200000
   libelle: Construction de 200 000 logements publics par an aux normes écologiques
   domaine: logement
@@ -1702,12 +2004,12 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -2.1
+    central: -2.87
     bas: -5.09
-    haut: -1.9
+    haut: -2.59
     montee_en_charge: *id003
   calcul:
-    formule: -(im_bas + im_haut) / 2
+    formule: -(im_bas + im_haut) / 2 * f22
     parametres:
       im_bas:
         valeur: 1.9
@@ -1719,8 +2021,15 @@ mesures:
         unite: Md€ (euros 2022)
         source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/construire-200-000-logements-publics-par-an-pendant-cinq-ans-aux-normes-ecologiques-les-plus-ambitieuses/
         note: coût APU, haut
-    explication: 'Institut Montaigne 2022 (coût APU supplémentaire 1,9 à 2,3 Md€). Bas : contre-budget (2,9 + 1,4 Md€ pour
-      les HLM) × 1,18.'
+      f22:
+        valeur: 1.3643
+        unite: facteur PIB nominal 2022→2032
+        source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2022 : 2 654,0 Md€ (INSEE, indicateur
+          finances.pib_nominal@1.0.0) ; 3 620,9 / 2 654,0'
+        note: 'les chiffrages Institut Montaigne de 2022 sont en euros 2022 : projetés en euros courants 2032 (vérification
+          du 2026-09-29)'
+    explication: 'Institut Montaigne 2022 (coût APU supplémentaire 1,9 à 2,3 Md€ en euros 2022) projeté en euros 2032 (× 1,3643).
+      Bas : contre-budget (2,9 + 1,4 Md€ pour les HLM) × 1,18 ; haut : bas Montaigne projeté.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: null
@@ -1728,6 +2037,12 @@ mesures:
     date: '2022'
     commentaire: Coût pour les APU de 1,9 à 2,3 Md€ par an (2022).
   confiance: moyenne
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Vérification : le montant Institut Montaigne est en euros 2022 ; projeté en euros 2032 (× 1,3643, PIB nominal
+      2022→2032) ; central ancien -2,1 Md€.'
 - id: garantie-universelle-loyers
   libelle: Garantie universelle des loyers
   domaine: logement
@@ -1741,19 +2056,26 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -2.3
-    bas: -2.7
-    haut: -1.8
+    central: -3.14
+    bas: -3.68
+    haut: -2.46
     montee_en_charge: *id003
   calcul:
-    formule: -mediane
+    formule: -mediane * f22
     parametres:
       mediane:
         valeur: 2.3
         unite: Md€ (euros 2022)
         source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/mettre-en-place-une-garantie-universelle-des-loyers/
         note: hypothèse médiane (sinistralité 2,5 %)
-    explication: 'Institut Montaigne 2022 : 1,8 à 2,7 Md€, médiane 2,3.'
+      f22:
+        valeur: 1.3643
+        unite: facteur PIB nominal 2022→2032
+        source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2022 : 2 654,0 Md€ (INSEE, indicateur
+          finances.pib_nominal@1.0.0) ; 3 620,9 / 2 654,0'
+        note: 'les chiffrages Institut Montaigne de 2022 sont en euros 2022 : projetés en euros courants 2032 (vérification
+          du 2026-09-29)'
+    explication: 'Institut Montaigne 2022 : 1,8 à 2,7 Md€, médiane 2,3 (euros 2022), projetés en euros 2032 (× 1,3643).'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 2.3
@@ -1761,6 +2083,12 @@ mesures:
     date: '2022'
     commentaire: 1,8 à 2,7 Md€ par an, médiane 2,3 Md€ (taux de sinistralité 2,5 %).
   confiance: moyenne
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Vérification : le montant Institut Montaigne est en euros 2022 ; projeté en euros 2032 (× 1,3643, PIB nominal
+      2022→2032) ; central ancien -2,3 Md€.'
 - id: renovation-700000-logements
   libelle: Rénovation énergétique d'au moins 700 000 logements par an
   domaine: logement
@@ -1815,6 +2143,15 @@ mesures:
       (capacité d''exécution, convention).'
   effets_retour: 'Investissements publics : effets d''offre et de relance invoqués par LFI, non comptés (règle 3).'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: '200 Md€ sur cinq ans = 40 Md€ par an (durée non précisée : lecture quinquennat) ; les volets sectoriels
+      du contre-budget (≈ 35 Md€ de 2026, 41 en 2032) sont bien passés en non chiffrables (renationalisations, énergies renouvelables,
+      rail, rénovation, industrie, agriculture bio) : pas de double compte avec ces mesures. Réserve : un recouvrement possible
+      avec l''investissement de petite-enfance-500000-places et logements-publics-200000 (non déduit). Enveloppe dépensière
+      chiffrée comme annoncée (règle 6, cas ciblé).'
 - id: energies-renouvelables
   libelle: 'Planification du 100 % renouvelable : filières EnR, stockage, réseau'
   domaine: energie
@@ -1910,6 +2247,13 @@ mesures:
     commentaire: Hypothèse médiane 4,5 Md€ (compensation généralisée, prix du gaz stabilisés à début 2022) ; 11,7 Md€ si les
       prix poursuivaient leur hausse.
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Coût de compensation = (prix de marché − tarif 2017 indexé) × volumes : ne suit pas le PIB, donc Montaigne
+      (4,5 Md€ en 2022) non projeté ; borne basse 11,7 (prix en hausse), haut 0. Réserve de droit : les tarifs réglementés
+      du gaz ont été supprimés en 2023 (rétablissement nécessaire, non pris en compte). Confiance faible.'
 - id: blocage-prix-energie-carburant
   libelle: Blocage des prix des produits de première nécessité (alimentation, énergie, carburant)
   domaine: economie
@@ -1962,6 +2306,12 @@ mesures:
       reste à confirmer. Faute de seconde source ouverte, la fourchette est conventionnelle : bas = 1,5 × central, haut =
       0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 3,5 Md€ (contre-budget, citation) × 1,1842 = 4,14 ; assiette exacte (accise électricité) à confirmer, fourchette
+      conventionnelle.
 - id: tva-transports-5-5
   libelle: TVA à 5,5 % sur les transports en commun
   domaine: transports
@@ -1996,6 +2346,11 @@ mesures:
     explication: 'Montant du contre-budget projeté en 2032. Faute de seconde source ouverte, la fourchette est conventionnelle
       : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 1 Md€ (contre-budget) × 1,1842 = 1,18.
 - id: renationalisations
   libelle: Renationalisation d'EDF et d'Engie, retour sur les privatisations (autoroutes, aéroports, FDJ)
   domaine: economie
@@ -2039,7 +2394,7 @@ mesures:
   nature: depense
   effet_solde_primaire:
     central: -3.62
-    bas: -4.34
+    bas: -12.81
     haut: -2.13
     montee_en_charge: *id003
   calcul:
@@ -2054,7 +2409,10 @@ mesures:
         valeur: 36.2
         unite: Md€ courants 2032 par point de PIB
         bareme: point_pib_2032
-    explication: '0,1 point de PIB 2032. Bas : +20 % (gratuité des musées en sus) ; haut : contre-budget (1,8 × 1,18).'
+    explication: '0,1 point de PIB 2032. Bas : +20 % (gratuité des musées en sus) ; haut : contre-budget (1,8 × 1,18). Borne
+      basse révisée (vérification) : dépense publique de culture COFOG 08.2 France 2024 = 0,646 % du PIB (Eurostat, indicateur
+      culture.depense_publique_culture@1.0.0) : passer à 1 % du PIB coûterait 0,354 point × 36,2 = 12,8 Md€ si la promesse
+      se lit sur ce périmètre (le contre-budget ne chiffre que 1,8 Md€ pour le ministère).'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 3.0
@@ -2062,6 +2420,12 @@ mesures:
     date: '2022'
     commentaire: Surcoût de près de 3 Md€ par an à l'horizon 2027.
   confiance: moyenne
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Central inchangé (0,1 point, base Montaigne 0,9 % du PIB) ; borne basse portée de -4,34 à -12,8 (lecture
+      COFOG 08.2 : base 0,646 % du PIB en 2024, source Eurostat). Incertitude de périmètre forte.'
 - id: sport-1-pct-budget
   libelle: Budget des sports porté à 1 % du budget de l'État
   domaine: culture
@@ -2096,6 +2460,11 @@ mesures:
     explication: 'Montant du contre-budget projeté en 2032. Faute de seconde source ouverte, la fourchette est conventionnelle
       : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 2 Md€ (contre-budget) × 1,1842 = 2,37.
 - id: aide-developpement-0-7
   libelle: Aide publique au développement à 0,7 % du RNB
   domaine: europe-international
@@ -2110,28 +2479,42 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -3.55
-    bas: -5.33
-    haut: -1.78
+    central: -11.59
+    bas: -11.93
+    haut: -3.55
     montee_en_charge: *id003
   calcul:
-    formule: -cb * fp26
+    formule: -(cible - niveau_2026) / 100 * pib_2032
     parametres:
-      cb:
-        valeur: 3.0
-        unite: Md€ (2026, première année)
+      cible:
+        valeur: 0.7
+        unite: '% du RNB'
         source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
-        note: 'montant revendiqué par LFI, contre-budget 2026 : « Consacrer 0,7 % du revenu national brut à une aide publique
-          au développement (APD) […] : 3 milliards d''euros »'
-      fp26:
-        valeur: 1.1842
-        unite: facteur PIB nominal 2026→2032
-        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
-        note: '1,2106 / (1,00858 × 1,01358) : croissance réelle et déflateur 2026 du FMI (plan/hypotheses.yaml)'
-    explication: 'Montant du contre-budget (première année d''une trajectoire) projeté en 2032. Faute de seconde source ouverte,
-      la fourchette est conventionnelle : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non
-      contre-expertisé).'
+        note: '« Consacrer 0,7 % du revenu national brut à une aide publique au développement » (contre-budget LFI 2026 :
+          3 Md€ pour la première année)'
+      niveau_2026:
+        valeur: 0.38
+        unite: '% du RNB'
+        source: https://www.alternatives-economiques.fr/aide-au-developpement-la-france-s-eloigne-de-son-objectif-au-detriment
+        note: « Après adoption du budget 2026, l'enveloppe pourrait retomber à 0,38 % » (même paramètre que le programme Glucksmann)
+      pib_2032:
+        valeur: 3621
+        bareme: pib_nominal_2032
+        unite: Md€ courants
+        note: RNB approché par le PIB (écart de l'ordre de 1 à 3 %)
+    explication: 'Promesse : 0,7 % du RNB (régime de croisière 2032), comme le programme Glucksmann (même barème de lecture).
+      Écart entre 0,7 % et le niveau 2026 (0,38 %, droit constant) × PIB 2032 = 11,6 Md€ ; le contre-budget 2026 (3 Md€) n''est
+      que la première marche (« appelée à monter en charge »), retenu en haut de fourchette (3 × 1,1842). Bas : RNB supérieur
+      au PIB (× 1,03) = 12,0 Md€.'
   confiance: faible
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Le central chiffrait la seule première année du contre-budget (3 Md€) projetée alors que la promesse est
+      0,7 % du RNB : écart de 0,32 point × 3 621 = 11,6 Md€ en 2032, comme dans le programme Glucksmann (même promesse, même
+      coût). Central ancien -3,55 (devient la borne haute). Réserve : l''APD au sens OCDE inclut des composantes hors solde
+      primaire (prêts, annulations de dette).'
 - id: dotations-collectivites
   libelle: Hausse et indexation de la DGF des collectivités
   domaine: etat
@@ -2168,6 +2551,13 @@ mesures:
     explication: 'Transfert interne aux APU : l''effet sur le solde dépend de la dépense supplémentaire des collectivités.
       Central : dépensé en totalité ; haut : 0 (épargné) ; bas : indexation cumulée plus forte.'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Transfert interne aux APU : central = dépensé en totalité (4,5 × 1,1842 = 5,33), haut = 0 (épargné) ; convention
+      documentée. La première année (4,5 Md€) est projetée par la croissance nominale seule : l''indexation sur l''inflation
+      est comprise.'
 - id: contribution-ue
   libelle: Réduction de la contribution française au budget de l'UE (contribution nette de 9 Md€)
   domaine: europe-international
@@ -2185,7 +2575,7 @@ mesures:
   effet_solde_primaire:
     central: 0.0
     bas: 0.0
-    haut: 10.66
+    haut: 0.0
     montee_en_charge: *id002
   calcul:
     formule: 0 * contribution_nette
@@ -2196,10 +2586,17 @@ mesures:
         source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
         note: 'montant revendiqué par LFI, contre-budget 2026 : « Ce surplus est estimé, en suivant la méthode comptable,
           à 9 milliards d''euros chaque année. Nous proposons de minorer d''autant la contribution française »'
-    explication: 'Central nul : la contribution (PSR-UE) résulte du règlement sur les ressources propres adopté à l''unanimité
-      ; une minoration unilatérale n''est pas juridiquement opposable et exposerait à des intérêts de retard. Haut : 9 Md€
-      × 1,18 (réalisation complète).'
+    explication: 'Règle 6 (économie ciblée sur un périmètre nommé) : central plafonné par ce que le droit permet, donc nul
+      ; la contribution (PSR-UE) résulte du règlement sur les ressources propres adopté à l''unanimité, une minoration unilatérale
+      n''est pas opposable et exposerait à des intérêts de retard. Bas = 0 ; haut = central = 0 (les 9 Md€ annoncés ne sont
+      pas réalisables sans renégociation).'
   confiance: faible
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Règle 6 révisée : pour une économie ciblée, haut = central (le central étant plafonné à 0 par le droit).
+      Le haut était de +10,66 (9 × 1,18, « réalisation complète »), non conforme. Central inchangé (0).'
 - id: services-publics-proximite-postes
   libelle: Rattrapage des postes manquants dans les services publics et plan proximité
   domaine: etat
@@ -2237,6 +2634,13 @@ mesures:
     explication: 'Somme des lignes du contre-budget projetée en 2032. Faute de seconde source ouverte, la fourchette est conventionnelle
       : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Somme des lignes du contre-budget (5,4 Md€) × 1,1842 = 6,39. Une ligne (rattrapage des postes : 2 Md€) est
+      retrouvée dans le PDF ; la somme est paraphrasée, les composantes (0,5 + 2,3 + 0,2 + 0,4) sont cohérentes avec les lignes
+      du document. Recouvrement possible avec point-indice-10-pct et recrutement-soignants (rattrapage hôpital) : non déduit.'
 - id: defense-souveraine
   libelle: Loi de programmation militaire d'indépendance, pôle public de l'armement
   domaine: defense
@@ -2305,6 +2709,15 @@ mesures:
   effets_retour: 'LFI invoque des recettes supplémentaires « fruit naturel d''une politique de relance » (contre-budget 2026)
     : non comptées.'
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Barème isf_retabli_gain_net rejoué (ISF 2017 4,1 Md€ × 1,58 − IFI 2,8 × 1,2106 = 3,1). Écart avec les 15
+      Md€ revendiqués (LFI) expliqué. Non comptés : le « renforcement » (barème plus lourd) et le volet climatique (Montaigne
+      0,5 Md€). Chevauchement avec la taxe Zucman : l''ISF payé par les foyers de plus de 100 M€ (de l''ordre de 1 Md€) s''impute
+      sur l''impôt plancher : couvert seulement dans la borne basse de taxe-zucman-2-pct, non déduit du central (≈ -1 Md€
+      possible).'
 - id: taxe-zucman-2-pct
   libelle: Impôt plancher de 2 % sur le patrimoine des milliardaires (taxe Zucman)
   domaine: fiscalite
@@ -2363,6 +2776,14 @@ mesures:
   effets_retour: 'Effets sur l''investissement et l''entrepreneuriat invoqués par les opposants (Aghion et al., Bergeaud)
     : non comptés.'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Rejoué : 20 × 0,26 × 1,2106 = 6,3. Réaction de l''assiette documentée par le CAE (0,26, note de septembre
+      2025, extrait retrouvé) ; 20 Md€ retrouvés dans le contre-budget. Le CAE n''a pas évalué la taxe Zucman elle-même :
+      coefficient appliqué faute de mieux (signalé). Recoupement ISF (≈ 1 Md€ non déduit du central) et risque constitutionnel
+      non chiffrés ; bornes 3,9 à 24,2 larges.'
 - id: impot-universel-zucman-multinationales
   libelle: Impôt universel sur les entreprises (taxation selon l'activité réalisée en France), « taxe Zucman » sur les multinationales
   domaine: fiscalite
@@ -2417,6 +2838,13 @@ mesures:
     commentaire: 'Juge « très théorique » le produit de 26 Md€ attendu par le NFP : suppose une coopération internationale
       effective.'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Rejoué : 2,2 × 1,2336 = 2,71 (scénario bas intermédiaire Montaigne) ; bornes 0 et 26,3 (Tax Observatory)
+      cohérentes avec règle 4. Projection depuis 2024 sur un chiffrage 2022 : prudent pour une recette (asymétrie avec les
+      coûts projetés depuis 2022, environ -0,3 Md€).'
 - id: suppression-flat-tax
   libelle: 'Suppression du prélèvement forfaitaire unique : revenus du capital au barème'
   domaine: fiscalite
@@ -2455,6 +2883,12 @@ mesures:
     date: '2022'
     commentaire: Gain de 2,1 à 2,3 Md€ à assiette constante, 1,5 Md€ avec effets de comportement.
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Barème pfu_passage_bareme (0,6, convention de moitié du coût statique) ; contre-budget 2,7 Md€. Double compte
+      avec dividendes, taxe de 10 % et cotisations : traité par la réaction commune.'
 - id: ir-14-tranches
   libelle: Impôt sur le revenu à 14 tranches
   domaine: fiscalite
@@ -2501,6 +2935,12 @@ mesures:
     date: '2022'
     commentaire: 'Hypothèse de barème de l''Institut : +4,7 Md€ par an.'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Rejoué : 4,7 × 1,2336 = 5,8 (barème hypothétique Montaigne). Bas 0 (barème calibrable à rendement nul).
+      CSG progressive non comptée à part (5,5 Md€ pour les deux dans le contre-budget) : pas de double compte.'
 - id: csg-progressive
   libelle: CSG progressive à 14 tranches
   domaine: fiscalite
@@ -2542,7 +2982,7 @@ mesures:
   chiffrable: true
   nature: recette
   effet_solde_primaire:
-    central: 5.0
+    central: 6.17
     bas: 2.9
     haut: 13.6
     montee_en_charge:
@@ -2553,7 +2993,7 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: estimation_avec_comportements
+    formule: estimation_avec_comportements * f24
     parametres:
       estimation_avec_comportements:
         valeur: 5.0
@@ -2561,11 +3001,16 @@ mesures:
         source: https://www.ifrap.org/budget-et-fiscalite/nouveau-front-populaire-pourquoi-le-chiffrage-du-programme-par-la-fondation-ifrap-differe-t-il-de-celui-du-parti
         note: 'IFRAP sur la même mesure du NFP : « un alourdissement de la fiscalité sur les successions massif ne devrait
           pas accroître le rendement des DMTG de plus de 5 milliards d''euros »'
-    explication: 'Central = 5 Md€, estimation de l''IFRAP qui intègre l''optimisation (donations anticipées, assurance-vie,
-      départs) et le risque constitutionnel de l''héritage maximal. Bas = médiane statique de l''Institut Montaigne (9 Md€,
-      2022) × 0,26 (part conservée après évitement, CAE 2025) × 1,2336 (PIB 2024→2032) ≈ 2,9 Md€. Haut = estimation haute
-      de l''Institut Montaigne (11 Md€, y compris la fin des avantages sur les assiettes spécifiques au-delà de 12 M€) × 1,2336
-      ≈ 13,6 Md€. Montée : décès à partir de 2028.'
+      f24:
+        valeur: 1.2336
+        unite: facteur PIB nominal 2024→2032
+        source: 'chiffrage/baremes.yaml, barème pib_nominal_2032, dérivation (« d''un montant 2024 : 1,2336 »)'
+        note: estimation IFRAP de juin 2024, projetée en 2032
+    explication: 'Central = 5 Md€, estimation de l''IFRAP (juin 2024, borne « de plus de 5 Md€ » : elle intègre l''optimisation
+      et le risque constitutionnel) × 1,2336 (PIB 2024→2032) ≈ 6,2 Md€. Bas = médiane statique de l''Institut Montaigne (9
+      Md€, 2022) × 0,26 (part conservée après évitement, CAE 2025) × 1,2336 ≈ 2,9 Md€. Haut = estimation haute de l''Institut
+      Montaigne (11 Md€, y compris la fin des avantages sur les assiettes spécifiques au-delà de 12 M€) × 1,2336 ≈ 13,6 Md€.
+      Montée : décès à partir de 2028.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 9.0
@@ -2578,6 +3023,13 @@ mesures:
     date: '2024-06-24'
     commentaire: 'Pour le NFP (17 Md€ annoncés), l''IFRAP juge le produit « fantaisiste » : au plus +5 Md€ de DMTG.'
   confiance: faible
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'L''estimation IFRAP (2024) n''était pas projetée en euros 2032 alors que les bornes le sont : × 1,2336,
+      soit +1,2 Md€ (recette). Central ancien 5,0. Le central reste sous les 10 Md€ revendiqués par LFI ; l''IFRAP donne 5
+      comme plafond (« pas plus de »), le central est donc généreux au regard de cette source.'
 - id: pacte-dutreil
   libelle: Forte limitation du pacte Dutreil
   domaine: fiscalite
@@ -2620,6 +3072,12 @@ mesures:
       resserré le pacte (actifs somptuaires exclus, engagement individuel porté à six ans, selon Deloitte) ; seul l''avantage
       résiduel est visé.'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Rejoué : 4,5 × 0,5 × 1,2106 = 2,72 ; 4,5 Md€ = dépenses fiscales DMTG, majorant du Dutreil. Pas de double
+      compte avec successions (central IFRAP hors niches).'
 - id: is-progressif
   libelle: Impôt sur les sociétés progressif selon le bénéfice et son usage ; IS majoré pour les très grandes entreprises
   domaine: fiscalite
@@ -2670,6 +3128,13 @@ mesures:
       et grands groupes ») réduit l''IS des PME : convention d''une moitié du produit, faute de barème. Bas = 0 (baisse PME
       égale à la surtaxe), haut = pérennisation intégrale sans baisse.'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Rejoué : (66,9 − 59,9) × 0,5 × 1,2106 = 4,24. Référence correcte (contribution exceptionnelle éteinte après
+      l''exercice 2026, REFERENCE.md). Convention de la moitié pour la baisse PME non sourcée, bornes 0 et 8,5. Pas de double
+      compte avec taxe-superprofits (non chiffrable).'
 - id: taxe-dividendes-rachats
   libelle: Taxe de solidarité de 10 % sur les dividendes et taxe de 4 % sur les rachats d'actions
   domaine: fiscalite
@@ -2706,6 +3171,14 @@ mesures:
       10 Md€ remboursés (IGF). La taxe de 4 % sur les rachats d''actions ne rapporte rien de plus : la loi de finances pour
       2025 a déjà créé une taxe pérenne de 8 % sur les réductions de capital consécutives aux rachats (KPMG, CMS).'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: '10 % × 66 Md€ de dividendes soumis (1,98/3 %) = 6,6 : cohérent avec les 6 Md€ du contre-budget. La décote
+      de l''assiette (non projeté) n''est pas une réaction documentée (règle 3) mais reste bornée (bas 0 : censure de la contribution
+      de 3 %, directive mère-fille). Rachats d''actions : 0 (taxe de 8 % déjà en vigueur). Double compte avec suppression-flat-tax
+      et cotisations sur dividendes traité.'
 - id: taxe-transactions-financieres
   libelle: Renforcement de la taxe sur les transactions financières
   domaine: fiscalite
@@ -2750,6 +3223,12 @@ mesures:
       (doublement du taux) × PIB 2025→2032. Bas = 2 dixièmes ; haut = rendement proportionnel au taux (2,5 Md€ par 0,4 point,
       soit un doublement du produit), sans réaction des volumes.'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Rejoué : 0,3 × 4 × 1,2106 = 1,45 ; rendement marginal observé du relèvement de 0,3 à 0,4 %. Reste de l''ordre
+      du tiers des 3 Md€ revendiqués : écart signalé, haut 3,0 (proportionnel).'
 - id: taxe-superprofits
   libelle: Taxe permanente sur les superprofits, tous secteurs
   domaine: fiscalite
@@ -2815,6 +3294,11 @@ mesures:
     explication: 'Règle 6 : enveloppe sans moyens détaillés. Central = part documentée (nulle), bas = 0, haut = montant revendiqué
       (2 Md€). L''exit tax rétablie (25 M€ revendiqués) est négligeable.'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Règle 6 (enveloppe) conforme : central 0 (part documentée nulle), bas 0, haut = annonce 2 Md€.'
 - id: niches-fiscales
   libelle: Suppression des niches fiscales injustes, inefficaces ou polluantes (dont aérien, kérosène, taxe au tonnage)
   domaine: fiscalite
@@ -2862,6 +3346,12 @@ mesures:
     date: '2024-06-24'
     commentaire: Au plus 5 Md€ de niches supprimables d'ici 2027 (sur 25 Md€ annoncés par le NFP).
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Règle 6 (enveloppe) conforme : central 0, bas 0, haut 6,8 (annonce). CIR, Dutreil et heures supplémentaires
+      chiffrés à part, donc exclus.'
 - id: exonerations-cotisations-2-smic
   libelle: Suppression des exonérations de cotisations patronales au-dessus de deux SMIC
   domaine: fiscalite
@@ -2905,6 +3395,12 @@ mesures:
       de 2 SMIC et rétrécit l'assiette) ; haut = 7 Md€ projeté.
   effets_retour: 'Effets sur l''emploi au-delà de 2 SMIC jugés nuls par le CAE (2019) et Bozio-Wasmer (2024) : non comptés.'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Rejoué : (1,5 + 7)/2 × 1,2106 = 5,15 ; deux sources (MECSS Sénat 1,5 ; Groupe d''experts SMIC 7) retrouvées
+      dans l''amendement Sénat. Le SMIC à 1 700 € relève le seuil et rétrécit l''assiette (couvert par le bas 1,5).'
 - id: surcotisation-hauts-salaires
   libelle: Surcotisation sur les hauts salaires
   domaine: fiscalite
@@ -2952,6 +3448,13 @@ mesures:
       patronale sur les heures supplémentaires (barème hs_exoneration_cout, 5,4 Md€ en 2026) × PIB 2025→2032. Chiffrage statique,
       retenu comme haut ; bas = coût 2024 non projeté (5,2 Md€), pour couvrir la baisse du recours aux heures supplémentaires.
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Rejoué : 5,4 × 1,2106 = 6,54 (le facteur 2026→2032, 1,1842, donnerait 6,39 : écart 0,15 Md€). Barème hs_exoneration_cout
+      sourcé (Cour des comptes NEB, PLFSS annexe 4). Statique, sans réaction (haut = central) : la baisse du recours aux heures
+      supplémentaires est dans le bas (5,2).'
 - id: cvae-cfe-retablies
   libelle: Rétablissement de la CVAE et retour sur la baisse de la CFE
   domaine: fiscalite
@@ -2997,6 +3500,13 @@ mesures:
       TFPB (3,75 Md€) n''est pas compté : la baisse de CFE industrielle est compensée par l''État aux collectivités, le gain
       net pour les APU dépend du sort de cette compensation, non précisé.'
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Rejoué : 3,7 × 1,2106 = 4,48. Référence correcte (CVAE supprimée en 2030 au droit voté : le rétablissement
+      rapporte la CVAE qui subsisterait). Le « rétablissement » lu comme retour au niveau d''avant 2023 (11 Md€ revendiqués)
+      est le haut. CFE et TFPB non comptées (compensations).'
 - id: taxe-habitation-aises
   libelle: Taxe d'habitation rétablie pour les 20 % de ménages les plus aisés, barème progressif
   domaine: fiscalite
@@ -3042,6 +3552,13 @@ mesures:
       Barème progressif non publié : bas = montant 2023 non projeté, haut = central. Suppose que l''État récupère la compensation
       (fraction de TVA) versée aux collectivités, sinon la recette est dépensée localement.'
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Rejoué : 7,8 × 1,2336 = 9,62 (Sénat, PLF 2023, coût de la suppression pour les 20 % les plus aisés). Projection
+      au PIB alors que les valeurs locatives suivent l''inflation (≈ +1,2 : 9,4, écart 0,2). Le contre-budget revendique 8
+      Md€ : central au-dessus de la revendication ; suppose que l''État récupère la compensation versée aux collectivités.'
 - id: tva-premiere-necessite-luxe
   libelle: Baisse de la TVA sur les produits de première nécessité, « TVA grand luxe » pour la financer
   domaine: fiscalite
@@ -3097,6 +3614,12 @@ mesures:
     commentaire: Un point de taux réduit ≈ 2,07 Md€ ; baisse maximale (0,5 pt) 1,03 Md€ ; l'application des anciens taux majorés
       rapportait 2,7 Md€ par an.
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: 'Rejoué : 0,5 × 2,0 × 1,2106 = 1,21 ; barème TVA (5,5 % : 2,0 Md€/point). La TVA « grand luxe » (taux majoré
+      interdit par la directive) est comptée à 0 au central.'
 - id: fiscalite-ecologique-importations
   libelle: Taxe kilométrique aux frontières et droits de douane écologiques
   domaine: fiscalite
