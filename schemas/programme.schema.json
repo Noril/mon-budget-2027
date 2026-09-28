@@ -2,100 +2,339 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Programme d'un candidat à chiffrer",
   "type": "object",
-  "required": ["id", "candidat", "parti", "date_collecte", "sources", "mesures"],
+  "required": [
+    "id",
+    "candidat",
+    "parti",
+    "date_collecte",
+    "sources",
+    "mesures"
+  ],
   "additionalProperties": false,
   "properties": {
-    "id": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
-    "candidat": {"type": "string"},
-    "parti": {"type": "string"},
-    "statut_candidature": {"type": "string", "description": "déclaré, primaire, pressenti ; avec date"},
-    "date_collecte": {"type": "string", "format": "date"},
-    "sources": {
-      "type": "array", "minItems": 1,
-      "items": {"type": "object", "required": ["titre", "url"], "additionalProperties": false,
-                "properties": {"titre": {"type": "string"}, "url": {"type": "string"}, "date": {"type": "string"}}}
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
     },
-    "annonce_candidat": {
-      "type": "object", "additionalProperties": false,
-      "description": "Chiffrage global publié par le candidat lui-même, tel quel, pour comparaison",
-      "properties": {
-        "cout_md": {"type": ["number", "null"]}, "financement_md": {"type": ["number", "null"]},
-        "texte": {"type": "string"}, "url": {"type": "string"}
+    "candidat": {
+      "type": "string"
+    },
+    "parti": {
+      "type": "string"
+    },
+    "statut_candidature": {
+      "type": "string",
+      "description": "déclaré, primaire, pressenti ; avec date"
+    },
+    "date_collecte": {
+      "type": "string",
+      "format": "date"
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "titre",
+          "url"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "titre": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        }
       }
     },
-    "notes": {"type": "string"},
-    "mesures": {"type": "array", "items": {"$ref": "#/$defs/mesure"}}
+    "annonce_candidat": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Chiffrage global publié par le candidat lui-même, tel quel, pour comparaison",
+      "properties": {
+        "cout_md": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "financement_md": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "texte": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "notes": {
+      "type": "string"
+    },
+    "mesures": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/mesure"
+      }
+    }
   },
   "$defs": {
     "mesure": {
       "type": "object",
-      "required": ["id", "libelle", "domaine", "citation", "chiffrable"],
+      "required": [
+        "id",
+        "libelle",
+        "domaine",
+        "citation",
+        "chiffrable"
+      ],
       "additionalProperties": false,
       "properties": {
-        "id": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
-        "libelle": {"type": "string"},
-        "domaine": {"type": "string"},
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "libelle": {
+          "type": "string"
+        },
+        "domaine": {
+          "type": "string"
+        },
         "citation": {
-          "type": "object", "required": ["texte", "url"], "additionalProperties": false,
+          "type": "object",
+          "required": [
+            "texte",
+            "url"
+          ],
+          "additionalProperties": false,
           "properties": {
-            "texte": {"type": "string", "description": "extrait verbatim de la source"},
-            "url": {"type": "string"}, "date": {"type": "string"}, "support": {"type": "string"}
+            "texte": {
+              "type": "string",
+              "description": "extrait verbatim de la source"
+            },
+            "url": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            },
+            "support": {
+              "type": "string"
+            }
           }
         },
-        "precision": {"enum": ["precise", "partielle", "vague"], "description": "degré de précision de la promesse"},
-        "interpretation": {"type": "string", "description": "hypothèses de lecture quand la promesse est ambiguë"},
-        "chiffrable": {"type": "boolean"},
-        "raison_non_chiffrable": {"type": "string"},
-        "nature": {"enum": ["depense", "recette", "economie", "baisse_recette", "mixte"]},
+        "precision": {
+          "enum": [
+            "precise",
+            "partielle",
+            "vague"
+          ],
+          "description": "degré de précision de la promesse"
+        },
+        "interpretation": {
+          "type": "string",
+          "description": "hypothèses de lecture quand la promesse est ambiguë"
+        },
+        "chiffrable": {
+          "type": "boolean"
+        },
+        "raison_non_chiffrable": {
+          "type": "string"
+        },
+        "nature": {
+          "enum": [
+            "depense",
+            "recette",
+            "economie",
+            "baisse_recette",
+            "mixte"
+          ]
+        },
         "effet_solde_primaire": {
-          "type": "object", "required": ["central", "bas", "haut", "montee_en_charge"], "additionalProperties": false,
+          "type": "object",
+          "required": [
+            "central",
+            "bas",
+            "haut",
+            "montee_en_charge"
+          ],
+          "additionalProperties": false,
           "description": "Md€ courants par an en régime de croisière (2032). Négatif = dégrade le solde. bas = hypothèse la plus défavorable au solde.",
           "properties": {
-            "central": {"type": "number"}, "bas": {"type": "number"}, "haut": {"type": "number"},
+            "central": {
+              "type": "number"
+            },
+            "bas": {
+              "type": "number"
+            },
+            "haut": {
+              "type": "number"
+            },
             "montee_en_charge": {
-              "type": "object", "description": "part du régime de croisière atteinte chaque année (0 à 1)",
-              "propertyNames": {"pattern": "^20(2[7-9]|3[0-2])$"},
-              "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1.5}
+              "type": "object",
+              "description": "part du régime de croisière atteinte chaque année (0 à 1)",
+              "propertyNames": {
+                "pattern": "^20(2[7-9]|3[0-2])$"
+              },
+              "additionalProperties": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1.5
+              }
+            },
+            "annuel": {
+              "type": "object",
+              "description": "optionnel : effet central en Md€ courants année par année, quand il ne suit pas central × montée en charge (mesure temporaire, avance sur un calendrier légal). Les bornes suivent annuel + (bas − central) × montée en charge.",
+              "propertyNames": {
+                "pattern": "^20(2[7-9]|3[0-2])$"
+              },
+              "additionalProperties": {
+                "type": "number"
+              }
             }
           }
         },
         "calcul": {
-          "type": "object", "required": ["formule", "parametres"], "additionalProperties": false,
+          "type": "object",
+          "required": [
+            "formule",
+            "parametres"
+          ],
+          "additionalProperties": false,
           "description": "formule Python évaluée sur les paramètres ; doit redonner `central` à 0,05 Md€ près",
           "properties": {
-            "formule": {"type": "string"},
+            "formule": {
+              "type": "string"
+            },
             "parametres": {
               "type": "object",
               "additionalProperties": {
-                "type": "object", "required": ["valeur"], "additionalProperties": false,
+                "type": "object",
+                "required": [
+                  "valeur"
+                ],
+                "additionalProperties": false,
                 "properties": {
-                  "valeur": {"type": "number"}, "unite": {"type": "string"},
-                  "bareme": {"type": "string", "description": "id d'un barème de chiffrage/baremes.yaml"},
-                  "source": {"type": "string", "description": "URL si le paramètre ne vient pas d'un barème"},
-                  "note": {"type": "string"}
+                  "valeur": {
+                    "type": "number"
+                  },
+                  "unite": {
+                    "type": "string"
+                  },
+                  "bareme": {
+                    "type": "string",
+                    "description": "id d'un barème de chiffrage/baremes.yaml"
+                  },
+                  "source": {
+                    "type": "string",
+                    "description": "URL si le paramètre ne vient pas d'un barème"
+                  },
+                  "note": {
+                    "type": "string"
+                  }
                 }
               }
             },
-            "explication": {"type": "string"}
+            "explication": {
+              "type": "string"
+            }
           }
         },
         "chiffrages_tiers": {
           "type": "array",
-          "items": {"type": "object", "required": ["auteur", "url"], "additionalProperties": false,
-                    "properties": {"auteur": {"type": "string"}, "montant_md": {"type": ["number", "null"]},
-                                   "url": {"type": "string"}, "date": {"type": "string"}, "commentaire": {"type": "string"}}}
+          "items": {
+            "type": "object",
+            "required": [
+              "auteur",
+              "url"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "auteur": {
+                "type": "string"
+              },
+              "montant_md": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "url": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string"
+              },
+              "commentaire": {
+                "type": "string"
+              }
+            }
+          }
         },
-        "effets_retour": {"type": "string", "description": "effets de second tour invoqués ou probables, NON comptés"},
-        "confiance": {"enum": ["haute", "moyenne", "faible"]},
+        "effets_retour": {
+          "type": "string",
+          "description": "effets de second tour invoqués ou probables, NON comptés"
+        },
+        "confiance": {
+          "enum": [
+            "haute",
+            "moyenne",
+            "faible"
+          ]
+        },
         "verification": {
-          "type": "object", "additionalProperties": false,
-          "properties": {"statut": {"enum": ["ok", "corrige", "conteste"]}, "par": {"type": "string"},
-                         "date": {"type": "string"}, "commentaire": {"type": "string"}}
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "statut": {
+              "enum": [
+                "ok",
+                "corrige",
+                "conteste"
+              ]
+            },
+            "par": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            },
+            "commentaire": {
+              "type": "string"
+            }
+          }
         }
       },
-      "if": {"properties": {"chiffrable": {"const": true}}},
-      "then": {"required": ["nature", "effet_solde_primaire", "calcul", "confiance"]},
-      "else": {"required": ["raison_non_chiffrable"]}
+      "if": {
+        "properties": {
+          "chiffrable": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "nature",
+          "effet_solde_primaire",
+          "calcul",
+          "confiance"
+        ]
+      },
+      "else": {
+        "required": [
+          "raison_non_chiffrable"
+        ]
+      }
     }
   }
 }

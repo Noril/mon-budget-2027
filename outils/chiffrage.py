@@ -114,7 +114,10 @@ def valider() -> list[str]:
 
 def profil(m: dict, cle: str) -> dict[int, float]:
     e = m["effet_solde_primaire"]
-    return {int(a): e[cle] * part for a, part in e["montee_en_charge"].items()}
+    if "annuel" not in e:
+        return {int(a): e[cle] * part for a, part in e["montee_en_charge"].items()}
+    annuel = {int(a): v for a, v in e["annuel"].items()}
+    return {int(a): annuel.get(int(a), 0.0) + (e[cle] - e["central"]) * part for a, part in e["montee_en_charge"].items()}
 
 
 def agreger(p: dict) -> dict:
