@@ -13,6 +13,24 @@ mesure prévue par la loi coûte ce que rapporte cette mesure.
 | Autres mesures des LFI et LFSS 2026 | En vigueur telles que votées, y compris les censures du Conseil constitutionnel. Un contre-budget 2026 qui annule une ligne du PLF 2026 n'a d'effet que si cette ligne a été votée : à vérifier au cas par cas dans les textes promulgués. | [Lextenso](https://www.labase-lextenso.fr/breves/loi-de-financement-de-la-securite-sociale-pour-2026-BREVEBO193) |
 | Dépenses | Pas de « tendanciel » propre au chiffrage : les coûts s'ajoutent à la trajectoire de référence de `plan/` (solde primaire gelé, ou FMI). | `plan/README.md` |
 
+## Indexations : droit constant
+
+Les montants sont mesurés à **droit constant**, pas contre la trajectoire de `plan/` :
+
+- **Point d'indice** : aucune règle d'indexation dans la loi, donc gelé en référence. Promettre de l'indexer sur
+  l'inflation coûte la masse indiciaire × l'inflation cumulée 2027-2032 (déflateur du FMI, `plan/hypotheses.yaml`) ;
+  une « échelle mobile » des salaires publics aussi. Un gel promis coûte zéro.
+- **Pensions et prestations** : indexées sur l'inflation selon la loi (code de la sécurité sociale). Promettre
+  cette indexation coûte zéro ; une sous-indexation (« année blanche ») est une économie ; une indexation sur les
+  salaires est un coût (écart salaires − prix).
+- **Barèmes fiscaux** : l'indexation de l'IR n'est pas automatique ; la référence retient l'usage constant d'une
+  indexation sur l'inflation (coût nul), un gel est donc une recette.
+- **Effet 2032 d'une mesure temporaire ou d'une avance de calendrier** (suppression anticipée de la CVAE, par
+  exemple) : `effet_solde_primaire.annuel` porte les montants année par année.
+
+Ce choix rend les chiffrages comparables entre programmes. La trajectoire de référence de `plan/` (solde primaire
+gelé en points de PIB) n'est pas « à droit constant » : l'écart est une limite connue de l'agrégation.
+
 Points à trancher : les dispositions exactes des LFI et LFSS 2026 sur les allègements généraux, les APL des
 étudiants étrangers et la prime carburant ; relevées par les agents de collecte, elles sont vérifiées mesure par
 mesure et la lecture retenue est écrite dans `interpretation`.
