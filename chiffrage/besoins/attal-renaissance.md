@@ -42,3 +42,13 @@ existent. Montants en Md€ courants, régime de croisière 2032, référence l�
 
 ## Cadre
 - PIB nominal 2027-2032 et solde public de référence (pour l'enveloppe `economies-120-150md`).
+
+## Barèmes à ajouter (phase 2 : paramètres sourcés dans le programme, faute de barème commun)
+- `masse_salariale_privee` : 740,0 Md€ (2025, assiette déplafonnée, Urssaf) ; 1 point de cotisation salariale ≈ 7,4 Md€. https://open.urssaf.fr/explore/dataset/masse-salariale-du-secteur-prive-france-entiere/
+- `salaire_brut_moyen_prive` : 3 602 €/mois (2024) — source secondaire, à remplacer par l'INSEE ou la DARES. https://www.raisin.com/fr-fr/economie/salaire-moyen-france/
+- `pensions_part_masse_sous_seuil` : 9,6 % (< 1 000 €), 15,4 % (< 1 200 €), 23,0 % (< 1 400 €), DREES EIR 2020, calcul par milieux de tranche. https://data.drees.solidarites-sante.gouv.fr/api/explore/v2.1/catalog/datasets/4178_distribution-des-pensions-mensuelles/attachments/eir2020_distribution_des_pensions_mensuelles_xlsx
+- `assurance_chomage_reforme_2024` : 3,6 Md€ (objectif du gouvernement, 2024). https://www.huffingtonpost.fr/economie/article/reforme-de-l-assurance-chomage-les-syndicats-et-le-patronat-parviennent-a-un-accord_242266.html
+- `pensions_alimentaires_defiscalisation` : 0,4 Md€ (séance du Sénat, 28 novembre 2025). https://www.senat.fr/seances/s202511/s20251128/s20251128006.html
+- `aesh_effectifs_cout` : 139 993 AESH, 3,16 Md€ ; revalorisation 2023 = 240 M€/an. https://www.senat.fr/rap/l25-139-313/l25-139-31310.html
+- `prison_cout_place` : ≈ 400 k€ par place (construction), 100 à 150 €/jour de détention ; plan 15 000 places : 5,7 Md€. https://www.ccomptes.fr/fr/publications/le-plan-15000-places-de-prison-une-ambition-forte-une-concretisation-laborieuse
+- `cout_greffier_charge` : absent (magistrat utilisé comme majorant).
