@@ -2,198 +2,453 @@ id: zemmour-reconquete
 candidat: Éric Zemmour
 parti: Reconquête
 statut_candidature: >-
-  Candidat annoncé : « Je suis candidat à la présidence de la République, je serai candidat à l'élection
-  présidentielle » (Face à BFM, BFMTV, 17 septembre 2026) ; déclaration formelle attendue à l'automne 2026 (octobre
-  selon son entourage). Sarah Knafo, vice-présidente de Reconquête et eurodéputée, n'est pas candidate.
-date_collecte: 2026-09-29
+  Candidat annoncé : « Je suis candidat à la présidence de la République, je serai candidat à l'élection présidentielle
+  » (Face à BFM, BFMTV, 17 septembre 2026) ; déclaration formelle attendue à l'automne 2026 (octobre selon son entourage).
+  Sarah Knafo, vice-présidente de Reconquête et eurodéputée, n'est pas candidate.
+date_collecte: '2026-09-29'
 sources:
-  - titre: "Budget : le plan de Sarah Knafo – 24 mesures, 140 Md€ d'économies par an (site budget2026.fr / budget2027.fr, relayé par parti-reconquete.fr)"
+  - titre: >-
+      Budget : le plan de Sarah Knafo – 24 mesures, 140 Md€ d'économies par an (site budget2026.fr / budget2027.fr, relayé
+      par parti-reconquete.fr)
     url: https://www.budget2026.fr/
     date: 2026-09
-  - titre: "Combien je gagne – simulateur carburant (baisse d'un tiers de l'accise, suppression des CEE, « avec Sarah Knafo et Éric Zemmour »)"
+  - titre: >-
+      Combien je gagne – simulateur carburant (baisse d'un tiers de l'accise, suppression des CEE, « avec Sarah Knafo
+      et Éric Zemmour »)
     url: https://combienjegagne.fr/
     date: 2026-09
-  - titre: "CNews (d'après le JDD) – Sarah Knafo dévoile 15 mesures dans son livre « Le Casse du siècle »"
-    url: https://www.cnews.fr/france/2026-08-30/impots-depenses-csg-droits-de-succession-sarah-knafo-devoile-15-mesures-pour
-    date: 2026-08-30
-  - titre: "Capital (Yahoo Finance) – 130 milliards d'économies : Sarah Knafo propose une réforme choc de la CSG"
+  - titre: CNews (d'après le JDD) – Sarah Knafo dévoile 15 mesures dans son livre « Le Casse du siècle »
+    url: >-
+      https://www.cnews.fr/france/2026-08-30/impots-depenses-csg-droits-de-succession-sarah-knafo-devoile-15-mesures-pour
+    date: '2026-08-30'
+  - titre: 'Capital (Yahoo Finance) – 130 milliards d''économies : Sarah Knafo propose une réforme choc de la CSG'
     url: https://fr.finance.yahoo.com/actualites/130-milliards-d%C3%A9conomies-sarah-knafo-103113554.html
-    date: 2026-09-07
-  - titre: "L'Essentiel de l'Éco – Sarah Knafo : ses idées et ses modèles politiques"
+    date: '2026-09-07'
+  - titre: 'L''Essentiel de l''Éco – Sarah Knafo : ses idées et ses modèles politiques'
     url: https://lessentieldeleco.fr/8437-sarah-knafo-ses-idees-et-ses-modeles-politiques/
-    date: 2026-09-20
-  - titre: "Le Figaro (AFP) – Éric Zemmour confirme qu'il sera candidat et durcit encore son discours sur l'immigration"
-    url: https://www.lefigaro.fr/elections/presidentielles/presidentielle-2027-eric-zemmour-confirme-qu-il-sera-candidat-durcit-encore-son-discours-sur-l-immigration-20260918
-    date: 2026-09-18
-  - titre: "BFMTV – Éric Zemmour dit être favorable au départ à « la retraite à 64 ans voire 65 » (Face à BFM)"
-    url: https://www.bfmtv.com/politique/elections/presidentielle/video-eric-zemmour-president-de-reconquete-dit-etre-favorable-au-depart-a-la-retraite-a-64-ans-voire-65_VN-202609170934.html
-    date: 2026-09-17
-  - titre: "CNews – Ce qu'il faut retenir du discours de rentrée d'Éric Zemmour (Port-Marly)"
-    url: https://www.cnews.fr/france/2026-09-13/presidentielle-2027-remigration-intelligence-artificielle-ce-quil-faut-retenir-du
-    date: 2026-09-13
-  - titre: "Touch'Actu – Rentrée de Reconquête à Port-Marly (compte rendu citant Boulevard Voltaire, CNews, Europe 1)"
-    url: https://touch-actu.fr/actualites/portraits-politiques-8743-zemmour-et-knafo-a-port-marly-ce-quil-faut-retenir-de-la-rentree-de-reconquete-avant-2027
-    date: 2026-09-14
-  - titre: "Programme Reconquête – élections européennes 2024"
+    date: '2026-09-20'
+  - titre: >-
+      Le Figaro (AFP) – Éric Zemmour confirme qu'il sera candidat et durcit encore son discours sur l'immigration
+    url: >-
+      https://www.lefigaro.fr/elections/presidentielles/presidentielle-2027-eric-zemmour-confirme-qu-il-sera-candidat-durcit-encore-son-discours-sur-l-immigration-20260918
+    date: '2026-09-18'
+  - titre: BFMTV – Éric Zemmour dit être favorable au départ à « la retraite à 64 ans voire 65 » (Face à BFM)
+    url: >-
+      https://www.bfmtv.com/politique/elections/presidentielle/video-eric-zemmour-president-de-reconquete-dit-etre-favorable-au-depart-a-la-retraite-a-64-ans-voire-65_VN-202609170934.html
+    date: '2026-09-17'
+  - titre: CNews – Ce qu'il faut retenir du discours de rentrée d'Éric Zemmour (Port-Marly)
+    url: >-
+      https://www.cnews.fr/france/2026-09-13/presidentielle-2027-remigration-intelligence-artificielle-ce-quil-faut-retenir-du
+    date: '2026-09-13'
+  - titre: >-
+      Touch'Actu – Rentrée de Reconquête à Port-Marly (compte rendu citant Boulevard Voltaire, CNews, Europe 1)
+    url: >-
+      https://touch-actu.fr/actualites/portraits-politiques-8743-zemmour-et-knafo-a-port-marly-ce-quil-faut-retenir-de-la-rentree-de-reconquete-avant-2027
+    date: '2026-09-14'
+  - titre: Programme Reconquête – élections européennes 2024
     url: https://assets.ericzemmour.fr/document/Programme%20Reconqu%C3%AAte%20Europ%C3%A9ennes%202024.pdf
     date: 2024-05
-  - titre: "Le JDD – Budget 2026 : Sarah Knafo présente un plan d'économies choc de 80 milliards d'euros"
-    url: https://www.lejdd.fr/politique/budget-2026-sarah-knafo-presente-un-plan-deconomies-choc-de-80-milliards-deuros-163182
-    date: 2025-10-20
-  - titre: "Public Sénat – Éric Zemmour officialise sa candidature à la présidentielle 2027"
-    url: https://www.publicsenat.fr/actualites/politique/eric-zemmour-officialise-sa-candidature-a-la-presidentielle-2027
-    date: 2026-09-18
-  - titre: "franceinfo – Vrai ou faux : Sarah Knafo a-t-elle raison de dénoncer un « casse du siècle » ?"
-    url: https://www.franceinfo.fr/vrai-ou-fake/vrai-ou-faux-sarah-knafo-a-t-elle-raison-de-denoncer-dans-son-livre-un-casse-du-siecle-orchestre-par-l-etat-au-detriment-des-contribuables_8175293.html
-    date: 2026-09-08
+  - titre: 'Le JDD – Budget 2026 : Sarah Knafo présente un plan d''économies choc de 80 milliards d''euros'
+    url: >-
+      https://www.lejdd.fr/politique/budget-2026-sarah-knafo-presente-un-plan-deconomies-choc-de-80-milliards-deuros-163182
+    date: '2025-10-20'
+  - titre: Public Sénat – Éric Zemmour officialise sa candidature à la présidentielle 2027
+    url: >-
+      https://www.publicsenat.fr/actualites/politique/eric-zemmour-officialise-sa-candidature-a-la-presidentielle-2027
+    date: '2026-09-18'
+  - titre: 'franceinfo – Vrai ou faux : Sarah Knafo a-t-elle raison de dénoncer un « casse du siècle » ?'
+    url: >-
+      https://www.franceinfo.fr/vrai-ou-fake/vrai-ou-faux-sarah-knafo-a-t-elle-raison-de-denoncer-dans-son-livre-un-casse-du-siecle-orchestre-par-l-etat-au-detriment-des-contribuables_8175293.html
+    date: '2026-09-08'
 annonce_candidat:
   cout_md: null
   financement_md: 140
   texte: >-
-    Aucun chiffrage global publié par Éric Zemmour lui-même. Le volet budgétaire de Reconquête est porté par Sarah
-    Knafo : « 140 milliards d'économies par an. Au minimum. […] 24 mesures : tout est listé, chiffré, sourcé » (site
-    budget2026.fr), après 130 Md€ dans « Le Casse du siècle » (Fayard, 2 septembre 2026) et 80 Md€ dans le contre-budget
-    d'octobre 2025. Ces économies financent des baisses d'impôts : suppression de la CSG sur les revenus d'activité,
-    des droits de succession et des impôts de production, baisse d'un tiers de l'accise sur les carburants (« 12
-    milliards d'euros de manque à gagner pour l'État »). Pas de coût total publié pour ces baisses.
+    Aucun chiffrage global publié par Éric Zemmour lui-même. Le volet budgétaire de Reconquête est porté par Sarah Knafo
+    : « 140 milliards d'économies par an. Au minimum. […] 24 mesures : tout est listé, chiffré, sourcé » (site budget2026.fr),
+    après 130 Md€ dans « Le Casse du siècle » (Fayard, 2 septembre 2026) et 80 Md€ dans le contre-budget d'octobre 2025.
+    Ces économies financent des baisses d'impôts : suppression de la CSG sur les revenus d'activité, des droits de succession
+    et des impôts de production, baisse d'un tiers de l'accise sur les carburants (« 12 milliards d'euros de manque à
+    gagner pour l'État »). Pas de coût total publié pour ces baisses.
   url: https://www.budget2026.fr/
 notes: >-
-  Pas de programme présidentiel 2027 publié au 29 septembre 2026 ; la déclaration formelle est attendue en octobre.
-  Hypothèse de collecte : le programme économique du candidat est le plan de Sarah Knafo (vice-présidente de Reconquête,
-  directrice de campagne en 2022), parce que (1) le site du parti (parti-reconquete.fr) renvoie à ses sites et à son
-  livre, (2) le simulateur carburant présente la baisse de l'accise comme la politique « avec Sarah Knafo et Éric
-  Zemmour », (3) É. Zemmour a salué le livre à Port-Marly (« Les Français ont été les victimes du plus grand casse du
-  siècle »). Aucune de ces mesures n'a encore été reprise mot pour mot par le candidat : toutes les citations Knafo sont
-  marquées dans `interpretation`, et le fichier devra être revu à la publication du programme. Mesures propres au
-  candidat en 2026 : retraite à 64 voire 65 ans, « remigration » (expulsion des étrangers chômeurs depuis un an, des
-  détenus et délinquants étrangers, des clandestins), IA et nucléaire. Le programme présidentiel 2022 (baisse des impôts
-  de production de 30 Md€, 64 ans, etc.) n'est retenu que lorsqu'il a été reconfirmé. Le contre-budget d'octobre 2025
-  (rejet de mesures du PLF 2026 : surtaxe d'IS, CDHR, hausse de la contribution à l'UE) n'est pas repris : il visait la
-  loi de finances 2026, non le programme 2027.
+  Pas de programme présidentiel 2027 publié au 29 septembre 2026 ; la déclaration formelle est attendue en octobre. Hypothèse
+  de collecte : le programme économique du candidat est le plan de Sarah Knafo (vice-présidente de Reconquête, directrice
+  de campagne en 2022), parce que (1) le site du parti (parti-reconquete.fr) renvoie à ses sites et à son livre, (2)
+  le simulateur carburant présente la baisse de l'accise comme la politique « avec Sarah Knafo et Éric Zemmour », (3)
+  É. Zemmour a salué le livre à Port-Marly (« Les Français ont été les victimes du plus grand casse du siècle »). Aucune
+  de ces mesures n'a encore été reprise mot pour mot par le candidat : toutes les citations Knafo sont marquées dans
+  `interpretation`, et le fichier devra être revu à la publication du programme. Mesures propres au candidat en 2026
+  : retraite à 64 voire 65 ans, « remigration » (expulsion des étrangers chômeurs depuis un an, des détenus et délinquants
+  étrangers, des clandestins), IA et nucléaire. Le programme présidentiel 2022 (baisse des impôts de production de 30
+  Md€, 64 ans, etc.) n'est retenu que lorsqu'il a été reconfirmé. Le contre-budget d'octobre 2025 (rejet de mesures du
+  PLF 2026 : surtaxe d'IS, CDHR, hausse de la contribution à l'UE) n'est pas repris : il visait la loi de finances 2026,
+  non le programme 2027.
+  Chiffrage (phase 2) : quand le seul chiffre disponible est celui du candidat (ou de Sarah Knafo), il est projeté en 2032
+  au PIB nominal, le central le reprend et le bas retient la moitié de l'économie (convention, paramètre « convention du
+  chiffrage ») ; les enveloppes d'économies non détaillées suivent la règle 6 (central 0, haut = écart d'affichage).
 mesures:
-  # --- Baisses d'impôts ------------------------------------------------------------------------------------------
   - id: suppression-csg-activite
     libelle: Suppression de la CSG sur les revenus d'activité
     domaine: fiscalite
     citation:
-      texte: "Une mesure révolutionnaire : la suppression de la CSG sur les revenus d’activité. C’est 10% de salaire net en plus pour tous les actifs, sans un centime de coût du travail en plus"
-      url: https://www.cnews.fr/france/2026-08-30/impots-depenses-csg-droits-de-succession-sarah-knafo-devoile-15-mesures-pour
-      date: 2026-08-30
+      texte: >-
+        Une mesure révolutionnaire : la suppression de la CSG sur les revenus d’activité. C’est 10% de salaire net en
+        plus pour tous les actifs, sans un centime de coût du travail en plus
+      url: >-
+        https://www.cnews.fr/france/2026-08-30/impots-depenses-csg-droits-de-succession-sarah-knafo-devoile-15-mesures-pour
+      date: '2026-08-30'
       support: presse (propos de Sarah Knafo au JDD)
     precision: precise
     interpretation: >-
       Proposition de Sarah Knafo, présentée comme la « mesure majeure » financée par les 130 Md€ d'économies (TF1, 7
-      septembre 2026). Perte de recettes de sécurité sociale : CSG sur revenus d'activité (salaires et revenus des
-      indépendants, 9,2 %), hors CSG sur remplacement et capital. Compensation à la sécurité sociale non précisée.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+      septembre 2026). Perte de recettes de sécurité sociale : CSG sur revenus d'activité (salaires et revenus des indépendants,
+      9,2 %), hors CSG sur remplacement et capital. Compensation à la sécurité sociale non précisée.
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: -133.98
+      bas: -133.98
+      haut: -130.42
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: -(taux * point * f)
+      parametres:
+        taux:
+          valeur: 9.2
+          source: >-
+            https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS%20mai%202026_assembl%c3%a9_V2.pdf
+          unite: points
+          note: taux facial de la CSG sur les revenus d'activité
+        point:
+          valeur: 12.03
+          bareme: csg_point_activite
+          unite: Md€ par point de taux
+        f:
+          valeur: 1.2106
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: PIB nominal 2032 / 2025
+      explication: >-
+        Rendement de la CSG d'activité = taux × valeur du point (2025), projeté au PIB. Haut : point 2026 après la réforme
+        de l'assiette des indépendants (11,71 Md€). Retour d'impôt sur le revenu (la CSG déductible disparaît, l'assiette
+        de l'IR augmente) non chiffré faute de source : le coût net est un peu surestimé.
+    effets_retour: >-
+      Hausse de 10 % du salaire net invoquée comme soutien à la consommation et à l'offre de travail : non comptée.
+    confiance: moyenne
   - id: suppression-droits-succession
     libelle: Suppression des droits de succession
     domaine: fiscalite
     citation:
-      texte: "Nous devons abolir les droits de succession"
-      url: https://www.cnews.fr/france/2026-08-30/impots-depenses-csg-droits-de-succession-sarah-knafo-devoile-15-mesures-pour
-      date: 2026-08-30
+      texte: Nous devons abolir les droits de succession
+      url: >-
+        https://www.cnews.fr/france/2026-08-30/impots-depenses-csg-droits-de-succession-sarah-knafo-devoile-15-mesures-pour
+      date: '2026-08-30'
       support: presse (propos de Sarah Knafo au JDD)
     precision: precise
     interpretation: >-
-      Droits de succession seuls (≈ 16 Md€ en 2024), droits de donation maintenus (lecture littérale) ; lecture haute :
-      droits de mutation à titre gratuit en entier (+ ≈ 4,9 Md€ de donations). Le contre-budget d'octobre 2025 chiffrait
-      déjà la suppression à 16 Md€. En 2022, É. Zemmour proposait seulement d'exonérer « une large majorité » des
-      Français : reconfirmation par le candidat à obtenir.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+      Droits de succession seuls (≈ 16 Md€ en 2024), droits de donation maintenus (lecture littérale) ; lecture haute
+      : droits de mutation à titre gratuit en entier (+ ≈ 4,9 Md€ de donations). Le contre-budget d'octobre 2025 chiffrait
+      déjà la suppression à 16 Md€. En 2022, É. Zemmour proposait seulement d'exonérer « une large majorité » des Français
+      : reconfirmation par le candidat à obtenir.
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: -20.13
+      bas: -25.34
+      haut: -20.13
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: -(successions_2026 * f)
+      parametres:
+        successions_2026:
+          valeur: 16.995
+          source: https://www.senat.fr/rap/l25-139-1/l25-139-1_mono.html
+          unite: Md€ (PLF 2026)
+          note: droits de succession seuls (ligne 1706), hors donations
+        f: &id001
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+      explication: >-
+        Droits de succession 2026 projetés au PIB (la tendance historique est plus rapide). Bas : droits de mutation
+        à titre gratuit en entier, donations comprises (barème dmtg_rendement).
+    confiance: moyenne
   - id: suppression-impots-production
     libelle: Suppression des impôts de production
     domaine: fiscalite
     citation:
-      texte: "Parmi elles figurent notamment la suppression des droits de succession, la mise en place d'un système de retraite par capitalisation ou encore la suppression des impôts de production."
+      texte: >-
+        Parmi elles figurent notamment la suppression des droits de succession, la mise en place d'un système de retraite
+        par capitalisation ou encore la suppression des impôts de production.
       url: https://fr.finance.yahoo.com/actualites/130-milliards-d%C3%A9conomies-sarah-knafo-103113554.html
-      date: 2026-09-07
+      date: '2026-09-07'
       support: presse
     precision: vague
     interpretation: >-
-      Périmètre non publié : CFE, C3S et CVAE résiduelle a minima (lecture basse) ; taxe foncière des entreprises,
-      versement mobilité, taxes sur salaires (lecture haute « impôts de production » au sens Insee, ≈ 70 Md€ ?). Le
-      programme 2022 de Zemmour visait 30 Md€ de baisse. Collectivités compensées par l'État.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+      Périmètre non publié : CFE, C3S et CVAE résiduelle a minima (lecture basse) ; taxe foncière des entreprises, versement
+      mobilité, taxes sur salaires (lecture haute « impôts de production » au sens Insee, ≈ 70 Md€ ?). Le programme 2022
+      de Zemmour visait 30 Md€ de baisse. Collectivités compensées par l'État.
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: -12.73
+      bas: -107.08
+      haut: -12.73
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: -((cfe + c3s) * f * (1 - retour_is))
+      parametres:
+        cfe:
+          valeur: 7.7
+          source: https://www.fipeco.fr/fiche/Les-imp%C3%B4ts-sur-la-production
+          unite: Md€ (2024)
+          note: cotisation foncière des entreprises
+        c3s:
+          valeur: 5.2
+          bareme: c3s_rendement
+          unite: Md€/an
+        f: &id002
+          valeur: 1.2336
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: PIB nominal 2032 / 2024
+        retour_is:
+          valeur: 0.2
+          source: >-
+            https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/baisse-des-impots-de-production-cvae-et-c3s
+          unite: part
+          note: retour d'IS au taux moyen effectif de 20 % (Institut Montaigne)
+      explication: >-
+        Lecture centrale : CFE et C3S (la CVAE est déjà supprimée en 2030 par la loi), nettes du retour d'IS. Bas : tous
+        les impôts de production payés par les entreprises (86,8 Md€ en 2024, FIPECO : taxes foncières, taxe sur les
+        salaires, versement mobilités…), projetés, sans retour d'IS.
+    confiance: faible
   - id: accise-carburants-moins-un-tiers
     libelle: Baisse d'un tiers de l'accise sur les carburants (ex-TICPE)
     domaine: fiscalite
     citation:
-      texte: "La baisse de l’accise : 12 milliards d’euros de manque à gagner pour l’État."
+      texte: 'La baisse de l’accise : 12 milliards d’euros de manque à gagner pour l’État.'
       url: https://combienjegagne.fr/
       date: 2026-09
     precision: precise
     interpretation: >-
       « Baisser l'accise d'un tiers : 27 centimes de moins par litre d'essence, 24 centimes par litre de gazole ». Montant
-      annoncé 12 Md€. Le site oppose ce plan « avec Sarah Knafo et Éric Zemmour » à la baisse de TVA du RN. Perte
-      induite de TVA sur l'accise à ajouter (TVA assise sur le prix TTC hors TVA, accise comprise).
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+      annoncé 12 Md€. Le site oppose ce plan « avec Sarah Knafo et Éric Zemmour » à la baisse de TVA du RN. Perte induite
+      de TVA sur l'accise à ajouter (TVA assise sur le prix TTC hors TVA, accise comprise).
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: -9.93
+      bas: -11.38
+      haut: -9.31
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: >-
+        -(centime * (vol_gazole * taux_gazole + vol_essence * taux_essence) / (vol_gazole + vol_essence) / 3)
+      parametres:
+        centime:
+          valeur: 0.48
+          bareme: ticpe_centime_litre
+          unite: Md€/an par centime d'euro par litre
+        vol_gazole:
+          valeur: 34.7
+          source: https://www.statistiques.developpement-durable.gouv.fr/media/9087/download?inline
+          unite: milliards de litres (2024)
+          note: gazole routier 29,3 Mtep converti (0,845 kg/l), dérivation du barème ticpe_centime_litre
+        vol_essence:
+          valeur: 14.8
+          source: https://www.statistiques.developpement-durable.gouv.fr/media/9087/download?inline
+          unite: milliards de litres (2024)
+          note: supercarburants 11,7 Mtep convertis (0,755 kg/l)
+        taux_gazole:
+          valeur: 59.4
+          source: https://www.fipeco.fr/fiche/Les-taxes-sur-les-carburants
+          unite: c€/l (2026)
+        taux_essence:
+          valeur: 68.29
+          source: https://www.fipeco.fr/fiche/Les-taxes-sur-les-carburants
+          unite: c€/l (2026, SP95-E5)
+      explication: >-
+        Baisse moyenne pondérée d'un tiers des taux (≈ 20,7 c€/l) × rendement du centime (barème). Bas : borne haute
+        du barème (TVA induite comprise), haut : borne basse (volumes en baisse). Les taux restent au-dessus des minima
+        européens (33,0 et 35,9 c€/l).
+    chiffrages_tiers:
+      - auteur: Sarah Knafo (simulateur combienjegagne.fr)
+        montant_md: -12
+        url: https://combienjegagne.fr/
+        commentaire: « 12 milliards d'euros de manque à gagner pour l'État »
+    effets_retour: 'Hausse des volumes consommés (élasticité-prix) : non comptée.'
+    confiance: moyenne
   - id: suppression-cee
     libelle: Suppression des certificats d'économie d'énergie
     domaine: energie
     citation:
-      texte: "La suppression des CEE : sans impact sur les comptes publics. Nous supprimons une obligation imposée aux énergéticiens, qui la répercutent sur vos factures."
+      texte: >-
+        La suppression des CEE : sans impact sur les comptes publics. Nous supprimons une obligation imposée aux énergéticiens,
+        qui la répercutent sur vos factures.
       url: https://combienjegagne.fr/
       date: 2026-09
     precision: precise
     chiffrable: false
     raison_non_chiffrable: >-
-      Les CEE sont une obligation privée hors comptes publics : pas d'effet direct sur le solde (sauf si des aides
-      publiques devaient reprendre les rénovations financées par les CEE, non prévu).
-  # --- Retraites --------------------------------------------------------------------------------------------------
+      Les CEE sont une obligation privée hors comptes publics : pas d'effet direct sur le solde (sauf si des aides publiques
+      devaient reprendre les rénovations financées par les CEE, non prévu).
   - id: retraite-64-voire-65
     libelle: Âge légal de départ à 64 ans, voire 65 ans
     domaine: retraites
     citation:
-      texte: "Éric Zemmour, président de Reconquête, dit être favorable au départ à “la retraite à 64 ans voire 65”"
-      url: https://www.bfmtv.com/politique/elections/presidentielle/video-eric-zemmour-president-de-reconquete-dit-etre-favorable-au-depart-a-la-retraite-a-64-ans-voire-65_VN-202609170934.html
-      date: 2026-09-17
+      texte: >-
+        Éric Zemmour, président de Reconquête, dit être favorable au départ à “la retraite à 64 ans voire 65”
+      url: >-
+        https://www.bfmtv.com/politique/elections/presidentielle/video-eric-zemmour-president-de-reconquete-dit-etre-favorable-au-depart-a-la-retraite-a-64-ans-voire-65_VN-202609170934.html
+      date: '2026-09-17'
       support: presse (titre de la vidéo BFMTV)
     precision: vague
     interpretation: >-
       Par rapport à la législation au 1er janvier 2027 (réforme 2023 suspendue jusqu'au 1er janvier 2028 puis reprise
-      vers 64 ans) : 64 ans = sortie de la suspension (léger gain 2027-2031, nul en 2032 si 64 ans est atteint), 65 ans =
-      économie supplémentaire. Calendrier et durée de cotisation non précisés. Lecture centrale : 64 ans sans suspension ;
-      haut : 65 ans à terme.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+      vers 64 ans) : 64 ans = sortie de la suspension (léger gain 2027-2031, nul en 2032 si 64 ans est atteint), 65 ans
+      = économie supplémentaire. Calendrier et durée de cotisation non précisés. Lecture centrale : 64 ans sans suspension
+      ; haut : 65 ans à terme.
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 1.65
+      bas: 0.0
+      haut: 4.95
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.5
+        '2029': 1.5
+        '2030': 1.5
+        '2031': 1.5
+        '2032': 1.0
+    calcul:
+      formule: ecart_2032 * an
+      parametres:
+        ecart_2032:
+          valeur: 0.25
+          source: >-
+            chiffrage/REFERENCE.md (âge gelé à 62 ans et 9 mois jusqu'au 1er janvier 2028, puis calendrier 2023 : + 3
+            mois par génération)
+          unite: année
+          note: >-
+            écart d'âge légal en 2032 entre 64 ans immédiats et le calendrier repris le 1er janvier 2028 (62 ans et 9
+            mois gelés, puis + 3 mois par génération) : environ un trimestre
+        an:
+          valeur: 6.6
+          bareme: retraites_age_legal_1_an
+          unite: >-
+            Md€ courants 2032 par an et par année d'âge (coût d'une baisse ; ordre de grandeur du gain d'une hausse montée
+            en charge)
+      explication: >-
+        Lecture centrale : 64 ans sans attendre la fin de la suspension (gain d'environ un trimestre d'âge en 2032).
+        Haut : trajectoire vers 65 ans, dont la moitié atteinte en 2032. Bas : simple maintien du droit (64 ans à terme),
+        gain nul. Montée : l'écart avec le droit est plus grand avant 2032 (un an en 2028) ; profil plafonné à 1,5 fois
+        l'effet 2032 (limite du format).
+    confiance: faible
   - id: retraite-capitalisation
     libelle: Introduction d'un système de retraite par capitalisation
     domaine: retraites
     citation:
-      texte: "Parmi elles figurent notamment la suppression des droits de succession, la mise en place d'un système de retraite par capitalisation ou encore la suppression des impôts de production."
+      texte: >-
+        Parmi elles figurent notamment la suppression des droits de succession, la mise en place d'un système de retraite
+        par capitalisation ou encore la suppression des impôts de production.
       url: https://fr.finance.yahoo.com/actualites/130-milliards-d%C3%A9conomies-sarah-knafo-103113554.html
-      date: 2026-09-07
+      date: '2026-09-07'
       support: presse
     precision: vague
     chiffrable: false
     raison_non_chiffrable: >-
-      Modalités inconnues (part des cotisations basculée, financement de la transition) : trop vague pour être chiffré ;
-      une bascule partielle de cotisations créerait un besoin de financement du régime par répartition.
-  # --- Économies (plan Knafo, 24 mesures) --------------------------------------------------------------------------
+      Modalités inconnues (part des cotisations basculée, financement de la transition) : trop vague pour être chiffrée.
   - id: plan-140-md-economies
     libelle: Enveloppe globale de 140 Md€ d'économies annuelles « au minimum »
     domaine: etat
     citation:
-      texte: "Les Français ont trop payé. Il est temps de dépenser moins pour taxer moins. 24 mesures : tout est listé, chiffré, sourcé."
+      texte: >-
+        Les Français ont trop payé. Il est temps de dépenser moins pour taxer moins. 24 mesures : tout est listé, chiffré,
+        sourcé.
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: partielle
     interpretation: >-
-      Total revendiqué 140 Md€ (livre : 130 Md€). Les 24 mesures sont détaillées ci-dessous ; cette entrée sert à
-      rapprocher leur somme chiffrée du total affiché (règle 6 : central = somme documentée, haut = 140). Ne pas
-      additionner cette entrée aux mesures détaillées.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+      Total revendiqué 140 Md€ (livre : 130 Md€). Les 24 mesures sont détaillées ci-dessous ; cette entrée sert à rapprocher
+      leur somme chiffrée du total affiché (règle 6 : central = somme documentée, haut = 140). Ne pas additionner cette
+      entrée aux mesures détaillées.
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.0
+      bas: 0.0
+      haut: 70.48
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 0.2
+        '2029': 0.4
+        '2030': 0.6
+        '2031': 0.8
+        '2032': 1.0
+    calcul:
+      formule: 0 * annonce + 0 * documente
+      parametres:
+        annonce:
+          valeur: 140
+          source: https://www.budget2026.fr/
+          unite: Md€
+          note: « 140 milliards d'économies par an. Au minimum. »
+        documente:
+          valeur: 69.52
+          source: somme des mesures d'économie de ce fichier
+          unite: Md€ (2032)
+          note: >-
+            retraite-64-voire-65, non-remplacement-800000-departs, gains-productivite-ia-administration, prestations-non-contributives-francais,
+            rsa-limite-trois-ans, fin-soutien-enr-intermittentes, fin-politique-de-la-ville, suppression-anah, suppression-ademe,
+            france-travail-mise-en-relation, suppression-ars, suppression-autres-agences-cese, suppression-aide-publique-developpement,
+            contribution-ue-pre-covid, fin-ame, hebergement-urgence-irreguliers, aide-juridictionnelle-francais, privatisation-audiovisuel-public,
+            subventions-associations-presse-syndicats
+      explication: >-
+        Règle 6. Les 24 mesures du plan sont chiffrées une à une (somme des centraux d'économie : 69.52 Md€) : central
+        = 0 pour éviter le double compte ; haut = écart d'affichage avec les 140 Md€ ; bas = 0.
+    confiance: faible
   - id: non-remplacement-800000-departs
     libelle: Non-remplacement de 800 000 départs dans les fonctions administratives sur le quinquennat
     domaine: fonction-publique
     citation:
-      texte: "Non-remplacement de 800 000 départs administratifs sur l’ensemble du quinquennat, sur 2,3 millions de départs naturels."
+      texte: >-
+        Non-remplacement de 800 000 départs administratifs sur l’ensemble du quinquennat, sur 2,3 millions de départs
+        naturels.
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: precise
@@ -201,290 +456,916 @@ mesures:
       Montant affiché : 40 Md€/an. Enseignants, soignants, policiers et militaires épargnés (Essentiel de l'Éco) : les
       départs en retraite hors ces catégories pourraient ne pas suffire (≈ 137 000 départs/an toutes catégories en 2024).
       Les trois versants (État, territoriale, hospitalière) sont concernés : effet APU.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 35.41
+      bas: 17.76
+      haut: 47.37
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 0.2
+        '2029': 0.4
+        '2030': 0.6
+        '2031': 0.8
+        '2032': 1.0
+    calcul:
+      formule: ecalle * f * min(1, departs * 5 / 800000)
+      parametres:
+        ecalle:
+          valeur: 35
+          source: >-
+            https://www.franceinfo.fr/vrai-ou-fake/vrai-ou-faux-sarah-knafo-a-t-elle-raison-de-denoncer-dans-son-livre-un-casse-du-siecle-orchestre-par-l-etat-au-detriment-des-contribuables_8175293.html
+          unite: Md€ par an (2026)
+          note: 'François Ecalle (Fipeco) : « de l''ordre de 30 à 40 milliards d''euros par an », milieu'
+        f: *id001
+        departs:
+          valeur: 136700
+          bareme: fp_departs_retraite_annuels
+          unite: agents par an
+      explication: >-
+        800 000 postes × coût moyen (Ecalle, 30 à 40 Md€), projeté, limité par les départs en retraite disponibles en
+        cinq ans (136 700 par an, soit 683 500) : 85 %. Bas : les enseignants, soignants, policiers et militaires étant
+        épargnés, environ la moitié seulement des départs est mobilisable (convention). Haut : 800 000 atteints (40 Md€).
     chiffrages_tiers:
       - auteur: François Ecalle (Fipeco), cité par franceinfo
         montant_md: 35
-        url: https://www.franceinfo.fr/vrai-ou-fake/vrai-ou-faux-sarah-knafo-a-t-elle-raison-de-denoncer-dans-son-livre-un-casse-du-siecle-orchestre-par-l-etat-au-detriment-des-contribuables_8175293.html
-        date: 2026-09-08
+        url: >-
+          https://www.franceinfo.fr/vrai-ou-fake/vrai-ou-faux-sarah-knafo-a-t-elle-raison-de-denoncer-dans-son-livre-un-casse-du-siecle-orchestre-par-l-etat-au-detriment-des-contribuables_8175293.html
+        date: '2026-09-08'
         commentaire: >-
           « une réduction effective de 800 000 emplois pourrait rapporter de l'ordre de 30 à 40 milliards d'euros par
           an » (milieu de fourchette consigné), réalisme jugé faible sans réorganisation profonde.
+      - auteur: Sarah Knafo (budget2026.fr)
+        montant_md: 40
+        url: https://www.budget2026.fr/
+    confiance: faible
   - id: gains-productivite-ia-administration
     libelle: Gains de productivité de l'IA dans les fonctions administratives
     domaine: fonction-publique
     citation:
-      texte: "Gains de productivité de l’intelligence artificielle dans les fonctions administratives (estimation calculée à partir du rapport IGF-IGAS 2025)."
+      texte: >-
+        Gains de productivité de l’intelligence artificielle dans les fonctions administratives (estimation calculée
+        à partir du rapport IGF-IGAS 2025).
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: vague
     interpretation: >-
       Montant affiché : 5 Md€. Recoupe probablement la mesure 800 000 départs (mêmes emplois) : risque de double compte.
       É. Zemmour (Port-Marly) veut l'IA « pour remplacer les fonctionnaires à la retraite ».
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.0
+      bas: 0.0
+      haut: 5.92
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 0.2
+        '2029': 0.4
+        '2030': 0.6
+        '2031': 0.8
+        '2032': 1.0
+    calcul:
+      formule: 0 * ia
+      parametres:
+        ia:
+          valeur: 5
+          source: https://www.budget2026.fr/
+          unite: Md€
+          note: chiffre de l'auteure
+      explication: >-
+        Les gains de productivité de l'IA sont le moyen de supprimer les postes de la mesure non-remplacement-800000-departs
+        : central = 0 pour éviter le double compte ; haut = montant affiché.
+    confiance: faible
   - id: prestations-non-contributives-francais
     libelle: Prestations sociales non contributives (RSA, APL, allocations familiales…) réservées aux Français
     domaine: immigration
     citation:
-      texte: "Limitation des prestations sociales non contributives (RSA, APL, allocations familiales…) aux citoyens français."
+      texte: >-
+        Limitation des prestations sociales non contributives (RSA, APL, allocations familiales…) aux citoyens français.
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: partielle
     interpretation: >-
-      Montant affiché : 15 à 20 Md€. Plus large que la mesure RN (condition de 5 ans de travail) : exclusion de tous les
-      étrangers. Constitutionnalité très incertaine (signalée, non déduite).
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+      Montant affiché : 15 à 20 Md€. Plus large que la mesure RN (condition de 5 ans de travail) : exclusion de tous
+      les étrangers. Constitutionnalité très incertaine (signalée, non déduite).
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 8.02
+      bas: 0.72
+      haut: 8.64
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 0.4
+        '2029': 0.7
+        '2030': 0.9
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: ifrap * f
+      parametres:
+        ifrap:
+          valeur: 6.5
+          source: >-
+            https://www.ifrap.org/budget-et-fiscalite/etrangers-en-situation-reguliere-les-conditions-pour-toucher-des-aides-sociales
+          unite: Md€ par an (2023)
+          note: >-
+            « entre 6 et 7 milliards d'euros » de prestations nationales versées aux étrangers en situation régulière,
+            milieu
+        f: *id002
+      explication: >-
+        Exclusion de tous les étrangers des prestations non contributives : ordre de grandeur IFRAP, projeté (facteur
+        2024, légère sous-estimation). Recoupement : RSA 15,6 % des foyers hors UE (≈ 1,8 Md€), APL 2,4 Md€, prestations
+        familiales 1,6 Md€. Bas : nouveaux entrants seulement (droits acquis, Institut Montaigne 0,58). Risque de censure
+        constitutionnelle signalé, non déduit.
+    chiffrages_tiers:
+      - auteur: Sarah Knafo (budget2026.fr)
+        montant_md: 17.5
+        url: https://www.budget2026.fr/
+    confiance: faible
   - id: rsa-limite-trois-ans
     libelle: RSA limité à trois ans pour les bénéficiaires en capacité de travailler
     domaine: social
     citation:
-      texte: "Limitation à trois ans de l’allocation RSA pour les bénéficiaires en capacité de travailler."
+      texte: Limitation à trois ans de l’allocation RSA pour les bénéficiaires en capacité de travailler.
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: partielle
-    interpretation: >-
-      Montant affiché : 4,8 Md€. Reports vers d'autres minima et l'hébergement non chiffrés par l'auteure.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    interpretation: 'Montant affiché : 4,8 Md€. Reports vers d''autres minima et l''hébergement non chiffrés par l''auteure.'
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 4.8
+      bas: 2.4
+      haut: 5.68
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 0.4
+        '2029': 0.7
+        '2030': 0.9
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: annonce * f * (1 - part_etrangers)
+      parametres:
+        annonce:
+          valeur: 4.8
+          source: https://www.budget2026.fr/
+          unite: Md€
+          note: chiffre de l'auteure (budget2026.fr)
+        f: *id001
+        part_etrangers:
+          valeur: 0.156
+          source: https://questions.assemblee-nationale.fr/q16/16-5157QE.htm
+          unite: part
+          note: foyers RSA dont le responsable est hors UE/EEE, déjà exclus par la mesure de préférence nationale
+      explication: >-
+        Chiffre de l'auteure (41 % du RSA versé, 11,7 Md€), projeté, net de la part déjà exclue par la préférence nationale
+        (double compte). Bas : moitié (reports vers d'autres minima et l'hébergement, convention).
+    chiffrages_tiers:
+      - auteur: Sarah Knafo (budget2026.fr)
+        montant_md: 4.8
+        url: https://www.budget2026.fr/
+    confiance: faible
   - id: fraude-sociale-delinquants
     libelle: Lutte contre la fraude sociale et retrait des aides sociales aux délinquants et criminels
     domaine: social
     citation:
-      texte: "Lutte contre la fraude sociale et retrait des aides sociales pour les délinquants et criminels."
+      texte: Lutte contre la fraude sociale et retrait des aides sociales pour les délinquants et criminels.
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: vague
-    interpretation: >-
-      Montant affiché : 2 à 3 Md€.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    interpretation: 'Montant affiché : 2 à 3 Md€.'
+    chiffrable: true
+    nature: recette
+    effet_solde_primaire:
+      central: 0.84
+      bas: 0.0
+      haut: 2.96
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 0.4
+        '2029': 0.7
+        '2030': 0.9
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: recouvrement_2024 * f
+      parametres:
+        recouvrement_2024:
+          valeur: 0.68
+          source: >-
+            https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/HCFIPS/2026/HCFIPS%20-%20Synth%c3%a8se%20Fraude%20sociale%202025%20-%20Version%20finalis%c3%a9e.pdf
+          unite: Md€ recouvrés (2024)
+          note: 'règle du barème fraude_sociale_estimee : gain = doublement du recouvrement'
+        f: *id002
+      explication: >-
+        Barème fraude_sociale_estimee : central = doublement du recouvrement, haut = annonce (2 à 3 Md€), bas = 0.
+    chiffrages_tiers:
+      - auteur: Sarah Knafo (budget2026.fr)
+        montant_md: 2.5
+        url: https://www.budget2026.fr/
+    confiance: faible
   - id: fin-soutien-enr-intermittentes
     libelle: Fin du soutien public aux énergies renouvelables intermittentes
     domaine: energie
     citation:
-      texte: "Fin de l’engagement de soutien public aux énergies renouvelables intermittentes."
+      texte: Fin de l’engagement de soutien public aux énergies renouvelables intermittentes.
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: partielle
     interpretation: >-
       Montant affiché : 8 Md€. Contrats en cours = engagements juridiques (lecture basse : nouveaux contrats seulement).
       Même barème que la mesure RN équivalente.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 3.12
+      bas: 0.0
+      haut: 9.47
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 0.0
+        '2029': 0.0
+        '2030': 0.33
+        '2031': 0.67
+        '2032': 1.0
+    calcul:
+      formule: croissance_annuelle * annees_non_engagees
+      parametres:
+        croissance_annuelle:
+          valeur: 1.04
+          source: https://www.cre.fr/fileadmin/Documents/Deliberations/2026/260715_2026-149_CSPE_2026-2027.pdf
+          unite: Md€ par an
+          note: hausse 2026→2027 des charges éolien + photovoltaïque (6,25 → 7,29 Md€, tableau 3)
+        annees_non_engagees:
+          valeur: 3
+          source: https://www.cre.fr/fileadmin/Documents/Deliberations/2026/260715_2026-149_CSPE_2026-2027.pdf
+          unite: années
+          note: soutien déjà engagé jusqu'en 2029 (« environ +10 GWe … entre 2026 et 2029 »)
+      explication: >-
+        Même lecture que pour le RN : les contrats signés restent dus ; économie sur les contrats non engagés 2030-2032.
+        Haut : montant affiché (8 Md€).
+    chiffrages_tiers:
+      - auteur: Sarah Knafo (budget2026.fr)
+        montant_md: 8
+        url: https://www.budget2026.fr/
+    confiance: faible
   - id: fin-politique-de-la-ville
     libelle: Fin de la politique de la ville
     domaine: logement
     citation:
-      texte: "Fin de la politique de la Ville."
+      texte: Fin de la politique de la Ville.
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: vague
     interpretation: >-
       Montant affiché : 8 Md€ (7,9 Md€ dans le contre-budget 2025). Le programme 147 ne pèse qu'environ 0,6 Md€ ; le
       montant correspond au document de politique transversale (crédits de droit commun inclus) : périmètre à arrêter.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.77
+      bas: 0.39
+      haut: 9.47
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: p147 * f
+      parametres:
+        p147:
+          valeur: 0.6517
+          source: https://www.senat.fr/rap/l25-139-35-1/l25-139-35-1_mono.html
+          unite: Md€ (PLF 2026)
+          note: programme 147 « Politique de la ville »
+        f: *id001
+      explication: >-
+        Central : crédits spécifiques (programme 147). Le chiffre de l'auteure (8 Md€) correspond au document de politique
+        transversale (20 Md€ sur 32 programmes, crédits de droit commun : écoles, police…) : borne haute.
+    chiffrages_tiers:
+      - auteur: Sarah Knafo (budget2026.fr)
+        montant_md: 8
+        url: https://www.budget2026.fr/
+    confiance: faible
   - id: suppression-anah
     libelle: Suppression de l'Agence nationale de l'habitat (dont MaPrimeRénov')
     domaine: logement
     citation:
-      texte: "Suppression de l’Agence nationale de l’habitat (Anah)."
+      texte: Suppression de l’Agence nationale de l’habitat (Anah).
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: precise
-    interpretation: >-
-      Montant affiché : 6 Md€ (budget d'intervention de l'Anah, MaPrimeRénov' comprise).
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    interpretation: 'Montant affiché : 6 Md€ (budget d''intervention de l''Anah, MaPrimeRénov'' comprise).'
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 1.78
+      bas: 0.89
+      haut: 1.78
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: credits_anah * f
+      parametres:
+        credits_anah:
+          valeur: 1.5
+          source: https://www.senat.fr/rap/l25-139-35-1/l25-139-35-1_mono.html
+          unite: Md€ (PLF 2026)
+          note: crédits de l'État à l'Anah (programme 135)
+        f: *id001
+      explication: >-
+        Seuls les crédits de l'État sont une dépense publique (≈ 0,9 Md€ de ressources CEE de l'Anah n'en sont pas).
+        Le chiffre de l'auteure (6 Md€) dépasse le budget total de l'Anah. Bas : moitié (engagements pluriannuels déjà
+        pris, convention).
+    chiffrages_tiers:
+      - auteur: Sarah Knafo (budget2026.fr)
+        montant_md: 6
+        url: https://www.budget2026.fr/
+    confiance: moyenne
   - id: suppression-ademe
     libelle: Suppression de l'Ademe (hors soutien aux renouvelables déjà compté)
     domaine: ecologie
     citation:
-      texte: "Suppression de l’Agence de l’environnement et de la maîtrise de l’énergie (Ademe), hors dispositifs de soutien aux renouvelables déjà comptabilisés à la ligne 6."
+      texte: >-
+        Suppression de l’Agence de l’environnement et de la maîtrise de l’énergie (Ademe), hors dispositifs de soutien
+        aux renouvelables déjà comptabilisés à la ligne 6.
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: precise
-    interpretation: >-
-      Montant affiché : 3,4 Md€ (fonds chaleur, économie circulaire, fonctionnement).
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    interpretation: 'Montant affiché : 3,4 Md€ (fonds chaleur, économie circulaire, fonctionnement).'
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 1.26
+      bas: 0.63
+      haut: 4.03
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: subvention * f
+      parametres:
+        subvention:
+          valeur: 1.06
+          source: https://www.senat.fr/rap/l25-139-310-1/l25-139-310-1_mono.html
+          unite: Md€ de CP (2026)
+          note: subvention de l'État à l'Ademe
+        f: *id001
+      explication: >-
+        Subvention de l'État en CP projetée. Bas : moitié (engagements en cours, 2,09 Md€ d'AE). Haut : chiffre affiché.
+    chiffrages_tiers:
+      - auteur: Sarah Knafo (budget2026.fr)
+        montant_md: 3.4
+        url: https://www.budget2026.fr/
+    confiance: moyenne
   - id: france-travail-mise-en-relation
     libelle: Suppression de la mission de placement de France Travail
     domaine: travail
     citation:
-      texte: "Suppression de la mission de mise en relation entre l’offre et la demande d’emploi de France Travail."
+      texte: >-
+        Suppression de la mission de mise en relation entre l’offre et la demande d’emploi de France Travail.
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: partielle
-    interpretation: >-
-      Montant affiché : 4 Md€.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    interpretation: 'Montant affiché : 4 Md€.'
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 1.37
+      bas: 0.69
+      haut: 4.74
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: scsp * f
+      parametres:
+        scsp:
+          valeur: 1.16
+          source: https://www.senat.fr/rap/l25-139-331/l25-139-331_mono.html
+          unite: Md€ (PLF 2026)
+          note: subvention pour charges de service public de l'État à France Travail
+        f: *id001
+      explication: >-
+        Central : subvention de l'État ; la contribution de l'Unédic (5,2 Md€) finance aussi l'accompagnement et l'indemnisation.
+        Bas : moitié (le placement n'est qu'une partie des missions). Haut : chiffre affiché.
+    chiffrages_tiers:
+      - auteur: Sarah Knafo (budget2026.fr)
+        montant_md: 4
+        url: https://www.budget2026.fr/
+    confiance: faible
   - id: suppression-ars
     libelle: Suppression des agences régionales de santé
     domaine: sante
     citation:
-      texte: "Suppression des agences régionales de santé (ARS)."
+      texte: Suppression des agences régionales de santé (ARS).
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: precise
     interpretation: >-
       Montant affiché : 1 Md€ ; économie nette = fonctionnement des ARS moins missions reprises (préfectures, CPAM).
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.74
+      bas: 0.37
+      haut: 1.18
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: subvention * f
+      parametres:
+        subvention:
+          valeur: 0.627
+          source: https://www.senat.fr/rap/l25-139-331/l25-139-331_mono.html
+          unite: Md€ (PLF 2026)
+          note: subvention de l'État aux ARS (8 114 ETPT)
+        f: *id001
+      explication: >-
+        Subvention de l'État projetée ; bas : moitié des missions reprises par les préfectures et l'assurance maladie.
+    chiffrages_tiers:
+      - auteur: Sarah Knafo (budget2026.fr)
+        montant_md: 1
+        url: https://www.budget2026.fr/
+    confiance: faible
   - id: suppression-autres-agences-cese
-    libelle: Suppression d'autres agences et structures (Arcom, HCE, Conseil national du bruit…) et du CESE et des CESER
+    libelle: >-
+      Suppression d'autres agences et structures (Arcom, HCE, Conseil national du bruit…) et du CESE et des CESER
     domaine: etat
     citation:
-      texte: "Suppression d’autres agences et structures publiques inutiles ou nuisibles : Arcom, Conseil national du bruit, Haut Conseil à l’égalité, Observatoire de la laïcité, Haut Comité pour le logement…"
+      texte: >-
+        Suppression d’autres agences et structures publiques inutiles ou nuisibles : Arcom, Conseil national du bruit,
+        Haut Conseil à l’égalité, Observatoire de la laïcité, Haut Comité pour le logement…
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: partielle
-    interpretation: >-
-      Montants affichés : 1 Md€ ; plus « Suppression du CESE et des Ceser » 66 M€.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    interpretation: 'Montants affichés : 1 Md€ ; plus « Suppression du CESE et des Ceser » 66 M€.'
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.17
+      bas: 0.0
+      haut: 1.26
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: (arcom + cese + ceser) * f
+      parametres:
+        arcom:
+          valeur: 0.0505
+          source: https://www.senat.fr/rap/l25-139-39/l25-139-39_mono.html
+          unite: Md€ (PLF 2026)
+        cese:
+          valeur: 0.0341
+          source: https://www.senat.fr/rap/l25-139-36/l25-139-36_mono.html
+          unite: Md€ (PLF 2026)
+        ceser:
+          valeur: 0.055
+          source: https://www.assemblee-nationale.fr/dyn/opendata/PIONANR5L17B0413.html
+          unite: Md€
+          note: « entre 50 et 60 millions d'euros »
+        f: *id001
+      explication: >-
+        Organismes nommés dont le budget est connu (Arcom, CESE, CESER). Les autres structures citées sont de petite
+        taille. Haut : chiffre affiché (1,066 Md€). Bas : missions de régulation reprises ailleurs.
+    chiffrages_tiers:
+      - auteur: Sarah Knafo (budget2026.fr)
+        montant_md: 1.066
+        url: https://www.budget2026.fr/
+    confiance: faible
   - id: suppression-aide-publique-developpement
     libelle: Suppression de l'aide publique au développement et de l'AFD
     domaine: action-exterieure
     citation:
-      texte: "Suppression de l’aide publique au développement et de l’Agence française de développement."
+      texte: Suppression de l’aide publique au développement et de l’Agence française de développement.
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: precise
     interpretation: >-
-      Montant affiché : 14 Md€. L'APD au sens OCDE inclut prêts, dépenses imputées (étudiants, réfugiés) et
-      contribution européenne : seule la part budgétaire (mission APD, contributions multilatérales) est une économie de
-      solde ; risque de double compte avec la contribution à l'UE et les étudiants étrangers.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+      Montant affiché : 14 Md€. L'APD au sens OCDE inclut prêts, dépenses imputées (étudiants, réfugiés) et contribution
+      européenne : seule la part budgétaire (mission APD, contributions multilatérales) est une économie de solde ; risque
+      de double compte avec la contribution à l'UE et les étudiants étrangers.
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 4.35
+      bas: 2.17
+      haut: 15.75
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: mission_apd * f
+      parametres:
+        mission_apd:
+          valeur: 3.67
+          source: https://www.senat.fr/rap/l25-139-34/l25-139-34_mono.html
+          unite: Md€ de CP (PLF 2026)
+          note: mission « Aide publique au développement »
+        f: *id001
+      explication: >-
+        Central : crédits de la mission APD. L'APD au sens OCDE (13,0 Md€ en 2025) inclut la part européenne (déjà dans
+        la mesure sur l'UE), des prêts et des dépenses imputées (étudiants, réfugiés) : borne haute seulement. Bas :
+        engagements en cours (moitié).
+    chiffrages_tiers:
+      - auteur: Sarah Knafo (budget2026.fr)
+        montant_md: 14
+        url: https://www.budget2026.fr/
+    confiance: moyenne
   - id: contribution-ue-pre-covid
     libelle: Retour au budget européen d'avant le Covid et baisse de la contribution française
     domaine: europe
     citation:
-      texte: "Retour au budget de l’UE pré-Covid et économies sur la dotation française."
+      texte: Retour au budget de l’UE pré-Covid et économies sur la dotation française.
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: partielle
     interpretation: >-
-      Montant affiché : 14 Md€. Programme européen 2024 de Reconquête : « Diminuer de 20% la contribution annuelle de la
-      France au budget de l’UE avec un plafond à 20 milliards d’euros par an ». Unilatéralement infaisable (décision
+      Montant affiché : 14 Md€. Programme européen 2024 de Reconquête : « Diminuer de 20% la contribution annuelle de
+      la France au budget de l’UE avec un plafond à 20 milliards d’euros par an ». Unilatéralement infaisable (décision
       ressources propres, remboursement de NextGenerationEU) : signalé.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.0
+      bas: 0.0
+      haut: 16.58
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: 0 * annonce
+      parametres:
+        annonce:
+          valeur: 14
+          source: https://www.budget2026.fr/
+          unite: Md€
+          note: chiffre de l'auteure (budget2026.fr)
+      explication: >-
+        Barème psr_ue : baisse unilatérale juridiquement impossible (décision ressources propres, unanimité) ; central
+        et bas = 0, haut = chiffre affiché projeté.
+    chiffrages_tiers:
+      - auteur: Sarah Knafo (budget2026.fr)
+        montant_md: 14
+        url: https://www.budget2026.fr/
+    confiance: faible
   - id: etudes-payantes-etudiants-etrangers
     libelle: Fin de la gratuité des études pour les étudiants étrangers
     domaine: education
     citation:
-      texte: "Fin de la gratuité des études pour les étudiants étrangers."
+      texte: Fin de la gratuité des études pour les étudiants étrangers.
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: partielle
-    interpretation: >-
-      Montant affiché : 4 Md€ (coût complet ; recette réelle = frais × effectifs restants).
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    interpretation: 'Montant affiché : 4 Md€ (coût complet ; recette réelle = frais × effectifs restants).'
+    chiffrable: true
+    nature: recette
+    effet_solde_primaire:
+      central: 0.12
+      bas: 0.0
+      haut: 4.74
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: etudiants * part_exoneree * droits / 1e9 * f
+      parametres:
+        etudiants:
+          valeur: 108100
+          source: >-
+            https://www.ccomptes.fr/sites/default/files/2025-03/20250310-Attractivite-de-la-France-pour-les-etudiants-etrangers.pdf
+          unite: étudiants relevant des droits différenciés (2023-2024)
+        part_exoneree:
+          valeur: 0.3
+          source: https://www.etudiant.gouv.fr/fr/droits-d-inscription-1489
+          unite: part
+          note: exonérations plafonnées à 30 % en 2026-2027 (droit en vigueur)
+        droits:
+          valeur: 3200
+          source: https://www.etudiant.gouv.fr/fr/droits-d-inscription-1489
+          unite: € par an
+          note: moyenne approchée licence 2 895 € / master 3 941 €
+        f: *id001
+      explication: >-
+        Les droits différenciés sont déjà dans le droit : reste la fin des exonérations. Haut : chiffre affiché (coût
+        complet des études, 4 Md€, qui supposerait des frais au coût réel).
+    chiffrages_tiers:
+      - auteur: Sarah Knafo (budget2026.fr)
+        montant_md: 4
+        url: https://www.budget2026.fr/
+    confiance: faible
   - id: fin-ame
     libelle: Suppression de l'aide médicale d'État
     domaine: immigration
     citation:
-      texte: "Fin de l’aide médicale d’État."
+      texte: Fin de l’aide médicale d’État.
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: precise
     interpretation: >-
       Montant affiché : 1,3 Md€ ; soins urgents (DSUV) reportés sur l'assurance maladie et les hôpitaux à déduire.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.86
+      bas: 0.0
+      haut: 1.86
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: economie_2024 * f
+      parametres:
+        economie_2024:
+          valeur: 0.7
+          source: >-
+            https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/suppression-de-laide-medicale-detat-ame-et-remplacement-par-laide-durgence-vitale
+          unite: Md€ (2024)
+          note: économie nette après maintien des soins d'urgence (Institut Montaigne)
+        f: *id002
+      explication: >-
+        Même lecture que pour le RN : une partie des soins bascule vers l'hôpital et les soins urgents. Haut : barème
+        ame_depense haut projeté. Bas = 0.
+    chiffrages_tiers:
+      - auteur: Sarah Knafo (budget2026.fr)
+        montant_md: 1.3
+        url: https://www.budget2026.fr/
+    confiance: moyenne
   - id: hausse-cout-visas
     libelle: Augmentation du coût des visas
     domaine: immigration
     citation:
-      texte: "Augmentation du coût des visas."
+      texte: Augmentation du coût des visas.
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: vague
-    interpretation: >-
-      Montant affiché : 0,7 Md€ ; les droits de visa Schengen sont fixés par le code des visas de l'UE.
+    interpretation: 'Montant affiché : 0,7 Md€ ; les droits de visa Schengen sont fixés par le code des visas de l''UE.'
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: Droits de visa de court séjour fixés par le code des visas de l'UE (90 €) ; hausse non précisée.
   - id: hebergement-urgence-irreguliers
     libelle: Interdiction de l'hébergement d'urgence aux étrangers en situation irrégulière
     domaine: immigration
     citation:
-      texte: "Interdiction de l’hébergement d’urgence aux étrangers en situation irrégulière."
+      texte: Interdiction de l’hébergement d’urgence aux étrangers en situation irrégulière.
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: precise
-    interpretation: >-
-      Montant affiché : 0,7 Md€.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    interpretation: 'Montant affiché : 0,7 Md€.'
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.83
+      bas: 0.0
+      haut: 2.18
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: annonce * f
+      parametres:
+        annonce:
+          valeur: 0.7
+          source: https://www.budget2026.fr/
+          unite: Md€
+          note: chiffre de l'auteure (budget2026.fr)
+        f: *id001
+      explication: >-
+        Chiffre de l'auteure projeté. Haut : 60 % des 3,07 Md€ du programme 177 (part des hébergés en situation irrégulière
+        selon le ministre du Logement, sans statistique officielle). Bas = 0 : principe d'accueil inconditionnel (code
+        de l'action sociale), reports vers d'autres dispositifs.
+    chiffrages_tiers:
+      - auteur: Sarah Knafo (budget2026.fr)
+        montant_md: 0.7
+        url: https://www.budget2026.fr/
+    confiance: faible
   - id: aide-juridictionnelle-francais
     libelle: Aide juridictionnelle réservée aux Français
     domaine: justice
     citation:
-      texte: "Aide juridictionnelle réservée aux Français."
+      texte: Aide juridictionnelle réservée aux Français.
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: precise
-    interpretation: >-
-      Montant affiché : 0,1 Md€.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    interpretation: 'Montant affiché : 0,1 Md€.'
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.06
+      bas: 0.0
+      haut: 0.12
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: aj * part_etrangers * f
+      parametres:
+        aj:
+          valeur: 0.7142
+          source: https://www.senat.fr/rap/l25-139-317/l25-139-317_mono.html
+          unite: Md€ (PLF 2026)
+        part_etrangers:
+          valeur: 0.075
+          source: https://www.senat.fr/questions/base/2025/qSEQ251106566.html
+          unite: part
+          note: 'contentieux des étrangers et CNDA : 7,5 % des sommes versées (approximation)'
+        f: *id001
+      explication: Part des contentieux propres aux étrangers dans l'aide juridictionnelle ; effet inférieur à 0,1 Md€.
+    chiffrages_tiers:
+      - auteur: Sarah Knafo (budget2026.fr)
+        montant_md: 0.1
+        url: https://www.budget2026.fr/
+    confiance: faible
   - id: privatisation-audiovisuel-public
     libelle: Privatisation de l'audiovisuel public
     domaine: culture
     citation:
-      texte: "Privatisation de l’audiovisuel public."
+      texte: Privatisation de l’audiovisuel public.
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: precise
     interpretation: >-
-      Montant affiché : 4 Md€ « + cession d'actifs ». Économie = dotation annuelle (≈ 4 Md€) ; le produit de cession est
-      une opération financière (dette), pas une amélioration du solde.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+      Montant affiché : 4 Md€ « + cession d'actifs ». Économie = dotation annuelle (≈ 4 Md€) ; le produit de cession
+      est une opération financière (dette), pas une amélioration du solde.
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 2.3
+      bas: 0.0
+      haut: 4.59
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 0.4
+        '2029': 0.7
+        '2030': 0.9
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: dotation * part_cedee * f
+      parametres:
+        dotation:
+          valeur: 3.878
+          source: https://www.senat.fr/rap/l25-139-318/l25-139-318_mono.html
+          unite: Md€ (PLF 2026)
+          note: dotation de l'État à l'audiovisuel public
+        part_cedee:
+          valeur: 0.5
+          source: >-
+            https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/privatiser-laudiovisuel-public
+          unite: part
+          note: 'Montaigne : économie « réduite à la moitié de l''ensemble du champ » faute de repreneurs'
+        f: *id001
+      explication: >-
+        Institut Montaigne : la moitié du périmètre trouverait preneur ; le produit de cession améliore la dette, pas
+        le solde. Bas = 0 (plan social et reprise de missions). Haut : toute la dotation.
+    chiffrages_tiers:
+      - auteur: Sarah Knafo (budget2026.fr)
+        montant_md: 4
+        url: https://www.budget2026.fr/
+    confiance: faible
   - id: subventions-associations-presse-syndicats
     libelle: Suppression des subventions aux associations « politisées », à la presse et aux syndicats
     domaine: etat
     citation:
-      texte: "Suppression des subventions aux associations politisées."
+      texte: Suppression des subventions aux associations politisées.
       url: https://www.budget2026.fr/
       date: 2026-09
     precision: vague
     interpretation: >-
       Montants affichés : associations 1 à 2 Md€ ; « Suppression des subventions à la presse » 0,2 Md€ ; « Suppression
       des subventions aux syndicats » 0,1 Md€.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
-  # --- Immigration (candidat) ---------------------------------------------------------------------------------------
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 2.03
+      bas: 0.84
+      haut: 2.62
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: (associations + presse + syndicats) * f
+      parametres:
+        associations:
+          valeur: 1.5
+          source: https://www.budget2026.fr/
+          unite: Md€
+          note: >-
+            milieu de la fourchette affichée (1 à 2 Md€) ; l'État verse 7,3 Md€ de subventions aux associations (jaune
+            2026)
+        presse:
+          valeur: 0.1783
+          source: https://www.senat.fr/rap/l25-139-318/l25-139-318_mono.html
+          unite: Md€ (PLF 2026)
+          note: aides à la presse écrite
+        syndicats:
+          valeur: 0.0347
+          source: https://www.agfpn.fr/pdfs/Rapport-AGFPN-2024-01-10-2025.pdf
+          unite: Md€ (2024)
+          note: subvention de l'État au fonds paritaire (AGFPN)
+        f: *id001
+      explication: >-
+        Associations : « politisées » non défini, chiffre affiché ; presse et syndicats : crédits de l'État. La contribution
+        patronale de 0,016 % au fonds paritaire (0,12 Md€) est un prélèvement : sa suppression n'améliorerait pas le
+        solde.
+    chiffrages_tiers:
+      - auteur: Sarah Knafo (budget2026.fr)
+        montant_md: 1.8
+        url: https://www.budget2026.fr/
+    confiance: faible
   - id: remigration-expulsions
-    libelle: « Remigration » - renvoi des détenus et délinquants étrangers, des clandestins, des étrangers chômeurs depuis un an et des bénéficiaires exclusifs d'aides
+    libelle: >-
+      « Remigration » - renvoi des détenus et délinquants étrangers, des clandestins, des étrangers chômeurs depuis un
+      an et des bénéficiaires exclusifs d'aides
     domaine: immigration
     citation:
-      texte: "«Il faut également renvoyer, c'est une évidence, les clandestins . Il faut également renvoyer les chômeurs de longue durée, et tous ceux qui vivent uniquement des aides sociales», a-t-il ajouté, fixant la durée de chômage à «plus de six mois à un an, un an dirons-nous»."
-      url: https://www.lefigaro.fr/elections/presidentielles/presidentielle-2027-eric-zemmour-confirme-qu-il-sera-candidat-durcit-encore-son-discours-sur-l-immigration-20260918
-      date: 2026-09-18
+      texte: >-
+        «Il faut également renvoyer, c'est une évidence, les clandestins . Il faut également renvoyer les chômeurs de
+        longue durée, et tous ceux qui vivent uniquement des aides sociales», a-t-il ajouté, fixant la durée de chômage
+        à «plus de six mois à un an, un an dirons-nous».
+      url: >-
+        https://www.lefigaro.fr/elections/presidentielles/presidentielle-2027-eric-zemmour-confirme-qu-il-sera-candidat-durcit-encore-son-discours-sur-l-immigration-20260918
+      date: '2026-09-18'
       support: presse (AFP)
     precision: vague
     interpretation: >-
-      Effet budgétaire = prestations et allocations chômage non versées moins coût des éloignements (rétention,
-      transport) ; volumes non précisés. Recoupe fortement la mesure prestations-non-contributives-francais : ne chiffrer
-      que l'assurance chômage et le coût des éloignements pour éviter le double compte.
+      Effet budgétaire = prestations et allocations chômage non versées moins coût des éloignements (rétention, transport)
+      ; volumes non précisés. Recoupe fortement la mesure prestations-non-contributives-francais : ne chiffrer que l'assurance
+      chômage et le coût des éloignements pour éviter le double compte.
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
-  # --- Non budgétaires ou non chiffrables -----------------------------------------------------------------------------
+    raison_non_chiffrable: >-
+      Volumes d'étrangers visés (chômeurs depuis un an, bénéficiaires exclusifs d'aides, délinquants) et allocations
+      en jeu non publiés ; les prestations non contributives qu'ils perçoivent sont déjà retirées par la mesure prestations-non-contributives-francais
+      (double compte) ; coût d'un éloignement forcé : 4 414 € (Cour des comptes, 2022), volume d'éloignements non chiffrable.
   - id: ia-nucleaire-priorite
-    libelle: Priorité à l'IA (électricité nucléaire excédentaire réservée aux centres de calcul, formation dès l'école) et relance du nucléaire
+    libelle: >-
+      Priorité à l'IA (électricité nucléaire excédentaire réservée aux centres de calcul, formation dès l'école) et relance
+      du nucléaire
     domaine: numerique
     citation:
-      texte: "le chef de file de Reconquête a mis en avant plusieurs points, dont la formation à l'intelligence artificielle dès l'école, afin de faire de la France le troisième puissance mondiale dans le domaine."
-      url: https://www.cnews.fr/france/2026-09-13/presidentielle-2027-remigration-intelligence-artificielle-ce-quil-faut-retenir-du
-      date: 2026-09-13
+      texte: >-
+        le chef de file de Reconquête a mis en avant plusieurs points, dont la formation à l'intelligence artificielle
+        dès l'école, afin de faire de la France le troisième puissance mondiale dans le domaine.
+      url: >-
+        https://www.cnews.fr/france/2026-09-13/presidentielle-2027-remigration-intelligence-artificielle-ce-quil-faut-retenir-du
+      date: '2026-09-13'
       support: presse
     precision: vague
     chiffrable: false
@@ -493,9 +1374,11 @@ mesures:
     libelle: Interdiction du voile islamique dans l'espace public
     domaine: societe
     citation:
-      texte: "La deuxième reprend intégralement le corpus identitaire de Reconquête : préférence nationale pour les prestations non contributives et le logement social, « remigration », interdiction du voile islamique dans l’espace public."
+      texte: >-
+        La deuxième reprend intégralement le corpus identitaire de Reconquête : préférence nationale pour les prestations
+        non contributives et le logement social, « remigration », interdiction du voile islamique dans l’espace public.
       url: https://lessentieldeleco.fr/8437-sarah-knafo-ses-idees-et-ses-modeles-politiques/
-      date: 2026-09-20
+      date: '2026-09-20'
       support: presse
     precision: vague
     chiffrable: false
@@ -504,11 +1387,13 @@ mesures:
     libelle: Refus de tout impôt européen (« ressources propres »)
     domaine: europe
     citation:
-      texte: "Refuser tout impôt européen et notamment les « ressources propres » aboutissant à créer une fiscalité européenne qui s’ajoute à la fiscalité nationale."
+      texte: >-
+        Refuser tout impôt européen et notamment les « ressources propres » aboutissant à créer une fiscalité européenne
+        qui s’ajoute à la fiscalité nationale.
       url: https://assets.ericzemmour.fr/document/Programme%20Reconqu%C3%AAte%20Europ%C3%A9ennes%202024.pdf
       date: 2024-05
     precision: partielle
     chiffrable: false
     raison_non_chiffrable: >-
-      Position de négociation européenne sans effet direct sur le solde national (l'absence de nouvelles ressources
-      propres reporte le remboursement de NextGenerationEU sur les contributions nationales).
+      Position de négociation européenne sans effet direct sur le solde national (l'absence de nouvelles ressources propres
+      reporte le remboursement de NextGenerationEU sur les contributions nationales).

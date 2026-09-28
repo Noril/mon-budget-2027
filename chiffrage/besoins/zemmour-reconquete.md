@@ -54,3 +54,18 @@ Montants en Md€ par an, régime 2032. Entre parenthèses : mesures concernées
 - Dotations de l'audiovisuel public ; subventions aux associations, à la presse et aux syndicats
   (privatisation-audiovisuel-public, subventions-associations-presse-syndicats).
 - Rendement documenté de la lutte contre la fraude sociale (fraude-sociale-delinquants).
+
+## Barèmes à ajouter (phase 2 : paramètres sourcés utilisés faute de barème)
+
+- `droits_succession_rendement` : 16,995 Md€ (PLF 2026, Sénat) ; 16,1 Md€ (2025, FIPECO).
+- `cfe_rendement`, `impots_production_entreprises`, `is_retour_impots_production` : voir besoins/le-pen-rn.md.
+- `accise_taux_carburants` : 59,40 c€/l gazole, 68,29 c€/l SP95-E5 (2026, FIPECO) ; volumes 34,7 et 14,8 Gl (SDES 2024).
+- `fp_suppression_800000_postes` : 30 à 40 Md€ par an (François Ecalle, cité par franceinfo, septembre 2026).
+- `preference_nationale_prestations` : IFRAP 6 à 7 Md€ ; RSA 15,6 % des foyers hors UE (2022) ; APL 2,4 Md€ ;
+  prestations familiales 1,6 Md€.
+- Crédits PLF 2026 (Sénat) : programme 147 0,652 ; DPT Ville 20,0 ; Anah 1,5 ; subvention Ademe 1,06 CP ; France
+  Travail 1,16 ; ARS 0,627 ; CESE 0,034 ; Arcom 0,051 ; mission APD 3,67 ; audiovisuel public 3,878 ; presse 0,178 ;
+  aide juridictionnelle 0,714 ; programme 177 3,071 ; AGFPN (État) 0,035.
+- Étudiants étrangers : 108 100 relevant des droits différenciés, exonérations plafonnées à 30 % (2026-2027).
+- Manquants : part des cotisants épargnés par la retraite par capitalisation ; volume des éloignements visés par la
+  « remigration » ; retour d'IR de la suppression de la CSG déductible.
