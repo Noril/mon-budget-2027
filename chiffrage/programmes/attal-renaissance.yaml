@@ -1,0 +1,657 @@
+# Programme Gabriel Attal (Renaissance) — phase 1 : collecte, citations verbatim, non chiffré.
+id: attal-renaissance
+candidat: Gabriel Attal
+parti: Renaissance
+statut_candidature: déclaré le 23 mai 2026 (Mur-de-Barrez, Aveyron)
+date_collecte: '2026-09-29'
+sources:
+- titre: attalpresident.fr — Mes engagements (chantiers capitaux et dettes à résorber)
+  url: https://attalpresident.fr/programme
+  date: consulté le 2026-09-29
+- titre: attalpresident.fr — Dette de l'État
+  url: https://attalpresident.fr/programme/dette-de-letat
+  date: consulté le 2026-09-29
+- titre: attalpresident.fr — Travail & salaires
+  url: https://attalpresident.fr/programme/travail-salaires
+  date: consulté le 2026-09-29
+- titre: attalpresident.fr — Éducation
+  url: https://attalpresident.fr/programme/education
+  date: consulté le 2026-09-29
+- titre: attalpresident.fr — Frontières
+  url: https://attalpresident.fr/programme/frontieres
+  date: consulté le 2026-09-29
+- titre: 'Entretien au Parisien : zéro déficit en 2037'
+  url: https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037
+  date: '2026-07-03'
+- titre: Plan de désendettement et « Messmer II »
+  url: https://attalpresident.fr/actualites/gabriel-attal-presente-un-plan-de-desendettement-et-un-messmer-ii-pour-sortir-des-dependances-francaises
+  date: '2026-09-23'
+- titre: 'Entretien au Télégramme : « droit au brut »'
+  url: https://attalpresident.fr/actualites/dans-le-telegramme-gabriel-attal-veut-un-choc-de-salaires-et-instaurer-le-droit-au-brut
+  date: '2026-07-22'
+- titre: 'Entretien aux Échos : plan France 2040'
+  url: https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos
+  date: '2026-06-17'
+- titre: Débat du Medef (compte rendu de campagne)
+  url: https://attalpresident.fr/actualites/a-la-ref-gabriel-attal-grand-gagnant-du-premier-debat-de-la-presidentielle-2027
+  date: '2026-08-27'
+- titre: LCP — Débat du Medef
+  url: https://lcp.fr/actualites/presidentielle-2027-ce-qu-il-faut-retenir-du-premier-debat-entre-les-candidats-440670
+  date: '2026-08-27'
+- titre: Fondation IFRAP — Comparateur des programmes présidentielle 2027
+  url: https://www.ifrap.org/comparateurs/presidentielles-2027
+  date: consulté le 2026-09-29
+annonce_candidat:
+  cout_md: null
+  financement_md: null
+  texte: '« Toutes les propositions que nous formulerons durant la campagne seront financées » (site, Dette de l''État). Trajectoire
+    : « 150 milliards d’euros d’économies, dont les deux tiers sur les dépenses sociales, avec un retour du déficit public
+    sous les 3 % du PIB avant la fin du mandat, un équilibre des comptes sociaux en 2032 et un retour à l’équilibre de l’ensemble
+    des finances publiques en 2037 » (23 sept. 2026) ; « 120 milliards d’euros d’économies durant les cinq premières années
+    » (LCI, 25 août 2026). Aucune hausse d''impôt. Coût revendiqué de la hausse des salaires enseignants : 2,5 à 3 Md€.'
+  url: https://attalpresident.fr/actualites/gabriel-attal-presente-un-plan-de-desendettement-et-un-messmer-ii-pour-sortir-des-dependances-francaises
+notes: 'Programme en construction : six pages thématiques sur attalpresident.fr et environ 75 comptes rendus d''entretiens
+  et de déplacements (mai-septembre 2026), tous récupérés. Les comptes rendus du site sont rédigés par la campagne (citations
+  du candidat entre guillemets, le reste paraphrasé par l''équipe). Trois mesures ne sont connues que par le comparateur IFRAP.
+  Grand meeting à Lyon le 10 octobre 2026 : nouvelles mesures probables. Phase 1 : mesures à chiffrer marquées raison_non_chiffrable
+  = A_CHIFFRER ; mesures non budgétaires préfixées NON_BUDGETAIRE.'
+mesures:
+- id: economies-120-150md
+  libelle: 'Plan de désendettement : 120 à 150 Md€ d''économies, déficit sous 3 % avant 2032, équilibre en 2037'
+  domaine: finances publiques
+  citation:
+    texte: 'Il fixe un cap clair : atteindre le zéro déficit public à l''horizon 2037. Pour structurer cet effort inédit,
+      qui représente entre 120 et 150 milliards d''euros d’économies, le candidat propose une méthode rigoureuse jalonnée
+      d''étapes incontournables avec un refroidissement immédiat de la dépense publique sera enclenché dès le début de son
+      mandat, un retour du déficit public sous la barre des 3% est prévu avant 2032, un retour à l''équilibre strict des comptes
+      de la Sécurité sociale sera effectif avant la fin du quinquennat.'
+    url: https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037
+    date: '2026-07-03'
+    support: site du candidat (compte rendu de l'entretien au Parisien)
+  precision: partielle
+  interpretation: 'Enveloppe traitée selon la règle 6. Le 25 août (LCI) : « 120 milliards d’euros d’économies durant les cinq
+    premières années » ; le 23 septembre : « 150 milliards d’euros d’économies, dont les deux tiers sur les dépenses sociales
+    ». central = somme des mesures identifiées ci-dessous, haut = 120 Md€ (quinquennat), bas = 0.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: annee-blanche-2028
+  libelle: Année blanche sur l'ensemble des prestations sociales en 2028, sauf petites retraites
+  domaine: prestations sociales / retraites
+  citation:
+    texte: Dès le budget 2028, une « année blanche » gèlera temporairement les prestations sociales, tout en protégeant les
+      petites retraites.
+    url: https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037
+    date: '2026-07-03'
+    support: site du candidat (compte rendu de l'entretien au Parisien)
+  precision: partielle
+  interpretation: 'Pas de revalorisation en 2028 des prestations indexées (pensions sauf « petites retraites », prestations
+    familiales, aides au logement, RSA, AAH…). Effet permanent sur le niveau des dépenses (effet base), érodé seulement si
+    rattrapage. Seuil des « petites retraites » non défini : hypothèse à fixer (ex. pensions totales < 1 400 €/mois). « Frein
+    d''urgence » réaffirmé le 20 sept. 2026 (France 2).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: assurance-chomage-5md
+  libelle: Reprendre la réforme de l'assurance chômage (5 Md€ d'économies)
+  domaine: assurance chômage
+  citation:
+    texte: Ce dispositif s'accompagnera de réformes de fond immédiates, à commencer par la reprise de la réforme de l'assurance
+      chômage initiée lorsqu'il était Premier ministre afin de remettre les Français en emploi et de générer 5 milliards d'euros
+      d'économies.
+    url: https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037
+    date: '2026-07-03'
+    support: site du candidat (compte rendu de l'entretien au Parisien)
+  precision: partielle
+  interpretation: Réforme de 2024 non entrée en vigueur (durée d'affiliation, durée d'indemnisation). Le chiffre de 5 Md€
+    est celui du candidat.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Gabriel Attal (montant revendiqué)
+    montant_md: 5.0
+    url: https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037
+    date: '2026-07-03'
+    commentaire: Montant du candidat, non un chiffrage indépendant ; le site parle ailleurs de « plus de 4 milliards d’euros
+      supplémentaires » pour la réforme de 2024.
+  effets_retour: Le candidat invoque 100 000 emplois créés ; non compté.
+- id: arrets-maladie
+  libelle: Plan d'action contre la dérive des arrêts maladie
+  domaine: santé / indemnités journalières
+  citation:
+    texte: Une nouvelle réforme des retraites sera engagée, parallèlement à un plan d'action sévère contre la dérive des arrêts
+      maladie.
+    url: https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037
+    date: '2026-07-03'
+    support: site du candidat (compte rendu de l'entretien au Parisien)
+  precision: vague
+  interpretation: 'Aucun paramètre : phase 2 à borner (bas 0) ou à déclarer non chiffrable.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: fonctionnaires-moins-100000
+  libelle: Supprimer 100 000 postes dans l'État et les collectivités (départs volontaires, non-remplacement)
+  domaine: fonction publique
+  citation:
+    texte: Il annonce un plan de départs volontaires combiné au non-remplacement d'une partie des fonctionnaires partant à
+      la retraite, fixant un objectif de 100 000 postes supprimés dans l'État et les collectivités. Les ministères régaliens
+      que sont l'Éducation nationale, les Armées, la Justice et l'Intérieur seront rigoureusement sanctuarisés.
+    url: https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037
+    date: '2026-07-03'
+    support: site du candidat (compte rendu de l'entretien au Parisien)
+  precision: precise
+  interpretation: Hors Éducation nationale, Armées, Justice, Intérieur. Coût des départs volontaires (indemnités) en montée
+    en charge.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Gabriel Attal (montant revendiqué, rapporté par L'Opinion)
+    montant_md: 7.0
+    url: https://www.lopinion.fr/politique/presidentielle-2027-gabriel-attal-devoile-son-plan-pour-un-zero-deficit-en-2037
+    date: '2026-07-03'
+    commentaire: « 100 000 postes supprimés pour 7 milliards d’euros économisés » ; non un chiffrage indépendant.
+- id: collectivites-strate
+  libelle: Supprimer une strate de collectivités (« big bang » territorial)
+  domaine: collectivités
+  citation:
+    texte: 'Il fixe un cap pour les finances publiques : revenir sous les 3 % de déficit en 2032 et atteindre l’équilibre
+      en 2037, soit 120 milliards d’euros d’économies durant les cinq premières années. Parmi ses propositions : supprimer
+      100 000 postes dans la fonction publique et un échelon de collectivité territoriale.'
+    url: https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays
+    date: '2026-08-25'
+    support: site du candidat (entretien LCI)
+  precision: vague
+  interpretation: Carte des « collectivités uniques » annoncée mais non publiée au 29 sept. 2026 ; économies de fusion très
+    incertaines.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: retraites-reprise-calendrier-2023
+  libelle: Reprendre le calendrier de la réforme des retraites de 2023 à la fin de sa suspension
+  domaine: retraites
+  citation:
+    texte: Gabriel Attal a également assumé une rupture profonde sur les retraites. Opposé à la suspension de la réforme de
+      2023, il souhaite que celle-ci reprenne son calendrier si les Français lui font confiance.
+    url: https://attalpresident.fr/actualites/a-la-ref-gabriel-attal-grand-gagnant-du-premier-debat-de-la-presidentielle-2027
+    date: '2026-08-27'
+    support: site du candidat (compte rendu du débat du Medef)
+  precision: precise
+  interpretation: Par rapport à la législation au 1er janvier 2027 (suspension de la réforme 2023), économie = reprise du
+    relèvement de l'âge à 64 ans et de la durée d'assurance. Vérifier en phase 2 ce que prévoit la législation de référence
+    après la fin de la suspension (2028).
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: retraites-systeme-universel
+  libelle: Système universel sans âge légal, fondé sur la durée de cotisation
+  domaine: retraites
+  citation:
+    texte: 'Sa proposition repose sur un système plus simple et plus libre : supprimer l’âge légal de départ à la retraite
+      pour ne conserver que la durée de cotisation. Ceux qui partent plus tôt toucheraient moins, ceux qui travaillent plus
+      longtemps toucheraient davantage.'
+    url: https://attalpresident.fr/actualites/gabriel-attal-rtl-autorite-ecole-retraites-rassemblement-campagne
+    date: '2026-06-01'
+    support: site du candidat (entretien RTL)
+  precision: vague
+  interpretation: 'Effet budgétaire dépendant des barèmes de décote/surcote non publiés ; la suppression de l''âge légal peut
+    coûter (départs anticipés si la décote n''est pas actuariellement neutre) ou rapporter. Hypothèse centrale : neutralité
+    actuarielle, effet ≈ 0, fourchette large.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: capitalisation-1000-euros-naissance
+  libelle: Dotation de 1 000 € par l'État à chaque naissance sur un compte retraite bloqué
+  domaine: retraites / capitalisation
+  citation:
+    texte: Il s'engage à résorber le déficit en dix ans, notamment via une réforme systémique des retraites, libérée de l'âge
+      légal et intégrant une part de capitalisation dès la naissance (1000 euros versés par l'État sur un compte bloqué pour
+      chaque nouveau-né).
+    url: https://attalpresident.fr/actualites/meeting-de-gabriel-attal-a-paris-l-elan-d-une-france-qui-choisit-l-avenir
+    date: '2026-05-31'
+    support: site du candidat (compte rendu du meeting de Paris)
+  precision: precise
+  interpretation: 1 000 € × naissances annuelles, versés à un fonds souverain ; dépense publique immédiate.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: franceinfo (d'après les naissances INSEE)
+    montant_md: 0.66
+    url: https://www.franceinfo.fr/economie/retraite/retraites-gabriel-attal-propose-de-verser-1-000-euros-a-la-naissance_7609622.html
+    date: '2025-11-11'
+    commentaire: '« cette mesure aurait un coût immédiat : 660 millions d''euros par an » (amendement PLFSS 2026).'
+- id: droit-au-brut-13e-mois
+  libelle: '« Droit au brut » : baisse des cotisations salariales, +250 € nets par mois au salaire médian'
+  domaine: prélèvements sociaux / salaires
+  citation:
+    texte: Dès le début de son mandat, il fixe l'objectif d'offrir l'équivalent d'un 13ᵉ mois pour les classes moyennes qui
+      travaillent, avec une hausse ciblée de 250 € nets par mois pour les salariés au salaire médian (2 200 €). Ce dispositif
+      s'accompagnera d'une suppression des cotisations financée à l'euro près par des économies sur le modèle social, ainsi
+      que par un investissement massif dans l'intelligence artificielle pour stimuler la productivité nationale et rattraper
+      le retard de croissance par rapport aux États-Unis.
+    url: https://attalpresident.fr/actualites/dans-le-telegramme-gabriel-attal-veut-un-choc-de-salaires-et-instaurer-le-droit-au-brut
+    date: '2026-07-22'
+    support: site du candidat (compte rendu de l'entretien au Télégramme)
+  precision: partielle
+  interpretation: 'Baisse des cotisations salariales (le candidat refuse la TVA sociale, Échos 17 juin 2026). 250 €/mois au
+    salaire médian ≈ 13e mois ; profil par niveau de salaire non publié (hypothèse : baisse de taux uniforme ou dégressive).
+    Coût brut chiffré ici, financement par les économies sociales compté dans les mesures dédiées (pas de double compte).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: cout-travail-hausses-2024
+  libelle: Revenir sur les hausses du coût du travail intervenues depuis 2024
+  domaine: prélèvements sociaux / entreprises
+  citation:
+    texte: Gabriel Attal a dit vouloir "revenir sur les hausses du coût du travail qui sont intervenues depuis 2024", et après
+      son départ de Matignon. "Ce qu'il aurait fallu faire, c'est ne pas augmenter le coût du travail depuis 2024", la dissolution
+      de l'Assemblée et les budgets des gouvernements suivants, a-t-il jugé. "Donc, le premier engagement que je prendrai
+      (...), c'est de revenir sur ces hausses du coût du travail, qui sont un boulet pour nos entreprises et dans la compétitivité
+      de notre économie", a déclaré
+    url: https://lcp.fr/actualites/presidentielle-2027-ce-qu-il-faut-retenir-du-premier-debat-entre-les-candidats-440670
+    date: '2026-08-27'
+    support: presse (débat du Medef)
+  precision: partielle
+  interpretation: 'Mesures visées à inventorier : réforme des allègements généraux (LFSS 2025-2026), aides à l''apprentissage,
+    JEI, etc. Coût = recettes rendues par rapport à la législation au 1er janvier 2027.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: cvae-suppression
+  libelle: Mener à terme la suppression de la CVAE et poursuivre la baisse des impôts de production
+  domaine: fiscalité des entreprises
+  citation:
+    texte: Il souhaite parallèlement mener enfin à terme la suppression de la CVAE (cotisation sur la valeur ajoutée des entreprises),
+      un impôt de production payé par les entreprises , pénalisant pour les entreprises françaises face notamment à leurs
+      concurrentes allemandes.
+    url: https://attalpresident.fr/actualites/a-la-ref-gabriel-attal-grand-gagnant-du-premier-debat-de-la-presidentielle-2027
+    date: '2026-08-27'
+    support: site du candidat (compte rendu du débat du Medef)
+  precision: partielle
+  interpretation: 'Référence : calendrier de suppression de la CVAE en vigueur au 1er janvier 2027 (repoussé à 2030). En 2032
+    l''effet de croisière peut être nul si la suppression est déjà légiférée ; seul l''avancement de calendrier coûte.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: taxes-dissolution-surtaxe-is
+  libelle: Revenir sur les taxes créées depuis la dissolution (dont surtaxe d'IS)
+  domaine: fiscalité des entreprises
+  citation:
+    texte: Excluant toute hausse d'impôt durant son quinquennat, il promet de revenir sur plusieurs taxes décidées depuis
+      la dissolution et de poursuivre la baisse des impôts de production.
+    url: https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037
+    date: '2026-07-03'
+    support: site du candidat (compte rendu de l'entretien au Parisien)
+  precision: vague
+  interpretation: 'L''Opinion (3 juillet 2026) : « entend au contraire abaisser les impôts et surtaxes sur les sociétés ».
+    Liste des taxes à établir (contribution exceptionnelle sur les bénéfices des grandes entreprises si prolongée, taxe sur
+    les rachats d''actions…) ; exclure les recoupements avec cout-travail-hausses-2024.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: enseignants-200-500-euros
+  libelle: Revaloriser les enseignants de 200 € nets par mois (jusqu'à 500 € en milieu de carrière) dès 2027
+  domaine: éducation
+  citation:
+    texte: Il propose une augmentation de 200 euros nets par mois pour tous les enseignants , pouvant atteindre 500 euros
+      nets pour les enseignants en milieu de carrière , dont les rémunérations sont particulièrement en décalage avec celles
+      observées dans d’autres pays.
+    url: https://attalpresident.fr/actualites/france-2-gabriel-attal-fait-de-l-ecole-une-priorite-pour-preparer-l-avenir-du-pays
+    date: '2026-09-01'
+    support: site du candidat (entretien France 2)
+  precision: precise
+  interpretation: Hausse nette ; coût employeur = net × (1 + cotisations salariales et patronales), profil par échelon à reconstituer.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+  chiffrages_tiers:
+  - auteur: Gabriel Attal (entretien au Monde, rapporté par Capital)
+    montant_md: 2.75
+    url: https://www.capital.fr/economie-politique/salaire-des-professeurs-ce-que-proposent-gabriel-attal-raphael-glucksmann-edouard-philippe-et-les-autres-candidats-1529731
+    date: '2026-09-01'
+    commentaire: « La mesure que je défends, elle coûte entre 2,5 et 3 milliards d’euros » (milieu de fourchette retenu ici)
+      ; l'entourage cite 2,5 Md€ (AFP, 25 août 2026).
+  effets_retour: Retour de cotisations et d'impôts sur les salaires versés à compter (règle 3).
+- id: aesh-revalorisation-corps
+  libelle: Revaloriser les AESH et en faire un corps professionnel
+  domaine: éducation
+  citation:
+    texte: Gabriel Attal veut également poursuivre la revalorisation des accompagnants d’élèves en situation de handicap.
+      Après avoir augmenté leur rémunération de 100 euros nets par mois lorsqu’il était ministre de l’Éducation nationale,
+      il considère qu’il est nécessaire d’aller plus loin.
+    url: https://attalpresident.fr/actualites/france-2-gabriel-attal-fait-de-l-ecole-une-priorite-pour-preparer-l-avenir-du-pays
+    date: '2026-09-01'
+    support: site du candidat (entretien France 2)
+  precision: vague
+  interpretation: 'Montant non précisé ; ordre de grandeur de la précédente mesure : +100 € nets/mois.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: classes-moins-20-remplacants
+  libelle: Moins de 20 élèves par classe en primaire et postes de remplaçants, grâce à la baisse démographique
+  domaine: éducation
+  citation:
+    texte: Alors que la baisse démographique va entraîner une diminution du nombre d’élèves, Gabriel Attal refuse d’en faire
+      une occasion de réaliser des économies sur l’École. Il veut au contraire utiliser cette évolution pour ramener les classes
+      du primaire à moins de 20 élèves . Dans les collèges et les lycées, la baisse des effectifs doit permettre de recréer
+      des postes de remplaçants .
+    url: https://attalpresident.fr/actualites/dans-le-monde-gabriel-attal-devoile-son-projet-pour-faire-notre-ecole-la-meilleure-d-europe
+    date: '2026-08-25'
+    support: site du candidat (compte rendu de l'entretien au Monde)
+  precision: partielle
+  interpretation: 'Redéploiement des postes libérés par la démographie : effet nul par rapport à une référence à effectifs
+    d''enseignants constants ; coût seulement si des postes supplémentaires sont nécessaires. À arbitrer en phase 2 selon
+    la référence retenue (législation, pas de schéma d''emplois).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: choc-des-savoirs-certificat
+  libelle: Rétablir le Choc des savoirs, certificat d'études en fin de CM2 et année passerelle
+  domaine: éducation
+  citation:
+    texte: Comme ministre de l’Éducation nationale, j’ai pris des décisions fortes en lançant le Choc des savoirs et comme
+      président de la République, l’une de mes premières décisions sera d’en rétablir les mesures.
+    url: https://attalpresident.fr/programme/education
+    date: consulté le 2026-09-29
+    support: site du candidat (programme)
+  precision: partielle
+  interpretation: Groupes de niveau au collège (besoin d'heures d'enseignement) et année passerelle (une année de scolarité
+    supplémentaire pour une partie des élèves).
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: assistant-ia-eleves
+  libelle: Assistant d'IA gratuit pour chaque élève
+  domaine: éducation / numérique
+  citation:
+    texte: Il souhaite également mettre gratuitement à disposition de chaque élève un assistant d’intelligence artificielle
+      sécurisé, souverain et validé par l’Éducation nationale. Cet outil pourrait réexpliquer une notion mal comprise, proposer
+      des exercices adaptés au niveau de l’élève ou encore identifier ses lacunes afin de l’aider à progresser.
+    url: https://attalpresident.fr/actualites/dans-le-monde-gabriel-attal-devoile-son-projet-pour-faire-notre-ecole-la-meilleure-d-europe
+    date: '2026-08-25'
+    support: site du candidat (compte rendu de l'entretien au Monde)
+  precision: partielle
+  interpretation: Commande publique à des entreprises (POLITICO, 24 sept. 2026) ; coût = licences × élèves. Le même entretien
+    évoque un assistant médical IA pour tous les Français.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: plan-ia-france-2040
+  libelle: 'Plan « France 2040 » : 200 Md€ pour l''IA, la tech et l''innovation, moitié public'
+  domaine: numérique / innovation
+  citation:
+    texte: Pour ce plan d'ampleur, il convient de viser un objectif de 200 milliards d'euros, partagé à parité stricte entre
+      le financement public et privé. Pour que cet argent serve directement la croissance, il propose de rompre avec la culture
+      de la subvention pour adopter une logique de contrat et de commande publique
+    url: https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos
+    date: '2026-06-17'
+    support: site du candidat (compte rendu de l'entretien aux Échos)
+  precision: partielle
+  interpretation: 100 Md€ publics sur 10 ans (« d’ici 10 ans ») soit ~10 Md€/an si linéaire ; part des crédits existants (France
+    2030) et part européenne (dette commune) à déduire.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: credit-impot-productivite-ia
+  libelle: Crédit d'impôt productivité pour l'adoption de l'IA par les entreprises
+  domaine: fiscalité des entreprises / numérique
+  citation:
+    texte: il propose la création d’un crédit d’impôt productivité qui permettrait de financer l’adoption, la généralisation
+      et la diffusion de l’IA dans les entreprises françaises.
+    url: https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos
+    date: '2026-06-17'
+    support: site du candidat (compte rendu de l'entretien aux Échos)
+  precision: vague
+  interpretation: Taux, assiette et plafond non précisés.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: formation-ia-20-millions
+  libelle: Former 20 millions de salariés à l'IA d'ici 2030
+  domaine: formation / numérique
+  citation:
+    texte: Il fixe un objectif national d'urgence consistant à former 20 millions de salariés français à l'IA d'ici à 2030
+    url: https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos
+    date: '2026-06-17'
+    support: site du candidat (compte rendu de l'entretien aux Échos)
+  precision: precise
+  interpretation: Coût public = part non financée par les entreprises (CPF, plan de formation) × coût unitaire d'une formation
+    courte.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: garde-enfants-livret-200000
+  libelle: Livret d'épargne garde d'enfants et formation de 200 000 professionnels de la petite enfance d'ici 2030
+  domaine: politique familiale
+  citation:
+    texte: Je propose un nouveau livret d’épargne , sur le modèle du livret A, pour orienter l’épargne des Français vers le
+      financement de nouvelles places en crèche. Je propose également de former 200 000 professionnels de la petite enfance
+      d’ici 2030.
+    url: https://attalpresident.fr/programme/travail-salaires
+    date: consulté le 2026-09-29
+    support: site du candidat (programme)
+  precision: partielle
+  interpretation: Livret sur le modèle du livret A (exonération d'IR et de prélèvements sociaux → dépense fiscale) ; formation
+    de 200 000 professionnels (coût de formation).
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: pensions-alimentaires-defiscalisation
+  libelle: Défiscaliser les pensions alimentaires reçues pour les enfants
+  domaine: fiscalité des ménages
+  citation:
+    texte: Défiscaliser les pensions alimentaires reçues pour les enfants.
+    url: https://attalpresident.fr/actualites/gabriel-attal-annonce-ses-premieres-mesures-pour-les-familles-monoparentales-a-la-premiere-universite-d-ete
+    date: '2026-08-28'
+    support: site du candidat
+  precision: precise
+  interpretation: Suppression de l'imposition à l'IR des pensions alimentaires reçues pour les enfants ; question de la déduction
+    symétrique chez le parent versant (maintenue ?).
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: carburant-bareme-bonus-e85
+  libelle: 'Carburants : barème kilométrique revalorisé, bonus électrique occasion, moitié du boîtier E85, prime employeur
+    1 000 €'
+  domaine: énergie / pouvoir d'achat
+  citation:
+    texte: Il propose notamment de revaloriser le barème kilométrique pour les salariés du privé, les indépendants et les
+      agents publics , d’étendre le bonus électrique aux véhicules d’occasion et de financer la moitié du coût d’installation
+      d’un boîtier E85. Il soutient également l’élargissement des aides aux gros rouleurs et le relèvement à 1 000 euros de
+      la prime carburant pouvant être versée par les employeurs sans charges ni impôts.
+    url: https://attalpresident.fr/actualites/gabriel-attal-presente-un-plan-de-desendettement-et-un-messmer-ii-pour-sortir-des-dependances-francaises
+    date: '2026-09-23'
+    support: site du candidat
+  precision: partielle
+  interpretation: 'Quatre sous-mesures (dépense fiscale IR, bonus, aide à l''équipement, exonération). Le plafond de la prime
+    employeur a été porté à 1 000 € par le gouvernement le 22 sept. 2026 : vérifier si la mesure est déjà dans la législation
+    de référence.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: heures-supplementaires-defiscalisation
+  libelle: Défiscaliser les heures supplémentaires
+  domaine: fiscalité des ménages
+  citation:
+    texte: Défiscaliser les heures supplémentaires.
+    url: https://www.ifrap.org/comparateurs/presidentielles-2027
+    date: consulté le 2026-09-29
+    support: comparateur de programmes (Fondation IFRAP), source primaire non retrouvée
+  precision: vague
+  interpretation: 'Source secondaire (comparateur IFRAP, rubrique Retraites & Travail) : les heures supplémentaires sont déjà
+    exonérées d''IR jusqu''à 7 500 €/an ; lecture possible : relèvement ou suppression du plafond. À confirmer par une source
+    primaire.'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: impots-classes-moyennes-2md
+  libelle: Baisser de 2 Md€ les impôts des classes moyennes
+  domaine: fiscalité des ménages
+  citation:
+    texte: Baisser de 2 Md€ les impôts pour les classes moyennes.
+    url: https://www.ifrap.org/comparateurs/presidentielles-2027
+    date: consulté le 2026-09-29
+    support: comparateur de programmes (Fondation IFRAP), source primaire non retrouvée
+  precision: precise
+  interpretation: Source secondaire (comparateur IFRAP) ; engagement de 2023-2024 du gouvernement Attal, possible reprise
+    non confirmée pour 2027. À confirmer.
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: logement-statut-bailleur-prive
+  libelle: Statut du bailleur privé et incitations aux maires bâtisseurs
+  domaine: logement
+  citation:
+    texte: Il propose notamment un véritable statut du bailleur privé , une simplification massive des règles de construction
+      et davantage d’incitations pour les maires qui autorisent de nouveaux logements.
+    url: https://attalpresident.fr/actualites/a-la-ref-gabriel-attal-grand-gagnant-du-premier-debat-de-la-presidentielle-2027
+    date: '2026-08-27'
+    support: site du candidat (compte rendu du débat du Medef)
+  precision: vague
+  interpretation: 'Statut fiscal (amortissement du bien locatif) : dépense fiscale ; le dispositif Jeanbrun (LF 2026) est
+    déjà dans la référence. Objectif de 400 000 logements/an (IFRAP).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: justice-3000-magistrats-prisons
+  libelle: Recruter 3 000 magistrats et greffiers et construire des places de prison
+  domaine: justice
+  citation:
+    texte: Cette modernisation doit également s’accompagner d’un effort continu en matière de ressources humaines, avec le
+      recrutement de 3 000 magistrats et greffiers supplémentaires afin d’accélérer le traitement des procédures et de désengorger
+      les juridictions.
+    url: https://attalpresident.fr/actualites/gabriel-attal-dans-le-figaro-appelle-a-une-nouvelle-justice
+    date: '2026-06-12'
+    support: site du candidat (compte rendu de l'entretien au Figaro)
+  precision: partielle
+  interpretation: '3 000 ETP (répartition magistrats/greffiers à supposer) ; places de prison : nombre non précisé (loi d''exception
+    « Notre-Dame »).'
+  chiffrable: false
+  raison_non_chiffrable: A_CHIFFRER
+- id: geoenergie-fonds-chaleur
+  libelle: Doubler les aides à la géoénergie (80 → 160 M€) à enveloppe constante
+  domaine: énergie
+  citation:
+    texte: l'État déploiera des leviers d'exécution en doublant les fonds dédiés au subventionnement de la géoénergie pour
+      atteindre 160 millions d'euros par an. Ce déploiement massif se fera à enveloppe constante, sans hausse d'impôt ni augmentation
+      de la dépense publique, par la simple réorientation des budgets actuels sous-consommés dans d'autres secteurs comme
+      la biomasse.
+    url: https://attalpresident.fr/actualites/face-aux-canicules-gabriel-attal-veut-faire-de-la-geoenergie-le-grand-projet-energetique-de-la-france-du-xxie-siecle
+    date: '2026-06-25'
+    support: site du candidat
+  precision: precise
+  chiffrable: false
+  raison_non_chiffrable: Redéploiement explicite à enveloppe constante et montant inférieur à 0,1 Md€.
+- id: plan-eau-fuites
+  libelle: Plan massif de réparation des fuites d'eau, à euro constant
+  domaine: écologie
+  citation:
+    texte: Le financement de ces mesures reposera sur le redéploiement de crédits publics existants (notamment les 400 millions
+      d'euros du Plan eau et les 200 millions du Fonds vert) et sur des prêts à très long terme de la Banque des Territoires.
+      Il sera financé à euro constant et ne nécessitera ni dépense nouvelle ni augmentation d'impôts.
+    url: https://attalpresident.fr/actualites/gabriel-attal-plan-eau-argeles-sur-mer
+    date: '2026-08-10'
+    support: site du candidat
+  precision: precise
+  chiffrable: false
+  raison_non_chiffrable: 'Financé par redéploiement de crédits existants (Plan eau, Fonds vert) et prêts de la Banque des
+    Territoires : effet nul sur le solde selon le candidat.'
+- id: electricite-75-euros-mwh
+  libelle: Prix de l'électricité autour de 75 €/MWh, contrats < 50 €/MWh pour l'industrie exposée
+  domaine: énergie
+  citation:
+    texte: Gabriel Attal veut également agir sur le coût de l’énergie avec un prix de l’électricité autour de 75 €/MWh et
+      des contrats inférieurs à 50 €/MWh pour les industriels les plus exposés à la concurrence internationale.
+    url: https://attalpresident.fr/actualites/gabriel-attal-presente-un-plan-de-desendettement-et-un-messmer-ii-pour-sortir-des-dependances-francaises
+    date: '2026-09-23'
+    support: site du candidat
+  precision: partielle
+  chiffrable: false
+  raison_non_chiffrable: 'Instrument non précisé (régulation, contrats EDF, fiscalité) : effet budgétaire non identifiable.'
+- id: defense-moyens
+  libelle: Continuer à augmenter les moyens de la défense
+  domaine: défense
+  citation:
+    texte: Dans un monde où la guerre refait surface, où les empires avancent, où les cyberattaques se multiplient, nous devons
+      continuer à augmenter les moyens de notre défense et surtout, surtout, la préparer aux guerres de demain.
+    url: https://attalpresident.fr/programme/frontieres
+    date: consulté le 2026-09-29
+    support: site du candidat (programme)
+  precision: vague
+  chiffrable: false
+  raison_non_chiffrable: 'Trop vague : aucune cible au-delà de la LPM (nouveau livre blanc annoncé).'
+- id: regle-or-referendum
+  libelle: Règle d'or d'équilibre budgétaire dans la Constitution par référendum, « impunité zéro »
+  domaine: institutions
+  citation:
+    texte: Surtout, il propose d'inscrire par référendum une « règle d'or » d'équilibre budgétaire dans la Constitution, inspirée
+      directement du modèle allemand.
+    url: https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037
+    date: '2026-07-03'
+    support: site du candidat (compte rendu de l'entretien au Parisien)
+  precision: partielle
+  chiffrable: false
+  raison_non_chiffrable: 'NON_BUDGETAIRE : règle constitutionnelle et responsabilité politique, sans effet mécanique.'
+- id: loi-stabilite-fiscale-10-ans
+  libelle: Loi de stabilité fiscale et économique sur dix ans (CIR, pacte Dutreil)
+  domaine: fiscalité
+  citation:
+    texte: Pour mettre fin à l’incertitude fiscale qui pèse sur les entreprises depuis la dissolution, Gabriel Attal propose
+      dès 2027 une loi de stabilité fiscale et économique sur dix ans . Celle-ci garantirait notamment la pérennité du crédit
+      d’impôt recherche et du pacte Dutreil.
+    url: https://attalpresident.fr/actualites/a-la-ref-gabriel-attal-grand-gagnant-du-premier-debat-de-la-presidentielle-2027
+    date: '2026-08-27'
+    support: site du candidat (compte rendu du débat du Medef)
+  precision: precise
+  chiffrable: false
+  raison_non_chiffrable: 'Maintien de dispositifs existants : aucun effet par rapport à la référence.'
+- id: epargne-salariale-per
+  libelle: Fléchage obligatoire de 50 % de l'intéressement et de la participation vers l'épargne retraite
+  domaine: épargne
+  citation:
+    texte: Il demande le fléchage obligatoire de 50 % de l’intéressement et de la participation des salariés vers des plans
+      d’épargne retraite afin de financer durablement l'innovation.
+    url: https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos
+    date: '2026-06-17'
+    support: site du candidat (compte rendu de l'entretien aux Échos)
+  precision: precise
+  chiffrable: false
+  raison_non_chiffrable: 'NON_BUDGETAIRE : orientation de l''épargne privée ; effet fiscal marginal non documenté.'
+- id: heures-sup-plafond-constitution-travail
+  libelle: Supprimer le plafond annuel d'heures supplémentaires, « Constitution du travail »
+  domaine: travail
+  citation:
+    texte: Je proposerai de supprimer le plafond d’heures supplémentaires fixé par le Code du travai l, aujourd’hui fixé,
+      à défaut d’accord collectif, à deux cent vingt heures par an et par salarié.
+    url: https://attalpresident.fr/programme/travail-salaires
+    date: consulté le 2026-09-29
+    support: site du candidat (programme)
+  precision: precise
+  chiffrable: false
+  raison_non_chiffrable: 'NON_BUDGETAIRE : droit du travail.'
+- id: immigration-quotas-points
+  libelle: Quotas d'immigration par secteur votés par le Parlement, système à points
+  domaine: immigration
+  citation:
+    texte: Il propose notamment que les partenaires sociaux identifient tous les deux ans les besoins de l’économie avant
+      un vote du Parlement fixant des quotas limitatifs par secteur et par origine. Il souhaite également s’inspirer du système
+      canadien d’immigration par points.
+    url: https://attalpresident.fr/actualites/bfm-tv-gabriel-attal-veut-changer-de-modele-pour-redonner-de-la-puissance-a-la-france
+    date: '2026-09-06'
+    support: site du candidat (entretien BFM TV)
+  precision: precise
+  chiffrable: false
+  raison_non_chiffrable: 'NON_BUDGETAIRE : politique migratoire.'
+- id: justice-jap-mineurs
+  libelle: Suppression du juge d'application des peines, comparution immédiate des mineurs
+  domaine: justice
+  citation:
+    texte: Il a notamment rappelé sa loi sur la justice des mineurs, qui prévoit notamment la comparution immédiate pour les
+      mineurs récidivistes et la remise en cause de l’excuse de minorité, n'excluant pas une évolution de la Constitution
+      après les censures du Conseil constitutionnel.
+    url: https://attalpresident.fr/actualites/gabriel-attal-rtl-autorite-ecole-retraites-rassemblement-campagne
+    date: '2026-06-01'
+    support: site du candidat (entretien RTL)
+  precision: precise
+  chiffrable: false
+  raison_non_chiffrable: 'NON_BUDGETAIRE : procédure pénale.'
+- id: ukraine-avoirs-russes
+  libelle: Financer l'aide à l'Ukraine par la saisie des avoirs russes gelés
+  domaine: international
+  citation:
+    texte: Il propose enfin d’utiliser les avoirs russes gelés en Europe pour financer le soutien supplémentaire à l’Ukraine,
+      afin que cet effort soit supporté par la Russie plutôt que par les contribuables européens.
+    url: https://attalpresident.fr/actualites/bfm-tv-gabriel-attal-veut-changer-de-modele-pour-redonner-de-la-puissance-a-la-france
+    date: '2026-09-06'
+    support: site du candidat (entretien BFM TV)
+  precision: precise
+  chiffrable: false
+  raison_non_chiffrable: 'NON_BUDGETAIRE : financement européen, hors solde des administrations françaises.'
+- id: mutuelle-publique-1-euro
+  libelle: Complémentaire santé publique à 1 € par jour
+  domaine: santé
+  citation:
+    texte: Dans le volet santé, Gabriel Attal a défendu l'idée d'une mise en place d'une complémentaire santé "publique" à
+      "1 euro par jour" pour ceux qui ne sont pas couverts par une mutuelle.
+    url: https://www.egora.fr/actus-pro/politiques/attal-promet-une-mutuelle-1-euro-par-jour
+    date: '2024-06-15'
+    support: presse (campagne des législatives 2024)
+  precision: vague
+  chiffrable: false
+  raison_non_chiffrable: Promesse des législatives de 2024 (Premier ministre), non retrouvée dans les sources de campagne
+    2026 ; reprise par certains agrégateurs. Non retenue en l'état.
