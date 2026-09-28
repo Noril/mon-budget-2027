@@ -34,9 +34,15 @@ uv run python -m outils.chiffrage             # build/chiffrage.md, build/chiffr
    l'incertitude sur les paramètres et sur la lecture de la promesse.
 5. **Formule rejouable** : `calcul.formule` est une expression évaluée sur `calcul.parametres` ; elle doit redonner
    `central`. Un paramètre vient d'un barème (`bareme`, même valeur) ou porte sa `source`.
-6. **Enveloppes d'économies non détaillées** (« 100 Md€ d'économies ») : `central` = la part documentée par des
-   mesures identifiables et chiffrables par ailleurs dans le programme (sans double compte), `haut` = montant
-   annoncé, `bas` = 0. La différence est l'écart d'affichage.
+6. **Économies annoncées sans mesure détaillée.** Deux cas, traités de la même façon dans tous les programmes :
+   - **Enveloppe globale** (« 100 Md€ d'économies », sans périmètre) : ce n'est pas une mesure. `central` = la
+     part documentée par des mesures identifiables et chiffrées par ailleurs dans le programme (sans double compte,
+     donc souvent 0), `haut` = montant annoncé, `bas` = 0. La différence est l'écart d'affichage.
+   - **Économie ciblée sur un périmètre nommé** (« −20 % sur les agences », « 50 Md€ d'aides aux entreprises en
+     moins ») : c'est une mesure, chiffrée comme si elle était appliquée, symétriquement aux dépenses promises.
+     `central` = montant annoncé, **plafonné** par le budget réel du périmètre visé (source à l'appui) et par ce que
+     le droit permet (une contribution à l'UE ne se baisse pas unilatéralement) ; `bas` = 0 (économie non
+     réalisée) ; `haut` = `central`. Confiance faible sauf détail des postes.
 7. **Non chiffrable** : réformes institutionnelles, mesures sans effet budgétaire significatif (< 0,1 Md€) ou trop
    vagues pour être lues. `raison_non_chiffrable` le dit.
 8. **Chiffrages tiers** : Institut Montaigne, IFRAP, OFCE, IPP, Terra Nova, Cour des comptes, COR, presse
