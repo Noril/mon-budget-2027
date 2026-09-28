@@ -1,0 +1,514 @@
+id: zemmour-reconquete
+candidat: Éric Zemmour
+parti: Reconquête
+statut_candidature: >-
+  Candidat annoncé : « Je suis candidat à la présidence de la République, je serai candidat à l'élection
+  présidentielle » (Face à BFM, BFMTV, 17 septembre 2026) ; déclaration formelle attendue à l'automne 2026 (octobre
+  selon son entourage). Sarah Knafo, vice-présidente de Reconquête et eurodéputée, n'est pas candidate.
+date_collecte: 2026-09-29
+sources:
+  - titre: "Budget : le plan de Sarah Knafo – 24 mesures, 140 Md€ d'économies par an (site budget2026.fr / budget2027.fr, relayé par parti-reconquete.fr)"
+    url: https://www.budget2026.fr/
+    date: 2026-09
+  - titre: "Combien je gagne – simulateur carburant (baisse d'un tiers de l'accise, suppression des CEE, « avec Sarah Knafo et Éric Zemmour »)"
+    url: https://combienjegagne.fr/
+    date: 2026-09
+  - titre: "CNews (d'après le JDD) – Sarah Knafo dévoile 15 mesures dans son livre « Le Casse du siècle »"
+    url: https://www.cnews.fr/france/2026-08-30/impots-depenses-csg-droits-de-succession-sarah-knafo-devoile-15-mesures-pour
+    date: 2026-08-30
+  - titre: "Capital (Yahoo Finance) – 130 milliards d'économies : Sarah Knafo propose une réforme choc de la CSG"
+    url: https://fr.finance.yahoo.com/actualites/130-milliards-d%C3%A9conomies-sarah-knafo-103113554.html
+    date: 2026-09-07
+  - titre: "L'Essentiel de l'Éco – Sarah Knafo : ses idées et ses modèles politiques"
+    url: https://lessentieldeleco.fr/8437-sarah-knafo-ses-idees-et-ses-modeles-politiques/
+    date: 2026-09-20
+  - titre: "Le Figaro (AFP) – Éric Zemmour confirme qu'il sera candidat et durcit encore son discours sur l'immigration"
+    url: https://www.lefigaro.fr/elections/presidentielles/presidentielle-2027-eric-zemmour-confirme-qu-il-sera-candidat-durcit-encore-son-discours-sur-l-immigration-20260918
+    date: 2026-09-18
+  - titre: "BFMTV – Éric Zemmour dit être favorable au départ à « la retraite à 64 ans voire 65 » (Face à BFM)"
+    url: https://www.bfmtv.com/politique/elections/presidentielle/video-eric-zemmour-president-de-reconquete-dit-etre-favorable-au-depart-a-la-retraite-a-64-ans-voire-65_VN-202609170934.html
+    date: 2026-09-17
+  - titre: "CNews – Ce qu'il faut retenir du discours de rentrée d'Éric Zemmour (Port-Marly)"
+    url: https://www.cnews.fr/france/2026-09-13/presidentielle-2027-remigration-intelligence-artificielle-ce-quil-faut-retenir-du
+    date: 2026-09-13
+  - titre: "Touch'Actu – Rentrée de Reconquête à Port-Marly (compte rendu citant Boulevard Voltaire, CNews, Europe 1)"
+    url: https://touch-actu.fr/actualites/portraits-politiques-8743-zemmour-et-knafo-a-port-marly-ce-quil-faut-retenir-de-la-rentree-de-reconquete-avant-2027
+    date: 2026-09-14
+  - titre: "Programme Reconquête – élections européennes 2024"
+    url: https://assets.ericzemmour.fr/document/Programme%20Reconqu%C3%AAte%20Europ%C3%A9ennes%202024.pdf
+    date: 2024-05
+  - titre: "Le JDD – Budget 2026 : Sarah Knafo présente un plan d'économies choc de 80 milliards d'euros"
+    url: https://www.lejdd.fr/politique/budget-2026-sarah-knafo-presente-un-plan-deconomies-choc-de-80-milliards-deuros-163182
+    date: 2025-10-20
+  - titre: "Public Sénat – Éric Zemmour officialise sa candidature à la présidentielle 2027"
+    url: https://www.publicsenat.fr/actualites/politique/eric-zemmour-officialise-sa-candidature-a-la-presidentielle-2027
+    date: 2026-09-18
+  - titre: "franceinfo – Vrai ou faux : Sarah Knafo a-t-elle raison de dénoncer un « casse du siècle » ?"
+    url: https://www.franceinfo.fr/vrai-ou-fake/vrai-ou-faux-sarah-knafo-a-t-elle-raison-de-denoncer-dans-son-livre-un-casse-du-siecle-orchestre-par-l-etat-au-detriment-des-contribuables_8175293.html
+    date: 2026-09-08
+annonce_candidat:
+  cout_md: null
+  financement_md: 140
+  texte: >-
+    Aucun chiffrage global publié par Éric Zemmour lui-même. Le volet budgétaire de Reconquête est porté par Sarah
+    Knafo : « 140 milliards d'économies par an. Au minimum. […] 24 mesures : tout est listé, chiffré, sourcé » (site
+    budget2026.fr), après 130 Md€ dans « Le Casse du siècle » (Fayard, 2 septembre 2026) et 80 Md€ dans le contre-budget
+    d'octobre 2025. Ces économies financent des baisses d'impôts : suppression de la CSG sur les revenus d'activité,
+    des droits de succession et des impôts de production, baisse d'un tiers de l'accise sur les carburants (« 12
+    milliards d'euros de manque à gagner pour l'État »). Pas de coût total publié pour ces baisses.
+  url: https://www.budget2026.fr/
+notes: >-
+  Pas de programme présidentiel 2027 publié au 29 septembre 2026 ; la déclaration formelle est attendue en octobre.
+  Hypothèse de collecte : le programme économique du candidat est le plan de Sarah Knafo (vice-présidente de Reconquête,
+  directrice de campagne en 2022), parce que (1) le site du parti (parti-reconquete.fr) renvoie à ses sites et à son
+  livre, (2) le simulateur carburant présente la baisse de l'accise comme la politique « avec Sarah Knafo et Éric
+  Zemmour », (3) É. Zemmour a salué le livre à Port-Marly (« Les Français ont été les victimes du plus grand casse du
+  siècle »). Aucune de ces mesures n'a encore été reprise mot pour mot par le candidat : toutes les citations Knafo sont
+  marquées dans `interpretation`, et le fichier devra être revu à la publication du programme. Mesures propres au
+  candidat en 2026 : retraite à 64 voire 65 ans, « remigration » (expulsion des étrangers chômeurs depuis un an, des
+  détenus et délinquants étrangers, des clandestins), IA et nucléaire. Le programme présidentiel 2022 (baisse des impôts
+  de production de 30 Md€, 64 ans, etc.) n'est retenu que lorsqu'il a été reconfirmé. Le contre-budget d'octobre 2025
+  (rejet de mesures du PLF 2026 : surtaxe d'IS, CDHR, hausse de la contribution à l'UE) n'est pas repris : il visait la
+  loi de finances 2026, non le programme 2027.
+mesures:
+  # --- Baisses d'impôts ------------------------------------------------------------------------------------------
+  - id: suppression-csg-activite
+    libelle: Suppression de la CSG sur les revenus d'activité
+    domaine: fiscalite
+    citation:
+      texte: "Une mesure révolutionnaire : la suppression de la CSG sur les revenus d’activité. C’est 10% de salaire net en plus pour tous les actifs, sans un centime de coût du travail en plus"
+      url: https://www.cnews.fr/france/2026-08-30/impots-depenses-csg-droits-de-succession-sarah-knafo-devoile-15-mesures-pour
+      date: 2026-08-30
+      support: presse (propos de Sarah Knafo au JDD)
+    precision: precise
+    interpretation: >-
+      Proposition de Sarah Knafo, présentée comme la « mesure majeure » financée par les 130 Md€ d'économies (TF1, 7
+      septembre 2026). Perte de recettes de sécurité sociale : CSG sur revenus d'activité (salaires et revenus des
+      indépendants, 9,2 %), hors CSG sur remplacement et capital. Compensation à la sécurité sociale non précisée.
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: suppression-droits-succession
+    libelle: Suppression des droits de succession
+    domaine: fiscalite
+    citation:
+      texte: "Nous devons abolir les droits de succession"
+      url: https://www.cnews.fr/france/2026-08-30/impots-depenses-csg-droits-de-succession-sarah-knafo-devoile-15-mesures-pour
+      date: 2026-08-30
+      support: presse (propos de Sarah Knafo au JDD)
+    precision: precise
+    interpretation: >-
+      Droits de succession seuls (≈ 16 Md€ en 2024), droits de donation maintenus (lecture littérale) ; lecture haute :
+      droits de mutation à titre gratuit en entier (+ ≈ 4,9 Md€ de donations). Le contre-budget d'octobre 2025 chiffrait
+      déjà la suppression à 16 Md€. En 2022, É. Zemmour proposait seulement d'exonérer « une large majorité » des
+      Français : reconfirmation par le candidat à obtenir.
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: suppression-impots-production
+    libelle: Suppression des impôts de production
+    domaine: fiscalite
+    citation:
+      texte: "Parmi elles figurent notamment la suppression des droits de succession, la mise en place d'un système de retraite par capitalisation ou encore la suppression des impôts de production."
+      url: https://fr.finance.yahoo.com/actualites/130-milliards-d%C3%A9conomies-sarah-knafo-103113554.html
+      date: 2026-09-07
+      support: presse
+    precision: vague
+    interpretation: >-
+      Périmètre non publié : CFE, C3S et CVAE résiduelle a minima (lecture basse) ; taxe foncière des entreprises,
+      versement mobilité, taxes sur salaires (lecture haute « impôts de production » au sens Insee, ≈ 70 Md€ ?). Le
+      programme 2022 de Zemmour visait 30 Md€ de baisse. Collectivités compensées par l'État.
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: accise-carburants-moins-un-tiers
+    libelle: Baisse d'un tiers de l'accise sur les carburants (ex-TICPE)
+    domaine: fiscalite
+    citation:
+      texte: "La baisse de l’accise : 12 milliards d’euros de manque à gagner pour l’État."
+      url: https://combienjegagne.fr/
+      date: 2026-09
+    precision: precise
+    interpretation: >-
+      « Baisser l'accise d'un tiers : 27 centimes de moins par litre d'essence, 24 centimes par litre de gazole ». Montant
+      annoncé 12 Md€. Le site oppose ce plan « avec Sarah Knafo et Éric Zemmour » à la baisse de TVA du RN. Perte
+      induite de TVA sur l'accise à ajouter (TVA assise sur le prix TTC hors TVA, accise comprise).
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: suppression-cee
+    libelle: Suppression des certificats d'économie d'énergie
+    domaine: energie
+    citation:
+      texte: "La suppression des CEE : sans impact sur les comptes publics. Nous supprimons une obligation imposée aux énergéticiens, qui la répercutent sur vos factures."
+      url: https://combienjegagne.fr/
+      date: 2026-09
+    precision: precise
+    chiffrable: false
+    raison_non_chiffrable: >-
+      Les CEE sont une obligation privée hors comptes publics : pas d'effet direct sur le solde (sauf si des aides
+      publiques devaient reprendre les rénovations financées par les CEE, non prévu).
+  # --- Retraites --------------------------------------------------------------------------------------------------
+  - id: retraite-64-voire-65
+    libelle: Âge légal de départ à 64 ans, voire 65 ans
+    domaine: retraites
+    citation:
+      texte: "Éric Zemmour, président de Reconquête, dit être favorable au départ à “la retraite à 64 ans voire 65”"
+      url: https://www.bfmtv.com/politique/elections/presidentielle/video-eric-zemmour-president-de-reconquete-dit-etre-favorable-au-depart-a-la-retraite-a-64-ans-voire-65_VN-202609170934.html
+      date: 2026-09-17
+      support: presse (titre de la vidéo BFMTV)
+    precision: vague
+    interpretation: >-
+      Par rapport à la législation au 1er janvier 2027 (réforme 2023 suspendue jusqu'au 1er janvier 2028 puis reprise
+      vers 64 ans) : 64 ans = sortie de la suspension (léger gain 2027-2031, nul en 2032 si 64 ans est atteint), 65 ans =
+      économie supplémentaire. Calendrier et durée de cotisation non précisés. Lecture centrale : 64 ans sans suspension ;
+      haut : 65 ans à terme.
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: retraite-capitalisation
+    libelle: Introduction d'un système de retraite par capitalisation
+    domaine: retraites
+    citation:
+      texte: "Parmi elles figurent notamment la suppression des droits de succession, la mise en place d'un système de retraite par capitalisation ou encore la suppression des impôts de production."
+      url: https://fr.finance.yahoo.com/actualites/130-milliards-d%C3%A9conomies-sarah-knafo-103113554.html
+      date: 2026-09-07
+      support: presse
+    precision: vague
+    chiffrable: false
+    raison_non_chiffrable: >-
+      Modalités inconnues (part des cotisations basculée, financement de la transition) : trop vague pour être chiffré ;
+      une bascule partielle de cotisations créerait un besoin de financement du régime par répartition.
+  # --- Économies (plan Knafo, 24 mesures) --------------------------------------------------------------------------
+  - id: plan-140-md-economies
+    libelle: Enveloppe globale de 140 Md€ d'économies annuelles « au minimum »
+    domaine: etat
+    citation:
+      texte: "Les Français ont trop payé. Il est temps de dépenser moins pour taxer moins. 24 mesures : tout est listé, chiffré, sourcé."
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: partielle
+    interpretation: >-
+      Total revendiqué 140 Md€ (livre : 130 Md€). Les 24 mesures sont détaillées ci-dessous ; cette entrée sert à
+      rapprocher leur somme chiffrée du total affiché (règle 6 : central = somme documentée, haut = 140). Ne pas
+      additionner cette entrée aux mesures détaillées.
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: non-remplacement-800000-departs
+    libelle: Non-remplacement de 800 000 départs dans les fonctions administratives sur le quinquennat
+    domaine: fonction-publique
+    citation:
+      texte: "Non-remplacement de 800 000 départs administratifs sur l’ensemble du quinquennat, sur 2,3 millions de départs naturels."
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: precise
+    interpretation: >-
+      Montant affiché : 40 Md€/an. Enseignants, soignants, policiers et militaires épargnés (Essentiel de l'Éco) : les
+      départs en retraite hors ces catégories pourraient ne pas suffire (≈ 137 000 départs/an toutes catégories en 2024).
+      Les trois versants (État, territoriale, hospitalière) sont concernés : effet APU.
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+    chiffrages_tiers:
+      - auteur: François Ecalle (Fipeco), cité par franceinfo
+        montant_md: 35
+        url: https://www.franceinfo.fr/vrai-ou-fake/vrai-ou-faux-sarah-knafo-a-t-elle-raison-de-denoncer-dans-son-livre-un-casse-du-siecle-orchestre-par-l-etat-au-detriment-des-contribuables_8175293.html
+        date: 2026-09-08
+        commentaire: >-
+          « une réduction effective de 800 000 emplois pourrait rapporter de l'ordre de 30 à 40 milliards d'euros par
+          an » (milieu de fourchette consigné), réalisme jugé faible sans réorganisation profonde.
+  - id: gains-productivite-ia-administration
+    libelle: Gains de productivité de l'IA dans les fonctions administratives
+    domaine: fonction-publique
+    citation:
+      texte: "Gains de productivité de l’intelligence artificielle dans les fonctions administratives (estimation calculée à partir du rapport IGF-IGAS 2025)."
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: vague
+    interpretation: >-
+      Montant affiché : 5 Md€. Recoupe probablement la mesure 800 000 départs (mêmes emplois) : risque de double compte.
+      É. Zemmour (Port-Marly) veut l'IA « pour remplacer les fonctionnaires à la retraite ».
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: prestations-non-contributives-francais
+    libelle: Prestations sociales non contributives (RSA, APL, allocations familiales…) réservées aux Français
+    domaine: immigration
+    citation:
+      texte: "Limitation des prestations sociales non contributives (RSA, APL, allocations familiales…) aux citoyens français."
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: partielle
+    interpretation: >-
+      Montant affiché : 15 à 20 Md€. Plus large que la mesure RN (condition de 5 ans de travail) : exclusion de tous les
+      étrangers. Constitutionnalité très incertaine (signalée, non déduite).
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: rsa-limite-trois-ans
+    libelle: RSA limité à trois ans pour les bénéficiaires en capacité de travailler
+    domaine: social
+    citation:
+      texte: "Limitation à trois ans de l’allocation RSA pour les bénéficiaires en capacité de travailler."
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: partielle
+    interpretation: >-
+      Montant affiché : 4,8 Md€. Reports vers d'autres minima et l'hébergement non chiffrés par l'auteure.
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: fraude-sociale-delinquants
+    libelle: Lutte contre la fraude sociale et retrait des aides sociales aux délinquants et criminels
+    domaine: social
+    citation:
+      texte: "Lutte contre la fraude sociale et retrait des aides sociales pour les délinquants et criminels."
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: vague
+    interpretation: >-
+      Montant affiché : 2 à 3 Md€.
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: fin-soutien-enr-intermittentes
+    libelle: Fin du soutien public aux énergies renouvelables intermittentes
+    domaine: energie
+    citation:
+      texte: "Fin de l’engagement de soutien public aux énergies renouvelables intermittentes."
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: partielle
+    interpretation: >-
+      Montant affiché : 8 Md€. Contrats en cours = engagements juridiques (lecture basse : nouveaux contrats seulement).
+      Même barème que la mesure RN équivalente.
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: fin-politique-de-la-ville
+    libelle: Fin de la politique de la ville
+    domaine: logement
+    citation:
+      texte: "Fin de la politique de la Ville."
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: vague
+    interpretation: >-
+      Montant affiché : 8 Md€ (7,9 Md€ dans le contre-budget 2025). Le programme 147 ne pèse qu'environ 0,6 Md€ ; le
+      montant correspond au document de politique transversale (crédits de droit commun inclus) : périmètre à arrêter.
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: suppression-anah
+    libelle: Suppression de l'Agence nationale de l'habitat (dont MaPrimeRénov')
+    domaine: logement
+    citation:
+      texte: "Suppression de l’Agence nationale de l’habitat (Anah)."
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: precise
+    interpretation: >-
+      Montant affiché : 6 Md€ (budget d'intervention de l'Anah, MaPrimeRénov' comprise).
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: suppression-ademe
+    libelle: Suppression de l'Ademe (hors soutien aux renouvelables déjà compté)
+    domaine: ecologie
+    citation:
+      texte: "Suppression de l’Agence de l’environnement et de la maîtrise de l’énergie (Ademe), hors dispositifs de soutien aux renouvelables déjà comptabilisés à la ligne 6."
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: precise
+    interpretation: >-
+      Montant affiché : 3,4 Md€ (fonds chaleur, économie circulaire, fonctionnement).
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: france-travail-mise-en-relation
+    libelle: Suppression de la mission de placement de France Travail
+    domaine: travail
+    citation:
+      texte: "Suppression de la mission de mise en relation entre l’offre et la demande d’emploi de France Travail."
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: partielle
+    interpretation: >-
+      Montant affiché : 4 Md€.
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: suppression-ars
+    libelle: Suppression des agences régionales de santé
+    domaine: sante
+    citation:
+      texte: "Suppression des agences régionales de santé (ARS)."
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: precise
+    interpretation: >-
+      Montant affiché : 1 Md€ ; économie nette = fonctionnement des ARS moins missions reprises (préfectures, CPAM).
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: suppression-autres-agences-cese
+    libelle: Suppression d'autres agences et structures (Arcom, HCE, Conseil national du bruit…) et du CESE et des CESER
+    domaine: etat
+    citation:
+      texte: "Suppression d’autres agences et structures publiques inutiles ou nuisibles : Arcom, Conseil national du bruit, Haut Conseil à l’égalité, Observatoire de la laïcité, Haut Comité pour le logement…"
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: partielle
+    interpretation: >-
+      Montants affichés : 1 Md€ ; plus « Suppression du CESE et des Ceser » 66 M€.
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: suppression-aide-publique-developpement
+    libelle: Suppression de l'aide publique au développement et de l'AFD
+    domaine: action-exterieure
+    citation:
+      texte: "Suppression de l’aide publique au développement et de l’Agence française de développement."
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: precise
+    interpretation: >-
+      Montant affiché : 14 Md€. L'APD au sens OCDE inclut prêts, dépenses imputées (étudiants, réfugiés) et
+      contribution européenne : seule la part budgétaire (mission APD, contributions multilatérales) est une économie de
+      solde ; risque de double compte avec la contribution à l'UE et les étudiants étrangers.
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: contribution-ue-pre-covid
+    libelle: Retour au budget européen d'avant le Covid et baisse de la contribution française
+    domaine: europe
+    citation:
+      texte: "Retour au budget de l’UE pré-Covid et économies sur la dotation française."
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: partielle
+    interpretation: >-
+      Montant affiché : 14 Md€. Programme européen 2024 de Reconquête : « Diminuer de 20% la contribution annuelle de la
+      France au budget de l’UE avec un plafond à 20 milliards d’euros par an ». Unilatéralement infaisable (décision
+      ressources propres, remboursement de NextGenerationEU) : signalé.
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: etudes-payantes-etudiants-etrangers
+    libelle: Fin de la gratuité des études pour les étudiants étrangers
+    domaine: education
+    citation:
+      texte: "Fin de la gratuité des études pour les étudiants étrangers."
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: partielle
+    interpretation: >-
+      Montant affiché : 4 Md€ (coût complet ; recette réelle = frais × effectifs restants).
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: fin-ame
+    libelle: Suppression de l'aide médicale d'État
+    domaine: immigration
+    citation:
+      texte: "Fin de l’aide médicale d’État."
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: precise
+    interpretation: >-
+      Montant affiché : 1,3 Md€ ; soins urgents (DSUV) reportés sur l'assurance maladie et les hôpitaux à déduire.
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: hausse-cout-visas
+    libelle: Augmentation du coût des visas
+    domaine: immigration
+    citation:
+      texte: "Augmentation du coût des visas."
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: vague
+    interpretation: >-
+      Montant affiché : 0,7 Md€ ; les droits de visa Schengen sont fixés par le code des visas de l'UE.
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: hebergement-urgence-irreguliers
+    libelle: Interdiction de l'hébergement d'urgence aux étrangers en situation irrégulière
+    domaine: immigration
+    citation:
+      texte: "Interdiction de l’hébergement d’urgence aux étrangers en situation irrégulière."
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: precise
+    interpretation: >-
+      Montant affiché : 0,7 Md€.
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: aide-juridictionnelle-francais
+    libelle: Aide juridictionnelle réservée aux Français
+    domaine: justice
+    citation:
+      texte: "Aide juridictionnelle réservée aux Français."
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: precise
+    interpretation: >-
+      Montant affiché : 0,1 Md€.
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: privatisation-audiovisuel-public
+    libelle: Privatisation de l'audiovisuel public
+    domaine: culture
+    citation:
+      texte: "Privatisation de l’audiovisuel public."
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: precise
+    interpretation: >-
+      Montant affiché : 4 Md€ « + cession d'actifs ». Économie = dotation annuelle (≈ 4 Md€) ; le produit de cession est
+      une opération financière (dette), pas une amélioration du solde.
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  - id: subventions-associations-presse-syndicats
+    libelle: Suppression des subventions aux associations « politisées », à la presse et aux syndicats
+    domaine: etat
+    citation:
+      texte: "Suppression des subventions aux associations politisées."
+      url: https://www.budget2026.fr/
+      date: 2026-09
+    precision: vague
+    interpretation: >-
+      Montants affichés : associations 1 à 2 Md€ ; « Suppression des subventions à la presse » 0,2 Md€ ; « Suppression
+      des subventions aux syndicats » 0,1 Md€.
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  # --- Immigration (candidat) ---------------------------------------------------------------------------------------
+  - id: remigration-expulsions
+    libelle: « Remigration » - renvoi des détenus et délinquants étrangers, des clandestins, des étrangers chômeurs depuis un an et des bénéficiaires exclusifs d'aides
+    domaine: immigration
+    citation:
+      texte: "«Il faut également renvoyer, c'est une évidence, les clandestins . Il faut également renvoyer les chômeurs de longue durée, et tous ceux qui vivent uniquement des aides sociales», a-t-il ajouté, fixant la durée de chômage à «plus de six mois à un an, un an dirons-nous»."
+      url: https://www.lefigaro.fr/elections/presidentielles/presidentielle-2027-eric-zemmour-confirme-qu-il-sera-candidat-durcit-encore-son-discours-sur-l-immigration-20260918
+      date: 2026-09-18
+      support: presse (AFP)
+    precision: vague
+    interpretation: >-
+      Effet budgétaire = prestations et allocations chômage non versées moins coût des éloignements (rétention,
+      transport) ; volumes non précisés. Recoupe fortement la mesure prestations-non-contributives-francais : ne chiffrer
+      que l'assurance chômage et le coût des éloignements pour éviter le double compte.
+    chiffrable: false
+    raison_non_chiffrable: A_CHIFFRER
+  # --- Non budgétaires ou non chiffrables -----------------------------------------------------------------------------
+  - id: ia-nucleaire-priorite
+    libelle: Priorité à l'IA (électricité nucléaire excédentaire réservée aux centres de calcul, formation dès l'école) et relance du nucléaire
+    domaine: numerique
+    citation:
+      texte: "le chef de file de Reconquête a mis en avant plusieurs points, dont la formation à l'intelligence artificielle dès l'école, afin de faire de la France le troisième puissance mondiale dans le domaine."
+      url: https://www.cnews.fr/france/2026-09-13/presidentielle-2027-remigration-intelligence-artificielle-ce-quil-faut-retenir-du
+      date: 2026-09-13
+      support: presse
+    precision: vague
+    chiffrable: false
+    raison_non_chiffrable: Orientations sans montant ni dispositif précis.
+  - id: interdiction-voile-espace-public
+    libelle: Interdiction du voile islamique dans l'espace public
+    domaine: societe
+    citation:
+      texte: "La deuxième reprend intégralement le corpus identitaire de Reconquête : préférence nationale pour les prestations non contributives et le logement social, « remigration », interdiction du voile islamique dans l’espace public."
+      url: https://lessentieldeleco.fr/8437-sarah-knafo-ses-idees-et-ses-modeles-politiques/
+      date: 2026-09-20
+      support: presse
+    precision: vague
+    chiffrable: false
+    raison_non_chiffrable: Mesure non budgétaire.
+  - id: refus-impot-europeen
+    libelle: Refus de tout impôt européen (« ressources propres »)
+    domaine: europe
+    citation:
+      texte: "Refuser tout impôt européen et notamment les « ressources propres » aboutissant à créer une fiscalité européenne qui s’ajoute à la fiscalité nationale."
+      url: https://assets.ericzemmour.fr/document/Programme%20Reconqu%C3%AAte%20Europ%C3%A9ennes%202024.pdf
+      date: 2024-05
+    precision: partielle
+    chiffrable: false
+    raison_non_chiffrable: >-
+      Position de négociation européenne sans effet direct sur le solde national (l'absence de nouvelles ressources
+      propres reporte le remboursement de NextGenerationEU sur les contributions nationales).
