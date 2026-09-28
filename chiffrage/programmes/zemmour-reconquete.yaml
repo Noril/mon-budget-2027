@@ -83,10 +83,10 @@ notes: >-
   étrangers, des clandestins), IA et nucléaire. Le programme présidentiel 2022 (baisse des impôts de production de 30
   Md€, 64 ans, etc.) n'est retenu que lorsqu'il a été reconfirmé. Le contre-budget d'octobre 2025 (rejet de mesures du
   PLF 2026 : surtaxe d'IS, CDHR, hausse de la contribution à l'UE) n'est pas repris : il visait la loi de finances 2026,
-  non le programme 2027.
-  Chiffrage (phase 2) : quand le seul chiffre disponible est celui du candidat (ou de Sarah Knafo), il est projeté en 2032
-  au PIB nominal, le central le reprend et le bas retient la moitié de l'économie (convention, paramètre « convention du
-  chiffrage ») ; les enveloppes d'économies non détaillées suivent la règle 6 (central 0, haut = écart d'affichage).
+  non le programme 2027. Chiffrage (phase 2) : quand le seul chiffre disponible est celui du candidat (ou de Sarah Knafo),
+  il est projeté en 2032 au PIB nominal, le central le reprend et le bas retient la moitié de l'économie (convention,
+  paramètre « convention du chiffrage ») ; les enveloppes d'économies non détaillées suivent la règle 6 (central 0, haut
+  = écart d'affichage).
 mesures:
   - id: suppression-csg-activite
     libelle: Suppression de la CSG sur les revenus d'activité
@@ -180,7 +180,7 @@ mesures:
           source: https://www.senat.fr/rap/l25-139-1/l25-139-1_mono.html
           unite: Md€ (PLF 2026)
           note: droits de succession seuls (ligne 1706), hors donations
-        f: &id001
+        f:
           valeur: 1.1842
           source: >-
             chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
@@ -232,7 +232,7 @@ mesures:
           valeur: 5.2
           bareme: c3s_rendement
           unite: Md€/an
-        f: &id002
+        f:
           valeur: 1.2336
           source: >-
             chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
@@ -478,7 +478,14 @@ mesures:
             https://www.franceinfo.fr/vrai-ou-fake/vrai-ou-faux-sarah-knafo-a-t-elle-raison-de-denoncer-dans-son-livre-un-casse-du-siecle-orchestre-par-l-etat-au-detriment-des-contribuables_8175293.html
           unite: Md€ par an (2026)
           note: 'François Ecalle (Fipeco) : « de l''ordre de 30 à 40 milliards d''euros par an », milieu'
-        f: *id001
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
         departs:
           valeur: 136700
           bareme: fp_departs_retraite_annuels
@@ -574,7 +581,13 @@ mesures:
           note: >-
             « entre 6 et 7 milliards d'euros » de prestations nationales versées aux étrangers en situation régulière,
             milieu
-        f: *id002
+        f:
+          valeur: 1.2336
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: PIB nominal 2032 / 2024
       explication: >-
         Exclusion de tous les étrangers des prestations non contributives : ordre de grandeur IFRAP, projeté (facteur
         2024, légère sous-estimation). Recoupement : RSA 15,6 % des foyers hors UE (≈ 1,8 Md€), APL 2,4 Md€, prestations
@@ -615,7 +628,14 @@ mesures:
           source: https://www.budget2026.fr/
           unite: Md€
           note: chiffre de l'auteure (budget2026.fr)
-        f: *id001
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
         part_etrangers:
           valeur: 0.156
           source: https://questions.assemblee-nationale.fr/q16/16-5157QE.htm
@@ -660,7 +680,13 @@ mesures:
             https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/HCFIPS/2026/HCFIPS%20-%20Synth%c3%a8se%20Fraude%20sociale%202025%20-%20Version%20finalis%c3%a9e.pdf
           unite: Md€ recouvrés (2024)
           note: 'règle du barème fraude_sociale_estimee : gain = doublement du recouvrement'
-        f: *id002
+        f:
+          valeur: 1.2336
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: PIB nominal 2032 / 2024
       explication: >-
         Barème fraude_sociale_estimee : central = doublement du recouvrement, haut = annonce (2 à 3 Md€), bas = 0.
     chiffrages_tiers:
@@ -745,7 +771,14 @@ mesures:
           source: https://www.senat.fr/rap/l25-139-35-1/l25-139-35-1_mono.html
           unite: Md€ (PLF 2026)
           note: programme 147 « Politique de la ville »
-        f: *id001
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Central : crédits spécifiques (programme 147). Le chiffre de l'auteure (8 Md€) correspond au document de politique
         transversale (20 Md€ sur 32 programmes, crédits de droit commun : écoles, police…) : borne haute.
@@ -784,7 +817,14 @@ mesures:
           source: https://www.senat.fr/rap/l25-139-35-1/l25-139-35-1_mono.html
           unite: Md€ (PLF 2026)
           note: crédits de l'État à l'Anah (programme 135)
-        f: *id001
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Seuls les crédits de l'État sont une dépense publique (≈ 0,9 Md€ de ressources CEE de l'Anah n'en sont pas).
         Le chiffre de l'auteure (6 Md€) dépasse le budget total de l'Anah. Bas : moitié (engagements pluriannuels déjà
@@ -826,7 +866,14 @@ mesures:
           source: https://www.senat.fr/rap/l25-139-310-1/l25-139-310-1_mono.html
           unite: Md€ de CP (2026)
           note: subvention de l'État à l'Ademe
-        f: *id001
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Subvention de l'État en CP projetée. Bas : moitié (engagements en cours, 2,09 Md€ d'AE). Haut : chiffre affiché.
     chiffrages_tiers:
@@ -865,7 +912,14 @@ mesures:
           source: https://www.senat.fr/rap/l25-139-331/l25-139-331_mono.html
           unite: Md€ (PLF 2026)
           note: subvention pour charges de service public de l'État à France Travail
-        f: *id001
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Central : subvention de l'État ; la contribution de l'Unédic (5,2 Md€) finance aussi l'accompagnement et l'indemnisation.
         Bas : moitié (le placement n'est qu'une partie des missions). Haut : chiffre affiché.
@@ -905,7 +959,14 @@ mesures:
           source: https://www.senat.fr/rap/l25-139-331/l25-139-331_mono.html
           unite: Md€ (PLF 2026)
           note: subvention de l'État aux ARS (8 114 ETPT)
-        f: *id001
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Subvention de l'État projetée ; bas : moitié des missions reprises par les préfectures et l'assurance maladie.
     chiffrages_tiers:
@@ -954,7 +1015,14 @@ mesures:
           source: https://www.assemblee-nationale.fr/dyn/opendata/PIONANR5L17B0413.html
           unite: Md€
           note: « entre 50 et 60 millions d'euros »
-        f: *id001
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Organismes nommés dont le budget est connu (Arcom, CESE, CESER). Les autres structures citées sont de petite
         taille. Haut : chiffre affiché (1,066 Md€). Bas : missions de régulation reprises ailleurs.
@@ -996,7 +1064,14 @@ mesures:
           source: https://www.senat.fr/rap/l25-139-34/l25-139-34_mono.html
           unite: Md€ de CP (PLF 2026)
           note: mission « Aide publique au développement »
-        f: *id001
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Central : crédits de la mission APD. L'APD au sens OCDE (13,0 Md€ en 2025) inclut la part européenne (déjà dans
         la mesure sur l'UE), des prêts et des dépenses imputées (étudiants, réfugiés) : borne haute seulement. Bas :
@@ -1087,7 +1162,14 @@ mesures:
           source: https://www.etudiant.gouv.fr/fr/droits-d-inscription-1489
           unite: € par an
           note: moyenne approchée licence 2 895 € / master 3 941 €
-        f: *id001
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Les droits différenciés sont déjà dans le droit : reste la fin des exonérations. Haut : chiffre affiché (coût
         complet des études, 4 Md€, qui supposerait des frais au coût réel).
@@ -1128,7 +1210,13 @@ mesures:
             https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/suppression-de-laide-medicale-detat-ame-et-remplacement-par-laide-durgence-vitale
           unite: Md€ (2024)
           note: économie nette après maintien des soins d'urgence (Institut Montaigne)
-        f: *id002
+        f:
+          valeur: 1.2336
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: PIB nominal 2032 / 2024
       explication: >-
         Même lecture que pour le RN : une partie des soins bascule vers l'hôpital et les soins urgents. Haut : barème
         ame_depense haut projeté. Bas = 0.
@@ -1178,7 +1266,14 @@ mesures:
           source: https://www.budget2026.fr/
           unite: Md€
           note: chiffre de l'auteure (budget2026.fr)
-        f: *id001
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Chiffre de l'auteure projeté. Haut : 60 % des 3,07 Md€ du programme 177 (part des hébergés en situation irrégulière
         selon le ministre du Logement, sans statistique officielle). Bas = 0 : principe d'accueil inconditionnel (code
@@ -1222,7 +1317,14 @@ mesures:
           source: https://www.senat.fr/questions/base/2025/qSEQ251106566.html
           unite: part
           note: 'contentieux des étrangers et CNDA : 7,5 % des sommes versées (approximation)'
-        f: *id001
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: Part des contentieux propres aux étrangers dans l'aide juridictionnelle ; effet inférieur à 0,1 Md€.
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
@@ -1267,7 +1369,14 @@ mesures:
             https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/privatiser-laudiovisuel-public
           unite: part
           note: 'Montaigne : économie « réduite à la moitié de l''ensemble du champ » faute de repreneurs'
-        f: *id001
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Institut Montaigne : la moitié du périmètre trouverait preneur ; le produit de cession améliore la dette, pas
         le solde. Bas = 0 (plan social et reprise de missions). Haut : toute la dotation.
@@ -1320,7 +1429,14 @@ mesures:
           source: https://www.agfpn.fr/pdfs/Rapport-AGFPN-2024-01-10-2025.pdf
           unite: Md€ (2024)
           note: subvention de l'État au fonds paritaire (AGFPN)
-        f: *id001
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Associations : « politisées » non défini, chiffre affiché ; presse et syndicats : crédits de l'État. La contribution
         patronale de 0,016 % au fonds paritaire (0,12 Md€) est un prélèvement : sa suppression n'améliorerait pas le

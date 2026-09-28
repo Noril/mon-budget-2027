@@ -87,10 +87,10 @@ notes: >-
   « sanctuariser » la LPM), exonération d'IR des moins de 30 ans (attribuée à J. Bardella par des sites secondaires,
   sans source primaire trouvée). Tension interne documentée : J. Bardella (mai 2026) a évoqué un relèvement de l'âge
   légal ; l'arbitrage de juillet 2026 et le débat Medef ont confirmé la ligne 60/62 ans de la candidate. Le conseiller
-  économique F. Durvye a quitté la campagne le 27 août 2026.
-  Chiffrage (phase 2) : quand le seul chiffre disponible est celui du candidat (ou de Sarah Knafo), il est projeté en 2032
-  au PIB nominal, le central le reprend et le bas retient la moitié de l'économie (convention, paramètre « convention du
-  chiffrage ») ; les enveloppes d'économies non détaillées suivent la règle 6 (central 0, haut = écart d'affichage).
+  économique F. Durvye a quitté la campagne le 27 août 2026. Chiffrage (phase 2) : quand le seul chiffre disponible est
+  celui du candidat (ou de Sarah Knafo), il est projeté en 2032 au PIB nominal, le central le reprend et le bas retient
+  la moitié de l'économie (convention, paramètre « convention du chiffrage ») ; les enveloppes d'économies non détaillées
+  suivent la règle 6 (central 0, haut = écart d'affichage).
 mesures:
   - id: tva-energie-5-5
     libelle: Baisse de la TVA de 20 % à 5,5 % sur les énergies (carburants, électricité, gaz, fioul, bois)
@@ -198,7 +198,7 @@ mesures:
             https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/supprimer-la-tva-sur-les-produits-de-premiere-necessite
           unite: Md€ (coût actualisé 2023)
           note: 'scénario 1 : liste restrictive de produits alimentaires et d''hygiène'
-        f: &id001
+        f:
           valeur: 1.2336
           source: >-
             chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
@@ -250,7 +250,13 @@ mesures:
             https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/instituer-une-part-fiscale-complete-des-le-deuxieme-enfant
           unite: Md€ (2024)
           note: simulation LexImpact (Assemblée nationale), plafonnement du quotient familial compris
-        f: *id001
+        f:
+          valeur: 1.2336
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: PIB nominal 2032 / 2024
       explication: Coût LexImpact 2024 projeté au PIB. Haut = chiffrage du RN (2,86 Md€ en 2026) projeté.
     chiffrages_tiers:
       - auteur: Institut Montaigne (législatives 2024, modèle LexImpact)
@@ -290,7 +296,7 @@ mesures:
           source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
           unite: Md€ (2026)
           note: 'seul chiffrage disponible : celui du candidat'
-        f: &id002
+        f:
           valeur: 1.1842
           source: >-
             chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
@@ -395,7 +401,14 @@ mesures:
             https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1089902/file/Lettre_rectificative_PLFSS2026-Annexe09%20v2.pdf
           unite: Md€ par an
           note: contribution patronale sur les ruptures conventionnelles portée de 30 à 40 % (art. 15 LFSS)
-        f: *id002
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Seules les mesures du PLF/PLFSS 2026 effectivement votées ont un coût à annuler : taxe petits colis, hausse 2025
         de la TSBA, réforme de l'ACRE, contribution sur les ruptures conventionnelles. Non votées (coût nul) : abattement
@@ -651,7 +664,13 @@ mesures:
             https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/accorder-les-prestations-familiales-aux-seuls-foyers-dont-au-moins-un-des-parents-est-francais
           unite: Md€ par an (2024)
           note: prestations familiales réservées aux foyers dont un parent est français, estimation médiane
-        f: *id001
+        f:
+          valeur: 1.2336
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: PIB nominal 2032 / 2024
       explication: >-
         Deux volets du programme 2024 reconfirmés en 2026 (Bardella : aides non contributives réservées aux familles
         françaises) : condition de 5 ans de travail pour le RSA et les prestations de solidarité, et prestations familiales
@@ -732,7 +751,13 @@ mesures:
             https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/suppression-de-laide-medicale-detat-ame-et-remplacement-par-laide-durgence-vitale
           unite: Md€ (2024)
           note: AME de droit commun moins les soins maintenus au titre de l'urgence vitale
-        f: *id001
+        f:
+          valeur: 1.2336
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: PIB nominal 2032 / 2024
       explication: >-
         Bas = 0 : report des soins vers l'hôpital (soins urgents, créances irrécouvrables) non estimé publiquement. Haut
         = barème AME haut moins les soins urgents (0,132 Md€), projeté.
@@ -810,7 +835,14 @@ mesures:
           source: https://www.etudiant.gouv.fr/fr/droits-d-inscription-1489
           unite: € par an
           note: moyenne licence (2 895 €) / master (3 941 €), pondération approchée
-        f: *id002
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Les droits différenciés (2 895 € / 3 941 €) sont déjà dans le droit, exonérations plafonnées à 30 % : la promesse
         ne rapporte plus que la fin des exonérations restantes. Haut : chiffre du RN (1,1 Md€), qui suppose une hausse
@@ -860,8 +892,14 @@ mesures:
           source: https://www.fipeco.fr/fiche/Les-imp%C3%B4ts-sur-la-production
           unite: Md€ (2024)
           note: cotisation foncière des entreprises, comptabilité nationale
-        f: *id001
-        retour_is: &id003
+        f:
+          valeur: 1.2336
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: PIB nominal 2032 / 2024
+        retour_is:
           valeur: 0.2
           source: >-
             https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/baisse-des-impots-de-production-cvae-et-c3s
@@ -899,6 +937,13 @@ mesures:
         '2030': 1.0
         '2031': 1.0
         '2032': 1.0
+      annuel:
+        '2027': 0.0
+        '2028': -3.7
+        '2029': -3.7
+        '2030': 0.0
+        '2031': 0.0
+        '2032': 0.0
     calcul:
       formule: 0 * cvae
       parametres:
@@ -907,9 +952,9 @@ mesures:
           bareme: cvae_restante
           unite: Md€/an
       explication: >-
-        Suppression déjà votée pour 2030 (LFI 2026) : effet nul en 2032 par rapport à la référence. L'avance coûterait
-        environ 3,7 Md€ par an en 2028 et 2029, que le profil par année (fraction du régime 2032) ne peut pas représenter
-        : limite signalée.
+        Suppression déjà votée pour 2030 (LFI 2026) : effet nul en 2032. L'avance coûte le rendement restant de la CVAE
+        (barème cvae_restante, 3,7 Md€) en 2028 et 2029, porté par effet_solde_primaire.annuel (convention de REFERENCE.md).
+        Mise en œuvre supposée en loi de finances pour 2028.
     confiance: haute
   - id: suppression-c3s
     libelle: Suppression de la contribution sociale de solidarité des sociétés (C3S)
@@ -939,8 +984,19 @@ mesures:
           valeur: 5.2
           bareme: c3s_rendement
           unite: Md€/an
-        f: *id001
-        retour_is: *id003
+        f:
+          valeur: 1.2336
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: PIB nominal 2032 / 2024
+        retour_is:
+          valeur: 0.2
+          source: >-
+            https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/baisse-des-impots-de-production-cvae-et-c3s
+          unite: part
+          note: « retour IS », estimé au taux moyen effectif de 20 % (Institut Montaigne, 2024)
       explication: 'Rendement 2024 projeté au PIB, net du retour d''IS (Montaigne, 20 %). Bas : sans retour d''IS.'
     chiffrages_tiers:
       - auteur: Contre-budget RN 2026 (chiffrage du candidat)
@@ -990,7 +1046,14 @@ mesures:
           source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
           unite: Md€ (2026)
           note: chiffre du candidat
-        f: *id002
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Chiffres du contre-budget, projetés. Haut : sans la « réforme de l'octroi de mer », dont le contenu n'est pas
         connu.
@@ -1139,7 +1202,13 @@ mesures:
             https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/HCFIPS/2026/HCFIPS%20-%20Synth%c3%a8se%20Fraude%20sociale%202025%20-%20Version%20finalis%c3%a9e.pdf
           unite: Md€ recouvrés (2024)
           note: 'règle du barème fraude_sociale_estimee : gain = doublement du recouvrement'
-        f: *id001
+        f:
+          valeur: 1.2336
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: PIB nominal 2032 / 2024
       explication: >-
         Barème fraude_sociale_estimee : central = gain supplémentaire documenté (doublement du recouvrement de la fraude
         sociale), haut = montant annoncé par le RN (3,5 Md€ 2026 projeté), bas = 0.
@@ -1308,7 +1377,14 @@ mesures:
           source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
           unite: Md€ (2026)
           note: chiffre du candidat (contre-budget 2026)
-        f: *id002
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: 'Chiffre du RN projeté (annexe listant les organismes non publiée). Bas : moitié (convention).'
     confiance: faible
   - id: fin-soutien-enr-intermittentes
@@ -1393,7 +1469,14 @@ mesures:
           source: https://www.senat.fr/rap/l25-139-35-1/l25-139-35-1_mono.html
           unite: Md€ (PLF 2026)
           note: crédits de l'État à l'Anah (programme 135), MaPrimeRénov' comprise
-        f: *id002
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Économie brute des crédits MaPrimeRénov' de l'État (la part CEE de l'Anah n'est pas de la dépense publique).
         Le coût du prêt à taux zéro qui la remplace n'est pas publié : bas = moitié de l'économie (convention).
@@ -1431,7 +1514,14 @@ mesures:
           source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
           unite: Md€ (2026)
           note: chiffre du candidat (contre-budget 2026)
-        f: *id002
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Chiffre du RN projeté ; la mission APD compte 3,67 Md€ de CP en 2026 (Sénat), la baisse est donc réalisable budgétairement.
         Bas : moitié (convention).
@@ -1468,7 +1558,14 @@ mesures:
           source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
           unite: Md€ (2026)
           note: chiffre du candidat (contre-budget 2026)
-        f: *id002
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Chiffre du RN projeté. Les collectivités doivent équilibrer leur section de fonctionnement : la baisse améliore
         le solde APU sauf report sur l'emprunt d'investissement (bas : moitié, convention).
@@ -1502,7 +1599,14 @@ mesures:
           source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
           unite: Md€ (2026)
           note: chiffre du candidat (contre-budget 2026)
-        f: *id002
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Chiffre du RN projeté ; l'État verse 7,3 Md€ de subventions aux associations (jaune 2026), le tri « intérêt général
         » n'est pas défini. Bas : moitié (convention).
@@ -1540,7 +1644,14 @@ mesures:
           source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
           unite: Md€ (2026)
           note: chiffre du candidat (contre-budget 2026)
-        f: *id002
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Somme des cinq lignes du RN (0,513 + 0,154 + 0,177 + 0,040 + 0,031), projetée ; dotations 2026 : Présidence 0,12,
         Assemblée 0,61, Sénat 0,35 Md€ (Sénat).
@@ -1574,7 +1685,14 @@ mesures:
           source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
           unite: Md€ (2026)
           note: chiffre du candidat (contre-budget 2026)
-        f: *id002
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: Chiffre du RN projeté ; le fonds vert a 1,085 Md€ de CP en 2026 (Sénat).
     confiance: moyenne
   - id: aides-apprentissage-avant-licence
@@ -1606,7 +1724,14 @@ mesures:
           source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
           unite: Md€ (2026)
           note: chiffre du candidat (contre-budget 2026)
-        f: *id002
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Chiffre du RN projeté ; l'aide à l'embauche d'apprentis a 2,37 Md€ de CP en 2026, déjà réduite de 31 % et limitée
         à 750 € pour les niveaux bac+3 et plus : l'économie restante est probablement inférieure (bas : moitié).
@@ -1640,7 +1765,14 @@ mesures:
           source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
           unite: Md€ (2026)
           note: chiffre du candidat (contre-budget 2026)
-        f: *id002
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Chiffre du RN projeté ; aucune évaluation publique des économies de la délivrance à l'unité ni du contrôle des
         ALD. Bas : moitié (convention).
@@ -1705,7 +1837,14 @@ mesures:
             https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087945/file/PAP2026_BG_Agriculture_alimentation_foret_affaires_rurales_AC.pdf
           unite: Md€ de CP
           note: baisse effectivement votée des CP de la mission Agriculture (4,216 → 4,126 Md€, LFI 2025 → LFI 2026)
-        f: *id002
+        f:
+          valeur: 1.1842
+          source: >-
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
+            avril 2026)
+          unite: facteur
+          note: >-
+            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Outre-mer et protection sociale complémentaire des hospitaliers au chiffre du RN ; « suppression de la baisse
         des crédits agriculture » limitée à la baisse réellement votée (0,09 Md€ de CP au lieu de 0,5). Bas : montant
