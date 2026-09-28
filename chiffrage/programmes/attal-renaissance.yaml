@@ -1,4 +1,4 @@
-# Programme Gabriel Attal (Renaissance) — phase 1 : collecte, citations verbatim, non chiffré.
+# Programme Gabriel Attal (Renaissance) — citations verbatim (phase 1) et chiffrage (phase 2).
 id: attal-renaissance
 candidat: Gabriel Attal
 parti: Renaissance
@@ -53,8 +53,10 @@ annonce_candidat:
 notes: 'Programme en construction : six pages thématiques sur attalpresident.fr et environ 75 comptes rendus d''entretiens
   et de déplacements (mai-septembre 2026), tous récupérés. Les comptes rendus du site sont rédigés par la campagne (citations
   du candidat entre guillemets, le reste paraphrasé par l''équipe). Trois mesures ne sont connues que par le comparateur IFRAP.
-  Grand meeting à Lyon le 10 octobre 2026 : nouvelles mesures probables. Phase 1 : mesures à chiffrer marquées raison_non_chiffrable
-  = A_CHIFFRER ; mesures non budgétaires préfixées NON_BUDGETAIRE.'
+  Grand meeting à Lyon le 10 octobre 2026 : nouvelles mesures probables. Phase 2 (29 septembre 2026) : chiffrage à droit constant
+  (chiffrage/REFERENCE.md) avec les barèmes communs ; mesures non budgétaires préfixées NON_BUDGETAIRE. L''enveloppe de 120
+  à 150 Md€ ne porte que l''écart d''affichage (règle 6) ; le « droit au brut » est chiffré brut, son financement annoncé
+  par des économies sociales étant compté dans les lignes d''économies.'
 mesures:
 - id: economies-120-150md
   libelle: 'Plan de désendettement : 120 à 150 Md€ d''économies, déficit sous 3 % avant 2032, équilibre en 2037'
@@ -71,9 +73,45 @@ mesures:
   precision: partielle
   interpretation: 'Enveloppe traitée selon la règle 6. Le 25 août (LCI) : « 120 milliards d’euros d’économies durant les cinq
     premières années » ; le 23 septembre : « 150 milliards d’euros d’économies, dont les deux tiers sur les dépenses sociales
-    ». central = somme des mesures identifiées ci-dessous, haut = 120 Md€ (quinquennat), bas = 0.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    ». central = somme des mesures identifiées ci-dessous, haut = 120 Md€ (quinquennat), bas = 0. Phase 2 : doubles comptes
+    évités en ne portant que l''écart d''affichage.'
+  chiffrable: true
+  nature: economie
+  effet_solde_primaire:
+    central: 0.0
+    bas: 0.0
+    haut: 103.11
+    montee_en_charge: &id001
+      '2027': 0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1
+  calcul:
+    formule: part * (annonce - documente)
+    parametres:
+      annonce:
+        valeur: 120
+        unite: Md€ d'économies sur le quinquennat
+        source: https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays
+        note: « 120 milliards d’euros d’économies durant les cinq premières années » (150 Md€ jusqu'en 2037)
+      documente:
+        valeur: 16.89
+        unite: Md€ 2032
+        source: https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037
+        note: 'somme des économies centrales déjà chiffrées dans ce programme : annee-blanche-2028, assurance-chomage-5md,
+          fonctionnaires-moins-100000'
+      part:
+        valeur: 0.0
+        unite: part de l'écart d'affichage réputée documentée
+        source: https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037
+        note: 'règle 6 : aucune autre économie identifiée'
+    explication: 'Règle 6 : les économies identifiées (16.89 Md€ en 2032) sont déjà comptées ligne à ligne ; cette ligne ne
+      porte que l''écart d''affichage (120 − 16.89 Md€), nul en central et en bas, entier en haut. Les 120 Md€ du candidat
+      se mesurent par rapport à une évolution tendancielle de la dépense ; notre référence est le droit voté sans tendanciel
+      : l''écart d''affichage est donc un majorant.'
+  confiance: faible
 - id: annee-blanche-2028
   libelle: Année blanche sur l'ensemble des prestations sociales en 2028, sauf petites retraites
   domaine: prestations sociales / retraites
@@ -88,8 +126,54 @@ mesures:
     familiales, aides au logement, RSA, AAH…). Effet permanent sur le niveau des dépenses (effet base), érodé seulement si
     rattrapage. Seuil des « petites retraites » non défini : hypothèse à fixer (ex. pensions totales < 1 400 €/mois). « Frein
     d''urgence » réaffirmé le 20 sept. 2026 (France 2).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: economie
+  effet_solde_primaire:
+    central: 7.77
+    bas: 6.93
+    haut: 11.01
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.8
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: inflation_2028 * (prestations * f + pensions * (1 - part_petites))
+    parametres:
+      inflation_2028:
+        valeur: 1.862
+        unite: '% de revalorisation 2028 évitée'
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: déflateur du PIB 2028 (FMI, plan/hypotheses.yaml), approximation de l'inflation servant à la revalorisation
+          légale
+      prestations:
+        valeur: 1.0
+        unite: Md€ par point (2026)
+        bareme: prestations_hors_retraites_revalo_1pct
+      f: &id003
+        valeur: 1.2106
+        unite: facteur 2025→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP.A
+        note: facteur PIB nominal (FMI WEO avril 2026, plan/hypotheses.yaml), indiqué en tête de chiffrage/baremes.yaml
+      pensions:
+        valeur: 3.5
+        unite: Md€ 2032 par point (régimes de base)
+        bareme: retraites_revalo_1pct
+        note: 'borne basse du barème : régimes de base, seul levier direct de la loi'
+      part_petites:
+        valeur: 0.154
+        unite: part de la masse des pensions épargnée
+        source: https://data.drees.solidarites-sante.gouv.fr/api/explore/v2.1/catalog/datasets/4178_distribution-des-pensions-mensuelles/attachments/eir2020_distribution_des_pensions_mensuelles_xlsx
+        note: 'DREES EIR 2020 (tableau 5) : 36,1 % des retraités ont une pension totale < 1 200 € bruts, soit environ 15,4
+          % de la masse (calcul par milieux de tranche) ; bas 23,0 % (< 1 400 €), haut 9,6 % (< 1 000 €)'
+    explication: 'Gel en 2028 de la revalorisation légale (inflation ≈ 1,86 %) : prestations hors retraites (1 Md€ par point,
+      × 1,2106) et pensions des régimes de base (3,5 Md€ par point en 2032) hors « petites retraites ». Effet de niveau permanent
+      (pas de rattrapage annoncé). Haut : pensions complémentaires gelées aussi (5,0 Md€ par point) et seuil de petite retraite
+      bas ; bas : seuil à 1 400 € et masse de prestations basse. Convention de droit constant : l''indexation est la référence,
+      la sous-indexation une économie.'
+  confiance: moyenne
 - id: assurance-chomage-5md
   libelle: Reprendre la réforme de l'assurance chômage (5 Md€ d'économies)
   domaine: assurance chômage
@@ -103,8 +187,6 @@ mesures:
   precision: partielle
   interpretation: Réforme de 2024 non entrée en vigueur (durée d'affiliation, durée d'indemnisation). Le chiffre de 5 Md€
     est celui du candidat.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
   chiffrages_tiers:
   - auteur: Gabriel Attal (montant revendiqué)
     montant_md: 5.0
@@ -112,7 +194,44 @@ mesures:
     date: '2026-07-03'
     commentaire: Montant du candidat, non un chiffrage indépendant ; le site parle ailleurs de « plus de 4 milliards d’euros
       supplémentaires » pour la réforme de 2024.
-  effets_retour: Le candidat invoque 100 000 emplois créés ; non compté.
+  - auteur: Gouvernement Attal (2024), rapporté par le HuffPost
+    montant_md: 3.6
+    url: https://www.huffingtonpost.fr/economie/article/reforme-de-l-assurance-chomage-les-syndicats-et-le-patronat-parviennent-a-un-accord_242266.html
+    date: '2024-11-15'
+    commentaire: Objectif d'économies de la réforme par décret de 2024, non entrée en vigueur.
+  effets_retour: Le candidat attend 100 000 emplois ; non compté.
+  chiffrable: true
+  nature: economie
+  effet_solde_primaire:
+    central: 4.44
+    bas: 3.6
+    haut: 5.0
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.5
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: economie_2024 * f
+    parametres:
+      economie_2024:
+        valeur: 3.6
+        unite: Md€/an (estimation gouvernementale 2024)
+        source: https://www.huffingtonpost.fr/economie/article/reforme-de-l-assurance-chomage-les-syndicats-et-le-patronat-parviennent-a-un-accord_242266.html
+        note: « Pour espérer dégager 3,6 milliards d’euros d’économies [...] Gabriel Attal souhaitait passer de 6 mois de
+          travail sur 24 mois [...] à 8 mois travaillés sur 20 mois »
+      f:
+        valeur: 1.2336
+        unite: facteur 2024→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP.A
+        note: facteur PIB nominal (FMI WEO avril 2026, plan/hypotheses.yaml), indiqué en tête de chiffrage/baremes.yaml (valeur
+          2024→2032 citée dans les barèmes c3s_rendement et masse_salariale_apu)
+    explication: 'Économie attendue en 2024 de la réforme (3,6 Md€) portée en euros 2032 (× 1,2336). Bas : montant nominal
+      2024. Haut : 5 Md€ annoncés par le candidat. Les règles de la convention de 2025 ont repris d''autres paramètres (1,4
+      à 2,3 Md€ sur quatre ans, Unédic) sans modifier la condition d''affiliation.'
+  confiance: moyenne
 - id: arrets-maladie
   libelle: Plan d'action contre la dérive des arrêts maladie
   domaine: santé / indemnités journalières
@@ -125,7 +244,7 @@ mesures:
   precision: vague
   interpretation: 'Aucun paramètre : phase 2 à borner (bas 0) ou à déclarer non chiffrable.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Aucun paramètre (jours de carence, plafonds d''IJ, contrôles) : trop vague pour être chiffré.'
 - id: fonctionnaires-moins-100000
   libelle: Supprimer 100 000 postes dans l'État et les collectivités (départs volontaires, non-remplacement)
   domaine: fonction publique
@@ -139,14 +258,45 @@ mesures:
   precision: precise
   interpretation: Hors Éducation nationale, Armées, Justice, Intérieur. Coût des départs volontaires (indemnités) en montée
     en charge.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
   chiffrages_tiers:
   - auteur: Gabriel Attal (montant revendiqué, rapporté par L'Opinion)
     montant_md: 7.0
     url: https://www.lopinion.fr/politique/presidentielle-2027-gabriel-attal-devoile-son-plan-pour-un-zero-deficit-en-2037
     date: '2026-07-03'
     commentaire: « 100 000 postes supprimés pour 7 milliards d’euros économisés » ; non un chiffrage indépendant.
+  chiffrable: true
+  nature: economie
+  effet_solde_primaire:
+    central: 4.68
+    bas: 4.5
+    haut: 6.24
+    montee_en_charge: *id001
+  calcul:
+    formule: postes * masse / effectifs * (1 - retour)
+    parametres:
+      postes:
+        valeur: 0.1
+        unite: million de postes
+        source: https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037
+      masse:
+        valeur: 362.1
+        unite: Md€ (2024)
+        bareme: masse_salariale_apu
+      effectifs:
+        valeur: 5.8
+        unite: millions d'agents
+        bareme: fp_effectifs_total
+      retour:
+        valeur: 0.25
+        unite: part revenant aux APU
+        source: https://www.senat.fr/rap/a25-145-5/a25-145-5.html
+        note: « environ un quart », limites du barème point_indice_1pct
+    explication: '100 000 postes × coût moyen d''un agent (masse salariale APU 2024 / effectifs = 62 400 €), net du retour
+      de prélèvements. Convention de droit constant (REFERENCE.md) : point d''indice gelé en référence, la hausse s''applique
+      au niveau de rémunération actuel sans projection au PIB. Bas : coût d''entrée d''un agent (environ 60 000 €, dérivation
+      de cout_enseignant_charge). Haut : sans retour. Indemnités de départ volontaire (coût transitoire) non comptées ; la
+      masse salariale inclut des cotisations employeurs versées à d''autres APU (surestimation possible).'
+  confiance: moyenne
 - id: collectivites-strate
   libelle: Supprimer une strate de collectivités (« big bang » territorial)
   domaine: collectivités
@@ -161,7 +311,9 @@ mesures:
   interpretation: Carte des « collectivités uniques » annoncée mais non publiée au 29 sept. 2026 ; économies de fusion très
     incertaines.
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Carte des collectivités non publiée ; la Cour des comptes n''a pas constaté d''économie nette des
+    fusions de régions de 2016 (surcoût de régime indemnitaire d''environ 50 M€/an, Banque des Territoires) : aucune base
+    pour chiffrer une économie.'
 - id: retraites-reprise-calendrier-2023
   libelle: Reprendre le calendrier de la réforme des retraites de 2023 à la fin de sa suspension
   domaine: retraites
@@ -176,7 +328,8 @@ mesures:
     relèvement de l'âge à 64 ans et de la durée d'assurance. Vérifier en phase 2 ce que prévoit la législation de référence
     après la fin de la suspension (2028).
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Déjà dans la législation de référence : la montée vers 64 ans reprend le 1er janvier 2028 (REFERENCE.md).
+    Coût ou gain nul.'
 - id: retraites-systeme-universel
   libelle: Système universel sans âge légal, fondé sur la durée de cotisation
   domaine: retraites
@@ -192,7 +345,8 @@ mesures:
     coûter (départs anticipés si la décote n''est pas actuariellement neutre) ou rapporter. Hypothèse centrale : neutralité
     actuarielle, effet ≈ 0, fourchette large.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Barèmes de décote et de surcote non publiés ; le système est présenté comme actuariellement neutre
+    : effet présumé nul, impossible à borner sans paramètres.'
 - id: capitalisation-1000-euros-naissance
   libelle: Dotation de 1 000 € par l'État à chaque naissance sur un compte retraite bloqué
   domaine: retraites / capitalisation
@@ -205,14 +359,36 @@ mesures:
     support: site du candidat (compte rendu du meeting de Paris)
   precision: precise
   interpretation: 1 000 € × naissances annuelles, versés à un fonds souverain ; dépense publique immédiate.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
   chiffrages_tiers:
   - auteur: franceinfo (d'après les naissances INSEE)
     montant_md: 0.66
     url: https://www.franceinfo.fr/economie/retraite/retraites-gabriel-attal-propose-de-verser-1-000-euros-a-la-naissance_7609622.html
     date: '2025-11-11'
     commentaire: '« cette mesure aurait un coût immédiat : 660 millions d''euros par an » (amendement PLFSS 2026).'
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -0.66
+    bas: -0.66
+    haut: -0.66
+    montee_en_charge: &id002
+      '2027': 0
+      '2028': 1
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: -cout_annuel
+    parametres:
+      cout_annuel:
+        valeur: 0.66
+        unite: Md€/an
+        source: https://www.franceinfo.fr/economie/retraite/retraites-gabriel-attal-propose-de-verser-1-000-euros-a-la-naissance_7609622.html
+        note: '« cette mesure aurait un coût immédiat : 660 millions d''euros par an » (1 000 € × environ 660 000 naissances)'
+    explication: '1 000 € (nominal) par naissance, environ 660 000 naissances par an. Montant nominal : pas de revalorisation
+      annoncée.'
+  confiance: haute
 - id: droit-au-brut-13e-mois
   libelle: '« Droit au brut » : baisse des cotisations salariales, +250 € nets par mois au salaire médian'
   domaine: prélèvements sociaux / salaires
@@ -228,9 +404,47 @@ mesures:
   precision: partielle
   interpretation: 'Baisse des cotisations salariales (le candidat refuse la TVA sociale, Échos 17 juin 2026). 250 €/mois au
     salaire médian ≈ 13e mois ; profil par niveau de salaire non publié (hypothèse : baisse de taux uniforme ou dégressive).
-    Coût brut chiffré ici, financement par les économies sociales compté dans les mesures dédiées (pas de double compte).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    Coût brut chiffré ici, financement par les économies sociales compté dans les mesures dédiées (pas de double compte).
+    Phase 2 : l''ordre de grandeur (plusieurs dizaines de Md€) excède très largement les économies sociales identifiées.'
+  chiffrable: true
+  nature: baisse_recette
+  effet_solde_primaire:
+    central: -46.63
+    bas: -77.6
+    haut: -31.09
+    montee_en_charge: *id002
+  calcul:
+    formule: -gain * masse / brut_moyen * part * f
+    parametres:
+      gain:
+        valeur: 250
+        unite: € nets par mois
+        source: https://attalpresident.fr/actualites/dans-le-telegramme-gabriel-attal-veut-un-choc-de-salaires-et-instaurer-le-droit-au-brut
+      masse:
+        valeur: 740.0
+        unite: Md€ de masse salariale brute du secteur privé (2025)
+        source: https://open.urssaf.fr/explore/dataset/masse-salariale-du-secteur-prive-france-entiere/
+        note: 'somme des quatre trimestres 2025 : 184,5 + 186,7 + 178,2 + 190,6'
+      brut_moyen:
+        valeur: 3602
+        unite: € bruts par mois, salaire moyen du privé (2024)
+        source: https://www.raisin.com/fr-fr/economie/salaire-moyen-france/
+        note: '« 2 733 € net par mois, soit environ 3 602 € brut mensuel (source INSEE 2025 sur les données 2024) » : sert
+          à convertir la masse en effectif EQTP (≈ 17,1 millions)'
+      part:
+        valeur: 0.75
+        unite: part des salariés concernés
+        source: https://attalpresident.fr/actualites/dans-le-telegramme-gabriel-attal-veut-un-choc-de-salaires-et-instaurer-le-droit-au-brut
+        note: '« hausse ciblée » sur les « classes moyennes » : périmètre non défini. Convention : central 0,75, milieu entre
+          une application à tous les salariés (1,0, bas) et un ciblage sur la moitié d''entre eux (0,5, haut)'
+      f: *id003
+    explication: '250 € nets par mois × 12 × 17,1 millions de salariés EQTP (masse brute / salaire brut moyen) × part concernée
+      (0,75, convention), porté en euros 2032. Bas : tous les salariés, gain proportionnel au salaire (11,4 % du net, soit
+      312 € au salaire moyen). Haut : réservé à la moitié des salariés. Coût brut : le candidat le dit financé « à l''euro
+      près » par des économies sur le modèle social, qui sont chiffrées dans leurs propres lignes (année blanche, chômage,
+      fonctionnaires) ; les compter ici serait un double compte.'
+  effets_retour: Hausse du pouvoir d'achat et de l'offre de travail invoquée ; non comptée.
+  confiance: faible
 - id: cout-travail-hausses-2024
   libelle: Revenir sur les hausses du coût du travail intervenues depuis 2024
   domaine: prélèvements sociaux / entreprises
@@ -245,9 +459,32 @@ mesures:
     support: presse (débat du Medef)
   precision: partielle
   interpretation: 'Mesures visées à inventorier : réforme des allègements généraux (LFSS 2025-2026), aides à l''apprentissage,
-    JEI, etc. Coût = recettes rendues par rapport à la législation au 1er janvier 2027.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    JEI, etc. Coût = recettes rendues par rapport à la législation au 1er janvier 2027. Phase 2 : hausses de 2024-2026 non
+    inventoriées au-delà des allègements généraux.'
+  chiffrable: true
+  nature: baisse_recette
+  effet_solde_primaire:
+    central: -1.89
+    bas: -1.89
+    haut: -1.6
+    montee_en_charge: *id002
+  calcul:
+    formule: -rabot * f
+    parametres:
+      rabot:
+        valeur: 1.6
+        unite: Md€ (2026)
+        source: https://www.tresor.economie.gouv.fr/Articles/284b121f-b187-4280-b327-05f18064c3fa/files/1d1d1848-48bb-40a9-a14f-585b8072e716
+        note: « coup de rabot de 1,6 Md€ en 2026 » sur les allègements généraux (réduction générale dégressive unique), cité
+          dans la dérivation du barème allegements_generaux_cout
+      f:
+        valeur: 1.1842
+        unite: facteur 2026→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP.A
+        note: 1,2106 / 1,0223 (croissance nominale 2026 = 0,858 % de volume et 1,358 % de déflateur, plan/hypotheses.yaml)
+    explication: 'Seule hausse identifiée et chiffrée : le rabot de 1,6 Md€ sur les allègements généraux en 2026, porté en
+      euros 2032. Les autres hausses (aides à l''apprentissage, JEI…) ne sont pas chiffrées ici faute de barème (sous-estimation).'
+  confiance: faible
 - id: cvae-suppression
   libelle: Mener à terme la suppression de la CVAE et poursuivre la baisse des impôts de production
   domaine: fiscalité des entreprises
@@ -261,8 +498,35 @@ mesures:
   precision: partielle
   interpretation: 'Référence : calendrier de suppression de la CVAE en vigueur au 1er janvier 2027 (repoussé à 2030). En 2032
     l''effet de croisière peut être nul si la suppression est déjà légiférée ; seul l''avancement de calendrier coûte.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: baisse_recette
+  effet_solde_primaire:
+    central: 0.0
+    bas: 0.0
+    haut: 0.0
+    montee_en_charge:
+      '2027': 0
+      '2028': 0
+      '2029': 0
+      '2030': 0
+      '2031': 0
+      '2032': 0
+  calcul:
+    formule: 0 - cvae * f * (1 - deja_supprimee_2032)
+    parametres:
+      cvae:
+        valeur: 3.7
+        unite: Md€/an (2025)
+        bareme: cvae_restante
+      f: *id003
+      deja_supprimee_2032:
+        valeur: 1.0
+        unite: part
+        source: https://www.economie.gouv.fr/entreprises/gerer-sa-fiscalite-et-ses-impots/loi-de-finances-2026-ce-qui-change-pour-les-entreprises
+        note: suppression de la CVAE en 2030 déjà votée (REFERENCE.md)
+    explication: 'La suppression de la CVAE en 2030 est déjà votée : effet nul en 2032. Une accélération coûterait environ
+      3,7 à 4 Md€ par an en 2028-2029 seulement (non représenté dans le profil, faute de calendrier annoncé).'
+  confiance: haute
 - id: taxes-dissolution-surtaxe-is
   libelle: Revenir sur les taxes créées depuis la dissolution (dont surtaxe d'IS)
   domaine: fiscalité des entreprises
@@ -277,7 +541,8 @@ mesures:
     Liste des taxes à établir (contribution exceptionnelle sur les bénéfices des grandes entreprises si prolongée, taxe sur
     les rachats d''actions…) ; exclure les recoupements avec cout-travail-hausses-2024.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: La contribution exceptionnelle sur les bénéfices des grandes entreprises s'éteint après l'exercice
+    2026 dans la référence (coût nul) ; les autres taxes visées ne sont pas identifiées.
 - id: enseignants-200-500-euros
   libelle: Revaloriser les enseignants de 200 € nets par mois (jusqu'à 500 € en milieu de carrière) dès 2027
   domaine: éducation
@@ -290,8 +555,6 @@ mesures:
     support: site du candidat (entretien France 2)
   precision: precise
   interpretation: Hausse nette ; coût employeur = net × (1 + cotisations salariales et patronales), profil par échelon à reconstituer.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
   chiffrages_tiers:
   - auteur: Gabriel Attal (entretien au Monde, rapporté par Capital)
     montant_md: 2.75
@@ -299,7 +562,37 @@ mesures:
     date: '2026-09-01'
     commentaire: « La mesure que je défends, elle coûte entre 2,5 et 3 milliards d’euros » (milieu de fourchette retenu ici)
       ; l'entourage cite 2,5 Md€ (AFP, 25 août 2026).
-  effets_retour: Retour de cotisations et d'impôts sur les salaires versés à compter (règle 3).
+  effets_retour: Attractivité du métier ; non compté.
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -2.06
+    bas: -3.0
+    haut: -1.88
+    montee_en_charge:
+      '2027': 0.3
+      '2028': 1
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: -cout_brut * (1 - retour)
+    parametres:
+      cout_brut:
+        valeur: 2.75
+        unite: Md€/an
+        source: https://www.capital.fr/economie-politique/salaire-des-professeurs-ce-que-proposent-gabriel-attal-raphael-glucksmann-edouard-philippe-et-les-autres-candidats-1529731
+        note: milieu de la fourchette « entre 2,5 et 3 milliards d’euros » donnée par le candidat (Le Monde)
+      retour:
+        valeur: 0.25
+        unite: part revenant aux APU
+        source: https://www.senat.fr/rap/a25-145-5/a25-145-5.html
+        note: « environ un quart », limites du barème point_indice_1pct
+    explication: 'Coût brut annoncé par le candidat (2,5 à 3 Md€, cohérent avec 0,79 M d''enseignants du public × 200 € nets
+      × 12 mois, charges comprises), net du retour de prélèvements. Montant nominal (hausse en euros nets). Montée : rentrée
+      2027 par loi de finances rectificative, puis année pleine.'
+  confiance: moyenne
 - id: aesh-revalorisation-corps
   libelle: Revaloriser les AESH et en faire un corps professionnel
   domaine: éducation
@@ -313,7 +606,7 @@ mesures:
   precision: vague
   interpretation: 'Montant non précisé ; ordre de grandeur de la précédente mesure : +100 € nets/mois.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Montant de la revalorisation non précisé (« aller plus loin ») : trop vague pour être chiffré.'
 - id: classes-moins-20-remplacants
   libelle: Moins de 20 élèves par classe en primaire et postes de remplaçants, grâce à la baisse démographique
   domaine: éducation
@@ -330,7 +623,8 @@ mesures:
     d''enseignants constants ; coût seulement si des postes supplémentaires sont nécessaires. À arbitrer en phase 2 selon
     la référence retenue (législation, pas de schéma d''emplois).'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Redéploiement des postes libérés par la baisse démographique : effet nul par rapport à une référence
+    sans tendanciel de dépense (REFERENCE.md) ; aucun poste supplémentaire annoncé.'
 - id: choc-des-savoirs-certificat
   libelle: Rétablir le Choc des savoirs, certificat d'études en fin de CM2 et année passerelle
   domaine: éducation
@@ -344,7 +638,8 @@ mesures:
   interpretation: Groupes de niveau au collège (besoin d'heures d'enseignement) et année passerelle (une année de scolarité
     supplémentaire pour une partie des élèves).
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Ni volume d''heures (groupes de niveau) ni nombre d''élèves en année passerelle : trop vague pour
+    être chiffré.'
 - id: assistant-ia-eleves
   libelle: Assistant d'IA gratuit pour chaque élève
   domaine: éducation / numérique
@@ -359,7 +654,7 @@ mesures:
   interpretation: Commande publique à des entreprises (POLITICO, 24 sept. 2026) ; coût = licences × élèves. Le même entretien
     évoque un assistant médical IA pour tous les Français.
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: Coût unitaire de l'outil commandé par l'État non documenté.
 - id: plan-ia-france-2040
   libelle: 'Plan « France 2040 » : 200 Md€ pour l''IA, la tech et l''innovation, moitié public'
   domaine: numérique / innovation
@@ -373,8 +668,39 @@ mesures:
   precision: partielle
   interpretation: 100 Md€ publics sur 10 ans (« d’ici 10 ans ») soit ~10 Md€/an si linéaire ; part des crédits existants (France
     2030) et part européenne (dette commune) à déduire.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -10.0
+    bas: -10.0
+    haut: -5.0
+    montee_en_charge: *id001
+  calcul:
+    formule: -plan * part_publique / duree * (1 - part_ue)
+    parametres:
+      plan:
+        valeur: 200
+        unite: Md€
+        source: https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos
+      part_publique:
+        valeur: 0.5
+        unite: part
+        source: https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos
+        note: « partagé à parité stricte entre le financement public et privé »
+      duree:
+        valeur: 10
+        unite: ans
+        source: https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos
+        note: « d’ici 10 ans »
+      part_ue:
+        valeur: 0.0
+        unite: part financée par la dette commune européenne
+        source: https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos
+        note: 'le candidat veut « adosser » un plan européen à un endettement commun ; central : tout sur budget national'
+    explication: '100 Md€ publics sur dix ans, soit 10 Md€ par an en rythme linéaire (nominal). Haut : moitié portée par une
+      dette commune européenne (hors solde français). France 2030 s''achève en 2030 : pas de recouvrement avec la référence
+      en 2032.'
+  confiance: faible
 - id: credit-impot-productivite-ia
   libelle: Crédit d'impôt productivité pour l'adoption de l'IA par les entreprises
   domaine: fiscalité des entreprises / numérique
@@ -387,7 +713,7 @@ mesures:
   precision: vague
   interpretation: Taux, assiette et plafond non précisés.
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Taux, assiette et plafond non précisés : trop vague pour être chiffré.'
 - id: formation-ia-20-millions
   libelle: Former 20 millions de salariés à l'IA d'ici 2030
   domaine: formation / numérique
@@ -400,7 +726,7 @@ mesures:
   interpretation: Coût public = part non financée par les entreprises (CPF, plan de formation) × coût unitaire d'une formation
     courte.
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Coût unitaire et part publique (CPF, entreprises) non précisés : trop vague pour être chiffré.'
 - id: garde-enfants-livret-200000
   libelle: Livret d'épargne garde d'enfants et formation de 200 000 professionnels de la petite enfance d'ici 2030
   domaine: politique familiale
@@ -415,7 +741,8 @@ mesures:
   interpretation: Livret sur le modèle du livret A (exonération d'IR et de prélèvements sociaux → dépense fiscale) ; formation
     de 200 000 professionnels (coût de formation).
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: Paramètres du livret (exonération, plafond) et coût de formation non précisés ; le livret mobilise
+    de l'épargne privée.
 - id: pensions-alimentaires-defiscalisation
   libelle: Défiscaliser les pensions alimentaires reçues pour les enfants
   domaine: fiscalité des ménages
@@ -427,8 +754,31 @@ mesures:
   precision: precise
   interpretation: Suppression de l'imposition à l'IR des pensions alimentaires reçues pour les enfants ; question de la déduction
     symétrique chez le parent versant (maintenue ?).
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: baisse_recette
+  effet_solde_primaire:
+    central: -0.4
+    bas: -0.47
+    haut: -0.4
+    montee_en_charge: *id002
+  calcul:
+    formule: -cout
+    parametres:
+      cout:
+        valeur: 0.4
+        unite: Md€/an (2025)
+        source: https://www.senat.fr/seances/s202511/s20251128/s20251128006.html
+        note: « une telle mesure a un coût, évalué à 400 millions d'euros » (séance du Sénat, 28 novembre 2025, amendement
+          identique)
+    explication: 'Coût évalué en séance au Sénat pour la même mesure (400 M€), maintien de la déduction chez le parent versant.
+      Bas : porté en euros 2032.'
+  chiffrages_tiers:
+  - auteur: Sénat, séance du 28 novembre 2025 (auteure de l'amendement)
+    montant_md: 0.4
+    url: https://www.senat.fr/seances/s202511/s20251128/s20251128006.html
+    date: '2025-11-28'
+    commentaire: Chiffre cité en séance, sans chiffrage DGFiP publié.
+  confiance: moyenne
 - id: carburant-bareme-bonus-e85
   libelle: 'Carburants : barème kilométrique revalorisé, bonus électrique occasion, moitié du boîtier E85, prime employeur
     1 000 €'
@@ -446,7 +796,9 @@ mesures:
     employeur a été porté à 1 000 € par le gouvernement le 22 sept. 2026 : vérifier si la mesure est déjà dans la législation
     de référence.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Coûts et volumes non documentés : le barème kilométrique (frais réels) n''est pas classé en dépense
+    fiscale, le « coup de pouce » à l''occasion n''a pas de montant réglementaire, le nombre de conversions E85 est inconnu
+    ; la prime employeur de 1 000 € a été relevée par le gouvernement le 22 septembre 2026.'
 - id: heures-supplementaires-defiscalisation
   libelle: Défiscaliser les heures supplémentaires
   domaine: fiscalité des ménages
@@ -460,7 +812,8 @@ mesures:
     exonérées d''IR jusqu''à 7 500 €/an ; lecture possible : relèvement ou suppression du plafond. À confirmer par une source
     primaire.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Source secondaire seulement (comparateur IFRAP) ; les heures supplémentaires sont déjà exonérées
+    d''IR jusqu''à 7 500 € (barème hs_exoneration_cout) : promesse non distinguable du droit en vigueur.'
 - id: impots-classes-moyennes-2md
   libelle: Baisser de 2 Md€ les impôts des classes moyennes
   domaine: fiscalité des ménages
@@ -472,8 +825,23 @@ mesures:
   precision: precise
   interpretation: Source secondaire (comparateur IFRAP) ; engagement de 2023-2024 du gouvernement Attal, possible reprise
     non confirmée pour 2027. À confirmer.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: baisse_recette
+  effet_solde_primaire:
+    central: -2.0
+    bas: -2.0
+    haut: 0.0
+    montee_en_charge: *id002
+  calcul:
+    formule: 0 - montant
+    parametres:
+      montant:
+        valeur: 2.0
+        unite: Md€/an
+        source: https://www.ifrap.org/comparateurs/presidentielles-2027
+    explication: '2 Md€ nominaux (comparateur IFRAP). Haut 0 : promesse de 2023-2024 dont la reprise pour 2027 n''est pas
+      confirmée par une source primaire.'
+  confiance: faible
 - id: logement-statut-bailleur-prive
   libelle: Statut du bailleur privé et incitations aux maires bâtisseurs
   domaine: logement
@@ -487,7 +855,8 @@ mesures:
   interpretation: 'Statut fiscal (amortissement du bien locatif) : dépense fiscale ; le dispositif Jeanbrun (LF 2026) est
     déjà dans la référence. Objectif de 400 000 logements/an (IFRAP).'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: Paramètres du statut (taux d'amortissement, plafonds) non précisés ; le dispositif Jeanbrun est déjà
+    dans la référence.
 - id: justice-3000-magistrats-prisons
   libelle: Recruter 3 000 magistrats et greffiers et construire des places de prison
   domaine: justice
@@ -501,8 +870,36 @@ mesures:
   precision: partielle
   interpretation: '3 000 ETP (répartition magistrats/greffiers à supposer) ; places de prison : nombre non précisé (loi d''exception
     « Notre-Dame »).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -0.22
+    bas: -0.42
+    haut: -0.11
+    montee_en_charge: *id001
+  calcul:
+    formule: -etp * cout_hors_cas / 1e9 * (1 - retour)
+    parametres:
+      etp:
+        valeur: 3000
+        unite: ETP
+        source: https://attalpresident.fr/actualites/gabriel-attal-dans-le-figaro-appelle-a-une-nouvelle-justice
+      cout_hors_cas:
+        valeur: 96768
+        unite: € par ETPT hors CAS (magistrat, 2025)
+        source: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2025
+        note: coût global hors CAS d'un magistrat, dérivation du barème cout_magistrat_charge ; appliqué aussi aux greffiers
+          (majorant)
+      retour:
+        valeur: 0.25
+        unite: part revenant aux APU
+        source: https://www.senat.fr/rap/a25-145-5/a25-145-5.html
+        note: « environ un quart », limites du barème point_indice_1pct
+    explication: '3 000 ETP au coût hors CAS d''un magistrat (majorant pour les greffiers), nets du retour. Convention de
+      droit constant (REFERENCE.md) : point d''indice gelé en référence, la hausse s''applique au niveau de rémunération actuel
+      sans projection au PIB. Haut : seuls 1 500 magistrats comptés à ce coût (greffiers moins coûteux). Places de prison
+      non chiffrées (nombre non précisé).'
+  confiance: moyenne
 - id: geoenergie-fonds-chaleur
   libelle: Doubler les aides à la géoénergie (80 → 160 M€) à enveloppe constante
   domaine: énergie
