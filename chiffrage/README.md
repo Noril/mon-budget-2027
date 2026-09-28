@@ -43,6 +43,9 @@ uv run python -m outils.chiffrage             # build/chiffrage.md, build/chiffr
      `central` = montant annoncé, **plafonné** par le budget réel du périmètre visé (source à l'appui) et par ce que
      le droit permet (une contribution à l'UE ne se baisse pas unilatéralement) ; `bas` = 0 (économie non
      réalisée) ; `haut` = `central`. Confiance faible sauf détail des postes.
+6 bis. **Transferts entre administrations** (État → collectivités, sécurité sociale → État) : neutres sur le solde
+   des APU, sauf la dépense nouvelle qu'ils financent. Un transfert fléché vers une dépense promise (« une fraction
+   de TVA aux communes qui construisent ») compte comme cette dépense ; `haut` = 0 si la dépense n'est pas certaine.
 7. **Non chiffrable** : réformes institutionnelles, mesures sans effet budgétaire significatif (< 0,1 Md€) ou trop
    vagues pour être lues. `raison_non_chiffrable` le dit.
 8. **Chiffrages tiers** : Institut Montaigne, IFRAP, OFCE, IPP, Terra Nova, Cour des comptes, COR, presse
