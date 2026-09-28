@@ -1,1 +1,1951 @@
-[]
+# Barèmes communs de chiffrage (schéma : schemas/bareme.schema.json). Voir chiffrage/README.md.
+#
+# Conventions :
+# - coûts et rendements en valeur positive ; le signe (coût < 0) se met dans la mesure du programme ;
+# - `bas` et `haut` sont la plus petite et la plus grande valeur plausible du barème, pas la convention
+#   défavorable/favorable au solde qui vaut pour les mesures ;
+# - montants en Md€ courants de l'année indiquée dans `annee` ; pour 2032, facteur PIB nominal 2025→2032 = 1,2106
+#   (PIB 2025 finances.pib_nominal@1.0.0, croissance et déflateur de plan/hypotheses.yaml, FMI WEO avril 2026),
+#   sauf quand la derivation dit autrement (énergie, TICPE : volumes et prix, pas PIB) ;
+# - sources récupérées et extraits relus le 29 septembre 2026 ; budget.gouv.fr bloquait alors les robots : quelques
+#   URL de documents budgétaires pointent vers la page d'index de l'exercice (signalé dans `limites`).
+
+# ====================================================================================================
+# Fiscalité indirecte et entreprises
+# ====================================================================================================
+
+- id: tva_rendement_total
+  libelle: "Rendement net total de la TVA, toutes administrations publiques"
+  valeur: 209
+  unite: Md€/an
+  annee: "2025"
+  sources:
+    - titre: "FIPECO, fiche « La taxe sur la valeur ajoutée » (mise à jour 2026)"
+      url: https://www.fipeco.fr/fiche/La-taxe-sur-la-valeur-ajout%C3%A9e
+      extrait: "Son rendement, net des remboursements, s’est élevé à 209 Md€ en 2025 (208 Md€ en 2024) pour l’ensemble des administrations publiques dont : 99 Md€ affectés à l’Etat ou à ses opérateurs, soit désormais moins de la moitié ; 57 Md€ à la sécurité sociale et 53 Md€ aux administrations publiques locales."
+  derivation: >
+    Lecture directe (comptabilité nationale, INSEE, nette des remboursements). Répartition 2025 : État et
+    opérateurs 99 Md€, sécurité sociale 57 Md€, APUL 53 Md€. Projection 2032 à structure inchangée :
+    209 × 1,2106 (facteur PIB nominal 2025→2032, plan/hypotheses.yaml, FMI WEO avril 2026) ≈ 253 Md€.
+  limites: >
+    FIPECO est une source secondaire (reprise des comptes INSEE). En comptabilité budgétaire, la TVA nette de
+    l'État est de 98 Md€ en 2025. Toute mesure de TVA touche les trois sous-secteurs via les fractions affectées.
+
+- id: tva_point_taux_normal
+  libelle: "Rendement d'un point de TVA au taux normal (20 % → 21 %), net de la TVA payée par les APU"
+  valeur: 7.5
+  haut: 8.9
+  unite: Md€ par point de taux normal et par an
+  annee: "2025"
+  sources:
+    - titre: "DG Trésor, Trésor-Éco n° 371, « Analyse de la composition des recettes de TVA », septembre 2025"
+      url: https://www.tresor.economie.gouv.fr/Articles/c462ac7f-76db-4c33-9bb3-dcc6886ed898/files/f4d0d1ac-fc61-4cf3-ab3f-094385b218bd
+      date: "2025-09"
+      extrait: "Tableau 2 : Rendement d’un point TVA 2025 net total et par taux Point TVA Ensemble 2,1% 5,5% 10% 20% Net 2025 (Md€) 11,4 0,4 2,0 1,6 7,5"
+  derivation: >
+    Tableau 2 du Trésor-Éco : rendement statique net 2025 d'un point au taux normal = 7,5 Md€ (8,9 Md€ brut,
+    tableau 1 ; l'écart est la TVA acquittée par les APU elles-mêmes, qui revient en dépense). Valeur retenue :
+    net (7,5), cohérent avec un effet sur le solde des APU ; haut = brut (8,9). Symétrique pour une baisse.
+    Projection 2032 : × 1,2106 (PIB nominal, plan/hypotheses.yaml) ≈ 9,1 Md€.
+  limites: >
+    Chiffrage statique (comportements inchangés), hors effets sur les prix et la consommation ; pour une baisse
+    d'un point, la transmission aux prix est incomplète mais n'affecte pas le coût budgétaire statique.
+
+- id: tva_point_tous_taux
+  libelle: "Rendement d'un point sur tous les taux de TVA (2,1 %, 5,5 %, 10 %, 20 %), net"
+  valeur: 11.4
+  haut: 13.7
+  unite: Md€ par point et par an
+  annee: "2025"
+  sources:
+    - titre: "DG Trésor, Trésor-Éco n° 371, « Analyse de la composition des recettes de TVA », septembre 2025"
+      url: https://www.tresor.economie.gouv.fr/Articles/c462ac7f-76db-4c33-9bb3-dcc6886ed898/files/f4d0d1ac-fc61-4cf3-ab3f-094385b218bd
+      date: "2025-09"
+      extrait: "Par exemple, le rendement net d'une variation d'un point de tous les taux de TVA est estimé à 11,4 Md€ en 2025."
+  derivation: >
+    Lecture directe (net des APU) ; haut = rendement brut 13,7 Md€ (tableau 1). Par taux, net : 2,1 % → 0,4 ;
+    5,5 % → 2,0 ; 10 % → 1,6 ; 20 % → 7,5 Md€.
+  limites: "Chiffrage statique."
+
+- id: tva_energie_electricite_5_5
+  libelle: "Coût du passage de 20 % à 5,5 % de la TVA sur l'électricité (ménages)"
+  valeur: 5.0
+  bas: 4.5
+  haut: 5.1
+  unite: Md€/an de recettes perdues (APU)
+  annee: "2024"
+  sources:
+    - titre: "Public Sénat, « Baisse de la TVA sur l’énergie proposée par le RN : une mesure chiffrée à 17 milliards selon Bercy », 14 juin 2024"
+      url: https://www.publicsenat.fr/actualites/politique/baisse-de-la-tva-sur-lenergie-proposee-par-le-rn-une-mesure-chiffree-a-17-milliards-selon-bercy
+      date: "2024-06-14"
+      extrait: "la baisse de la TVA à 5,5 % sur l’électricité coûterait 4,5 milliards, le gaz (2,3 milliards), les carburants (10 milliards) a estimé vendredi le ministère de l’Economie et des Finances"
+    - titre: "SDES, Bilan énergétique de la France pour 2024 (mars 2026), figure 5.3.3"
+      url: https://www.statistiques.developpement-durable.gouv.fr/media/9087/download?inline
+      date: "2026-03"
+      extrait: "Figure 5.3.3 : consommation finale énergétique dans le secteur résidentiel (données non corrigées des variations climatiques) et dépense associée [...] Électricité 159,7 32 698 155,2 34 377 150,7 36 387 150,9 42 246"
+  derivation: >
+    Deux estimations. (1) Bercy, juin 2024 : 4,5 Md€ (législation 2024, où l'abonnement était déjà à 5,5 %).
+    (2) Recalcul sur la dépense TTC des ménages en électricité 2024 (SDES) : 42,2 Md€ TTC ; TVA à 20 % =
+    42,2/6 = 7,04 Md€ ; à 5,5 % sur la même base HT (35,2 Md€) = 1,94 Md€ ; perte = 5,1 Md€. Depuis le 1er août
+    2025 l'abonnement est lui aussi taxé à 20 % (loi de finances 2025), ce qui rapproche le coût de ce recalcul.
+    Valeur centrale 5,0 Md€ (législation 2027), bas 4,5 (Bercy 2024), haut 5,1 (recalcul SDES).
+  limites: >
+    Statique, prix 2024 (niveau élevé après la crise) ; hors TVA non déductible du secteur public et des
+    activités exonérées ; la directive TVA (2006/112, annexe III) autorise le taux réduit sur l'électricité.
+    À projeter selon les prix de l'électricité, pas selon le PIB.
+
+- id: tva_energie_gaz_5_5
+  libelle: "Coût du passage de 20 % à 5,5 % de la TVA sur le gaz naturel (ménages)"
+  valeur: 2.0
+  bas: 1.7
+  haut: 2.3
+  unite: Md€/an de recettes perdues (APU)
+  annee: "2024"
+  sources:
+    - titre: "Public Sénat, « Baisse de la TVA sur l’énergie proposée par le RN : une mesure chiffrée à 17 milliards selon Bercy », 14 juin 2024"
+      url: https://www.publicsenat.fr/actualites/politique/baisse-de-la-tva-sur-lenergie-proposee-par-le-rn-une-mesure-chiffree-a-17-milliards-selon-bercy
+      date: "2024-06-14"
+      extrait: "la baisse de la TVA à 5,5 % sur l’électricité coûterait 4,5 milliards, le gaz (2,3 milliards), les carburants (10 milliards) a estimé vendredi le ministère de l’Economie et des Finances"
+    - titre: "SDES, Bilan énergétique de la France pour 2024 (mars 2026), figure 5.3.3"
+      url: https://www.statistiques.developpement-durable.gouv.fr/media/9087/download?inline
+      date: "2026-03"
+      extrait: "Gaz naturel 130,5 12 870 11,4 12 496 101,9 13 125 100,2 13 978"
+  derivation: >
+    (1) Bercy, juin 2024 : 2,3 Md€ (haut). (2) Recalcul sur la dépense TTC des ménages en gaz 2024 (SDES,
+    résidentiel) : 13,98 Md€ TTC ; base HT 11,65 Md€ ; TVA à 20 % = 2,33 Md€, à 5,5 % = 0,64 Md€ ; perte 1,69 Md€
+    (bas). Valeur centrale : milieu arrondi, 2,0 Md€.
+  limites: >
+    Très sensible au prix du gaz (la dépense des ménages a varié de 30 % entre 2021 et 2023). Hors TVA non
+    déductible du tertiaire public. Projeter avec le prix du gaz, pas avec le PIB.
+
+- id: tva_energie_carburants_5_5
+  libelle: "Coût du passage de 20 % à 5,5 % de la TVA sur les carburants routiers"
+  valeur: 10.0
+  bas: 8.2
+  haut: 12.4
+  unite: Md€/an de recettes perdues (APU)
+  annee: "2024-2026"
+  sources:
+    - titre: "Public Sénat, « Baisse de la TVA sur l’énergie proposée par le RN : une mesure chiffrée à 17 milliards selon Bercy », 14 juin 2024"
+      url: https://www.publicsenat.fr/actualites/politique/baisse-de-la-tva-sur-lenergie-proposee-par-le-rn-une-mesure-chiffree-a-17-milliards-selon-bercy
+      date: "2024-06-14"
+      extrait: "la baisse de la TVA à 5,5 % sur l’électricité coûterait 4,5 milliards, le gaz (2,3 milliards), les carburants (10 milliards)"
+    - titre: "Fondation IFRAP, « Carburants et pouvoir d'achat : rendre 4,5 milliards de fiscalité aux Français ! », 17 mars 2026"
+      url: https://www.ifrap.org/emploi-et-politiques-sociales/carburants-et-pouvoir-dachat-rendre-45-milliards-de-fiscalite-aux-francais
+      date: "2026-03-17"
+      extrait: "Estimation Institut Montaigne : 10,3 milliards € par an (fourchette 8,2 à 12,4 Md€ selon variation de la consommation"
+  derivation: >
+    Valeur centrale : chiffrage de Bercy (10 Md€, juin 2024), confirmé par l'estimation de l'Institut Montaigne
+    reprise par l'IFRAP (10,3 Md€). Fourchette Montaigne : 8,2 à 12,4 Md€ selon la réaction de la consommation.
+    Seule la TVA non déductible compte (ménages, entreprises non assujetties, part non déductible des véhicules
+    de tourisme).
+  limites: >
+    Le chiffrage Bercy « carburants » inclut vraisemblablement le fioul domestique (le total 16,8 Md€ = 4,5 + 2,3
+    + 10) : ne pas additionner avec tva_energie_fioul_5_5 si la promesse vise les deux. Sensible au prix du
+    baril. La directive TVA (annexe III) ne liste pas les carburants parmi les biens éligibles au taux réduit :
+    mesure juridiquement contestable.
+
+- id: tva_energie_fioul_5_5
+  libelle: "Coût du passage de 20 % à 5,5 % de la TVA sur le fioul domestique (chauffage des ménages)"
+  valeur: 0.6
+  bas: 0.4
+  haut: 0.65
+  unite: Md€/an de recettes perdues (APU)
+  annee: "2024"
+  sources:
+    - titre: "SDES, Bilan énergétique de la France pour 2024 (mars 2026), figure 5.3.3"
+      url: https://www.statistiques.developpement-durable.gouv.fr/media/9087/download?inline
+      date: "2026-03"
+      extrait: "Produits pétroliers 60,4 7 393 44,8 7 599 38,4 5 554 38,8 5 358"
+  derivation: >
+    Aucune source publique ne chiffre le fioul isolément (Bercy le regroupe avec les carburants). Recalcul :
+    dépense TTC des ménages en produits pétroliers pour le logement (résidentiel) 2024 = 5,36 Md€ (fioul
+    domestique et GPL) ; base HT 4,47 Md€ ; TVA à 20 % = 0,89 Md€, à 5,5 % = 0,25 Md€ ; perte 0,65 Md€ (haut,
+    GPL inclus). Valeur centrale 0,6 Md€ (fioul majoritaire) ; bas 0,4 (baisse tendancielle du chauffage au fioul
+    d'ici 2027-2032, interdiction des chaudières neuves au fioul depuis 2022).
+  limites: "Estimation propre, non publiée par une administration ; inclut le GPL. Déjà compris dans les 10 Md€ « carburants » de Bercy."
+
+- id: tva_energie_total_5_5
+  libelle: "Coût du passage de 20 % à 5,5 % de la TVA sur électricité, gaz, carburants et fioul (ensemble)"
+  valeur: 16.8
+  bas: 9.0
+  haut: 17.0
+  unite: Md€/an de recettes perdues (APU)
+  annee: "2024"
+  sources:
+    - titre: "Public Sénat, « Baisse de la TVA sur l’énergie proposée par le RN : une mesure chiffrée à 17 milliards selon Bercy », 14 juin 2024"
+      url: https://www.publicsenat.fr/actualites/politique/baisse-de-la-tva-sur-lenergie-proposee-par-le-rn-une-mesure-chiffree-a-17-milliards-selon-bercy
+      date: "2024-06-14"
+      extrait: "Cette baisse de taxes se traduirait par un coût global de 16,8 milliards d’euros pour les finances publiques."
+    - titre: "Institut Montaigne, Législatives 2024, « Baisser la TVA de 20 à 5,5% pour les carburants, l’électricité, le gaz et le fioul domestique » (archive web)"
+      url: https://web.archive.org/web/20241219114525/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/baisser-la-tva-de-20-a-55-pour-les-carburants-lelectricite-le-gaz-et-le-fioul-domestique
+      date: "2024-06"
+      extrait: "Par l'Institut Montaigne 11,3 Md€ 9 Md€ estimation basse 13,6 Md€ estimation haute"
+    - titre: "Public Sénat, « TVA à 5,5 %, taxe flottante, gel des prix : ce qu'il est possible de faire (ou non) pour baisser les prix des carburants », mars 2026"
+      url: https://www.publicsenat.fr/actualites/economie/tva-a-55-taxe-flottante-gel-des-prix-ce-quil-est-possible-de-faire-ou-non-pour-baisser-les-prix-des-carburants
+      date: "2026-03"
+      extrait: "Début mars, Maud Bregeon, la ministre déléguée chargée de l’Energie, avait estimé qu’une telle baisse coûterait « plus de 17 milliards d’euros »"
+  derivation: >
+    Valeur centrale : Bercy 16,8 Md€ (4,5 électricité + 2,3 gaz + 10 carburants et fioul). Institut Montaigne :
+    11,3 Md€ (9 à 13,6), sur la base des recettes de TVA énergie 2022 (16,8 Md€ : 10,4 produits pétroliers, 4,6
+    électricité, 1,6 gaz). Bas = borne basse Montaigne (9), haut = « plus de 17 milliards » (ministre chargée de
+    l'énergie, mars 2026, citée par Public Sénat). L'écart tient au périmètre et aux hypothèses de consommation.
+  limites: "Utiliser les barèmes par énergie quand la promesse ne vise pas les quatre. Sensible aux prix de l'énergie."
+
+- id: tva_taux_reduits_cout_total
+  libelle: "Coût total des dépenses fiscales de TVA (taux réduits et régimes particuliers), toutes APU"
+  valeur: 24.8
+  unite: Md€/an
+  annee: "2025"
+  sources:
+    - titre: "Cour des comptes, Analyse de l'exécution budgétaire 2025, mission Dépenses fiscales, avril 2026"
+      url: https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Depenses-fiscales.pdf
+      date: "2026-04"
+      extrait: "Le coût global des dépenses fiscales TVA au PLF 2026 s’élève à 10,92 Md€ au lieu 24,62 Md€ pour 2024 (coût définitif), à 11,00 Md€ au lieu de 24,78 Md€ pour 2025 (coût révisé)"
+  derivation: >
+    Depuis le PLF 2024, le tome II des Voies et moyens ne chiffre plus que la part de TVA revenant à l'État
+    (11,0 Md€ en 2025). Le coût pour l'ensemble des APU, selon l'ancienne convention, est de 24,78 Md€ en 2025
+    (25,01 Md€ prévus en 2026). C'est ce montant qu'il faut utiliser pour un effet sur le solde des APU.
+  limites: >
+    Périmètre des dépenses fiscales (restauration, travaux, logement social, médicaments, DOM, etc.) ; n'inclut
+    pas les taux réduits considérés comme « norme » (5,5 % alimentaire). Pour relever un taux, utiliser
+    tva_point_tous_taux.
+
+- id: ticpe_rendement_total
+  libelle: "Rendement total de l'accise sur les produits énergétiques hors gaz et charbon (ex-TICPE), toutes APU"
+  valeur: 30.5
+  unite: Md€/an
+  annee: "2025"
+  sources:
+    - titre: "FIPECO, fiche « Les taxes sur les carburants »"
+      url: https://www.fipeco.fr/fiche/Les-taxes-sur-les-carburants
+      extrait: "En comptabilité nationale, le produit de la TICPE s’est élevé à 30,5 Md€, soit 1,0 % du PIB, en 2025, après 30,2 Md€ en 2024 et 31,8 Md€ en 2019."
+    - titre: "Cour des comptes, Analyse de l'exécution budgétaire 2025, mission Recettes fiscales, avril 2026"
+      url: https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Recettes-fiscales.pdf
+      date: "2026-04"
+      extrait: "hors gaz naturel et charbons (ex -TICPE, plus couramment dénommée « accise sur les carburants ») s’élèvent à 16,3 Md€ en 2025"
+  derivation: >
+    Comptabilité nationale : 30,5 Md€ en 2025. Répartition budgétaire : État 16,3 Md€ net, collectivités 12,1 Md€,
+    AFITF 1,2 Md€ (FIPECO). Assise sur les volumes (taux en c€/l, non indexés) : à taux inchangés, stable ou en
+    baisse d'ici 2032 avec l'électrification ; ne pas projeter au PIB.
+  limites: "Rendement en baisse tendancielle (volumes de carburants fossiles décroissants)."
+
+- id: ticpe_centime_litre
+  libelle: "Rendement d'une hausse (ou coût d'une baisse) de 1 centime par litre de l'accise sur les carburants routiers"
+  valeur: 0.48
+  bas: 0.45
+  haut: 0.55
+  unite: Md€/an par centime d'euro par litre
+  annee: "2024"
+  sources:
+    - titre: "SDES, Bilan énergétique de la France pour 2024 (mars 2026), figure 4.2.1.2"
+      url: https://www.statistiques.developpement-durable.gouv.fr/media/9087/download?inline
+      date: "2026-03"
+      extrait: "Gazole routier 33,8 58 097 31,8 65 255 30,2 57 148 29,3 50 969 Fioul domestique et autres gazoles 10,6 11 970 9,8 15 598 9,1 12 069 9,0 10 773 Supercarburants* 9,0 20 255 10,3 25 934 10,9 27 229 11,7 27 795"
+    - titre: "FIPECO, fiche « Les taxes sur les carburants »"
+      url: https://www.fipeco.fr/fiche/Les-taxes-sur-les-carburants
+      extrait: "les taux de l’accise en 2026 sont de 59,40 centimes par litre pour le gazole et 68,29 centimes pour l’essence sans plomb SP95-E5."
+  derivation: >
+    Volumes 2024 (SDES) : gazole routier 29,3 Mtep, supercarburants 11,7 Mtep. Conversion (≈ 1 tep par tonne ;
+    masse volumique 0,845 kg/l pour le gazole, 0,755 kg/l pour l'essence) : gazole ≈ 34,7 milliards de litres,
+    essence ≈ 14,8 milliards ; total ≈ 49,5 Gl, soit ≈ 0,495 Md€ par c€/l. Contrôle : 30,5 Md€ d'accise / 49,5 Gl
+    = 0,62 €/l, cohérent avec les taux (59,4 et 68,3 c€/l) nets des remboursements (transporteurs, taxis,
+    agriculteurs). Valeur centrale arrondie à 0,48 (volumes 2025-2027 en légère baisse). Haut 0,55 : ajoute la
+    TVA induite sur la part payée par les ménages et le fioul/GNR si la mesure les vise. Bas 0,45 : recul des
+    volumes d'ici 2032.
+  limites: >
+    Estimation propre à partir de volumes publics (aucune source administrative récente ne publie « le
+    centime ») ; hors réaction de la consommation (élasticité-prix de court terme faible). Les remboursements
+    partiels (transport routier, taxis) réduisent l'assiette effective du gazole professionnel.
+
+- id: is_rendement_net
+  libelle: "Rendement net de l'impôt sur les sociétés"
+  valeur: 60
+  bas: 59.9
+  haut: 66.9
+  unite: Md€/an
+  annee: "2025"
+  sources:
+    - titre: "FIPECO, fiche « L'impôt sur les sociétés »"
+      url: https://www.fipeco.fr/fiche/Limp%C3%B4t-sur-les-soci%C3%A9t%C3%A9s
+      extrait: "En 2025, le produit de l’IS était de 67,6 Md€ en comptabilité budgétaire et de 66,9 Md€ en comptabilité nationale (après crédits d’impôts, hors contribution sociale de 1,2 Md€ mais majoration exceptionnelle incluse)"
+    - titre: "Cour des comptes, Analyse de l'exécution budgétaire 2025, mission Recettes fiscales, avril 2026"
+      url: https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Recettes-fiscales.pdf
+      date: "2026-04"
+      extrait: "La hausse de 2, 5 Md€ de l’impôt sur les sociétés net (59,9 Md€ en 2025) s’explique principalement par celle du bénéfice fiscal"
+  derivation: >
+    IS net structurel ≈ 60 Md€ en 2025 (Cour des comptes, net des crédits d'impôt, hors contribution
+    exceptionnelle des grandes entreprises) ; 66,9 Md€ en comptabilité nationale y compris la majoration
+    exceptionnelle (7,5 Md€ en 2025, selon FIPECO). Projection 2032 : × 1,2106 (PIB nominal 2025→2032,
+    plan/hypotheses.yaml, FMI) ≈ 73 Md€ hors majoration.
+  limites: "Recette très cyclique (bénéfices) ; la majoration exceptionnelle est temporaire en droit."
+
+- id: is_point
+  libelle: "Rendement d'un point de taux normal d'IS (25 % → 26 %)"
+  valeur: 2.4
+  haut: 2.8
+  unite: Md€ par point et par an
+  annee: "2025"
+  sources:
+    - titre: "FIPECO, fiche « L'impôt sur les sociétés »"
+      url: https://www.fipeco.fr/fiche/Limp%C3%B4t-sur-les-soci%C3%A9t%C3%A9s
+      extrait: "En 2024, il y a eu 1,7 million d’entreprises soumises à l’IS et bénéficiaires (284 Md€ de bénéfices) et 1,0 million d’entreprises déficitaires (112 Md€ de pertes)."
+    - titre: "Cour des comptes, Analyse de l'exécution budgétaire 2025, mission Recettes fiscales, avril 2026"
+      url: https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Recettes-fiscales.pdf
+      date: "2026-04"
+      extrait: "La hausse de 2, 5 Md€ de l’impôt sur les sociétés net (59,9 Md€ en 2025) s’explique principalement par celle du bénéfice fiscal"
+  derivation: >
+    Aucune source publique récente ne publie le « point d'IS ». Deux calculs : (1) proportionnel, IS net hors
+    majoration 59,9 Md€ / 25 points = 2,4 Md€ (valeur, prudente car les crédits d'impôt ne varient pas avec le
+    taux) ; (2) bénéfices des sociétés bénéficiaires 2024, 284 Md€ × 1 % = 2,8 Md€ (haut, avant imputation des
+    déficits reportés et hors taux réduit PME de 15 %). Projection 2032 : × 1,2106.
+  limites: >
+    Statique ; ignore l'optimisation et la localisation des profits. Pour une surtaxe sur les grandes
+    entreprises, se référer à la majoration exceptionnelle (7,5 Md€ en 2025).
+
+- id: cvae_restante
+  libelle: "CVAE restante (rendement, soit le coût de sa suppression complète)"
+  valeur: 3.7
+  unite: Md€/an
+  annee: "2025"
+  sources:
+    - titre: "FIPECO, fiche « La cotisation sur la valeur ajoutée des entreprises », 7 juillet 2026"
+      url: https://www.fipeco.fr/fiche/La-cotisation-sur-la-valeur-ajout%C3%A9e-des-entreprises
+      date: "2026-07-07"
+      extrait: "En 2025, la CVAE prélevée sur les entreprises s’est élevée à 3,7 Md€."
+  derivation: >
+    Lecture directe. La loi de finances 2025 a majoré la CVAE en 2026 et 2027 et reporté sa suppression à 2030 :
+    en législation 2027, la suppression est déjà votée pour 2030 ; une promesse de suppression n'a donc un coût
+    qu'en 2027-2029 (≈ 3,7 à 4 Md€/an), nul en 2032. Inversement, maintenir la CVAE après 2030 rapporterait
+    ≈ 3,7 × 1,2106 ≈ 4,5 Md€ en 2032.
+  limites: "CVAE affectée à l'État depuis 2023 (collectivités compensées en TVA). Calendrier susceptible de changer en LFI 2027."
+
+- id: c3s_rendement
+  libelle: "Rendement de la contribution sociale de solidarité des sociétés (C3S)"
+  valeur: 5.2
+  unite: Md€/an
+  annee: "2024"
+  sources:
+    - titre: "FIPECO, fiche « Les impôts sur la production », 12 novembre 2025"
+      url: https://www.fipeco.fr/fiche/Les-imp%C3%B4ts-sur-la-production
+      date: "2025-11-12"
+      extrait: "Ils comprennent aussi des impôts assis sur le chiffre d’affaires (contribution sociale de solidarité des sociétés, pour 5,2 Md€)"
+  derivation: >
+    Lecture directe (comptabilité nationale 2024, INSEE). Affectée à la sécurité sociale. Coût d'une
+    suppression ≈ 5,2 Md€ ; projection 2032 × 1,2336 (PIB nominal 2024→2032, plan/hypotheses.yaml) ≈ 6,4 Md€.
+  limites: "Source secondaire (FIPECO d'après INSEE)."
+
+- id: ttf_rendement
+  libelle: "Rendement de la taxe sur les transactions financières (0,4 % sur les acquisitions d'actions)"
+  valeur: 2.5
+  bas: 2.2
+  unite: Md€/an
+  annee: "2025"
+  sources:
+    - titre: "MoneyVox (AFP), « Taxe sur les transactions financières : quel bilan 15 ans après ? », 10 septembre 2026, citant un rapport de la Cour des comptes"
+      url: https://www.moneyvox.fr/bourse/actualites/110311/taxe-sur-les-transactions-financieres-quel-bilan-15-ans-apres
+      date: "2026-09-10"
+      extrait: "Son rendement a donc été « dynamique » ces dernières années, passant de 800 millions en 2013, à 1,9 milliard en 2019, puis 2,5 milliards en 2025 , selon l'institution."
+    - titre: "Assemblée nationale, PLF 2025, amendement n° I-CF1722 (exposé sommaire)"
+      url: https://www.assemblee-nationale.fr/dyn/17/amendements/0324A/CION_FIN/CF1722
+      date: "2024-10"
+      extrait: "ce taux permettrait à l’État de récolter 3,7 milliards d’euros, contre 2,2 milliards actuellement avec un taux à 0,3%"
+  derivation: >
+    Rendement 2025 au taux de 0,4 % : 2,5 Md€ (Cour des comptes, septembre 2026, via AFP). Bas : 2,2 Md€ au taux
+    de 0,3 % (estimation 2023). Un dixième de point supplémentaire rapporte au plus ≈ 0,6 Md€ (2,5 / 4), moins
+    en pratique (le passage de 0,3 à 0,4 % a rapporté ≈ 0,3 à 0,5 Md€ selon ces chiffres).
+  limites: >
+    Source secondaire (dépêche reprenant un rapport de la Cour non consulté directement). L'extension aux
+    opérations intrajournalières est chiffrée par des ONG à ≈ 2 Md€ (débat au Sénat, 29 novembre 2025), sans
+    chiffrage administratif.
+
+- id: depenses_fiscales_total
+  libelle: "Coût total des dépenses fiscales (niches fiscales de l'État)"
+  valeur: 91.8
+  haut: 105
+  unite: Md€/an
+  annee: "2025"
+  sources:
+    - titre: "Cour des comptes, Analyse de l'exécution budgétaire 2025, mission Dépenses fiscales, avril 2026"
+      url: https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Depenses-fiscales.pdf
+      date: "2026-04"
+      extrait: "Les dépenses fiscales de 2025 ont été révisées à 91,83 Md€ dans le projet de loi de finances (PLF) 2026, contre 85,09 Md€ prévus initialement au PLF 2025"
+  derivation: >
+    PLF 2026, Voies et moyens tome II (repris par la Cour) : 91,83 Md€ en 2025, 474 dispositifs, 3,07 % du PIB.
+    Haut ≈ 105 Md€ : ancienne convention de chiffrage de la TVA (part de toutes les APU, +13,8 Md€ ; la Cour
+    donne 103,11 Md€ pour 2024 sur cette base). Les 15 premières dépenses fiscales = 46,7 Md€.
+  limites: >
+    Le coût d'une dépense fiscale n'est pas le gain de sa suppression (comportements, interactions). Les
+    niches sociales (exonérations de cotisations) ne sont pas incluses.
+
+# ====================================================================================================
+# Fiscalité des ménages et du patrimoine
+# ====================================================================================================
+
+- id: ir_rendement
+  libelle: Rendement net de l'impôt sur le revenu (État)
+  valeur: 94.9
+  haut: 104.0
+  unite: Md€/an
+  annee: "2025 (exécution) ; haut = prévision PLF 2026"
+  sources:
+    - titre: Cour des comptes, Le budget de l'État en 2025 (résultats et gestion), avril 2026
+      url: https://www.ccomptes.fr/sites/default/files/2026-04/20260422-RBDE-2025_0.pdf
+      date: "2026-04-22"
+      extrait: "Les recettes nettes d’impôt sur le revenu (94,9 Md€) ont ainsi progressé de 7,0 Md€, essentiellement sous l’effet de son évolution spontanée (+ 5,9 Md€, soit + 6,8 %)."
+    - titre: Sénat, rapport général n° 139 (2025-2026), PLF 2026, tome I (d'après l'annexe Voies et moyens, tome I)
+      url: https://www.senat.fr/rap/l25-139-1/l25-139-1_mono.html
+      date: "2025-11"
+      extrait: "Le produit prévisionnel de l'impôt net sur le revenu pour 2026 est de 104,0 milliards d'euros, en hausse de 9,1 milliards d'euros par rapport à 2025."
+  derivation: >
+    Lecture directe : IR net (brut moins remboursements et dégrèvements) encaissé par l'État en 2025 = 94,9 Md€.
+    Le PLF 2026 prévoyait 104,0 Md€ (dont + 4,2 Md€ d'évolution spontanée et + 4,4 Md€ de mesures nouvelles, notamment
+    le gel du barème), retenu en `haut`. Pour 2032 à législation constante, multiplier au moins par le facteur PIB
+    nominal 1,2106 (≈ 115 Md€ depuis 2025) ; l'élasticité de l'IR au revenu étant supérieure à 1 quand le barème est
+    indexé sur les prix, c'est un minimum.
+  limites: >
+    Ne comprend ni la CSG ni la CRDS (voir csg_rendement) ni les prélèvements sociaux. Le PLF 2026 a été amendé ;
+    le produit voté en LFI 2026 peut différer de 104,0 Md€.
+
+- id: ir_indexation_1pct
+  libelle: Coût d'un relèvement de 1 % des seuils du barème de l'IR (sur-indexation de 1 point)
+  valeur: 1.7
+  bas: 1.5
+  haut: 2.1
+  unite: Md€/an par point d'indexation
+  annee: "2026"
+  sources:
+    - titre: Sénat, rapport général n° 139 (2025-2026), PLF 2026, tome I (chiffrage des mesures nouvelles, Voies et moyens tome I)
+      url: https://www.senat.fr/rap/l25-139-1/l25-139-1_mono.html
+      date: "2025-11"
+      extrait: "L'augmentation attendue du produit de l'impôt liée à cette absence d'indexation est de 1,9 Md€"
+    - titre: Même rapport, hypothèse d'inflation 2025 du Gouvernement
+      url: https://www.senat.fr/rap/l25-139-1/l25-139-1_mono.html
+      date: "2025-11"
+      extrait: "soit un léger regain par rapport au taux estimé de 1,1 % en 2025"
+  derivation: >
+    Le gel du barème (absence d'indexation sur l'inflation 2025, estimée à 1,1 %) rapporte 1,9 Md€ selon le chiffrage
+    des mesures nouvelles du PLF 2026. Un point d'indexation vaut donc 1,9 / 1,1 ≈ 1,7 Md€ (année 2026). `bas` et
+    `haut` : même calcul avec une inflation de référence de 1,3 % (1,5 Md€) et 0,9 % (2,1 Md€), l'indice exact retenu
+    (IPC hors tabac) n'étant pas cité dans la source. Pour 2032, multiplier par le facteur PIB nominal 1,2106
+    (≈ 2,1 Md€).
+  limites: >
+    Relation supposée linéaire. Chiffre ex ante sans effet de comportement. Un relèvement ciblé sur certaines tranches
+    coûte moins (ou plus) qu'un relèvement uniforme.
+
+- id: ir_baisse_1pct
+  libelle: Coût d'une baisse uniforme de 1 % de l'impôt sur le revenu dû
+  valeur: 1.04
+  bas: 0.95
+  haut: 1.26
+  unite: Md€/an
+  annee: "2026"
+  sources:
+    - titre: Sénat, rapport général n° 139 (2025-2026), PLF 2026, tome I
+      url: https://www.senat.fr/rap/l25-139-1/l25-139-1_mono.html
+      date: "2025-11"
+      extrait: "Le produit prévisionnel de l'impôt net sur le revenu pour 2026 est de 104,0 milliards d'euros, en hausse de 9,1 milliards d'euros par rapport à 2025."
+    - titre: Cour des comptes, Le budget de l'État en 2025, avril 2026
+      url: https://www.ccomptes.fr/sites/default/files/2026-04/20260422-RBDE-2025_0.pdf
+      date: "2026-04-22"
+      extrait: "Les recettes nettes d’impôt sur le revenu (94,9 Md€)"
+  derivation: >
+    1 % du produit net de l'IR : 0,01 × 104,0 = 1,04 Md€ (PLF 2026). `bas` = 0,01 × 94,9 (exécution 2025) ;
+    `haut` = 0,01 × 104,0 × 1,2106 ≈ 1,26 Md€ (projection 2032 au PIB nominal). Pour une baisse de x % des taux de
+    toutes les tranches, multiplier par x. À distinguer de ir_indexation_1pct (relèvement des seuils).
+  limites: >
+    Approximation : une baisse proportionnelle des taux réduit l'impôt brut, pas les crédits d'impôt remboursables
+    (inclus dans les remboursements et dégrèvements) ; le coût réel est donc un peu supérieur à 1 % du produit net
+    (l'IR brut est de l'ordre de 130 Md€). Décote et plafonnement du quotient familial non modélisés.
+
+- id: ifi_rendement
+  libelle: Rendement de l'impôt sur la fortune immobilière (IFI)
+  valeur: 2.8
+  unite: Md€/an
+  annee: "2025 (exécution)"
+  sources:
+    - titre: Cour des comptes, note d'analyse de l'exécution budgétaire 2025, Recettes fiscales, avril 2026
+      url: https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Recettes-fiscales.pdf
+      date: "2026-04"
+      extrait: "Impôt sur la fortune immobilière 2,7 2,8 + 0,1 0 + 0,1"
+  derivation: >
+    Lecture du tableau des autres recettes fiscales brutes : exécution 2024 = 2,7 Md€, exécution 2025 = 2,8 Md€
+    (+ 0,1 Md€ d'évolution spontanée). Projection 2032 au PIB nominal : 2,8 × 1,2106 ≈ 3,4 Md€.
+  limites: >
+    Comprend les rappels issus du contrôle fiscal (0,4 à 0,5 Md€ par an en 2018-2020 selon France Stratégie).
+    La supprimer (rétablissement de l'ISF) est à déduire du rendement brut d'un ISF (voir isf_retabli_gain_net).
+
+- id: isf_2017_rendement
+  libelle: Rendement de l'impôt de solidarité sur la fortune (ISF) en 2017, dernière année
+  valeur: 4.1
+  haut: 4.17
+  unite: Md€/an
+  annee: "2017"
+  sources:
+    - titre: France Stratégie, Comité d'évaluation des réformes de la fiscalité du capital, troisième rapport, octobre 2021
+      url: https://www.strategie.gouv.fr/files/files/Publications/2021/1014%20Reforme%20de%20la%20fiscalit%C3%A9%20du%20capital/fs-2021-troisieme_rapport-fiscalite_du_capital-octobre.pdf
+      date: "2021-10"
+      extrait: "Le remplacement de l’ISF par l’IFI devait coûter 3,2 milliards au budget de l’État – 850 millions de recettes d’IFI attendues en 2018 contre 4,1 milliards d’ISF nets perçus en 2017."
+  derivation: >
+    ISF net perçu en 2017 : 4,1 Md€ (texte du rapport). Le tableau DGFiP du même rapport (montant total de
+    l'ISF/IFI de l'ensemble des redevables) donne 4,17 Md€ pour 2017, retenu en `haut`. Base nette imposable 2017 :
+    1 017 Md€ (même tableau).
+  limites: >
+    Montant après plafonnement et réductions (ISF-PME, dons) de l'époque. En euros 2017 : à revaloriser pour toute
+    comparaison (voir isf_retabli_gain_net).
+
+- id: isf_retabli_gain_net
+  libelle: Gain net pour les finances publiques d'un rétablissement de l'ISF 2017 (suppression de l'IFI déduite), en 2032
+  valeur: 3.1
+  bas: 1.3
+  haut: 5.1
+  unite: Md€/an (2032)
+  annee: "2032 (projection depuis 2017 et 2025)"
+  indicateur: finances.pib_nominal@1.0.0
+  sources:
+    - titre: France Stratégie, Comité d'évaluation des réformes de la fiscalité du capital, troisième rapport (ISF 2017, base imposable, départs)
+      url: https://www.strategie.gouv.fr/files/files/Publications/2021/1014%20Reforme%20de%20la%20fiscalit%C3%A9%20du%20capital/fs-2021-troisieme_rapport-fiscalite_du_capital-octobre.pdf
+      date: "2021-10"
+      extrait: "Ensemble des redevables ISF/IFI Base nette totale imposable en N (Md€) 761 774 837 904 948 985 1 017 310 332"
+    - titre: Cour des comptes, NEB 2025 Recettes fiscales (IFI 2025)
+      url: https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Recettes-fiscales.pdf
+      date: "2026-04"
+      extrait: "Impôt sur la fortune immobilière 2,7 2,8 + 0,1 0 + 0,1"
+  derivation: >
+    Gain net = ISF rétabli (paramètres 2017) − IFI supprimé. Central : ISF 2017 (4,1 Md€) revalorisé comme le PIB
+    nominal 2017 → 2032 (2 291,7 Md€ → 3 620,9 Md€, facteur 1,580 ; finances.pib_nominal@1.0.0 et
+    plan/hypotheses.yaml) = 6,48 Md€, moins l'IFI 2025 projeté en 2032 (2,8 × 1,2106 = 3,39 Md€) = 3,1 Md€.
+    Haut : base ISF croissant comme de 2011 à 2017 (761 → 1 017 Md€, + 4,95 %/an), soit × 2,066 sur 15 ans :
+    4,1 × 2,066 = 8,47 Md€ − 3,39 = 5,1 Md€. Bas : rendement nominal 2017 non revalorisé (4,1 Md€), ce qui figure
+    une érosion de l'assiette par départs et optimisation, moins l'IFI 2025 non projeté (2,8 Md€) = 1,3 Md€.
+  limites: >
+    Aucun chiffrage public récent d'un ISF rétabli n'a été trouvé ; les montants avancés dans le débat public
+    (programmes, taxe plancher de type Zucman sur les patrimoines de plus de 100 M€) portent sur d'autres assiettes
+    et barèmes et ne doivent pas être pris pour ce barème. Effets de comportement (départs, qui avaient baissé
+    fortement après 2017 selon les données DGFiP du rapport ; optimisation, report de dividendes) non chiffrés :
+    le bas est une convention prudente, pas une estimation. Un « ISF climatique » ou à barème plus lourd se chiffre
+    à part.
+
+- id: dmtg_rendement
+  libelle: Rendement des droits de mutation à titre gratuit (successions et donations)
+  valeur: 21.4
+  bas: 20.8
+  unite: Md€/an
+  annee: "2026 (PLF) ; bas = 2025"
+  sources:
+    - titre: Sénat, rapport général n° 139 (2025-2026), PLF 2026, tome I (d'après les documents budgétaires)
+      url: https://www.senat.fr/rap/l25-139-1/l25-139-1_mono.html
+      date: "2025-11"
+      extrait: "Le produit global des DMTG, en incluant les donations entre vifs, serait de 21,4 Mds€ en 2026, soit plus du double de 2014 (10,3 Mds€)."
+    - titre: Cour des comptes, Le budget de l'État en 2025, avril 2026 (tableau n° 22)
+      url: https://www.ccomptes.fr/sites/default/files/2026-04/20260422-RBDE-2025_0.pdf
+      date: "2026-04-22"
+      extrait: "dont droit de mutation à titre gratuit** 20,8 4,5 20,7 %"
+  derivation: >
+    PLF 2026 : successions 16 995 M€ + donations 4 423 M€ = 21,4 Md€ (tableau du rapport du Sénat, lignes 1706 et
+    1705). 2025 : 20,8 Md€ selon la Cour (dépenses fiscales associées, dont pacte Dutreil : 4,5 Md€). Successions
+    seules ≈ 17,0 Md€. Projection 2032 au PIB nominal : 21,4 × 1,2106 / (1 + croissance nominale 2026 ≈ 2,2 %) ≈ 25 Md€ ;
+    tendance historique plus rapide (× 2 entre 2014 et 2026).
+  limites: >
+    Recette volatile (marché immobilier et financier, décès). Une réforme du barème en ligne directe ou des
+    abattements se chiffre sur les données DGFiP par tranche, non disponibles ici.
+
+- id: pfu_passage_bareme
+  libelle: Gain d'une suppression du prélèvement forfaitaire unique (retour au barème de l'IR des revenus mobiliers), en 2032
+  valeur: 0.6
+  bas: 0.0
+  haut: 1.7
+  unite: Md€/an (2032)
+  annee: "2032 (projection du coût statique 2018)"
+  sources:
+    - titre: France Stratégie, Comité d'évaluation des réformes de la fiscalité du capital, troisième rapport, octobre 2021
+      url: https://www.strategie.gouv.fr/files/files/Publications/2021/1014%20Reforme%20de%20la%20fiscalit%C3%A9%20du%20capital/fs-2021-troisieme_rapport-fiscalite_du_capital-octobre.pdf
+      date: "2021-10"
+      extrait: "Bach et al. (2019) chiffrent le coût statique de la réforme entre 600 et 900 millions d’euros, contre 1 050 millions pour Sicsic et Paquier (2021)."
+    - titre: Même rapport, autofinancement du PFU
+      url: https://www.strategie.gouv.fr/files/files/Publications/2021/1014%20Reforme%20de%20la%20fiscalit%C3%A9%20du%20capital/fs-2021-troisieme_rapport-fiscalite_du_capital-octobre.pdf
+      date: "2021-10"
+      extrait: "La réforme s’autofinancerait donc pour une augmentation causale de dividendes comprise entre 2 et 3 milliards d’euros"
+  derivation: >
+    Coût statique du PFU en 2018 (comportements de 2017) : 0,6 à 0,9 Md€ (IPP) ou 1,05 Md€ (Insee, Sicsic et Paquier).
+    Revalorisé au PIB nominal 2017 → 2032 (facteur 1,580) : 0,95 à 1,66 Md€. Haut = 1,05 × 1,580 ≈ 1,7 Md€ (aucune
+    réaction des dividendes). Bas = 0 : la hausse observée des dividendes après 2018 (de 14 à 23 Md€) dépasse
+    largement le seuil d'autofinancement, et la baisse symétrique de 2013 montre qu'un retour au barème réduirait
+    fortement les distributions. Central = moitié du coût statique IPP moyen revalorisé : 0,5 × 0,75 × 1,580 ≈ 0,6 Md€
+    (convention, faute d'estimation causale précise).
+  limites: >
+    Le coût statique inclut la hausse de 1,7 point de CSG de 2018 ; il ne se lit pas comme le seul effet du taux de
+    12,8 %. La LFSS 2026 a porté la CSG sur la plupart des revenus du capital à 10,6 % (PFU à 31,4 %) : le point de
+    départ 2027 diffère de 2018. Rendement total du PFU non isolé dans les sources publiques consultées. Convention
+    centrale à trancher.
+
+- id: hs_exoneration_cout
+  libelle: Coût des exonérations sur les heures supplémentaires (IR, cotisations salariales, déduction patronale)
+  valeur: 5.4
+  bas: 5.2
+  unite: Md€/an
+  annee: "2026 (prévision) ; bas = 2024"
+  sources:
+    - titre: Cour des comptes, NEB 2025 Dépenses fiscales, avril 2026 (dépense fiscale n° 120146)
+      url: https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Depenses-fiscales.pdf
+      date: "2026-04"
+      extrait: "120146 Exon. heures supplémentaires 7 2 144 ▲1 6 2 212 8 2 250"
+    - titre: PLFSS 2026, annexe 4 (exonérations et exemptions de cotisations)
+      url: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2026/PLFSS2026-Annexe4-20251014-183718-59-11_avec%20couverture.pdf
+      date: "2025-10"
+      extrait: "Exonération sur les heures supplémentaires - part salariale 2 228 2 254 1,2% 2 306 2,3%"
+    - titre: PLFSS 2026, annexe 4 (déduction forfaitaire patronale)
+      url: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2026/PLFSS2026-Annexe4-20251014-183718-59-11_avec%20couverture.pdf
+      date: "2025-10"
+      extrait: "Déductions sur les heures supplémentaires (entreprises de moins 250 salariés) 865 868 0,4% 872 0,5%"
+  derivation: >
+    2026 : IR 2 250 M€ + exonération de cotisations salariales 2 306 M€ + déduction forfaitaire de cotisations
+    patronales (entreprises de moins de 250 salariés) 872 M€ = 5 428 M€ ≈ 5,4 Md€. 2024 : 2 144 + 2 228 + 865 =
+    5,24 Md€. Suppression totale : + 5,4 Md€ ; suppression du seul volet fiscal : + 2,25 Md€ ; du volet salarial :
+    + 2,3 Md€.
+  limites: >
+    Chiffrages statiques : une suppression réduirait le recours aux heures supplémentaires et donc le gain. La part
+    salariale n'est pas compensée à la sécurité sociale, la déduction patronale l'est par l'État : le coût APU est la
+    somme. Nombre de bénéficiaires non déterminé selon la Cour.
+
+- id: csg_rendement
+  libelle: Rendement total de la CSG (brut, tous attributaires)
+  valeur: 157.2
+  unite: Md€/an
+  annee: "2025"
+  sources:
+    - titre: Commission des comptes de la sécurité sociale, rapport de mai 2026, fiche 1.3 La CSG
+      url: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS%20mai%202026_assembl%c3%a9_V2.pdf
+      date: "2026-05"
+      extrait: "Son montant a atteint 157,2 Md€ pour l’ensemble de ses attributaires (branches famille, maladie et autonomie, FSV, Cades et Unédic)."
+  derivation: >
+    Lecture directe, CSG brute avant charges de non-recouvrement (nette : 156,5 Md€). 2026 (p) : 156,2 Md€, en baisse
+    du fait de la réforme de l'assiette des travailleurs indépendants. Répartition 2025 : revenus du capital 11,2 % du
+    total. Projection 2032 au PIB nominal : 157,2 × 1,2106 ≈ 190 Md€.
+  limites: Hors CRDS (0,5 %) et prélèvement de solidarité (7,5 % sur le capital, recette de l'État).
+
+- id: csg_point
+  libelle: Rendement d'un point de CSG sur toutes les assiettes
+  valeur: 17.94
+  unite: Md€ par point de taux
+  annee: "2025"
+  sources:
+    - titre: Commission des comptes de la sécurité sociale, rapport de mai 2026, tableau 6 (valeur de point de la CSG par assiette)
+      url: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS%20mai%202026_assembl%c3%a9_V2.pdf
+      date: "2026-05"
+      extrait: "Activité 11 760 12 030 11 710 Remplacement 3 770 3 900 4 020 Capital 1 920 1 910 1 940 Patrimoine 750 810 690 Placement 1 170 1 100 1 250 Jeux 100 100 100 CSG totale 17 550 17 940 17 770"
+  derivation: >
+    Valeur de point = rendement de la CSG de chaque assiette / taux facial (note de lecture du tableau). 2025, en
+    M€ par point : activité 12 030, remplacement 3 900, capital 1 910 (patrimoine 810, placements 1 100), jeux 100 ;
+    total 17 940 M€. Un point sur les seuls revenus du capital : 1,9 Md€. Projection 2032 au PIB nominal :
+    17,94 × 1,2106 ≈ 21,7 Md€.
+  limites: >
+    Valeur mécanique sans effet de comportement. Sur les revenus de remplacement, un point au taux plein ne touche
+    pas les retraités exonérés ou au taux réduit. La CSG étant en partie déductible de l'IR (6,8 points sur les
+    revenus d'activité), une hausse de CSG déductible réduit un peu le produit de l'IR (non compté ici).
+
+- id: csg_point_activite
+  libelle: Rendement d'un point de CSG sur les revenus d'activité
+  valeur: 12.03
+  unite: Md€ par point de taux
+  annee: "2025"
+  sources:
+    - titre: Commission des comptes de la sécurité sociale, rapport de mai 2026, tableau 6
+      url: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS%20mai%202026_assembl%c3%a9_V2.pdf
+      date: "2026-05"
+      extrait: "Activité 11 760 12 030 11 710"
+  derivation: >
+    Valeur de point 2025 de la CSG sur les revenus d'activité (taux facial 9,2 %) : 12 030 M€. 2026 (p) : 11 710 M€
+    après la réforme de l'assiette des indépendants. Sert aussi à chiffrer une bascule cotisations salariales → CSG.
+    Projection 2032 : 12,03 × 1,2106 ≈ 14,6 Md€.
+  limites: Voir csg_point (déductibilité partielle de l'IR, pas d'effet de comportement).
+
+# ====================================================================================================
+# Travail et prestations sociales
+# ====================================================================================================
+
+- id: allegements_generaux_cout
+  libelle: Coût des allègements généraux de cotisations patronales (réduction générale + bandeaux maladie et famille)
+  valeur: 72.3
+  bas: 70.7
+  haut: 75.4
+  unite: Md€/an
+  annee: "2026 (prévision CCSS octobre 2025, avant mesures du PLFSS 2026) ; 75,4 Md€ exécutés en 2024"
+  sources:
+    - titre: Rapport du Groupe d'experts sur le Smic, 25 novembre 2025 (chapitre sur les allègements)
+      url: https://www.tresor.economie.gouv.fr/Articles/284b121f-b187-4280-b327-05f18064c3fa/files/1d1d1848-48bb-40a9-a14f-585b8072e716
+      date: "2025-11-25"
+      extrait: "le coût total des dispositifs d'allègements à vocation générale à destination des salariés s'élève à 75,4 milliards d'euros en 2024"
+    - titre: Même rapport, prévision 2025-2026
+      url: https://www.tresor.economie.gouv.fr/Articles/284b121f-b187-4280-b327-05f18064c3fa/files/1d1d1848-48bb-40a9-a14f-585b8072e716
+      date: "2025-11-25"
+      extrait: "En 2026, leur coût se stabiliserait à 72,3 milliards d'euros (−0,2 %)"
+    - titre: PLFSS 2026, annexe 4 (mesures de réduction et d'exonération de cotisations)
+      url: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2026/PLFSS2026-Annexe4-20251014-183718-59-11_avec%20couverture.pdf
+      date: "2025-10-14"
+      extrait: "qui dépasse 75 Md€ en 2024 (39,4 Md€ pour la réduction générale et 36 Md€ pour les réductions proportionnelles, en incluant les régimes spéciaux)"
+  derivation: >
+    Valeur centrale = prévision 2026 citée par le Groupe d'experts Smic d'après la CCSS d'octobre 2025
+    (72,3 Md€, tous régimes y compris retraite complémentaire et assurance chômage). Haut = exécution 2024
+    (75,4 Md€ = 39,4 réduction générale + 26,4 bandeau maladie + 9,6 bandeau famille). Bas = 72,3 − 1,6 Md€
+    (« coup de rabot de 1,6 Md€ en 2026 » lié au décret RGDU pris en application de la LFSS 2025, cité par la
+    contribution du MEDEF annexée au même rapport ; source partie prenante, d'où son usage en borne). Depuis
+    le 1er janvier 2026 les trois dispositifs sont fusionnés en une réduction générale dégressive unique
+    (RGDU). Pour 2032 : indexer sur la masse salariale privée (à défaut, facteur PIB nominal 2025→2032 = 1,2106,
+    plan/hypotheses.yaml).
+  limites: >
+    Le périmètre varie selon les sources : l'annexe 4 donne 64,9 Md€ (2024) sur le seul champ des régimes
+    obligatoires de base (ROBSS), hors Agirc-Arrco et Unédic. Supprimer les allègements ne rapporte pas le
+    coût brut : le Groupe d'experts chiffre l'économie nette entre 33 et 47 Md€ après effets sur l'emploi,
+    l'assurance chômage et les recettes (effet non compté selon chiffrage/README, à signaler en effets_retour).
+
+- id: allegements_sensibilite_smic_1pct
+  libelle: Effet net d'une hausse de 1 % du Smic sur les cotisations patronales nettes des allègements
+  valeur: 0.52
+  bas: 0.40
+  haut: 0.65
+  unite: Md€/an de moindre solde (coût) par point de % de hausse du Smic
+  annee: "2025 (montant 2017 de la DG Trésor porté en euros 2025)"
+  sources:
+    - titre: Rapport du Groupe d'experts sur le Smic, 1er décembre 2017 (tableau n° 9, chiffrage DG Trésor, Saphir)
+      url: https://www.tresor.economie.gouv.fr/Articles/284b121f-b187-4280-b327-05f18064c3fa/files/2463e652-7de5-4cd4-b7da-6756e7c1374b
+      date: "2017-12-01"
+      extrait: "L'augmentation du coût des dispositifs d'allègements l'emporte sur l'augmentation des cotisations sociales à la charge des employeurs 79, de telle sorte que l'effet net est négatif pour les finances publiques (-400 M€)."
+  derivation: >
+    −400 M€ (2017, DG Trésor) × PIB nominal 2025 / PIB nominal 2017 (2 991,06 / 2 291,68 = 1,305,
+    finances.pib_nominal@1.0.0) = 0,52 Md€. Bas = montant 2017 non actualisé (0,40) ; haut = 0,65 pour tenir
+    compte de la concentration accrue des salaires près du Smic et de l'indexation de la RGDU sur le Smic
+    depuis 2026. L'effet brut sur le seul coût des allègements n'est pas publié séparément.
+  indicateur: finances.pib_nominal@1.0.0
+  limites: >
+    Chiffrage ancien (barème 2017, CICE et Pacte encore en vigueur) ; aucune actualisation publique récente
+    trouvée. Hypothèse de diffusion de la hausse jusqu'à 1,7 Smic. Hors effets emploi.
+
+- id: salaries_au_smic
+  libelle: Salariés directement concernés par la revalorisation du Smic
+  valeur: 2.2
+  bas: 2.0
+  haut: 3.1
+  unite: millions de salariés (secteur privé hors agriculture)
+  annee: "1er novembre 2024 (revalorisation anticipée de janvier 2025)"
+  sources:
+    - titre: Rapport du Groupe d'experts sur le Smic, 25 novembre 2025 (d'après Dares, enquêtes Acemo)
+      url: https://www.tresor.economie.gouv.fr/Articles/284b121f-b187-4280-b327-05f18064c3fa/files/1d1d1848-48bb-40a9-a14f-585b8072e716
+      date: "2025-11-25"
+      extrait: "Au 1 er novembre 2024, 2,2 millions de salariés des entreprises du secteur privé hors agriculture ont été directement concernés par la revalorisation du Smic horaire"
+  derivation: >
+    2,2 millions = 12,4 % des salariés du champ Acemo. Haut = pic de janvier 2023 (17,3 % du même champ,
+    soit environ 3,1 millions en appliquant 17,3 % à l'effectif implicite 2,2 / 0,124 = 17,7 millions).
+    Bas = 2,0 millions, borne arrondie tenant compte du reflux observé.
+  limites: >
+    Hors fonction publique, agriculture, particuliers employeurs, apprentis et intérimaires. Ce n'est pas le
+    nombre de salariés payés exactement au Smic : la part dépend du dynamisme passé du Smic. Les salariés
+    touchés par la diffusion jusqu'à 1,2-1,5 Smic sont bien plus nombreux.
+
+- id: smic_1pct_cout_apu
+  libelle: Coût pour les administrations publiques d'une hausse de 1 % du Smic (effet total)
+  valeur: 0.31
+  bas: 0.24
+  haut: 1.1
+  unite: Md€/an de moindre solde par point de % de hausse du Smic
+  annee: "2025 (montant 2017 porté en euros 2025)"
+  sources:
+    - titre: Rapport du Groupe d'experts sur le Smic, 1er décembre 2017 (tableau n° 9, DG Trésor)
+      url: https://www.tresor.economie.gouv.fr/Articles/284b121f-b187-4280-b327-05f18064c3fa/files/2463e652-7de5-4cd4-b7da-6756e7c1374b
+      date: "2017-12-01"
+      extrait: "Une augmentation de 1 % du SMIC dégraderait le solde public de 240  M€ (ici encore sans prise en compte des autres effets sur l'économie, notamment sur l'emploi"
+    - titre: Fondation IFRAP, « Smic, non à la politique du coup de pouce » (cite un rapport IGF de 2010)
+      url: https://www.ifrap.org/budget-et-fiscalite/smic-non-la-politique-du-coup-de-pouce
+      extrait: "une hausse du Smic comprenant un coup de pouce de 1% coûterait 800 millions, ou 1,4 milliard d'euros pour un coup de pouce de 1,5%. Quant à la hausse de la masse salariale publique, elle coûterait 300 millions pour un coup de pouce de 1%"
+  derivation: >
+    Décomposition DG Trésor 2017 (M€) : cotisations employeurs nettes des allègements −400 ; cotisations
+    salariales +240 ; masse salariale publique −260 ; prestations (prime d'activité, aides au logement) +110 ;
+    impôt sur le revenu +70 ; total −240. Central = 240 × 1,305 (PIB 2025 / PIB 2017) = 0,31 Md€. Bas (coût
+    le plus faible) = montant 2017 nominal ; haut = chiffrage IGF 2010 rapporté par l'IFRAP
+    (0,8 + 0,3 = 1,1 Md€), qui ne déduit pas les recettes induites.
+  indicateur: finances.pib_nominal@1.0.0
+  limites: >
+    Pas d'actualisation publique récente ; hors effets emploi (qui dégraderaient le solde). La RGDU de 2026
+    rend le coût des allègements plus sensible au Smic. Pour une hausse de x %, multiplier linéairement
+    seulement pour de petites hausses (au-delà de ~5 %, la diffusion et les effets de seuil changent).
+
+- id: smic_1pct_masse_salariale_publique
+  libelle: Surcoût de masse salariale publique d'une hausse de 1 % du Smic
+  valeur: 0.34
+  bas: 0.26
+  haut: 0.40
+  unite: Md€/an par point de % de hausse du Smic
+  annee: "2025 (montant 2017 porté en euros 2025)"
+  sources:
+    - titre: Rapport du Groupe d'experts sur le Smic, 1er décembre 2017 (DG Trésor)
+      url: https://www.tresor.economie.gouv.fr/Articles/284b121f-b187-4280-b327-05f18064c3fa/files/2463e652-7de5-4cd4-b7da-6756e7c1374b
+      date: "2017-12-01"
+      extrait: "La hausse du SMIC relève les rémunérations dans la fonction publique de 260 M€ (cette évaluation fait l'hypothèse d'une diffusion identique du SMIC dans la fonction publique et dans le secteur privé)."
+  derivation: >
+    260 M€ (2017) × 1,305 (PIB nominal 2025 / 2017) = 0,34 Md€. Déjà inclus dans smic_1pct_cout_apu ;
+    à utiliser seul pour isoler l'effet sur l'emploi public. Haut arrondi à 0,40 (grilles de catégorie C
+    tassées près du Smic depuis 2022-2024).
+  indicateur: finances.pib_nominal@1.0.0
+  limites: Hypothèse de diffusion identique au privé ; dans la fonction publique le minimum de traitement est relevé par décret et la diffusion dépend des grilles.
+
+- id: assurance_chomage_depenses
+  libelle: Dépenses totales de l'assurance chômage (Unédic)
+  valeur: 46.6
+  bas: 45.3
+  haut: 47.5
+  unite: Md€/an
+  annee: "2026 (prévision Unédic juin 2026) ; 45,3 Md€ en 2025 ; 47,5 Md€ en 2027"
+  sources:
+    - titre: Unédic, Situation financière de l'Assurance chômage à horizon 2028, prévisions de juin 2026
+      url: https://s3.eusc-de-east-1.amazonaws.eu/unedic-eks-prod-cms/2026/06/17/situation-financiere-assurance-chomage-a-horizon-2028-juin-2026_uid_6a32884bd3186.pdf
+      date: "2026-06-17"
+      extrait: "les dépenses d'assurance chômage augmenteraient en 2026 (46,6 Md€, contre 45,3 Md€ en 2025), puis en 2027 (47,5 Md€)."
+    - titre: Unédic, page de présentation des prévisions de juin 2026
+      url: https://www.unedic.org/publications/previsions-financieres-de-lunedic-juin-2026
+      date: "2026-06-17"
+  derivation: >
+    Lecture directe. Les allocations et aides seules s'élèvent à 37,2 Md€ en 2025 (« Après avoir stagné à
+    37,2 Md€ en 2025, les dépenses d'allocations et d'aides augmenteraient d'environ 1 Md€ ») et près de
+    38,7 Md€ en 2027 ; le reste (8 Md€ en 2025) finance notamment France Travail et les cotisations retraite
+    complémentaire des chômeurs. Une baisse de 1 % des allocations vaut donc environ 0,38 Md€/an.
+  limites: Prévision sous hypothèse d'absence de prélèvements de l'État en 2027-2028 ; sensible à la conjoncture (chômage) et aux règles d'indemnisation fixées par convention.
+
+- id: rsa_depense
+  libelle: Dépense de revenu de solidarité active (allocation)
+  valeur: 11.7
+  bas: 11.7
+  haut: 15.0
+  unite: Md€/an
+  annee: "2023 (allocations versées par les CAF)"
+  sources:
+    - titre: CNAF, « En 2023, les dépenses de RSA augmentent de 1,9 % » (L'e-ssentiel / analyses statistiques)
+      url: https://www.caf.fr/professionnels/etudes-et-international/3-en-2023-les-depenses-de-rsa-augmentent-de-19
+      date: "2024-11-19"
+      extrait: "En 2023, 11,7 milliards d'euros de RSA ont été versés par les caisses d'Allocations familiales (Caf)."
+    - titre: Cour des comptes, Le revenu de solidarité active (RSA), janvier 2022
+      url: https://www.ccomptes.fr/fr/publications/le-revenu-de-solidarite-active-rsa
+      date: "2022-01-13"
+      extrait: "cette hausse explique que la dépense publique annuelle totale ait atteint 15 milliards d'euros en 2019"
+  derivation: >
+    Central = allocations versées par les CAF en 2023 (hors MSA, hors accompagnement). Haut = dépense publique
+    totale selon la Cour des comptes (2019, y compris accompagnement et frais de gestion). Dépense
+    principalement à la charge des départements (droit à compensation pérenne de 5,08 Md€ en 2026 selon le
+    Sénat, le reste étant non compensé).
+  limites: Millésime 2023 ; revalorisé chaque 1er avril ; le nombre de foyers (1,81 million en 2024) dépend de la conjoncture et de la réforme France Travail (conditionnalité).
+
+- id: prime_activite_depense
+  libelle: Dépense de prime d'activité
+  valeur: 10.6
+  bas: 9.3
+  haut: 10.6
+  unite: Md€/an
+  annee: "2024 (exécution) ; 9,3 Md€ inscrits au PLF 2026"
+  sources:
+    - titre: PLFSS 2026, annexe 9, fiche de l'article 44 (stabiliser le montant des prestations sociales)
+      url: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2026/PLFSS2026-Annexe09-GenerationXBOOK_avec%20couverture.pdf
+      date: "2025-10-14"
+      extrait: "les dépenses de prime d'activité ont atteint 10,6 Md€ en 2024, soit de l'ordre d'un doublement depuis la création de cette prestation en 2016"
+    - titre: Sénat, rapport général PLF 2026, mission Solidarité, insertion et égalité des chances
+      url: https://www.senat.fr/rap/l25-139-329/l25-139-329.html
+      date: "2025-11"
+      extrait: "9,3 milliards d'euros en AE et CP sont prévus au titre de ce dispositif , soit une baisse de seulement 8,8 % par rapport à la LFI pour 2025."
+  derivation: Central = exécution 2024 ; bas = crédits PLF 2026 (après mesure réglementaire de 2025 sur la prise en compte des revenus professionnels). Financée par l'État (programme 304).
+  limites: Les crédits votés sont souvent inférieurs à l'exécution ; dépend du taux de recours (environ deux tiers) et du Smic.
+
+- id: aah_depense
+  libelle: Dépense d'allocation aux adultes handicapés (AAH)
+  valeur: 14.6
+  unite: Md€/an
+  annee: "2026 (PLF)"
+  sources:
+    - titre: Sénat, rapport général PLF 2026, mission Solidarité, insertion et égalité des chances
+      url: https://www.senat.fr/rap/l25-139-329/l25-139-329.html
+      date: "2025-11"
+      extrait: "Plus des trois quarts de ce total est consacré respectivement au financement de la prime d'activité (9,3 milliards d'euros) et de l'AAH (14,6 milliards d'euros)"
+  derivation: Lecture directe des crédits PLF 2026 (programme 157). Le PLFSS 2026 (annexe 9, art. 44) chiffre à 150 M€ le gain d'un gel de la revalorisation d'avril 2026 (environ 0,9 %) pour l'État au titre de l'AAH, cohérent avec cette masse.
+  limites: Dépense dynamique (+32 % depuis 2019 selon l'annexe 9, déconjugalisation depuis octobre 2023).
+
+- id: aides_logement_depense
+  libelle: Dépense d'aides personnelles au logement (APL, ALF, ALS) à la charge de l'État
+  valeur: 16.1
+  unite: Md€/an
+  annee: "2026 (PLF, programme 109)"
+  sources:
+    - titre: Sénat, rapport général PLF 2026, mission Cohésion des territoires - Logement et ville
+      url: https://www.senat.fr/rap/l25-139-35-1/l25-139-35-1.html
+      date: "2025-11"
+      extrait: "Le programme 109 porte principalement les aides personnelles au logement (APL) et est doté de 16,1 milliards d'euros sur le budget de l'État, en évolution de - 3,5 % euros courants."
+  derivation: >
+    Lecture directe. La baisse de 587 M€ en 2026 tient à la non-revalorisation du barème (indexé sur l'IRL) et
+    au recentrage pour les étudiants étrangers. Une revalorisation de 1 % du barème coûte de l'ordre de
+    0,15 Md€/an (1 % de la masse, ordre de grandeur, les paramètres indexés n'étant qu'une partie du barème).
+  limites: Crédits budgétaires, pas exécution ; la dépense dépend des loyers, des revenus (contemporanéisation) et du parc social.
+
+- id: prestations_familiales_depense
+  libelle: Prestations familiales légales (entretien + Paje), dont allocations familiales
+  valeur: 33.3
+  unite: Md€/an
+  annee: "2024"
+  sources:
+    - titre: PLFSS 2026, annexe 1 (présentation des régimes obligatoires de base), branche famille
+      url: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2026/PLFSS2026-Annexe1-20251010-160114-23-5_avec%20couverture.pdf
+      date: "2025-10-10"
+      extrait: "Les prestations dites d'entretien (21,8 Md€ en 202 4) visent à couvrir une partie des dépenses quotidiennement engagées pour entretenir une famille (13,5 millions de foyers sont allocataires en 2024 ; ces dépenses comprennent notamment les allocations familiales pour 13,8 Md€)"
+  derivation: >
+    21,8 Md€ (prestations d'entretien : allocations familiales, complément familial, ARS, ASF, AEEH…) +
+    11,5 Md€ (Paje, dont 7,6 Md€ de complément de libre choix du mode de garde) = 33,3 Md€. Hors prestations
+    extralégales et action sociale (7,1 Md€) et hors transferts vers la branche vieillesse.
+  limites: L'annexe cite 2024 ; revalorisées au 1er avril sur l'inflation (base mensuelle de calcul des allocations familiales, BMAF).
+
+- id: allocations_familiales_depense
+  libelle: Dépense d'allocations familiales (au sens strict)
+  valeur: 13.8
+  unite: Md€/an
+  annee: "2024"
+  sources:
+    - titre: PLFSS 2026, annexe 1, branche famille
+      url: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2026/PLFSS2026-Annexe1-20251010-160114-23-5_avec%20couverture.pdf
+      date: "2025-10-10"
+      extrait: "ces dépenses comprennent notamment les allocations familiales pour 13,8 Md€"
+  derivation: Lecture directe. Utile pour chiffrer une allocation dès le premier enfant, la fin de la modulation selon les revenus (2015) ou une allocation réservée à certains foyers.
+  limites: Montant 2024 ; attention, l'annexe 9 du PLFSS 2026 chiffre à environ 0,1 Md€ le gel d'une revalorisation de 0,8 % des allocations familiales, soit une masse revalorisée plus faible (les montants versés dépendent aussi des majorations et du forfait).
+
+- id: ame_depense
+  libelle: Dépense d'aide médicale de l'État (AME de droit commun + soins urgents)
+  valeur: 1.39
+  bas: 1.14
+  haut: 1.51
+  unite: Md€/an
+  annee: "2024 (exécution) ; 2026 en prévision"
+  sources:
+    - titre: Sénat, rapport général PLF 2026, mission Santé
+      url: https://www.senat.fr/rap/l25-139-327/l25-139-327.html
+      date: "2025-11"
+      extrait: "Les dépenses réelles d'aide médicale d'État s'élèvent en 2024 à 1 387 millions d'euros , dont 1 256 millions d'euros pour l'AME de droit commun et 132 millions d'euros pour les « soins urgents »."
+    - titre: Même rapport, prévision 2026
+      url: https://www.senat.fr/rap/l25-139-327/l25-139-327.html
+      date: "2025-11"
+      extrait: "les dépenses réelles d'AME de droit commun pourraient s'élever en 2026 à 1 375,6 millions d'euros , alors que seuls 1 137 millions d'euros ont fait l'objet d'une budgétisation par l'État"
+  derivation: >
+    Central = dépense réelle 2024 (1 387 M€). Bas = crédits budgétés en 2026 pour l'AME de droit commun
+    (1 137 M€, sous-budgétisation reconnue : dette de 600 M€ envers la CNAM). Haut = prévision 2026 de droit
+    commun (1 375,6 M€) + soins urgents au niveau 2024 (132 M€) = 1,51 Md€.
+  limites: >
+    Supprimer l'AME n'économise pas son coût brut : une partie des soins bascule vers les soins urgents,
+    l'hôpital (créances irrécouvrables) ou une aide médicale d'urgence de remplacement ; aucune estimation
+    publique consensuelle du report.
+
+- id: prestations_hors_retraites_revalo_1pct
+  libelle: Coût d'une revalorisation de 1 % des prestations sociales indexées hors retraites
+  valeur: 1.0
+  bas: 0.85
+  haut: 1.15
+  unite: Md€/an par point de revalorisation (régime de croisière)
+  annee: "2026"
+  sources:
+    - titre: PLFSS 2026, annexe 9, fiche de l'article 44 (stabiliser le montant des prestations sociales)
+      url: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2026/PLFSS2026-Annexe09-GenerationXBOOK_avec%20couverture.pdf
+      date: "2025-10-14"
+      extrait: "La stabilisation des prestations de solidarité financées par l'Etat ou les départements, telles que le RSA et la PA, permettrait une économie de l'ordre de 0,2 Md€ en 2026, et de 0,5 Md€ à partir de 2027"
+    - titre: Même fiche, prestations familiales et autonomie
+      url: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2026/PLFSS2026-Annexe09-GenerationXBOOK_avec%20couverture.pdf
+      date: "2025-10-14"
+      extrait: "une stabilisation du montant des prestations familiales (0,8%) et des plafonds de ressources conditionnant l'ouverture du droit à certaines de ces prestations (1,8%) permettrait une économie de l'ordre de 0,3  Md€."
+  derivation: >
+    Deux approches. (1) Par les masses (1 % de chacune) : RSA 11,7 + prime d'activité 9,3 + AAH 14,6 +
+    prestations familiales légales 33,3 + aides au logement 16,1 = 85 Md€, soit 0,85 Md€ par point (bas).
+    (2) Par l'annexe 9 du PLFSS 2026 (gel d'une revalorisation d'environ 0,8-0,9 %) : famille 0,3 + AAH 0,15
+    + AEEH 0,01 + RSA et prime d'activité 0,5 (régime de croisière) ≈ 0,96 Md€ pour ~0,9 point, soit
+    ≈ 1,07 Md€ par point hors APL, 1,15 avec les APL (haut). Central retenu : 1,0 Md€ par point. Pour 2032,
+    multiplier par le facteur PIB nominal 2025→2032 (1,2106, plan/hypotheses.yaml) : ≈ 1,2 Md€.
+  limites: >
+    Les chiffres de l'annexe 9 incluent le gel des plafonds de ressources (effet sur le nombre de
+    bénéficiaires) et sont présentés comme des ordres de grandeur illustratifs. Hors pensions d'invalidité,
+    rentes AT-MP, ASPA et ASS, qui ajoutent quelques centaines de M€. La prime d'activité et le RSA
+    réagissent avec retard (trimestrialisation des ressources).
+
+# ====================================================================================================
+# Retraites
+# ====================================================================================================
+
+- id: retraites_depenses_totales
+  libelle: Dépenses de retraite, ensemble des régimes obligatoires (base et complémentaires, y compris FSV)
+  valeur: 422
+  unite: Md€ courants par an
+  annee: "2025"
+  sources:
+    - titre: COR, Rapport annuel juin 2026, Synthèse
+      url: https://www.cor-retraites.fr/sites/default/files/2026-06/Synth%C3%A8se_RA_2026_0.pdf
+      date: "2026-06"
+      extrait: "En 2025, les dépenses de retraite représentent 422 milliards d’euros, soit 14,1 % du PIB et 24,3 % de l’ensemble des dépenses publiques."
+    - titre: COR, Rapport annuel juin 2026, Synthèse (projection)
+      url: https://www.cor-retraites.fr/sites/default/files/2026-06/Synth%C3%A8se_RA_2026_0.pdf
+      date: "2026-06"
+      extrait: "de 14,1 % en 2025, elle resterait à 14,1 % en 2030 pour atteindre 14,2 % en 2045."
+  derivation: >
+    Lu directement dans la synthèse du COR (422 Md€, 14,1 % du PIB en 2025). Projection 2032 : le COR donne une part
+    stable de 14,1 % du PIB jusqu'en 2030 ; 14,1 % × 3 621 Md€ (PIB 2032, plan/hypotheses.yaml) ≈ 511 Md€ courants
+    en 2032, à législation de juin 2026 (suspension de la réforme 2023 incluse).
+  indicateur: retraites.depense_vieillesse_survie@1.0.0
+  limites: >
+    Périmètre COR : régimes légalement obligatoires, y compris FSV, hors RAFP, prestations et charges de gestion.
+    L'indicateur du dépôt retraites.depense_vieillesse_survie (Eurostat SESPROS, 14,61 % du PIB en 2024) a un
+    périmètre plus large (fonctions vieillesse et survie, dont prestations liées à l'autonomie des personnes âgées)
+    et n'est pas directement comparable. La part de 14,1 % en 2032 est une extrapolation du point 2030 du COR.
+
+- id: retraites_revalo_1pct
+  libelle: Coût annuel d'une revalorisation supplémentaire de 1 % de toutes les pensions (base et complémentaires)
+  valeur: 5.0
+  bas: 3.5
+  haut: 5.0
+  unite: Md€ courants par an, en 2032, par point de revalorisation
+  annee: "2032 (projeté depuis 2023-2025)"
+  sources:
+    - titre: Cour des comptes, Situation financière et perspectives du système de retraites, février 2025
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "Sur la base des dépenses prévisionnelles des régimes de retraite de base en 2025, qui s’élèvent à 288 Md€, une sous-indexation d’un point des pensions par rapport à l’inflation permettrait une économie de 2,9 Md€ pour cette même année"
+    - titre: Cour des comptes, Situation financière et perspectives du système de retraites, février 2025 (structure des dépenses 2023)
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "En 2023, les dépenses du système de retraites se sont établies à 388,4 Md€, soit 13,8 % du PIB, dont 376,8 Md€ de prestations de retraite"
+    - titre: COR, Rapport annuel juin 2026, Synthèse
+      url: https://www.cor-retraites.fr/sites/default/files/2026-06/Synth%C3%A8se_RA_2026_0.pdf
+      date: "2026-06"
+      extrait: "de 14,1 % en 2025, elle resterait à 14,1 % en 2030 pour atteindre 14,2 % en 2045."
+  derivation: >
+    Central (tous régimes) : dépenses de retraite 2032 = 14,1 % × 3 621 Md€ ≈ 511 Md€ ; part des prestations dans
+    les dépenses = 376,8 / 388,4 = 0,97 (Cour, 2023) ; 1 % × 0,97 × 511 ≈ 4,95, arrondi à 5,0 Md€.
+    Bas (régimes de base seuls, seul levier direct de la loi) : 2,9 Md€ en 2025 (Cour) × 1,2106 (croissance du PIB
+    nominal 2025-2032) ≈ 3,5 Md€. L'effet est permanent : une revalorisation de 1 % une année relève le niveau de
+    toutes les pensions des années suivantes.
+  limites: >
+    Montant brut : ne déduit pas la CSG, la CRDS, la CASA et l'impôt sur le revenu prélevés sur la hausse de pension
+    (retour certain pour les APU, non chiffré par les sources citées). Les pensions complémentaires (Agirc-Arrco,
+    Ircantec…) sont revalorisées par les partenaires sociaux : une promesse portant sur « les pensions » sans précision
+    se lit sur le périmètre tous régimes, une promesse sur « la revalorisation légale » sur les seuls régimes de base.
+
+- id: retraites_retour_62_ans_2032
+  libelle: Coût en 2032 de l'annulation des mesures d'âge de la réforme 2023 (retour à 62 ans et au calendrier Touraine de durée), par rapport au droit au 1er janvier 2027 (réforme suspendue)
+  valeur: 13.9
+  bas: 8.9
+  haut: 20
+  unite: Md€ courants par an (solde du système de retraite), en 2032
+  annee: "2032"
+  sources:
+    - titre: Assemblée nationale, rapport n° 613 (Ugo Bernalicis) sur la proposition de loi d'abrogation de la retraite à 64 ans, commission des affaires sociales, novembre 2024 (tableau de la Cnav)
+      url: https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B0613.raw
+      date: "2024-11"
+      extrait: "Effet de relèvement des mesures d’âge sur les masses de prestations de droit direct (hors aspa), de cotisations sociales (hors cotisation équilibre employeur) et sur le solde financier en milliards d’euros courants [...] Solde 3,4 6,6 8,6 10,4 11,7 12,6 14,2 15,7 14,8 11,1"
+    - titre: COR, Rapport annuel juin 2026, Synthèse (coût de la suspension)
+      url: https://www.cor-retraites.fr/sites/default/files/2026-06/Synth%C3%A8se_RA_2026_0.pdf
+      date: "2026-06"
+      extrait: "ainsi que la suspension de la réforme des retraites de 2023 (coût de 1,8 milliard d’euros en moyenne en année pleine jusqu’en 2032)"
+    - titre: COR, Rapport annuel juin 2026 (état du droit après la LFSS 2026)
+      url: https://www.cor-retraites.fr/sites/default/files/2026-07/RA_2026_def_1.pdf
+      date: "2026-06"
+      extrait: "La loi n° 2025-1403 de financement de la sécurité sociale du 30 décembre 2025 prévoit une suspension de la réforme des retraites : la montée en charge de la réforme est suspendue pour la génération 1964 et les assurés nés entre le 1er janvier et le 31 mars 1965 ; elle reprend ensuite pour les générations suivantes."
+    - titre: Cour des comptes, Situation financière et perspectives du système de retraites, février 2025
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "La direction générale du Trésor et Rexecode convergent sur les effets nets sur le solde, qu’ils considèrent respectivement amélioré de 9,7 Md€ et de 11,8 Md€ en 2030."
+  derivation: >
+    Central : effet des mesures d'âge (âge d'ouverture des droits et accélération de la durée) sur le solde, estimé par
+    la Cnav à 15,7 Md€ courants en 2032 (colonne 2032 du tableau : prestations −11,2, cotisations +4,5), moins le
+    coût de la suspension déjà inscrite dans le droit au 1er janvier 2027 (1,8 Md€ par an en moyenne jusqu'en 2032,
+    COR 2026) : 15,7 − 1,8 = 13,9 Md€. Bas : effet net de la réforme sur le solde du système selon la DG Trésor,
+    9,7 Md€ constants 2024 en 2030, × 1,0997 (déflateur 2030/2024) − 1,8 ≈ 8,9 Md€. Haut : estimation de
+    M. Zemmour, 20 à 22 Md€ en 2030 pour l'abrogation, moins la suspension, arrondi à 20 Md€. D'après le COR, l'effet
+    de la réforme sur le nombre de retraités est maximal vers 2032 ; il décroît ensuite (Cnav : 14,8 en 2035, 11,1 en 2040).
+  limites: >
+    Le tableau Cnav date de 2024 (hypothèses COR 2024) ; son périmètre exact (régime général ou tous régimes) n'est pas
+    précisé dans le rapport. Les mesures d'accompagnement (revalorisation du minimum contributif) sont maintenues.
+    Aucune source publique ne sépare l'effet de l'âge seul de celui de la durée en 2032 ; en 2032 l'écart de durée
+    entre la réforme et le calendrier Touraine est de 1 à 3 trimestres selon la génération, l'essentiel du coût vient
+    donc de l'âge. Effets sur les autres recettes publiques non comptés (règle 3) : en y ajoutant les prélèvements
+    induits par l'emploi des seniors, la DG Trésor chiffre le gain total de la réforme à 24,2 Md€ constants 2024 en
+    2030 (Cour des comptes, tableau n° 5), ce qu'il faut décrire dans effets_retour. L'estimation Zemmour (presse,
+    citée par le rapport) ne détaille pas son périmètre.
+
+- id: retraites_suspension_reforme_2023
+  libelle: Coût de la suspension de la réforme 2023 par la LFSS 2026 (déjà dans le droit au 1er janvier 2027)
+  valeur: 1.8
+  unite: Md€ par an (moyenne en année pleine jusqu'en 2032)
+  annee: "2026-2032"
+  sources:
+    - titre: COR, Rapport annuel juin 2026, Synthèse
+      url: https://www.cor-retraites.fr/sites/default/files/2026-06/Synth%C3%A8se_RA_2026_0.pdf
+      date: "2026-06"
+      extrait: "ainsi que la suspension de la réforme des retraites de 2023 (coût de 1,8 milliard d’euros en moyenne en année pleine jusqu’en 2032)"
+    - titre: COR, Rapport annuel juin 2026 (calendrier après suspension)
+      url: https://www.cor-retraites.fr/sites/default/files/2026-07/RA_2026_def_1.pdf
+      date: "2026-06"
+      extrait: "Ainsi, l’âge d’ouverture des droits atteindra 64 ans pour les assurés de la génération 1969 et non plus la génération 1968."
+  derivation: >
+    Lu dans la synthèse du COR (chiffrage DREES, modèle Trajectoire). Sert à deux usages : (1) déduire la suspension
+    quand une source chiffre l'abrogation par rapport à la réforme complète (voir retraites_retour_62_ans_2032) ;
+    (2) chiffrer une promesse de prolonger ou de pérenniser la suspension (ordre de grandeur d'un trimestre d'âge
+    gelé pour une génération et demie). Âge légal après suspension : 62 ans 9 mois (1964), 63 ans (fin 1965),
+    63 ans 3 mois (1966), 63 ans 6 mois (1967), 63 ans 9 mois (1968), 64 ans (1969).
+  limites: >
+    Moyenne sur la période, pas un profil annuel ; l'effet s'éteint après 2033 (génération 1969 à 64 ans). Le COR
+    ne publie pas le montant pour la seule année 2032.
+
+- id: retraites_age_legal_1_an
+  libelle: Effet sur le solde du système de retraite d'une variation d'un an de l'âge d'ouverture des droits (baisse de 64 à 63 ans)
+  valeur: 6.6
+  bas: 4.9
+  haut: 7.9
+  unite: Md€ courants 2032 par an et par année d'âge (coût d'une baisse ; ordre de grandeur du gain d'une hausse montée en charge)
+  annee: "2032 (converti depuis 2035 et 2045 en euros 2024)"
+  sources:
+    - titre: Cour des comptes, Situation financière et perspectives du système de retraites, février 2025
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "L’avancée d’un an de cet âge (63 ans au lieu de 64) représenterait une dépense supplémentaire pour le système des retraites de 5,8 Md€ en 2035."
+    - titre: Cour des comptes, idem (horizon 2045)
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "À horizon 2045, l’équilibre du système de retraites serait dégradé de 4,3 Md€ au cas où l’âge d’ouverture des droits était ramené à 63 ans"
+    - titre: Cour des comptes, idem (ensemble des finances publiques, effets d'activité compris)
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "Pour l’ensemble des finances publiques, l’avancée d’un an de l’âge d’ouverture des droits coûterait 13 Md€ en 2035, tandis qu’un recul rapporterait jusqu’à 17,7 Md€."
+  derivation: >
+    Central : 5,8 Md€ constants 2024 en 2035 (dépenses −4,2, cotisations −1,6 ; tableau n° 6 de la Cour, données
+    Cnav et DG Trésor) × 1,1386 (déflateur FMI 2032/2024) ≈ 6,6 Md€. Bas : régime de croisière 2045, 4,3 Md€ × 1,1386
+    ≈ 4,9 Md€. Haut : moitié de l'effet Cnav des deux ans de la réforme 2023 en 2032 (15,7 / 2 ≈ 7,9 Md€, voir
+    retraites_retour_62_ans_2032). Pour une hausse d'un an (65 ans), la Cour donne +4,7 à +8,4 Md€ en 2035 sur le
+    système selon le calendrier.
+  limites: >
+    Asymétrie : un recul rapporte plus qu'une avancée ne coûte (hypothèse Cour sur les bornes des carrières longues).
+    Effet sur le seul système de retraite ; l'effet sur les autres recettes publiques (7,2 Md€ en 2035 selon la DG
+    Trésor, dû à l'emploi) relève des effets non comptés (règle 3). Monte vite en charge (génération par génération),
+    puis décroît légèrement.
+
+- id: retraites_duree_assurance_1_an
+  libelle: Effet sur le solde du système de retraite d'une variation d'un an (4 trimestres) de la durée d'assurance requise (43 à 42 ans)
+  valeur: 4.4
+  haut: 8.8
+  unite: Md€ courants 2032 par an et par année de durée
+  annee: "2032 (converti depuis 2035 et 2045 en euros 2024)"
+  sources:
+    - titre: Cour des comptes, Situation financière et perspectives du système de retraites, février 2025
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "Sa diminution d’un an (42 ans au lieu de 43) coûterait 3,9 Md€ au système de retraite en 2035, alors que son allongement (44 ans au lieu de 43) rapporterait 5,2 Md€ en 2035."
+  derivation: >
+    Valeur : 3,9 Md€ constants 2024 en 2035 × 1,1386 (déflateur 2032/2024) ≈ 4,4 Md€. Haut : effet à l'horizon 2045
+    (7,7 Md€ × 1,1386 ≈ 8,8 Md€), l'effet d'une variation de durée croissant avec le temps (cumul des générations).
+  limites: >
+    En 2032, l'effet d'une mesure appliquée à partir de 2027-2028 est inférieur au point 2035 ; retenir 4,4 comme
+    majorant pour 2032. Effet sur le seul système de retraite (7,1 Md€ en 2035 pour l'ensemble des APU selon la DG
+    Trésor, effets d'activité compris, non comptés).
+
+- id: retraites_age_60_depuis_62
+  libelle: Coût supplémentaire d'un âge légal à 60 ans par rapport à 62 ans (à ajouter à retraites_retour_62_ans_2032)
+  valeur: 18
+  bas: 13
+  haut: 33
+  unite: Md€ courants 2032 par an, en régime de croisière
+  annee: "2032 (converti depuis des parts de PIB)"
+  sources:
+    - titre: FIPECO (F. Ecalle), Avancer ou reculer l'âge de départ en retraite, 25 juin 2024
+      url: https://www.fipeco.fr/commentaire/Avancer%20ou%20reculer%20l'%C3%A2ge%20de%20d%C3%A9part%20en%20retraite
+      date: "2024-06-25"
+      extrait: "ramener l’âge minimal de départ à 60 ans ajouterait un coût supplémentaire pouvant atteindre 0,9 point de PIB (26 Md€) à terme."
+    - titre: FIPECO, idem (effet d'un recul de deux ans sur les seuls régimes de retraite)
+      url: https://www.fipeco.fr/commentaire/Avancer%20ou%20reculer%20l'%C3%A2ge%20de%20d%C3%A9part%20en%20retraite
+      date: "2024-06-25"
+      extrait: "Le solde des régimes de retraite serait majoré de 0,5 point de PIB (soit environ 14 Md€ de 2023) du fait d’une diminution des pensions (0,4 point de PIB) et d’une hausse des cotisations (0,1 point)."
+    - titre: "Fondation IFRAP, Retraite à 60 ans : entre 20 et 40 milliards d'euros de coût, février 2017"
+      url: https://www.ifrap.org/retraite/retraite-60-ans-entre-20-et-40-milliards-deuros-de-cout
+      date: "2017-02-23"
+      extrait: "En admettant que seule la moitié des 720.000 décide de partir plus tôt c’est 13 à 14 milliards d’euros de coût supplémentaire pour le système de retraites."
+  derivation: >
+    Central : effet à long terme de deux ans d'âge sur les seuls régimes de retraite, 0,5 point de PIB (FIPECO,
+    symétrique du recul de 62 à 64 ans), × 3 621 Md€ (PIB 2032) ≈ 18 Md€. Haut : effet total sur les APU,
+    0,9 point de PIB × 3 621 ≈ 33 Md€ (FIPECO). Bas : IFRAP, moitié des assurés concernés partant plus tôt,
+    13 Md€ (euros 2017, non réévalués : minorant). Le coût d'un âge légal à 60 ans par rapport au droit au
+    1er janvier 2027 est la somme retraites_retour_62_ans_2032 + retraites_age_60_depuis_62 ≈ 32 Md€ en 2032
+    (fourchette 22 à 53).
+  limites: >
+    Le haut inclut des effets d'activité (moindres prélèvements, plus de prestations chômage et maladie) que la règle 3
+    ne compte pas ; il sert de borne. Le coût dépend fortement des modalités : un « 60 ans à taux plein avec 40 annuités
+    et suppression de la décote » coûte nettement plus (baisse de durée et suppression de décote à ajouter via
+    retraites_duree_assurance_1_an) ; un 60 ans réservé aux carrières longues coûte nettement moins. Montée en charge
+    rapide (quatre ans pour deux générations), régime de croisière atteint en 2032 si la mesure s'applique dès 2028.
+
+- id: retraites_ratio_cotisants_retraites
+  libelle: Rapport entre le nombre de cotisants et le nombre de retraités
+  valeur: 1.8
+  unite: cotisants par retraité
+  annee: "2025"
+  sources:
+    - titre: COR, Rapport annuel juin 2026
+      url: https://www.cor-retraites.fr/sites/default/files/2026-07/RA_2026_def_1.pdf
+      date: "2026-06"
+      extrait: "Le rapport démographique entre les cotisants et les retraités s’est dégradé depuis 2002, passant de 2,1 à 1,8 en 2025"
+    - titre: COR, Rapport annuel juin 2026 (effectifs)
+      url: https://www.cor-retraites.fr/sites/default/files/2026-07/RA_2026_def_1.pdf
+      date: "2026-06"
+      extrait: "Le nombre de cotisants, évalué à 30,6 millions en 2025, continuerait d’augmenter jusqu’à la fin des années 2030"
+  derivation: >
+    Lu dans le rapport du COR. Effectifs 2025 : 30,6 millions de cotisants, 17,4 millions de retraités de droit direct
+    (30,6 / 17,4 = 1,76). Projection : 1,3 cotisant par retraité en 2070 (scénario de référence).
+  limites: >
+    Chiffres 2025 estimés (modèle Ancêtre de la DREES, derniers chiffres observés 2024). Ne pas confondre avec le
+    rapport démographique 20-64 ans / 65 ans et plus (2,5 en 2025 selon le COR).
+
+- id: retraites_minimum_contributif_hausse_100e
+  libelle: Coût d'une hausse de 100 € par mois du minimum contributif (Mico) et de la pension minimale agricole, carrière complète, stock et flux
+  valeur: 1.6
+  unite: Md€ par an (régimes de base)
+  annee: "2026 (étude d'impact 2023)"
+  sources:
+    - titre: Projet de loi de financement rectificative de la sécurité sociale pour 2023, étude d'impact (article 10)
+      url: https://www.assemblee-nationale.fr/dyn/16/textes/l16b0760_etude-impact.pdf
+      date: "2023-01-23"
+      extrait: "Au total, l’impact des mesures est évalué à 440 M€ en 2023, compte tenu de leur entrée en vigueur en septembre 2023. Il s’élèverait, selon les estimations à 1,4 Md€ en 2024, 1,5 Md€ en 2025 et 1,6 Md€ en 2026"
+    - titre: Cour des comptes, Situation financière et perspectives du système de retraites, février 2025 (montant du Mico)
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "le minimum contributif est de 733,03 € par mois en 2024, proratisé en cas de carrière incomplète."
+    - titre: COR, Rapport annuel juin 2026 (objectif légal de 85 % du SMIC net)
+      url: https://www.cor-retraites.fr/sites/default/files/2026-07/RA_2026_def_1.pdf
+      date: "2026-06"
+      extrait: "un montant brut mensuel total des pensions de vieillesse de droit personnel au moins égal à 85 % du montant mensuel du salaire minimum de croissance net"
+  derivation: >
+    Lu dans l'étude d'impact de la réforme 2023 (revalorisation de 100 € du Mico et de la PMR, proratisée pour les
+    carrières incomplètes, plus AVPF et CD de RCO) : 1,6 Md€ en 2026, dont environ 1,3 Md€ pour les pensions déjà
+    liquidées. Pour une hausse de x € : 1,6 × x / 100, ordre de grandeur. Projection 2032 : croît avec le nombre de
+    bénéficiaires et l'indexation (non documenté ; garder 1,6 à 2,0 Md€ par tranche de 100 €).
+  limites: >
+    Le nombre de bénéficiaires et la dépense totale au titre du Mico n'ont pas pu être relevés dans une source ouverte
+    accessible (pages DREES refusées au téléchargement). La Cour des comptes a relevé depuis que les gains effectifs
+    pour les retraités déjà partis sont inférieurs aux 100 € annoncés. Une promesse de pension minimale à 1 200 € ou
+    au niveau du SMIC pour tous (et non pour les seules carrières complètes) n'est pas couverte par ce barème et
+    demande un chiffrage propre.
+
+- id: retraites_cotisation_vieillesse_1_point
+  libelle: Rendement d'une hausse d'un point de cotisation vieillesse de base au régime général
+  valeur: 6.2
+  bas: 4.8
+  haut: 7.6
+  unite: Md€ par an par point de cotisation
+  annee: "2025"
+  sources:
+    - titre: Cour des comptes, Situation financière et perspectives du système de retraites, février 2025 (tableau n° 8, source DSS)
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "Le montant des ressources annuelles supplémentaires pour le système de retraites issues d’une augmentation d’un point du taux de cotisations serait compris entre 4,8 Md€ et 7,6 Md€"
+  derivation: >
+    Tableau n° 8 de la Cour (DSS), rendement brut 2025 : salariale sous plafond 6,2 ; patronale sous plafond 4,8
+    (moindre à cause des allègements généraux, compensés par l'État) ; salariale déplafonnée 7,6 ; patronale
+    déplafonnée 6,2. Valeur centrale : 6,2 (salariale sous plafond ou patronale déplafonnée). Projection 2032 :
+    × 1,2106 (croissance du PIB nominal 2025-2032, masse salariale supposée suivre le PIB) ≈ 7,5 Md€ (5,8 à 9,2).
+  limites: >
+    Rendement brut, sans effet sur l'emploi ni les salaires (règle 3). La hausse de cotisation salariale réduit
+    l'assiette de l'impôt sur le revenu et de la CSG non déductible (effet non chiffré ici).
+
+# ====================================================================================================
+# Fonction publique
+# ====================================================================================================
+
+- id: fp_effectifs_total
+  libelle: Effectifs des trois versants de la fonction publique (y compris militaires)
+  valeur: 5.80
+  unite: millions d'agents (personnes physiques, au 31 décembre)
+  annee: "2023"
+  sources:
+    - titre: DGAFP, Fonction publique, chiffres clés, édition 2025
+      url: https://www.fonction-publique.gouv.fr/files/files/publications/rapport-annuel/cc-2025-web.pdf
+      date: "2025"
+      extrait: "5,80 millions d’agents publics travaillent dans les trois versants de la fonction publique au 31 décembre 2023."
+    - titre: DGAFP, Rapport annuel sur l'état de la fonction publique, édition 2025
+      url: https://www.fonction-publique.gouv.fr/files/files/publications/rapport-annuel/ra_2025.pdf
+      date: "2025"
+  derivation: >
+    Lecture directe (chiffres clés DGAFP, Siasp INSEE). Le total comprend 3 753 100 fonctionnaires, 1 358 500
+    contractuels, 313 400 militaires et 378 900 « autres catégories et statuts ». L'indicateur du dépôt
+    etat.agents_fp@1.0.0 donne 5 527 013 agents fin 2023 hors militaires (et hors Mayotte), cohérent :
+    5,80 M − 0,31 M militaires ≈ 5,49 M (écart de champ et d'arrondi < 1 %).
+  indicateur: etat.agents_fp@1.0.0
+  limites: >
+    Personnes physiques, pas équivalents temps plein. Hors Mayotte. Comprend les contrats aidés et les
+    établissements publics administratifs ; exclut les entreprises publiques et la sécurité sociale (organismes de
+    droit privé).
+
+- id: fp_effectifs_fpe
+  libelle: Effectifs de la fonction publique de l'État (ministères et EPA nationaux)
+  valeur: 2.57
+  unite: millions d'agents
+  annee: "2023"
+  sources:
+    - titre: DGAFP, Fonction publique, chiffres clés, édition 2025
+      url: https://www.fonction-publique.gouv.fr/files/files/publications/rapport-annuel/cc-2025-web.pdf
+      date: "2025"
+      extrait: "Fonction publique de l’État (FPE) : 2,57 millions d’agents (44 % de l’emploi public), 79 % dans les ministères et 21 % dans les établissements publics à caractère administratif (EPA) nationaux."
+  derivation: Lecture directe, au 31 décembre 2023, militaires compris.
+  limites: Personnes physiques ; les EPA (universités, opérateurs) sont inclus mais ne sont pas payés sur le titre 2 de l'État.
+
+- id: fp_effectifs_fpt
+  libelle: Effectifs de la fonction publique territoriale
+  valeur: 1.99
+  unite: millions d'agents
+  annee: "2023"
+  sources:
+    - titre: DGAFP, Fonction publique, chiffres clés, édition 2025
+      url: https://www.fonction-publique.gouv.fr/files/files/publications/rapport-annuel/cc-2025-web.pdf
+      date: "2025"
+      extrait: "Fonction publique territoriale (FPT) : 1,99 million d’agents (34 % de l’emploi public), 71 % dans les régions, départements et communes et 29 % dans les EPA locaux."
+  derivation: Lecture directe, au 31 décembre 2023.
+  limites: L'État ne décide pas des recrutements territoriaux (libre administration) ; une promesse nationale sur la FPT passe par les dotations ou des normes.
+
+- id: fp_effectifs_fph
+  libelle: Effectifs de la fonction publique hospitalière
+  valeur: 1.24
+  unite: millions d'agents
+  annee: "2023"
+  sources:
+    - titre: DGAFP, Fonction publique, chiffres clés, édition 2025
+      url: https://www.fonction-publique.gouv.fr/files/files/publications/rapport-annuel/cc-2025-web.pdf
+      date: "2025"
+      extrait: "Fonction publique hospitalière (FPH) : 1,24 million d’agents (21 % de l’emploi public), 90 % dans les hôpitaux, 7 % dans les établissements d’hébergement pour personnes âgées et 3 % dans les autres établissements médico-sociaux."
+  derivation: Lecture directe, au 31 décembre 2023. Médecins hospitaliers compris.
+  limites: Financement par l'assurance maladie (ONDAM) et non par le budget de l'État.
+
+- id: masse_salariale_apu
+  libelle: Masse salariale des administrations publiques (rémunération des salariés D1, toutes APU)
+  valeur: 362.1
+  unite: Md€ courants par an
+  annee: "2024"
+  sources:
+    - titre: Eurostat, gov_10a_exp, rémunération des salariés (D1), S13, COFOG total, France, millions d'euros
+      url: https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?geo=FR&unit=MIO_EUR&sector=S13&cofog99=TOTAL&na_item=D1&sinceTimePeriod=2022
+      date: "2026"
+      extrait: "2022: 331171.0, 2023: 346293.3, 2024: 362149.3 (valeurs de la réponse JSON, millions d'euros)"
+  derivation: >
+    Valeur 2024 de la série Eurostat en millions d'euros (362 149 M€). Recoupement avec l'indicateur du dépôt
+    etat.remuneration_agents_publics@1.0.0 : 12,4 % du PIB 2024 × PIB 2024 de 2 935,2 Md€
+    (finances.pib_nominal@1.0.0) = 364 Md€ (écart dû à l'arrondi du ratio à 0,1 point). Projection 2032
+    à part de PIB constante : 362,1 × 1,2336 (PIB nominal 2032 / PIB 2024, plan/hypotheses.yaml, FMI) ≈ 447 Md€.
+  indicateur: etat.remuneration_agents_publics@1.0.0
+  limites: >
+    Salaires bruts et cotisations employeurs, y compris cotisations imputées finançant les pensions des
+    fonctionnaires de l'État ; comprend la sécurité sociale et les hôpitaux publics. La projection à part de PIB
+    constante est une convention, pas une prévision.
+
+- id: masse_salariale_etat_hors_pensions
+  libelle: Masse salariale de l'État hors pensions (titre 2 hors CAS Pensions, budget général)
+  valeur: 109.47
+  unite: Md€ courants par an
+  annee: "2026 (PLF)"
+  sources:
+    - titre: Sénat, avis sur le PLF 2026, Fonction publique (a25-145-5)
+      url: https://www.senat.fr/rap/a25-145-5/a25-145-5.html
+      date: "2025-11"
+      extrait: "Dans le PLF pour 2026, la masse salariale de l'État hors pensions atteindrait 109, 47 milliards d'euros , soit une augmentation de 1,30 % par rapport à 2025."
+  derivation: Lecture directe.
+  limites: Hors contributions au CAS Pensions (environ 60 Md€ de plus pour obtenir le coût complet) et hors opérateurs.
+
+- id: point_indice_1pct
+  libelle: Coût en année pleine d'une hausse de 1 % de la valeur du point d'indice (trois versants)
+  valeur: 2.2
+  bas: 2.17
+  haut: 2.5
+  unite: Md€ par an pour 1 % de hausse, toutes APU
+  annee: "2023 (coût des revalorisations 2022 et 2023)"
+  sources:
+    - titre: Sénat, avis sur le PLF 2026, Fonction publique (a25-145-5)
+      url: https://www.senat.fr/rap/a25-145-5/a25-145-5.html
+      date: "2025-11"
+      extrait: "une première revalorisation de 3,5 % du point d'indice 7 ( * ) , dont le coût est évalué à 7,6 milliards d'euros en année pleine pour l'ensemble de la fonction publique, puis une deuxième revalorisation de 1,5 % à compter du 1 er juillet 2023, pour un coût de 3,4 milliards d'euros en année pleine."
+  derivation: >
+    7,6 / 3,5 = 2,17 Md€ par point de % (base 2022) ; 3,4 / 1,5 = 2,27 Md€ (base 2023). Valeur centrale
+    2,2 Md€. Haut 2,5 Md€ : base 2023 portée à 2027 avec la croissance de la masse salariale APU observée
+    2023-2024 (+4,6 %, Eurostat D1) puis environ 2 % par an, soit 2,27 × 1,046 × 1,02³ ≈ 2,5 Md€. Pour 2032,
+    multiplier par le rapport masse salariale 2032 / 2023 (à part de PIB constante : PIB 2032 / PIB 2023 =
+    3 621 / 2 834 ≈ 1,28, soit ≈ 2,9 Md€).
+  limites: >
+    Coût brut pour les employeurs publics (État, collectivités, hôpitaux), cotisations employeurs comprises ; ne
+    déduit pas les prélèvements qui reviennent aux APU (CSG, cotisations salariales, IR), qui réduisent le coût
+    net d'environ un quart. Le point d'indice ne s'applique ni aux primes ni aux contractuels hors grille.
+
+- id: cas_pensions_taux_civils
+  libelle: Taux de contribution employeur de l'État au CAS Pensions, personnels civils
+  valeur: 82.28
+  unite: "% du traitement indiciaire brut"
+  annee: "2026"
+  sources:
+    - titre: PLF 2026, projet annuel de performances, mission Sécurités (programme 176 Police nationale)
+      url: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
+      date: "2025-10"
+      extrait: "Les taux de contribution employeur au compte d’affectation spéciale (CAS) Pensions prévus en 2026 sont les suivants : • 82,28 % pour les personnels civils ; • 126,07 % pour les personnels militaires ;"
+  derivation: Lecture directe. Taux relevé de 4 points en 2026 (78,28 % en 2025).
+  limites: >
+    Taux d'équilibre d'un régime intégré, pas une cotisation de marché : il sert à passer d'un coût « hors CAS »
+    à un coût complet budgétaire. URL de la page de documentation budgétaire ; le PDF du PAP, téléchargé et lu
+    le 29/09/2026, n'a pas pu être relié à son lien direct file-download (protection anti-robot du site).
+
+- id: cas_pensions_taux_militaires
+  libelle: Taux de contribution employeur de l'État au CAS Pensions, personnels militaires
+  valeur: 126.07
+  unite: "% de la solde indiciaire brute"
+  annee: "2026"
+  sources:
+    - titre: PLF 2026, projet annuel de performances, mission Sécurités (programme 152 Gendarmerie nationale)
+      url: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
+      date: "2025-10"
+      extrait: "• 126,07 % pour les personnels militaires ;"
+  derivation: Lecture directe, taux inchangé en 2026.
+  limites: Même remarque que cas_pensions_taux_civils sur l'URL.
+
+- id: cnracl_taux_employeur
+  libelle: Taux de contribution employeur à la CNRACL (fonctionnaires territoriaux et hospitaliers)
+  valeur: 37.65
+  unite: "% du traitement indiciaire brut"
+  annee: "2026"
+  sources:
+    - titre: CNRACL, Augmentation des taux de cotisations au 1er janvier 2026
+      url: https://www.cnracl.retraites.fr/employeur/actualites/augmentation-des-taux-de-cotisations-au-1er-janvier-2026-contribution-et-surcotisation
+      date: "2025-12-19"
+      extrait: "Le taux de contribution employeurs à compter du 1 er janvier 2026 est de 37,65 %."
+  derivation: >
+    Lecture directe. Hausse progressive prévue par le décret n° 2025-86 du 30 janvier 2025 (3 points par an de 2025
+    à 2028). Toutes cotisations employeurs confondues (CNRACL, maladie, famille, ATIACL, FNAL, CSA, formation), la
+    charge atteint environ 53 % du traitement indiciaire en 2026 (46 à 48 % en 2025 selon Emploi-Collectivités,
+    https://www.emploi-collectivites.fr/charges-cotisations-salaire-fpt-blog-territorial, + 7 points de CNRACL).
+  limites: >
+    La hausse du taux CNRACL est un transfert entre APU (collectivités et hôpitaux vers la caisse) : neutre sur le
+    solde public consolidé, mais pas sur les budgets locaux.
+
+- id: cout_enseignant_charge
+  libelle: Coût annuel complet moyen d'un emploi d'enseignant de l'État (titre 2, CAS Pensions compris)
+  valeur: 85000
+  bas: 81500
+  haut: 87700
+  unite: € par ETPT et par an
+  annee: "2026 (PLF)"
+  sources:
+    - titre: PLF 2026, projet annuel de performances, mission Enseignement scolaire (programmes 140 et 141)
+      url: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
+      date: "2025-10"
+      extrait: "Total en titre 2 27 409 147 658 27 853 974 129 Total en titre 2 hors CAS Pensions 17 559 916 092 17 642 473 505"
+  derivation: >
+    Programme 140 (premier degré public) : titre 2 PLF 2026, 27 854 M€ / 341 897 ETPT = 81 470 €. Programme 141
+    (second degré public) : 39 646 M€ / 451 966 ETPT = 87 720 €. Valeur centrale : moyenne arrondie 85 000 €.
+    Pour un recrutement (coût d'entrée), le PAP donne un coût moyen chargé hors CAS de 38 363 € (1er degré) et
+    40 509 € (2nd degré) ; ajouter la contribution CAS de 82,28 % du traitement indiciaire, soit un coût d'entrée
+    complet d'environ 60 000 €.
+  limites: >
+    Moyenne de programme : comprend quelques personnels non enseignants (AESH exclus, payés en partie hors titre 2).
+    Le CAS Pensions (≈ 35 % du titre 2) finance les pensions en cours, pas celles de l'agent : pour un
+    recrutement supplémentaire, le coût marginal budgétaire de court terme est plutôt le coût hors CAS. Même remarque
+    que cas_pensions_taux_civils sur l'URL du PAP.
+
+- id: cout_policier_charge
+  libelle: Coût annuel complet moyen d'un emploi de la police nationale (titre 2, CAS Pensions compris)
+  valeur: 78850
+  bas: 51860
+  unite: € par ETPT et par an
+  annee: "2026 (PLF)"
+  sources:
+    - titre: PLF 2026, projet annuel de performances, mission Sécurités (programme 176 Police nationale)
+      url: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
+      date: "2025-10"
+      extrait: "Total en titre 2 11 718 796 031 12 086 407 605 Total en titre 2 hors CAS Pensions 7 862 579 491 7 948 669 172"
+  derivation: >
+    Titre 2 PLF 2026 du programme 176, 12 086 M€, divisé par le plafond d'emplois de 153 286 ETPT = 78 850 €.
+    Bas (coût marginal de court terme, hors CAS Pensions) : 7 949 M€ / 153 286 = 51 860 € ; le PAP donne 50 158 €
+    de coût moyen chargé hors CAS pour un gradé ou gardien de la paix (corps d'encadrement et d'application).
+  limites: >
+    Moyenne de programme incluant les personnels administratifs, techniques, scientifiques et les policiers
+    adjoints. Hors dépenses de fonctionnement et d'équipement associées (véhicules, locaux), qui ajoutent 10 à 15 %.
+    Même remarque que cas_pensions_taux_civils sur l'URL du PAP.
+
+- id: cout_gendarme_charge
+  libelle: Coût annuel complet moyen d'un emploi de la gendarmerie nationale (titre 2, CAS Pensions compris)
+  valeur: 88790
+  bas: 49590
+  unite: € par ETPT et par an
+  annee: "2026 (PLF)"
+  sources:
+    - titre: PLF 2026, projet annuel de performances, mission Sécurités (programme 152 Gendarmerie nationale)
+      url: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
+      date: "2025-10"
+      extrait: "Total en titre 2 8 985 570 704 9 152 624 242 Total en titre 2 hors CAS Pensions 4 986 147 385 5 111 468 803"
+  derivation: >
+    Titre 2 PLF 2026 du programme 152, 9 153 M€, divisé par le plafond de 103 079 ETPT = 88 790 €. Bas (coût
+    marginal de court terme, hors CAS Pensions) : 5 111 M€ / 103 079 = 49 590 €.
+  limites: >
+    Le taux CAS militaire (126,07 %) explique l'écart avec la police : 44 % du titre 2 finance les pensions. Moyenne
+    incluant volontaires et personnels civils. Même remarque que cas_pensions_taux_civils sur l'URL du PAP.
+
+- id: cout_soignant_hospitalier_charge
+  libelle: Coût annuel chargé moyen d'un fonctionnaire hospitalier des services de soins (infirmier, aide-soignant)
+  valeur: 56000
+  bas: 50000
+  haut: 62000
+  unite: € par EQTP et par an
+  annee: "2023 (salaires) et 2026 (taux de cotisation)"
+  sources:
+    - titre: INSEE Première n° 2067, Les salaires dans la fonction publique hospitalière en 2023
+      url: https://www.insee.fr/fr/statistiques/8612479
+      date: "2025"
+      extrait: "Personnels des services de soins 64,5 2 565 -1,2 64,0 68,9 -0,6 Fonctionnaires 51,0 2 685 -1,7"
+    - titre: CNRACL, taux de contribution employeur 2026
+      url: https://www.cnracl.retraites.fr/employeur/actualites/augmentation-des-taux-de-cotisations-au-1er-janvier-2026-contribution-et-surcotisation
+      date: "2025-12-19"
+      extrait: "Le taux de contribution employeurs à compter du 1 er janvier 2026 est de 37,65 %."
+  derivation: >
+    Salaire net mensuel moyen des fonctionnaires des services de soins en 2023 : 2 685 € (EQTP). Passage au brut
+    avec le rapport brut/net des fonctionnaires de la FPH publié dans la même étude (3 256 / 2 642 = 1,232) :
+    3 308 € par mois, 39 700 € par an. Cotisations employeurs ≈ 53 % du traitement indiciaire en 2026 (voir
+    cnracl_taux_employeur), traitement indiciaire ≈ 78 % du brut : 39 700 × (1 + 0,53 × 0,78) ≈ 56 100 €.
+    Fourchette : part indiciaire 65-90 % et salaires 2023 non revalorisés (bas) ou portés à 2026 (haut).
+  limites: >
+    Estimation construite, pas un coût publié : aucune source ouverte ne donne un coût chargé moyen d'infirmier.
+    Mélange infirmiers (plus chers) et aides-soignants (moins chers). Salaires 2023 ; hors médecins.
+
+- id: cout_magistrat_charge
+  libelle: Coût annuel complet moyen d'un magistrat de l'ordre judiciaire (CAS Pensions compris)
+  valeur: 138700
+  bas: 123800
+  haut: 164400
+  unite: € par ETPT et par an
+  annee: "2025 (exécution)"
+  sources:
+    - titre: Rapport annuel de performances 2025, mission Justice (programme 166 Justice judiciaire)
+      url: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2025
+      date: "2026"
+      extrait: "1036 – Magistrats de l'ordre judiciaire 61 661 96 768 110 672 54 373 86 443 98 363"
+  derivation: >
+    Coût moyen chargé hors CAS d'un magistrat (coût global) : 96 768 €, dont 86 443 € de rémunérations
+    d'activité. Majoration CAS au prorata de la mission : LFI 2025, 12 683 M€ de crédits dont 10 466 M€ hors CAS,
+    soit 2 217 M€ de CAS pour 5 118 M€ de masse salariale hors CAS (+43,3 %) : 96 768 × 1,433 = 138 700 €.
+    Bas : CAS de 78,28 % sur 40 % des rémunérations d'activité (123 800 €). Haut : CAS sur la totalité des
+    rémunérations d'activité (96 768 + 0,7828 × 86 443 = 164 400 €).
+  limites: >
+    La majoration CAS moyenne de la mission (qui compte l'administration pénitentiaire) n'est pas celle des
+    magistrats, dont la part de primes est plus élevée. Hors greffe et fonctionnement : un magistrat supplémentaire
+    appelle aussi des greffiers (rapport cible voisin de 1 pour 1). Même remarque que cas_pensions_taux_civils sur
+    l'URL (RAP 2025).
+
+- id: fp_departs_retraite_annuels
+  libelle: Départs à la retraite annuels dans la fonction publique
+  valeur: 136700
+  unite: agents par an
+  annee: "2024"
+  sources:
+    - titre: DGAFP, Fonction publique, chiffres clés, édition 2025
+      url: https://www.fonction-publique.gouv.fr/files/files/publications/rapport-annuel/cc-2025-web.pdf
+      date: "2025"
+      extrait: "136 700 agents ont pris leur retraite en 2024, dont 38 800 fonctionnaires pour la FPE, 43 000 fonctionnaires pour la FPT, 19 800 fonctionnaires pour la FPH, 11 800 militaires et 18 000 contractuels tous versants confondus."
+  derivation: Lecture directe.
+  limites: Les départs de contractuels hors retraite (fins de contrat, démissions) sont bien plus nombreux et ne sont pas comptés.
+
+- id: non_remplacement_un_sur_deux_etat
+  libelle: Économie annuelle du non-remplacement d'un départ à la retraite sur deux dans les ministères (par année d'application, cumulative)
+  valeur: 0.9
+  bas: 0.45
+  haut: 1.6
+  unite: Md€ par an supplémentaires pour chaque année d'application (s'additionnent d'une année sur l'autre)
+  annee: "2015 (Cour des comptes), 2024-2026 (départs et coûts)"
+  sources:
+    - titre: Cour des comptes, La masse salariale de l'État, enjeux et leviers, juillet 2015
+      url: https://www.ccomptes.fr/sites/default/files/EzPublish/20150909-rapport-masse-salariale-Etat.pdf
+      date: "2015-07"
+      extrait: "À titre illustratif, la reprise d’un objectif de non-remplacement d’un départ à la retraite sur deux permettrait une économie annuelle d’environ 750 M€."
+    - titre: Cour des comptes, même rapport, bilan de la RGPP
+      url: https://www.ccomptes.fr/sites/default/files/EzPublish/20150909-rapport-masse-salariale-Etat.pdf
+      date: "2015-07"
+      extrait: "Elle a dégagé une économie brute moyenne de 840 M€ par an sur la période 2008-2012, soit un total cumulé de 4,2 Md€, équivalent à 4,8 % de la masse salariale de l’État."
+    - titre: DGAFP, Fonction publique, chiffres clés, édition 2025 (départs 2024)
+      url: https://www.fonction-publique.gouv.fr/files/files/publications/rapport-annuel/cc-2025-web.pdf
+      date: "2025"
+  derivation: >
+    Central : 750 M€ (Cour, 2015) actualisés par la hausse de la masse salariale de l'État hors pensions depuis
+    2015 (environ +20 %), soit 0,9 Md€. Haut : calcul direct 2024-2026 : (38 800 fonctionnaires civils + 11 800
+    militaires) / 2 = 25 300 postes non pourvus par an × coût d'entrée complet d'environ 60 000 € (coût d'entrée
+    hors CAS 38 000-40 000 € + CAS) ≈ 1,5-1,6 Md€. Bas : moitié de l'économie rétrocédée aux agents en mesures
+    catégorielles, principe de la RGPP (0,45 Md€). Au bout de cinq ans : environ 5 fois la valeur annuelle.
+  limites: >
+    Ministères seulement (FPT et FPH hors de la main de l'État). Suppose que les postes non remplacés ne sont pas
+    compensés par des contractuels, des heures supplémentaires ou de la sous-traitance (la Cour note la hausse des
+    heures supplémentaires après 2008). Le nombre de départs baisse avec le recul de l'âge de départ.
+
+# ====================================================================================================
+# Europe, défense, dette, collectivités, fraude, immigration, logement
+# ====================================================================================================
+
+- id: pib_nominal_2032
+  libelle: PIB nominal projeté en 2032 (base de conversion des points de PIB en Md€)
+  valeur: 3621
+  unite: Md€ courants
+  annee: "2032 (projection depuis 2025)"
+  sources:
+    - titre: "FMI, World Economic Outlook avril 2026, croissance du PIB en volume (NGDP_RPCH), France"
+      url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_RPCH.A
+      date: "2026-04-14"
+    - titre: "FMI, World Economic Outlook avril 2026, déflateur du PIB (NGDP_D), France"
+      url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+      date: "2026-04-14"
+  derivation: >
+    PIB 2025 observé (INSEE, indicateur finances.pib_nominal@1.0.0) = 2 991,06 Md€, multiplié par le produit des
+    facteurs (1 + croissance en volume) × (1 + déflateur) de 2026 à 2032 retenus dans plan/hypotheses.yaml
+    (FMI WEO avril 2026 ; 2032 = valeurs 2031 reconduites) : facteur 1,2106, soit 3 620,9 Md€. C'est la valeur de
+    la trajectoire de référence (data/plan/trajectoire_reference.parquet, année 2032). Facteur de passage
+    d'un montant 2025 à 2032 à part de PIB constante : 1,2106 ; d'un montant 2024 : 1,2336.
+  indicateur: finances.pib_nominal@1.0.0
+  limites: >
+    Le WEO s'arrête en 2031 ; 2032 reconduit la croissance et le déflateur 2031 (convention a_trancher de
+    plan/hypotheses.yaml). Le PIB 2025 est provisoire (révisions INSEE de mai et août).
+
+- id: point_pib_2032
+  libelle: Montant d'un point de PIB en 2032
+  valeur: 36.2
+  unite: Md€ courants 2032 par point de PIB
+  annee: "2032"
+  sources:
+    - titre: "FMI, World Economic Outlook avril 2026, croissance du PIB en volume (NGDP_RPCH), France"
+      url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_RPCH.A
+      date: "2026-04-14"
+  derivation: >
+    1 % × pib_nominal_2032 (3 621 Md€) = 36,2 Md€. Un dixième de point de PIB en 2032 vaut 3,6 Md€. Sert à
+    convertir en Md€ 2032 tout chiffrage exprimé en points de PIB (COR, FIPECO, OFCE...).
+  indicateur: finances.pib_nominal@1.0.0
+  limites: Hérite des limites de pib_nominal_2032.
+
+- id: psr_ue
+  libelle: Contribution française au budget de l'Union européenne (prélèvement sur recettes, PSR-UE)
+  valeur: 28.8
+  bas: 23.0
+  haut: 32.4
+  unite: Md€ courants par an
+  annee: "2026 (PLF) ; bas = exécution 2025 ; haut = estimation 2027 de la direction du budget"
+  sources:
+    - titre: "Sénat, rapport général PLF 2026, Affaires européennes (article 45, PSR-UE)"
+      url: https://www.senat.fr/rap/l25-139-22/l25-139-22_mono.html
+      date: "2025-11"
+      extrait: "L'article 45 du projet de loi de finances pour 2026 évalue le montant du prélèvement sur recettes au profit de l'Union européenne à 28,8 milliards d'euros, soit une progression substantielle de 24,6 % par rapport à la prévision d'exécution à date pour 2025."
+    - titre: "Sénat, même rapport (exécution 2025 et prévisions antérieures 2026-2027)"
+      url: https://www.senat.fr/rap/l25-139-22/l25-139-22_mono.html
+      date: "2025-11"
+      extrait: "avec des prélèvements sur recettes attendus respectivement à hauteur de 30,4 milliards d'euros et 32,4 milliards d'euros"
+  derivation: >
+    Valeur lue à l'article 45 du PLF 2026 (28,8 Md€). Bas : contribution effective 2025 (23,0 Md€, même rapport).
+    Haut : prévision de la direction du budget pour 2027 (32,4 Md€, établie lors du PLF 2025). Au-delà de 2027, le
+    montant dépend du cadre financier pluriannuel 2028-2034 en négociation ; le rapport chiffre à environ
+    2,5 Md€ par an à compter de 2028 le coût pour la France d'un statu quo sur les nouvelles ressources propres.
+    Une promesse de « baisser la contribution » de x % se chiffre sur la valeur centrale ; une réduction
+    unilatérale n'est pas juridiquement possible (décision ressources propres), la chiffrer comme non réalisable
+    ou avec bas = 0.
+  indicateur: europe_international.contribution_budget_ue@1.0.0
+  limites: >
+    Le PSR-UE exclut les droits de douane (ressources propres traditionnelles) ; l'indicateur du dépôt (Commission
+    européenne, 22,3 Md€ en 2024) a un périmètre voisin mais en exécution. Le solde net France-UE (contribution
+    moins dépenses de l'UE en France, dont la PAC) est beaucoup plus faible que la contribution brute.
+
+- id: defense_credits_mission
+  libelle: Crédits de la mission Défense hors pensions (périmètre LPM) et trajectoire de la LPM actualisée
+  valeur: 57.15
+  unite: Md€ courants par an (crédits de paiement, hors CAS Pensions)
+  annee: "2026 (PLF) ; LPM actualisée 2024-2030"
+  sources:
+    - titre: "Sénat, rapport général PLF 2026, mission Défense"
+      url: https://www.senat.fr/rap/l25-139-38/l25-139-38_mono.html
+      date: "2025-11"
+      extrait: "Sur le périmètre de la LPM (hors pensions), les crédits demandés s'établissent à 57,15 milliards d'euros , en hausse de 6,67 milliards d'euros par rapport à la LFI 2025."
+    - titre: "Sénat, la loi en clair, projet de loi actualisant la programmation militaire 2024-2030 (2026)"
+      url: https://www.senat.fr/travaux-parlementaires/textes-legislatifs/la-loi-en-clair/projet-de-loi-actualisant-la-programmation-militaire-pour-les-annees-2024-a-2030-et-portant-diverses-dispositions-interessant-la-defense.html
+      date: "2026"
+      extrait: "le projet de loi prévoit 36 milliards d’euros de ressources supplémentaires réparties sur la période 2026‑2030 , pour s’élever à un total de 436 milliards d’euros courants de crédits budgétaires"
+  derivation: >
+    Valeur lue (PLF 2026). La LPM 2024-2030 initiale prévoyait 413 Md€ (dont 400 Md€ de crédits budgétaires) ;
+    l'actualisation de 2026 ajoute 36 Md€ sur 2026-2030 (total 436 Md€ de crédits budgétaires), avec l'objectif
+    affiché d'un effort de défense d'au moins 2,5 % du PIB en 2030 et 3,5 % en 2035 (même page). La
+    trajectoire LPM actualisée est la référence du « droit au 1er janvier 2027 » : une promesse ne se chiffre
+    qu'au-delà de cette trajectoire. Pour un objectif en points de PIB, utiliser defense_0_1_point_pib_2032.
+  indicateur: defense.depenses_defense_pib@1.0.0
+  limites: >
+    Crédits budgétaires de la mission hors pensions : différent de la dépense de défense COFOG (1,9 % du PIB en
+    2024, indicateur du dépôt) et de la définition OTAN (pensions comprises). Les restes à payer et reports de
+    charges (environ 8 Md€ fin 2025) rendent l'exécution annuelle incertaine.
+
+- id: defense_0_1_point_pib_2032
+  libelle: Coût annuel en 2032 d'un effort de défense supplémentaire de 0,1 point de PIB
+  valeur: 3.6
+  unite: Md€ courants 2032 par an, par dixième de point de PIB
+  annee: "2032"
+  sources:
+    - titre: "FMI, World Economic Outlook avril 2026 (base de pib_nominal_2032)"
+      url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_RPCH.A
+      date: "2026-04-14"
+    - titre: "Sénat, la loi en clair, actualisation de la LPM 2024-2030 (objectifs en points de PIB)"
+      url: https://www.senat.fr/travaux-parlementaires/textes-legislatifs/la-loi-en-clair/projet-de-loi-actualisant-la-programmation-militaire-pour-les-annees-2024-a-2030-et-portant-diverses-dispositions-interessant-la-defense.html
+      date: "2026"
+      extrait: "porter l’effort national de défense à 2,5 % minimum du produit intérieur brut en 2030, et d’atteindre 3,5 % à l’horizon 2035"
+  derivation: >
+    0,1 % × 3 621 Md€ (pib_nominal_2032) = 3,6 Md€. Une promesse « 3 % du PIB en 2032 » se chiffre par l'écart
+    entre ce taux et la trajectoire de référence (2,5 % en 2030 dans la LPM actualisée, prolongée à 2032 par
+    interpolation vers 3,5 % en 2035, soit environ 2,9 % en 2032 : convention à expliciter dans la mesure),
+    multiplié par 36,2 Md€ par point.
+  indicateur: defense.depenses_defense_pib@1.0.0
+  limites: >
+    Le périmètre de l'objectif (OTAN, pensions comprises) diffère des crédits de la mission ; la trajectoire au-delà
+    de 2030 n'est pas votée (l'interpolation 2030-2035 est une convention).
+
+- id: charge_interets_apu
+  libelle: Charge d'intérêts des administrations publiques
+  valeur: 66.6
+  haut: 127.5
+  unite: Md€ courants par an
+  annee: "2025 (observé) ; haut = 2032 (trajectoire de référence du dépôt)"
+  sources:
+    - titre: "Eurostat, gov_10dd_edpt1, intérêts payés (D41PAY) en % du PIB, France"
+      url: https://ec.europa.eu/eurostat/databrowser/view/gov_10dd_edpt1/default/table
+      date: "2026-04"
+  derivation: >
+    2,225 % du PIB (indicateur finances.charge_interets@1.0.0, 2025) × 2 991,1 Md€ (PIB 2025) = 66,6 Md€.
+    Projection 2032 : 3,522 % du PIB dans data/plan/trajectoire_reference.parquet (plan/trajectoire.py, taux
+    apparent implicite du FMI appliqué à la dette, solde primaire gelé) × 3 620,9 Md€ = 127,5 Md€. Le coût
+    d'intérêts d'une mesure n'est pas à ajouter à son effet sur le solde primaire : la trajectoire de dette le
+    calcule (outils/chiffrage.py).
+  indicateur: finances.charge_interets@1.0.0
+  limites: >
+    Intérêts bruts (D41PAY), non nets des intérêts reçus. La projection 2032 dépend de la convention de solde
+    primaire gelé (a_trancher) et du taux apparent 2031 reconduit ; elle n'intègre aucun choc de taux.
+
+- id: charge_dette_etat
+  libelle: Charge de la dette de l'État (budget de l'État)
+  valeur: 58.0
+  haut: 60.4
+  unite: Md€ courants par an
+  annee: "2026 (PLF) ; valeur = comptabilité budgétaire, haut = comptabilité générale"
+  sources:
+    - titre: "Sénat, rapport général PLF 2026, Engagements financiers de l'État"
+      url: https://www.senat.fr/rap/l25-139-312/l25-139-312_mono.html
+      date: "2025-11"
+      extrait: "En comptabilité budgétaire, la charge de la dette de l'État devrait connaître une croissance soutenue de + 7,49 % en 2026, à 58,0 milliards d'euros , contre 53,5 milliards d'euros en loi de finances initiale pour 2025"
+  derivation: Valeur lue (PLF 2026, programme 117). Haut = comptabilité générale (60,4 Md€, même rapport).
+  limites: >
+    Périmètre État seul (la dette de l'État représente 2 757 Md€ sur 3 416 Md€ de dette publique). Pour le solde
+    public, utiliser charge_interets_apu.
+
+- id: dette_choc_taux_1pt
+  libelle: Hausse de la charge de la dette de l'État pour un choc de taux pérenne de +1 point sur toute la courbe
+  valeur: 23.5
+  bas: 3.2
+  haut: 33.5
+  unite: Md€ par an (valeur à 5 ans ; bas à 1 an ; haut à 9 ans)
+  annee: "2026 (sensibilité AFT, PLF 2026)"
+  sources:
+    - titre: "Sénat, rapport général PLF 2026, Engagements financiers de l'État"
+      url: https://www.senat.fr/rap/l25-139-312/l25-139-312_mono.html
+      date: "2025-11"
+      extrait: "l'effet d'un choc de taux pérenne de + 1 point (+ 100 points de base) par rapport au scénario de référence , sur l'ensemble de la courbe de taux, entraînerait une hausse de la charge de la dette de + 3,2 milliards d'euros à 1 an, + 23,5 milliards d'euros à 5 ans et + 33,5 milliards d'euros à 9 ans"
+  derivation: >
+    Valeurs lues (Agence France Trésor citée par le Sénat). Un choc de taux commencé en 2027 pèse d'environ
+    23,5 Md€ en 2032 (5 ans).
+  limites: >
+    Effet de taux, non compté dans les chiffrages de mesures (règle 3 : les effets sur les taux sont décrits dans
+    effets_retour, jamais ajoutés au montant). État seul, hors sécurité sociale et collectivités.
+
+- id: concours_financiers_collectivites
+  libelle: Concours financiers de l'État aux collectivités territoriales
+  valeur: 53.4
+  haut: 155
+  unite: Md€ courants par an
+  annee: "2026 (PLF) ; haut = transferts financiers élargis"
+  sources:
+    - titre: "Sénat, rapport général PLF 2026, Relations avec les collectivités territoriales"
+      url: https://www.senat.fr/rap/l25-139-325/l25-139-325_mono.html
+      date: "2025-11"
+      extrait: "les concours financiers de l'État aux collectivités, qui s'élèvent à 53,4 milliards d'euros rassemblent les transferts financiers spécifiquement destinés aux collectivités et à leurs groupements."
+    - titre: "Sénat, même rapport (transferts élargis)"
+      url: https://www.senat.fr/rap/l25-139-325/l25-139-325_mono.html
+      date: "2025-11"
+      extrait: "2,5 % d'un total de transferts financiers élargis qui s'élève à 155 milliards d'euros"
+  derivation: >
+    Valeur lue. Les concours financiers regroupent les prélèvements sur recettes (dont la DGF) et la mission
+    Relations avec les collectivités territoriales. Les transferts élargis (155 Md€) ajoutent la fiscalité
+    transférée (fractions de TVA compensant la taxe d'habitation et la CVAE), les dégrèvements et les subventions
+    des autres ministères.
+  limites: >
+    Un transfert de l'État aux collectivités est neutre pour le solde des APU : ne compter que les mesures qui
+    changent la dépense ou la recette des collectivités elles-mêmes (règle 2, toutes APU confondues).
+
+- id: dgf
+  libelle: Dotation globale de fonctionnement (DGF) des collectivités
+  valeur: 27.4
+  unite: Md€ courants par an
+  annee: "2025 (LFI)"
+  sources:
+    - titre: "Sénat, rapport général PLF 2026, Relations avec les collectivités territoriales"
+      url: https://www.senat.fr/rap/l25-139-325/l25-139-325_mono.html
+      date: "2025-11"
+      extrait: "En loi de finances initiale (LFI) pour 2025 50 ( * ) , le montant total de la DGF s'élevait à 27,4 milliards d'euros. La DGF des communes et des établissements publics de coopération intercommunale (EPCI) à fiscalité propre s'élevait à 19,1 milliards d'euros en 2025 ."
+  derivation: Valeur lue (LFI 2025). Une indexation de la DGF sur l'inflation coûte environ 1 % × 27,4 = 0,27 Md€ par point.
+  limites: Même remarque de neutralité pour le solde APU que concours_financiers_collectivites.
+
+- id: immigration_depenses_etat
+  libelle: Dépenses de l'État pour la politique de l'immigration et de l'intégration (sources contradictoires)
+  valeur: 7.8
+  bas: 2.2
+  haut: 41
+  unite: Md€ courants par an
+  annee: "2026 (DPT PLF 2026) ; bas = mission IAI 2026 ; haut = coût net OID (2025, périmètre différent)"
+  sources:
+    - titre: "Sénat, rapport général PLF 2026, Immigration, asile et intégration (reprend le DPT)"
+      url: https://www.senat.fr/rap/l25-139-315/l25-139-315_mono.html
+      date: "2025-11"
+      extrait: "Le coût estimé de la politique française de l'immigration et de l'intégration est de 7,82 milliards d'euros en 2026 17 ( * ) , un niveau en légère hausse par rapport à 2025 (7,74 milliards d'euros)."
+    - titre: "Sénat, même rapport (crédits de la mission)"
+      url: https://www.senat.fr/rap/l25-139-315/l25-139-315_mono.html
+      date: "2025-11"
+      extrait: "les crédits demandés sur la mission « Immigration, asile et intégration » s'élèvent à 2,24 milliards d'euros en AE et à 2,16 milliards d'euros en CP"
+    - titre: "Observatoire de l'immigration et de la démographie (OID), Réduire le coût net de l'immigration, février 2025 (source contestée)"
+      url: https://observatoire-immigration.fr/cout-immigration-economies/
+      date: "2025-02-07"
+      extrait: "Le coût net de l’immigration est quant à lui estimé à 41 milliards d’euros , une fois retranchées les contributions des étrangers au budget – par leurs impôts et cotisations sociales."
+    - titre: "CEPII, Chojnicki, Ragot et Sokhna, L'impact budgétaire de 30 ans d'immigration en France, document de travail 2018-04"
+      url: https://www.cepii.fr/PDF_PUB/wp/2018/wp2018-04.pdf
+      date: "2018-04"
+      extrait: "Leur contribution est toujours restée contenue en deçà de ±0, 5% du PIB"
+  derivation: >
+    Central : document de politique transversale (DPT) annexé au PLF 2026, 19 programmes, 7,82 Md€. Bas : crédits
+    de paiement de la seule mission Immigration, asile et intégration (2,16 Md€). Haut : coût net de l'immigration
+    pour toutes les APU selon l'OID (41 Md€), borne signalée, non validée : l'OID (think tank engagé) impute aux
+    étrangers des dépenses générales (santé, retraites, chômage) et en retranche leurs prélèvements. Le CEPII, sur
+    1979-2011, trouve à l'inverse une contribution nette comprise entre -0,5 et +0,5 point de PIB (-18 à +18 Md€
+    en 2032). Hors dépenses de l'État, l'AME (ministère de la santé) est comptée à part (voir le barème AME du
+    cluster social).
+  limites: >
+    Les trois chiffres ne mesurent pas la même chose (dépense ciblée de l'État, dépense budgétaire d'une mission,
+    solde net des APU pour toute la population étrangère). La Cour des comptes et le CEC de l'Assemblée ont
+    critiqué le DPT comme incomplet (lutte contre l'immigration irrégulière estimée par la Cour à environ
+    1,8 Md€ par an, contre 0,26 Md€ affichés au DPT en 2024, selon le même rapport du Sénat). Pour chiffrer une
+    mesure (ex. suppression de l'AME, fin d'une prestation pour les étrangers), partir de la dépense précise
+    visée, pas de ces agrégats.
+
+- id: fraude_sociale_estimee
+  libelle: Fraude sociale estimée, et montants détectés et recouvrés
+  valeur: 14
+  bas: 13
+  haut: 17.5
+  unite: Md€ par an (fraude estimée)
+  annee: "2024 (note HCFiPS publiée en décembre 2025)"
+  sources:
+    - titre: "HCFiPS, Note annuelle de suivi et d'évaluation des fraudes sociales, synthèse (décembre 2025)"
+      url: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/HCFIPS/2026/HCFIPS%20-%20Synth%c3%a8se%20Fraude%20sociale%202025%20-%20Version%20finalis%c3%a9e.pdf
+      date: "2025-12-04"
+      extrait: "aboutit à un montant de fraudes de 14 Md€, contre 13 Md€ lors de l’évalua- tion précédente."
+    - titre: "HCFiPS, même synthèse (détection et recouvrement)"
+      url: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/HCFIPS/2026/HCFIPS%20-%20Synth%c3%a8se%20Fraude%20sociale%202025%20-%20Version%20finalis%c3%a9e.pdf
+      date: "2025-12-04"
+      extrait: "680 M€ recouvrés : le recouvrement est toujours limité."
+    - titre: "Fondation IFRAP, La fraude sociale en 2024 : 17,5 Md€ estimés, seulement 1,2 Md€ recouvré (ou évité), 15 janvier 2026"
+      url: https://www.ifrap.org/emploi-et-politiques-sociales/la-fraude-sociale-en-2024-175-mdeu-estimes-seulement-12-mdeu-recouvre-ou-evite
+      date: "2026-01-15"
+      extrait: "la fraude sociale estimée atteint 14 Md€, à laquelle il faut ajouter l'estimation des erreurs soit un total de 17,5 Md€."
+  derivation: >
+    Central : fraude estimée par le HCFiPS sur le périmètre évalué (14 Md€). Bas : évaluation précédente (13 Md€).
+    Haut : fraude + erreurs d'assiette sur les cotisations (3,5 Md€), 17,5 Md€. Part recouvrable : en 2024,
+    plus de 2 Md€ détectés, 0,5 Md€ de fraudes stoppées, 0,68 Md€ recouvrés (même note), soit un rendement
+    budgétaire effectif d'environ 1,2 Md€ par an, 8 à 9 % de la fraude estimée. Chiffrer une promesse de
+    « lutte contre la fraude sociale » : central = gain supplémentaire documenté (ex. doublement du recouvrement,
+    +0,7 à +1,2 Md€), haut = montant annoncé, jamais la fraude estimée entière.
+  limites: >
+    Périmètre partiel (fraude aux cotisations des micro-entrepreneurs et plateformes non comptée ; le HCFiPS
+    évalue aussi à environ 5,5 Md€ le manque à gagner sur les recettes fiscales affectées à la sécurité sociale,
+    TVA et tabac). Estimations par extrapolation de contrôles aléatoires, fragiles d'une année sur l'autre.
+
+- id: fraude_fiscale_tva_estimee
+  libelle: Fraude et irrégularités à la TVA (seule composante de la fraude fiscale estimée par des sources publiques)
+  valeur: 15
+  bas: 6
+  haut: 26
+  unite: Md€ par an
+  annee: "estimations 2012 à 2020 (Cour des comptes 2019 ; Insee 2012 ; DGFiP 2010-2020)"
+  sources:
+    - titre: "Cour des comptes, La fraude aux prélèvements obligatoires, décembre 2019"
+      url: https://www.ccomptes.fr/fr/publications/la-fraude-aux-prelevements-obligatoires
+      date: "2019-12-02"
+      extrait: "le montant de la fraude et des irrégularités à la TVA est estimée à une quinzaine de milliards d’euros."
+    - titre: "Insee, blog, Estimer la TVA non recouvrée à partir des contrôles fiscaux"
+      url: https://blog.insee.fr/estimer-la-tva-non-recouvree-a-partir-des-controles-fiscaux/
+      date: "2022-12"
+      extrait: "Pour l’exercice comptable 2012, le montant de TVA non recouvrée est estimé entre 20 Md€ et 26 Md€, soit 17 % à 21 % des recettes de TVA cette année-là."
+    - titre: "HCFiPS, Note annuelle fraudes sociales, synthèse (reprend l'estimation DGFiP)"
+      url: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/HCFIPS/2026/HCFIPS%20-%20Synth%c3%a8se%20Fraude%20sociale%202025%20-%20Version%20finalis%c3%a9e.pdf
+      date: "2025-12-04"
+      extrait: "Les sommes non recouvrées par l’administration ﬁscale sur le champ de la TVA sont évaluées par la DGFiP à 4 à 5 % de la TVA collectée"
+  derivation: >
+    Central : Cour des comptes avec l'Insee (une quinzaine de Md€). Bas : DGFiP, sous-déclaration des entreprises
+    déclarant la TVA, 6 à 10 Md€ sur 2010-2020 (4 à 5 % de la TVA collectée). Haut : Insee, 20 à 26 Md€ pour
+    2012. Aucune source publique ne chiffre l'ensemble de la fraude fiscale (IR, IS, patrimoine) ; les montants de
+    60 à 100 Md€ cités dans le débat public ne reposent pas sur une méthode publiée par une administration.
+    Part recouvrable : le contrôle fiscal a notifié 17,1 Md€ de droits et pénalités en 2025 (25,5 Md€ avec les
+    crédits d'impôt non remboursés, bilan DGFiP d'avril 2026 cité par LégiFiscal) ; le taux de recouvrement des
+    montants mis en recouvrement était de 75,3 % en 2021 (Sénat, rapport 2022). Le gain budgétaire d'un
+    renforcement du contrôle se chiffre donc en supplément de recouvrement (ordre de grandeur : quelques Md€ au
+    plus), jamais par la fraude estimée.
+  limites: >
+    Estimations anciennes (2012-2020) et méthodes différentes (extrapolation des contrôles, contrôles aléatoires,
+    écart de TVA de la Commission européenne). Le montant 2025 du contrôle fiscal vient d'un site privé (LégiFiscal)
+    résumant le dossier de presse ministériel dont le PDF n'a pas pu être récupéré.
+
+- id: controle_fiscal_rendement
+  libelle: Résultats du contrôle fiscal (droits et pénalités notifiés) et taux de recouvrement
+  valeur: 17.1
+  haut: 25.5
+  unite: Md€ par an (notifiés) ; haut = y compris crédits d'impôt et taxes non remboursés
+  annee: "2025 (bilan publié en avril 2026) ; taux de recouvrement 2021"
+  sources:
+    - titre: "LégiFiscal, Bilan 2025 du contrôle fiscal : les recettes en nette hausse (résumé du dossier de presse DGFiP du 7 avril 2026)"
+      url: https://www.legifiscal.fr/actualites-fiscales/4475-bilan-2025-controle-fiscal-recettes-nette-hausse.html
+      date: "2026-04"
+      extrait: "avec 17,1 milliards d’euros de droits et pénalités notifiés en 2025, soit près de 3% de plus qu’en 2024. En ajoutant 8,4 milliards d’euros de crédits d’impôt et de taxes non remboursés, la contribution totale du contrôle fiscal aux finances publiques atteint 25,5 milliards €."
+    - titre: "Sénat, rapport d'information n° 72 (2022-2023), Fraude et évasion fiscales : faire les comptes et intensifier la lutte"
+      url: https://www.senat.fr/rap/r22-072/r22-072_mono.html
+      date: "2022-10"
+      extrait: "si le taux de recouvrement, qui s'est élevé à 75,3 % en 2021, est aujourd'hui meilleur qu'en 2018, où il n'avait atteint que 59,9 %, il demeure toutefois insuffisant."
+  derivation: >
+    Valeur lue. Montant encaissé ≈ notifié × taux de recouvrement (60 à 75 %), soit de l'ordre de 10 à 13 Md€
+    par an. Sert de base pour chiffrer une promesse d'intensification du contrôle (gain = hausse du montant
+    encaissé, pas du montant notifié).
+  limites: >
+    Source principale secondaire (site privé) : le dossier de presse du ministère (economie.gouv.fr, 7 avril 2026)
+    est en ligne mais son PDF n'a pas pu être récupéré. Le taux de recouvrement porte sur les montants mis en
+    recouvrement depuis 2019 (changement de méthode), et date de 2021.
+
+- id: logement_social_aides_part_prix_revient
+  libelle: Aides publiques à la production d'un logement social, en part du prix de revient (subventions + TVA réduite)
+  valeur: 33
+  bas: 24
+  haut: 43
+  unite: "% du prix de revient de l'opération"
+  annee: "2024-2025"
+  sources:
+    - titre: "Sénat, rapport d'information n° 804 (2023-2024), Quel bilan pour le Fonds national des aides à la pierre (FNAP) ?"
+      url: https://www.senat.fr/rap/r24-804/r24-804_mono.html
+      date: "2024-09"
+      extrait: "Pour les PLAI en zone tendue, malgré des subventions publiques importantes entre 10 % et 29 % des prix de revient, les opérations ne s'équilibrent pas."
+    - titre: "Sénat, même rapport (aides indirectes)"
+      url: https://www.senat.fr/rap/r24-804/r24-804_mono.html
+      date: "2024-09"
+      extrait: "l'exonération de taxe foncière sur les propriétés bâties pendant 25 ans sur les logements sociaux ; - un taux réduit de TVA à 5,5 % depuis 1996, à l'exception des PLUS"
+  derivation: >
+    Subventions directes (État via le FNAP, collectivités, Action Logement) : 10 à 29 % du prix de revient
+    (central 19,5 %). TVA réduite : avantage de (20 − 5,5) / 105,5 ≈ 13,7 % du prix TTC au taux réduit (PLAI ;
+    le PLUS est au taux de 10 %, avantage (20 − 10) / 110 ≈ 9 %). Central : 19,5 + 13,7 ≈ 33 % ; bas :
+    10 + 13,7 ≈ 24 % ; haut : 29 + 13,7 ≈ 43 %. Le coût public d'un logement social supplémentaire =
+    part × prix de revient moyen ; le prix de revient moyen (bilan annuel des logements aidés, DHUP) n'a pas pu
+    être récupéré cette nuit : à renseigner dans la mesure avec sa source.
+  limites: >
+    Hors exonération de TFPB pendant 25 ans (à la charge des collectivités, faiblement compensée) et hors
+    avantage des prêts de la Caisse des dépôts sur fonds d'épargne réglementée (non chiffré), qui augmentent le
+    coût public total. Les subventions des collectivités et d'Action Logement ne sont pas toutes des dépenses
+    de l'État (Action Logement est hors APU dans certaines conventions). Le Sénat compte 85 381 logements sociaux
+    agréés en 2024 (rapport PLF 2026, Logement et ville).
