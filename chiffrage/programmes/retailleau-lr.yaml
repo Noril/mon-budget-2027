@@ -114,7 +114,7 @@ mesures:
     effet_solde_primaire:
       central: 0.0
       bas: 0.0
-      haut: 84.99
+      haut: 78.33
       montee_en_charge:
         '2027': 0
         '2028': 0.2
@@ -131,15 +131,15 @@ mesures:
           unite: Md€/an en 2032
           note: « un plan d'économies de 120 milliards d'euros à l'horizon 2032 »
         deja_compte:
-          valeur: 35.01
+          valeur: 41.67
           source: chiffrage/programmes/retailleau-lr.yaml
           unite: Md€
           note: 'somme des centraux des mesures d''économie de dépense chiffrées dans ce fichier : revenu-incitation-activite,
             compte-social-unique-plafond-70-smic, chomage-regles-juin-2024, chomage-ruptures-conventionnelles, chomage-frontaliers,
             chomage-alternance-hauts-revenus, retraites-age-63-taux-plein-65, revenu-familial-gains-gestion, apl-etudiants-d9-d10,
-            hebergement-urgence-regularite-sejour, non-remplacement-125000-departs, aide-publique-developpement-baisse,
-            ame-reduction, postes-enseignants-demographie'
-      explication: 'Règle 6 : central = 0, toutes les économies documentées étant déjà comptées dans leurs lignes (35.01
+            hebergement-urgence-regularite-sejour, non-remplacement-125000-departs, ia-achats-publics, ia-lutte-fraude,
+            aide-publique-developpement-baisse, ame-reduction, postes-enseignants-demographie'
+      explication: 'Règle 6 : central = 0, toutes les économies documentées étant déjà comptées dans leurs lignes (41.67
         Md€) ; haut = annonce moins ces économies, soit l''écart d''affichage non documenté. Les 80 Md€ cités par ÉlyséeScope
         (Figaro, mars 2026) sont inférieurs à l''annonce retenue.'
     chiffrages_tiers:
@@ -149,6 +149,14 @@ mesures:
         commentaire: >-
           « Redresser les finances publiques de 120 Md€ d'ici 2032 uniquement par la baisse des dépenses »
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (Contrepoints). Règle 6 (enveloppe globale) : central 0 correct. Valeurs
+        corrigées : la somme des économies déjà comptées passe de 35,01 à 41,67 Md€ (ia-achats-publics et
+        ia-lutte-fraude, désormais chiffrées selon la règle 6 ciblée), donc haut 84,99 -> 78,33 Md€.
   - id: regle-or-constitution
     libelle: Règle d'or budgétaire dans la Constitution (révision soumise à référendum dès 2027)
     domaine: institutions
@@ -227,6 +235,16 @@ mesures:
     effets_retour: Le candidat revendique un autofinancement (cotisations sur les 16 heures nouvellement travaillées)
       et +2 % de PIB ; effet volume non compté.
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret p. 21). Paramètres relus dans le livret : 4,3 Md€ restitués sur les
+        heures supplémentaires existantes, 16 h puis 88 h ; barème hs_exoneration_cout relu (5,4 Md€ = IR
+        2,25 + salariale 2,306 + patronale 0,872). Formule statique cohérente, effet volume exclu ; bas 10
+        Md€ = annonce IREF. Non-double compte avec les 15 Md€ : le bilan p. 38 sépare bien 15 Md€ « sur les
+        1 623 heures » et 10 Md€ « au-delà ».
   - id: baisse-cotisations-patronales-non-contributives
     libelle: Baisse de 15 Md€ des cotisations patronales finançant des dépenses universelles (famille, santé, logement, transport)
     domaine: fiscalite
@@ -282,6 +300,16 @@ mesures:
     effets_retour: 'Hausse « mécanique » de 4 Md€ d''IS revendiquée par le candidat (hausse des bénéfices) : effet de
       second tour, non compté.'
     confiance: moyenne
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (Contrepoints). Le paquet de 40 Md€ = 15 (cette ligne) + 10 (seuil zéro) + 15
+        (impôts de production) : chaque composante n'est comptée qu'une fois. Le bilan p. 38 du livret
+        Travail gagnant (25 Md€ = 15 sur les 1 623 heures + 10 au-delà) confirme que la moitié «
+        entreprises » des 30 Md€ est cette ligne. Coût brut, économies comptées dans leurs propres lignes :
+        pas de double compte. Effet IS de 4 Md€ = second tour, correctement exclu.
   - id: restitution-pouvoir-achat-salaries
     libelle: Restitution de 15 Md€ de pouvoir d'achat aux salariés (environ 500 € par an au salaire médian)
     domaine: fiscalite
@@ -329,6 +357,16 @@ mesures:
       explication: 'Restitution de 15 Md€ aux salariés (instrument non précisé : baisse de cotisations salariales ou
         de CSG), projetée en 2032 au PIB nominal ; montée au rythme des économies annoncées. Haut : montant nominal.'
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret p. 16 et 38). Moitié salariés (15 Md€) distincte de la moitié entreprises
+        (15 Md€ = ligne précédente) : pas de double compte. Instrument non précisé, promesse vague, effet
+        en euros courants 2032 par convention (haut = non indexé). Les 30 Md€ de « gains » finançant ces
+        restitutions sont comptés dans les lignes d'économie (chômage, RIA, CSU) ; le 4 Md€ d'IS «
+        mécanique » du tableau p. 35 n'est pas compté (second tour).
   - id: revenu-incitation-activite
     libelle: Revenu d'incitation à l'activité (RIA) fusionnant RSA, prime d'activité et ASS
     domaine: protection-sociale
@@ -375,6 +413,14 @@ mesures:
         à 1 833 €), on retient le gain affiché par le candidat, projeté en 2032. Bas : 0 (l''individualisation et le
         cumul avec les prestations familiales peuvent rendre la réforme coûteuse).'
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret p. 23 ; les puces du PDF coupent le texte). Gain de 2,0 Md€ relu au
+        tableau p. 35 ; pas de microsimulation publique pour le contredire, bas 0 prudent. Confiance faible
+        maintenue.
   - id: compte-social-unique-plafond-70-smic
     libelle: Compte social unique et plafonnement du cumul des aides non contributives à 70 % du SMIC net par adulte, lutte contre la fraude
     domaine: protection-sociale
@@ -432,6 +478,18 @@ mesures:
         date: 2026-01-08
         commentaire: Conteste le cas-type (1,7 SMIC) ; LR a répondu le 9 janvier 2026 (PDF en sources). Article non consulté (payant).
     confiance: faible
+    verification:
+      statut: conteste
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret p. 29). Désaccord de fond non tranchable : le tableau p. 35 affiche 10
+        Md€ (CSU + fraude) alors que le livret dit « un plafond national pourrait s'appliquer »
+        (conditionnel) et que la fraude évaluée par le HCFiPS est de 13 Md€ ; 10 Md€ supposeraient
+        d'éliminer 77 % de la fraude. Le central (0,84 Md€ = doublement du recouvrement de fraude sociale)
+        est prudent mais arbitraire ; l'annonce (12,1 Md€ en 2032) est en haut. Une application stricte de
+        la règle 6 (périmètre nommé, plafonné par le budget visé) ne permet pas non plus de retenir 10 Md€
+        sans hypothèse de détection. Valeurs inchangées.
   - id: chomage-regles-juin-2024
     libelle: Mise en œuvre des règles d'assurance chômage de juin 2024 (durée maximale 18 à 15 mois, contracyclicité) et fin d'indemnisation au troisième refus d'offre raisonnable
     domaine: travail
@@ -475,6 +533,16 @@ mesures:
       explication: Fourchette du candidat (Unédic, dans le champ des APU), projetée en 2032 au PIB nominal (les allocations
         suivent les salaires). Aucun chiffrage Unédic récent de ces paramètres n'a été relu.
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret p. 32, marqueur de page inséré dans le PDF). 4 à 5 Md€ = estimation du
+        livret (tableau p. 35 : 4,0-5,0), milieu retenu, projetée avec les salaires ; règles jamais
+        appliquées donc hors du droit de référence. Recouvrement partiel avec la ligne ruptures
+        conventionnelles (durée max de 15 mois) jugé faible, la durée moyenne de 11 mois étant inférieure à
+        15.
   - id: chomage-ruptures-conventionnelles
     libelle: Indemnisation chômage après rupture conventionnelle limitée à six mois et plafonnée
     domaine: travail
@@ -530,6 +598,15 @@ mesures:
         que la mesure réduit seulement la durée : on retient la part au-delà de six mois (1 − 6/11), sans compter le
         plafonnement (non précisé), projetée en 2032. Bas/haut : coût de 7 ou 8 Md€.'
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret p. 32). Le chiffrage écarte l'incohérence du tableau (7-8 Md€ = tout le
+        coût) et retient 7,5 × (1 - 6/11). La formule suppose une durée uniforme de 11 mois : elle
+        surestime un peu l'économie (les durées inférieures à 6 mois ne changent pas), sans que la
+        fourchette 3,85-4,4 le reflète. Confiance faible.
   - id: chomage-frontaliers
     libelle: Indemnisation chômage des travailleurs frontaliers calculée sur un salaire français équivalent
     domaine: travail
@@ -570,6 +647,14 @@ mesures:
       explication: Fourchette du candidat (Unédic, dans le champ des APU), projetée en 2032 au PIB nominal (les allocations
         suivent les salaires). Aucun chiffrage Unédic récent de ces paramètres n'a été relu.
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret p. 33). 0,5-0,7 Md€ = surcoût annuel selon le livret, milieu retenu ;
+        économie supposée totale (le remboursement par le pays d'emploi est maintenu). Pas de source
+        indépendante (Unédic non rouverte).
   - id: chomage-alternance-hauts-revenus
     libelle: Plafonnement et dégressivité accélérée au-delà de 3 000 € nets, rechargement des droits porté à 9 ou 12 mois
     domaine: travail
@@ -611,6 +696,13 @@ mesures:
       explication: Fourchette du candidat (Unédic, dans le champ des APU), projetée en 2032 au PIB nominal (les allocations
         suivent les salaires). Aucun chiffrage Unédic récent de ces paramètres n'a été relu.
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret p. 34). 1,0-2,0 Md€ relu au tableau p. 35, milieu retenu. Plafond non
+        précisé, donc chiffrage sur l'annonce.
   - id: hausse-mecanique-is
     libelle: >-
       « Hausse mécanique des recettes d'impôt sur les sociétés » (4 Md€) comptée comme gain par le candidat
@@ -740,6 +832,19 @@ mesures:
         (40 Md€ cumulés sur cinq ans, soit 13,3 Md€ en 2032 avec une montée linéaire). Central : milieu de la fourchette,
         à remplacer par une simulation.'
     confiance: faible
+    verification:
+      statut: conteste
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (franceinfo, 22 septembre 2026 ; extraits assemblés avec des coupes). Désaccord
+        de fond : le central (4,19 Md€) est le milieu arbitraire entre le coût de l'âge minimal (-4,95 Md€
+        = 0,75 an × 6,6 Md€) et l'annonce du candidat (40 Md€ cumulés sur 5 ans, soit 13,3 Md€ en 2032 au
+        profil linéaire). Or une décote de 7 %/an jusqu'à 65 ans pour tous, y compris carrières complètes,
+        relève l'âge effectif de départ : le bas (âge minimal traité comme un pur coût) est peu plausible.
+        Sans simulation COR/Cnav on ne peut trancher entre un gain de l'ordre de 13 Md€ et un solde
+        faiblement positif. Le barème retraites_age_legal_1_an est en outre calé sur le solde du système
+        (5,8 Md€) alors que la Cour donne 13 Md€ pour l'ensemble des APU. Valeurs inchangées.
   - id: retraite-capitalisation
     libelle: Étage de retraite par capitalisation, compte d'épargne retraite pour chaque actif (25 à 30 % des retraites des jeunes)
     domaine: retraites
@@ -806,6 +911,15 @@ mesures:
         du résultat). Bas : sans retour d''IS. Première année pleine 2028 (C3S assise sur le chiffre d''affaires N-1,
         payée en mai).'
     confiance: haute
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret p. 20 : 5,3 Md€ ; barème 5,2 Md€ 2024, écart négligeable). Formule
+        cohérente : projection PIB 2024->2032, retour d'IS de 25 % car la C3S est déductible, première
+        année pleine 2028. Le droit voté en 2026 sur la C3S (abattement) n'a pas pu être revérifié dans les
+        textes promulgués.
   - id: suppression-cvae
     libelle: Suppression définitive de la CVAE (4,3 Md€)
     domaine: fiscalite
@@ -833,8 +947,8 @@ mesures:
         '2032': 1
       annuel:
         '2027': 0.0
-        '2028': -3.7
-        '2029': -3.7
+        '2028': -2.78
+        '2029': -2.78
         '2030': 0.0
         '2031': 0.0
         '2032': 0.0
@@ -846,9 +960,18 @@ mesures:
           bareme: cvae_restante
       explication: 'La suppression de la CVAE en 2030 est déjà votée (LFI 2026, REFERENCE.md) : effet nul en régime
         de croisière 2032. L''avance de calendrier (loi de finances votée fin 2027) coûte la CVAE restante en 2028 et
-        2029, portée dans `annuel` à 3,7 Md€ par an (barème cvae_restante, 2025 ; majorant, les taux légaux baissant
-        avant 2030).'
+        2029, portée dans `annuel` à 2,78 Md€ par an (barème cvae_restante, 2025, net du surcroît d''IS de 25 % car la CVAE
+        est déductible, comme pour la C3S ; majorant, les taux légaux baissant avant 2030).'
     confiance: haute
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret p. 20). Effet 2032 nul correct (suppression déjà votée pour 2030,
+        REFERENCE.md). Corrigé : l'avance de 2028-2029 est portée à -2,78 Md€ par an (au lieu de -3,7) car
+        la CVAE est déductible de l'IS, convention appliquée aux autres impôts de production de ce fichier
+        ; reste un majorant (taux légaux décroissants avant 2030).
   - id: forfait-social-recentrage
     libelle: Forfait social maintenu à 20 % sur la seule participation légale, exonération de l'intéressement, de la participation supra-légale et de l'épargne retraite (2,8 Md€)
     domaine: fiscalite
@@ -898,6 +1021,15 @@ mesures:
         pas publiée) ; projeté en 2032, net du retour d''IS (le forfait social est déductible). Bas : sans retour d''IS
         ; haut : montant non indexé. À affiner avec la ventilation Acoss du forfait social par assiette.'
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret p. 20). Le livret affecte 2,8 Md€ à la mesure ; c'est vraisemblablement
+        le rendement total du forfait social alors que la promesse conserve 20 % sur la participation
+        légale : le coût est donc un majorant, à affiner avec la ventilation Acoss (non publiée). Net d'IS,
+        cohérent avec C3S et CFE.
   - id: cfe-exoneration-industrielle
     libelle: Exonération de la part industrielle de la CFE (1,9 Md€)
     domaine: fiscalite
@@ -943,6 +1075,13 @@ mesures:
       explication: 'Montant du livret projeté en 2032, net du retour d''IS (CFE déductible). Recette des collectivités
         : coût pour les APU qu''elle soit compensée ou non. Bas : sans retour d''IS ; haut : non indexé.'
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret p. 20 : 1,9 Md€). Recette des collectivités, coût pour les APU compensée
+        ou non ; net d'IS cohérent. Montant du livret non recoupé avec une source fiscale indépendante.
   - id: fonds-france-production
     libelle: Fonds France Production de 600 M€ par an pour la modernisation de l'outil industriel, piloté par les régions
     domaine: industrie
@@ -979,6 +1118,12 @@ mesures:
       explication: 'Dotation annuelle nominale (État et régions, toutes deux APU). Haut : 0 si « intégralement financé
         » par redéploiement de crédits existants ou par des fonds européens, comme l''affirme le livret sans le détailler.'
     confiance: moyenne
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret p. 26). 0,6 Md€ par an en central, haut 0 si redéploiement : correct.
   - id: suramortissement-industriel
     libelle: Sur-amortissement fiscal de l'investissement industriel (et des plateaux techniques des lycées professionnels)
     domaine: fiscalite
@@ -1135,6 +1280,16 @@ mesures:
         commentaire: >-
           « Economies : 600 à 800M€ à terme » ; « proposition qui réduit de 25Md€ les prestations » ; pas de chiffrage propre.
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret famille p. 10). Masses du livret (41 Md€ de dispositifs supprimés contre
+        40,3 Md€ de RF = 14 M de mineurs × 240 € × 12) relues p. 12 ; barème allocations_familiales_depense
+        (13,8 Md€) cohérent avec la liste. La condition de résidence de cinq ans (qui réduirait le coût)
+        est traitée à part. Solde net de 0,85 Md€ faible et plausible pour une réforme « à budget constant
+        ».
   - id: revenu-familial-troisieme-enfant
     libelle: Revenu familial doublé (480 €) pour le troisième enfant mineur
     domaine: famille
@@ -1188,6 +1343,15 @@ mesures:
       explication: 'On retient la formule de la note de bas de page du livret (3 Md€), non le chiffre du texte (1,5
         Md€) qui n''est justifié nulle part. Montant nominal (RF non indexé dans le livret). Haut : 1,5 Md€ du texte.'
     confiance: moyenne
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret p. 13). Le livret annonce 1,5 Md€ mais sa note de bas de page calcule 8 M
+        familles × 17 % × 240 € × 12 × 14/18 = 3 Md€ : le chiffrage retient la formule (3,05 Md€), haut =
+        1,5 Md€. Contrôle arithmétique refait. Non projeté en 2032 (RF supposé non indexé), cohérent avec
+        bas = central.
   - id: condition-residence-5-ans-aides
     libelle: Aides non contributives (revenu familial, RSA, APL…) conditionnées à cinq ans de résidence régulière et d'activité pour les étrangers
     domaine: immigration
@@ -1241,6 +1405,13 @@ mesures:
           note: « une économie de 600 à 800 millions d'euros à terme », p. 12 ; milieu
       explication: Fourchette du livret (gains de gestion des CAF et de la MSA), nominale.
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret p. 12 : 600-800 M€). Gain de gestion du livret, non recoupé par une
+        source indépendante ; 0,7 Md€ nominal, plausible (plusieurs milliers d'ETP).
   - id: conge-naissance-six-mois
     libelle: Congé de naissance prolongé jusqu'aux six mois de l'enfant, indemnisé à 70 % du salaire dans la limite du plafond de la Sécurité sociale
     domaine: famille
@@ -1295,6 +1466,15 @@ mesures:
       explication: 'Formule du livret (0,63 Md€ ; le texte arrondit à 0,7), projetée en 2032 au PIB nominal (indemnité
         proportionnelle aux salaires). Bas : 0,7 Md€ × 1,2106 ; haut : non projeté.'
     confiance: moyenne
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret p. 18, notes de bas de page dans le texte). Formule du livret rejouée :
+        650 000 × 50 % × 1 200 € × 7/4,33 ≈ 0,63 Md€ (le texte arrondit à 0,7), projetée avec les salaires
+        ; le coût mensuel de 1 200 € paraît bas pour 70 % du salaire plafonné, ce que couvre le bas de
+        -0,85.
   - id: garde-enfants-cif-exoneration
     libelle: Suppression du plafond de 500 000 € du crédit d'impôt famille, plafond d'exonération de l'aide employeur à la garde porté de 2 421 à 7 000 €
     domaine: famille
@@ -1336,6 +1516,13 @@ mesures:
         des mères est un effet de second tour, non compté.'
     effets_retour: Le candidat invoque 200 M€ de retour par l'emploi de 40 000 mères (non compté).
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret p. 21 : 800 M€). Le bénéfice de 200 M€ lié au retour à l'emploi des mères
+        est un effet de second tour, correctement exclu ; le coût brut est projeté en 2032.
   - id: deduction-interets-emprunt-familles
     libelle: Réduction d'impôt sur les intérêts d'emprunt de la résidence principale pour les familles (50/75/100 % selon le nombre d'enfants, plafond 400 € + 400 € par enfant)
     domaine: logement
@@ -1427,6 +1614,18 @@ mesures:
         objectif de 450 000 logements par an du candidat. Haut : 0 si les communes épargnent la ressource.'
     effets_retour: 'Le candidat invoque les recettes de TVA de la reprise de la construction : second tour, non compté.'
     confiance: moyenne
+    verification:
+      statut: conteste
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret logement p. 17). Désaccord de fond : une fraction de TVA versée aux
+        communes est un transfert interne aux APU, neutre sur le solde consolidé (règle du chiffrage), sauf
+        dépense nouvelle. Le livret dit vouloir « compenser le financement des équipements » déjà
+        nécessaires, ce qui plaide pour un effet nul ; le central (-3,41 Md€ = 9 000 € × 379 222 logements,
+        100 % dépensé en plus) est le cas extrême, le haut 0 l'autre. Les deux lectures sont défendables ;
+        valeurs inchangées, à trancher au niveau de la méthode (traitement des transferts fléchés vers les
+        collectivités).
   - id: ptz-refonde-cdc
     libelle: PTZ recentré sur les primo-accédants, sans zonage, neuf et ancien, intérêts pris en charge par la Caisse des dépôts au lieu d'un crédit d'impôt
     domaine: logement
@@ -1488,6 +1687,13 @@ mesures:
           note: « intégralement redistribuées aux bailleurs vertueux »
       explication: 'Recette et dépense de même montant : effet nul sur le solde.'
     confiance: haute
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret p. 45 : 350 M€ redistribués). Recette et dépense de même montant : effet
+        net nul correct (le candidat cite ailleurs 1 Md€ d'exonération, sans effet sur le net).
   - id: fin-anru-apres-2030
     libelle: Pas de nouveau programme de rénovation urbaine après le NPNRU (2030)
     domaine: logement
@@ -1527,6 +1733,13 @@ mesures:
       explication: 'Aucun ANRU 3 n''est voté au 29 septembre 2026 : ne pas le lancer ne change rien au droit de référence
         (effet nul).'
     confiance: haute
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret p. 46). Aucun ANRU 3 n'est voté : ne pas le lancer coûte zéro au regard
+        du droit de référence ; correct.
   - id: apl-etudiants-etrangers-non-boursiers
     libelle: Application stricte de la suppression des APL pour les étudiants étrangers extra-européens non boursiers (LF 2026)
     domaine: logement
@@ -1578,6 +1791,13 @@ mesures:
           note: « 200 à 300 millions d'euros par an », p. 47 ; milieu
       explication: Fourchette du livret, nominale (barème des aides au logement peu indexé).
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret p. 47 : 200-300 M€). Estimation du livret, milieu retenu ; la demi-part
+        fiscale maintenue est déjà dans le droit de référence.
   - id: hebergement-urgence-regularite-sejour
     libelle: Hébergement d'urgence conditionné à la régularité du séjour, durée plafonnée à 18 mois
     domaine: immigration
@@ -1626,6 +1846,14 @@ mesures:
         en 2032 ; central à mi-chemin faute d''estimation des reports vers d''autres dispositifs. Bas : 0 (censure constitutionnelle
         ou reports intégraux).'
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret logement, art. L. 345-2-2 CASF ; la Cour des comptes est citée p. 44 pour
+        1 Md€ par an). Économie plafonnée au coût attribué aux irréguliers (1 Md€), central à 50 % faute de
+        données sur les reports, bas 0 (censure possible du principe d'inconditionnalité). Cohérent.
   - id: vente-pavillons-hlm
     libelle: Vente de 10 % des pavillons HLM (86 000) aux locataires avec décote de 20 %, fonds de mutualisation
     domaine: logement
@@ -1750,6 +1978,16 @@ mesures:
         du barème non_remplacement_un_sur_deux_etat). Éducation nationale exclue : pas de double compte avec les postes
         d''enseignants.'
     confiance: moyenne
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret IA p. 27 : 7,5 Md€ = 125 000 × 60 000 €). Pas de double compte avec les
+        enseignants (Éducation nationale exclue) ni avec les 250 000 postes de l'entretien (mêmes agents
+        comptés une fois). Réserve de barème : le coût d'entrée de 60 000 € inclut le CAS Pensions (82,28 %
+        du traitement), transfert interne aux APU qui ne réduit pas à court terme les pensions versées ;
+        l'économie nette réelle en 2032 serait plus proche de la masse salariale hors CAS.
   - id: ia-achats-publics
     libelle: Économies sur les achats publics par l'IA (environ 4 Md€ par an)
     domaine: etat
@@ -1764,7 +2002,7 @@ mesures:
     chiffrable: true
     nature: economie
     effet_solde_primaire:
-      central: 0.0
+      central: 4.0
       bas: 0.0
       haut: 4.0
       montee_en_charge:
@@ -1775,16 +2013,25 @@ mesures:
         '2031': 0.8
         '2032': 1
     calcul:
-      formule: 0*annonce
+      formule: annonce
       parametres:
         annonce:
           valeur: 4.0
           source: https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf
           unite: Md€/an
           note: « de l'ordre de 4 milliards d'euros sur les achats publics », p. 28
-      explication: 'Règle 6 : gain affiché sans mesure identifiée (« analyse numérique » de la commande publique) ;
-        central = 0, haut = annonce.'
+      explication: 'Règle 6 (économie ciblée sur un périmètre nommé) : les achats publics (commande publique de 170 Md€
+        par an) ; central = montant annoncé, soit 2,4 % du périmètre (sous le plafond), non projeté ; bas = 0 (économie non
+        réalisée) ; haut = central.'
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret IA p. 28). Corrigé selon la règle 6 révisée (économie ciblée sur un
+        périmètre nommé, ici la commande publique de 170 Md€) : central 0 -> 4,0 Md€ (2,4 % du périmètre),
+        bas 0, haut 4,0. Confiance faible : aucune mesure identifiée derrière l'annonce.
   - id: ia-lutte-fraude
     libelle: Lutte contre la fraude par l'IA et le datamining (3 à 4 Md€ par an, dont 1 Md€ DGFiP)
     domaine: etat
@@ -1801,9 +2048,9 @@ mesures:
     chiffrable: true
     nature: recette
     effet_solde_primaire:
-      central: 1.0
+      central: 2.66
       bas: 0.0
-      haut: 4.0
+      haut: 2.66
       montee_en_charge:
         '2027': 0
         '2028': 0.2
@@ -1812,22 +2059,32 @@ mesures:
         '2031': 0.8
         '2032': 1
     calcul:
-      formule: gain_dgfip
+      formule: annonce - fraude_deja_comptee_csu
       parametres:
-        gain_dgfip:
-          valeur: 1.0
-          source: https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf
-          unite: Md€/an
-          note: 'datamining de 56 % à 80 % des contrôles : « un gain de recettes de 1 milliard d''euros par an est crédible
-            », p. 27'
         annonce:
-          valeur: 4.0
+          valeur: 3.5
           source: https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf
           unite: Md€/an
-          note: « 3 à 4 milliards d'euros sur la fraude »
-      explication: Central = seul levier identifié (ciblage des contrôles fiscaux de la DGFiP), fraude fiscale uniquement
-        ; la fraude sociale est comptée dans le Compte social unique. Haut = annonce (règle 6).
+          note: « 3 à 4 milliards d'euros sur la fraude », p. 28 ; milieu de fourchette (dont 1 Md€ de recettes DGFiP jugé « crédible », p. 27)
+        fraude_deja_comptee_csu:
+          valeur: 0.84
+          source: chiffrage/programmes/retailleau-lr.yaml (compte-social-unique-plafond-70-smic)
+          unite: Md€/an
+          note: recouvrement de fraude sociale déjà compté dans la ligne du Compte social unique ; déduit pour éviter le double compte
+      explication: 'Règle 6 (économie ciblée sur un périmètre nommé : la fraude, gisement non détecté de l''ordre de 30 Md€) :
+        central = milieu de l''annonce (3,5 Md€), plafonné par le périmètre, net de 0,84 Md€ de fraude sociale déjà comptée
+        dans le Compte social unique ; bas = 0 ; haut = central. Le livret ne juge « crédible » que 1 Md€ (DGFiP) : confiance
+        faible.'
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret IA p. 28). Corrigé selon la règle 6 révisée (économie ciblée, périmètre :
+        fraude, gisement de l'ordre de 30 Md€) : central 1,0 -> 2,66 Md€ (milieu de 3-4 Md€ moins 0,84 Md€
+        de fraude sociale déjà comptée dans le Compte social unique), bas 0, haut = central. Le livret ne
+        juge « crédible » que 1 Md€ (DGFiP) : confiance faible.
   - id: programme-ia-cout
     libelle: Coût du programme IA de l'État (5 Md€ sur le quinquennat)
     domaine: etat
@@ -1862,6 +2119,13 @@ mesures:
           note: p. 28
       explication: 'Coût moyen annuel ; haut : coûts concentrés sur les premières années.'
     confiance: moyenne
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret IA p. 28 : 5 Md€ sur le quinquennat). Lissé à 1 Md€ par an ; coût brut,
+        non compensé par des économies IA, cohérent.
   - id: aide-publique-developpement-baisse
     libelle: Baisse de 10 % et recentrage de l'aide publique au développement (1,2 Md€)
     domaine: action-exterieure
@@ -1877,7 +2141,7 @@ mesures:
     nature: economie
     effet_solde_primaire:
       central: 1.2
-      bas: 1.2
+      bas: 0.0
       haut: 1.2
       montee_en_charge:
         '2027': 0
@@ -1894,8 +2158,18 @@ mesures:
           source: https://www.ifrap.org/comparateurs/presidentielles-2027
           unite: Md€/an
           note: '« Baisser de 10% … : 1,2 Md€ d''économies » (synthèse IFRAP)'
-      explication: Montant de la synthèse IFRAP, nominal ; source primaire non retrouvée.
+      explication: 'Montant de la synthèse IFRAP, nominal ; source primaire non retrouvée. Règle 6 (économie ciblée sur
+        un périmètre nommé) : central = montant annoncé (10 % de l''APD au sens CAD, environ 12 Md€), bas = 0 (économie
+        non réalisée), haut = central. Si le périmètre était la seule mission APD (3,7 Md€), 10 % ne vaudrait que 0,4 Md€.'
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée sur l'agrégateur IFRAP (source primaire non retrouvée). Corrigé selon la règle 6
+        révisée : bas 1,2 -> 0 (économie non réalisée), central et haut 1,2 Md€. Périmètre ambigu : 10 % de
+        l'APD au sens CAD (~12 Md€) vaut 1,2 Md€, 10 % de la seule mission APD (3,7 Md€) vaudrait 0,4 Md€.
   - id: ame-reduction
     libelle: Réduction du nombre de bénéficiaires et du panier de soins de l'AME (transformation en aide médicale d'urgence)
     domaine: sante
@@ -1938,6 +2212,14 @@ mesures:
         Central : moitié, l''ampleur de la réduction n''étant pas précisée et une partie des soins se reportant sur
         les urgences hospitalières (APU). Bas : 0.'
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée sur l'agrégateur IFRAP (source primaire non retrouvée). Barème ame_depense relu
+        (Sénat : 1 387 M€ en 2024 dont 132 M€ de soins urgents). Central = moitié de la dépense hors soins
+        urgents, faute d'ampleur annoncée ; report partiel sur les urgences hospitalières.
   - id: agences-dotations-baisse
     libelle: Baisse des dotations aux agences de l'État (dont rationalisation de l'ANSES)
     domaine: etat
@@ -2004,6 +2286,16 @@ mesures:
         Montants nominaux. Privé sous contrat (≈ 140 000 enseignants rémunérés par l''État) non inclus : le coût réel
         serait plus élevé.'
     confiance: moyenne
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret école p. 10). Calcul rejoué : 793 863 × 145 € × 12 / 0,8 × 1,8228 = 3,15
+        Md€. Le profil de carrière en tiers (+135, +300, 0) est une hypothèse du chiffrage, encadrée par
+        bas/haut ; enseignement privé sous contrat exclu (coût sous-estimé). Réserve de barème : le CAS
+        Pensions (82,28 %) pèse pour près de la moitié du coût par agent alors qu'il s'agit d'un transfert
+        interne aux APU.
   - id: postes-enseignants-demographie
     libelle: Réduction des moyens d'enseignement suivant la baisse démographique, à taux d'encadrement constant (plus de 3 Md€ libérés)
     domaine: education
@@ -2024,7 +2316,7 @@ mesures:
     nature: economie
     effet_solde_primaire:
       central: 3.0
-      bas: 3.0
+      bas: 0.0
       haut: 3.0
       montee_en_charge:
         '2027': 0
@@ -2041,10 +2333,21 @@ mesures:
           source: https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf
           unite: Md€/an en fin de quinquennat
           note: « libérer plus de 3 milliards d'euros par an », p. 10
-      explication: Montant du candidat (baisse de 1,7 million d'élèves en dix ans à taux d'encadrement constant) ; par
-        rapport au référentiel (droit voté, effectifs non réduits automatiquement), c'est une économie. Pas de double
-        compte avec les départs non remplacés (Éducation nationale exclue du livret IA).
+      explication: >-
+        Règle 6 (économie ciblée sur un périmètre nommé) : bas = 0 (les postes ne sont pas supprimés) ; haut = central.
+        Montant du candidat (baisse de 1,7 million d'élèves en dix ans à taux d'encadrement constant) ; par rapport au
+        référentiel (droit voté, effectifs non réduits automatiquement), c'est une économie. Pas de double compte avec
+        les départs non remplacés (Éducation nationale exclue du livret IA).
     confiance: moyenne
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (livret école p. 10 : plus de 3 Md€ en fin de quinquennat). Corrigé selon la
+        règle 6 révisée : bas 3,0 -> 0 (les postes ne sont pas supprimés), central et haut 3,0 Md€ (plafond
+        respecté : masse salariale enseignante ~60 Md€). Pas de double compte avec les départs non
+        remplacés.
 
   # --- Défense, justice -----------------------------------------------------------------------------
   - id: lpm-rallonge-50md
@@ -2090,6 +2393,18 @@ mesures:
       explication: 'Écart entre la version du Sénat (+50 Md€ sur 2026-2030) et la LPM de référence (+36 Md€) : +0,2
         point de PIB en 2030, maintenu en 2032. Haut : 0, aucun engagement présidentiel chiffré.'
     confiance: faible
+    verification:
+      statut: conteste
+      par: verificateur-sonnet
+      date: "2026-09-29"
+      commentaire: >-
+        Citation vérifiée (Public Sénat, 3 juin 2026), mais elle ne contient aucun engagement chiffré de
+        Retailleau : il dit seulement « nous financerons la nouvelle LPM ». Les 50 Md€ (14 Md€ de plus que
+        les 36 Md€ du gouvernement) sont la position de la majorité sénatoriale, que le vote du Sénat a
+        d'ailleurs fait tomber. Le central -7,2 Md€ (= bas) traite une position de groupe comme une
+        promesse présidentielle ; un central proche de 0 ou intermédiaire serait aussi défendable. Le
+        référentiel (LPM actualisée à +36 Md€, adoption définitive à confirmer) est plausible. Valeurs
+        inchangées.
   - id: etablissements-mineurs-violents
     libelle: Établissements spécifiques en internat pour mineurs violents dans chaque département
     domaine: justice
