@@ -109,14 +109,46 @@ mesures:
       Enveloppe non détaillée : règle 6 (central = part documentée par les mesures identifiables ci-dessous, sans
       double compte ; haut = 120 ; bas = 0). L'IFRAP la résume « uniquement par la baisse des dépenses et sans
       hausses d'impôts autres que celles annoncées en juillet 2025 ». ÉlyséeScope cite 80 Md€ (Figaro, mars 2026).
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.0
+      bas: 0.0
+      haut: 84.99
+      montee_en_charge:
+        '2027': 0
+        '2028': 0.2
+        '2029': 0.4
+        '2030': 0.6
+        '2031': 0.8
+        '2032': 1
+    calcul:
+      formule: 0*annonce
+      parametres:
+        annonce:
+          valeur: 120
+          source: https://contrepoints.org/flat-tax-aides-aux-entreprises-assurances-sociales-calendrier-des-reformes-bruno-retailleau-repond-a-nos-questions/
+          unite: Md€/an en 2032
+          note: « un plan d'économies de 120 milliards d'euros à l'horizon 2032 »
+        deja_compte:
+          valeur: 35.01
+          source: chiffrage/programmes/retailleau-lr.yaml
+          unite: Md€
+          note: 'somme des centraux des mesures d''économie de dépense chiffrées dans ce fichier : revenu-incitation-activite,
+            compte-social-unique-plafond-70-smic, chomage-regles-juin-2024, chomage-ruptures-conventionnelles, chomage-frontaliers,
+            chomage-alternance-hauts-revenus, retraites-age-63-taux-plein-65, revenu-familial-gains-gestion, apl-etudiants-d9-d10,
+            hebergement-urgence-regularite-sejour, non-remplacement-125000-departs, aide-publique-developpement-baisse,
+            ame-reduction, postes-enseignants-demographie'
+      explication: 'Règle 6 : central = 0, toutes les économies documentées étant déjà comptées dans leurs lignes (35.01
+        Md€) ; haut = annonce moins ces économies, soit l''écart d''affichage non documenté. Les 80 Md€ cités par ÉlyséeScope
+        (Figaro, mars 2026) sont inférieurs à l''annonce retenue.'
     chiffrages_tiers:
       - auteur: Fondation IFRAP (synthèse, pas de chiffrage propre)
         montant_md: 120
         url: https://www.ifrap.org/comparateurs/presidentielles-2027
         commentaire: >-
           « Redresser les finances publiques de 120 Md€ d'ici 2032 uniquement par la baisse des dépenses »
+    confiance: faible
   - id: regle-or-constitution
     libelle: Règle d'or budgétaire dans la Constitution (révision soumise à référendum dès 2027)
     domaine: institutions
@@ -143,15 +175,58 @@ mesures:
       date: 2026-01-07
       support: programme (livret « Le travail gagnant », p. 21)
     precision: precise
-    interpretation: >-
-      Seuil annuel 1 623 h (au lieu de 1 607 h). Le livret affirme un « impact neutre » (cotisations sur les 16 h
-      nouvellement travaillées) et chiffre à 4,3 Md€ la restitution aux entreprises sur les heures supplémentaires
-      existantes, 6,3 Md€ de « potentiel » ; Retailleau (IREF, avril 2026) parle de « 10 milliards d'euros sur les
-      heures supplémentaires » rendus aux entreprises. À chiffrer sur les heures supplémentaires existantes
-      (effet statique), l'effet volume étant un effet retour non compté.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
-    effets_retour: Le candidat invoque 2 % de PIB supplémentaire et l'autofinancement par les 16 heures nouvellement travaillées.
+    interpretation: 'Seuil annuel 1 623 h (au lieu de 1 607 h). Le livret affirme un « impact neutre » (cotisations
+      sur les 16 h nouvellement travaillées) et chiffre à 4,3 Md€ la restitution aux entreprises sur les heures supplémentaires
+      existantes, 6,3 Md€ de « potentiel » ; Retailleau (IREF, avril 2026) parle de « 10 milliards d''euros sur les
+      heures supplémentaires » rendus aux entreprises. À chiffrer sur les heures supplémentaires existantes (effet statique),
+      l''effet volume étant un effet retour non compté. Chiffrage : effet statique sur les heures existantes ; les 10
+      Md€ « de compétitivité » des 40 Md€ (IREF) correspondent à cette ligne, pas à une ligne supplémentaire.'
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: -4.78
+      bas: -12.11
+      haut: -4.2
+      montee_en_charge:
+        '2027': 0.25
+        '2028': 1
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: -(cout_hs_existantes - hs_exoneration_cout*part_salariale*part_heures_16h)*facteur
+      parametres:
+        cout_hs_existantes:
+          valeur: 4.3
+          source: https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf
+          unite: Md€/an (2025)
+          note: restitution aux entreprises sur les heures supplémentaires déjà réalisées, p. 21
+        hs_exoneration_cout:
+          valeur: 5.4
+          bareme: hs_exoneration_cout
+        part_salariale:
+          valeur: 0.425
+          source: https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Depenses-fiscales.pdf
+          unite: part
+          note: exonération de cotisations salariales 2 306 M€ / 5 428 M€ (Cour des comptes, NEB 2026)
+        part_heures_16h:
+          valeur: 0.154
+          source: https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf
+          unite: part
+          note: 16 heures entre 1 607 et 1 623 h sur 16 + 88 heures supplémentaires moyennes, p. 21
+        facteur:
+          valeur: 1.2106
+          unite: facteur PIB nominal 2025→2032
+          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
+      explication: 'Effet statique : exonération totale des cotisations patronales sur les heures supplémentaires existantes
+        au-delà de 1 623 h (4,3 Md€ selon le livret), moins la perte de l''exonération salariale sur les 16 heures entre
+        1 607 et 1 623 h qui cessent d''être des heures supplémentaires ; projeté en 2032 au PIB nominal. Bas : 10 Md€
+        « sur les heures supplémentaires » rendus aux entreprises (IREF, avril 2026) × 1,2106, si les heures nouvelles
+        se substituent à des heures qui auraient été faites. Haut : l''exonération d''IR des 16 heures disparaît aussi.'
+    effets_retour: Le candidat revendique un autofinancement (cotisations sur les 16 heures nouvellement travaillées)
+      et +2 % de PIB ; effet volume non compté.
+    confiance: faible
   - id: baisse-cotisations-patronales-non-contributives
     libelle: Baisse de 15 Md€ des cotisations patronales finançant des dépenses universelles (famille, santé, logement, transport)
     domaine: fiscalite
@@ -165,13 +240,48 @@ mesures:
       date: 2026-04-15
       support: entretien écrit
     precision: partielle
-    interpretation: >-
-      Le livret « Produire plus » (p. 20) indique « Plus de 25 milliards d'euros d'allègements porteront sur le coût
-      du travail, en combinant la mise en place du seuil « zéro cotisation » […] et une baisse directe des
-      cotisations patronales non contributives ». Lecture retenue : 15 Md€ de baisse directe, distincts des 10 Md€
-      du seuil zéro cotisation. Cotisations visées non précisées (famille, maladie, FNAL, versement mobilité).
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    interpretation: 'Le livret « Produire plus » (p. 20) indique « Plus de 25 milliards d''euros d''allègements porteront
+      sur le coût du travail, en combinant la mise en place du seuil « zéro cotisation » […] et une baisse directe des
+      cotisations patronales non contributives ». Lecture retenue : 15 Md€ de baisse directe, distincts des 10 Md€ du
+      seuil zéro cotisation. Cotisations visées non précisées (famille, maladie, FNAL, versement mobilité). Deux mesures
+      distinctes, pas le même argent : cette ligne est la moitié « entreprises » des 30 Md€ de Travail gagnant (« baisse
+      du coût du travail dès la première heure », « 15 milliards d''euros sur les 1 623 heures », bilan p. 38), identique
+      aux 15 Md€ de cotisations patronales des 40 Md€ (IREF) ; la ligne « restituer 15 Md€ de pouvoir d''achat » est
+      l''autre moitié, versée aux salariés (« environ 500 euros par an au niveau du salaire médian »). Les 10 Md€ «
+      sur les heures au-delà » sont la ligne du seuil zéro cotisation.'
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: -17.77
+      bas: -17.77
+      haut: -15.0
+      montee_en_charge:
+        '2027': 0.25
+        '2028': 1
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: -montant_annonce*facteur
+      parametres:
+        montant_annonce:
+          valeur: 15
+          source: https://contrepoints.org/flat-tax-aides-aux-entreprises-assurances-sociales-calendrier-des-reformes-bruno-retailleau-repond-a-nos-questions/
+          unite: Md€/an (2026)
+          note: « 15 milliards d'euros rendus par une réforme du financement de la protection sociale »
+        facteur:
+          valeur: 1.1846
+          unite: facteur PIB nominal 2026→2032
+          source: 'chiffrage/baremes.yaml : 1,2106 / 1,022 (croissance nominale 2026 ≈ 2,2 %, dérivation de dmtg_rendement)'
+      explication: 'Baisse de 15 Md€ de cotisations patronales (montant 2026, projeté en 2032 au PIB nominal, l''assiette
+        étant la masse salariale). Haut : montant nominal non indexé. Doubles comptes : les 40 Md€ « de compétitivité
+        » = 15 Md€ (cette ligne) + 10 Md€ (seuil zéro cotisation) + 15 Md€ (impôts de production, lignes C3S, CVAE,
+        forfait social, CFE) ; la moitié « entreprises » des 30 Md€ de Travail gagnant est cette même ligne, comptée
+        une seule fois.'
+    effets_retour: 'Hausse « mécanique » de 4 Md€ d''IS revendiquée par le candidat (hausse des bénéfices) : effet de
+      second tour, non compté.'
+    confiance: moyenne
   - id: restitution-pouvoir-achat-salaries
     libelle: Restitution de 15 Md€ de pouvoir d'achat aux salariés (environ 500 € par an au salaire médian)
     domaine: fiscalite
@@ -185,11 +295,40 @@ mesures:
       date: 2026-01-07
       support: programme (livret « Le travail gagnant », p. 16)
     precision: vague
-    interpretation: >-
-      Instrument non précisé (baisse de cotisations salariales, de CSG ?). Coût brut 15 Md€ ; la moitié
-      « entreprises » est la baisse de cotisations patronales ci-dessus (ne pas la compter deux fois).
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    interpretation: 'Instrument non précisé (baisse de cotisations salariales, de CSG ?). Coût brut 15 Md€ ; la moitié
+      « entreprises » est la baisse de cotisations patronales ci-dessus (ne pas la compter deux fois). Mesure distincte
+      de la baisse de cotisations patronales : c''est la moitié « salariés » des 30 Md€ (« pour moitié aux salariés,
+      sous forme de gains de pouvoir d''achat […] pour moitié aux entreprises »), soit environ 500 € par an au salaire
+      médian ; la moitié « entreprises » est la ligne de baisse des cotisations patronales. Aucun double compte ; le
+      livret finance les deux moitiés par les mêmes 30 Md€ d''économies, comptées dans leurs propres lignes.'
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: -17.77
+      bas: -17.77
+      haut: -15.0
+      montee_en_charge:
+        '2027': 0
+        '2028': 0.5
+        '2029': 0.75
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: -montant_annonce*facteur
+      parametres:
+        montant_annonce:
+          valeur: 15
+          source: https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf
+          unite: Md€/an
+          note: moitié salariale des « au moins 30 milliards d'euros », p. 16 et 36
+        facteur:
+          valeur: 1.1846
+          unite: facteur PIB nominal 2026→2032
+          source: 'chiffrage/baremes.yaml : 1,2106 / 1,022 (croissance nominale 2026 ≈ 2,2 %, dérivation de dmtg_rendement)'
+      explication: 'Restitution de 15 Md€ aux salariés (instrument non précisé : baisse de cotisations salariales ou
+        de CSG), projetée en 2032 au PIB nominal ; montée au rythme des économies annoncées. Haut : montant nominal.'
+    confiance: faible
   - id: revenu-incitation-activite
     libelle: Revenu d'incitation à l'activité (RIA) fusionnant RSA, prime d'activité et ASS
     domaine: protection-sociale
@@ -207,8 +346,35 @@ mesures:
       Taux de dégressivité 30 % du salaire, sortie à 1 833 € de revenus d'activité ; individualisé (ne dépend pas
       de la situation familiale). Gain revendiqué : 2,0 Md€ (tableau p. 35). Fusion à chiffrer par microsimulation
       (IPP/Ines) ou à défaut par comparaison des masses RSA + PA + ASS.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 2.42
+      bas: 0.0
+      haut: 2.42
+      montee_en_charge:
+        '2027': 0
+        '2028': 0
+        '2029': 0.5
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: gain_annonce*facteur
+      parametres:
+        gain_annonce:
+          valeur: 2.0
+          source: https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf
+          unite: Md€/an
+          note: « Revenu d'incitation à l'activité (RIA) 2,0 Md€ », tableau p. 35
+        facteur:
+          valeur: 1.2106
+          unite: facteur PIB nominal 2025→2032
+          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
+      explication: 'Faute de microsimulation publique du RIA (barème individualisé 300 + 250 €, dégressivité 30 %, sortie
+        à 1 833 €), on retient le gain affiché par le candidat, projeté en 2032. Bas : 0 (l''individualisation et le
+        cumul avec les prestations familiales peuvent rendre la réforme coûteuse).'
+    confiance: faible
   - id: compte-social-unique-plafond-70-smic
     libelle: Compte social unique et plafonnement du cumul des aides non contributives à 70 % du SMIC net par adulte, lutte contre la fraude
     domaine: protection-sociale
@@ -224,14 +390,48 @@ mesures:
       Gain revendiqué : « Compte social unique (CSU) et lutte contre la fraude 10,0 Md€ » (tableau p. 35), sans
       décomposition. Le plafond porte aussi sur des aides locales et en nature ; l'ajustement se fait par minoration
       du RSA/RIA. Chiffrer séparément le plafonnement (nombre de ménages au-dessus du plafond) et la fraude évitée.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.84
+      bas: 0.0
+      haut: 12.11
+      montee_en_charge:
+        '2027': 0
+        '2028': 0
+        '2029': 0.5
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: recouvrement_fraude_2024*facteur
+      parametres:
+        recouvrement_fraude_2024:
+          valeur: 0.68
+          source: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/HCFIPS/2026/HCFIPS%20-%20Synth%c3%a8se%20Fraude%20sociale%202025%20-%20Version%20finalis%c3%a9e.pdf
+          unite: Md€ (2024)
+          note: 'fraude sociale recouvrée en 2024 (HCFiPS) ; hypothèse : doublement par le registre national des versements'
+        annonce:
+          valeur: 10.0
+          source: https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf
+          unite: Md€/an
+          note: « Compte social unique (CSU) et lutte contre la fraude 10,0 Md€ »
+        facteur:
+          valeur: 1.2336
+          unite: facteur PIB nominal 2024→2032
+          source: chiffrage/baremes.yaml, dérivation de c3s_rendement et masse_salariale_apu (plan/hypotheses.yaml)
+      explication: 'Règle 6 : l''annonce (10 Md€) n''est pas décomposée. Central = gain documenté, doublement du recouvrement
+        de la fraude sociale (convention du barème fraude_sociale_estimee), projeté en 2032. Le plafonnement à 70 %
+        du Smic n''est pas chiffrable faute de distribution publique des cumuls d''aides (le cas-type du candidat est
+        contesté). Haut = annonce × 1,2106. La fraude sociale n''est comptée qu''ici (la ligne IA ne retient que la
+        fraude fiscale).'
     chiffrages_tiers:
       - auteur: Le Monde, Les Décodeurs (critique du cas-type, pas de chiffrage du gain)
         montant_md: null
         url: https://www.lemonde.fr/les-decodeurs/article/2026/01/08/1-7-fois-le-smic-sans-travailler-le-calcul-acrobatique-de-bruno-retailleau-pour-denoncer-l-assistanat_6661053_4355770.html
         date: 2026-01-08
         commentaire: Conteste le cas-type (1,7 SMIC) ; LR a répondu le 9 janvier 2026 (PDF en sources). Article non consulté (payant).
+    confiance: faible
   - id: chomage-regles-juin-2024
     libelle: Mise en œuvre des règles d'assurance chômage de juin 2024 (durée maximale 18 à 15 mois, contracyclicité) et fin d'indemnisation au troisième refus d'offre raisonnable
     domaine: travail
@@ -247,8 +447,34 @@ mesures:
       support: programme (livret « Le travail gagnant », p. 31-32)
     precision: precise
     interpretation: Référence au décret de juin 2024 (Attal), chiffré par l'Unédic à l'époque ; vérifier la législation au 1er janvier 2027 (convention 2025 et avenants) pour le référentiel.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 5.45
+      bas: 4.84
+      haut: 6.05
+      montee_en_charge:
+        '2027': 0
+        '2028': 0.6
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: gain_annonce*facteur
+      parametres:
+        gain_annonce:
+          valeur: 4.5
+          source: https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf
+          unite: Md€/an
+          note: « 4,0 à 5,0 Md€ », tableau p. 35 ; milieu de fourchette
+        facteur:
+          valeur: 1.2106
+          unite: facteur PIB nominal 2025→2032
+          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
+      explication: Fourchette du candidat (Unédic, dans le champ des APU), projetée en 2032 au PIB nominal (les allocations
+        suivent les salaires). Aucun chiffrage Unédic récent de ces paramètres n'a été relu.
+    confiance: faible
   - id: chomage-ruptures-conventionnelles
     libelle: Indemnisation chômage après rupture conventionnelle limitée à six mois et plafonnée
     domaine: travail
@@ -262,12 +488,48 @@ mesures:
       date: 2026-01-07
       support: programme (livret « Le travail gagnant », p. 32)
     precision: partielle
-    interpretation: >-
-      Le tableau p. 35 attribue 7,0 à 8,0 Md€ d'économies à cette mesure, soit la totalité du coût estimé des
-      ruptures conventionnelles alors que la mesure ne fait que réduire la durée : incohérence à relever. Plafond
-      non précisé.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    interpretation: 'Le tableau p. 35 attribue 7,0 à 8,0 Md€ d''économies à cette mesure, soit la totalité du coût estimé
+      des ruptures conventionnelles alors que la mesure ne fait que réduire la durée : incohérence à relever. Plafond
+      non précisé. Chiffrage : 7,5 × 5/11, pas 7 à 8 Md€ (incohérence du tableau du candidat corrigée).'
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 4.13
+      bas: 3.85
+      haut: 4.4
+      montee_en_charge:
+        '2027': 0
+        '2028': 0.6
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: cout_rc*(1 - duree_max/duree_moyenne)*facteur
+      parametres:
+        cout_rc:
+          valeur: 7.5
+          source: https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf
+          unite: Md€/an
+          note: « coût estimé entre 7 et 8 milliards d'euros », p. 32 ; milieu
+        duree_max:
+          valeur: 6
+          source: https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf
+          unite: mois
+          note: durée d'indemnisation limitée à six mois
+        duree_moyenne:
+          valeur: 11
+          source: https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf
+          unite: mois
+          note: « pendant une durée moyenne d'environ 11 mois », exemple p. 32
+        facteur:
+          valeur: 1.2106
+          unite: facteur PIB nominal 2025→2032
+          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
+      explication: 'Le tableau du candidat compte 7 à 8 Md€, soit tout le coût des ruptures conventionnelles, alors
+        que la mesure réduit seulement la durée : on retient la part au-delà de six mois (1 − 6/11), sans compter le
+        plafonnement (non précisé), projetée en 2032. Bas/haut : coût de 7 ou 8 Md€.'
+    confiance: faible
   - id: chomage-frontaliers
     libelle: Indemnisation chômage des travailleurs frontaliers calculée sur un salaire français équivalent
     domaine: travail
@@ -280,8 +542,34 @@ mesures:
       date: 2026-01-07
       support: programme (livret « Le travail gagnant », p. 33)
     precision: precise
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.73
+      bas: 0.61
+      haut: 0.85
+      montee_en_charge:
+        '2027': 0
+        '2028': 0.6
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: gain_annonce*facteur
+      parametres:
+        gain_annonce:
+          valeur: 0.6
+          source: https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf
+          unite: Md€/an
+          note: « 0,5 à 0,7 Md€ », tableau p. 35 ; milieu de fourchette
+        facteur:
+          valeur: 1.2106
+          unite: facteur PIB nominal 2025→2032
+          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
+      explication: Fourchette du candidat (Unédic, dans le champ des APU), projetée en 2032 au PIB nominal (les allocations
+        suivent les salaires). Aucun chiffrage Unédic récent de ces paramètres n'a été relu.
+    confiance: faible
   - id: chomage-alternance-hauts-revenus
     libelle: Plafonnement et dégressivité accélérée au-delà de 3 000 € nets, rechargement des droits porté à 9 ou 12 mois
     domaine: travail
@@ -295,8 +583,34 @@ mesures:
       support: programme (livret « Le travail gagnant », p. 33)
     precision: partielle
     interpretation: Gain revendiqué 1,0 à 2,0 Md€ (tableau p. 35). Plafond non précisé.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 1.82
+      bas: 1.21
+      haut: 2.42
+      montee_en_charge:
+        '2027': 0
+        '2028': 0.6
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: gain_annonce*facteur
+      parametres:
+        gain_annonce:
+          valeur: 1.5
+          source: https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf
+          unite: Md€/an
+          note: « 1,0 à 2,0 Md€ », tableau p. 35 ; milieu de fourchette
+        facteur:
+          valeur: 1.2106
+          unite: facteur PIB nominal 2025→2032
+          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
+      explication: Fourchette du candidat (Unédic, dans le champ des APU), projetée en 2032 au PIB nominal (les allocations
+        suivent les salaires). Aucun chiffrage Unédic récent de ces paramètres n'a été relu.
+    confiance: faible
   - id: hausse-mecanique-is
     libelle: >-
       « Hausse mécanique des recettes d'impôt sur les sociétés » (4 Md€) comptée comme gain par le candidat
@@ -312,7 +626,8 @@ mesures:
       traiter en phase 2 : soit retour direct à imputer sur la baisse de cotisations patronales (règle 3, si
       mécanique et documenté), soit effet retour non compté.
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: 'Effet de second tour (hausse des bénéfices après baisse du coût du travail) : non compté
+      (règle 3). Décrit dans les effets_retour de la baisse des cotisations patronales.'
   - id: seniors-exoneration-avant-age-legal
     libelle: Exonération totale de cotisations retraite et chômage pour les salariés ayant tous leurs trimestres avant l'âge légal
     domaine: retraites
@@ -327,7 +642,9 @@ mesures:
     precision: precise
     interpretation: Le livret affirme un impact « neutre, voire positif, dès lors qu'une part limitée de seniors (10 % supplémentaires) choisit de prolonger son activité » ; le coût statique sur les seniors déjà en emploi est à chiffrer.
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: Effectif des salariés ayant tous leurs trimestres avant l'âge légal, hors carrières longues
+      et pénibilité, non publié ; le coût statique (4 800 € employeur + 3 400 € salarié par personne au salaire médian)
+      ne peut être multiplié par une assiette sourcée. Barème à ajouter (voir besoins).
   - id: cumul-emploi-retraite-renove
     libelle: Cumul emploi-retraite rénové remplaçant la surcote (exonération de cotisations hors CSG-CRDS, pension minorée de 30 % du revenu d'activité)
     domaine: retraites
@@ -344,7 +661,9 @@ mesures:
     interpretation: >-
       Trois effets : perte de cotisations sur les cumulants actuels, économie sur la suppression de la surcote (flux futurs), économie sur la minoration de pension.
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: Effets de signes opposés (exonération des cotisations des cumulants, minoration des pensions
+      de 30 % du revenu d'activité, suppression de la surcote) sans données publiques suffisantes sur les revenus des
+      cumulants et les flux de surcote. Barèmes à ajouter (voir besoins).
   - id: temps-partiel-suppression-24h
     libelle: Suppression du minimum légal de 24 heures hebdomadaires pour le temps partiel, sauf accord collectif
     domaine: travail
@@ -379,8 +698,48 @@ mesures:
       (au lieu de 67 ans) sans condition de durée est un coût ; l'âge minimal 63 ans et la décote de 7 %/an sont des
       économies. Exceptions pénibilité à négocier. Paramètres (génération, calendrier, durée d'assurance) non
       précisés. Le 17 septembre 2026, il demandait aussi le « retour de la réforme des retraites » dans le PLF 2027.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 4.19
+      bas: -4.95
+      haut: 13.33
+      montee_en_charge:
+        '2027': 0
+        '2028': 0.2
+        '2029': 0.4
+        '2030': 0.6
+        '2031': 0.8
+        '2032': 1
+    calcul:
+      formule: (economie_cumulee/somme_profil - ecart_age*retraites_age_legal_1_an)/2
+      parametres:
+        economie_cumulee:
+          valeur: 40
+          source: https://www.franceinfo.fr/politique/bruno-retailleau/s-il-est-elu-bruno-retailleau-veut-instaurer-un-age-minimal-de-depart-a-la-retraite-a-63-ans-le-taux-plein-a-65_8205254.html
+          unite: Md€ cumulés sur cinq ans
+          note: « 40 milliards d'économies en cumulé sur cinq ans »
+        somme_profil:
+          valeur: 3.0
+          source: chiffrage/REFERENCE.md (droit voté au 29 septembre 2026)
+          unite: années pleines
+          note: somme de la montée en charge 0,2 + 0,4 + 0,6 + 0,8 + 1 sur 2028-2032
+        ecart_age:
+          valeur: 0.75
+          source: chiffrage/REFERENCE.md (droit voté au 29 septembre 2026)
+          unite: année
+          note: âge légal de référence en 2032 ≈ 63 ans 9 mois (gel à 62 ans 9 mois jusqu'en 2028 puis +3 mois par génération)
+            contre âge minimal de 63 ans
+        retraites_age_legal_1_an:
+          valeur: 6.6
+          bareme: retraites_age_legal_1_an
+      explication: 'Effets opposés, sans simulation COR/Cnav : l''âge minimal de 63 ans est plus bas que l''âge de référence
+        en 2032 (coût de 0,75 an × 6,6 Md€, borne basse si la décote de 7 %/an ne dissuade pas les départs) ; le taux
+        plein repoussé à 65 ans pour tous avec une décote de 7 %/an (au lieu de 5 %) produit des économies, mais le
+        taux plein automatique à 65 ans sans condition de durée (au lieu de 67 ans) coûte. Haut : l''annonce du candidat
+        (40 Md€ cumulés sur cinq ans, soit 13,3 Md€ en 2032 avec une montée linéaire). Central : milieu de la fourchette,
+        à remplacer par une simulation.'
+    confiance: faible
   - id: retraite-capitalisation
     libelle: Étage de retraite par capitalisation, compte d'épargne retraite pour chaque actif (25 à 30 % des retraites des jeunes)
     domaine: retraites
@@ -399,7 +758,9 @@ mesures:
       retraites des jeunes ». Si une part des cotisations de répartition est basculée, coût de transition majeur ;
       si volontaire et alimenté par l'épargne salariale, coût limité aux incitations fiscales. Lecture à arbitrer.
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: 'Modalités contradictoires ou non précisées : étage « volontaire » alimenté par l''épargne
+      salariale selon le livret (coût limité aux incitations fiscales, non précisées), « 25 à 30 % des retraites des
+      jeunes » à l''oral (bascule de cotisations au coût de transition non chiffrable sans paramètres).'
 
   # --- Produire plus (février 2026) -----------------------------------------------------------------
   - id: suppression-c3s
@@ -413,8 +774,38 @@ mesures:
       date: 2026-02
       support: programme (livret « Produire plus », p. 20)
     precision: precise
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: -4.81
+      bas: -6.41
+      haut: -4.81
+      montee_en_charge:
+        '2027': 0
+        '2028': 1
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: -c3s_rendement*facteur*(1 - taux_is)
+      parametres:
+        c3s_rendement:
+          valeur: 5.2
+          bareme: c3s_rendement
+        facteur:
+          valeur: 1.2336
+          unite: facteur PIB nominal 2024→2032
+          source: chiffrage/baremes.yaml, dérivation de c3s_rendement et masse_salariale_apu (plan/hypotheses.yaml)
+        taux_is:
+          valeur: 0.25
+          unite: taux normal d'IS
+          source: https://www.fipeco.fr/fiche/Limp%C3%B4t-sur-les-soci%C3%A9t%C3%A9s
+          note: 'déductibilité de l''impôt supprimé de l''assiette de l''IS : retour mécanique'
+      explication: 'Rendement de la C3S (2024) projeté en 2032 au PIB nominal, net du surcroît d''IS (la C3S est déductible
+        du résultat). Bas : sans retour d''IS. Première année pleine 2028 (C3S assise sur le chiffre d''affaires N-1,
+        payée en mai).'
+    confiance: haute
   - id: suppression-cvae
     libelle: Suppression définitive de la CVAE (4,3 Md€)
     domaine: fiscalite
@@ -427,8 +818,37 @@ mesures:
       support: programme (livret « Produire plus », p. 20)
     precision: precise
     interpretation: Vérifier le calendrier de suppression déjà voté (LF 2024-2026) pour le référentiel au 1er janvier 2027 ; ne chiffrer que l'accélération ou le reliquat.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: 0.0
+      bas: 0.0
+      haut: 0.0
+      montee_en_charge:
+        '2027': 0
+        '2028': 1
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+      annuel:
+        '2027': 0.0
+        '2028': -3.7
+        '2029': -3.7
+        '2030': 0.0
+        '2031': 0.0
+        '2032': 0.0
+    calcul:
+      formule: 0*cvae_restante
+      parametres:
+        cvae_restante:
+          valeur: 3.7
+          bareme: cvae_restante
+      explication: 'La suppression de la CVAE en 2030 est déjà votée (LFI 2026, REFERENCE.md) : effet nul en régime
+        de croisière 2032. L''avance de calendrier (loi de finances votée fin 2027) coûte la CVAE restante en 2028 et
+        2029, portée dans `annuel` à 3,7 Md€ par an (barème cvae_restante, 2025 ; majorant, les taux légaux baissant
+        avant 2030).'
+    confiance: haute
   - id: forfait-social-recentrage
     libelle: Forfait social maintenu à 20 % sur la seule participation légale, exonération de l'intéressement, de la participation supra-légale et de l'épargne retraite (2,8 Md€)
     domaine: fiscalite
@@ -444,8 +864,40 @@ mesures:
     interpretation: >-
       2,8 Md€ semble être le rendement total du forfait social, pas la seule part exonérée. La tribune du 2 mai 2026
       dit « supprimons le forfait social » : lecture retenue = version détaillée du livret.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: -2.54
+      bas: -3.39
+      haut: -2.1
+      montee_en_charge:
+        '2027': 0
+        '2028': 1
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: -montant_livret*facteur*(1 - taux_is)
+      parametres:
+        montant_livret:
+          valeur: 2.8
+          source: https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf
+          unite: Md€/an
+          note: « Forfait social (2,8 milliards d'euros) », p. 20, poids de la mesure dans les 15 Md€ d'impôts de production
+        facteur:
+          valeur: 1.2106
+          unite: facteur PIB nominal 2025→2032
+          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
+        taux_is:
+          valeur: 0.25
+          unite: taux normal d'IS
+          source: https://www.fipeco.fr/fiche/Limp%C3%B4t-sur-les-soci%C3%A9t%C3%A9s
+          note: 'déductibilité de l''impôt supprimé de l''assiette de l''IS : retour mécanique'
+      explication: 'Le livret affecte 2,8 Md€ à la mesure (la part de la participation légale, maintenue à 20 %, n''est
+        pas publiée) ; projeté en 2032, net du retour d''IS (le forfait social est déductible). Bas : sans retour d''IS
+        ; haut : montant non indexé. À affiner avec la ventilation Acoss du forfait social par assiette.'
+    confiance: faible
   - id: cfe-exoneration-industrielle
     libelle: Exonération de la part industrielle de la CFE (1,9 Md€)
     domaine: fiscalite
@@ -458,8 +910,39 @@ mesures:
       support: programme (livret « Produire plus », p. 20)
     precision: precise
     interpretation: Recette des collectivités ; compensation par l'État éventuelle, sans effet sur le solde APU consolidé.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: -1.72
+      bas: -2.3
+      haut: -1.43
+      montee_en_charge:
+        '2027': 0
+        '2028': 1
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: -montant_livret*facteur*(1 - taux_is)
+      parametres:
+        montant_livret:
+          valeur: 1.9
+          source: https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf
+          unite: Md€/an
+          note: « composante industrielle (1,9 milliard d'euros) », p. 20
+        facteur:
+          valeur: 1.2106
+          unite: facteur PIB nominal 2025→2032
+          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
+        taux_is:
+          valeur: 0.25
+          unite: taux normal d'IS
+          source: https://www.fipeco.fr/fiche/Limp%C3%B4t-sur-les-soci%C3%A9t%C3%A9s
+          note: 'déductibilité de l''impôt supprimé de l''assiette de l''IS : retour mécanique'
+      explication: 'Montant du livret projeté en 2032, net du retour d''IS (CFE déductible). Recette des collectivités
+        : coût pour les APU qu''elle soit compensée ou non. Bas : sans retour d''IS ; haut : non indexé.'
+    confiance: faible
   - id: fonds-france-production
     libelle: Fonds France Production de 600 M€ par an pour la modernisation de l'outil industriel, piloté par les régions
     domaine: industrie
@@ -472,8 +955,30 @@ mesures:
       support: programme (livret « Produire plus », p. 26)
     precision: precise
     interpretation: Cofinancé par l'État, les régions et les fonds européens ; « intégralement financé » sans précision (redéploiement ?). Seule la part hors fonds européens pèse sur le solde.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: depense
+    effet_solde_primaire:
+      central: -0.6
+      bas: -0.6
+      haut: 0.0
+      montee_en_charge:
+        '2027': 0
+        '2028': 1
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: -dotation
+      parametres:
+        dotation:
+          valeur: 0.6
+          source: https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf
+          unite: Md€/an
+          note: « doté de 600 millions d'euros par an », p. 26
+      explication: 'Dotation annuelle nominale (État et régions, toutes deux APU). Haut : 0 si « intégralement financé
+        » par redéploiement de crédits existants ou par des fonds européens, comme l''affirme le livret sans le détailler.'
+    confiance: moyenne
   - id: suramortissement-industriel
     libelle: Sur-amortissement fiscal de l'investissement industriel (et des plateaux techniques des lycées professionnels)
     domaine: fiscalite
@@ -487,7 +992,7 @@ mesures:
     precision: vague
     interpretation: Taux et assiette non précisés ; prendre comme référence le sur-amortissement Macron 2015-2017 (40 %) et son coût constaté.
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: 'Taux, assiette et durée non précisés : trop vague pour être chiffré.'
   - id: apprentissage-reorientation
     libelle: Réorientation des aides à l'apprentissage vers bac+2 et infra, aide de 6 000 € au pré-apprentissage des NEET
     domaine: travail
@@ -502,7 +1007,8 @@ mesures:
     precision: vague
     interpretation: Présenté comme redéploiement (« il ne s'agira pas fondamentalement de réduire l'apprentissage »). Effet net probablement une économie modérée ; à chiffrer par recentrage des aides à l'embauche du supérieur hors industrie.
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: Présenté comme un redéploiement à enveloppe constante (« il ne s'agira pas fondamentalement
+      de réduire l'apprentissage ») ; aucune cible de dépense ni effectif pour l'aide de 6 000 € aux NEET.
   - id: cir-sanctuarise
     libelle: Crédit d'impôt recherche sanctuarisé, contrôles renforcés
     domaine: fiscalite
@@ -533,7 +1039,9 @@ mesures:
       forfaitaire unique à la cession. Perte de recettes en trésorerie (DMTG sur titres hors Dutreil) ; l'effet
       définitif dépend des cessions futures.
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: 'Assiette non publiée : montant des droits de mutation acquittés sur les transmissions de
+      titres et d''entreprises hors pacte Dutreil. Effet de trésorerie (droits différés jusqu''à la cession) dont le
+      coût définitif dépend des cessions futures. Barème à ajouter (voir besoins).'
   - id: baisse-droits-succession
     libelle: Baisse des droits de succession « au maximum du possible » au cours du quinquennat
     domaine: fiscalite
@@ -547,7 +1055,7 @@ mesures:
     precision: vague
     interpretation: Ampleur non précisée. Chiffrable seulement en fourchette (0 à x % du produit des DMTG succession) ; peut être classée non chiffrable si rien de plus n'est publié.
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: 'Ampleur non précisée (« au maximum du possible ») : trop vague pour être chiffrée.'
   - id: choc-transmission-dons
     libelle: Choc de transmission pendant trois ans, dons exonérés jusqu'à 150 000 € (moins de 30 ans) et 100 000 € (moins de 40 ans)
     domaine: fiscalite
@@ -565,7 +1073,9 @@ mesures:
     interpretation: >-
       Mesure temporaire (3 ans) : effet de régime de croisière 2032 nul ou négatif (anticipation des transmissions), coût concentré sur 2027-2030. Le livret Logement ajoute un plafond d'âge du donateur (moins de 80 ans).
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: 'Mesure temporaire (trois ans) : effet nul ou légèrement négatif en régime de croisière 2032
+      (anticipation des successions) ; son coût transitoire 2028-2030 dépend du volume de dons supplémentaires, non
+      documenté.'
 
   # --- Famille (avril 2026) -------------------------------------------------------------------------
   - id: revenu-familial
@@ -584,14 +1094,47 @@ mesures:
       familial…) 41 Md€ contre 40,3 Md€ pour le RF (14 millions de mineurs × 240 € × 12). Liste exacte des 12
       dispositifs (ARS, bourses, réduction d'impôt pour enfant scolarisé, SFT, part enfants RSA/PA…) et chiffre
       effectif de mineurs éligibles (condition de 5 ans) à vérifier. PAJE, ASF, APL, AEEH conservées.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: mixte
+    effet_solde_primaire:
+      central: 0.85
+      bas: -1.63
+      haut: 3.33
+      montee_en_charge:
+        '2027': 0
+        '2028': 0
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: (dispositifs_supprimes - cout_rf)*facteur
+      parametres:
+        dispositifs_supprimes:
+          valeur: 41
+          source: https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf
+          unite: Md€/an
+          note: allocations familiales, majoration pour âge, complément familial, quotient familial…, p. 12
+        cout_rf:
+          valeur: 40.3
+          source: https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf
+          unite: Md€/an
+          note: 14 millions de mineurs × 240 € × 12, p. 12
+        facteur:
+          valeur: 1.2106
+          unite: facteur PIB nominal 2025→2032
+          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
+      explication: 'Réforme présentée « à budget constant » : on reprend les deux masses du livret (gain net 0,7 Md€),
+        projetées en 2032 à indexation identique. Fourchette : ± 5 % sur la masse des dispositifs supprimés (le quotient
+        familial et les bourses ne sont pas ventilés dans le livret ; les allocations familiales seules pèsent 13,8
+        Md€, barème allocations_familiales_depense). La condition de cinq ans est traitée à part (non chiffrable).'
     chiffrages_tiers:
       - auteur: Fondation IFRAP (reprise des chiffres LR)
         montant_md: null
         url: https://www.ifrap.org/comparateurs/presidentielles-2027
         commentaire: >-
           « Economies : 600 à 800M€ à terme » ; « proposition qui réduit de 25Md€ les prestations » ; pas de chiffrage propre.
+    confiance: faible
   - id: revenu-familial-troisieme-enfant
     libelle: Revenu familial doublé (480 €) pour le troisième enfant mineur
     domaine: famille
@@ -603,12 +1146,48 @@ mesures:
       date: 2026-04
       support: programme (livret Famille, p. 13)
     precision: precise
-    interpretation: >-
-      Incohérence interne : la note de bas de page du livret calcule « 8 millions de familles x 17 % x 240 euros x 12
-      mois x 14 ans / 18 ans = 3 milliards d'euros ». Retenir la formule, pas le chiffre de 1,5 Md€ sans
-      justification.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    interpretation: 'Incohérence interne : la note de bas de page du livret calcule « 8 millions de familles x 17 %
+      x 240 euros x 12 mois x 14 ans / 18 ans = 3 milliards d''euros ». Retenir la formule, pas le chiffre de 1,5 Md€
+      sans justification. Chiffrage : 3,05 Md€ (formule du candidat) et non 1,5 Md€.'
+    chiffrable: true
+    nature: depense
+    effet_solde_primaire:
+      central: -3.05
+      bas: -3.05
+      haut: -1.5
+      montee_en_charge:
+        '2027': 0
+        '2028': 0
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: -familles*part_nombreuses*montant*12*age_moyen/18/1e9
+      parametres:
+        familles:
+          valeur: 8000000.0
+          source: https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf
+          unite: familles
+          note: note de bas de page p. 13
+        part_nombreuses:
+          valeur: 0.17
+          source: https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf
+          unite: part
+          note: 17 % de familles nombreuses
+        montant:
+          valeur: 240
+          source: https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf
+          unite: €/mois
+          note: bonification du RF pour le troisième enfant
+        age_moyen:
+          valeur: 14
+          source: https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf
+          unite: années
+          note: écart d'âges limité à 14 ans, note p. 13
+      explication: 'On retient la formule de la note de bas de page du livret (3 Md€), non le chiffre du texte (1,5
+        Md€) qui n''est justifié nulle part. Montant nominal (RF non indexé dans le livret). Haut : 1,5 Md€ du texte.'
+    confiance: moyenne
   - id: condition-residence-5-ans-aides
     libelle: Aides non contributives (revenu familial, RSA, APL…) conditionnées à cinq ans de résidence régulière et d'activité pour les étrangers
     domaine: immigration
@@ -624,7 +1203,9 @@ mesures:
     precision: partielle
     interpretation: Le livret Famille applique la même condition au revenu familial. Périmètre des aides à préciser ; risque constitutionnel non pris en compte dans le chiffrage.
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: Pas de donnée publique sur les allocataires étrangers résidant depuis moins de cinq ans par
+      prestation ; périmètre des aides et condition d'activité (appliquée à tous les parents ?) ambigus ; risque constitutionnel.
+      Barème à ajouter.
   - id: revenu-familial-gains-gestion
     libelle: Gestion du revenu familial par la DGFiP, gains de gestion dans les CAF et la MSA
     domaine: famille
@@ -637,8 +1218,29 @@ mesures:
       date: 2026-04
       support: programme (livret Famille, p. 12)
     precision: partielle
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.7
+      bas: 0.6
+      haut: 0.8
+      montee_en_charge:
+        '2027': 0
+        '2028': 0
+        '2029': 0.5
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: gain
+      parametres:
+        gain:
+          valeur: 0.7
+          source: https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf
+          unite: Md€/an
+          note: « une économie de 600 à 800 millions d'euros à terme », p. 12 ; milieu
+      explication: Fourchette du livret (gains de gestion des CAF et de la MSA), nominale.
+    confiance: faible
   - id: conge-naissance-six-mois
     libelle: Congé de naissance prolongé jusqu'aux six mois de l'enfant, indemnisé à 70 % du salaire dans la limite du plafond de la Sécurité sociale
     domaine: famille
@@ -651,8 +1253,48 @@ mesures:
       date: 2026-04
       support: programme (livret Famille, p. 18)
     precision: precise
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: depense
+    effet_solde_primaire:
+      central: -0.76
+      bas: -0.85
+      haut: -0.63
+      montee_en_charge:
+        '2027': 0
+        '2028': 1
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: -naissances*taux_recours*cout_mensuel*semaines/4.33*facteur/1e9
+      parametres:
+        naissances:
+          valeur: 650000
+          source: https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf
+          unite: naissances/an
+        taux_recours:
+          valeur: 0.5
+          source: https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf
+          unite: part
+          note: « environ la moitié »
+        cout_mensuel:
+          valeur: 1200
+          source: https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf
+          unite: €/mois
+          note: coût moyen, p. 18
+        semaines:
+          valeur: 7
+          source: https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf
+          unite: semaines
+          note: prolongation jusqu'à 26 semaines
+        facteur:
+          valeur: 1.2106
+          unite: facteur PIB nominal 2025→2032
+          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
+      explication: 'Formule du livret (0,63 Md€ ; le texte arrondit à 0,7), projetée en 2032 au PIB nominal (indemnité
+        proportionnelle aux salaires). Bas : 0,7 Md€ × 1,2106 ; haut : non projeté.'
+    confiance: moyenne
   - id: garde-enfants-cif-exoneration
     libelle: Suppression du plafond de 500 000 € du crédit d'impôt famille, plafond d'exonération de l'aide employeur à la garde porté de 2 421 à 7 000 €
     domaine: famille
@@ -665,9 +1307,35 @@ mesures:
       date: 2026-04
       support: programme (livret Famille, p. 21)
     precision: precise
+    chiffrable: true
+    nature: baisse_recette
+    effet_solde_primaire:
+      central: -0.97
+      bas: -0.97
+      haut: -0.8
+      montee_en_charge:
+        '2027': 0
+        '2028': 1
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: -cout*facteur
+      parametres:
+        cout:
+          valeur: 0.8
+          source: https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf
+          unite: Md€/an
+          note: « coût total de ces deux mesures est estimé à 800 millions d'euros », p. 21
+        facteur:
+          valeur: 1.2106
+          unite: facteur PIB nominal 2025→2032
+          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
+      explication: 'Estimation du livret projetée en 2032 ; haut : non projetée. Le retour de 0,2 Md€ par l''emploi
+        des mères est un effet de second tour, non compté.'
     effets_retour: Le candidat invoque 200 M€ de retour par l'emploi de 40 000 mères (non compté).
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    confiance: faible
   - id: deduction-interets-emprunt-familles
     libelle: Réduction d'impôt sur les intérêts d'emprunt de la résidence principale pour les familles (50/75/100 % selon le nombre d'enfants, plafond 400 € + 400 € par enfant)
     domaine: logement
@@ -684,7 +1352,8 @@ mesures:
     interpretation: >-
       Stock ou flux ? Le texte vise « les ménages qui achètent » : lecture retenue = tous les emprunts en cours pour la résidence principale des foyers avec enfants mineurs (fourchette haute) ou nouveaux emprunts seulement (basse). Référence : crédit d'impôt TEPA 2007-2010.
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: Nombre de foyers avec enfants mineurs remboursant un prêt pour leur résidence principale
+      et intérêts payés non publiés à ce niveau ; stock ou flux de prêts non précisé. Barème à ajouter (voir besoins).
 
   # --- Logement (mai 2026) --------------------------------------------------------------------------
   - id: statut-bailleur-prive
@@ -704,7 +1373,10 @@ mesures:
       à chiffrer sur les revenus fonciers et l'option PFU. Vérifier le statut adopté en LF 2026 éventuel pour le
       référentiel.
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: 'Coût statique non documenté : valeur du bâti donné en location et revenus fonciers et BIC
+      meublés par régime ne sont pas publiés sous une forme permettant d''appliquer un amortissement de 4 % ; le gain
+      net de 1,9 Md€ revendiqué repose sur des recettes induites (second tour). Vérifier aussi le dispositif d''amortissement
+      voté en LFI 2026.'
     effets_retour: >-
       Candidat : gain net de 1,9 Md€ par les recettes induites de 70 000 logements supplémentaires par an.
   - id: tva-communes-logement-neuf
@@ -723,8 +1395,38 @@ mesures:
       Transfert État vers communes : neutre sur le solde APU si les communes dépensent autant qu'avant ; coût pour
       l'État = 9 000 € × logements neufs (environ 250 000 à 450 000). Lecture retenue en phase 2 à arbitrer (effet sur
       le solde APU consolidé si les communes dépensent la recette).
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: depense
+    effet_solde_primaire:
+      central: -3.41
+      bas: -4.05
+      haut: 0.0
+      montee_en_charge:
+        '2027': 0
+        '2028': 1
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: -dotation_par_logement*logements/1e9
+      parametres:
+        dotation_par_logement:
+          valeur: 9000
+          source: https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf
+          unite: €/logement neuf
+          note: p. 17
+        logements:
+          valeur: 379222
+          source: https://www.statistiques.developpement-durable.gouv.fr/construction-de-logements-resultats-fin-decembre-2025-france-entiere
+          unite: logements autorisés en 2025
+          note: SDES, Sitadel
+      explication: 'Fraction de TVA transférée de l''État aux communes : neutre pour les APU consolidées seulement si
+        les communes n''augmentent pas leurs dépenses ; l''objet de la mesure est de financer des équipements, d''où
+        un coût central égal au transfert sur la base des logements autorisés en 2025 (nominal, montant fixe). Bas :
+        objectif de 450 000 logements par an du candidat. Haut : 0 si les communes épargnent la ressource.'
+    effets_retour: 'Le candidat invoque les recettes de TVA de la reprise de la construction : second tour, non compté.'
+    confiance: moyenne
   - id: ptz-refonde-cdc
     libelle: PTZ recentré sur les primo-accédants, sans zonage, neuf et ancien, intérêts pris en charge par la Caisse des dépôts au lieu d'un crédit d'impôt
     domaine: logement
@@ -741,7 +1443,9 @@ mesures:
     interpretation: >-
       Économie pour l'État (crédit d'impôt PTZ) si la CDC (hors APU) porte le coût ; mais l'extension à l'ancien et la suppression du zonage augmentent le volume. La CDC reverse une partie de ses résultats à l'État : effet indirect.
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: Coût actuel du PTZ par génération et volume de prêts dans l'ancien hors zonage non disponibles
+      ; la prise en charge par la Caisse des dépôts (hors APU) réduit la dépense de l'État mais aussi ses versements
+      à l'État. Barème à ajouter.
   - id: suppression-exoneration-is-hlm
     libelle: Suppression progressive sur cinq ans de l'exonération d'IS des organismes HLM (350 M€), redistribuée en aides à la pierre
     domaine: logement
@@ -756,8 +1460,34 @@ mesures:
     precision: precise
     interpretation: >-
       Recette et dépense de même montant : effet net nul sur le solde. Retailleau cite ailleurs « le milliard d'exonération d'IS pour les sociétés d'HLM » (IREF, avril 2026).
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: mixte
+    effet_solde_primaire:
+      central: 0.0
+      bas: 0.0
+      haut: 0.0
+      montee_en_charge:
+        '2027': 0
+        '2028': 0.2
+        '2029': 0.4
+        '2030': 0.6
+        '2031': 0.8
+        '2032': 1
+    calcul:
+      formule: recette_is - redistribution_fnap
+      parametres:
+        recette_is:
+          valeur: 0.35
+          source: https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf
+          unite: Md€/an
+          note: exonération d'IS des HLM, p. 45
+        redistribution_fnap:
+          valeur: 0.35
+          source: https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf
+          unite: Md€/an
+          note: « intégralement redistribuées aux bailleurs vertueux »
+      explication: 'Recette et dépense de même montant : effet nul sur le solde.'
+    confiance: haute
   - id: fin-anru-apres-2030
     libelle: Pas de nouveau programme de rénovation urbaine après le NPNRU (2030)
     domaine: logement
@@ -773,8 +1503,30 @@ mesures:
     precision: precise
     interpretation: >-
       Référentiel : aucun ANRU 3 n'est voté au 1er janvier 2027, l'économie par rapport à la législation est donc discutable (économie par rapport à une reconduction tendancielle). Action Logement hors champ si non classé en APU.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.0
+      bas: 0.0
+      haut: 0.0
+      montee_en_charge:
+        '2027': 0
+        '2028': 1
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: 0*economie_etat
+      parametres:
+        economie_etat:
+          valeur: 0.125
+          source: https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf
+          unite: Md€/an
+          note: « 100 à 150 millions d'euros par an », p. 46
+      explication: 'Aucun ANRU 3 n''est voté au 29 septembre 2026 : ne pas le lancer ne change rien au droit de référence
+        (effet nul).'
+    confiance: haute
   - id: apl-etudiants-etrangers-non-boursiers
     libelle: Application stricte de la suppression des APL pour les étudiants étrangers extra-européens non boursiers (LF 2026)
     domaine: logement
@@ -803,8 +1555,29 @@ mesures:
       date: 2026-05
       support: programme (livret Logement, p. 47)
     precision: precise
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.25
+      bas: 0.2
+      haut: 0.3
+      montee_en_charge:
+        '2027': 0
+        '2028': 1
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: economie
+      parametres:
+        economie:
+          valeur: 0.25
+          source: https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf
+          unite: Md€/an
+          note: « 200 à 300 millions d'euros par an », p. 47 ; milieu
+      explication: Fourchette du livret, nominale (barème des aides au logement peu indexé).
+    confiance: faible
   - id: hebergement-urgence-regularite-sejour
     libelle: Hébergement d'urgence conditionné à la régularité du séjour, durée plafonnée à 18 mois
     domaine: immigration
@@ -818,8 +1591,41 @@ mesures:
     precision: precise
     interpretation: >-
       Le livret cite la Cour des comptes (40 à 60 % des places occupées par des étrangers en situation irrégulière, environ 1 Md€ par an). Économie partielle : une part des personnes relèvera d'autres dispositifs (rétention, CRA, éloignement).
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.62
+      bas: 0.0
+      haut: 1.23
+      montee_en_charge:
+        '2027': 0
+        '2028': 1
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: part_retenue*cout_irreguliers*facteur
+      parametres:
+        cout_irreguliers:
+          valeur: 1.0
+          source: https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf
+          unite: Md€/an
+          note: 'Cour des comptes citée p. 44 : « pour un coût annuel d''un milliard d''euros »'
+        part_retenue:
+          valeur: 0.5
+          source: https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf
+          unite: part
+          note: 'milieu entre 0 et 1 : une partie des personnes est prise en charge ailleurs (rétention, éloignement,
+            urgences)'
+        facteur:
+          valeur: 1.2336
+          unite: facteur PIB nominal 2024→2032
+          source: chiffrage/baremes.yaml, dérivation de c3s_rendement et masse_salariale_apu (plan/hypotheses.yaml)
+      explication: 'Économie plafonnée au coût attribué aux étrangers en situation irrégulière (1 Md€, 2024), projeté
+        en 2032 ; central à mi-chemin faute d''estimation des reports vers d''autres dispositifs. Bas : 0 (censure constitutionnelle
+        ou reports intégraux).'
+    confiance: faible
   - id: vente-pavillons-hlm
     libelle: Vente de 10 % des pavillons HLM (86 000) aux locataires avec décote de 20 %, fonds de mutualisation
     domaine: logement
@@ -834,7 +1640,8 @@ mesures:
     precision: vague
     interpretation: Les bailleurs HLM sont hors APU ; seul un abondement public du fonds de mutualisation pèserait sur le solde (non précisé). Probablement non significatif.
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: Organismes HLM hors APU ; seul un abondement public du fonds de mutualisation pèserait sur
+      le solde, non précisé et vraisemblablement inférieur à 0,1 Md€.
   - id: fin-dpe-zan-encadrement
     libelle: Fin des interdictions de louer liées au DPE, suppression du ZAN et de l'encadrement des loyers
     domaine: logement
@@ -868,7 +1675,9 @@ mesures:
       projets non encore engagés au 1er janvier 2027, par rapport à la PPE 3. Fortement dépendante des prix de
       marché ; le raccordement relève des réseaux (hors APU).
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: Dépend des volumes des appels d'offres futurs et des prix de marché de l'électricité ; aucune
+      projection publique des charges de service public pour les seuls contrats 2028-2032 n'a été relue. Barème à ajouter
+      (CRE).
   - id: electricite-hors-cee-contrat-nucleaire
     libelle: Sortie de l'électricité des CEE, contrat de long terme EDF-fournisseurs (30 TWh), réacteurs à 80 ans, 8 EPR2 supplémentaires
     domaine: energie
@@ -903,8 +1712,44 @@ mesures:
       pas tous les fonctionnaires qui partiront à la retraite. Il y a une économie à faire d'à peu près 250 000
       postes » ; l'IFRAP résume « 250 000 à 300 000 postes ». Le livret précise que 125 000 sont redéployés sans
       économie : retenir 125 000 en central, 250 000 en haut.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 8.88
+      bas: 4.44
+      haut: 8.88
+      montee_en_charge:
+        '2027': 0
+        '2028': 0.2
+        '2029': 0.4
+        '2030': 0.6
+        '2031': 0.8
+        '2032': 1
+    calcul:
+      formule: departs_non_remplaces*cout_entree*facteur/1e9
+      parametres:
+        departs_non_remplaces:
+          valeur: 125000
+          source: https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf
+          unite: agents
+          note: p. 27
+        cout_entree:
+          valeur: 60000
+          source: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
+          unite: € par emploi et par an (2026)
+          note: coût d'entrée complet d'un agent (CAS Pensions compris), dérivation des barèmes cout_enseignant_charge
+            et non_remplacement_un_sur_deux_etat
+        facteur:
+          valeur: 1.1846
+          unite: facteur PIB nominal 2026→2032
+          source: 'chiffrage/baremes.yaml : 1,2106 / 1,022 (croissance nominale 2026 ≈ 2,2 %, dérivation de dmtg_rendement)'
+      explication: '125 000 départs non remplacés d''ici 2032 × coût d''entrée complet, projeté en 2032 (7,5 Md€ en
+        euros 2026, comme le candidat). Les 125 000 agents « remis sur le terrain » ne produisent aucune économie (livret).
+        L''entretien du 1er juillet 2026 (« à peu près 250 000 postes ») et l''IFRAP (250 000 à 300 000) comptent les
+        deux moitiés : pas de ligne supplémentaire. Bas : moitié rétrocédée en mesures catégorielles (convention RGPP
+        du barème non_remplacement_un_sur_deux_etat). Éducation nationale exclue : pas de double compte avec les postes
+        d''enseignants.'
+    confiance: moyenne
   - id: ia-achats-publics
     libelle: Économies sur les achats publics par l'IA (environ 4 Md€ par an)
     domaine: etat
@@ -916,8 +1761,30 @@ mesures:
       date: 2026-07
       support: programme (livret IA, p. 28)
     precision: partielle
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.0
+      bas: 0.0
+      haut: 4.0
+      montee_en_charge:
+        '2027': 0
+        '2028': 0.2
+        '2029': 0.4
+        '2030': 0.6
+        '2031': 0.8
+        '2032': 1
+    calcul:
+      formule: 0*annonce
+      parametres:
+        annonce:
+          valeur: 4.0
+          source: https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf
+          unite: Md€/an
+          note: « de l'ordre de 4 milliards d'euros sur les achats publics », p. 28
+      explication: 'Règle 6 : gain affiché sans mesure identifiée (« analyse numérique » de la commande publique) ;
+        central = 0, haut = annonce.'
+    confiance: faible
   - id: ia-lutte-fraude
     libelle: Lutte contre la fraude par l'IA et le datamining (3 à 4 Md€ par an, dont 1 Md€ DGFiP)
     domaine: etat
@@ -931,8 +1798,36 @@ mesures:
       support: programme (livret IA, p. 28)
     precision: partielle
     interpretation: Recouvrement possible avec les 10 Md€ « CSU et lutte contre la fraude » du livret Travail gagnant ; à dédoublonner.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: recette
+    effet_solde_primaire:
+      central: 1.0
+      bas: 0.0
+      haut: 4.0
+      montee_en_charge:
+        '2027': 0
+        '2028': 0.2
+        '2029': 0.4
+        '2030': 0.6
+        '2031': 0.8
+        '2032': 1
+    calcul:
+      formule: gain_dgfip
+      parametres:
+        gain_dgfip:
+          valeur: 1.0
+          source: https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf
+          unite: Md€/an
+          note: 'datamining de 56 % à 80 % des contrôles : « un gain de recettes de 1 milliard d''euros par an est crédible
+            », p. 27'
+        annonce:
+          valeur: 4.0
+          source: https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf
+          unite: Md€/an
+          note: « 3 à 4 milliards d'euros sur la fraude »
+      explication: Central = seul levier identifié (ciblage des contrôles fiscaux de la DGFiP), fraude fiscale uniquement
+        ; la fraude sociale est comptée dans le Compte social unique. Haut = annonce (règle 6).
+    confiance: faible
   - id: programme-ia-cout
     libelle: Coût du programme IA de l'État (5 Md€ sur le quinquennat)
     domaine: etat
@@ -944,8 +1839,29 @@ mesures:
       date: 2026-07
       support: programme (livret IA, p. 28)
     precision: precise
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: depense
+    effet_solde_primaire:
+      central: -1.0
+      bas: -1.0
+      haut: -0.5
+      montee_en_charge:
+        '2027': 0
+        '2028': 0.2
+        '2029': 0.4
+        '2030': 0.6
+        '2031': 0.8
+        '2032': 1
+    calcul:
+      formule: -cout_quinquennat/5
+      parametres:
+        cout_quinquennat:
+          valeur: 5.0
+          source: https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf
+          unite: Md€ sur cinq ans
+          note: p. 28
+      explication: 'Coût moyen annuel ; haut : coûts concentrés sur les premières années.'
+    confiance: moyenne
   - id: aide-publique-developpement-baisse
     libelle: Baisse de 10 % et recentrage de l'aide publique au développement (1,2 Md€)
     domaine: action-exterieure
@@ -957,8 +1873,29 @@ mesures:
       support: synthèse tierce (IFRAP) ; source primaire non retrouvée
     precision: partielle
     interpretation: 10 % de l'APD au sens CAD (environ 12 Md€) ou des crédits de la mission APD (environ 3,7 Md€ en 2026) ? Le chiffre de 1,2 Md€ suggère l'APD au sens CAD.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 1.2
+      bas: 1.2
+      haut: 1.2
+      montee_en_charge:
+        '2027': 0
+        '2028': 1
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: economie
+      parametres:
+        economie:
+          valeur: 1.2
+          source: https://www.ifrap.org/comparateurs/presidentielles-2027
+          unite: Md€/an
+          note: '« Baisser de 10% … : 1,2 Md€ d''économies » (synthèse IFRAP)'
+      explication: Montant de la synthèse IFRAP, nominal ; source primaire non retrouvée.
+    confiance: faible
   - id: ame-reduction
     libelle: Réduction du nombre de bénéficiaires et du panier de soins de l'AME (transformation en aide médicale d'urgence)
     domaine: sante
@@ -969,8 +1906,38 @@ mesures:
       support: synthèse tierce (IFRAP) ; source primaire 2027 non retrouvée
     precision: vague
     interpretation: Position constante de Retailleau (« transformer en aide médicale d'urgence », loi immigration 2023). Chiffrer sur la base AME d'environ 1,2 Md€ et du rapport Évin-Stefanini (2023).
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 0.78
+      bas: 0.0
+      haut: 1.55
+      montee_en_charge:
+        '2027': 0
+        '2028': 1
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: (ame_depense - soins_urgents)*facteur/2
+      parametres:
+        ame_depense:
+          valeur: 1.39
+          bareme: ame_depense
+        soins_urgents:
+          valeur: 0.132
+          source: https://www.senat.fr/rap/l25-139-327/l25-139-327.html
+          unite: Md€ (2024)
+          note: soins urgents, maintenus (dérivation du barème ame_depense)
+        facteur:
+          valeur: 1.2336
+          unite: facteur PIB nominal 2024→2032
+          source: chiffrage/baremes.yaml, dérivation de c3s_rendement et masse_salariale_apu (plan/hypotheses.yaml)
+      explication: 'Haut : AME de droit commun supprimée (transformation en aide médicale d''urgence), projetée en 2032.
+        Central : moitié, l''ampleur de la réduction n''étant pas précisée et une partie des soins se reportant sur
+        les urgences hospitalières (APU). Bas : 0.'
+    confiance: faible
   - id: agences-dotations-baisse
     libelle: Baisse des dotations aux agences de l'État (dont rationalisation de l'ANSES)
     domaine: etat
@@ -982,7 +1949,7 @@ mesures:
     precision: vague
     interpretation: Le livret Agriculture annonce seulement une « rationalisation des moyens » de l'ANSES (170 M€ de budget). Sans montant, probablement classée non chiffrable.
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: 'Aucun montant ni périmètre : trop vague pour être chiffré (règle 7).'
 
   # --- École (septembre 2026) -----------------------------------------------------------------------
   - id: revalorisation-enseignants
@@ -998,8 +1965,45 @@ mesures:
       support: programme (livret École, p. 10)
     precision: partielle
     interpretation: Sur le traitement indiciaire (donc aussi coût CAS Pensions). Profil exact par échelon à reconstituer ; enseignement privé sous contrat inclus ?
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: depense
+    effet_solde_primaire:
+      central: -3.15
+      bas: -4.72
+      haut: -2.93
+      montee_en_charge:
+        '2027': 0
+        '2028': 1
+        '2029': 1
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: -effectifs*hausse_nette_moyenne*12/ratio_net_brut*(1 + cas_pensions_taux_civils/100)/1e9
+      parametres:
+        effectifs:
+          valeur: 793863
+          source: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
+          unite: ETPT
+          note: enseignants du public, programmes 140 (341 897) et 141 (451 966), PLF 2026 ; privé sous contrat exclu
+        hausse_nette_moyenne:
+          valeur: 145
+          source: https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf
+          unite: € nets/mois
+          note: moyenne de +135 € (début), +300 € (milieu) et 0 (fin de carrière), p. 10
+        ratio_net_brut:
+          valeur: 0.8
+          source: https://www.fonction-publique.gouv.fr/files/files/publications/rapport-annuel/cc-2025-web.pdf
+          unite: net/brut
+          note: cotisations salariales d'un fonctionnaire ≈ 20 % du traitement (pension civile, CSG-CRDS, RAFP)
+        cas_pensions_taux_civils:
+          valeur: 82.28
+          bareme: cas_pensions_taux_civils
+      explication: 'Hausse nette convertie en brut puis en coût employeur (CAS Pensions). Central : moyenne sur trois
+        tiers de carrière (+135, +300, 0 €) ; bas : +217,5 € pour tous (moyenne début-milieu) ; haut : +135 € pour tous.
+        Montants nominaux. Privé sous contrat (≈ 140 000 enseignants rémunérés par l''État) non inclus : le coût réel
+        serait plus élevé.'
+    confiance: moyenne
   - id: postes-enseignants-demographie
     libelle: Réduction des moyens d'enseignement suivant la baisse démographique, à taux d'encadrement constant (plus de 3 Md€ libérés)
     domaine: education
@@ -1016,8 +2020,31 @@ mesures:
       Économie par rapport à un référentiel à effectifs constants (législation en vigueur) ; l'IA-livret exclut
       l'Éducation nationale des départs non remplacés, pas de double compte. Contradiction avec « pas un centime
       d'économie sur l'école » : les moyens sont redéployés vers les salaires.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 3.0
+      bas: 3.0
+      haut: 3.0
+      montee_en_charge:
+        '2027': 0
+        '2028': 0.2
+        '2029': 0.4
+        '2030': 0.6
+        '2031': 0.8
+        '2032': 1
+    calcul:
+      formule: economie
+      parametres:
+        economie:
+          valeur: 3.0
+          source: https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf
+          unite: Md€/an en fin de quinquennat
+          note: « libérer plus de 3 milliards d'euros par an », p. 10
+      explication: Montant du candidat (baisse de 1,7 million d'élèves en dix ans à taux d'encadrement constant) ; par
+        rapport au référentiel (droit voté, effectifs non réduits automatiquement), c'est une économie. Pas de double
+        compte avec les départs non remplacés (Éducation nationale exclue du livret IA).
+    confiance: moyenne
 
   # --- Défense, justice -----------------------------------------------------------------------------
   - id: lpm-rallonge-50md
@@ -1036,8 +2063,33 @@ mesures:
       Position de la majorité sénatoriale LR (commission : +50 Md€, soit 14 Md€ de plus que le gouvernement, dont
       30 Rafale et 3 frégates). Pas d'engagement présidentiel chiffré retrouvé. Le référentiel est la LPM actualisée
       adoptée (+36 Md€ si adoptée ainsi) ; l'écart cumulé de 14 Md€ sur 2026-2030 serait à répartir par année.
-    chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    chiffrable: true
+    nature: depense
+    effet_solde_primaire:
+      central: -7.2
+      bas: -7.2
+      haut: 0.0
+      montee_en_charge:
+        '2027': 0.4
+        '2028': 0.6
+        '2029': 0.8
+        '2030': 1
+        '2031': 1
+        '2032': 1
+    calcul:
+      formule: -dixiemes_de_point*defense_0_1_point_pib_2032
+      parametres:
+        dixiemes_de_point:
+          valeur: 2
+          source: https://www.publicsenat.fr/actualites/parlementaire/loi-de-programmation-militaire-coup-de-theatre-au-senat-qui-rejette-la-rallonge-de-36-milliards-deuros-pour-les-armees
+          unite: dixièmes de point de PIB
+          note: « Ces 14 milliards de plus porteraient aussi de 2,5 à 2,7 % du PIB la part de la défense »
+        defense_0_1_point_pib_2032:
+          valeur: 3.6
+          bareme: defense_0_1_point_pib_2032
+      explication: 'Écart entre la version du Sénat (+50 Md€ sur 2026-2030) et la LPM de référence (+36 Md€) : +0,2
+        point de PIB en 2030, maintenu en 2032. Haut : 0, aucun engagement présidentiel chiffré.'
+    confiance: faible
   - id: etablissements-mineurs-violents
     libelle: Établissements spécifiques en internat pour mineurs violents dans chaque département
     domaine: justice
@@ -1051,7 +2103,7 @@ mesures:
     precision: partielle
     interpretation: Environ 100 établissements ; capacité et coût à la place (référence CEF, EPM) à documenter.
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: 'Capacité et nombre de places non précisés : trop vague pour être chiffré.'
   - id: peines-courtes-abrogation-belloubet
     libelle: Courtes peines de prison dès le premier délit grave, abrogation de la loi Belloubet, peines planchers
     domaine: justice
@@ -1064,7 +2116,8 @@ mesures:
     precision: vague
     interpretation: Hausse de la population carcérale (places, surveillants). Pas de programme immobilier pénitentiaire chiffré retrouvé ; à chiffrer seulement si un nombre de places est annoncé.
     chiffrable: false
-    raison_non_chiffrable: A_CHIFFRER
+    raison_non_chiffrable: Effet sur la population carcérale et les places non quantifiable sans hypothèse de volume
+      de condamnations ; aucun programme immobilier annoncé.
 
   # --- Institutions et normes (non budgétaires) -----------------------------------------------------
   - id: referendum-pacte-constitutionnel
