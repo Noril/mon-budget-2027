@@ -240,11 +240,15 @@ mesures:
       date: 2026-04-15
       support: entretien écrit
     precision: partielle
-    interpretation: >-
-      Le livret « Produire plus » (p. 20) indique « Plus de 25 milliards d'euros d'allègements porteront sur le coût
-      du travail, en combinant la mise en place du seuil « zéro cotisation » […] et une baisse directe des
-      cotisations patronales non contributives ». Lecture retenue : 15 Md€ de baisse directe, distincts des 10 Md€
-      du seuil zéro cotisation. Cotisations visées non précisées (famille, maladie, FNAL, versement mobilité).
+    interpretation: 'Le livret « Produire plus » (p. 20) indique « Plus de 25 milliards d''euros d''allègements porteront
+      sur le coût du travail, en combinant la mise en place du seuil « zéro cotisation » […] et une baisse directe des
+      cotisations patronales non contributives ». Lecture retenue : 15 Md€ de baisse directe, distincts des 10 Md€ du
+      seuil zéro cotisation. Cotisations visées non précisées (famille, maladie, FNAL, versement mobilité). Deux mesures
+      distinctes, pas le même argent : cette ligne est la moitié « entreprises » des 30 Md€ de Travail gagnant (« baisse
+      du coût du travail dès la première heure », « 15 milliards d''euros sur les 1 623 heures », bilan p. 38), identique
+      aux 15 Md€ de cotisations patronales des 40 Md€ (IREF) ; la ligne « restituer 15 Md€ de pouvoir d''achat » est
+      l''autre moitié, versée aux salariés (« environ 500 euros par an au niveau du salaire médian »). Les 10 Md€ «
+      sur les heures au-delà » sont la ligne du seuil zéro cotisation.'
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
@@ -291,9 +295,12 @@ mesures:
       date: 2026-01-07
       support: programme (livret « Le travail gagnant », p. 16)
     precision: vague
-    interpretation: >-
-      Instrument non précisé (baisse de cotisations salariales, de CSG ?). Coût brut 15 Md€ ; la moitié
-      « entreprises » est la baisse de cotisations patronales ci-dessus (ne pas la compter deux fois).
+    interpretation: 'Instrument non précisé (baisse de cotisations salariales, de CSG ?). Coût brut 15 Md€ ; la moitié
+      « entreprises » est la baisse de cotisations patronales ci-dessus (ne pas la compter deux fois). Mesure distincte
+      de la baisse de cotisations patronales : c''est la moitié « salariés » des 30 Md€ (« pour moitié aux salariés,
+      sous forme de gains de pouvoir d''achat […] pour moitié aux entreprises »), soit environ 500 € par an au salaire
+      médian ; la moitié « entreprises » est la ligne de baisse des cotisations patronales. Aucun double compte ; le
+      livret finance les deux moitiés par les mêmes 30 Md€ d''économies, comptées dans leurs propres lignes.'
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
@@ -824,15 +831,23 @@ mesures:
         '2030': 1
         '2031': 1
         '2032': 1
+      annuel:
+        '2027': 0.0
+        '2028': -3.7
+        '2029': -3.7
+        '2030': 0.0
+        '2031': 0.0
+        '2032': 0.0
     calcul:
       formule: 0*cvae_restante
       parametres:
         cvae_restante:
           valeur: 3.7
           bareme: cvae_restante
-      explication: 'La suppression de la CVAE en 2030 est déjà votée (LFI 2026, voir REFERENCE.md) : effet nul en régime
-        de croisière 2032. Le coût transitoire de l''avance (≈ 3,7 à 4 Md€ par an en 2028-2029 si elle est votée fin
-        2027) n''est pas représentable par un effet 2032 nul : signalé ici, non intégré à la trajectoire.'
+      explication: 'La suppression de la CVAE en 2030 est déjà votée (LFI 2026, REFERENCE.md) : effet nul en régime
+        de croisière 2032. L''avance de calendrier (loi de finances votée fin 2027) coûte la CVAE restante en 2028 et
+        2029, portée dans `annuel` à 3,7 Md€ par an (barème cvae_restante, 2025 ; majorant, les taux légaux baissant
+        avant 2030).'
     confiance: haute
   - id: forfait-social-recentrage
     libelle: Forfait social maintenu à 20 % sur la seule participation légale, exonération de l'intéressement, de la participation supra-légale et de l'épargne retraite (2,8 Md€)

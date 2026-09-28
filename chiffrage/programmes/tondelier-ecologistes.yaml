@@ -857,36 +857,33 @@ mesures:
     date: 2026-07
     support: programme (chap. 13, mesure 2)
   precision: partielle
-  interpretation: >-
-    Trois fonctions publiques. Enseignants (+15 %) et chercheurs (+10 %) traités dans des mesures dédiées, à ne pas compter
-    deux fois. « Catégories A qui ont perdu en pouvoir d'achat » : périmètre flou (lecture basse : C et B seulement).
-    Indexation du point sur l'inflation : non comptée en central, car la trajectoire de référence (solde primaire gelé
-    en points de PIB) fait déjà croître la masse salariale comme le PIB nominal, plus vite que l'inflation. Dans une
-    lecture « point gelé » (aucune loi n'indexe le point), elle coûterait (1,1103 − 1) × 100 × 2,81 ≈ 29 Md€ en 2032
-    (déflateur cumulé 2027-2032, plan/hypotheses.yaml) : écart signalé, non intégré à la borne basse pour ne pas mêler
-    deux référentiels. La part des effectifs surestime la part de la masse salariale (catégorie C moins payée) ; les
-    catégories A « qui ont perdu du pouvoir d'achat » ne sont pas comptées.
+  interpretation: 'Trois fonctions publiques. Enseignants (+15 %) et chercheurs (+10 %) traités dans des mesures dédiées,
+    à ne pas compter deux fois. « Catégories A qui ont perdu en pouvoir d''achat » : périmètre flou (lecture basse
+    : C et B seulement). Indexation du point sur l''inflation : à droit constant (REFERENCE.md), le point est gelé
+    en référence, l''indexation coûte donc la masse indiciaire × l''inflation cumulée 2027-2032 (déflateur FMI, 11,03
+    %), pour tous les agents, enseignants et chercheurs compris (leurs mesures dédiées ne portent que sur les hausses
+    au-delà). Les +10 % des catégories B et C s''ajoutent sans double compte (effet croisé 10 % × 11 % négligé). La
+    part des effectifs surestime la part de la masse salariale (catégorie C moins payée).'
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -17.15
-    bas: -19.48
-    haut: -17.15
+    central: -44.73
+    bas: -50.49
+    haut: -41.42
     montee_en_charge:
-      '2027': 0
-      '2028': 0.2
-      '2029': 0.4
-      '2030': 0.6
-      '2031': 0.8
+      '2027': 0.081
+      '2028': 0.264
+      '2029': 0.448
+      '2030': 0.634
+      '2031': 0.816
       '2032': 1.0
   calcul:
-    formule: -hausse_pct * point_1pct * facteur23 * part_b_c
+    formule: -(hausse_pct*point_1pct*facteur23*part_b_c + inflation_cumulee*100*point_1pct_2027)
     parametres:
       hausse_pct:
         valeur: 10
         unite: '%'
-        source: >-
-          https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
+        source: https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
       point_1pct:
         valeur: 2.2
         unite: Md€ par an pour 1 % de hausse, toutes APU
@@ -899,12 +896,24 @@ mesures:
       part_b_c:
         valeur: 0.61
         unite: part des agents
-        source: >-
-          https://www.fonction-publique.gouv.fr/files/files/publications/vue-rapport-annuel/ra_2025_vue_emploi_caracteristiques_postes.pdf
+        source: https://www.fonction-publique.gouv.fr/files/files/publications/vue-rapport-annuel/ra_2025_vue_emploi_caracteristiques_postes.pdf
         note: 39 % de catégorie A, 22 % de B, 39 % de C en 2023 (DGAFP)
-    explication: >-
-      +10 % pour les catégories B et C (61 % des agents) : 10 × coût d'un point d'indice (2,2 Md€ en 2023, projeté en
-      2032) × 0,61. Les enseignants (+15 %) et les chercheurs (+10 %) sont traités à part.
+      inflation_cumulee:
+        valeur: 0.1103
+        unite: inflation cumulée 2027-2032
+        source: 'plan/hypotheses.yaml, déflateur du PIB FMI WEO avril 2026 (2027 : 1,460 ; 2028 : 1,862 ; 2029 : 1,863
+          ; 2030 : 1,860 ; 2031 et 2032 : 1,757 %) ; produit des (1 + taux) − 1'
+        note: 'REFERENCE.md, « Indexations : droit constant »'
+      point_1pct_2027:
+        valeur: 2.5
+        bareme: point_indice_1pct
+        note: 'borne haute du barème : coût d''un point en 2027 ; à point gelé, la masse indiciaire ne croît ensuite
+          que par les effectifs et le GVT'
+    explication: '(1) +10 % pour les catégories B et C (61 % des agents) : 10 × coût d''un point (2,2 Md€ en 2023,
+      projeté en 2032) × 0,61 = 17,2 Md€. (2) Indexation du point sur l''inflation, à droit constant : 11,03 points
+      × 2,5 Md€ (coût d''un point en 2027) = 27,6 Md€. Bas : indexation sur une masse projetée au PIB (2,2 × 1,2777
+      × 11,03 = 31,0) et bas des +10 %. Haut : masse 2023 non projetée pour l''indexation (24,3). Montée : +10 % en
+      cinq ans, indexation au rythme de l''inflation cumulée.'
   confiance: faible
 - id: securite-sociale-professionnelle
   libelle: >-
@@ -961,42 +970,53 @@ mesures:
     date: 2026-07
     support: programme (chap. 14, mesure 7)
   precision: partielle
-  interpretation: >-
-    Coût = économies Unédic des réformes 2019, 2021, 2023, 2025 (chiffrages Unédic). Recettes compensatoires : bonus-malus
-    renforcé sur les contrats courts (mesure 11), à chiffrer séparément. La réforme de février 2023 (contracyclicité,
-    −25 % de durée) et celles de 2024-2025 ne sont pas chiffrées publiquement dans les sources récupérées : non comptées,
-    ce qui minore le coût. Indexation des allocations sur l'inflation : proche de la pratique actuelle, non comptée ;
-    bonus-malus renforcé non chiffré.
+  interpretation: 'Coût = économies Unédic des réformes 2019, 2021, 2023, 2025 (chiffrages Unédic). Recettes compensatoires
+    : bonus-malus renforcé sur les contrats courts (mesure 11), à chiffrer séparément. La réforme de février 2023
+    (contracyclicité, −25 % de durée) et celles de 2024-2025 ne sont pas chiffrées publiquement dans les sources récupérées
+    : non comptées, ce qui minore le coût. Indexation des allocations sur l''inflation : la revalorisation de l''ARE
+    relève d''une délibération annuelle de l''Unédic, pas de la loi ; à droit constant (REFERENCE.md), elle est gelée
+    en référence et l''indexation promise coûte les allocations × l''inflation cumulée 2027-2032. Bonus-malus renforcé
+    non chiffré.'
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -2.3
-    bas: -2.78
-    haut: -1.0
+    central: -6.4
+    bas: -7.05
+    haut: -5.1
     montee_en_charge:
-      '2027': 0
-      '2028': 0.5
-      '2029': 1
-      '2030': 1
-      '2031': 1
-      '2032': 1
+      '2027': 0.085
+      '2028': 0.374
+      '2029': 0.666
+      '2030': 0.78
+      '2031': 0.889
+      '2032': 1.0
   calcul:
-    formule: -economies_2019_2021 * facteur
+    formule: -(economies_2019_2021*facteur + allocations_2025*inflation_cumulee)
     parametres:
       economies_2019_2021:
         valeur: 2.3
         unite: Md€/an
         source: https://www.unedic.org/publications/evaluation-de-la-reforme-d-assurance-chomage-2019-2021
-        note: >-
-          conditions d'ouverture −0,8, calcul du SJR −1,0, dégressivité −0,5 Md€ par an (estimations ex ante Unédic)
+        note: conditions d'ouverture −0,8, calcul du SJR −1,0, dégressivité −0,5 Md€ par an (estimations ex ante Unédic)
       facteur:
         valeur: 1.0
         unite: facteur
         source: https://www.unedic.org/publications/evaluation-de-la-reforme-d-assurance-chomage-2019-2021
         note: montant non projeté en central
-    explication: >-
-      Coût = économies Unédic de la réforme 2019-2021 (2,3 Md€/an). Haut : seul le calcul de l'allocation (1,0 Md€),
-      cité explicitement. Bas : montant projeté en 2032 (× 1,2106).
+      allocations_2025:
+        valeur: 37.2
+        unite: Md€ (2025)
+        source: https://s3.eusc-de-east-1.amazonaws.eu/unedic-eks-prod-cms/2026/06/17/situation-financiere-assurance-chomage-a-horizon-2028-juin-2026_uid_6a32884bd3186.pdf
+        note: allocations et aides versées en 2025 (dérivation du barème assurance_chomage_depenses)
+      inflation_cumulee:
+        valeur: 0.1103
+        unite: inflation cumulée 2027-2032
+        source: 'plan/hypotheses.yaml, déflateur du PIB FMI WEO avril 2026 (2027 : 1,460 ; 2028 : 1,862 ; 2029 : 1,863
+          ; 2030 : 1,860 ; 2031 et 2032 : 1,757 %) ; produit des (1 + taux) − 1'
+        note: 'REFERENCE.md, « Indexations : droit constant »'
+    explication: 'Coût = économies Unédic de la réforme 2019-2021 (2,3 Md€/an) + indexation des allocations sur l''inflation
+      à droit constant (37,2 Md€ × 11,03 % = 4,1 Md€). Haut : seul le calcul de l''allocation (1,0 Md€), cité explicitement,
+      + indexation. Bas : réforme projetée en 2032 (× 1,2106) + indexation sur les allocations 2027 (38,7 Md€).'
   confiance: faible
 - id: garantie-emploi-55-ans-tzcld
   libelle: >-
@@ -1214,12 +1234,14 @@ mesures:
     date: 2026-07
     support: programme (chap. 32, mesure 1 ; chap. 35, mesure 2)
   precision: precise
-  interpretation: >-
-    50 % du SMIC net (environ 730 € avec un SMIC inchangé, environ 790 € avec le SMIC à 2 000 € brut, par l'indexation)
-    contre environ 650 € de RSA pour une personne seule en 2026. Extension aux 18-24 ans fiscalement indépendants : effectif
-    à estimer. Interaction avec le SMIC à 2 000 € (double effet) à signaler. Extension aux 18-24 ans fiscalement indépendants
-    non chiffrée (effectifs non récupérés) : coût minoré. La suppression de la contrepartie de 15 heures n'a pas de coût
-    direct.
+  interpretation: '50 % du SMIC net (environ 730 € avec un SMIC inchangé, environ 790 € avec le SMIC à 2 000 € brut,
+    par l''indexation) contre environ 650 € de RSA pour une personne seule en 2026. Extension aux 18-24 ans fiscalement
+    indépendants : effectif à estimer. Interaction avec le SMIC à 2 000 € (double effet) à signaler. Extension aux
+    18-24 ans fiscalement indépendants non chiffrée (effectifs non récupérés) : coût minoré. La suppression de la
+    contrepartie de 15 heures n''a pas de coût direct. Indexation : la garantie suivrait le Smic (revalorisé selon
+    la loi sur l''inflation et la moitié du gain de pouvoir d''achat du salaire horaire ouvrier) au lieu de l''inflation
+    pour le RSA : écart de quelques dixièmes de point par an, non chiffré séparément (compris dans le passage à 50
+    % du Smic net).'
   chiffrable: true
   nature: depense
   effet_solde_primaire:
