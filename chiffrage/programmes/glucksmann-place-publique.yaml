@@ -125,6 +125,11 @@ mesures:
   effets_retour: Hausse du salaire net et de la consommation invoquée par le candidat, non comptée. La CSG étant en partie
     déductible de l'IR, une baisse de CSG déductible augmente légèrement l'IR (non compté, dépend du barème de la baisse).
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: "Citation retrouvée (LCP). -15 = enveloppe annoncée (franceinfo 25/08/2026 : « récupérer 15 milliards » en taxant les 1 % des plus gros héritages) : ≈ 1,0 point de CSG activité en 2032 (12,03 Md€/pt en 2025 × 1,2106 = 14,6), cohérent ; bas 17,76 = enveloppe indexée. Le « 200 € net par mois » cité en interprétation (LCI) est incompatible avec 15 Md€ (≈ 46 € par mois et par salarié, ~ 27 M de salariés) : soit le barème réel est plus lourd que l'annonce (bas insuffisant si 200 € tous salariés = ~ 60 Md€), soit la phrase vise un cas particulier ; non chiffré, à revérifier. Pas de double compte avec les successions (gage compté à part) ; écart de financement ≈ 10 Md€ visible (15 annoncés contre ≈ 5 chiffrés)."
 - id: successions-tranche-haute-50
   libelle: 'Droits de succession : taux marginal porté de 45 % à 50 % au-delà de 1,8 M€ (successions > 2 M€)'
   domaine: fiscalite-patrimoine
@@ -194,6 +199,11 @@ mesures:
       (≈ 5 Md€).'
   effets_retour: 'Anticipation de donations avant l''entrée en vigueur (recettes avancées puis moindres) : non comptée.'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: "Citation retrouvée (franceinfo). Formule rejouée : 5/45 × 17 × 1,1842 × 0,5 = 1,12. Recoupement indépendant : le CAE (note 69) indique que le top 1 % des héritiers reçoit ≈ 4,2 M€ en moyenne (top 0,1 % : 13 M€) et que le top 0,1 % paie ≈ 10 % effectif : la base au-delà de 1,8 M€ est de l'ordre de 15 à 20 Md€, soit 0,8 à 1 Md€ statique à 5 points, avant évitement : le central 1,12 est déjà dans le haut de ce recoupement et le « 2 Md€ » revendiqué (89 % de tous les droits de succession dans la tranche à 45 %) n'est pas atteignable ; haut 2,24 = maximum théorique. Pas de correction (part = 0,5 reste une convention, bas = 0). Total successions (1,1 + 2,0 + 1,8 = 4,95) contre 15 annoncés : l'écart vient surtout du « 10 Md€ » de plus-values latentes ramené à 1,8 (CAE) ; la fourchette haute des trois (2,2 + 3,1 + 10 = 15,3) restitue l'annonce."
 - id: successions-pacte-dutreil
   libelle: Pacte Dutreil recentré (biens professionnels, reprises durables)
   domaine: fiscalite-patrimoine
@@ -255,6 +265,11 @@ mesures:
   effets_retour: 'Report ou avance de transmissions, restructurations de holdings : couverts par la borne basse ; effets sur
     l''emploi des entreprises transmises jugés non significatifs par la Cour des comptes.'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: "Citation retrouvée. Paramètres relus : CAE « 2 à 3 Md€ en 2018-2019 » et variante « exemption des patrimoines professionnels à 50 % (1,4) » ; Cour des comptes 2,0 / 3,3 / 5,5 Md€ (2022-2024), « très grosse donation » en 2023 et 2024. Formule rejouée 1,4 × 3,6 / 2,5 = 2,02. Réserves : la variante CAE (50 %) n'est qu'un proxy du recentrage sur les biens professionnels et reprises durables ; le droit LFI 2026 (biens somptuaires exclus, conservation six ans) réduit déjà l'assiette du gain ; central < 3 annoncés. Pas de double compte avec la tranche à 50 % (interaction ≈ 0,2)."
 - id: successions-plus-values-latentes
   libelle: Imposition des plus-values latentes à la transmission (fin de la purge au décès)
   domaine: fiscalite-patrimoine
@@ -325,6 +340,11 @@ mesures:
     commentaire: Coût de la purge des plus-values latentes pour la France, transposé du chiffrage américain (0,05 % du PIB).
   effets_retour: 'Moindre effet de blocage des portefeuilles (lock-in) invoqué par les partisans : non compté.'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: "Citation retrouvée (« 10 milliards »). Le CAE (note 69) confirme « 0,05 % du PIB (Tax Foundation), de l'ordre de 1,3 Md€ » et l'absence de chiffrage français ; 0,0005 × 3 621 = 1,81 rejoué. La PPL sénatoriale IGS (≈ 9 Md€, successions ≥ 4 M€, part latente 41 %, statique) donne le haut. Central proche du bas : choix prudent pour une recette, cohérent avec la règle bas = défavorable. Effet de l'imposition de la plus-value sur la base des droits de succession (déductibilité) non compté. Fourchette 1,3 à 10 très large : confiance faible."
 - id: smic-1600-net
   libelle: SMIC à 1 600 € net en deux ans
   domaine: salaires
@@ -388,6 +408,11 @@ mesures:
   effets_retour: 'Effets sur l''emploi peu qualifié (négatifs selon le groupe d''experts SMIC) et sur la consommation : non
     comptés.'
   confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: "Citation retrouvée (PDF Acte I). SMIC net 1 477,93 € au 1/6/2026 confirmé (compta-online, +2,41 %). Rejoué : (1600 / (1477,93 × 1,0528) − 1) × 100 × 0,31 × 1,2106 = 1,06. Réserve : la revalorisation légale comprend aussi la moitié du gain de pouvoir d'achat des ouvriers, ignorée (base 2029 sous-estimée d'≈ 1 %) : le coup de pouce est donc un peu surestimé, coût central ≈ 0,7 à 1,1 (< 1 Md€ d'écart). Le barème DG Trésor 2017 (0,24 Md€ pour 1 %) est ancien ; la RGDU rend le coût des allègements plus sensible (bas 11 le couvre). Pas de double compte avec le point d'indice (interprétation)."
 - id: point-indice-indexe-inflation
   libelle: Indexation du point d'indice de la fonction publique sur l'inflation et rattrapage entre ministères
   domaine: fonction-publique
@@ -448,6 +473,11 @@ mesures:
       retours, plus la convergence interministérielle non chiffrée. Haut : barème bas (2,17 Md€).'
   effets_retour: 'Attractivité de la fonction publique invoquée : non comptée.'
   confiance: moyenne
+  verification:
+    statut: conteste
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: "Citation retrouvée. Arithmétique rejouée : 11,04 × 2,2 × 1,278 × 0,75 = 23,28. Trois réserves, non tranchées faute de source ouverte : (1) le « quart de retours » est attribué au Sénat (a25-145-5) mais n'y figure pas (la page ne donne que 7,6 Md€ pour 3,5 % et 3,4 Md€ pour 1,5 %) : hypothèse propre non sourcée, plausible (CSG-CRDS 9,7 % + cotisations salariales + IR) mais à documenter ; (2) le coût brut 2,2 Md€ inclut les cotisations employeurs, dont les contributions au CAS Pensions et à la CNRACL, flux internes aux APU, alors que salaires-enseignants-10-pct retire 35 % de CAS : traitement incohérent entre les deux mesures du même fichier (le net consolidé serait plus bas que 23,3) ; (3) la base 2032 est portée par le PIB nominal (× 1,278) alors que, point gelé, la masse n'augmente que du volume et du glissement : l'inflation est comptée deux fois (dans la base puis dans l'indexation) ; base gelée ≈ 2,6 (2,27 × 1,046 × 1,02² × 1,01⁶), soit −21,7 au lieu de −23,3 (écart ≈ 1,6 Md€). ÉCART DE CONVENTION : Tondelier compte −27,6 (11,04 × 2,5, barème haut) sans aucun retour ; Mélenchon et Glucksmann comptent −23,3 net d'un quart de retours. Sur une base brute commune, l'écart Glucksmann/Tondelier (31,0 brut contre 27,6) vient de la projection PIB. Central non modifié ; la fourchette −35,3 (sans retour, barème haut) à −22,96 couvre l'écart."
 - id: abrogation-reforme-retraites-2023
   libelle: Abrogation de la réforme des retraites de 2023, puis réforme fondée sur la pénibilité et l'espérance de vie
   domaine: retraites
@@ -490,6 +520,11 @@ mesures:
   effets_retour: 'Moindre emploi des seniors et moindres recettes de cotisations au-delà du périmètre du barème, et effets
     sur le chômage des seniors : non comptés.'
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: "Citation retrouvée (LCP). Barème retraites_retour_62_ans_2032 relu (tableau Cnav du rapport Bernalicis : solde 15,7 Md€ en 2032, moins 1,8 Md€ de suspension COR) : 13,9. La colonne 2032 est bien la 8e valeur (3,4 ; 6,6 ; … ; 15,7 ; puis 14,8 en 2035 et 11,1 en 2040). Réserves : le solde Cnav inclut +4,5 Md€ de cotisations liées au maintien en emploi (effet mécanique, à garder, mais hors taxes sur salaires et chômage) ; périmètre régime général ou tous régimes non précisé (limite du barème). Référence : suspension LFSS 2026 correctement déduite (pas de coût 2027). Pas de double compte : la réforme « pénibilité » ultérieure n'est pas comptée."
 - id: abrogation-reforme-assurance-chomage
   libelle: Abrogation de la réforme de l'assurance chômage
   domaine: emploi
@@ -535,6 +570,11 @@ mesures:
       ne sont pas chiffrées faute de source.'
   effets_retour: 'Effets sur le retour à l''emploi (allongement du chômage indemnisé selon les évaluations) : non comptés.'
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: "Citation retrouvée. Unédic relue : moindres dépenses « de l'ordre de 4,5 Md€ par an » à l'horizon 2027 pour la réforme de contracyclicité, conjoncture stable. 4,5 × 1,157 = 5,21 rejoué. Réserves : les économies Unédic sont brutes : une part des allocataires sortis de droits bascule vers l'ASS et le RSA (coût État), ce qui réduirait le coût net d'abrogation pour les APU (favorable au solde, dans le haut de la fourchette) ; l'effet de contracyclicité dépend du taux de chômage (< 9 % : durées réduites de 25 %). Bornes cohérentes."
 - id: minimum-social-unique-18-ans
   libelle: Minimum social unique ouvert dès 18 ans
   domaine: solidarite
@@ -629,6 +669,11 @@ mesures:
       Supposée pérenne (le chèque énergie l''est) ; non indexée (le barème ne l''est pas).'
   effets_retour: 'Soutien à la consommation : non compté.'
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: "Citation retrouvée (franceinfo 21/09/2026). Chèque énergie 2026 : 4,5 M de foyers et 153 € en moyenne confirmés (connaissancedesenergies). 4,5 M × (500 − 153) = 1,56 rejoué. Réserve : l'extension aux « classes moyennes » citée est absente du central (bénéficiaires actuels seulement) ; le bas 2,31 (6 M de foyers) suppose un périmètre limité : si l'extension couvre 10 M de foyers, le coût est ≈ 4,3 Md€. Effet < 1 Md€ sur le central ; non corrigé."
 - id: taxe-superprofits-fossiles
   libelle: Taxation des superprofits des multinationales fossiles et « profiteurs de guerre »
   domaine: fiscalite-entreprises
@@ -707,6 +752,11 @@ mesures:
       accroîtrait plutôt l''assiette (et donc le coût).'
   effets_retour: 'Soutien au pouvoir d''achat et à l''électrification : non compté.'
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: "Citation retrouvée (PDF Acte I). Rendement 0,2 Md€ par €/MWh (4 Md€ pour 20 €/MWh en 2024, tribune Connaissance des énergies) : le montant est tous consommateurs assujettis au taux normal, alors que l'interprétation parle des ménages : cohérent avec la promesse (baisse du taux normal). Rejoué : 20 × 0,2 = 4,0. Volumes de consommation non projetés (assiette en volume : acceptable). Bas = retour à 1 €/MWh (lecture maximale, −5,97). Pas de double compte avec le chèque énergie."
 - id: maprimerenov-relance
   libelle: Relance et simplification de MaPrimeRénov'
   domaine: logement-energie
@@ -840,8 +890,9 @@ mesures:
   precision: partielle
   interpretation: 'Annonce du 30/08/2026 : « une augmentation pour tous [les enseignants] de 10% et ensuite, une augmentation
     graduelle en fonction de la carrière » ; « jusqu''à 25% » cumulé pour un enseignant du primaire en milieu de carrière.
-    L''Acte I prévoyait une revalorisation « continue et planifiée sur 5 ans ». Lecture : +10 % sur la masse indiciaire enseignante
-    (public et privé sous contrat) + composante carrière non paramétrée ; montée en charge sur 5 ans. Hausse réelle, distincte
+    L''Acte I prévoyait une revalorisation « continue et planifiée sur 5 ans ». Lecture : +10 % sur la masse indiciaire des enseignants
+    du public (le privé sous contrat, payé par l''État, n''est pas compté : environ +15 % sur le central) + composante carrière
+    non paramétrée ; montée en charge sur 5 ans. Hausse réelle, distincte
     de l''indexation du point (point-indice-indexe-inflation) : pas de double compte, hors effet croisé mineur.'
   chiffrable: true
   nature: depense
@@ -894,6 +945,11 @@ mesures:
     commentaire: « coûte 6 milliards en tout »
   effets_retour: 'Attractivité du métier, recrutement : non comptés.'
   confiance: moyenne
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: "Citation retrouvée (franceinfo, « coûte 6 milliards en tout », écart d'espace avant la virgule). Rejoué : 0,1 × 85 000 × 793 863 × 0,65 × 0,75 × 1,1842 = 3,90. Correction sans effet sur le montant : l'interprétation disait « public et privé sous contrat » alors que le calcul ne porte que sur le public (793 863 ETPT, programmes 140 et 141) ; texte aligné, privé sous contrat (≈ +15 %) signalé. Réserve : le central ne chiffre que le +10 % ; le coût annoncé (6 Md€, composante carrière jusqu'à +25 %) est en bas de fourchette (7,11) ; l'écart au coût annoncé (−3,9 contre −6 en euros courants) reste à documenter. Effet croisé avec l'indexation du point (≈ 0,4) non compté, signalé. Convention 0,65 × 0,75 différente de celle du point d'indice (voir cette mesure)."
 - id: encadrement-eleves-primaire
   libelle: Baisse du nombre d'élèves par enseignant en primaire (maintien des postes malgré la baisse démographique)
   domaine: education
@@ -986,6 +1042,11 @@ mesures:
       Encadrement, hébergement et formation non comptés, faute de coût unitaire public.'
   effets_retour: 'Moindres dépenses sociales pour les jeunes concernés et effets sur l''emploi des jeunes : non comptés.'
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: "Citation retrouvée (LCP). Cohorte 818 565 (naissances 2014), indemnité nette 504,98 € confirmée par le barème ASC au 1/1/2026 (brut 558,17 € moins CSG-CRDS 53,19 € : flux interne) + 100 € de tutorat ; budget actuel 465 M€ pour 110 000 volontaires confirmé (Sénat). Rejoué : 818 565 × 10 × 604,98 / 1e9 − 0,465 = 4,49. Réserves : encadrement, hébergement, formation non comptés (le central est donc un plancher) ; la majoration sur critères sociaux (114,95 €/mois) n'est pas comptée ; l'indemnité suit la valeur du point, gelée à droit constant, mais indexée dans le programme lui-même (point-indice-indexe-inflation) : effet croisé ≈ +0,5 non compté. Bas 5,43 retenu pour la prestation d'accueil."
 - id: colos-pour-tous
   libelle: '« Passeport pour l''émancipation » / Colos pour tous : un séjour collectif garanti pour chaque enfant'
   domaine: jeunesse
@@ -1066,6 +1127,11 @@ mesures:
     explication: 'Lecture centrale : 1 Md€ supplémentaire par an, en euros courants. Bas : montant indexé sur le PIB nominal
       2026→2032 (× 1,1842). Haut : 1 Md€ au total sur le quinquennat (0,2 Md€ par an).'
   confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: "Citation retrouvée (PDF Acte I). 1 Md€ par an en central, 0,2 en haut (1 Md€ au total sur le quinquennat) : la lecture « total » est plausible (le plan espagnol cité comme modèle porte sur un pacte pluriannuel), donc le haut est réaliste, mais le central prudent pour un coût est acceptable. Montant < 1,2 Md€ : pas de correction."
 - id: prevention-sante-hors-ondam
   libelle: Plan de prévention en santé hors ONDAM, fonds territorial de prévention, santé mentale des jeunes
   domaine: sante
@@ -1125,7 +1191,7 @@ mesures:
   nature: depense
   effet_solde_primaire:
     central: -11.59
-    bas: -11.59
+    bas: -12.0
     haut: -7.97
     montee_en_charge:
       '2027': 0
@@ -1155,9 +1221,16 @@ mesures:
     explication: 'Écart entre 0,7 % et le niveau 2026 (0,38 %, droit constant) appliqué au PIB 2032, trajectoire linéaire
       jusqu''en 2032. Haut : écart calculé depuis 0,48 % (niveau 2024), si « progressivement » laisse la cible au-delà de
       2032 ou si une partie de l''effort est comptée hors budget (annulations de dettes, frais d''accueil des réfugiés et
-      des étudiants). Bas = central.'
+      des étudiants). Bas : RNB supérieur au PIB (France : revenus primaires nets positifs, RNB ≈ PIB × 1,03 ; 0,48 % du RNB
+      = 15 Md€ en 2024 selon la source, soit un RNB proche de 3 100 Md€ pour un PIB de 2 920), soit −0,32 % × 3 621 × 1,03
+      ≈ −12,0.'
   effets_retour: 'Effets diplomatiques et migratoires invoqués : non comptés.'
   confiance: moyenne
+  verification:
+    statut: corrige
+    par: verificateur-sonnet
+    date: '2026-09-29'
+    commentaire: "Citation retrouvée (PDF Acte I). Alternatives Économiques relu : 0,48 % du RNB en 2024 (15 Md€), « pourrait retomber à 0,38 % » après le budget 2026. Rejoué −(0,7 − 0,38)/100 × 3 621 = −11,59. Correction du bas (−11,59 → −12,0) : RNB > PIB (0,48 % = 15 Md€ implique un RNB d'≈ 3 100 Md€ contre un PIB de 2 920), l'hypothèse « écart de 1 à 2 % » de la note est trop basse. Central inchangé (écart < 0,4 Md€). Réserve importante : l'APD au sens OCDE inclut des composantes hors dépense budgétaire (équivalent-don des prêts, annulations de dette, accueil des réfugiés, contribution UE) ; la montée à 0,7 % ne coûte donc pas tout en solde primaire : la borne haute (−7,97) est plutôt un plancher de prudence que de l'optimisme. Le niveau 0,38 % est une projection « pourrait » (conditionnel)."
 - id: defense-reserve-industrie-ukraine
   libelle: 'Effort de défense : production industrielle, drones et spatial, cyber, réserve opérationnelle, aide militaire
     à l''Ukraine'
