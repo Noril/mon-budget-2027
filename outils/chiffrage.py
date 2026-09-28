@@ -12,6 +12,7 @@ communs (chiffrage/baremes.yaml) quand ils existent. Les trajectoires de dette r
 from __future__ import annotations
 
 import argparse
+from datetime import date
 import html
 import json
 import math
@@ -176,7 +177,7 @@ def _md(x: float | None, signe: bool = True) -> str:
 def rapport_md(agregats: list[dict], traj: dict) -> str:
     l = [
         "# Chiffrage des programmes présidentiels 2027", "",
-        f"Généré le {maintenant()[:10]} par `outils.chiffrage`. Effet sur le solde public primaire en Md€ courants "
+        f"Généré le {date.today().isoformat()} par `outils.chiffrage`. Effet sur le solde public primaire en Md€ courants "
         "par an en régime de croisière (2032) ; négatif = coût. Fourchette : hypothèse basse et haute. "
         "Aucun effet de second tour n'est compté (voir chiffrage/README.md).", "",
         "| Programme | Mesures chiffrées | Coûts | Économies et recettes | Solde net (fourchette) | Dette 2032 (réf. gel : "
@@ -285,7 +286,7 @@ th{{font-size:.8rem;color:var(--muted);font-weight:600}}.n{{text-align:right;whi
 .scroll{{overflow-x:auto}}svg{{width:100%;height:auto;background:var(--card)}}.grille{{stroke:var(--line)}}.axe{{fill:var(--muted);font-size:11px}}.leg{{font-size:11px}}
 </style></head><body><main>
 <h1>Chiffrage des programmes présidentiels 2027</h1>
-<p class="m">Généré le {maintenant()[:10]}. Effet sur le solde public primaire, en milliards d'euros courants par an en régime de
+<p class="m">Généré le {date.today().isoformat()}. Effet sur le solde public primaire, en milliards d'euros courants par an en régime de
 croisière (2032) ; négatif = coût pour les finances publiques. Chaque mesure est citée verbatim avec son lien, calculée par
 une formule rejouable à partir de barèmes publics, et confrontée aux chiffrages tiers quand ils existent. Aucun effet de
 second tour (croissance, emploi, taux) n'est compté. Trajectoires : modèle du dépôt (plan/trajectoire.py), hypothèses
