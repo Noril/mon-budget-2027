@@ -83,15 +83,48 @@ mesures:
     mois » selon le débat LCI du 23/09/2026. Le barème de la baisse (taux uniforme, dégressivité, plafond) n''est pas publié
     ; le franceinfo du 21/09/2026 parle d''une « baisse de cotisations ou de la CSG ». Lecture retenue : baisse de CSG sur
     revenus d''activité de 15 Md€, gagée par la mesure successions (sans double compte avec elle). La compensation à la Sécurité
-    sociale est à traiter en phase 2 (perte de recette APU).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    sociale est à traiter en phase 2 (perte de recette APU). Chiffrage : gagé par les trois mesures successions (successions-tranche-haute-50,
+    successions-pacte-dutreil, successions-plus-values-latentes), chiffrées séparément ; leur rendement central (≈ 5 Md€)
+    est très inférieur aux 15 Md€ annoncés, ce qui fait apparaître un besoin de financement.'
+  chiffrable: true
+  nature: baisse_recette
+  effet_solde_primaire:
+    central: -15.0
+    bas: -17.76
+    haut: -15.0
+    montee_en_charge:
+      '2027': 0
+      '2028': 1
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: -montant * f
+    parametres:
+      montant:
+        valeur: 15
+        unite: Md€ par an (montant revendiqué)
+        source: https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/augmenter-les-salaires-en-taxant-les-plus-gros-heritages-la-proposition-de-raphael-glucksmann-est-elle-realiste_8076284.html
+        note: « récupérer 15 milliards d'euros que nous transfèrerons directement sur la fiche de paie »
+      f:
+        valeur: 1.0
+        unite: facteur
+        source: https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/augmenter-les-salaires-en-taxant-les-plus-gros-heritages-la-proposition-de-raphael-glucksmann-est-elle-realiste_8076284.html
+        note: montant pris en euros courants tel qu'annoncé (enveloppe fixée par le rendement des successions)
+    explication: 'Enveloppe revendiquée de 15 Md€ rendue sur les salaires, soit environ 1,0 point de CSG sur les revenus d''activité
+      en 2032 (barème csg_point_activite : 12,03 Md€ par point en 2025, ≈ 14,6 Md€ en 2032). Bas : enveloppe indexée comme
+      l''assiette salariale (15 × 1,1842, PIB 2026→2032). Montée en charge : loi de finances et LFSS votées fin 2027, effet
+      au 1er janvier 2028.'
   chiffrages_tiers:
   - auteur: Candidat (équipe de campagne, via franceinfo)
     montant_md: -15
     url: https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/augmenter-les-salaires-en-taxant-les-plus-gros-heritages-la-proposition-de-raphael-glucksmann-est-elle-realiste_8076284.html
     date: '2026-08-25'
     commentaire: 'Coût implicite : 15 Md€ transférés sur la fiche de paie.'
+  effets_retour: Hausse du salaire net et de la consommation invoquée par le candidat, non comptée. La CSG étant en partie
+    déductible de l'IR, une baisse de CSG déductible augmente légèrement l'IR (non compté, dépend du barème de la baisse).
+  confiance: moyenne
 - id: successions-tranche-haute-50
   libelle: 'Droits de succession : taux marginal porté de 45 % à 50 % au-delà de 1,8 M€ (successions > 2 M€)'
   domaine: fiscalite-patrimoine
@@ -105,14 +138,62 @@ mesures:
   interpretation: 'Élément du « dispositif global » transmis par l''équipe (Simon Bernard, coordinateur de campagne) à franceinfo
     ; seules les successions au-delà de 2 M€ seraient concernées. Lecture : dernière tranche en ligne directe (> 1 805 677
     €) passe de 45 % à 50 %.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: recette
+  effet_solde_primaire:
+    central: 1.12
+    bas: 0.0
+    haut: 2.24
+    montee_en_charge:
+      '2027': 0
+      '2028': 1
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: 5 / 45 * successions * f * part
+    parametres:
+      successions:
+        valeur: 17.0
+        unite: Md€ (droits de succession, PLF 2026)
+        source: https://www.senat.fr/rap/l25-139-1/l25-139-1_mono.html
+        note: 'dérivation du barème dmtg_rendement : successions 16 995 M€'
+      f: &id002
+        valeur: 1.1842
+        unite: facteur
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: PIB nominal 2032 / 2026 = 1,2106 (en-tête baremes.yaml, 2025→2032) / (1,00858 × 1,01358) (croissance nominale
+          2026)
+      part:
+        valeur: 0.5
+        unite: part
+        source: https://www.cae-eco.fr/staticfiles/pdf/cae-note069.pdf
+        note: 'convention : part des droits de succession acquittés au-delà de 1,8 M€ par héritier, inconnue (pas de statistique
+          DGFiP publique par tranche) ; point médian de [0 ; 1]. Le CAE souligne que les plus gros héritiers (top 0,1 %) paient
+          « à peine 10 % » grâce aux niches, ce qui plaide pour une part basse'
+    explication: 'Passer le taux marginal de 45 % à 50 % sur la fraction au-delà de 1 805 677 € rapporte au plus 5/45 des
+      droits acquittés dans cette tranche. Maximum arithmétique (toute la recette successorale dans la tranche à 45 %) : 5/45
+      × 17,0 × 1,1842 = 2,24 Md€ en 2032 (haut) ; le rendement revendiqué (2 Md€) est donc proche du maximum théorique. Central
+      : moitié du maximum (convention faute de données par tranche). Bas : 0, l''assiette de la tranche supérieure pouvant
+      être largement évitée (pacte Dutreil, assurance-vie, démembrement : CAE, note n° 69). Réaction de l''assiette : le CAE
+      (note n° 69, 2021, citant Goupille-Lebret et Infante 2018 et Kleven et al.) juge les élasticités faibles, surtout en
+      matière de migration ; elle est couverte par la borne basse.'
   chiffrages_tiers:
   - auteur: Candidat (équipe de campagne, via franceinfo)
     montant_md: 2
     url: https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/augmenter-les-salaires-en-taxant-les-plus-gros-heritages-la-proposition-de-raphael-glucksmann-est-elle-realiste_8076284.html
     date: '2026-08-25'
     commentaire: Rendement revendiqué.
+  - auteur: Fondation IFRAP (sur le programme du NFP, 2024)
+    montant_md: 5.0
+    url: https://www.ifrap.org/budget-et-fiscalite/nouveau-front-populaire-pourquoi-le-chiffrage-du-programme-par-la-fondation-ifrap-differe-t-il-de-celui-du-parti
+    date: '2024-06-24'
+    commentaire: 'Pour un alourdissement massif des DMTG (NFP : 17 Md€ annoncés), l''IFRAP estime que le rendement « ne devrait
+      pas accroître le rendement des DMTG de plus de 5 milliards d''euros » : plafond cohérent avec notre total successions
+      (≈ 5 Md€).'
+  effets_retour: 'Anticipation de donations avant l''entrée en vigueur (recettes avancées puis moindres) : non comptée.'
+  confiance: faible
 - id: successions-pacte-dutreil
   libelle: Pacte Dutreil recentré (biens professionnels, reprises durables)
   domaine: fiscalite-patrimoine
@@ -123,16 +204,57 @@ mesures:
     date: '2026-08-25'
     support: presse (franceinfo, « Le vrai du faux », éléments transmis par l'équipe de campagne)
   precision: partielle
-  interpretation: Restriction de l'exonération de 75 % aux seuls biens professionnels et aux reprises durables ; paramètres
-    non publiés. Le candidat cite une évaluation de la Cour des comptes sur le pacte Dutreil.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  interpretation: 'Restriction de l''exonération de 75 % aux seuls biens professionnels et aux reprises durables ; paramètres
+    non publiés. Le candidat cite une évaluation de la Cour des comptes sur le pacte Dutreil. La loi de finances 2026 a déjà
+    exclu les biens somptuaires et allongé la conservation à six ans : le gain est mesuré par rapport à ce droit.'
+  chiffrable: true
+  nature: recette
+  effet_solde_primaire:
+    central: 2.02
+    bas: 1.4
+    haut: 3.08
+    montee_en_charge:
+      '2027': 0
+      '2028': 1
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: gain_cae * depense_recente / depense_cae
+    parametres:
+      gain_cae:
+        valeur: 1.4
+        unite: Md€ (2018-2019)
+        source: https://www.cae-eco.fr/staticfiles/pdf/cae-note069.pdf
+        note: 'simulation CAE, note n° 69, graphique : « Exemption des patrimoines professionnels à 50 % (1,4) » Md€ de gain
+          pour les finances publiques'
+      depense_recente:
+        valeur: 3.6
+        unite: Md€ (moyenne 2022-2024)
+        source: https://www.ccomptes.fr/sites/default/files/2025-11/20251118-Synthese-Pacte%20Dutreil.pdf
+        note: 'Cour des comptes : dépense fiscale Dutreil de 2,0 Md€ (2022), 3,3 Md€ (2023) et 5,5 Md€ (2024) ; moyenne 3,6
+          Md€, 2024 étant gonflée par « une très grosse donation »'
+      depense_cae:
+        valeur: 2.5
+        unite: Md€ (2018-2019)
+        source: https://www.cae-eco.fr/staticfiles/pdf/cae-note069.pdf
+        note: coût du Dutreil estimé par le CAE « aux alentours de 2 à 3 milliards d'euros en 2018-2019 » (point médian)
+    explication: 'Recentrage du pacte Dutreil sur les biens professionnels et les reprises durables, lu comme équivalent en
+      rendement au variant du CAE (exonération réduite de 75 % à 50 %, gain 1,4 Md€ en 2018-2019), mis à l''échelle de la
+      dépense fiscale récente (moyenne 2022-2024 de la Cour, 3,6 Md€, contre 2,5 Md€ en 2018-2019). Pas de projection au PIB
+      : dépense très volatile (grosses opérations). Bas : gain CAE non mis à l''échelle, d''autant que la loi de finances
+      2026 (article 8) exclut déjà les biens « somptuaires » et porte l''engagement de conservation à six ans (référence).
+      Haut : mise à l''échelle sur 2024 (5,5 Md€).'
   chiffrages_tiers:
   - auteur: Candidat (équipe de campagne, via franceinfo)
     montant_md: 3
     url: https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/augmenter-les-salaires-en-taxant-les-plus-gros-heritages-la-proposition-de-raphael-glucksmann-est-elle-realiste_8076284.html
     date: '2026-08-25'
     commentaire: Rendement revendiqué.
+  effets_retour: 'Report ou avance de transmissions, restructurations de holdings : couverts par la borne basse ; effets sur
+    l''emploi des entreprises transmises jugés non significatifs par la Cour des comptes.'
+  confiance: faible
 - id: successions-plus-values-latentes
   libelle: Imposition des plus-values latentes à la transmission (fin de la purge au décès)
   domaine: fiscalite-patrimoine
@@ -146,8 +268,38 @@ mesures:
   interpretation: « Revenir sur les plus-values latentes » est lu comme la suppression de la purge des plus-values latentes
     lors de la transmission à titre gratuit (successions > 2 M€), proposition du rapport du CAE sur la transmission cité par
     l'équipe. Taux et assiette non publiés.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: recette
+  effet_solde_primaire:
+    central: 1.81
+    bas: 1.3
+    haut: 10.0
+    montee_en_charge:
+      '2027': 0
+      '2028': 1
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: part_pib * pib_2032
+    parametres:
+      part_pib:
+        valeur: 0.0005
+        unite: part du PIB
+        source: https://www.cae-eco.fr/staticfiles/pdf/cae-note069.pdf
+        note: 'CAE, note n° 69 : pas de chiffrage français ; aux États-Unis, manque à gagner de 0,05 % du PIB (Tax Foundation),
+          soit « de l''ordre de 1,3 milliard d''euros par an » pour la France'
+      pib_2032:
+        valeur: 3621
+        unite: Md€ courants
+        bareme: pib_nominal_2032
+    explication: 'Fin de la purge des plus-values latentes à la transmission : ordre de grandeur du CAE (0,05 % du PIB, transposition
+      américaine) appliqué au PIB 2032. Bas : 1,3 Md€ (valeur CAE non projetée), la mesure étant limitée aux successions de
+      plus de 2 M€. Haut : 10 Md€ revendiqués ; la proposition de loi sénatoriale IGS (2025), dont le dispositif est proche
+      (successions ≥ 4 M€, part latente supposée de 41 %), avance « près de 9 milliards d''euros dès 2025 » en statique. L''écart
+      entre les deux sources tient à la part des plus-values latentes dans les grands patrimoines ; aucune ne tient compte
+      des comportements (conservation des titres jusqu''au décès, délocalisation), que le CAE juge faibles.'
   chiffrages_tiers:
   - auteur: Candidat (équipe de campagne, via franceinfo)
     montant_md: 10
@@ -160,6 +312,19 @@ mesures:
     date: '2026-08-25'
     commentaire: '« taxer 1% des plus gros héritages ne suffirait pas, c''est très optimiste » : 15 Md€ supposeraient de toucher
       5 à 10 % des plus aisés.'
+  - auteur: Proposition de loi sénatoriale « impôt sur les grandes successions » (2025)
+    montant_md: 9.0
+    url: https://www.senat.fr/leg/exposes-des-motifs/ppl25-190-expose.html
+    date: '2025'
+    commentaire: 'Pilier II (plus-values latentes, successions ≥ 4 M€) : « près de 9 milliards d''euros dès 2025 », statique
+      ; total IGS (avec barème à 50 % et Dutreil) : 15 Md€ en 2026, soit le montant revendiqué par Glucksmann.'
+  - auteur: Conseil d'analyse économique (note n° 69, 2021)
+    montant_md: 1.3
+    url: https://www.cae-eco.fr/staticfiles/pdf/cae-note069.pdf
+    date: 2021-12
+    commentaire: Coût de la purge des plus-values latentes pour la France, transposé du chiffrage américain (0,05 % du PIB).
+  effets_retour: 'Moindre effet de blocage des portefeuilles (lock-in) invoqué par les partisans : non compté.'
+  confiance: faible
 - id: smic-1600-net
   libelle: SMIC à 1 600 € net en deux ans
   domaine: salaires
@@ -172,9 +337,57 @@ mesures:
   interpretation: 'Engagement de l''Acte I de Place publique (juin 2025), redit en conférence de presse le 23/06/2025 (Public
     Sénat). Non repris explicitement dans les prises de parole de campagne de 2026, qui mettent en avant la baisse de CSG
     ; retenu comme engagement du projet du parti, non démenti. Effet budgétaire : allègements généraux, prime d''activité,
-    masse salariale publique indexée sur le SMIC.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    masse salariale publique indexée sur le SMIC. Double compte évité avec point-indice-indexe-inflation : le barème du SMIC
+    inclut la masse salariale publique des agents au SMIC, mais pas l''indexation générale du point.'
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -1.06
+    bas: -11.0
+    haut: -0.82
+    montee_en_charge:
+      '2027': 0.3
+      '2028': 0.6
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: -(cible / (smic_2026 * infl_27_29) - 1) * 100 * cout_1pct * f
+    parametres:
+      cible:
+        valeur: 1600
+        unite: € net par mois
+        source: https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf
+        note: « Augmenter le SMIC à 1600 euros net dans les deux ans »
+      smic_2026:
+        valeur: 1477.93
+        unite: € net par mois (1er juin 2026)
+        source: https://www.compta-online.com/smic-horaire-montant-mensuel-brut-net-ao1021
+        note: SMIC net mensuel après la revalorisation automatique de 2,41 % au 1er juin 2026
+      infl_27_29:
+        valeur: 1.0528
+        unite: facteur
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: revalorisation légale supposée égale au déflateur FMI 2027-2029 (1,0146 × 1,01862 × 1,01863)
+      cout_1pct:
+        valeur: 0.31
+        unite: Md€/an de moindre solde par point de % de hausse du Smic
+        bareme: smic_1pct_cout_apu
+      f:
+        valeur: 1.2106
+        unite: facteur
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: PIB nominal 2032 / 2025 (en-tête de chiffrage/baremes.yaml)
+    explication: 'Le SMIC est indexé par la loi (inflation + moitié du pouvoir d''achat du salaire ouvrier) : en 2029, il
+      atteindrait environ 1 556 € net sans mesure ; 1 600 € demandent donc un coup de pouce d''environ 2,8 %, conservé ensuite
+      dans le niveau. Coût APU d''un point de SMIC (DG Trésor, barème smic_1pct_cout_apu, 0,31 Md€ en 2025) porté en 2032
+      (× 1,2106). Bas : hausse mesurée depuis le SMIC de juin 2026 (+8,3 %, cas d''une application immédiate) et sensibilité
+      haute du barème (1,1 Md€ par point) : −8,26 × 1,1 × 1,2106 ≈ −11,0. Haut : sensibilité basse (0,24). Au-delà de 5 %,
+      le barème avertit que la linéarité n''est plus garantie.'
+  effets_retour: 'Effets sur l''emploi peu qualifié (négatifs selon le groupe d''experts SMIC) et sur la consommation : non
+    comptés.'
+  confiance: faible
 - id: point-indice-indexe-inflation
   libelle: Indexation du point d'indice de la fonction publique sur l'inflation et rattrapage entre ministères
   domaine: fonction-publique
@@ -186,9 +399,55 @@ mesures:
     support: programme du parti (Place publique, « Acte I », 42 chantiers)
   precision: partielle
   interpretation: 'Lecture : point d''indice revalorisé chaque année de l''inflation (par rapport à un gel en législation
-    2027), plus une enveloppe non chiffrée de convergence interministérielle (hors chiffrage central, dans la fourchette).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    2027), plus une enveloppe non chiffrée de convergence interministérielle (hors chiffrage central, dans la fourchette).
+    Limite connue : la trajectoire de référence de plan/ (solde primaire gelé en points de PIB) n''est pas à droit constant
+    ; si l''on considère que des revalorisations ponctuelles du point y sont implicites, le coût réel de la promesse est plus
+    faible. Interaction : la hausse de 10 % des enseignants (salaires-enseignants-10-pct) s''applique sur une masse déjà indexée
+    ; l''effet croisé (≈ 0,4 Md€) n''est pas compté.'
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -23.28
+    bas: -35.3
+    haut: -22.96
+    montee_en_charge:
+      '2027': 0.07
+      '2028': 0.3
+      '2029': 0.48
+      '2030': 0.66
+      '2031': 0.83
+      '2032': 1
+  calcul:
+    formule: -(infl - 1) * 100 * pi_1pct * rapport_pib * (1 - retours)
+    parametres:
+      infl:
+        valeur: 1.1104
+        unite: facteur
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: 'déflateur du PIB cumulé 2027-2032 : 1,0146 × 1,01862 × 1,01863 × 1,0186 × 1,01757 × 1,01757 (plan/hypotheses.yaml)'
+      pi_1pct:
+        valeur: 2.2
+        unite: Md€ par an pour 1 % de hausse, toutes APU
+        bareme: point_indice_1pct
+      rapport_pib:
+        valeur: 1.278
+        unite: facteur
+        source: https://www.senat.fr/rap/a25-145-5/a25-145-5.html
+        note: 'masse salariale 2032 / 2023 à part de PIB constante : PIB 2032 / PIB 2023 = 3 621 / 2 834 (dérivation du barème
+          point_indice_1pct)'
+      retours: &id001
+        valeur: 0.25
+        unite: part
+        source: https://www.senat.fr/rap/a25-145-5/a25-145-5.html
+        note: 'prélèvements revenant aux APU (CSG, cotisations salariales, IR) sur une hausse de rémunération publique : «
+          environ un quart » (limites du barème point_indice_1pct)'
+    explication: 'Droit constant (REFERENCE.md) : le point d''indice n''est indexé par aucune loi, donc gelé en référence.
+      L''indexer sur l''inflation coûte en 2032 l''inflation cumulée 2027-2032 (déflateur FMI, +11,04 %) × coût d''un point
+      (2,2 Md€ en 2023, × 1,278 pour 2032), net d''un quart de prélèvements en retour. Montée en charge = inflation cumulée
+      à chaque date (revalorisation par décret possible dès juillet 2027). Bas : barème haut (2,5 Md€) sans déduction des
+      retours, plus la convergence interministérielle non chiffrée. Haut : barème bas (2,17 Md€).'
+  effets_retour: 'Attractivité de la fonction publique invoquée : non comptée.'
+  confiance: moyenne
 - id: abrogation-reforme-retraites-2023
   libelle: Abrogation de la réforme des retraites de 2023, puis réforme fondée sur la pénibilité et l'espérance de vie
   domaine: retraites
@@ -202,9 +461,35 @@ mesures:
   interpretation: 'Abrogation = retour à 62 ans et au calendrier Touraine (voir Acte I : « Abroger la réforme Macron de 2023
     »). La réforme ultérieure (« certains doivent pouvoir partir à la retraite à 60 ans, d''autres devront travailler davantage
     », Acte I ; les cadres « devront en revanche partir plus tard », livre, mai 2026) n''est pas paramétrée : son effet est
-    une source d''incertitude (fourchette), pas du central.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    une source d''incertitude (fourchette), pas du central. La réforme ultérieure « fondée sur la pénibilité » (départs à
+    60 ans pour certains, plus tard pour les cadres) n''est pas paramétrée : non comptée ; elle pourrait réduire le coût.'
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -13.9
+    bas: -20.0
+    haut: -8.9
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.15
+      '2029': 0.35
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1
+  calcul:
+    formule: -cout
+    parametres:
+      cout:
+        valeur: 13.9
+        unite: Md€ courants par an (solde du système de retraite), en 2032
+        bareme: retraites_retour_62_ans_2032
+    explication: 'Barème retraites_retour_62_ans_2032 : retour à 62 ans et au calendrier Touraine, net de la suspension déjà
+      votée (LFSS 2026, âge gelé jusqu''au 1er janvier 2028). Effet nul en 2027 (suspension en vigueur), puis croissant avec
+      les générations qui auraient vu leur âge relevé à partir de 2028 (profil conventionnel ; le COR situe l''effet maximal
+      vers 2032).'
+  effets_retour: 'Moindre emploi des seniors et moindres recettes de cotisations au-delà du périmètre du barème, et effets
+    sur le chômage des seniors : non comptés.'
+  confiance: moyenne
 - id: abrogation-reforme-assurance-chomage
   libelle: Abrogation de la réforme de l'assurance chômage
   domaine: emploi
@@ -216,8 +501,40 @@ mesures:
   precision: partielle
   interpretation: 'Réforme(s) visée(s) non précisée(s) : lecture retenue = retour sur les réformes 2019-2023 (modulation contracyclique
     de la durée, calcul du SJR) et 2025-2026 encore en vigueur au 1er janvier 2027.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -5.21
+    bas: -7.87
+    haut: -2.31
+    montee_en_charge:
+      '2027': 0
+      '2028': 1
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: -economie_2023 * f
+    parametres:
+      economie_2023:
+        valeur: 4.5
+        unite: Md€ par an (pleine charge, 2027)
+        source: https://www.unedic.org/publications/reforme-2023-premiers-effets-de-la-reforme-de-contracyclicite
+        note: 'Unédic : réforme de 2023 (contracyclicité), moindres dépenses « de l''ordre de 4,5 Md€ par an » à l''horizon
+          2027'
+      f:
+        valeur: 1.157
+        unite: facteur
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: PIB nominal 2032 / 2027 = 1,1842 / (1,00876 × 1,0146)
+    explication: 'Lecture centrale : « la réforme Macron » = réforme de 2023 (baisse de 25 % des durées d''indemnisation),
+      chiffrée par l''Unédic à 4,5 Md€ par an à pleine charge (2027), projetée en 2032 avec le PIB nominal (× 1,157). Bas
+      : abrogation aussi de la réforme 2019-2021 (2 à 2,3 Md€ en rythme de croisière, Unédic citée par AEF) : −(4,5 + 2,3)
+      × 1,157. Haut : seule la réforme 2019-2021 (−2,0 × 1,157). Les réformes de 2025-2026 (ruptures conventionnelles, seniors)
+      ne sont pas chiffrées faute de source.'
+  effets_retour: 'Effets sur le retour à l''emploi (allongement du chômage indemnisé selon les évaluations) : non comptés.'
+  confiance: moyenne
 - id: minimum-social-unique-18-ans
   libelle: Minimum social unique ouvert dès 18 ans
   domaine: solidarite
@@ -231,7 +548,8 @@ mesures:
   interpretation: Montant et conditions renvoyés à une conférence sociale. Le coût significatif vient de l'ouverture aux 18-24
     ans (RSA jeunes) ; à chiffrer sur un barème RSA ouvert aux 18-24 ans, fourchette large.
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Montant, conditions et calendrier renvoyés à une « grande conférence sociale » ; l''ouverture aux
+    moins de 25 ans n''est pas paramétrée (montant, conditions de ressources, rattachement fiscal) : trop vague (règle 7).'
 - id: territoires-zero-chomeur
   libelle: Généralisation de Territoires zéro chômeur de longue durée et CDI d'insertion
   domaine: emploi
@@ -243,7 +561,8 @@ mesures:
   precision: partielle
   interpretation: Généralisation = extension à l'ensemble du territoire ; nombre d'emplois cible non publié.
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Nombre d''emplois cible non publié : « généraliser » TZCLD ne fixe ni le nombre de territoires ni
+    le rythme d''habilitation (trop vague, règle 7).'
 - id: indemnite-proche-aidant
   libelle: Statut et indemnité pour les proches aidants
   domaine: solidarite
@@ -255,7 +574,7 @@ mesures:
   precision: vague
   interpretation: Montant et population non précisés ; à chiffrer par référence à l'AJPA existante.
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: '« Travailler à une indemnité » : ni montant ni population ; engagement de principe (règle 7).'
 - id: cheque-carburant-energie-triple
   libelle: Chèque carburant / chèque énergie triplé (500 €) et étendu aux classes moyennes
   domaine: energie
@@ -270,9 +589,46 @@ mesures:
   interpretation: 'Le 23/09/2026 (LCI) il parle d''un « triplement du chèque énergie », « avec un ciblage en direction des
     foyers les plus modestes ». Lecture retenue : aide versée automatiquement aux bénéficiaires du chèque énergie, portée
     à 500 €/an, étendue à une partie des classes moyennes (périmètre non défini : fourchette). Mesure conjoncturelle annoncée
-    face à la hausse des carburants ; durée non précisée.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    face à la hausse des carburants ; durée non précisée. Financement annoncé par une taxation des superprofits fossiles (taxe-superprofits-fossiles),
+    non chiffrable : pas de compensation comptée.'
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -1.56
+    bas: -2.31
+    haut: -1.38
+    montee_en_charge:
+      '2027': 0.5
+      '2028': 1
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: -menages * (montant_cible - montant_moyen) / 1e9
+    parametres:
+      menages:
+        valeur: 4500000.0
+        unite: foyers
+        source: https://www.connaissancedesenergies.org/questions-et-reponses-energies/quest-ce-que-le-cheque-energie
+        note: « Environ 4,5 millions de foyers ont reçu automatiquement un chèque énergie en 2026 »
+      montant_cible:
+        valeur: 500
+        unite: € par an
+        source: https://www.franceinfo.fr/economie/automobile/essence/prix-des-carburants-le-gouvernement-ne-veut-pas-heurter-totalenergies-selon-raphael-glucksmann-qui-reclame-une-taxe-sur-les-superprofits_8202563.html
+        note: chèque « multiplié par trois », porté à 500 euros
+      montant_moyen:
+        valeur: 153
+        unite: € par an
+        source: https://www.connaissancedesenergies.org/questions-et-reponses-energies/quest-ce-que-le-cheque-energie
+        note: montant moyen du chèque énergie 2026
+    explication: 'Version du 21/09/2026 (chèque porté à 500 € pour les bénéficiaires du chèque énergie) : 4,5 M de foyers
+      × (500 − 153) €. Haut : version du 23/09/2026 (« triplement du chèque énergie » ciblé sur les modestes) : 4,5 M × 153
+      × 2 = 1,38 Md€. Bas : extension aux 6 millions de foyers éligibles (Sud Radio, UFE) à 500 €, net de la dépense actuelle
+      : 6 M × 500 − 4,5 M × 153 = 2,31 Md€ ; l''extension aux « classes moyennes », non délimitée, peut coûter davantage.
+      Supposée pérenne (le chèque énergie l''est) ; non indexée (le barème ne l''est pas).'
+  effets_retour: 'Soutien à la consommation : non compté.'
+  confiance: moyenne
 - id: taxe-superprofits-fossiles
   libelle: Taxation des superprofits des multinationales fossiles et « profiteurs de guerre »
   domaine: fiscalite-entreprises
@@ -287,7 +643,8 @@ mesures:
     "des multinationales fossiles" », de préférence à l''échelle européenne). Assiette, taux et seuil non publiés ; rendement
     très dépendant des prix de l''énergie.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: Assiette, taux et seuil non publiés ; préférence affichée pour un dispositif européen ; rendement
+    très dépendant des prix de l'énergie (la contribution temporaire de 2022-2023 n'était pas pérenne).
 - id: leasing-social-voiture-electrique
   libelle: 'Leasing social : voiture électrique à 100 €/mois pour les actifs modestes grands rouleurs'
   domaine: transports
@@ -302,7 +659,9 @@ mesures:
   interpretation: 'Population : actifs à moins de 2 000 €/mois faisant plus de 30 km/jour. Cadence de déploiement non précisée
     : à chiffrer par véhicule (aide publique par contrat) × nombre de contrats par an.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Nombre de contrats et cadence non précisés : la population visée (actifs à moins de 2 000 € par
+    mois roulant plus de 30 km par jour) n''est pas chiffrée par une source publique, et le mode de financement (budget ou
+    certificats d''économies d''énergie, hors APU) n''est pas dit.'
 - id: annulation-hausse-accise-electricite-2024
   libelle: Annulation de la hausse de l'accise sur l'électricité de 2024
   domaine: energie
@@ -313,9 +672,41 @@ mesures:
     support: programme du parti (Place publique, « Acte I », 42 chantiers)
   precision: precise
   interpretation: Retour de l'accise sur l'électricité (ex-TICFE) à son niveau d'avant février 2024 pour les ménages ; à apprécier
-    par rapport au tarif en vigueur au 1er janvier 2027.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    par rapport au tarif en vigueur au 1er janvier 2027. Le rendement par €/MWh vient d'une tribune (Connaissance des énergies,
+    2024) ; un barème d'accise électricité est à ajouter.
+  chiffrable: true
+  nature: baisse_recette
+  effet_solde_primaire:
+    central: -4.0
+    bas: -5.97
+    haut: -4.0
+    montee_en_charge:
+      '2027': 0
+      '2028': 1
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: -hausse * rendement_par_eur
+    parametres:
+      hausse:
+        valeur: 20
+        unite: €/MWh
+        source: https://www.fournisseurs-electricite.com/contrat-electricite-gaz/taxes/accise-electricite
+        note: 'février 2024 : passage de 1 à 21 €/MWh (fin du bouclier)'
+      rendement_par_eur:
+        valeur: 0.2
+        unite: Md€ par €/MWh et par an
+        source: https://www.connaissancedesenergies.org/tribune-actualite-energies/du-sel-lelectricite-le-maniement-risque-des-taxes-de-rendement
+        note: '« La remontée de 20 €/MWh de l''accise sur l''électricité en février 2024 va probablement rapporter de l''ordre
+          de 4 milliards d''euros sur l''année 2024 » : 4 / 20'
+    explication: 'Baisse de l''accise de 20 €/MWh (l''incrément de février 2024) par rapport au tarif en vigueur (30,85 €/MWh
+      pour les ménages en 2026), à 0,2 Md€ par €/MWh (4 Md€ pour 20 €/MWh, tous consommateurs). Pas de projection au PIB (assiette
+      en volume). Bas : retour à 1 €/MWh pour les ménages (−29,85 €/MWh × 0,2). Haut = central : l''électrification des usages
+      accroîtrait plutôt l''assiette (et donc le coût).'
+  effets_retour: 'Soutien au pouvoir d''achat et à l''électrification : non compté.'
+  confiance: moyenne
 - id: maprimerenov-relance
   libelle: Relance et simplification de MaPrimeRénov'
   domaine: logement-energie
@@ -328,7 +719,8 @@ mesures:
   precision: vague
   interpretation: 'Aucun montant ; lecture : retour de l''enveloppe au niveau de 2024 (avant les coupes 2025-2026).'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Aucun montant ni objectif de rénovations : « relancer et simplifier » ne permet pas de fixer un
+    écart à la loi de finances en vigueur (trop vague, règle 7).'
 - id: plan-enr-reseaux
   libelle: Plan pluriannuel d'investissement dans les renouvelables, les réseaux et le stockage
   domaine: energie
@@ -341,7 +733,8 @@ mesures:
   interpretation: Aucun montant ni répartition entre soutien public (CSPE) et investissement des opérateurs (RTE, Enedis,
     hors APU pour l'essentiel). Probablement non chiffrable au-delà de l'existant ; à trancher en phase 2.
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: Aucun montant ; l'investissement dans les réseaux et le stockage relève surtout de RTE, Enedis et
+    des producteurs (hors APU) et le soutien public aux renouvelables dépend des prix de marché (trop vague, règle 7).
 - id: plan-rail
   libelle: 'Plan Rail national : aides démultipliées à SNCF Réseau, trains de nuit, fret'
   domaine: transports
@@ -355,7 +748,8 @@ mesures:
   interpretation: 'Aucun montant ; lecture possible : +1,5 Md€/an de régénération réclamés par SNCF Réseau (à confirmer par
     barème).'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: '« Démultiplier les aides à SNCF Réseau » sans montant ni calendrier : écart à la trajectoire non
+    lisible (trop vague, règle 7).'
 - id: ticket-climat
   libelle: 'Ticket climat : titre de transport national à tarif fixe, d''abord pour jeunes et précaires'
   domaine: transports
@@ -369,7 +763,8 @@ mesures:
   interpretation: 'Tarif non fixé dans l''Acte I (programme européen 2024 : 49 €/mois, non reconfirmé). Coût = compensation
     aux autorités organisatrices.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Tarif, périmètre (« d''abord réservé aux jeunes et aux publics précaires ») et partage avec les
+    autorités organisatrices non fixés : coût non lisible (trop vague, règle 7).'
 - id: fin-niches-transport-polluant
   libelle: Fin des exonérations sur le kérosène, taxation des jets privés, yachts, SUV et camions en transit
   domaine: fiscalite-environnement
@@ -385,7 +780,9 @@ mesures:
     restreinte aux vols intérieurs/intra-UE. Complété par « taxer les camions européens qui traversent nos territoires » (même
     chantier 12).'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Liste de dispositifs (kérosène, TVA des billets, jets privés, yachts, SUV, camions en transit) sans
+    taux ni périmètre : le kérosène international relève des conventions internationales et le coût des niches citées n''est
+    pas publié mesure par mesure dans une source ouverte consultée (barèmes à ajouter).'
 - id: suppression-niches-inefficaces
   libelle: Suppression des niches fiscales inefficaces et polluantes, audit de la dépense
   domaine: finances-publiques
@@ -399,7 +796,8 @@ mesures:
   interpretation: 'Enveloppe non détaillée (règle 6 du README) : central = part documentée par des mesures identifiées ailleurs
     (kérosène, CIR, Dutreil), sans double compte.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Enveloppe sans montant (règle 6) : les niches identifiées sont chiffrées dans leurs propres mesures
+    (successions-pacte-dutreil ; kérosène et CIR non chiffrables) ; la part documentée non déjà comptée est nulle.'
 - id: cir-plafonne-grands-groupes
   libelle: Crédit d'impôt recherche plafonné pour les grands groupes
   domaine: fiscalite-entreprises
@@ -413,7 +811,8 @@ mesures:
   interpretation: 'Niveau du plafond non publié ; économie partiellement réaffectée à la recherche publique (même chantier)
     : à traiter en solde net.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Niveau du plafond non publié et économie partiellement réaffectée à la recherche publique (même
+    chantier) : solde net non lisible.'
 - id: hausse-taxe-gafam
   libelle: Hausse ciblée de la taxe sur les services numériques (« taxe GAFAM ») et taxe « Amazon » sur le e-commerce
   domaine: fiscalite-entreprises
@@ -428,7 +827,8 @@ mesures:
     de zéro par construction ; la « taxe Amazon » (chantier 17) finance le commerce de proximité. À chiffrer comme couple
     recette/dépense.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Recette affectée à une dépense nouvelle (Agence industrielle du numérique et de l''IA) : effet net
+    nul par construction ; taux de la hausse non précisé.'
 - id: salaires-enseignants-10-pct
   libelle: Hausse de 10 % du salaire de tous les enseignants, jusqu'à +25 % en milieu de carrière dans le primaire (6 Md€)
   domaine: education
@@ -441,15 +841,59 @@ mesures:
   interpretation: 'Annonce du 30/08/2026 : « une augmentation pour tous [les enseignants] de 10% et ensuite, une augmentation
     graduelle en fonction de la carrière » ; « jusqu''à 25% » cumulé pour un enseignant du primaire en milieu de carrière.
     L''Acte I prévoyait une revalorisation « continue et planifiée sur 5 ans ». Lecture : +10 % sur la masse indiciaire enseignante
-    (public et privé sous contrat) + composante carrière non paramétrée ; montée en charge sur 5 ans.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    (public et privé sous contrat) + composante carrière non paramétrée ; montée en charge sur 5 ans. Hausse réelle, distincte
+    de l''indexation du point (point-indice-indexe-inflation) : pas de double compte, hors effet croisé mineur.'
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -3.9
+    bas: -7.11
+    haut: -3.74
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1
+  calcul:
+    formule: -hausse * cout_enseignant * etpt * part_hors_cas * (1 - retours) * f / 1e9
+    parametres:
+      hausse:
+        valeur: 0.1
+        unite: part
+        source: https://www.franceinfo.fr/elections/presidentielle/le-candidat-a-l-election-presidentielle-raphael-glucksmann-veut-augmenter-de-10-les-salaires-de-tous-les-enseignants_8169542.html
+        note: « une augmentation pour tous [les enseignants] de 10% »
+      cout_enseignant:
+        valeur: 85000
+        unite: € par ETPT et par an
+        bareme: cout_enseignant_charge
+      etpt:
+        valeur: 793863
+        unite: ETPT
+        source: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
+        note: programmes 140 (341 897) et 141 (451 966), PLF 2026 (dérivation du barème cout_enseignant_charge)
+      part_hors_cas:
+        valeur: 0.65
+        unite: part
+        source: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
+        note: le CAS Pensions représente ≈ 35 % du titre 2 (limites du barème cout_enseignant_charge) ; la contribution au
+          CAS est un flux interne à l'État
+      retours: *id001
+      f: *id002
+    explication: '+10 % sur la rémunération hors CAS des enseignants du public (793 863 ETPT × 85 000 € × 65 %), net d''un
+      quart de prélèvements en retour, porté en 2032 (× 1,1842), montée en charge sur cinq ans (Acte I : revalorisation «
+      planifiée sur 5 ans »). Bas : coût annoncé par le candidat, « 6 milliards en tout », qui inclut la composante carrière
+      (jusqu''à +25 %) et sans doute le privé sous contrat, porté en 2032 (6 × 1,1842). Haut : coût moyen bas du barème (81
+      500 €). Les pensions futures, calculées sur le dernier traitement, augmenteront après 2032 (non compté).'
   chiffrages_tiers:
   - auteur: Candidat
     montant_md: -6
     url: https://www.franceinfo.fr/elections/presidentielle/le-candidat-a-l-election-presidentielle-raphael-glucksmann-veut-augmenter-de-10-les-salaires-de-tous-les-enseignants_8169542.html
     date: '2026-08-30'
     commentaire: « coûte 6 milliards en tout »
+  effets_retour: 'Attractivité du métier, recrutement : non comptés.'
+  confiance: moyenne
 - id: encadrement-eleves-primaire
   libelle: Baisse du nombre d'élèves par enseignant en primaire (maintien des postes malgré la baisse démographique)
   domaine: education
@@ -464,7 +908,9 @@ mesures:
     ne sont pas faites (coût = postes maintenus × coût moyen). L''Acte I ajoute un tutorat « avec des adultes formés et correctement
     rémunérés ».'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Coût nul à droit constant : aucune suppression de postes n''est votée au-delà de la loi de finances
+    2026 ; maintenir les postes malgré la baisse démographique est une moindre économie par rapport à une politique future,
+    pas un coût par rapport à la législation.'
 - id: plan-batisseurs-ecoles
   libelle: 'Plan « bâtisseurs d''écoles » : rénovation thermique et construction'
   domaine: education
@@ -480,7 +926,8 @@ mesures:
     publiée ; « chiffré en milliards sur dix ans » au Grand Jury RTL du 31/05/2026, montant non retrouvé en source écrite).
     Acte I : « Lancer un vaste plan pour rénover les écoles ».'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Montant non publié en source écrite (« chiffré en milliards sur dix ans » à l''oral, RTL, 31/05/2026)
+    et partage État-collectivités inconnu : trop vague (règle 7).'
 - id: service-civique-obligatoire
   libelle: Service civique universel et obligatoire de dix mois
   domaine: jeunesse
@@ -494,8 +941,51 @@ mesures:
   interpretation: 'Classe d''âge entière (≈ 800 000 jeunes) pendant 10 mois, missions en Ehpad, écoles, services publics ;
     dimension militaire volontaire. Engagement répété depuis novembre 2025 (franceinfo 24/11/2025 : « proposer un service
     universel et obligatoire, mais qui ne sera pas nécessairement militaire »).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -4.49
+    bas: -5.43
+    haut: -3.74
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.2
+      '2029': 0.5
+      '2030': 0.8
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: -(cohorte * mois * cout_mensuel / 1e9 - budget_actuel)
+    parametres:
+      cohorte:
+        valeur: 818565
+        unite: jeunes
+        source: https://www.insee.fr/fr/statistiques/2381380
+        note: naissances vivantes de 2014, cohorte atteignant 18 ans en 2032
+      mois:
+        valeur: 10
+        unite: mois
+        source: https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme
+        note: « service civique obligatoire de dix mois »
+      cout_mensuel:
+        valeur: 604.98
+        unite: € par volontaire et par mois
+        source: https://www.service-civique.gouv.fr/api/media/assets/document/asc-indemnites-et-cotisations-01012026.pdf
+        note: indemnité nette versée par l'État (504,98 €) + subvention de tutorat (100 €) ; la CSG et les cotisations sont
+          des flux internes aux APU
+      budget_actuel:
+        valeur: 0.465
+        unite: Md€
+        source: https://www.senat.fr/rap/a25-144-62/a25-144-62_mono.html
+        note: subvention pour charge de service civique 2026 (465 M€, 110 000 volontaires), absorbée par le nouveau dispositif
+    explication: 'Une classe d''âge (818 565 jeunes) × 10 mois × 604,98 € par mois, moins le budget actuel du service civique.
+      Montants 2026 non projetés : l''indemnité est indexée sur la valeur du point d''indice, gelé à droit constant. Bas :
+      ajout de la prestation de l''organisme d''accueil (114,85 € par mois) supposée publique : −(818 565 × 10 × 719,83 €
+      / 1e9 − 0,465) ≈ −5,43. Haut : 85 % d''une classe d''âge effectivement incorporée (hypothèse de l''Institut Montaigne
+      pour une conscription, 2022 : https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/mettre-en-place-une-conscription-citoyenne-de-9-mois-remuneree-au-smic-pour-les-moins-de-25-ans/).
+      Encadrement, hébergement et formation non comptés, faute de coût unitaire public.'
+  effets_retour: 'Moindres dépenses sociales pour les jeunes concernés et effets sur l''emploi des jeunes : non comptés.'
+  confiance: moyenne
 - id: colos-pour-tous
   libelle: '« Passeport pour l''émancipation » / Colos pour tous : un séjour collectif garanti pour chaque enfant'
   domaine: jeunesse
@@ -510,7 +1000,8 @@ mesures:
     par enfant au cours de la scolarité (classes découvertes, colonies) ; coût par séjour et part État/CAF/collectivités à
     fixer.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Coût d''un séjour, nombre d''enfants déjà couverts (pass colo, classes découvertes) et partage entre
+    État, CAF et collectivités non publiés : pas de base de chiffrage sans hypothèse arbitraire.'
 - id: capital-formation-universel
   libelle: Capital formation universel en remplacement des bourses étudiantes
   domaine: enseignement-superieur
@@ -523,7 +1014,8 @@ mesures:
   precision: vague
   interpretation: Montant de l'allocation non fixé ; renvoyé à une concertation.
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Montant de l''allocation non fixé, renvoyé à une concertation avec les syndicats et les universités
+    : trop vague (règle 7).'
 - id: pass-culture-part-individuelle
   libelle: Suppression de la part individuelle du pass Culture au profit d'artistes intervenant à l'école
   domaine: culture
@@ -536,7 +1028,8 @@ mesures:
   interpretation: 'Redéploiement : économie sur la part individuelle réaffectée aux interventions scolaires ; effet net faible
     ou nul (à vérifier).'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Redéploiement à enveloppe constante (suppression de la part individuelle au profit des interventions
+    d''artistes à l''école) : effet net nul par construction, montant non précisé.'
 - id: plan-violences-sexistes-1-md
   libelle: Plan d'un milliard d'euros contre les violences sexistes et sexuelles
   domaine: egalite
@@ -549,8 +1042,30 @@ mesures:
   precision: precise
   interpretation: 'Lecture : 1 Md€ par an supplémentaire (le texte ne dit pas s''il s''agit d''un total ou d''un montant annuel
     : fourchette).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -1.0
+    bas: -1.18
+    haut: -0.2
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.5
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: -montant
+    parametres:
+      montant:
+        valeur: 1.0
+        unite: Md€ par an
+        source: https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf
+        note: « mobiliser un milliard d'euros dans ce cadre »
+    explication: 'Lecture centrale : 1 Md€ supplémentaire par an, en euros courants. Bas : montant indexé sur le PIB nominal
+      2026→2032 (× 1,1842). Haut : 1 Md€ au total sur le quinquennat (0,2 Md€ par an).'
+  confiance: moyenne
 - id: prevention-sante-hors-ondam
   libelle: Plan de prévention en santé hors ONDAM, fonds territorial de prévention, santé mentale des jeunes
   domaine: sante
@@ -564,7 +1079,8 @@ mesures:
   interpretation: Aucun montant ; sortir la prévention de l'ONDAM ne change pas la dépense APU. Probablement non chiffrable
     (règle 7) sauf enveloppe explicite.
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Aucun montant : sortir la prévention de l''ONDAM change la présentation, pas la dépense ; trop vague
+    (règle 7).'
 - id: revalorisation-soignants-police-justice
   libelle: Revalorisation des soignants, policiers et gendarmes, agents de justice ; hausse des effectifs judiciaires et pénitentiaires
   domaine: fonction-publique
@@ -578,7 +1094,8 @@ mesures:
     » des policiers et gendarmes). Aucun montant ni effectif : à chiffrer seulement si une hypothèse minimale est défendable,
     sinon non chiffrable.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Ni montant, ni effectifs, ni grille : « revaloriser » et « augmenter les effectifs » ne se chiffrent
+    pas sans hypothèse arbitraire (règle 7).'
 - id: logement-abordable-fonds-foncier
   libelle: 'Plan Marshall du logement : fonds national foncier, logement social, BRS, extension de Visale, « logement d''abord
     »'
@@ -591,7 +1108,7 @@ mesures:
   precision: vague
   interpretation: Aucun montant ni objectif chiffré de logements sociaux.
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Ni dotation du fonds foncier, ni objectif de logements sociaux ou de BRS : trop vague (règle 7).'
 - id: aide-publique-developpement-0-7
   libelle: Aide publique au développement portée progressivement à 0,7 % du RNB
   domaine: international
@@ -604,8 +1121,43 @@ mesures:
   precision: precise
   interpretation: 'Lecture : trajectoire linéaire de l''APD du niveau 2027 (après les coupes 2025-2026) à 0,7 % du RNB en
     fin de quinquennat.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -11.59
+    bas: -11.59
+    haut: -7.97
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1
+  calcul:
+    formule: -(cible - niveau_2026) / 100 * pib_2032
+    parametres:
+      cible:
+        valeur: 0.7
+        unite: '% du RNB'
+        source: https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf
+        note: « atteindre progressivement 0,7 % du RNB »
+      niveau_2026:
+        valeur: 0.38
+        unite: '% du RNB'
+        source: https://www.alternatives-economiques.fr/aide-au-developpement-la-france-s-eloigne-de-son-objectif-au-detriment-des-pays-les-plus-pauvres_04
+        note: « Après adoption du budget 2026, l'enveloppe pourrait retomber à 0,38 % »
+      pib_2032:
+        valeur: 3621
+        unite: Md€ courants
+        bareme: pib_nominal_2032
+        note: RNB approché par le PIB (écart de l'ordre de 1 à 2 %)
+    explication: 'Écart entre 0,7 % et le niveau 2026 (0,38 %, droit constant) appliqué au PIB 2032, trajectoire linéaire
+      jusqu''en 2032. Haut : écart calculé depuis 0,48 % (niveau 2024), si « progressivement » laisse la cible au-delà de
+      2032 ou si une partie de l''effort est comptée hors budget (annulations de dettes, frais d''accueil des réfugiés et
+      des étudiants). Bas = central.'
+  effets_retour: 'Effets diplomatiques et migratoires invoqués : non comptés.'
+  confiance: moyenne
 - id: defense-reserve-industrie-ukraine
   libelle: 'Effort de défense : production industrielle, drones et spatial, cyber, réserve opérationnelle, aide militaire
     à l''Ukraine'
@@ -621,7 +1173,8 @@ mesures:
     opérationnelle », programme « cyber sentinelle ». Aucune cible de budget (ni % du PIB, ni LPM). Lecture : pas d''écart
     chiffrable à la LPM en vigueur sans hypothèse ; à trancher en phase 2.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Aucune cible de budget (ni pourcentage du PIB, ni loi de programmation) : décision du coordinateur,
+    défense vague = non chiffrable tant que rien de plus précis n''est publié.'
 - id: fonds-europeen-defense-500-md
   libelle: Fonds européen de défense de 500 Md€ par emprunt commun
   domaine: europe-defense

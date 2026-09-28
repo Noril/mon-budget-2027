@@ -63,3 +63,23 @@ Les sources indiquées sont des pistes : chaque barème doit citer ses propres s
 | APD en % du RNB et RNB projeté 2027-2032 | aide-publique-developpement-0-7 | OCDE CAD ; PLF mission APD ; INSEE comptes nationaux |
 | Dépense de prévention (hors ONDAM, fonds territorial) | prevention-sante-hors-ondam | DREES comptes de la santé |
 | LPM en vigueur, coût de la réserve opérationnelle par réserviste, aide à l'Ukraine | defense-reserve-industrie-ukraine | LPM 2024-2030 et actualisation ; Cour des comptes (réserves 2024) |
+
+## Barèmes à ajouter (paramètres sourcés utilisés en phase 2 hors `baremes.yaml`)
+
+| Paramètre | Valeur utilisée | Mesures | Source lue |
+|---|---|---|---|
+| SMIC net mensuel au 1er juin 2026 | 1 477,93 € | smic-1600-net | [compta-online](https://www.compta-online.com/smic-horaire-montant-mensuel-brut-net-ao1021) (arrêté du 22 mai 2026) |
+| Déflateur FMI cumulé 2027-2032 et facteurs PIB 2026→2032 (1,1842), 2027→2032 (1,1570) | 1,1104 | point-indice-indexe-inflation, salaires-enseignants-10-pct, abrogation-reforme-assurance-chomage, baisse-csg-salaires | `plan/hypotheses.yaml` (FMI WEO avril 2026) |
+| Part des prélèvements revenant aux APU sur une hausse de rémunération publique | 25 % | point-indice-indexe-inflation, salaires-enseignants-10-pct | limites du barème `point_indice_1pct` (Sénat) : à ériger en barème propre |
+| Économie de la réforme 2023 de l'assurance chômage (pleine charge 2027) | 4,5 Md€/an | abrogation-reforme-assurance-chomage | [Unédic](https://www.unedic.org/publications/reforme-2023-premiers-effets-de-la-reforme-de-contracyclicite) |
+| Économie de la réforme 2019-2021 de l'assurance chômage (rythme de croisière) | 2 à 2,3 Md€/an | abrogation-reforme-assurance-chomage | [AEF info, audition Unédic](https://www.aefinfo.fr/depeche/648868-chomage-on-evalue-leffet-de-la-reforme-entre-2-et-23-md-en-rythme-de-croisiere-christophe-valentie-unedic) |
+| Chèque énergie : foyers bénéficiaires (4,5 M), éligibles (6 M), montant moyen (153 €) | — | cheque-carburant-energie-triple | [Connaissance des énergies](https://www.connaissancedesenergies.org/questions-et-reponses-energies/quest-ce-que-le-cheque-energie) ; [Sud Radio / UFE](https://www.sudradio.fr/sud-radio/cheque-energie-2026-montants-criteres-et-nouveautes-pour-les-menages) |
+| Rendement d'1 €/MWh d'accise sur l'électricité (tous consommateurs) | 0,2 Md€ | annulation-hausse-accise-electricite-2024 | [Connaissance des énergies, tribune 2024](https://www.connaissancedesenergies.org/tribune-actualite-energies/du-sel-lelectricite-le-maniement-risque-des-taxes-de-rendement) : à remplacer par un barème Voies et moyens / CRE |
+| Droits de succession seuls (PLF 2026) | 17,0 Md€ | successions-tranche-haute-50 | dérivation du barème `dmtg_rendement` (Sénat) ; **manque** : répartition des droits par tranche (DGFiP) |
+| Gain d'une exonération Dutreil réduite à 50 % ; coût Dutreil 2018-2019 ; dépense 2022-2024 | 1,4 Md€ ; 2 à 3 Md€ ; 2,0 / 3,3 / 5,5 Md€ | successions-pacte-dutreil | [CAE note n° 69](https://www.cae-eco.fr/staticfiles/pdf/cae-note069.pdf) ; [Cour des comptes 2025](https://www.ccomptes.fr/sites/default/files/2025-11/20251118-Synthese-Pacte%20Dutreil.pdf) |
+| Coût de la purge des plus-values latentes | 0,05 % du PIB (≈ 1,3 Md€) | successions-plus-values-latentes | [CAE note n° 69](https://www.cae-eco.fr/staticfiles/pdf/cae-note069.pdf) ; PPL IGS [Sénat](https://www.senat.fr/leg/exposes-des-motifs/ppl25-190-expose.html) (9 Md€, statique) |
+| Indemnité de service civique (504,98 € net État, tutorat 100 €, prestation d'accueil 114,85 €) | — | service-civique-obligatoire | [barème ASC 2026](https://www.service-civique.gouv.fr/api/media/assets/document/asc-indemnites-et-cotisations-01012026.pdf) |
+| Budget du service civique 2026 | 465 M€ (110 000 volontaires) | service-civique-obligatoire | [Sénat, avis PLF 2026 JVA](https://www.senat.fr/rap/a25-144-62/a25-144-62_mono.html) |
+| Cohorte d'âge (naissances 2014) | 818 565 | service-civique-obligatoire | [INSEE](https://www.insee.fr/fr/statistiques/2381380) |
+| APD en % du RNB (2024 : 0,48 % ; 2026 : 0,38 %) | — | aide-publique-developpement-0-7 | [Alternatives économiques, 2026](https://www.alternatives-economiques.fr/aide-au-developpement-la-france-s-eloigne-de-son-objectif-au-detriment-des-pays-les-plus-pauvres_04) : à remplacer par OCDE CAD / PLF |
+| ETPT enseignants du public (programmes 140 et 141) | 793 863 | salaires-enseignants-10-pct | dérivation du barème `cout_enseignant_charge` (PLF 2026) ; **manque** : ETPT du privé sous contrat (programme 139) |

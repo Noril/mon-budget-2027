@@ -95,3 +95,50 @@ Paramètre transversal : le SMIC net cible est de 1 700 € en campagne 2026 et 
 | Rendement d'une taxe d'habitation sur les 20 % de ménages les plus aisés | taxe-habitation-aises | DGFiP ; rapport Richard-Bur (2018) |
 | Rendement d'1 point de TVA à taux réduit ; assiette des biens de luxe | tva-premiere-necessite-luxe | Voies et moyens tome 1 ; INSEE (consommation par produit) |
 | Rendement du versement mobilité, des redevances de l'eau et de la TSBA | fiscalite-locale-eau-mobilite | GART ; agences de l'eau ; DGAC |
+
+## Barèmes à ajouter (phase 2, dépenses)
+
+Paramètres utilisés hors de `baremes.yaml`, avec leur source. Il faudrait les promouvoir en barèmes communs.
+
+| Paramètre | Valeur | Mesures | Source |
+|---|---|---|---|
+| SMIC net mensuel 2026 | 1 477,93 € | smic-1700-net, pension-minimale-smic | https://www.service-public.gouv.fr/particuliers/vosdroits/F2300 |
+| Objectif de pension minimale pour une carrière complète au SMIC | 85 % du SMIC net | pension-minimale-smic | https://blog.ipp.eu/2023/02/09/au-dela-des-1200-euros-quelles-perspectives-de-reforme-pour-les-petites-pensions/ |
+| Hypothèse centrale de productivité du COR | 0,7 % par an | indexation-pensions-salaires | https://www.ipp.eu/indexation-dans-les-regimes-de-retraite-par-points-comment-lire-les-hypotheses-du-dernier-rapport-du-cor/ |
+| AAH, montant maximal | 1 041,59 € par mois | aah-smic | https://www.service-public.gouv.fr/particuliers/vosdroits/F12242 |
+| RSA, personne seule | 651,69 € par mois | garantie-autonomie | https://www.service-public.gouv.fr/particuliers/vosdroits/F19778 |
+| Facteur PIB nominal 2026→2032 | 1,1842 | toutes les mesures reprises du contre-budget 2026 | plan/hypotheses.yaml (FMI WEO avril 2026) |
+| Inflation cumulée 2028-2032 (déflateur) | 9,5 % | echelle-mobile-salaires | plan/hypotheses.yaml |
+| Rendement des franchises médicales avant et après le doublement de 2024 | 1,3 et 2,5 Md€ | franchises-medicales | https://www.capital.fr/economie-politique/securite-sociale-25-milliards-d-euros-l-an-dernier-la-cour-des-comptes-preconise-un-elargissement-des-franchises-medicales-1527164 (Cour des comptes, mai 2026) |
+| Dépenses culturelles publiques | 0,9 % du PIB | culture-1-pct-pib | Institut Montaigne 2022 |
+| Coût chargé d'un ETP d'EHPAD public | proxy : barème soignant hospitalier | dependance-ehpad-publics | à documenter (CNSA, DREES) |
+| Chiffrages de l'Institut Montaigne 2022 | montants 2022 | garantie-emploi, sixieme-semaine-conges, garantie-autonomie, gratuite-ecole-cantine, cantine-100-bio, classes-19-eleves, petite-enfance-500000-places, conscription-citoyenne, cent-pour-cent-secu, logements-publics-200000, garantie-universelle-loyers, tarifs-reglementes-gaz, trimestres-rsa | https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/ : à réactualiser en barèmes 2032 |
+| Montants du contre-budget LFI 2026 (chiffrage du parti) | voir chaque mesure | 20 mesures, confiance faible | https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf : à remplacer par des barèmes indépendants |
+
+Barèmes manquants pour les mesures laissées non chiffrables : produit des droits d'inscription et de la CVEC (gratuité du supérieur), dépense et bénéficiaires de l'ASPA (minimum vieillesse au seuil de pauvreté), écart de coût contractuel/titulaire, effectifs publics en horaires de nuit ou pénibles.
+
+## Barèmes à ajouter (recettes Mélenchon)
+
+Ces paramètres sourcés ne correspondent à aucun barème de `baremes.yaml`. Il faudrait en faire des barèmes communs.
+
+| Barème proposé | Valeur utilisée | Source | Mesures |
+|---|---|---|---|
+| Part de la recette mécanique conservée après évitement, pour une hausse de la fiscalité du capital du top 1 % | 0,26 | CAE, septembre 2025 (via franceinfo) : « perte de recette de 74 centimes sur chaque euro » | taxe-zucman-2-pct, successions-heritage-maximal (bas) |
+| Rendement statique d'un impôt plancher de 2 % sur les patrimoines > 100 M€ | 20 Md€ (fourchette 15 à 25) | Contre-budget LFI 2026 ; G. Zucman (via Wikipédia) | taxe-zucman-2-pct |
+| Recette d'un taux minimal d'IS de 25 % (pilier 2 étendu), France | 2,2 / 18,4 / 26,3 Md€ | Institut Montaigne 2022 (OCDE, EU Tax Observatory) | impot-universel-zucman-multinationales |
+| Rendement d'une contribution sur les montants distribués, par point | 0,66 Md€ par point (9,9 Md€ sur 2013-2017 à 3 %) | IGF, mission d'enquête sur la contribution de 3 % (vie-publique.fr) | taxe-dividendes-rachats |
+| Gain d'une suppression des allègements au-delà de 2 SMIC | 1,5 à 7 Md€ | Sénat, amendement n° 1029 au PLFSS 2026 (MECSS ; Groupe d'experts SMIC) | exonerations-cotisations-2-smic |
+| Coût de la suppression de la taxe d'habitation pour les 20 % de ménages les plus aisés | 7,8 Md€ (2023) | Sénat, rapport PLF 2023, Remboursements et dégrèvements | taxe-habitation-aises |
+| Coût du crédit d'impôt recherche | 7,7 Md€ (2025) | Sénat, rapport PLF 2025, Remboursements et dégrèvements | suppression-cir |
+| Dépenses fiscales rattachées aux DMTG (majorant du pacte Dutreil) | 4,5 Md€ (2025) | Cour des comptes, budget de l'État 2025, tableau 22 | pacte-dutreil |
+| Rendement d'un point du taux de TVA de 5,5 % | 2,0 Md€ (2025, net) | DG Trésor, Trésor-Éco n° 371 (dérivation de tva_point_tous_taux) | tva-premiere-necessite-luxe |
+| Gain des cotisations sociales sur l'intéressement, la participation et l'épargne salariale | 6,9 à 9 Md€ (2022) | Institut Montaigne 2022 | hausse-cotisation-vieillesse |
+| Gain d'un alourdissement des droits de succession avec réaction de l'assiette | ≤ 5 Md€ | Fondation IFRAP, juin 2024 (programme du NFP) | successions-heritage-maximal |
+| Gain d'un IR à 14 tranches (barème hypothétique) | 4,7 Md€ (2022) | Institut Montaigne 2022 | ir-14-tranches |
+| Facteurs PIB 2024→2032 (1,2336) et 2017→2032 (1,580), en plus de 2025→2032 | — | dérivations de pib_nominal_2032 et isf_retabli_gain_net | plusieurs |
+
+Barèmes utiles non trouvés en source ouverte :
+- part des employeurs publics dans l'assiette des cotisations vieillesse du régime général ;
+- coût du pacte Dutreil après la LFI 2026 ;
+- barème et rendement de la CVAE avant 2023 ;
+- gain net APU d'un retour sur la baisse de CFE industrielle, compensation comprise.

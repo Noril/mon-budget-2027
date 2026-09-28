@@ -78,9 +78,48 @@ mesures:
     d''accueil LFI (« La retraite à 60 ans »). Lecture retenue : âge d''ouverture des droits 60 ans et durée d''assurance
     ramenée à 40 ans (160 trimestres) pour le taux plein, par rapport à la législation au 1/1/2027 (réforme 2023, éventuellement
     suspendue). Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
-    : 10,3 Md€ (« Abrogation de la réforme des retraites, retour à 60 ans et 40 annuités », « appelée à monter en charge »).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    : 10,3 Md€ (« Abrogation de la réforme des retraites, retour à 60 ans et 40 annuités », « appelée à monter en charge »).
+    Doubles comptes : la suppression de la décote n''est pas ajoutée (voir suppression-decote) ; la pension minimale au SMIC
+    et la hausse de cotisation vieillesse sont chiffrées à part.'
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -42.9
+    bas: -75.0
+    haut: -32.9
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.35
+      '2029': 0.55
+      '2030': 0.75
+      '2031': 0.9
+      '2032': 1
+  calcul:
+    formule: -(retour_62 + age_60 + ecart_duree * duree_1an)
+    parametres:
+      retour_62:
+        valeur: 13.9
+        unite: Md€ courants par an (solde du système de retraite), en 2032
+        bareme: retraites_retour_62_ans_2032
+      age_60:
+        valeur: 18
+        unite: Md€ courants 2032 par an, en régime de croisière
+        bareme: retraites_age_60_depuis_62
+      ecart_duree:
+        valeur: 2.5
+        unite: années de durée d'assurance
+        source: https://solidarites.gouv.fr/loi-de-financement-de-la-securite-sociale-2026-les-mesures-phares
+        note: 170 trimestres (génération 1964, droit gelé) ramenés à 160 (40 annuités) ; la hausse vers 172 du calendrier
+          Touraine est déjà annulée dans retraites_retour_62_ans_2032
+      duree_1an:
+        valeur: 4.4
+        unite: Md€ courants 2032 par an et par année de durée
+        bareme: retraites_duree_assurance_1_an
+        note: valeur 2035, majorant pour 2032 selon le barème
+    explication: 'Coût par rapport au droit voté (suspension jusqu''au 1/1/2028 puis reprise vers 64 ans) : annulation des
+      mesures d''âge de 2023 (13,9 Md€ en 2032), passage de 62 à 60 ans (18 Md€) et durée ramenée à 40 annuités (2,5 ans ×
+      4,4 Md€). Bas = hauts des barèmes (20 + 33 + 2,5 × 8,8 = 75, effets d''activité compris) ; haut = bas des barèmes (8,9
+      + 13) + durée au central (11). Montée en charge : deux générations par an environ à partir de 2028.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 85.8
@@ -89,6 +128,15 @@ mesures:
     commentaire: 'Scénario médian 2027 (retour sur les mesures d''âge depuis 1993, calcul sur les 10 meilleures années) ;
       bas 36 Md€ (âge et trimestres seuls), haut 112,8 Md€ ; inclut minimum de pension à 1 400 € et trimestres RSA. Contre-chiffrage
       de l''équipe de campagne 2022 : 71,5 Md€ de coûts.'
+  - auteur: LFI (contre-budget 2026, montant revendiqué)
+    montant_md: 10.3
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    commentaire: Première année seulement, « appelée à monter en charge ».
+  effets_retour: 'Moindre emploi des seniors (baisse des cotisations et de l''impôt) non compté ; LFI invoque des recettes
+    de relance. LFI invoque des effets de relance (multiplicateurs FR-BDF, « au bout de cinq ans, on sera en dessous des 3
+    % de déficit ») : non comptés (règle 3).'
+  confiance: moyenne
 - id: pension-minimale-smic
   libelle: Pensions portées au moins au SMIC revalorisé pour une carrière complète ; minimum vieillesse au seuil de pauvreté
   domaine: retraites
@@ -102,15 +150,63 @@ mesures:
   interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
     version annoncée pour le 6 novembre 2026). SMIC revalorisé = 1 600 € net (AEC 2025) ou 1 700 € net (campagne 2026) : paramètre
     à trancher. Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
-    : 8,2 Md€ (minimum contributif) + 5 Md€ (retraites agricoles au SMIC, y compris retraités actuels).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    : 8,2 Md€ (minimum contributif) + 5 Md€ (retraites agricoles au SMIC, y compris retraités actuels). Les pensions complémentaires
+    relèvent des partenaires sociaux : seul le complément par les régimes de base est compté. Le relèvement du minimum vieillesse
+    au seuil de pauvreté n''est pas chiffré (pas de barème ASPA) : sous-estimation.'
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -8.41
+    bas: -10.5
+    haut: -5.5
+    montee_en_charge:
+      '2027': 0
+      '2028': 1
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: -(smic_net_cible - part_smic * smic_net_2026) / 100 * mico_100e * fp26
+    parametres:
+      smic_net_cible:
+        valeur: 1700
+        unite: € net par mois
+        source: https://www.lexpress.fr/economie/jean-luc-melenchon-et-le-smic-a-1-700-euros-cest-un-mauvais-outil-de-lutte-contre-la-pauvrete-TL3NGV6CXVCDVH6WPVLHJ5BUFY/
+        note: 'SMIC revalorisé retenu en central (décision de chiffrage : engagement du 7 juin 2026)'
+      part_smic:
+        valeur: 0.85
+        unite: part du SMIC net
+        source: https://blog.ipp.eu/2023/02/09/au-dela-des-1200-euros-quelles-perspectives-de-reforme-pour-les-petites-pensions/
+        note: objectif actuel de pension à 85 % du SMIC net pour une carrière complète au SMIC
+      smic_net_2026:
+        valeur: 1477.93
+        unite: € net par mois
+        source: https://www.service-public.gouv.fr/particuliers/vosdroits/F2300
+      mico_100e:
+        valeur: 1.6
+        unite: Md€ par an (régimes de base)
+        bareme: retraites_minimum_contributif_hausse_100e
+      fp26:
+        valeur: 1.1842
+        unite: facteur PIB nominal 2026→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: '1,2106 / (1,00858 × 1,01358) : croissance réelle et déflateur 2026 du FMI (plan/hypotheses.yaml)'
+    explication: 'Écart entre 1 700 € et le minimum actuel (85 % du SMIC net 2026 ≈ 1 256 €), soit 444 € par mois, valorisé
+      à 1,6 Md€ par tranche de 100 € (barème Mico, régimes de base) et projeté en 2032. Bas : 2,0 Md€ par tranche (haut indiqué
+      par le barème pour 2032) ; haut : SMIC à 1 600 € (344 € d''écart) sans projection.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 12.72
     url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/retablir-la-retraite-a-60-ans-apres-40-ans-annees-de-cotisation/
     date: '2022'
     commentaire: 'MICO à 1 400 € pour carrière complète : 12,05 Md€ ; minimum vieillesse : 0,67 Md€ (paramètres 2022).'
+  - auteur: LFI (contre-budget 2026, montant revendiqué)
+    montant_md: 13.2
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    commentaire: Mico 8,2 Md€ + retraites agricoles au SMIC 5 Md€.
+  confiance: faible
 - id: indexation-pensions-salaires
   libelle: Indexation des pensions sur les salaires
   domaine: retraites
@@ -123,8 +219,48 @@ mesures:
   interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
     version annoncée pour le 6 novembre 2026). Coût = écart salaires/prix appliqué à la masse des pensions. Montant revendiqué
     par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge) : 3,3 Md€.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -17.5
+    bas: -25.0
+    haut: -12.25
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1
+  calcul:
+    formule: -productivite * annees * revalo_1pct
+    parametres:
+      productivite:
+        valeur: 0.7
+        unite: point par an (salaires réels)
+        source: https://www.ipp.eu/indexation-dans-les-regimes-de-retraite-par-points-comment-lire-les-hypotheses-du-dernier-rapport-du-cor/
+        note: hypothèse centrale de croissance de la productivité du COR (0,7 % contre 1 % auparavant)
+      annees:
+        valeur: 5
+        unite: années d'indexation cumulées (2028-2032)
+        source: https://solidarites.gouv.fr/loi-de-financement-de-la-securite-sociale-2026-les-mesures-phares
+        note: mesure votée en loi de financement fin 2027
+      revalo_1pct:
+        valeur: 5.0
+        unite: Md€ courants par an, en 2032, par point de revalorisation
+        bareme: retraites_revalo_1pct
+    explication: 'Indexer sur les salaires plutôt que sur les prix ajoute chaque année l''écart salaires-prix (≈ gains de
+      productivité, 0,7 point) à toutes les pensions ; l''effet se cumule : 5 ans × 0,7 × 5,0 Md€ = 17,5 Md€ en 2032. Bas
+      : productivité à 1 % (ancienne hypothèse COR) ; haut : régimes de base seuls (3,5 Md€ par point).'
+  chiffrages_tiers:
+  - auteur: LFI (contre-budget 2026, montant revendiqué)
+    montant_md: 3.3
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    commentaire: Première année.
+  effets_retour: 'CSG, CASA et impôt sur le revenu prélevés sur la hausse des pensions : retour partiel non chiffré par le
+    barème.'
+  confiance: moyenne
 - id: suppression-decote
   libelle: Suppression de la décote
   domaine: retraites
@@ -135,9 +271,12 @@ mesures:
     support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-09-07)'
   precision: precise
   interpretation: 'Nouvelle formulation de l''édition 2025. Chevauche le retour à 60 ans/40 annuités (Institut Montaigne 2022
-    incluait la décote dans ses scénarios) : chiffrer sans double compte.'
+    incluait la décote dans ses scénarios) : chiffrer sans double compte. Non additionnée pour éviter un double compte avec
+    retraite-60-ans.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: Aucune source ouverte ne sépare le coût de la seule décote une fois l'âge ramené à 60 ans et la durée
+    à 40 annuités ; son effet est couvert par la borne basse de retraite-60-ans (hauts des barèmes, qui incluent les effets
+    d'ensemble).
 - id: trimestres-rsa
   libelle: Validation de trimestres de retraite au titre du RSA
   domaine: retraites
@@ -149,14 +288,36 @@ mesures:
   precision: precise
   interpretation: Engagement déjà présent dans L'AEC 2022, reconfirmé par l'édition 2025 (dernière version publiée ; nouvelle
     version annoncée pour le 6 novembre 2026).
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -1.9
+    bas: -7.7
+    haut: -1.9
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1
+  calcul:
+    formule: -cout_equipe
+    parametres:
+      cout_equipe:
+        valeur: 1.9
+        unite: Md€ (euros 2022)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/retablir-la-retraite-a-60-ans-apres-40-ans-annees-de-cotisation/
+        note: contre-chiffrage de l'équipe de campagne 2022 transmis à l'Institut Montaigne
+    explication: 'Central : chiffrage de l''équipe de campagne (1,9 Md€) ; bas : Institut Montaigne (7,7 Md€). Montants 2022
+      non projetés. Montée lente : ne concerne que les nouveaux retraités.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 7.7
     url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/retablir-la-retraite-a-60-ans-apres-40-ans-annees-de-cotisation/
     date: '2022'
     commentaire: 'Intégration des années de RSA comme années cotisées (équipe de campagne 2022 : 1,9 Md€).'
+  confiance: faible
 - id: hausse-cotisation-vieillesse
   libelle: Hausse de 0,25 point par an du taux de cotisation vieillesse et cotisations sur dividendes, intéressement, participation,
     épargne salariale
@@ -173,9 +334,61 @@ mesures:
     version annoncée pour le 6 novembre 2026). Mesure de recette : +1,25 point en 2031-2032. Montant revendiqué par LFI dans
     le contre-budget 2026 (octobre 2025, première année, avant montée en charge) : 3,2 Md€ la première année (+0,25 point)
     ; « Soumettre les dividendes, la participation, l''épargne salariale, les rachats d''actions à cotisations » : 15,5 Md€
-    (traité ici dans la même mesure pour éviter le double compte).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    (traité ici dans la même mesure pour éviter le double compte). Double compte : les cotisations sur les dividendes et les
+    rachats d''actions (15,5 Md€ avec l''épargne salariale dans le contre-budget) ne sont pas comptées ici, la base des dividendes
+    étant déjà visée par la fin du PFU et la taxe de 10 %. Une hausse de cotisation salariale réduit un peu l''assiette de
+    l''IR (non chiffré).'
+  chiffrable: true
+  nature: recette
+  effet_solde_primaire:
+    central: 17.89
+    bas: 15.77
+    haut: 20.3
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.58
+      '2029': 0.69
+      '2030': 0.79
+      '2031': 0.9
+      '2032': 1
+  calcul:
+    formule: points_2032 * point_cotisation * f25 + interessement_2022 * f24
+    parametres:
+      points_2032:
+        valeur: 1.25
+        unite: point
+        source: 'chiffrage/programmes/melenchon-lfi.yaml (citation : « 0,25 point par an durant le quinquennat »)'
+        note: cinq hausses de 0,25 point, au 1er janvier 2028 à 2032
+      point_cotisation:
+        valeur: 6.2
+        unite: Md€ par an par point de cotisation
+        bareme: retraites_cotisation_vieillesse_1_point
+        note: salariale sous plafond ou patronale déplafonnée ; répartition salarié/employeur non précisée
+      f25:
+        valeur: 1.2106
+        unite: facteur PIB nominal 2025→2032
+        source: chiffrage/baremes.yaml, en-tête et barème pib_nominal_2032 (3 620,9 / 2 991,06 Md€ ; INSEE, FMI WEO avril
+          2026)
+      interessement_2022:
+        valeur: 6.9
+        unite: Md€/an (2022)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/assujettir-aux-cotisations-sociales-les-revenus-dinteressement-de-participation-et-depargne-salariale/
+        note: 'Institut Montaigne : si les entreprises maintiennent leur budget de personnel, « le gain pour les finances
+          publiques serait plus limité (6,9 Md€) » ; haut 9 Md€'
+      f24:
+        valeur: 1.2336
+        unite: facteur PIB nominal 2024→2032
+        source: 'chiffrage/baremes.yaml, barème pib_nominal_2032, dérivation (« d''un montant 2024 : 1,2336 »)'
+        note: 'appliqué aux chiffrages 2022 de l''Institut Montaigne (horizon 2027) : sous-estime la croissance de l''assiette
+          depuis 2022, donc prudent pour une recette'
+    explication: 'Deux volets. (1) +1,25 point de cotisation vieillesse en 2032 × rendement d''un point (6,2 Md€ en 2025,
+      barème retraites_cotisation_vieillesse_1_point) × PIB 2025→2032 = 9,4 Md€. (2) Cotisations sociales sur l''intéressement,
+      la participation et l''épargne salariale : 6,9 Md€ (Institut Montaigne 2022, avec réaction des employeurs) × 1,2336
+      = 8,5 Md€. Bas = rendement patronal sous plafond (4,8 Md€ le point, réduit par les allègements) pour le volet 1, et
+      6,9 Md€ non projeté pour le volet 2 ; il couvre aussi le surcoût pour les employeurs publics d''une hausse de la part
+      patronale (agents contractuels relevant du régime général), non chiffré faute de donnée ouverte sur leur part dans l''assiette.
+      Haut = rendement salarial déplafonné (7,6 Md€) et 9 Md€ × 1,2336 pour le volet 2. Montée : volet 1 par cinquièmes de
+      2028 à 2032, volet 2 plein dès 2028.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 8.0
@@ -183,6 +396,7 @@ mesures:
     date: '2022'
     commentaire: 'Intéressement, participation, épargne salariale seuls : 6,9 à 9 Md€ (équipe de campagne 2022 : 8,2 Md€)
       ; +0,25 pt/an sur le mandat : 16 Md€ selon l''équipe de campagne 2022.'
+  confiance: moyenne
 - id: smic-1700-net
   libelle: SMIC porté à 1 700 € net par mois
   domaine: travail
@@ -198,15 +412,54 @@ mesures:
     2027 de référence. Effets APU directs : masse salariale publique, allègements généraux et prime d''activité, cotisations
     et impôts en retour, fonds de péréquation pour les TPE-PME « financé par le redéploiement des aides aux grandes entreprises
     » (contre-budget). Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en
-    charge) : 1,6 Md€ pour le SMIC à 1 600 € net.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    charge) : 1,6 Md€ pour le SMIC à 1 600 € net. Décision de chiffrage : 1 700 € net en central, 1 600 € (AEC 2025) en borne
+    favorable.'
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -5.64
+    bas: -20.0
+    haut: -2.4
+    montee_en_charge: &id001
+      '2027': 0.5
+      '2028': 1
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: -(smic_cible / smic_net_2026 - 1) * 100 * cout_1pct * fp
+    parametres:
+      smic_cible:
+        valeur: 1700
+        unite: € net par mois
+        source: https://www.lexpress.fr/economie/jean-luc-melenchon-et-le-smic-a-1-700-euros-cest-un-mauvais-outil-de-lutte-contre-la-pauvrete-TL3NGV6CXVCDVH6WPVLHJ5BUFY/
+      smic_net_2026:
+        valeur: 1477.93
+        unite: € net par mois
+        source: https://www.service-public.gouv.fr/particuliers/vosdroits/F2300
+      cout_1pct:
+        valeur: 0.31
+        unite: Md€/an de moindre solde par point de % de hausse du Smic
+        bareme: smic_1pct_cout_apu
+      fp:
+        valeur: 1.2106
+        unite: facteur PIB nominal 2025→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: FMI WEO avril 2026 via plan/hypotheses.yaml ; facteur repris en tête de chiffrage/baremes.yaml
+    explication: 'Hausse de 15 % du SMIC net (1 477,93 € → 1 700 €) × coût APU d''un point de SMIC (0,31 Md€ : allègements,
+      masse salariale publique, prime d''activité, nets des cotisations et de l''IR en retour) × facteur PIB. Bas : haut du
+      barème (1,1 Md€ par point, IGF 2010, sans recettes induites) ; haut : 1 600 € (+8,3 %) au bas du barème (0,24). Linéarisation
+      au-delà de 5 % : incertitude forte. Hausse par décret dès l''été 2027.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 2.7
     url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/augmenter-le-smic-a-1-400-e-net/
     date: '2022'
     commentaire: 'SMIC à 1 400 € net (2022) : coût APU d''environ 2,7 Md€ par an (allègements, fonction publique).'
+  effets_retour: 'Effets sur l''emploi peu qualifié (négatifs selon le groupe d''experts SMIC) et sur la consommation (invoqués
+    par LFI) : non comptés.'
+  confiance: faible
 - id: echelle-mobile-salaires
   libelle: Indexation des salaires sur l'inflation (échelle mobile), privé et fonction publique
   domaine: travail
@@ -220,9 +473,48 @@ mesures:
   interpretation: 'Reprise en campagne sous le nom d''« échelle mobile des salaires » (braderie de Lille, 5/09/2026 ; Fête
     de l''Humanité, 12/09/2026). Effet budgétaire direct : indexation du point d''indice sur les prix (voir aussi point-indice-10-pct)
     ; pour le privé, effet via allègements et prestations indexées. Le montant du SMIC de cette citation est remplacé par
-    1 700 € (mesure smic-1700-net).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    1 700 € (mesure smic-1700-net). Double compte évité : le +10 % de point d''indice (point-indice-10-pct) est un rattrapage
+    ponctuel, l''indexation porte sur les années suivantes.'
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -23.32
+    bas: -35.5
+    haut: -23.1
+    montee_en_charge:
+      '2027': 0.05
+      '2028': 0.25
+      '2029': 0.45
+      '2030': 0.65
+      '2031': 0.83
+      '2032': 1
+  calcul:
+    formule: -inflation_cumulee * point_1pct * facteur_masse * (1 - retour)
+    parametres:
+      inflation_cumulee:
+        valeur: 11.04
+        unite: points (2027-2032)
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: déflateur du PIB FMI 2027-2031 (1,460 ; 1,862 ; 1,863 ; 1,860 ; 1,757) et 2032 reconduit (1,757), cumul composé
+          ≈ 11,04 % (convention REFERENCE.md, indexations à droit constant)
+      point_1pct:
+        valeur: 2.2
+        unite: Md€ par an pour 1 % de hausse, toutes APU
+        bareme: point_indice_1pct
+      facteur_masse:
+        valeur: 1.28
+        unite: masse salariale 2032 / 2023
+        source: 'chiffrage/baremes.yaml, point_indice_1pct (dérivation : PIB 2032 / PIB 2023 = 3 621 / 2 834)'
+      retour:
+        valeur: 0.25
+        unite: part du coût brut revenant aux APU
+        source: 'chiffrage/baremes.yaml, point_indice_1pct (limites : CSG, cotisations salariales, IR)'
+    explication: 'Effet budgétaire direct : indexation du point d''indice sur l''inflation, qui n''est pas prévue par le droit
+      (point gelé). Cumul d''inflation 2027-2032 × coût d''un point (2,2 Md€ en 2023, porté en 2032) net d''un quart de retours.
+      Bas : coût brut au haut du barème ; haut : bas du barème. Dans le privé, le SMIC est déjà indexé par la loi ; l''indexation
+      des autres salaires passe par la négociation et n''a pas d''effet budgétaire direct compté.'
+  effets_retour: 'Indexation privée : effets sur les allègements et la prime d''activité, et effets inflationnistes, non comptés.'
+  confiance: moyenne
 - id: point-indice-10-pct
   libelle: Point d'indice des fonctionnaires +10 %, dégel inscrit dans la loi, compensation aux collectivités
   domaine: etat
@@ -237,8 +529,41 @@ mesures:
     2026 (octobre 2025, première année, avant montée en charge) : 22 Md€ (« Revaloriser le point d''indice des fonctionnaires
     de 10%, indexer l''indice sur l''inflation et recomposer les grilles indiciaires pour prendre en compte la hausse du SMIC
     »). Coût brut à diminuer des cotisations et impôts en retour.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -21.12
+    bas: -32.0
+    haut: -20.83
+    montee_en_charge: *id001
+  calcul:
+    formule: -hausse * point_1pct * facteur_masse * (1 - retour)
+    parametres:
+      hausse:
+        valeur: 10
+        unite: '% de hausse du point'
+        source: https://web.archive.org/web/20260730211950/https://melenchon2027.fr/programme2025/livre/chapitre9/s1/
+      point_1pct:
+        valeur: 2.2
+        unite: Md€ par an pour 1 % de hausse, toutes APU
+        bareme: point_indice_1pct
+      facteur_masse:
+        valeur: 1.28
+        unite: masse salariale 2032 / 2023
+        source: chiffrage/baremes.yaml, point_indice_1pct (dérivation)
+      retour:
+        valeur: 0.25
+        unite: part du coût brut revenant aux APU
+        source: chiffrage/baremes.yaml, point_indice_1pct (limites)
+    explication: '10 × 2,2 Md€ × 1,28 (masse 2032/2023) × 0,75 (net des retours). Bas : coût brut au haut du barème (2,5)
+      ; haut : bas du barème. La compensation aux collectivités est un transfert interne aux APU (neutre).'
+  chiffrages_tiers:
+  - auteur: LFI (contre-budget 2026, montant revendiqué)
+    montant_md: 22.0
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    commentaire: Inclut l'indexation sur l'inflation et la refonte des grilles.
+  confiance: haute
 - id: revalorisation-enseignants
   libelle: Rattrapage du gel du point d'indice depuis 2010 et revalorisation des grilles de l'Éducation nationale
   domaine: education
@@ -252,15 +577,46 @@ mesures:
   interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
     version annoncée pour le 6 novembre 2026). Chevauche point-indice-10-pct : ne chiffrer que le supplément propre à l''Éducation
     nationale. Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
-    : 5 Md€ (grilles, bâti scolaire, médecine et vie scolaire, montée en charge).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    : 5 Md€ (grilles, bâti scolaire, médecine et vie scolaire, montée en charge). Double compte : le rattrapage du point d''indice
+    est compté dans point-indice-10-pct ; seule la refonte des grilles s''ajoute.'
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -5.92
+    bas: -13.4
+    haut: -2.96
+    montee_en_charge: &id003
+      '2027': 0
+      '2028': 0.4
+      '2029': 0.7
+      '2030': 0.9
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: -cb * fp26
+    parametres:
+      cb:
+        valeur: 5.0
+        unite: Md€ (2026, première année)
+        source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+        note: 'montant revendiqué par LFI, contre-budget 2026 : « Revaloriser les grilles salariales de l''Éducation nationale,
+          réinvestir dans les locaux scolaires, renforcer les équipes de la médecine scolaire et de la vie scolaire : 5 milliards
+          d''euros »'
+      fp26:
+        valeur: 1.1842
+        unite: facteur PIB nominal 2026→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: '1,2106 / (1,00858 × 1,01358) : croissance réelle et déflateur 2026 du FMI (plan/hypotheses.yaml)'
+    explication: 'Supplément propre à l''Éducation nationale, au-delà du +10 % de point d''indice : montant du contre-budget
+      projeté en 2032. Bas : Institut Montaigne 2022 (13,4 Md€ pour +30 %, qui inclut le rattrapage du point) ; haut : moitié
+      du central (convention).'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 13.4
     url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/rattraper-le-gel-du-point-dindice-depuis-2010-et-revaloriser-les-grilles-salariales-des-enseignants/
     date: '2022'
     commentaire: 'Hypothèse d''une revalorisation de 30 % des enseignants : 13,4 Md€ par an (12,2 à 16 Md€).'
+  confiance: faible
 - id: titularisation-precaires-fp
   libelle: Titularisation des contractuels des trois fonctions publiques
   domaine: etat
@@ -273,7 +629,8 @@ mesures:
   interpretation: Coût = écart de rémunération et de cotisations (CAS pensions) entre contractuels et titulaires ; périmètre
     et rythme non précisés.
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Trop vague : ni le nombre de contractuels concernés ni le calendrier ne sont précisés, et l''écart
+    de coût contractuel/titulaire n''a pas de source ouverte relue.'
 - id: garantie-emploi
   libelle: Garantie d'emploi au SMIC pour les chômeurs de longue durée dans les « secteurs d'urgence »
   domaine: travail
@@ -286,14 +643,43 @@ mesures:
   precision: partielle
   interpretation: Engagement déjà présent dans L'AEC 2022, reconfirmé par l'édition 2025 (dernière version publiée ; nouvelle
     version annoncée pour le 6 novembre 2026). Volontariat ; nombre de bénéficiaires à hypothéser.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -14.3
+    bas: -20.4
+    haut: -8.2
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.3
+      '2029': 0.6
+      '2030': 0.8
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: -(im_bas + im_haut) / 2
+    parametres:
+      im_bas:
+        valeur: 8.2
+        unite: Md€ (euros 2022)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/creer-une-garantie-demploi-au-smic-pour-les-chomeurs-de-longue-duree-dans-un-secteur-durgence/
+        note: estimation basse
+      im_haut:
+        valeur: 20.4
+        unite: Md€ (euros 2022)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/creer-une-garantie-demploi-au-smic-pour-les-chomeurs-de-longue-duree-dans-un-secteur-durgence/
+        note: estimation haute
+    explication: Milieu de la fourchette de l'Institut Montaigne (2022, SMIC à 1 400 €), non projeté ; le SMIC à 1 700 € relève
+      le coût (sous-estimation probable).
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: null
     url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/creer-une-garantie-demploi-au-smic-pour-les-chomeurs-de-longue-duree-dans-un-secteur-durgence/
     date: '2022'
     commentaire: Coût de 8,2 à 20,4 Md€ par an selon le taux de recours (2022).
+  effets_retour: Économies d'indemnisation chômage et de RSA partiellement incluses dans la fourchette Montaigne ; effets
+    d'activité non comptés.
+  confiance: faible
 - id: emploi-jeune-5-ans
   libelle: « Emploi spécifique jeune » de cinq ans dans le non-marchand et le public
   domaine: travail
@@ -306,7 +692,7 @@ mesures:
   precision: vague
   interpretation: Volume non précisé ; chevauche la garantie d'emploi.
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: Volume non précisé ; recouvre la garantie d'emploi et la garantie d'autonomie des jeunes, déjà chiffrées.
 - id: sixieme-semaine-conges
   libelle: Sixième semaine de congés payés
   domaine: travail
@@ -319,14 +705,40 @@ mesures:
   interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
     version annoncée pour le 6 novembre 2026). Effet APU : coût employeur public (remplacements) et éventuelle compensation
     ; effet privé non budgétaire.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -1.6
+    bas: -1.9
+    haut: -1.3
+    montee_en_charge: &id002
+      '2027': 0
+      '2028': 1
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: -(im_bas + im_haut) / 2
+    parametres:
+      im_bas:
+        valeur: 1.3
+        unite: Md€ (euros 2022)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/generaliser-une-sixieme-semaine-de-conges-payes-pour-tous-les-salaries/
+        note: coût APU, estimation basse
+      im_haut:
+        valeur: 1.9
+        unite: Md€ (euros 2022)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/generaliser-une-sixieme-semaine-de-conges-payes-pour-tous-les-salaries/
+        note: coût APU, estimation haute
+    explication: Coût pour les employeurs publics (Institut Montaigne 2022), non projeté.
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: null
     url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/generaliser-une-sixieme-semaine-de-conges-payes-pour-tous-les-salaries/
     date: '2022'
     commentaire: Coût pour les administrations publiques de 1,3 à 1,9 Md€ (2022).
+  confiance: faible
 - id: temps-travail-35h-32h
   libelle: Retour effectif aux 35 heures (heures supplémentaires majorées), 32 heures dans les métiers pénibles ou de nuit
   domaine: travail
@@ -342,7 +754,8 @@ mesures:
     compensatoires ; majoration des heures sup. dans le public. La fiscalisation et la socialisation des heures supplémentaires
     sont traitées dans heures-sup-fiscalisation.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: Périmètre des « métiers pénibles ou de nuit » passant à 32 heures non défini ; aucune source ouverte
+    sur les recrutements compensatoires dans le public.
 - id: assurance-chomage-abrogation
   libelle: Abrogation des réformes de l'assurance chômage depuis 2019 ; indemnisation dès le premier jour
   domaine: travail
@@ -357,8 +770,30 @@ mesures:
   interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
     version annoncée pour le 6 novembre 2026). Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première
     année, avant montée en charge) : 3 Md€ (« Abroger toutes les réformes de l''assurance chômage »).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -3.55
+    bas: -5.33
+    haut: -1.78
+    montee_en_charge: *id002
+  calcul:
+    formule: -cb * fp26
+    parametres:
+      cb:
+        valeur: 3.0
+        unite: Md€ (2026, première année)
+        source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+        note: 'montant revendiqué par LFI, contre-budget 2026 : « Abroger toutes les réformes de l''assurance chômage : 3
+          milliards d''euros »'
+      fp26:
+        valeur: 1.1842
+        unite: facteur PIB nominal 2026→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: '1,2106 / (1,00858 × 1,01358) : croissance réelle et déflateur 2026 du FMI (plan/hypotheses.yaml)'
+    explication: 'Montant du contre-budget projeté en 2032. Faute de seconde source ouverte, la fourchette est conventionnelle
+      : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
+  confiance: faible
 - id: garantie-autonomie
   libelle: 'Garantie d''autonomie : revenu porté au seuil de pauvreté pour toute personne (dont jeunes détachés du foyer parental)'
   domaine: solidarites
@@ -374,9 +809,51 @@ mesures:
     à 60 % (1 216 € dans le texte, 1 288 € dans le contre-budget). Le chapitre 10 (s3) l''étend aux jeunes « détachés du foyer
     fiscal parental ». Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en
     charge) : 10 Md€ pour le volet « jeunes », avec montée en charge. La hausse immédiate « des minima sociaux » (chapitre
-    9, s1) est absorbée par cette mesure.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    9, s1) est absorbée par cette mesure. La hausse immédiate « des minima sociaux » (chapitre 9) est absorbée ici ; l''AAH
+    est chiffrée à part.'
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -33.66
+    bas: -60.0
+    haut: -22.0
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.4
+      '2029': 0.7
+      '2030': 0.9
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: -(jeunes + rsa * (seuil / rsa_forfait - 1) * fp)
+    parametres:
+      jeunes:
+        valeur: 21.4
+        unite: Md€ (euros 2022)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/creer-une-garantie-dautonomie-de-trois-ans-sous-reserve-dune-formation-qualifiante-et-sous-conditions-de-ressources-pour-les-18-25-ans/
+        note: 'scénario 2 : jeunes non rattachés au foyer fiscal parental, sans condition de ressources'
+      rsa:
+        valeur: 11.7
+        unite: Md€/an
+        bareme: rsa_depense
+      seuil:
+        valeur: 1216
+        unite: € par mois
+        source: https://web.archive.org/web/20260608122507/https://melenchon2027.fr/programme2025/livre/chapitre7/s4/
+        note: seuil de pauvreté cité par l'AEC
+      rsa_forfait:
+        valeur: 651.69
+        unite: € par mois (personne seule)
+        source: https://www.service-public.gouv.fr/particuliers/vosdroits/F19778
+      fp:
+        valeur: 1.2106
+        unite: facteur PIB nominal 2025→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: FMI WEO avril 2026 via plan/hypotheses.yaml ; facteur repris en tête de chiffrage/baremes.yaml
+    explication: 'Volet jeunes : Institut Montaigne 2022 (21,4 Md€, scénario correspondant à « détachés du foyer fiscal parental
+      »). Volet adultes : minorant = dépense de RSA × (1 216 / 651,69 − 1), à bénéficiaires constants, projeté en 2032 (≈
+      12,4 Md€) ; l''entrée de nouveaux bénéficiaires (travailleurs pauvres, non-recourants) n''est pas comptée. Bas : scénario
+      Montaigne haut (37,7) + adultes ×1,8 ; haut : jeunes au montant du contre-budget (10 × 1,18) + adultes au central.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: null
@@ -384,6 +861,7 @@ mesures:
     date: '2022'
     commentaire: 'Volet jeunes (2022) : 12,3 Md€ (sous conditions de ressources) à 21,4 Md€ (sans condition), jusqu''à 37,7
       Md€ avec effets de comportement.'
+  confiance: faible
 - id: aah-smic
   libelle: AAH portée au niveau du SMIC
   domaine: solidarites
@@ -396,8 +874,43 @@ mesures:
   interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
     version annoncée pour le 6 novembre 2026). Niveau du SMIC net (1 600 ou 1 700 €) à trancher. Montant revendiqué par LFI
     dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge) : 3 Md€.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -11.17
+    bas: -14.0
+    haut: -6.8
+    montee_en_charge: *id002
+  calcul:
+    formule: -aah * (smic_cible / aah_max - 1) * fp
+    parametres:
+      aah:
+        valeur: 14.6
+        unite: Md€/an
+        bareme: aah_depense
+      smic_cible:
+        valeur: 1700
+        unite: € net par mois
+        source: https://www.lexpress.fr/economie/jean-luc-melenchon-et-le-smic-a-1-700-euros-cest-un-mauvais-outil-de-lutte-contre-la-pauvrete-TL3NGV6CXVCDVH6WPVLHJ5BUFY/
+      aah_max:
+        valeur: 1041.59
+        unite: € par mois (montant maximal)
+        source: https://www.service-public.gouv.fr/particuliers/vosdroits/F12242
+      fp:
+        valeur: 1.2106
+        unite: facteur PIB nominal 2025→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: FMI WEO avril 2026 via plan/hypotheses.yaml ; facteur repris en tête de chiffrage/baremes.yaml
+    explication: 'Dépense d''AAH × (1 700 / 1 041,59 − 1), à bénéficiaires constants, projetée en 2032. Bas : +25 % de bénéficiaires
+      (effet de seuil sur l''allocation différentielle, convention) ; haut : SMIC à 1 600 € et montant du contre-budget comme
+      plancher.'
+  chiffrages_tiers:
+  - auteur: LFI (contre-budget 2026, montant revendiqué)
+    montant_md: 3.0
+    url: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    date: '2025-10-24'
+    commentaire: Première année ; sous-estimé au regard de l'écart AAH/SMIC.
+  confiance: moyenne
 - id: apl-10-pct
   libelle: Revalorisation des APL de 10 %
   domaine: logement
@@ -409,8 +922,32 @@ mesures:
   precision: precise
   interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
     : 1,7 Md€.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -1.95
+    bas: -2.34
+    haut: -1.56
+    montee_en_charge: *id001
+  calcul:
+    formule: -hausse / 100 * apl * fp
+    parametres:
+      hausse:
+        valeur: 10
+        unite: '%'
+        source: https://web.archive.org/web/20260730211950/https://melenchon2027.fr/programme2025/livre/chapitre9/s1/
+      apl:
+        valeur: 16.1
+        unite: Md€/an
+        bareme: aides_logement_depense
+      fp:
+        valeur: 1.2106
+        unite: facteur PIB nominal 2025→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: FMI WEO avril 2026 via plan/hypotheses.yaml ; facteur repris en tête de chiffrage/baremes.yaml
+    explication: 10 % de la dépense d'aides personnelles au logement, projetée en 2032 ; fourchette ±20 % (hausse des bénéficiaires,
+      retard de revalorisation).
+  confiance: haute
 - id: asf-deconjugalisee
   libelle: Allocation de soutien familial déconjugalisée et revalorisée
   domaine: solidarites
@@ -424,8 +961,30 @@ mesures:
   interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
     : 0,9 Md€ (« Déconjugaliser et indexer l''allocation de soutien familial »). Défiscalisation des pensions alimentaires
     : perte d''IR à ajouter.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -1.07
+    bas: -1.6
+    haut: -0.53
+    montee_en_charge: *id002
+  calcul:
+    formule: -cb * fp26
+    parametres:
+      cb:
+        valeur: 0.9
+        unite: Md€ (2026, première année)
+        source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+        note: 'montant revendiqué par LFI, contre-budget 2026 : « Déconjugaliser et indexer l''allocation de soutien familial
+          (ASF) : 900 millions d''euros »'
+      fp26:
+        valeur: 1.1842
+        unite: facteur PIB nominal 2026→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: '1,2106 / (1,00858 × 1,01358) : croissance réelle et déflateur 2026 du FMI (plan/hypotheses.yaml)'
+    explication: 'Montant du contre-budget projeté en 2032. Faute de seconde source ouverte, la fourchette est conventionnelle
+      : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
+  confiance: faible
 - id: protections-periodiques-gratuites
   libelle: Gratuité des protections périodiques
   domaine: sante
@@ -437,8 +996,30 @@ mesures:
   precision: precise
   interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
     : 1,6 Md€ (avec l''arrêt menstruel).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -1.89
+    bas: -2.84
+    haut: -0.95
+    montee_en_charge: *id002
+  calcul:
+    formule: -cb * fp26
+    parametres:
+      cb:
+        valeur: 1.6
+        unite: Md€ (2026, première année)
+        source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+        note: 'montant revendiqué par LFI, contre-budget 2026 : « Prendre en charge par la Sécurité sociale les protections
+          menstruelles et créer un arrêt menstruel dans les entreprises et administrations : 1,6 milliard d''euros »'
+      fp26:
+        valeur: 1.1842
+        unite: facteur PIB nominal 2026→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: '1,2106 / (1,00858 × 1,01358) : croissance réelle et déflateur 2026 du FMI (plan/hypotheses.yaml)'
+    explication: 'Montant du contre-budget (avec l''arrêt menstruel) projeté en 2032. Faute de seconde source ouverte, la
+      fourchette est conventionnelle : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
+  confiance: faible
 - id: premiere-tranche-gratuite-energie-eau
   libelle: Première tranche gratuite d'électricité, de chaleur, d'eau et de gaz
   domaine: energie
@@ -451,7 +1032,8 @@ mesures:
   interpretation: 'Volume de la tranche non précisé. Financement possible par tarification progressive (neutre pour les APU)
     ou par le budget : à préciser. Le contre-budget la renvoie aux années suivantes.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: Volume de la tranche gratuite et mode de financement (tarification progressive neutre ou budget)
+    non précisés ; le contre-budget la renvoie aux années suivantes sans montant.
 - id: zero-sans-abri
   libelle: 'Objectif zéro sans-abri : places d''hébergement et réquisition de logements vacants'
   domaine: logement
@@ -464,8 +1046,30 @@ mesures:
   precision: partielle
   interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
     : environ 2,4 Md€ (réquisitions 1,7 Md€, hébergement d''urgence 0,6 Md€, dotations 0,12 Md€, hôtels 0,025 Md€).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -2.9
+    bas: -4.34
+    haut: -1.45
+    montee_en_charge: *id003
+  calcul:
+    formule: -cb * fp26
+    parametres:
+      cb:
+        valeur: 2.445
+        unite: Md€ (2026, première année)
+        source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+        note: 'montant revendiqué par LFI, contre-budget 2026 : « « Plus personne à la rue » : réquisitions 1,7 Md€ + hébergement
+          d''urgence 0,6 Md€ + dotations 0,12 Md€ + hôtels 0,025 Md€ »'
+      fp26:
+        valeur: 1.1842
+        unite: facteur PIB nominal 2026→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: '1,2106 / (1,00858 × 1,01358) : croissance réelle et déflateur 2026 du FMI (plan/hypotheses.yaml)'
+    explication: 'Somme des lignes du contre-budget projetée en 2032. Faute de seconde source ouverte, la fourchette est conventionnelle
+      : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
+  confiance: faible
 - id: dependance-ehpad-publics
   libelle: 'Service public de la dépendance : 10 000 places par an en EHPAD publics, 210 000 recrutements'
   domaine: solidarites
@@ -479,8 +1083,34 @@ mesures:
   interpretation: 'Avec « Créer 10 000 places par an en EHPAD publics pendant cinq ans » (même section). Montant revendiqué
     par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge) : 0,92 Md€ la première année
     (places et moyens).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -11.76
+    bas: -13.02
+    haut: -5.88
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1
+  calcul:
+    formule: -recrutements * cout_etp / 1e9
+    parametres:
+      recrutements:
+        valeur: 210000
+        unite: ETP
+        source: https://web.archive.org/web/20260829203314/https://melenchon2027.fr/programme2025/livre/chapitre10/s4/
+      cout_etp:
+        valeur: 56000
+        unite: € par EQTP et par an
+        bareme: cout_soignant_hospitalier_charge
+        note: coût d'un soignant hospitalier, pris comme proxy du personnel d'EHPAD public
+    explication: '210 000 recrutements × coût chargé moyen (56 000 €). Bas : 62 000 € ; haut : moitié des recrutements réalisés
+      en 2032. Les 10 000 places par an en EHPAD publics (investissement) ne sont pas ajoutées faute de coût unitaire sourcé.'
+  confiance: faible
 - id: violences-sexistes-2-6-md
   libelle: Loi contre les violences sexistes et sexuelles dotée de 2,6 Md€
   domaine: justice
@@ -493,8 +1123,23 @@ mesures:
   precision: precise
   interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
     : 2,9 Md€ (« loi intégrale »).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -2.6
+    bas: -2.9
+    haut: -2.6
+    montee_en_charge: *id003
+  calcul:
+    formule: -montant
+    parametres:
+      montant:
+        valeur: 2.6
+        unite: Md€
+        source: https://web.archive.org/web/20260829203154/https://melenchon2027.fr/programme2025/livre/chapitre10/s1/
+        note: montant cité par le programme
+    explication: 'Montant inscrit dans le programme (2,6 Md€) ; bas : 2,9 Md€ du contre-budget (« loi intégrale »).'
+  confiance: moyenne
 - id: gratuite-ecole-cantine
   libelle: 'Gratuité réelle de l''école : cantine (bio), transports, périscolaire, fournitures et manuels'
   domaine: education
@@ -510,14 +1155,37 @@ mesures:
     immédiatement à faire en sorte que tous les enfants de France mangent gratuitement à la cantine bio » (braderie de Lille,
     5/09/2026, La Dépêche). Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée
     en charge) : 3,6 Md€.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -6.9
+    bas: -8.7
+    haut: -4.26
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.7
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: -im_public
+    parametres:
+      im_public:
+        valeur: 6.9
+        unite: Md€ (euros 2022)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/assurer-la-gratuite-de-leducation-publique-et-du-materiel-scolaire/
+        note: gratuité limitée aux établissements publics
+    explication: 'Institut Montaigne 2022 (établissements publics), non projeté. Bas : estimation haute Montaigne (8,7, avec
+      le privé sous contrat) ; haut : contre-budget 2026 (3,6 × 1,18). La cantine gratuite est présentée comme immédiate (braderie
+      de Lille).'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 6.9
     url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/assurer-la-gratuite-de-leducation-publique-et-du-materiel-scolaire/
     date: '2022'
     commentaire: 6,9 Md€ par an limité au public, 8,3 Md€ avec le privé sous contrat, haut 8,7 Md€ (2022).
+  confiance: moyenne
 - id: cantine-100-bio
   libelle: Cantines scolaires 100 % biologiques et locales
   domaine: education
@@ -528,17 +1196,34 @@ mesures:
     date: 2025-01
     support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-30)'
   precision: precise
-  interpretation: Engagement déjà présent dans L'AEC 2022, reconfirmé par l'édition 2025 (dernière version publiée ; nouvelle
-    version annoncée pour le 6 novembre 2026). Surcoût par repas × nombre de repas ; charge des collectivités ou de l'État
-    selon la compensation.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
+    version annoncée pour le 6 novembre 2026). Surcoût par repas × nombre de repas ; charge des collectivités ou de l''État
+    selon la compensation. Double compte évité : les 0,3 Md€ « cantines bio et locales » du volet agricole du contre-budget
+    ne sont pas repris dans agriculture-bio-installation.'
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -2.3
+    bas: -2.8
+    haut: -1.19
+    montee_en_charge: *id003
+  calcul:
+    formule: -surcout
+    parametres:
+      surcout:
+        valeur: 2.3
+        unite: Md€ (euros 2022)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/porter-lalimentation-de-la-cantine-scolaire-a-100-biologique-et-locale/
+        note: 1,64 € de surcoût × 1,4 milliard de repas
+    explication: 'Surcoût du 100 % bio (Institut Montaigne) ; bas : +20 % (hausse des prix alimentaires depuis 2022, convention)
+      ; haut : chiffrage de l''équipe de campagne 2022 (1,19).'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 2.3
     url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/porter-lalimentation-de-la-cantine-scolaire-a-100-biologique-et-locale/
     date: '2022'
     commentaire: 'Surcoût de 1,64 € par repas × 1,4 milliard de repas ; équipe de campagne 2022 : 1,19 Md€.'
+  confiance: moyenne
 - id: classes-19-eleves
   libelle: Effectifs par classe sous la moyenne européenne (19 élèves)
   domaine: education
@@ -552,14 +1237,36 @@ mesures:
   interpretation: Engagement déjà présent dans L'AEC 2022, reconfirmé par l'édition 2025 (dernière version publiée ; nouvelle
     version annoncée pour le 6 novembre 2026). Cible lue comme 19 élèves par classe au plus, en moyenne ; la baisse démographique
     réduit le coût.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -7.5
+    bas: -11.0
+    haut: -4.6
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.2
+      '2029': 0.45
+      '2030': 0.7
+      '2031': 0.9
+      '2032': 1
+  calcul:
+    formule: -croisiere
+    parametres:
+      croisiere:
+        valeur: 7.5
+        unite: Md€ (euros 2022)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/reduire-les-effectifs-a-19-eleves-par-classe/
+        note: coût en rythme de croisière une fois les classes créées
+    explication: Institut Montaigne 2022 (rythme de croisière 7,5 Md€ ; fourchette 4,6 à 11). La baisse démographique des
+      effectifs scolaires réduit le coût (côté haut).
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 6.8
     url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/reduire-les-effectifs-a-19-eleves-par-classe/
     date: '2022'
     commentaire: Scénario médian à l'horizon 2027 (4,6 à 11 Md€) ; 7,5 Md€ en rythme de croisière.
+  confiance: moyenne
 - id: aesh-fonctionnaires
   libelle: Corps de fonctionnaires pour les AESH, fin de la mutualisation
   domaine: education
@@ -572,8 +1279,31 @@ mesures:
   precision: partielle
   interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
     : 2,5 Md€.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -2.96
+    bas: -4.44
+    haut: -1.48
+    montee_en_charge: *id003
+  calcul:
+    formule: -cb * fp26
+    parametres:
+      cb:
+        valeur: 2.5
+        unite: Md€ (2026, première année)
+        source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+        note: 'montant revendiqué par LFI, contre-budget 2026 : « Créer un service public d''accompagnement des élèves en
+          situation de handicap, en formant et titularisant les personnes accompagnant des élèves en situation de handicap
+          (AESH) : 2,5 milliards d''euros »'
+      fp26:
+        valeur: 1.1842
+        unite: facteur PIB nominal 2026→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: '1,2106 / (1,00858 × 1,01358) : croissance réelle et déflateur 2026 du FMI (plan/hypotheses.yaml)'
+    explication: 'Montant du contre-budget projeté en 2032. Faute de seconde source ouverte, la fourchette est conventionnelle
+      : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
+  confiance: faible
 - id: petite-enfance-500000-places
   libelle: 'Service public de la petite enfance : 500 000 places en cinq ans, gratuité des crèches publiques'
   domaine: education
@@ -588,8 +1318,34 @@ mesures:
     version annoncée pour le 6 novembre 2026). Avec « Garantir la gratuité des crèches publiques » (même section). Montant
     revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge) : 1 Md€ la première
     année.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -13.0
+    bas: -17.0
+    haut: -9.5
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1
+  calcul:
+    formule: -(fonctionnement + investissement / 5)
+    parametres:
+      fonctionnement:
+        valeur: 9.5
+        unite: Md€ (euros 2022)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/creer-un-service-public-de-la-petite-enfance-et-ouvrir-500-000-places-en-creche/
+        note: fonctionnement en année pleine
+      investissement:
+        valeur: 17.5
+        unite: Md€ (euros 2022)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/creer-un-service-public-de-la-petite-enfance-et-ouvrir-500-000-places-en-creche/
+        note: investissement sur cinq ans
+    explication: 'Institut Montaigne 2022 : fonctionnement 9,5 Md€ par an + investissement 17,5 Md€ étalé sur cinq ans. Bas
+      : +30 % (fourchette Montaigne jusqu''à 40 Md€ sur la période) ; haut : fonctionnement seul.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 9.5
@@ -597,6 +1353,7 @@ mesures:
     date: '2022'
     commentaire: 17,5 Md€ d'investissement sur cinq ans et 9,5 Md€ par an de fonctionnement en année pleine (fourchette 17
       à 40 Md€ sur la période).
+  confiance: faible
 - id: gratuite-enseignement-superieur
   libelle: Gratuité de l'enseignement supérieur, suppression de la CVEC, 15 000 logements étudiants par an
   domaine: education
@@ -611,7 +1368,8 @@ mesures:
     version annoncée pour le 6 novembre 2026). Perte des droits d'inscription et de la CVEC ; « Construire 15 000 logements
     supplémentaires par an » (même section).
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: Produit des droits d'inscription et de la CVEC non relu dans une source ouverte à la date du chiffrage
+    ; à chiffrer quand le barème sera disponible (listé dans les besoins).
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 0.7
@@ -645,8 +1403,37 @@ mesures:
   interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
     version annoncée pour le 6 novembre 2026). Remplace le SNU (économie : contre-budget, « Abroger le SNU : 130 millions
     d''euros d''économies »). Inclut formation au permis de conduire.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -23.07
+    bas: -23.7
+    haut: -20.6
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.3
+      '2029': 0.7
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: -im * smic_cible / smic_im
+    parametres:
+      im:
+        valeur: 19.0
+        unite: Md€ (euros 2022)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/mettre-en-place-une-conscription-citoyenne-de-9-mois-remuneree-au-smic-pour-les-moins-de-25-ans/
+        note: 680 000 jeunes (85 % d'une classe d'âge), rémunérés au SMIC
+      smic_cible:
+        valeur: 1700
+        unite: € net
+        source: https://www.lexpress.fr/economie/jean-luc-melenchon-et-le-smic-a-1-700-euros-cest-un-mauvais-outil-de-lutte-contre-la-pauvrete-TL3NGV6CXVCDVH6WPVLHJ5BUFY/
+      smic_im:
+        valeur: 1400
+        unite: € net (SMIC revalorisé du programme 2022)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/augmenter-le-smic-a-1-400-e-net/
+    explication: 'Institut Montaigne (19 Md€ au SMIC de 1 400 €) porté au SMIC de 1 700 € (×1,21). Bas : 19,5 × 1,21 ; haut
+      : 18 × 1 600/1 400. Économie du SNU (0,13 Md€) négligée.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 19.0
@@ -654,6 +1441,7 @@ mesures:
     date: '2022'
     commentaire: Environ 19 Md€ par an pour 680 000 jeunes (85 % d'une classe d'âge), fourchette 18 à 19,5 Md€ ; permis 1,2
       Md€ ; économies (JDC, SMV) 0,5 Md€.
+  confiance: moyenne
 - id: recherche-investissement
   libelle: Hausse de l'investissement public dans la recherche et l'enseignement supérieur
   domaine: recherche
@@ -665,8 +1453,31 @@ mesures:
   precision: vague
   interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
     : 1,6 Md€ (recherche universitaire) + 0,7 Md€ (30 000 postes à l''université, abrogation de Parcoursup).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -2.72
+    bas: -4.09
+    haut: -1.36
+    montee_en_charge: *id003
+  calcul:
+    formule: -cb * fp26
+    parametres:
+      cb:
+        valeur: 2.3
+        unite: Md€ (2026, première année)
+        source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+        note: 'montant revendiqué par LFI, contre-budget 2026 : « Rehausser le niveau d''investissement public dans la recherche
+          universitaire : 1,6 milliard d''euros ; Abroger Parcoursup et aller vers 30 000 postes supplémentaires dans les
+          universités : 700 millions d''euros »'
+      fp26:
+        valeur: 1.1842
+        unite: facteur PIB nominal 2026→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: '1,2106 / (1,00858 × 1,01358) : croissance réelle et déflateur 2026 du FMI (plan/hypotheses.yaml)'
+    explication: 'Montant du contre-budget projeté en 2032. Faute de seconde source ouverte, la fourchette est conventionnelle
+      : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
+  confiance: faible
 - id: suppression-cir
   libelle: Suppression du crédit d'impôt recherche au profit des universités et organismes
   domaine: recherche
@@ -678,9 +1489,41 @@ mesures:
     support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
   precision: precise
   interpretation: 'Recette brute = coût du CIR ; le redéploiement vers la recherche publique est une dépense (effet net à
-    préciser). Le contre-budget ne retient qu''un « redimensionnement » : 3 Md€ de recettes.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    préciser). Le contre-budget ne retient qu''un « redimensionnement » : 3 Md€ de recettes. Double compte avec niches-fiscales
+    évité : le CIR n''entre pas dans le central de l''enveloppe de niches.'
+  chiffrable: true
+  nature: recette
+  effet_solde_primaire:
+    central: 9.32
+    bas: 3.0
+    haut: 9.32
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.3
+      '2029': 0.6
+      '2030': 0.9
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: cout_cir * f25
+    parametres:
+      cout_cir:
+        valeur: 7.7
+        unite: Md€ (2025)
+        source: https://www.senat.fr/rap/l24-144-327/l24-144-32710.html
+        note: 'Sénat, PLF 2025 : le CIR « devrait représenter, en 2025, 7,7 milliards d''euros pour près de 15 500 entreprises
+          »'
+      f25:
+        valeur: 1.2106
+        unite: facteur PIB nominal 2025→2032
+        source: chiffrage/baremes.yaml, en-tête et barème pib_nominal_2032 (3 620,9 / 2 991,06 Md€ ; INSEE, FMI WEO avril
+          2026)
+    explication: 'Suppression du CIR : recette brute égale à son coût (7,7 Md€ en 2025) projeté au PIB 2032. Les créances
+      nées avant la suppression restent imputables ou remboursables pendant trois ans, d''où la montée en charge. Bas = 3
+      Md€, le « redimensionnement » retenu par le contre-budget 2026 (lecture restrictive). Chiffrage brut : le redéploiement
+      « au profit du financement des universités et instituts de recherche » est une dépense, comptée dans recherche-investissement.'
+  effets_retour: 'Baisse possible de la R&D privée et des recettes d''IS associées : non comptée.'
+  confiance: moyenne
 - id: cent-pour-cent-secu
   libelle: '« 100 % Sécu » : remboursement intégral des soins prescrits, intégration des complémentaires'
   domaine: sante
@@ -694,8 +1537,29 @@ mesures:
   interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
     version annoncée pour le 6 novembre 2026). Transfert des dépenses des complémentaires vers l''assurance maladie : dépense
     publique en plus, cotisations ou impôts de substitution non précisés.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -22.5
+    bas: -27.2
+    haut: -15.0
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.5
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: -hcaam
+    parametres:
+      hcaam:
+        valeur: 22.5
+        unite: Md€ (euros 2022)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/instaurer-le-100-secu-en-remboursant-100-les-soins-de-sante-prescrits-et-en-integrant-les-mutuelles-dans-la-securite-sociale/
+        note: 'estimation du HCAAM (janvier 2022) : 18,8 Md€ de dépenses + 3,7 Md€ de pertes de recettes'
+    explication: 'Coût APU du « 100 % Sécu » selon le HCAAM (2022, non projeté). Bas : 22,5 × facteur PIB 2022-2032 approché
+      par 1,2106 (minorant du facteur) ; haut : bas de la fourchette Montaigne (15).'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 22.5
@@ -703,6 +1567,9 @@ mesures:
     date: '2022'
     commentaire: 'Estimation du HCAAM (janvier 2022) reprise : 18,8 Md€ de dépenses et 3,7 Md€ de pertes de recettes ; fourchette
       15 à 26 Md€.'
+  effets_retour: 'Suppression des primes de complémentaire santé pour les ménages et entreprises (gain de pouvoir d''achat)
+    ; financement par cotisations non précisé : non compté.'
+  confiance: moyenne
 - id: recrutement-soignants
   libelle: Plan pluriannuel de recrutement et de revalorisation des soignants
   domaine: sante
@@ -716,14 +1583,37 @@ mesures:
   precision: vague
   interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
     : 1,3 Md€ (recrutement) + 1,3 Md€ (nuit et week-end à l''hôpital).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -3.08
+    bas: -4.4
+    haut: -1.54
+    montee_en_charge: *id003
+  calcul:
+    formule: -cb * fp26
+    parametres:
+      cb:
+        valeur: 2.6
+        unite: Md€ (2026, première année)
+        source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+        note: 'montant revendiqué par LFI, contre-budget 2026 : « Engager un plan pluriannuel de recrutement des professionnels
+          du soin et du médico-social : 1,3 milliard d''euros ; Revaloriser la rémunération du travail des soignants […] :
+          1,3 milliard d''euros »'
+      fp26:
+        valeur: 1.1842
+        unite: facteur PIB nominal 2026→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: '1,2106 / (1,00858 × 1,01358) : croissance réelle et déflateur 2026 du FMI (plan/hypotheses.yaml)'
+    explication: 'Montant du contre-budget projeté en 2032. Bas : Institut Montaigne (100 000 soignants, 4,4 Md€ à l''horizon
+      2027) ; haut : moitié du central.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 4.4
     url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/recruter-100-000-soignants/
     date: '2022'
     commentaire: '100 000 soignants (2022) : 4,4 Md€ à l''horizon 2027, 16,2 Md€ cumulés sur le quinquennat.'
+  confiance: faible
 - id: franchises-medicales
   libelle: Abrogation de la hausse des franchises médicales de 2024
   domaine: sante
@@ -734,8 +1624,34 @@ mesures:
     support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-06-06)'
   precision: precise
   interpretation: 'Le contre-budget va plus loin : « Abolir les franchises médicales : 1,5 milliard d''euros ».'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -1.45
+    bas: -3.03
+    haut: -1.2
+    montee_en_charge: *id002
+  calcul:
+    formule: -(rendement_2025 - rendement_avant) * fp
+    parametres:
+      rendement_2025:
+        valeur: 2.5
+        unite: Md€ (2025)
+        source: https://www.capital.fr/economie-politique/securite-sociale-25-milliards-d-euros-l-an-dernier-la-cour-des-comptes-preconise-un-elargissement-des-franchises-medicales-1527164
+        note: franchises et participations après le doublement de 2024 (Cour des comptes, mai 2026)
+      rendement_avant:
+        valeur: 1.3
+        unite: Md€
+        source: https://www.capital.fr/economie-politique/securite-sociale-25-milliards-d-euros-l-an-dernier-la-cour-des-comptes-preconise-un-elargissement-des-franchises-medicales-1527164
+        note: niveau stable avant le doublement
+      fp:
+        valeur: 1.2106
+        unite: facteur PIB nominal 2025→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: FMI WEO avril 2026 via plan/hypotheses.yaml ; facteur repris en tête de chiffrage/baremes.yaml
+    explication: 'Abroger la hausse de 2024 coûte le supplément de rendement (2,5 − 1,3 Md€), projeté en 2032. Bas : suppression
+      totale des franchises (2,5 × 1,21, version du contre-budget) ; haut : non projeté.'
+  confiance: moyenne
 - id: centres-sante-deserts
   libelle: Réseau public de centres de santé et recrutement de médecins publics contre les déserts médicaux
   domaine: sante
@@ -748,8 +1664,30 @@ mesures:
   precision: vague
   interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
     : 0,5 Md€ (régulation de l''installation, permanences de soins en centres de santé).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -0.59
+    bas: -0.89
+    haut: -0.3
+    montee_en_charge: *id003
+  calcul:
+    formule: -cb * fp26
+    parametres:
+      cb:
+        valeur: 0.5
+        unite: Md€ (2026, première année)
+        source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+        note: 'montant revendiqué par LFI, contre-budget 2026 : « Réguler l''installation des médecins et rétablir des permanences
+          de soin des soignants libéraux dans les centres de santé : 500 millions d''euros »'
+      fp26:
+        valeur: 1.1842
+        unite: facteur PIB nominal 2026→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: '1,2106 / (1,00858 × 1,01358) : croissance réelle et déflateur 2026 du FMI (plan/hypotheses.yaml)'
+    explication: 'Montant du contre-budget projeté en 2032. Faute de seconde source ouverte, la fourchette est conventionnelle
+      : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
+  confiance: faible
 - id: logements-publics-200000
   libelle: Construction de 200 000 logements publics par an aux normes écologiques
   domaine: logement
@@ -761,14 +1699,35 @@ mesures:
   precision: precise
   interpretation: Section logement de L'AEC 2025 non récupérée (chapitre 7, s5) ; engagement de 2022 repris dans le contre-budget
     2026. Complété par « Revenir sur les coupes de Macron aux dépens des organismes HLM » (1,4 Md€).
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -2.1
+    bas: -5.09
+    haut: -1.9
+    montee_en_charge: *id003
+  calcul:
+    formule: -(im_bas + im_haut) / 2
+    parametres:
+      im_bas:
+        valeur: 1.9
+        unite: Md€ (euros 2022)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/construire-200-000-logements-publics-par-an-pendant-cinq-ans-aux-normes-ecologiques-les-plus-ambitieuses/
+        note: coût APU, bas
+      im_haut:
+        valeur: 2.3
+        unite: Md€ (euros 2022)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/construire-200-000-logements-publics-par-an-pendant-cinq-ans-aux-normes-ecologiques-les-plus-ambitieuses/
+        note: coût APU, haut
+    explication: 'Institut Montaigne 2022 (coût APU supplémentaire 1,9 à 2,3 Md€). Bas : contre-budget (2,9 + 1,4 Md€ pour
+      les HLM) × 1,18.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: null
     url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/construire-200-000-logements-publics-par-an-pendant-cinq-ans-aux-normes-ecologiques-les-plus-ambitieuses/
     date: '2022'
     commentaire: Coût pour les APU de 1,9 à 2,3 Md€ par an (2022).
+  confiance: moyenne
 - id: garantie-universelle-loyers
   libelle: Garantie universelle des loyers
   domaine: logement
@@ -779,14 +1738,29 @@ mesures:
     support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
   precision: partielle
   interpretation: Engagement 2022 repris dans le contre-budget 2026 (montant « variable »).
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -2.3
+    bas: -2.7
+    haut: -1.8
+    montee_en_charge: *id003
+  calcul:
+    formule: -mediane
+    parametres:
+      mediane:
+        valeur: 2.3
+        unite: Md€ (euros 2022)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/mettre-en-place-une-garantie-universelle-des-loyers/
+        note: hypothèse médiane (sinistralité 2,5 %)
+    explication: 'Institut Montaigne 2022 : 1,8 à 2,7 Md€, médiane 2,3.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 2.3
     url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/mettre-en-place-une-garantie-universelle-des-loyers/
     date: '2022'
     commentaire: 1,8 à 2,7 Md€ par an, médiane 2,3 Md€ (taux de sinistralité 2,5 %).
+  confiance: moyenne
 - id: renovation-700000-logements
   libelle: Rénovation énergétique d'au moins 700 000 logements par an
   domaine: logement
@@ -801,7 +1775,8 @@ mesures:
     année, avant montée en charge) : 2,2 Md€ sous forme de « prêts publics remboursés lors de la vente du bien ou de sa transmission
     » (effet sur le solde selon le traitement comptable des prêts) + 2,6 Md€ pour le tertiaire.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Comptée dans plan-investissement-200-md, qui porte la ventilation sectorielle de l''enveloppe de
+    200 Md€ (règle 6) : pas de double compte.'
 - id: plan-investissement-200-md
   libelle: Plan de 200 Md€ d'investissements écologiquement et socialement utiles
   domaine: ecologie
@@ -815,9 +1790,31 @@ mesures:
     version annoncée pour le 6 novembre 2026). Durée non précisée dans le texte (quinquennat en 2022, soit ~40 Md€/an) ; il
     englobe une partie des mesures sectorielles (énergies renouvelables, rail, rénovation, industrie) : chiffrer comme enveloppe
     (règle 6 du README) sans double compte. Le contre-budget 2026 revendique « près de 50 milliards d''euros » de dépenses
-    écologiques supplémentaires sur un an.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    écologiques supplémentaires sur un an. Doubles comptes : energies-renouvelables, plan-rail-fret, reconstruction-industrielle,
+    agriculture-bio-installation et renovation-700000-logements sont inclus dans cette enveloppe et passés en non chiffrables
+    à ce titre.'
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -40.0
+    bas: -47.37
+    haut: -20.0
+    montee_en_charge: *id003
+  calcul:
+    formule: -enveloppe
+    parametres:
+      enveloppe:
+        valeur: 40
+        unite: Md€ par an (200 Md€ sur cinq ans)
+        source: https://web.archive.org/web/20260606164247/https://melenchon2027.fr/programme2025/livre/chapitre13/s1/
+        note: durée lue sur le quinquennat, comme en 2022
+    explication: 'Dépense ciblée et ventilée par secteurs (règle 6, second cas) : chiffrée comme annoncée, 40 Md€ par an en
+      régime de croisière. Elle porte les volets sectoriels documentés dans le contre-budget 2026 (énergies renouvelables
+      14 Md€, rail et mobilités 8,2, industrie 5, agriculture 3,2, rénovation 4,8 : ≈ 35 Md€ de 2026, soit ≈ 41 Md€ en 2032),
+      qui ne sont pas comptés à part. Bas : 40 Md€ lus en euros 2026, projetés (× 1,1842) ; haut : moitié réalisée en 2032
+      (capacité d''exécution, convention).'
+  effets_retour: 'Investissements publics : effets d''offre et de relance invoqués par LFI, non comptés (règle 3).'
+  confiance: faible
 - id: energies-renouvelables
   libelle: 'Planification du 100 % renouvelable : filières EnR, stockage, réseau'
   domaine: energie
@@ -830,7 +1827,8 @@ mesures:
   interpretation: 'AEC 2025, chapitre 13 s3 : « Planifier le passage à 100 % d''énergies renouvelables ». Contre-budget :
     + stockage 2 Md€, fonds chaleur 0,8 Md€, réseau 0,6 Md€.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Comptée dans plan-investissement-200-md, qui porte la ventilation sectorielle de l''enveloppe de
+    200 Md€ (règle 6) : pas de double compte.'
 - id: plan-rail-fret
   libelle: Plan rail et fret, RER métropolitains, petites lignes, trains de nuit
   domaine: transports
@@ -844,7 +1842,8 @@ mesures:
   interpretation: Section transports de L'AEC 2025 non récupérée ; engagement repris du contre-budget 2026 (+ train de nuit
     1,5 Md€, ferroutage 0,6 Md€, plan vélo 0,7 Md€, transports en commun 0,4 Md€, moratoire autoroutier −1 Md€).
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Comptée dans plan-investissement-200-md, qui porte la ventilation sectorielle de l''enveloppe de
+    200 Md€ (règle 6) : pas de double compte.'
 - id: reconstruction-industrielle
   libelle: Plan de reconstruction industrielle dans les secteurs stratégiques
   domaine: economie
@@ -859,7 +1858,8 @@ mesures:
   interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
     : 5 Md€.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Comptée dans plan-investissement-200-md, qui porte la ventilation sectorielle de l''enveloppe de
+    200 Md€ (règle 6) : pas de double compte.'
 - id: agriculture-bio-installation
   libelle: 'Révolution agricole : 300 000 emplois agricoles, caisse de défaisance des dettes des convertis au bio, installation'
   domaine: agriculture
@@ -872,7 +1872,8 @@ mesures:
   interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
     : 1,2 Md€ (caisse de défaisance), 0,5 Md€ (bio et agroécologie), 1,5 Md€ (installation), 0,3 Md€ (cantines bio et locales).'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Comptée dans plan-investissement-200-md, qui porte la ventilation sectorielle de l''enveloppe de
+    200 Md€ (règle 6) : pas de double compte.'
 - id: tarifs-reglementes-gaz
   libelle: Tarifs réglementés de l'énergie au coût de production ; annulation des hausses du gaz depuis 2017
   domaine: energie
@@ -884,8 +1885,23 @@ mesures:
   precision: precise
   interpretation: Engagement déjà présent dans L'AEC 2022, reconfirmé par l'édition 2025 (dernière version publiée ; nouvelle
     version annoncée pour le 6 novembre 2026). Coût budgétaire si compensation aux fournisseurs ; dépend du prix de marché.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -4.5
+    bas: -11.7
+    haut: 0.0
+    montee_en_charge: *id002
+  calcul:
+    formule: -mediane
+    parametres:
+      mediane:
+        valeur: 4.5
+        unite: Md€ (euros 2022)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/annuler-les-hausses-de-tarif-du-gaz-depuis-2017/
+        note: compensation généralisée, prix stabilisés
+    explication: 'Institut Montaigne 2022 : 4,5 Md€ (médiane), 11,7 Md€ si les prix poursuivent leur hausse ; haut : 0 si
+      les prix de marché redescendent sous le niveau 2017 indexé.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 4.5
@@ -893,6 +1909,7 @@ mesures:
     date: '2022'
     commentaire: Hypothèse médiane 4,5 Md€ (compensation généralisée, prix du gaz stabilisés à début 2022) ; 11,7 Md€ si les
       prix poursuivaient leur hausse.
+  confiance: faible
 - id: blocage-prix-energie-carburant
   libelle: Blocage des prix des produits de première nécessité (alimentation, énergie, carburant)
   domaine: economie
@@ -907,7 +1924,8 @@ mesures:
     marges »). Mesure réglementaire ; coût budgétaire si l''État compense les écarts (bouclier tarifaire) sur l''énergie et
     le carburant : hypothèse à poser, fourchette large (0 à plusieurs Md€ selon les prix).'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Mesure réglementaire sans compensation budgétaire annoncée : le coût éventuel (bouclier) dépend
+    des prix de marché et d''un choix de compensation non précisé.'
 - id: abolir-hausse-accise-electricite
   libelle: Suppression de la « taxe Macron de 10 % » sur les factures d'énergie
   domaine: energie
@@ -919,8 +1937,31 @@ mesures:
   precision: partielle
   interpretation: 'Contre-budget 2026. Lecture : retour de l''accise sur l''électricité au niveau antérieur à sa hausse (à
     préciser par le barème).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: baisse_recette
+  effet_solde_primaire:
+    central: -4.14
+    bas: -6.22
+    haut: -2.07
+    montee_en_charge: *id002
+  calcul:
+    formule: -cb * fp26
+    parametres:
+      cb:
+        valeur: 3.5
+        unite: Md€ (2026, première année)
+        source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+        note: 'montant revendiqué par LFI, contre-budget 2026 : « Abolir la taxe Macron de 10 % sur les factures d''énergie
+          : 3,5 milliards d''euros de pertes de recettes »'
+      fp26:
+        valeur: 1.1842
+        unite: facteur PIB nominal 2026→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: '1,2106 / (1,00858 × 1,01358) : croissance réelle et déflateur 2026 du FMI (plan/hypotheses.yaml)'
+    explication: 'Perte de recettes revendiquée par le contre-budget, projetée en 2032 ; l''assiette exacte (accise électricité)
+      reste à confirmer. Faute de seconde source ouverte, la fourchette est conventionnelle : bas = 1,5 × central, haut =
+      0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
+  confiance: faible
 - id: tva-transports-5-5
   libelle: TVA à 5,5 % sur les transports en commun
   domaine: transports
@@ -931,8 +1972,30 @@ mesures:
     support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
   precision: precise
   interpretation: Contre-budget 2026.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: baisse_recette
+  effet_solde_primaire:
+    central: -1.18
+    bas: -1.78
+    haut: -0.59
+    montee_en_charge: *id002
+  calcul:
+    formule: -cb * fp26
+    parametres:
+      cb:
+        valeur: 1.0
+        unite: Md€ (2026, première année)
+        source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+        note: 'montant revendiqué par LFI, contre-budget 2026 : « Baisser la TVA sur la tarification des transports en commun
+          à 5,5 % : 1 milliard d''euros de pertes de recettes »'
+      fp26:
+        valeur: 1.1842
+        unite: facteur PIB nominal 2026→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: '1,2106 / (1,00858 × 1,01358) : croissance réelle et déflateur 2026 du FMI (plan/hypotheses.yaml)'
+    explication: 'Montant du contre-budget projeté en 2032. Faute de seconde source ouverte, la fourchette est conventionnelle
+      : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
+  confiance: faible
 - id: renationalisations
   libelle: Renationalisation d'EDF et d'Engie, retour sur les privatisations (autoroutes, aéroports, FDJ)
   domaine: economie
@@ -947,9 +2010,12 @@ mesures:
     version annoncée pour le 6 novembre 2026). Chapitre 2 (s2) : « Revenir sur les privatisations (aéroports, autoroutes,
     Française des Jeux, etc.) ». Le rachat d''actions est une opération financière (dette, pas solde) ; effets sur le solde
     primaire : dividendes, péages et redevances perdus ou gagnés, indemnisation des concessions. Le contre-budget 2026 cite
-    aussi Atos, Suez, Alstom, Total, ArcelorMittal.'
+    aussi Atos, Suez, Alstom, Total, ArcelorMittal. Institut Montaigne 2022 : coût net de 19,9 à 32,4 Md€ sur cinq ans pour
+    EDF-Engie (surtout en dette).'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Acquisitions d''actions et reprises de concessions : opérations financières sans effet sur le solde
+    primaire ; les effets de second ordre (dividendes, péages, indemnités de résiliation) ne sont documentés dans aucune source
+    ouverte relue.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: null
@@ -969,14 +2035,33 @@ mesures:
     version annoncée pour le 6 novembre 2026). Avec la gratuité des musées (même section). Montant revendiqué par LFI dans
     le contre-budget 2026 (octobre 2025, première année, avant montée en charge) : 1,8 Md€ (« Porter les moyens du ministère
     de la culture à 1 % du PIB »).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -3.62
+    bas: -4.34
+    haut: -2.13
+    montee_en_charge: *id003
+  calcul:
+    formule: -ecart * point_pib
+    parametres:
+      ecart:
+        valeur: 0.1
+        unite: point de PIB (1 % visé − 0,9 % actuel)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/porter-le-budget-consacre-a-lart-a-la-culture-et-a-la-creation-a-1-du-pib-par-an/
+        note: dépenses culturelles stabilisées à 0,9 % du PIB dans le scénario tendanciel de l'Institut Montaigne
+      point_pib:
+        valeur: 36.2
+        unite: Md€ courants 2032 par point de PIB
+        bareme: point_pib_2032
+    explication: '0,1 point de PIB 2032. Bas : +20 % (gratuité des musées en sus) ; haut : contre-budget (1,8 × 1,18).'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 3.0
     url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/porter-le-budget-consacre-a-lart-a-la-culture-et-a-la-creation-a-1-du-pib-par-an/
     date: '2022'
     commentaire: Surcoût de près de 3 Md€ par an à l'horizon 2027.
+  confiance: moyenne
 - id: sport-1-pct-budget
   libelle: Budget des sports porté à 1 % du budget de l'État
   domaine: culture
@@ -987,8 +2072,30 @@ mesures:
     support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
   precision: precise
   interpretation: Contre-budget 2026 (dont 50 000 équipements, Pass'Sport à 150 €).
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -2.37
+    bas: -3.55
+    haut: -1.18
+    montee_en_charge: *id003
+  calcul:
+    formule: -cb * fp26
+    parametres:
+      cb:
+        valeur: 2.0
+        unite: Md€ (2026, première année)
+        source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+        note: 'montant revendiqué par LFI, contre-budget 2026 : « Porter les moyens du ministère des sports à 1 % du budget
+          de l''Etat : 2 milliards d''euros »'
+      fp26:
+        valeur: 1.1842
+        unite: facteur PIB nominal 2026→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: '1,2106 / (1,00858 × 1,01358) : croissance réelle et déflateur 2026 du FMI (plan/hypotheses.yaml)'
+    explication: 'Montant du contre-budget projeté en 2032. Faute de seconde source ouverte, la fourchette est conventionnelle
+      : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
+  confiance: faible
 - id: aide-developpement-0-7
   libelle: Aide publique au développement à 0,7 % du RNB
   domaine: europe-international
@@ -1000,8 +2107,31 @@ mesures:
     support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
   precision: precise
   interpretation: Contre-budget 2026 (montée en charge). Écart à la trajectoire d'APD de la loi de finances 2027.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -3.55
+    bas: -5.33
+    haut: -1.78
+    montee_en_charge: *id003
+  calcul:
+    formule: -cb * fp26
+    parametres:
+      cb:
+        valeur: 3.0
+        unite: Md€ (2026, première année)
+        source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+        note: 'montant revendiqué par LFI, contre-budget 2026 : « Consacrer 0,7 % du revenu national brut à une aide publique
+          au développement (APD) […] : 3 milliards d''euros »'
+      fp26:
+        valeur: 1.1842
+        unite: facteur PIB nominal 2026→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: '1,2106 / (1,00858 × 1,01358) : croissance réelle et déflateur 2026 du FMI (plan/hypotheses.yaml)'
+    explication: 'Montant du contre-budget (première année d''une trajectoire) projeté en 2032. Faute de seconde source ouverte,
+      la fourchette est conventionnelle : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non
+      contre-expertisé).'
+  confiance: faible
 - id: dotations-collectivites
   libelle: Hausse et indexation de la DGF des collectivités
   domaine: etat
@@ -1014,8 +2144,30 @@ mesures:
   interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
     : 4,5 Md€. AEC 2025 (chapitre 7, s1) : « Renforcer les dotations de l''État pour les territoires et régions en retard
     de développement ». Transfert entre administrations : effet nul sur le solde APU sauf dépenses supplémentaires des collectivités.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -5.33
+    bas: -6.0
+    haut: 0.0
+    montee_en_charge: *id002
+  calcul:
+    formule: -cb * fp26
+    parametres:
+      cb:
+        valeur: 4.5
+        unite: Md€ (2026, première année)
+        source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+        note: 'montant revendiqué par LFI, contre-budget 2026 : « Nous proposons d''augmenter la dotation globale de fonctionnement
+          (DGF) et l''indexer sur l''inflation […] (4,5 milliards d''euros) »'
+      fp26:
+        valeur: 1.1842
+        unite: facteur PIB nominal 2026→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: '1,2106 / (1,00858 × 1,01358) : croissance réelle et déflateur 2026 du FMI (plan/hypotheses.yaml)'
+    explication: 'Transfert interne aux APU : l''effet sur le solde dépend de la dépense supplémentaire des collectivités.
+      Central : dépensé en totalité ; haut : 0 (épargné) ; bas : indexation cumulée plus forte.'
+  confiance: faible
 - id: contribution-ue
   libelle: Réduction de la contribution française au budget de l'UE (contribution nette de 9 Md€)
   domaine: europe-international
@@ -1028,8 +2180,26 @@ mesures:
   interpretation: 'Le contre-budget 2026 précise : « Nous proposons de minorer d''autant la contribution française au budget
     de l''Union européenne », soit 9 Md€ d''économies (contribution nette). Unilatéral, contraire au règlement ressources
     propres : fourchette de 0 à 9 Md€.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: economie
+  effet_solde_primaire:
+    central: 0.0
+    bas: 0.0
+    haut: 10.66
+    montee_en_charge: *id002
+  calcul:
+    formule: 0 * contribution_nette
+    parametres:
+      contribution_nette:
+        valeur: 9.0
+        unite: Md€ (2026, première année)
+        source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+        note: 'montant revendiqué par LFI, contre-budget 2026 : « Ce surplus est estimé, en suivant la méthode comptable,
+          à 9 milliards d''euros chaque année. Nous proposons de minorer d''autant la contribution française »'
+    explication: 'Central nul : la contribution (PSR-UE) résulte du règlement sur les ressources propres adopté à l''unanimité
+      ; une minoration unilatérale n''est pas juridiquement opposable et exposerait à des intérêts de retard. Haut : 9 Md€
+      × 1,18 (réalisation complète).'
+  confiance: faible
 - id: services-publics-proximite-postes
   libelle: Rattrapage des postes manquants dans les services publics et plan proximité
   domaine: etat
@@ -1043,8 +2213,30 @@ mesures:
   precision: vague
   interpretation: 'AEC 2025 (chapitre 7, s1) : distance maximale de quinze à trente minutes aux services publics essentiels.
     Contre-budget : + plan proximité 0,5 Md€, plan accessibilité 2,3 Md€, police judiciaire 0,2 Md€, prisons 0,4 Md€.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -6.39
+    bas: -9.59
+    haut: -3.2
+    montee_en_charge: *id003
+  calcul:
+    formule: -cb * fp26
+    parametres:
+      cb:
+        valeur: 5.4
+        unite: Md€ (2026, première année)
+        source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+        note: 'montant revendiqué par LFI, contre-budget 2026 : « rattrapage des postes manquants 2 Md€ + plan proximité 0,5
+          + plan accessibilité 2,3 + police judiciaire 0,2 + prisons 0,4 »'
+      fp26:
+        valeur: 1.1842
+        unite: facteur PIB nominal 2026→2032
+        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        note: '1,2106 / (1,00858 × 1,01358) : croissance réelle et déflateur 2026 du FMI (plan/hypotheses.yaml)'
+    explication: 'Somme des lignes du contre-budget projetée en 2032. Faute de seconde source ouverte, la fourchette est conventionnelle
+      : bas = 1,5 × central, haut = 0,5 × central (montant revendiqué par le parti, non contre-expertisé).'
+  confiance: faible
 - id: defense-souveraine
   libelle: Loi de programmation militaire d'indépendance, pôle public de l'armement
   domaine: defense
@@ -1058,7 +2250,8 @@ mesures:
   interpretation: Aucun niveau de dépense annoncé ; sortie de l'« Europe de la défense » (chapitre 17). Sans montant, à traiter
     comme non chiffrable en phase 2 si rien de plus n'est publié le 6 novembre.
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Aucun niveau de dépense annoncé (livre blanc et loi de programmation à venir) : non chiffrable en
+    l''état (décision de chiffrage).'
 - id: isf-climatique
   libelle: Rétablissement d'un ISF renforcé avec volet climatique
   domaine: fiscalite
@@ -1072,9 +2265,36 @@ mesures:
   interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
     version annoncée pour le 6 novembre 2026). Priorité de campagne (« Rétablir l''ISF », page d''accueil LFI). Remplace l''IFI
     (à déduire). Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
-    : 15 Md€.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    : 15 Md€. Chiffrage : notre central (3,1 Md€) est cinq fois inférieur aux 15 Md€ revendiqués par le contre-budget, qui
+    ne publie ni barème ni hypothèse d''assiette. Double compte avec la taxe Zucman : l''ISF payé par les foyers de plus de
+    100 M€ s''impute sur l''impôt plancher de 2 % ; l''ISF est compté ici en entier, l''imputation est portée en déduction
+    dans la borne basse de taxe-zucman-2-pct.'
+  chiffrable: true
+  nature: recette
+  effet_solde_primaire:
+    central: 3.1
+    bas: 1.3
+    haut: 5.1
+    montee_en_charge: &id004
+      '2027': 0
+      '2028': 1
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: isf_net
+    parametres:
+      isf_net:
+        valeur: 3.1
+        unite: Md€/an (2032)
+        bareme: isf_retabli_gain_net
+        note: ISF 2017 revalorisé au PIB nominal 2017→2032, moins l'IFI supprimé
+    explication: 'Gain net du rétablissement d''un ISF aux paramètres de 2017 après suppression de l''IFI (barème isf_retabli_gain_net).
+      Le rendement 2017 observé intègre déjà les comportements de l''époque ; bas = rendement nominal 2017 non revalorisé
+      (érosion de l''assiette par départs et optimisation), haut = assiette croissant comme en 2011-2017. Le « volet climatique
+      » n''a ni barème ni assiette publiés : non chiffré (l''Institut Montaigne en 2022 l''estimait à 0,5 Md€). Premier ISF
+      dû en 2028.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 3.5
@@ -1082,6 +2302,9 @@ mesures:
     date: '2022'
     commentaire: Nouvel ISF climatique ≈ 5,5 Md€ de recettes, soit +3,5 Md€ par rapport à l'IFI ; l'équipe de campagne 2022
       revendiquait 10 Md€ hors volet climatique.
+  effets_retour: 'LFI invoque des recettes supplémentaires « fruit naturel d''une politique de relance » (contre-budget 2026)
+    : non comptées.'
+  confiance: moyenne
 - id: taxe-zucman-2-pct
   libelle: Impôt plancher de 2 % sur le patrimoine des milliardaires (taxe Zucman)
   domaine: fiscalite
@@ -1093,9 +2316,53 @@ mesures:
   precision: partielle
   interpretation: 'Nouveauté de l''édition 2025. Le contre-budget 2026 élargit l''assiette aux patrimoines de plus de 100
     M€ (« Mettre en place la taxe Zucman de 2 % sur les patrimoines de plus de 100 millions d''euros : 20 milliards d''euros
-    de recettes ») ; seuil à trancher. Interaction avec l''ISF (imputation).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    de recettes ») ; seuil à trancher. Interaction avec l''ISF (imputation). Seuil retenu : 100 M€ (contre-budget d''octobre
+    2025, document le plus récent) ; L''AEC 2025 dit « milliardaires ». Risque constitutionnel (caractère confiscatoire) non
+    chiffré. Le CAE n''a pas évalué la taxe Zucman elle-même : le coefficient de 0,26 porte sur une hausse de la fiscalité
+    du capital du top 1 % (par exemple un retour de l''ISF), il est appliqué ici faute de mieux.'
+  chiffrable: true
+  nature: recette
+  effet_solde_primaire:
+    central: 6.3
+    bas: 3.9
+    haut: 24.2
+    montee_en_charge: *id004
+  calcul:
+    formule: rendement_statique * part_conservee * f25
+    parametres:
+      rendement_statique:
+        valeur: 20
+        unite: Md€/an (2025, statique)
+        source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+        note: '« Mettre en place la taxe Zucman de 2 % sur les patrimoines de plus de 100 millions d''euros : 20 milliards
+          d''euros de recettes » ; même ordre que l''estimation de G. Zucman (15 à 25 Md€, 1 800 foyers)'
+      part_conservee:
+        valeur: 0.26
+        unite: part de la recette mécanique effectivement perçue
+        source: https://www.franceinfo.fr/politique/gouvernement-de-francois-bayrou/taxer-les-plus-hauts-patrimoines-provoque-t-il-un-exil-fiscal-ce-que-dit-le-conseil-d-analyse-economique_7470496.html
+        note: 'CAE, septembre 2025 (Bach, Bozio, Grimprel, Guillouzouic, Landais, Malgouyres) : l''ensemble des comportements
+          d''évitement « entraînerait ainsi une perte de recette de 74 centimes sur chaque euro de fiscalité supplémentaire
+          » ; même coefficient (0,25) invoqué par sept économistes contre les 20 Md€'
+      f25:
+        valeur: 1.2106
+        unite: facteur PIB nominal 2025→2032
+        source: chiffrage/baremes.yaml, en-tête et barème pib_nominal_2032 (3 620,9 / 2 991,06 Md€ ; INSEE, FMI WEO avril
+          2026)
+    explication: Recette statique revendiquée (20 Md€, patrimoines > 100 M€) × part conservée après optimisation, évasion
+      et départs selon le CAE (0,26) × croissance du PIB nominal 2025→2032. Bas = estimation basse de G. Zucman (15 Md€) ×
+      0,26, non projetée, pour couvrir la lecture « milliardaires seuls » de L'AEC 2025 et l'imputation de l'ISF rétabli.
+      Haut = 20 Md€ projetés sans aucune réaction de l'assiette (thèse de G. Zucman, clause de maintien de l'impôt cinq ans
+      après un départ).
+  chiffrages_tiers:
+  - auteur: Collectif de sept économistes (Aghion, Lévy, Taugourdeau…), tribune au Monde
+    montant_md: 5.0
+    url: https://fr.wikipedia.org/wiki/Taxe_Zucman
+    date: '2025-09-09'
+    commentaire: « La taxe Zucman générerait une réduction du déficit de 5 milliards d'euros, pas de 20 milliards » (coefficient
+      de 0,25 tiré d'un rapport du CAE sur l'ISF) ; cité via Wikipédia.
+  effets_retour: 'Effets sur l''investissement et l''entrepreneuriat invoqués par les opposants (Aghion et al., Bergeaud)
+    : non comptés.'
+  confiance: faible
 - id: impot-universel-zucman-multinationales
   libelle: Impôt universel sur les entreprises (taxation selon l'activité réalisée en France), « taxe Zucman » sur les multinationales
   domaine: fiscalite
@@ -1108,9 +2375,35 @@ mesures:
   precision: partielle
   interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
     version annoncée pour le 6 novembre 2026). Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première
-    année, avant montée en charge) : 26 Md€ (« taxe Zucman sur les multinationales »).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    année, avant montée en charge) : 26 Md€ (« taxe Zucman sur les multinationales »). Chiffrage : l''écart entre notre central
+    et les 26 Md€ revendiqués tient à l''hypothèse de coopération internationale, que l''IFRAP juge « très théorique ».'
+  chiffrable: true
+  nature: recette
+  effet_solde_primaire:
+    central: 2.71
+    bas: 0.0
+    haut: 26.3
+    montee_en_charge: *id004
+  calcul:
+    formule: scenario_bas_im * f24
+    parametres:
+      scenario_bas_im:
+        valeur: 2.2
+        unite: Md€/an (2022)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/instaurer-un-impot-universel-sur-les-entreprises-et-sur-les-revenus-des-particuliers-faire-face-a-levasion-fiscale/
+        note: « En appliquant les chiffres de l'OCDE, on obtient un surplus de recettes fiscales pour l'État français de 2,2
+          Md€ par an, dans un scénario bas intermédiaire »
+      f24:
+        valeur: 1.2336
+        unite: facteur PIB nominal 2024→2032
+        source: 'chiffrage/baremes.yaml, barème pib_nominal_2032, dérivation (« d''un montant 2024 : 1,2336 »)'
+        note: 'appliqué aux chiffrages 2022 de l''Institut Montaigne (horizon 2027) : sous-estime la croissance de l''assiette
+          depuis 2022, donc prudent pour une recette'
+    explication: 'Central = scénario bas intermédiaire de l''Institut Montaigne (2,2 Md€, taux minimal de 25 % appliqué aux
+      chiffres OCDE du pilier 2), projeté au PIB : la mesure est unilatérale et se heurte aux conventions fiscales et à l''accord
+      OCDE. Bas = 0 (inapplicable sans renégociation des conventions). Haut = 26,3 Md€ (EU Tax Observatory, taux de 25 % négocié
+      au niveau européen ; le contre-budget revendique 26 Md€). Médiane Montaigne : 18,4 Md€ (application unilatérale aux
+      seules entreprises non nationales).'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 18.0
@@ -1123,6 +2416,7 @@ mesures:
     date: '2024-06-24'
     commentaire: 'Juge « très théorique » le produit de 26 Md€ attendu par le NFP : suppose une coopération internationale
       effective.'
+  confiance: faible
 - id: suppression-flat-tax
   libelle: 'Suppression du prélèvement forfaitaire unique : revenus du capital au barème'
   domaine: fiscalite
@@ -1134,15 +2428,33 @@ mesures:
   precision: precise
   interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
     version annoncée pour le 6 novembre 2026). Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première
-    année, avant montée en charge) : 2,7 Md€.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    année, avant montée en charge) : 2,7 Md€. Double compte : les dividendes sont visés trois fois (fin du PFU, taxe de 10
+    % sur les dividendes, cotisations sociales sur les dividendes). La réaction des distributions est comptée ici et dans
+    taxe-dividendes-rachats ; les cotisations sur dividendes sont exclues de hausse-cotisation-vieillesse.'
+  chiffrable: true
+  nature: recette
+  effet_solde_primaire:
+    central: 0.6
+    bas: 0.0
+    haut: 1.7
+    montee_en_charge: *id004
+  calcul:
+    formule: gain
+    parametres:
+      gain:
+        valeur: 0.6
+        unite: Md€/an (2032)
+        bareme: pfu_passage_bareme
+        note: 'moitié du coût statique IPP revalorisé : convention du barème pour la réaction des dividendes'
+    explication: 'Retour au barème de l''IR des revenus du capital soumis au PFU (barème pfu_passage_bareme) : coût statique
+      du PFU revalorisé, réduit de moitié pour la baisse des distributions ; bas = 0 (réaction de 2013), haut = aucune réaction.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 1.5
     url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/supprimer-la-flat-tax-et-imposer-les-revenus-du-capital-comme-ceux-du-travail/
     date: '2022'
     commentaire: Gain de 2,1 à 2,3 Md€ à assiette constante, 1,5 Md€ avec effets de comportement.
+  confiance: moyenne
 - id: ir-14-tranches
   libelle: Impôt sur le revenu à 14 tranches
   domaine: fiscalite
@@ -1154,15 +2466,41 @@ mesures:
   precision: partielle
   interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
     version annoncée pour le 6 novembre 2026). Barème non publié. Montant revendiqué par LFI dans le contre-budget 2026 (octobre
-    2025, première année, avant montée en charge) : 5,5 Md€ pour l''IR à 14 tranches et la CSG progressive ensemble.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    2025, première année, avant montée en charge) : 5,5 Md€ pour l''IR à 14 tranches et la CSG progressive ensemble. Double
+    compte : le contre-budget chiffre ensemble IR à 14 tranches et CSG progressive (5,5 Md€) ; la CSG progressive n''est pas
+    chiffrée à part (voir csg-progressive).'
+  chiffrable: true
+  nature: recette
+  effet_solde_primaire:
+    central: 5.8
+    bas: 0.0
+    haut: 5.8
+    montee_en_charge: *id004
+  calcul:
+    formule: gain_im_2022 * f24
+    parametres:
+      gain_im_2022:
+        valeur: 4.7
+        unite: Md€/an (2022)
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/rendre-limpot-sur-le-revenu-plus-progressif-avec-un-bareme-a-14-tranches/
+        note: 'Institut Montaigne : « le rendement de l''impôt sur le revenu serait majoré d''environ 4,7 Md€ par an » (barème
+          hypothétique)'
+      f24:
+        valeur: 1.2336
+        unite: facteur PIB nominal 2024→2032
+        source: 'chiffrage/baremes.yaml, barème pib_nominal_2032, dérivation (« d''un montant 2024 : 1,2336 »)'
+        note: 'appliqué aux chiffrages 2022 de l''Institut Montaigne (horizon 2027) : sous-estime la croissance de l''assiette
+          depuis 2022, donc prudent pour une recette'
+    explication: 'Barème non publié par LFI : hypothèse de barème de l''Institut Montaigne (+4,7 Md€ en 2022), projetée au
+      PIB 2024→2032. Bas = 0 : un barème à 14 tranches peut être calibré à rendement nul (« les 90 % de contribuables gagnant
+      moins de 4 000 euros nets par mois paieront moins »). Haut = central.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 4.7
     url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/rendre-limpot-sur-le-revenu-plus-progressif-avec-un-bareme-a-14-tranches/
     date: '2022'
     commentaire: 'Hypothèse de barème de l''Institut : +4,7 Md€ par an.'
+  confiance: faible
 - id: csg-progressive
   libelle: CSG progressive à 14 tranches
   domaine: fiscalite
@@ -1176,7 +2514,9 @@ mesures:
     version annoncée pour le 6 novembre 2026). Barème non publié ; « les 90 % de contribuables gagnant moins de 4 000 euros
     nets par mois paieront moins » (contre-budget). Signe de l''effet incertain : 0 si calibrée à rendement constant.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Barème non publié ; LFI la présente comme une baisse pour 90 % des contribuables compensée en haut
+    de l''échelle : le sens même de l''effet sur le solde est indéterminé, et le contre-budget ne la chiffre qu''avec l''IR
+    (voir ir-14-tranches).'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: null
@@ -1196,9 +2536,36 @@ mesures:
   precision: partielle
   interpretation: 'Engagement déjà présent dans L''AEC 2022, reconfirmé par l''édition 2025 (dernière version publiée ; nouvelle
     version annoncée pour le 6 novembre 2026). Réaffirmé à la Fête de l''Humanité (septembre 2026). Montant revendiqué par
-    LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge) : 10 Md€.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge) : 10 Md€. Double compte : le haut
+    de l''Institut Montaigne inclut les avantages sur assiettes spécifiques (dont une partie du pacte Dutreil), chiffrés à
+    part dans pacte-dutreil ; notre central n''en tient pas compte. Contre-budget : 10 Md€ revendiqués.'
+  chiffrable: true
+  nature: recette
+  effet_solde_primaire:
+    central: 5.0
+    bas: 2.9
+    haut: 13.6
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.6
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: estimation_avec_comportements
+    parametres:
+      estimation_avec_comportements:
+        valeur: 5.0
+        unite: Md€/an
+        source: https://www.ifrap.org/budget-et-fiscalite/nouveau-front-populaire-pourquoi-le-chiffrage-du-programme-par-la-fondation-ifrap-differe-t-il-de-celui-du-parti
+        note: 'IFRAP sur la même mesure du NFP : « un alourdissement de la fiscalité sur les successions massif ne devrait
+          pas accroître le rendement des DMTG de plus de 5 milliards d''euros »'
+    explication: 'Central = 5 Md€, estimation de l''IFRAP qui intègre l''optimisation (donations anticipées, assurance-vie,
+      départs) et le risque constitutionnel de l''héritage maximal. Bas = médiane statique de l''Institut Montaigne (9 Md€,
+      2022) × 0,26 (part conservée après évitement, CAE 2025) × 1,2336 (PIB 2024→2032) ≈ 2,9 Md€. Haut = estimation haute
+      de l''Institut Montaigne (11 Md€, y compris la fin des avantages sur les assiettes spécifiques au-delà de 12 M€) × 1,2336
+      ≈ 13,6 Md€. Montée : décès à partir de 2028.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 9.0
@@ -1210,6 +2577,7 @@ mesures:
     url: https://www.ifrap.org/budget-et-fiscalite/nouveau-front-populaire-pourquoi-le-chiffrage-du-programme-par-la-fondation-ifrap-differe-t-il-de-celui-du-parti
     date: '2024-06-24'
     commentaire: 'Pour le NFP (17 Md€ annoncés), l''IFRAP juge le produit « fantaisiste » : au plus +5 Md€ de DMTG.'
+  confiance: faible
 - id: pacte-dutreil
   libelle: Forte limitation du pacte Dutreil
   domaine: fiscalite
@@ -1219,9 +2587,39 @@ mesures:
     date: '2025-10-24'
     support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
   precision: partielle
-  interpretation: Contre-budget 2026 ; cohérent avec la réforme des successions de L'AEC 2025.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  interpretation: 'Contre-budget 2026 ; cohérent avec la réforme des successions de L''AEC 2025. Double compte évité avec
+    successions-heritage-maximal (central IFRAP hors niches). Contre-budget : 3,5 Md€ revendiqués.'
+  chiffrable: true
+  nature: recette
+  effet_solde_primaire:
+    central: 2.72
+    bas: 1.36
+    haut: 4.09
+    montee_en_charge: *id004
+  calcul:
+    formule: depenses_fiscales_dmtg * part_supprimee * f25
+    parametres:
+      depenses_fiscales_dmtg:
+        valeur: 4.5
+        unite: Md€ (2025)
+        source: https://www.ccomptes.fr/sites/default/files/2026-04/20260422-RBDE-2025_0.pdf
+        note: 'Cour des comptes, budget de l''État 2025, tableau 22 : dépenses fiscales associées aux DMTG, 4,5 Md€ (majorant
+          du coût du pacte Dutreil)'
+      part_supprimee:
+        valeur: 0.5
+        unite: part de l'avantage supprimée
+        source: chiffrage/programmes/melenchon-lfi.yaml (lecture de « limiter fortement »)
+        note: 'convention de lecture : la moitié de l''avantage résiduel ; bas 0,25, haut 0,75'
+      f25:
+        valeur: 1.2106
+        unite: facteur PIB nominal 2025→2032
+        source: chiffrage/baremes.yaml, en-tête et barème pib_nominal_2032 (3 620,9 / 2 991,06 Md€ ; INSEE, FMI WEO avril
+          2026)
+    explication: 'Coût des dépenses fiscales rattachées aux DMTG (majorant du pacte Dutreil, Cour des comptes) × part supprimée
+      (convention 0,5 pour « limiter fortement », fourchette 0,25 à 0,75) × PIB 2025→2032. Référence : la LFI 2026 a déjà
+      resserré le pacte (actifs somptuaires exclus, engagement individuel porté à six ans, selon Deloitte) ; seul l''avantage
+      résiduel est visé.'
+  confiance: faible
 - id: is-progressif
   libelle: Impôt sur les sociétés progressif selon le bénéfice et son usage ; IS majoré pour les très grandes entreprises
   domaine: fiscalite
@@ -1234,9 +2632,44 @@ mesures:
     support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
   precision: vague
   interpretation: 'Barème non publié. Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année,
-    avant montée en charge) : 5 Md€ (« IS majoré pour les très grandes entreprises »).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    avant montée en charge) : 5 Md€ (« IS majoré pour les très grandes entreprises »). Contre-budget : 5 Md€ revendiqués.'
+  chiffrable: true
+  nature: recette
+  effet_solde_primaire:
+    central: 4.24
+    bas: 0.0
+    haut: 8.47
+    montee_en_charge: *id004
+  calcul:
+    formule: (is_avec_majoration - is_hors_majoration) * part_perennisee * f25
+    parametres:
+      is_avec_majoration:
+        valeur: 66.9
+        unite: Md€/an
+        bareme: is_rendement_net
+        note: comptabilité nationale, y compris la contribution exceptionnelle des grandes entreprises (2025)
+      is_hors_majoration:
+        valeur: 59.9
+        unite: Md€/an
+        bareme: is_rendement_net
+        note: IS net hors contribution exceptionnelle (2025)
+      part_perennisee:
+        valeur: 0.5
+        unite: part
+        source: 'chiffrage/programmes/melenchon-lfi.yaml (lecture : barème progressif non publié)'
+        note: 'convention : la surtaxe des très grandes entreprises est pérennisée, la baisse promise aux PME en reprend la
+          moitié ; bas 0, haut 1'
+      f25:
+        valeur: 1.2106
+        unite: facteur PIB nominal 2025→2032
+        source: chiffrage/baremes.yaml, en-tête et barème pib_nominal_2032 (3 620,9 / 2 991,06 Md€ ; INSEE, FMI WEO avril
+          2026)
+    explication: 'Référence : la contribution exceptionnelle sur les bénéfices des grandes entreprises s''éteint après l''exercice
+      2026 (REFERENCE.md). Un IS majoré pour les très grandes entreprises la prolonge : rendement 2025 de la majoration (66,9
+      − 59,9 = 7,0 Md€, barème is_rendement_net) projeté en 2032. Le barème progressif (« égalité devant l''impôt entre PME
+      et grands groupes ») réduit l''IS des PME : convention d''une moitié du produit, faute de barème. Bas = 0 (baisse PME
+      égale à la surtaxe), haut = pérennisation intégrale sans baisse.'
+  confiance: faible
 - id: taxe-dividendes-rachats
   libelle: Taxe de solidarité de 10 % sur les dividendes et taxe de 4 % sur les rachats d'actions
   domaine: fiscalite
@@ -1247,9 +2680,32 @@ mesures:
     support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
   precision: precise
   interpretation: 'Contre-budget 2026 ; avec « Mettre en place une taxe sur les rachats d''actions de 4% : 1 milliard d''euros
-    de recettes ».'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    de recettes ». Rachats d''actions : déjà taxés à 8 % depuis la LFI 2025 (article 235 ter XB du CGI), donc une taxe de
+    4 % n''ajoute rien. Double compte avec la fin du PFU et les cotisations sur dividendes : voir suppression-flat-tax. Contre-budget
+    : 6 + 1 Md€ revendiqués.'
+  chiffrable: true
+  nature: recette
+  effet_solde_primaire:
+    central: 6.6
+    bas: 0.0
+    haut: 10.43
+    montee_en_charge: *id004
+  calcul:
+    formule: recette_3pct_par_an / 3 * 10
+    parametres:
+      recette_3pct_par_an:
+        valeur: 1.98
+        unite: Md€/an (moyenne 2013-2017)
+        source: https://www.vie-publique.fr/files/rapport/pdf/174000790.pdf
+        note: 'IGF, mission d''enquête sur la contribution de 3 % : « 7,9 Md€ étaient contestés sur une recette de 9,9 Md€
+          » ; 9,9 / 5 exercices ≈ 1,98 Md€ par an'
+    explication: 'Rendement moyen de la contribution de 3 % sur les montants distribués (2013-2017), porté à 10 % : 6,6 Md€,
+      montant non projeté pour tenir compte de la baisse des distributions face à un prélèvement plus que triplé. Haut = même
+      calcul projeté au PIB 2017→2032 (× 1,580, barème isf_retabli_gain_net) sans réaction : 10,4 Md€. Bas = 0 : la contribution
+      de 3 % a été censurée par le Conseil constitutionnel (2017) et jugée contraire à la directive mère-fille, avec environ
+      10 Md€ remboursés (IGF). La taxe de 4 % sur les rachats d''actions ne rapporte rien de plus : la loi de finances pour
+      2025 a déjà créé une taxe pérenne de 8 % sur les réductions de capital consécutives aux rachats (KPMG, CMS).'
+  confiance: faible
 - id: taxe-transactions-financieres
   libelle: Renforcement de la taxe sur les transactions financières
   domaine: fiscalite
@@ -1259,9 +2715,41 @@ mesures:
     date: '2025-10-24'
     support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
   precision: partielle
-  interpretation: Contre-budget 2026 ; taux et assiette non précisés.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  interpretation: 'Contre-budget 2026 ; taux et assiette non précisés. Contre-budget : 3 Md€ revendiqués, sans taux publié.'
+  chiffrable: true
+  nature: recette
+  effet_solde_primaire:
+    central: 1.45
+    bas: 0.73
+    haut: 3.03
+    montee_en_charge: *id004
+  calcul:
+    formule: (ttf_04 - ttf_03) * dixiemes_ajoutes * f25
+    parametres:
+      ttf_04:
+        valeur: 2.5
+        unite: Md€/an
+        bareme: ttf_rendement
+        note: rendement 2025 au taux de 0,4 %
+      ttf_03:
+        valeur: 2.2
+        unite: Md€/an
+        bareme: ttf_rendement
+        note: rendement au taux de 0,3 % (estimation 2023)
+      dixiemes_ajoutes:
+        valeur: 4
+        unite: dixièmes de point
+        source: 'chiffrage/programmes/melenchon-lfi.yaml (lecture : « renforcer » = doublement du taux, de 0,4 à 0,8 %)'
+        note: 'taux non précisé par LFI ; bas : 2 dixièmes'
+      f25:
+        valeur: 1.2106
+        unite: facteur PIB nominal 2025→2032
+        source: chiffrage/baremes.yaml, en-tête et barème pib_nominal_2032 (3 620,9 / 2 991,06 Md€ ; INSEE, FMI WEO avril
+          2026)
+    explication: 'Rendement marginal observé du dernier relèvement (0,3 → 0,4 % : +0,3 Md€, barème ttf_rendement) × 4 dixièmes
+      (doublement du taux) × PIB 2025→2032. Bas = 2 dixièmes ; haut = rendement proportionnel au taux (2,5 Md€ par 0,4 point,
+      soit un doublement du produit), sans réaction des volumes.'
+  confiance: faible
 - id: taxe-superprofits
   libelle: Taxe permanente sur les superprofits, tous secteurs
   domaine: fiscalite
@@ -1274,7 +2762,9 @@ mesures:
   precision: vague
   interpretation: Définition du superprofit et taux non précisés.
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Ni définition du « superprofit » (seuil par rapport à quelle référence), ni taux, ni assiette :
+    non chiffrable. La contribution sur les rentes infra-marginales de l''électricité de 2022-2023 n''est pas transposable
+    à tous les secteurs ; l''IFRAP juge ce type de recette non récurrent.'
   chiffrages_tiers:
   - auteur: Fondation IFRAP (programme du NFP, 2024)
     montant_md: null
@@ -1294,8 +2784,37 @@ mesures:
   precision: vague
   interpretation: 'Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
     : 2 Md€ (montée en charge) ; exit tax : 25 M€.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: recette
+  effet_solde_primaire:
+    central: 0.0
+    bas: 0.0
+    haut: 2.0
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.3
+      '2029': 0.6
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: annonce * part_documentee
+    parametres:
+      annonce:
+        valeur: 2.0
+        unite: Md€/an
+        source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+        note: '« Faire de la lutte contre la fraude et l''évasion fiscales une priorité […] : 2 milliards d''euros de recettes
+          »'
+      part_documentee:
+        valeur: 0.0
+        unite: part
+        source: chiffrage/README.md, règle 6 (enveloppe non détaillée)
+        note: 'aucun moyen, effectif ou dispositif chiffré : part documentée nulle (le barème controle_fiscal_rendement situe
+          le gain d''un contrôle renforcé à « quelques Md€ au plus »)'
+    explication: 'Règle 6 : enveloppe sans moyens détaillés. Central = part documentée (nulle), bas = 0, haut = montant revendiqué
+      (2 Md€). L''exit tax rétablie (25 M€ revendiqués) est négligeable.'
+  confiance: faible
 - id: niches-fiscales
   libelle: Suppression des niches fiscales injustes, inefficaces ou polluantes (dont aérien, kérosène, taxe au tonnage)
   domaine: fiscalite
@@ -1308,14 +2827,41 @@ mesures:
   interpretation: 'Enveloppe non détaillée (règle 6). Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025,
     première année, avant montée en charge) : 3 Md€ (autres niches) + 3 Md€ (privilèges fiscaux de l''aérien) + 0,8 Md€ (taxe
     au tonnage). La transformation des réductions en crédits d''impôt (même phrase dans l''AEC) coûte.'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  chiffrable: true
+  nature: recette
+  effet_solde_primaire:
+    central: 0.0
+    bas: 0.0
+    haut: 6.8
+    montee_en_charge: *id004
+  calcul:
+    formule: annonce * part_documentee
+    parametres:
+      annonce:
+        valeur: 6.8
+        unite: Md€/an
+        source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+        note: 'contre-budget 2026 : autres niches 3 Md€ + privilèges fiscaux de l''aérien 3 Md€ + taxe au tonnage 0,8 Md€'
+      part_documentee:
+        valeur: 0.0
+        unite: part
+        source: chiffrage/README.md, règle 6 (enveloppe non détaillée)
+        note: les niches identifiées (CIR, pacte Dutreil, heures supplémentaires) sont chiffrées dans leurs propres mesures
+    explication: 'Règle 6 : central = part documentée non comptée ailleurs (nulle : CIR, Dutreil et heures supplémentaires
+      sont chiffrés à part), bas = 0, haut = montants revendiqués (6,8 Md€). La transformation des réductions d''impôt restantes
+      en crédits d''impôt coûterait (non chiffré).'
   chiffrages_tiers:
   - auteur: Fondation IFRAP (programme du NFP, 2024)
     montant_md: 5.0
     url: https://www.ifrap.org/budget-et-fiscalite/nouveau-front-populaire-pourquoi-le-chiffrage-du-programme-par-la-fondation-ifrap-differe-t-il-de-celui-du-parti
     date: '2024-06-24'
     commentaire: Pour le NFP (25 Md€ de niches annoncés), l'IFRAP retient au plus 5 Md€ de niches supprimables d'ici 2027.
+  - auteur: Fondation IFRAP (programme du NFP, 2024)
+    montant_md: 5.0
+    url: https://www.ifrap.org/budget-et-fiscalite/nouveau-front-populaire-pourquoi-le-chiffrage-du-programme-par-la-fondation-ifrap-differe-t-il-de-celui-du-parti
+    date: '2024-06-24'
+    commentaire: Au plus 5 Md€ de niches supprimables d'ici 2027 (sur 25 Md€ annoncés par le NFP).
+  confiance: faible
 - id: exonerations-cotisations-2-smic
   libelle: Suppression des exonérations de cotisations patronales au-dessus de deux SMIC
   domaine: fiscalite
@@ -1325,9 +2871,40 @@ mesures:
     date: '2025-10-24'
     support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
   precision: precise
-  interpretation: Contre-budget 2026. Interaction avec la hausse du SMIC (seuil de 2 SMIC relevé).
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  interpretation: 'Contre-budget 2026. Interaction avec la hausse du SMIC (seuil de 2 SMIC relevé). Référence : depuis 2026
+    les allègements sont fusionnés en une réduction générale dégressive unique (RGDU). Contre-budget : 8 Md€ revendiqués.'
+  chiffrable: true
+  nature: recette
+  effet_solde_primaire:
+    central: 5.15
+    bas: 1.5
+    haut: 8.47
+    montee_en_charge: *id004
+  calcul:
+    formule: (estimation_basse + estimation_haute) / 2 * f25
+    parametres:
+      estimation_basse:
+        valeur: 1.5
+        unite: Md€/an
+        source: https://www.senat.fr/enseance/2025-2026/122/Amdt_1029.html
+        note: « Selon le rapport MECSS du Sénat, une telle mesure pourrait rapporter 1,5 milliard d'euros pour les comptes
+          publics »
+      estimation_haute:
+        valeur: 7.0
+        unite: Md€/an
+        source: https://www.senat.fr/enseance/2025-2026/122/Amdt_1029.html
+        note: « Selon le groupe d'experts sur le SMIC, une sortie des seuils d'exonération de cotisations à 2 SMIC serait
+          bénéfique pour l'emploi et apporterait 7 milliards de recettes supplémentaires »
+      f25:
+        valeur: 1.2106
+        unite: facteur PIB nominal 2025→2032
+        source: chiffrage/baremes.yaml, en-tête et barème pib_nominal_2032 (3 620,9 / 2 991,06 Md€ ; INSEE, FMI WEO avril
+          2026)
+    explication: Milieu de la fourchette publique (Sénat MECSS 1,5 Md€ ; Groupe d'experts SMIC 7 Md€, cités par l'amendement
+      Sénat n° 1029 au PLFSS 2026) projeté en 2032. Bas = 1,5 Md€ non projeté (la hausse du SMIC à 1 700 € relève le seuil
+      de 2 SMIC et rétrécit l'assiette) ; haut = 7 Md€ projeté.
+  effets_retour: 'Effets sur l''emploi au-delà de 2 SMIC jugés nuls par le CAE (2019) et Bozio-Wasmer (2024) : non comptés.'
+  confiance: faible
 - id: surcotisation-hauts-salaires
   libelle: Surcotisation sur les hauts salaires
   domaine: fiscalite
@@ -1339,7 +2916,7 @@ mesures:
   precision: vague
   interpretation: Contre-budget 2026 ; seuil et taux non précisés.
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Ni seuil de salaire ni taux publiés (le contre-budget revendique 6 Md€ sans paramètre) : non chiffrable.'
 - id: heures-sup-fiscalisation
   libelle: Fiscalisation et socialisation des heures supplémentaires
   domaine: fiscalite
@@ -1349,9 +2926,32 @@ mesures:
     date: '2025-10-24'
     support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
   precision: precise
-  interpretation: 'Contre-budget 2026 ; avec « Socialisation des heures supplémentaires : 3,3 milliards d''euros ».'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  interpretation: 'Contre-budget 2026 ; avec « Socialisation des heures supplémentaires : 3,3 milliards d''euros ». Contre-budget
+    : 1,8 Md€ (fiscalisation) + 3,3 Md€ (socialisation) revendiqués.'
+  chiffrable: true
+  nature: recette
+  effet_solde_primaire:
+    central: 6.54
+    bas: 5.2
+    haut: 6.54
+    montee_en_charge: *id004
+  calcul:
+    formule: cout_exonerations * f25
+    parametres:
+      cout_exonerations:
+        valeur: 5.4
+        unite: Md€/an
+        bareme: hs_exoneration_cout
+        note: IR + cotisations salariales + déduction patronale (2026)
+      f25:
+        valeur: 1.2106
+        unite: facteur PIB nominal 2025→2032
+        source: chiffrage/baremes.yaml, en-tête et barème pib_nominal_2032 (3 620,9 / 2 991,06 Md€ ; INSEE, FMI WEO avril
+          2026)
+    explication: Suppression de l'exonération d'IR, de l'exonération de cotisations salariales et de la déduction forfaitaire
+      patronale sur les heures supplémentaires (barème hs_exoneration_cout, 5,4 Md€ en 2026) × PIB 2025→2032. Chiffrage statique,
+      retenu comme haut ; bas = coût 2024 non projeté (5,2 Md€), pour couvrir la baisse du recours aux heures supplémentaires.
+  confiance: moyenne
 - id: cvae-cfe-retablies
   libelle: Rétablissement de la CVAE et retour sur la baisse de la CFE
   domaine: fiscalite
@@ -1362,9 +2962,41 @@ mesures:
     support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
   precision: precise
   interpretation: 'Contre-budget 2026 ; avec « Revenir sur la baisse de la CFE : 3,35 milliards d''euros de recettes » et
-    « Revenir sur les exonérations de TFPB » (3,75 Md€). Référence : législation au 1/1/2027 (CVAE en voie de suppression).'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    « Revenir sur les exonérations de TFPB » (3,75 Md€). Référence : législation au 1/1/2027 (CVAE en voie de suppression).
+    CVAE affectée à l''État depuis 2023 (collectivités compensées en TVA) : la recette va à l''État.'
+  chiffrable: true
+  nature: recette
+  effet_solde_primaire:
+    central: 4.48
+    bas: 3.7
+    haut: 11.0
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.3
+      '2029': 0.6
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: cvae * f25
+    parametres:
+      cvae:
+        valeur: 3.7
+        unite: Md€/an
+        bareme: cvae_restante
+        note: rendement de la CVAE subsistante, supprimée en 2030 par la LFI 2026
+      f25:
+        valeur: 1.2106
+        unite: facteur PIB nominal 2025→2032
+        source: chiffrage/baremes.yaml, en-tête et barème pib_nominal_2032 (3 620,9 / 2 991,06 Md€ ; INSEE, FMI WEO avril
+          2026)
+    explication: 'Référence : CVAE maintenue au taux 2024 jusqu''en 2027, en baisse en 2028-2029, supprimée en 2030. La rétablir
+      rapporte au moins la CVAE qui aurait subsisté (3,7 Md€ projetés en 2032, dérivation du barème cvae_restante). Bas =
+      3,7 Md€ non projeté ; haut = 11 Md€ revendiqués par le contre-budget pour un rétablissement intégral (niveau d''avant
+      2023), sans source indépendante. Le retour sur la baisse de la CFE (3,35 Md€ revendiqués) et sur les exonérations de
+      TFPB (3,75 Md€) n''est pas compté : la baisse de CFE industrielle est compensée par l''État aux collectivités, le gain
+      net pour les APU dépend du sort de cette compensation, non précisé.'
+  confiance: moyenne
 - id: taxe-habitation-aises
   libelle: Taxe d'habitation rétablie pour les 20 % de ménages les plus aisés, barème progressif
   domaine: fiscalite
@@ -1375,9 +3007,41 @@ mesures:
     date: '2025-10-24'
     support: contre-budget 2026 du groupe LFI à l'Assemblée (« Pour une bifurcation écologique et sociale »)
   precision: partielle
-  interpretation: 'Contre-budget 2026. AEC 2025 : « Refonder la taxe foncière pour la rendre progressive ».'
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  interpretation: 'Contre-budget 2026. AEC 2025 : « Refonder la taxe foncière pour la rendre progressive ». Contre-budget
+    : 8 Md€ revendiqués.'
+  chiffrable: true
+  nature: recette
+  effet_solde_primaire:
+    central: 9.62
+    bas: 7.8
+    haut: 9.62
+    montee_en_charge:
+      '2027': 0
+      '2028': 1
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: cout_suppression_20pct * f24
+    parametres:
+      cout_suppression_20pct:
+        valeur: 7.8
+        unite: Md€/an (2023)
+        source: https://www.senat.fr/rap/l22-115-327/l22-115-32716.html
+        note: 'Sénat, PLF 2023 : « 10,2 milliards d''euros bénéficient aux 80 % de ménages les moins aisés et 7,8 milliards
+          d''euros aux 20 % de ménages les plus aisés »'
+      f24:
+        valeur: 1.2336
+        unite: facteur PIB nominal 2024→2032
+        source: 'chiffrage/baremes.yaml, barème pib_nominal_2032, dérivation (« d''un montant 2024 : 1,2336 »)'
+        note: 'appliqué aux chiffrages 2022 de l''Institut Montaigne (horizon 2027) : sous-estime la croissance de l''assiette
+          depuis 2022, donc prudent pour une recette'
+    explication: 'Rétablir la taxe d''habitation sur les résidences principales des 20 % de ménages les plus aisés rapporte
+      au moins ce que coûtait sa suppression pour eux (7,8 Md€ en 2023), projeté en 2032 (× 1,2336 depuis 2024, prudent).
+      Barème progressif non publié : bas = montant 2023 non projeté, haut = central. Suppose que l''État récupère la compensation
+      (fraction de TVA) versée aux collectivités, sinon la recette est dépensée localement.'
+  confiance: moyenne
 - id: tva-premiere-necessite-luxe
   libelle: Baisse de la TVA sur les produits de première nécessité, « TVA grand luxe » pour la financer
   domaine: fiscalite
@@ -1388,9 +3052,43 @@ mesures:
     support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-08-29)'
   precision: partielle
   interpretation: Engagement déjà présent dans L'AEC 2022, reconfirmé par l'édition 2025 (dernière version publiée ; nouvelle
-    version annoncée pour le 6 novembre 2026). Présentée comme autofinancée ; taux non précisés.
-  chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+    version annoncée pour le 6 novembre 2026). Présentée comme autofinancée ; taux non précisés. Taux non précisés par L'AEC
+    ; lecture de l'Institut Montaigne (2022) reprise.
+  chiffrable: true
+  nature: mixte
+  effet_solde_primaire:
+    central: -1.21
+    bas: -1.21
+    haut: 0.0
+    montee_en_charge: *id004
+  calcul:
+    formule: -(point_taux_5_5 * baisse_points * f25) + recette_tva_luxe
+    parametres:
+      point_taux_5_5:
+        valeur: 2.0
+        unite: Md€ par point du taux de 5,5 % (2025, net)
+        source: https://www.tresor.economie.gouv.fr/Articles/c462ac7f-76db-4c33-9bb3-dcc6886ed898/files/f4d0d1ac-fc61-4cf3-ab3f-094385b218bd
+        note: 'DG Trésor, Trésor-Éco n° 371 (dérivation du barème tva_point_tous_taux : « 5,5 % → 2,0 »)'
+      baisse_points:
+        valeur: 0.5
+        unite: point
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/reduire-la-tva-sur-les-produits-de-premiere-necessite-et-reinstaurer-une-tva-grand-luxe-pour-la-financer/
+        note: 'Institut Montaigne : passage de 5,5 % à 5 %, « limite légale inférieure que peut prendre le taux réduit »'
+      f25:
+        valeur: 1.2106
+        unite: facteur PIB nominal 2025→2032
+        source: chiffrage/baremes.yaml, en-tête et barème pib_nominal_2032 (3 620,9 / 2 991,06 Md€ ; INSEE, FMI WEO avril
+          2026)
+      recette_tva_luxe:
+        valeur: 0.0
+        unite: Md€/an
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/reduire-la-tva-sur-les-produits-de-premiere-necessite-et-reinstaurer-une-tva-grand-luxe-pour-la-financer/
+        note: '« il n''est pas possible, au regard des règles européennes, de créer un taux majoré de TVA » ; haut : autofinancement
+          revendiqué'
+    explication: 'Baisse du taux réduit de 5,5 % à 5 % (seule baisse permise par la directive TVA) : 0,5 point × 2,0 Md€ ×
+      PIB 2025→2032 = 1,2 Md€. La « TVA grand luxe » censée la financer est un taux majoré, interdit par la directive 2006/112
+      (Institut Montaigne) : recette nulle au central. Haut = 0 (autofinancement revendiqué, désobéissance européenne assumée
+      par LFI).'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: null
@@ -1398,6 +3096,7 @@ mesures:
     date: '2022'
     commentaire: Un point de taux réduit ≈ 2,07 Md€ ; baisse maximale (0,5 pt) 1,03 Md€ ; l'application des anciens taux majorés
       rapportait 2,7 Md€ par an.
+  confiance: moyenne
 - id: fiscalite-ecologique-importations
   libelle: Taxe kilométrique aux frontières et droits de douane écologiques
   domaine: fiscalite
@@ -1411,7 +3110,9 @@ mesures:
   interpretation: 'Compatibilité avec le droit de l''UE (union douanière) douteuse. Montant revendiqué par LFI dans le contre-budget
     2026 (octobre 2025, première année, avant montée en charge) : 1,75 Md€.'
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Droits de douane et taxe aux frontières relèvent de la compétence exclusive de l''UE (union douanière,
+    tarif extérieur commun) et leurs recettes sont des ressources propres de l''Union ; une taxe kilométrique unilatérale
+    sur les importations n''a ni assiette ni taux publiés : non chiffrable.'
 - id: fiscalite-locale-eau-mobilite
   libelle: Hausse du versement mobilité, des redevances eau et de la taxe sur les billets d'avion
   domaine: fiscalite
@@ -1424,7 +3125,9 @@ mesures:
   interpretation: Contre-budget 2026 ; avec TSBA (+1 Md€) et redevances de l'eau (≈ 1,4 Md€). Recettes affectées aux collectivités
     et agences.
   chiffrable: false
-  raison_non_chiffrable: A_CHIFFRER
+  raison_non_chiffrable: 'Hausses de plafonds du versement mobilité et des redevances de l''eau non chiffrées par des taux
+    ; recettes affectées aux autorités organisatrices de la mobilité et aux agences de l''eau, qui les dépensent (effet net
+    sur le solde indéterminé, supposé nul) : non chiffrable.'
 - id: dette-bce-perpetuelle
   libelle: Gel ou annulation de la dette publique détenue par l'Eurosystème (dette perpétuelle à taux nul)
   domaine: economie
