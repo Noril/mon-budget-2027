@@ -164,6 +164,16 @@ mesures:
       Le RN invoque un effet « déflationniste » et un retour de TVA sur les autres consommations (1,82 Md€ dans le contre-budget)
       : non comptés.
     confiance: moyenne
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Barèmes tva_energie_* relus (Bercy juin 2024 : électricité 4,5, gaz 2,3,
+        carburants 10 ; recalcul SDES). Total 17,6 proche de Bercy 16,8 et de Montaigne 11,3 à 13,6 (fourchette de
+        consommation). Réserve : le « carburants 10 Md€ » de Bercy inclut vraisemblablement le fioul, d'où ≈ 0,6 Md€
+        de double compte possible avec la ligne fioul (couvert par la fourchette). Non-conformité à la directive TVA
+        signalée, non déduite.
   - id: tva-100-produits-premiere-necessite
     libelle: Suppression de la TVA sur une centaine de produits de première nécessité
     domaine: fiscalite
@@ -219,6 +229,14 @@ mesures:
         montant_md: -3.5
         url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Montaigne 4,7 (liste restreinte) à 8,8 Md€ (liste étendue) en euros 2023
+        projetés ; contre-budget RN 3,5. Lecture permanente retenue, haut = 0 si conditionnelle (programme 2024) :
+        cohérent.
   - id: ir-part-pleine-deuxieme-enfant
     libelle: Part fiscale pleine dès le deuxième enfant (quotient familial)
     domaine: fiscalite
@@ -267,6 +285,13 @@ mesures:
         montant_md: -2.86
         url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
     confiance: moyenne
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Coût LexImpact 3,4 Md€ (Montaigne, 2024) projeté au PIB ; haut = chiffre RN 2,86
+        projeté. Ordre de grandeur cohérent avec le coût du quotient familial.
   - id: ir-demi-part-veufs
     libelle: Généralisation de la demi-part fiscale des veuves et veufs
     domaine: fiscalite
@@ -307,6 +332,13 @@ mesures:
       explication: >-
         Chiffre du contre-budget projeté au PIB ; aucun chiffrage indépendant trouvé. Haut = moitié (convention).
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Seul chiffre disponible : RN, 1,0 Md€ projeté ; haut = moitié (convention).
+        Ordre de grandeur plausible.
   - id: indexation-bareme-ir-csg
     libelle: Indexation du barème de l'IR (et des seuils de CSG) sur l'inflation
     domaine: fiscalite
@@ -343,6 +375,13 @@ mesures:
         Promesse déjà dans le droit : la LFI 2026 a indexé le barème de l'IR (+0,9 %, art. 4) et le gel des seuils de
         CSG a été supprimé en LFSS 2026 (vie-publique.fr). Effet nul par rapport à la référence.
     confiance: haute
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Effet nul cohérent avec REFERENCE.md (barème IR indexé sur l'inflation en
+        référence ; LFI 2026 promulguée sans gel).
   - id: annulations-mesures-fiscales-budget-2026
     libelle: Annulation d'un ensemble de hausses d'impôts et de rabots de niches des PLF/PLFSS 2026
     domaine: fiscalite
@@ -417,6 +456,14 @@ mesures:
         surtaxe d'IS (ETI déjà exclues). Bas : ajoute le pacte Dutreil durci en LFI (0,5 Md€ selon le RN, non chiffré
         officiellement). Haut : TSBA au chiffre du RN (0,72).
     confiance: moyenne
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Seules les mesures effectivement votées sont annulées (petits colis 0,4, TSBA
+        0,8, ACRE 0,184, ruptures conventionnelles 0,26) ; total < 2 Md€ : paramètres non tous rouverts, le tri voté /
+        non voté est cohérent avec REFERENCE.md.
   - id: retraites-60-62-ans
     libelle: >-
       Retour de l'âge légal à 62 ans (42 annuités), départ à 60 ans avec 40 annuités pour les carrières commencées avant
@@ -505,6 +552,17 @@ mesures:
     effets_retour: >-
       Moindres dépenses de chômage et d'invalidité des seniors partant plus tôt et effets sur l'emploi : non comptés.
     confiance: faible
+    verification:
+      statut: conteste
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Formule et central (44,6 Md€) cohérents : Montaigne 34,7 en 2027 dont 8,2
+        d'abrogation remplacés par le barème 2032 net de la suspension déjà votée (13,9). Désaccord sur le bas (−62,2)
+        : il prend la borne haute (20) du barème retraites_retour_62_ans_2032, sourcée par une estimation d'un
+        candidat (Zemmour), inacceptable ; le bas est à recalculer avec une borne publique. Le barème est à corriger ;
+        je ne modifie pas baremes.yaml. Incohérence à noter : le chiffre de la candidate (9 Md€) n'est pas expliqué
+        par les sources publiques.
   - id: cumul-emploi-retraite-sans-cotisations
     libelle: >-
       Suppression des cotisations retraite et chômage des actifs ayant l'âge et les trimestres qui continuent à travailler
@@ -586,6 +644,14 @@ mesures:
       Le RN estime que les hausses n'auraient pas eu lieu sans la mesure (coût nul) ; impôt sur le revenu et CSG sur
       les hausses : non comptés.
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Montaigne : 0,8 Md€ en 2025, 4,8 en 2027, 12 en 2029, 15 en brut à terme ; 2032
+        = cinquième année d'une mise en œuvre en 2028 (le texte dit « quatrième » : coquille sans effet sur la valeur
+        12). Bas 15, haut recours limité : cohérent. IR et CSG sur les hausses non comptés.
   - id: indexation-pensions-prestations
     libelle: Indexation des retraites et dégel des prestations sociales
     domaine: social
@@ -621,6 +687,13 @@ mesures:
         Promesse déjà dans le droit : l'« année blanche » (gel des pensions et prestations 2026) et la sous-indexation
         2027-2030 ont été supprimées par le Parlement (LFSS 2026, vie-publique.fr). Effet nul.
     confiance: haute
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. La citation figure dans le PDF du contre-budget (extraction du tableau
+        difficile). Effet nul : indexation sur l'inflation déjà dans le droit (REFERENCE.md), année blanche non votée.
   - id: prestations-solidarite-5-ans-travail
     libelle: >-
       Prestations de solidarité réservées aux étrangers ayant 5 ans de travail à temps plein en France (priorité nationale)
@@ -640,8 +713,8 @@ mesures:
     nature: economie
     effet_solde_primaire:
       central: 7.15
-      bas: 0.72
-      haut: 8.64
+      bas: 0.0
+      haut: 7.15
       montee_en_charge:
         '2027': 0.0
         '2028': 0.4
@@ -677,6 +750,7 @@ mesures:
         réservées aux Français (Montaigne, médianes), projetés. Ordre de grandeur cohérent avec l'IFRAP (6 à 7 Md€ de
         prestations nationales versées aux étrangers en situation régulière). Bas : nouveaux entrants seulement (droits
         acquis). Risque de censure constitutionnelle signalé, non déduit.
+        Vérification (règle 6) : bas = 0, haut = central.
     chiffrages_tiers:
       - auteur: Institut Montaigne (législatives 2024)
         montant_md: 2.5
@@ -692,6 +766,15 @@ mesures:
         montant_md: 6.1
         url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Central 7,15 (Montaigne 2,5 + 3,3 de prestations familiales, projetés) ≈ chiffre
+        du RN projeté (6,1 → 7,2) et sous l'IFRAP (6 à 7 Md€ pour toute exclusion des étrangers en situation
+        régulière, 8,0 projeté) : plafond respecté. Le volet prestations familiales dépasse la lettre de la citation
+        (5 ans de travail) : lecture Bardella (JDD), signalée. Règle 6 : bas = 0, haut = central (avant 0,72 et 8,64).
   - id: priorite-nationale-logement-social
     libelle: Priorité nationale dans l'attribution des logements sociaux (et des APL)
     domaine: logement
@@ -734,7 +817,7 @@ mesures:
     effet_solde_primaire:
       central: 0.86
       bas: 0.0
-      haut: 1.7
+      haut: 0.86
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -761,6 +844,7 @@ mesures:
       explication: >-
         Bas = 0 : report des soins vers l'hôpital (soins urgents, créances irrécouvrables) non estimé publiquement. Haut
         = barème AME haut moins les soins urgents (0,132 Md€), projeté.
+        Vérification (règle 6) : bas = 0, haut = central.
     chiffrages_tiers:
       - auteur: Institut Montaigne (législatives 2024)
         montant_md: 0.7
@@ -770,6 +854,13 @@ mesures:
         montant_md: 1.3
         url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
     confiance: moyenne
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Économie nette de 0,7 Md€ (Montaigne) après maintien de l'urgence vitale, le RN
+        annonce 1,3 brut. Règle 6 : central plafonné par ce que le droit permet, bas = 0, haut = central (avant 1,7).
   - id: suppression-visa-soins
     libelle: Suppression du visa pour soins
     domaine: immigration
@@ -848,6 +939,13 @@ mesures:
         ne rapporte plus que la fin des exonérations restantes. Haut : chiffre du RN (1,1 Md€), qui suppose une hausse
         des droits au-delà du droit actuel.
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Droits différenciés déjà en vigueur (exonérations plafonnées à 30 %), gain
+        limité à la fin des exonérations (0,12) ; haut = chiffre RN. Recette, non économie ciblée.
   - id: timbre-visas-touristiques
     libelle: Timbre fiscal sur les visas touristiques
     domaine: immigration
@@ -913,6 +1011,14 @@ mesures:
         montant_md: -8.8
         url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
     confiance: haute
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. CFE 7,7 Md€ relue (FIPECO, comptabilité nationale 2024) ; retour d'IS 20 %
+        (Montaigne) ; compensation des collectivités : coût APU inchangé. 7,7 × 1,2336 × 0,8 = 7,6 ; bas sans retour
+        d'IS. RN : 8,8 Md€.
   - id: suppression-cvae
     libelle: Suppression totale de la CVAE
     domaine: fiscalite
@@ -956,6 +1062,15 @@ mesures:
         (barème cvae_restante, 3,7 Md€) en 2028 et 2029, porté par effet_solde_primaire.annuel (convention de REFERENCE.md).
         Mise en œuvre supposée en loi de finances pour 2028.
     confiance: haute
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Effet nul en 2032 (suppression votée pour 2030) ; annuel 2028-2029 à −3,7 :
+        légèrement surestimé si la loi réduit déjà la CVAE en 2028-2029 (suppression « progressive » selon
+        economie.gouv.fr ; calendrier des taux non retrouvé), écart de l'ordre de 1 à 2 Md€ par an sur 2028-2029, sans
+        effet 2032.
   - id: suppression-c3s
     libelle: Suppression de la contribution sociale de solidarité des sociétés (C3S)
     domaine: fiscalite
@@ -1003,6 +1118,13 @@ mesures:
         montant_md: -4.8
         url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
     confiance: haute
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. C3S 5,2 Md€ relue (FIPECO) ; retour d'IS 20 % ; 5,2 × 1,2336 × 0,8 = 5,13 ; bas
+        sans retour d'IS. RN : 4,8 Md€.
   - id: fiscalite-entreprises-divers
     libelle: >-
       Autres allègements ciblés (octroi de mer, crédit d'impôt péages des transporteurs, aides à l'investissement outre-mer)
@@ -1058,6 +1180,13 @@ mesures:
         Chiffres du contre-budget, projetés. Haut : sans la « réforme de l'octroi de mer », dont le contenu n'est pas
         connu.
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Chiffres du RN projetés (0,75 Md€ au total avant projection) ; montant faible,
+        non contredit par une source.
   - id: impot-fortune-financiere
     libelle: Impôt sur la fortune financière (IFF) remplaçant l'IFI et la taxe sur les holdings
     domaine: fiscalite
@@ -1147,6 +1276,14 @@ mesures:
         Remplacer l'obligation CEE par une taxe affectée au budget qui finance les mêmes économies d'énergie est neutre
         pour le solde (central 0). Haut : la taxe est perçue sans reprise des dépenses (montant du RN).
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Les CEE sont une obligation privée : neutre pour le solde si les dépenses
+        financées sont reprises (central 0) ; haut = recette du RN sans reprise : cohérent, recette non ciblée sur un
+        budget.
   - id: redevance-marche-energetique
     libelle: Redevance d'accès au marché électrique et gazier historique français
     domaine: energie
@@ -1217,6 +1354,13 @@ mesures:
         montant_md: 3.5
         url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Recouvrement HCFIPS 0,68 Md€ (barème fraude_sociale_estimee : doublement), haut
+        = annonce RN 3,5 projetée, bas 0 : cohérent. Recettes de fraude, règle 6 non applicable.
   - id: petites-recettes-diverses
     libelle: Suppression de niches (journalistes, conseillers régionaux) et CVEC affectée au budget général
     domaine: fiscalite
@@ -1295,6 +1439,14 @@ mesures:
         : 39.15 Md€) : central = 0 pour ne pas les compter deux fois. Haut = écart d'affichage entre l'annonce (125 Md€,
         lue comme un niveau annuel en 2032) et cette somme. Bas = 0.
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Enveloppe globale (règle 6) : central 0, haut = 125 − 39,15 ; la somme
+        documentée 39,15 est recalculée exactement (13 mesures d'économie, avant mes corrections de bas/haut qui ne
+        touchent pas les centraux).
   - id: regle-or-constitution
     libelle: Règle d'or budgétaire inscrite dans la Constitution
     domaine: institutions
@@ -1324,7 +1476,7 @@ mesures:
     effet_solde_primaire:
       central: 0.0
       bas: 0.0
-      haut: 10.3
+      haut: 0.0
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -1343,7 +1495,15 @@ mesures:
       explication: >-
         Barème psr_ue : une réduction unilatérale de la contribution n'est pas juridiquement possible (décision relative
         aux ressources propres, unanimité). Central et bas = 0 ; haut = montant du RN projeté.
+        Vérification (règle 6) : bas = 0, haut = central.
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Baisse unilatérale de la contribution à l'UE impossible (unanimité pour les
+        ressources propres) : central 0 selon la règle 6 ; haut ramené à 0 (avant 10,3), bas 0.
   - id: agences-operateurs-moins-20
     libelle: Baisse de 20 % des financements de certaines agences et opérateurs (OFB, Ademe…)
     domaine: etat
@@ -1360,7 +1520,7 @@ mesures:
     nature: economie
     effet_solde_primaire:
       central: 9.12
-      bas: 4.56
+      bas: 0.0
       haut: 9.12
       montee_en_charge:
         '2027': 0.0
@@ -1387,6 +1547,14 @@ mesures:
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: 'Chiffre du RN projeté (annexe listant les organismes non publiée). Bas : moitié (convention).'
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Annexe listant les agences non publiée : le montant (7,7 Md€ = 20 % de 38,5 Md€
+        de financements) n'est pas contrôlable ; risque de recouvrement avec les lignes Ademe, Anah (MaPrimeRénov'),
+        fonds vert. Règle 6 : central = annonce projetée, bas = 0 (avant 4,56), haut = central. Confiance faible.
   - id: fin-soutien-enr-intermittentes
     libelle: Suppression des tarifs d'achat et compléments de rémunération des énergies intermittentes
     domaine: energie
@@ -1403,7 +1571,7 @@ mesures:
     effet_solde_primaire:
       central: 3.12
       bas: 0.0
-      haut: 8.53
+      haut: 3.12
       montee_en_charge:
         '2027': 0.0
         '2028': 0.0
@@ -1429,11 +1597,19 @@ mesures:
         Les contrats signés restent dus (20 ans) : l'économie porte sur les nouveaux contrats non engagés (2030-2032),
         approchés par la hausse annuelle récente des charges. Haut : montant du RN (rupture des contrats, suppose des
         indemnisations non comptées). Très sensible au prix de marché de l'électricité (≈ 90 M€ par €/MWh, CRE).
+        Vérification (règle 6) : bas = 0, haut = central.
     chiffrages_tiers:
       - auteur: Contre-budget RN 2026 (chiffrage du candidat)
         montant_md: 7.2
         url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Charges CRE (6,25 → 7,29 Md€) relues ; contrats signés dus : plafond légal 3,12
+        (contrats non engagés), très sous les 7,2 Md€ du RN. Règle 6 : haut = central (avant 8,53), bas 0.
   - id: maprimerenov-en-pret-100-renov
     libelle: Remplacement de MaPrimeRénov' par un prêt à taux zéro « 100 % Rénov »
     domaine: logement
@@ -1452,7 +1628,7 @@ mesures:
     nature: economie
     effet_solde_primaire:
       central: 1.78
-      bas: 0.89
+      bas: 0.0
       haut: 1.78
       montee_en_charge:
         '2027': 0.0
@@ -1480,11 +1656,20 @@ mesures:
       explication: >-
         Économie brute des crédits MaPrimeRénov' de l'État (la part CEE de l'Anah n'est pas de la dépense publique).
         Le coût du prêt à taux zéro qui la remplace n'est pas publié : bas = moitié de l'économie (convention).
+        Vérification (règle 6) : bas = 0, haut = central.
     chiffrages_tiers:
       - auteur: Contre-budget RN 2026 (chiffrage du candidat)
         montant_md: 3.4
         url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Subvention de l'État à l'Anah 1 535 M€ (PLF 2026) relue dans le Sénat ; le RN
+        annonce 3,4 Md€ nets, au-dessus du budget de l'État du périmètre : central plafonné 1,78 ; coût du prêt à taux
+        zéro non publié. Règle 6 : bas = 0 (avant 0,89), haut = central.
   - id: aide-publique-developpement
     libelle: Réduction de l'aide publique au développement
     domaine: action-exterieure
@@ -1497,7 +1682,7 @@ mesures:
     nature: economie
     effet_solde_primaire:
       central: 2.72
-      bas: 1.36
+      bas: 0.0
       haut: 2.72
       montee_en_charge:
         '2027': 0.0
@@ -1525,7 +1710,15 @@ mesures:
       explication: >-
         Chiffre du RN projeté ; la mission APD compte 3,67 Md€ de CP en 2026 (Sénat), la baisse est donc réalisable budgétairement.
         Bas : moitié (convention).
+        Vérification (règle 6) : bas = 0, haut = central.
     confiance: moyenne
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Mission APD 3,67 Md€ de CP (Sénat) > 2,3 annoncés : réalisable. Règle 6 : bas =
+        0 (avant 1,36), haut = central.
   - id: dgf-regions-epci
     libelle: Baisse de la dotation globale de fonctionnement des régions et des intercommunalités
     domaine: collectivites
@@ -1541,7 +1734,7 @@ mesures:
     nature: economie
     effet_solde_primaire:
       central: 5.92
-      bas: 2.96
+      bas: 0.0
       haut: 5.92
       montee_en_charge:
         '2027': 0.0
@@ -1569,7 +1762,15 @@ mesures:
       explication: >-
         Chiffre du RN projeté. Les collectivités doivent équilibrer leur section de fonctionnement : la baisse améliore
         le solde APU sauf report sur l'emprunt d'investissement (bas : moitié, convention).
+        Vérification (règle 6) : bas = 0, haut = central.
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Baisse de dotation 5,0 Md€ (RN), non contredite ; effet solde APU dépendant de
+        l'ajustement des collectivités (hors comptage). Règle 6 : bas = 0 (avant 2,96), haut = central.
   - id: subventions-associations
     libelle: Baisse des subventions aux associations « ne relevant pas de l'intérêt général »
     domaine: etat
@@ -1582,7 +1783,7 @@ mesures:
     nature: economie
     effet_solde_primaire:
       central: 3.79
-      bas: 1.89
+      bas: 0.0
       haut: 3.79
       montee_en_charge:
         '2027': 0.0
@@ -1610,7 +1811,15 @@ mesures:
       explication: >-
         Chiffre du RN projeté ; l'État verse 7,3 Md€ de subventions aux associations (jaune 2026), le tri « intérêt général
         » n'est pas défini. Bas : moitié (convention).
+        Vérification (règle 6) : bas = 0, haut = central.
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. 3,2 Md€ (RN) sous les 7,3 Md€ de subventions de l'État aux associations :
+        plafond respecté. Règle 6 : bas = 0 (avant 1,89), haut = central.
   - id: train-de-vie-etat-et-petites-economies
     libelle: Train de vie de l'État, audiovisuel public, aides à la presse, CESER, plan vélo
     domaine: etat
@@ -1627,7 +1836,7 @@ mesures:
     nature: economie
     effet_solde_primaire:
       central: 1.08
-      bas: 0.54
+      bas: 0.0
       haut: 1.08
       montee_en_charge:
         '2027': 0.0
@@ -1655,7 +1864,15 @@ mesures:
       explication: >-
         Somme des cinq lignes du RN (0,513 + 0,154 + 0,177 + 0,040 + 0,031), projetée ; dotations 2026 : Présidence 0,12,
         Assemblée 0,61, Sénat 0,35 Md€ (Sénat).
+        Vérification (règle 6) : bas = 0, haut = central.
     confiance: moyenne
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Somme des cinq lignes du RN (0,915 Md€) relue ; périmètre (Élysée, AN, Sénat,
+        CESE, audiovisuel, presse) budgétairement suffisant. Règle 6 : bas = 0 (avant 0,54), haut = central.
   - id: fonds-vert
     libelle: Suppression du fonds vert (hors inondations et feux de forêt)
     domaine: ecologie
@@ -1668,7 +1885,7 @@ mesures:
     nature: economie
     effet_solde_primaire:
       central: 0.54
-      bas: 0.27
+      bas: 0.0
       haut: 0.54
       montee_en_charge:
         '2027': 0.0
@@ -1695,6 +1912,13 @@ mesures:
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: Chiffre du RN projeté ; le fonds vert a 1,085 Md€ de CP en 2026 (Sénat).
     confiance: moyenne
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. 0,46 Md€ sous le fonds vert (1,085 Md€ de CP, Sénat) : plafond respecté. Règle 6
+        : bas = 0 (avant 0,27), haut = central.
   - id: aides-apprentissage-avant-licence
     libelle: Aides à l'apprentissage réservées aux formations de niveau inférieur à la licence
     domaine: travail
@@ -1707,7 +1931,7 @@ mesures:
     nature: economie
     effet_solde_primaire:
       central: 1.89
-      bas: 0.95
+      bas: 0.0
       haut: 1.89
       montee_en_charge:
         '2027': 0.0
@@ -1735,7 +1959,16 @@ mesures:
       explication: >-
         Chiffre du RN projeté ; l'aide à l'embauche d'apprentis a 2,37 Md€ de CP en 2026, déjà réduite de 31 % et limitée
         à 750 € pour les niveaux bac+3 et plus : l'économie restante est probablement inférieure (bas : moitié).
+        Vérification (règle 6) : bas = 0, haut = central.
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. 1,6 Md€ sur une aide à l'embauche de 2,37 Md€ déjà réduite en LFI 2026 :
+        économie probablement surestimée, plafond formellement respecté. Règle 6 : bas = 0 (avant 0,95), haut =
+        central.
   - id: sante-medicaments-unite-ald
     libelle: Délivrance des médicaments à l'unité et contrôle systématique des ALD
     domaine: sante
@@ -1748,7 +1981,7 @@ mesures:
     nature: economie
     effet_solde_primaire:
       central: 1.18
-      bas: 0.59
+      bas: 0.0
       haut: 1.18
       montee_en_charge:
         '2027': 0.0
@@ -1776,7 +2009,15 @@ mesures:
       explication: >-
         Chiffre du RN projeté ; aucune évaluation publique des économies de la délivrance à l'unité ni du contrôle des
         ALD. Bas : moitié (convention).
+        Vérification (règle 6) : bas = 0, haut = central.
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. 1,0 Md€ (RN), aucune évaluation publique. Règle 6 : bas = 0 (avant 0,59), haut =
+        central. Confiance faible.
   - id: gestion-dette-btf
     libelle: Réforme de la gestion des BTF et moindre besoin d'emprunt
     domaine: dette
@@ -1850,6 +2091,13 @@ mesures:
         des crédits agriculture » limitée à la baisse réellement votée (0,09 Md€ de CP au lieu de 0,5). Bas : montant
         du RN pour l'agriculture.
     confiance: moyenne
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Coûts (dépenses) : chiffres du RN projetés, montants faibles ; l'agriculture
+        0,09 après tri sur le vote de la LFI 2026 est cohérente.
   - id: golden-share-atos-arcelor-opella
     libelle: Prise de participations (« golden share ») dans Atos, ArcelorMittal France et Opella
     domaine: industrie

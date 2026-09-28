@@ -107,9 +107,9 @@ mesures:
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -133.98
+      central: -127.58
       bas: -133.98
-      haut: -130.42
+      haut: -127.58
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -127,23 +127,38 @@ mesures:
           unite: points
           note: taux facial de la CSG sur les revenus d'activité
         point:
-          valeur: 12.03
-          bareme: csg_point_activite
+          valeur: 11.71
+          source: >-
+            https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS%20mai%202026_assembl%c3%a9_V2.pdf
           unite: Md€ par point de taux
+          note: >-
+            valeur de point 2026 (p) de la CSG d'activité après la réforme de l'assiette des indépendants, déjà dans la
+            loi (barème csg_point_activite : 12,03 en 2025)
         f:
-          valeur: 1.2106
+          valeur: 1.1842
           source: >-
             chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
             avril 2026)
           unite: facteur
-          note: PIB nominal 2032 / 2025
+          note: PIB nominal 2032 / 2026 = 1,2106 / 1,0223
       explication: >-
-        Rendement de la CSG d'activité = taux × valeur du point (2025), projeté au PIB. Haut : point 2026 après la réforme
-        de l'assiette des indépendants (11,71 Md€). Retour d'impôt sur le revenu (la CSG déductible disparaît, l'assiette
-        de l'IR augmente) non chiffré faute de source : le coût net est un peu surestimé.
+        Rendement de la CSG d'activité = taux × valeur du point 2026 (11,71 Md€, après la réforme de l'assiette des
+        indépendants déjà votée), projeté 2026→2032. Bas : point 2025 (12,03) et facteur 2025→2032 (133,98). Retour d'impôt
+        sur le revenu (la CSG déductible, 6,8 points, disparaît : l'assiette de l'IR augmente) non chiffré faute de source
+        : le coût net est surestimé (plusieurs Md€).
     effets_retour: >-
       Hausse de 10 % du salaire net invoquée comme soutien à la consommation et à l'offre de travail : non comptée.
     confiance: moyenne
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Point de CSG d'activité relu dans le tableau 6 de la CCSS (mai 2026) : 12,03 Md€
+        en 2025 mais 11,71 en 2026 (p) après la réforme de l'assiette des indépendants, déjà dans le droit. Central
+        recalculé sur le droit de 2026 : 9,2 × 11,71 × 1,1842 = 127,6 Md€ au lieu de 134,0 (le haut initial mélangeait
+        le point 2026 et le facteur 2025). Bas conservé (point 2025). Retour d'IR de la perte de déductibilité (6,8
+        points) non chiffré : coût net surestimé, source publique à trouver.
   - id: suppression-droits-succession
     libelle: Suppression des droits de succession
     domaine: fiscalite
@@ -192,6 +207,14 @@ mesures:
         Droits de succession 2026 projetés au PIB (la tendance historique est plus rapide). Bas : droits de mutation
         à titre gratuit en entier, donations comprises (barème dmtg_rendement).
     confiance: moyenne
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Droits de succession 16,995 Md€ (ligne 1706, PLF 2026) relus dans le rapport
+        général du Sénat ; projection au PIB prudente ; bas = ensemble des mutations à titre gratuit. Lecture
+        littérale (successions seules) cohérente.
   - id: suppression-impots-production
     libelle: Suppression des impôts de production
     domaine: fiscalite
@@ -211,7 +234,7 @@ mesures:
     nature: baisse_recette
     effet_solde_primaire:
       central: -12.73
-      bas: -107.08
+      bas: -99.67
       haut: -12.73
       montee_en_charge:
         '2027': 0.0
@@ -249,7 +272,17 @@ mesures:
         Lecture centrale : CFE et C3S (la CVAE est déjà supprimée en 2030 par la loi), nettes du retour d'IS. Bas : tous
         les impôts de production payés par les entreprises (86,8 Md€ en 2024, FIPECO : taxes foncières, taxe sur les
         salaires, versement mobilités…), projetés, sans retour d'IS.
+        Vérification : bas = (86,8 − CVAE 3,9 − quotas carbone 2,1) × 1,2336 = 99,67 (la CVAE est déjà supprimée par la loi, les quotas ne sont pas un impôt national).
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. CFE 7,7 et C3S 5,2 relus (FIPECO). Bas corrigé : les 86,8 Md€ d'impôts de
+        production comprennent la CVAE (3,9, déjà supprimée par la loi en 2030) et 2,1 Md€ de produit des quotas
+        carbone européens (non supprimable) : (86,8 − 3,9 − 2,1) × 1,2336 = 99,7 Md€ au lieu de 107,1. Central (CFE +
+        C3S) = lecture basse d'une promesse vague : plausible mais la définition usuelle (Insee) est bien plus large.
   - id: accise-carburants-moins-un-tiers
     libelle: Baisse d'un tiers de l'accise sur les carburants (ex-TICPE)
     domaine: fiscalite
@@ -312,6 +345,16 @@ mesures:
         commentaire: « 12 milliards d'euros de manque à gagner pour l'État »
     effets_retour: 'Hausse des volumes consommés (élasticité-prix) : non comptée.'
     confiance: moyenne
+    verification:
+      statut: conteste
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Volumes, taux d'accise (FIPECO 59,40 et 68,29) et barème relus ; central 9,9 Md€
+        = accise seule. Mais l'interpretation dit que la TVA induite est à ajouter et le simulateur du candidat
+        annonce 12 Md€ : la TVA non déductible (ménages, véhicules de tourisme) sur la baisse de 20,7 c€/l, soit 1 à 2
+        Md€, est un effet mécanique absent du central (seul le bas 11,4 la couvre). Part de TVA non déductible non
+        trouvée en source publique : je ne peux pas trancher le central.
   - id: suppression-cee
     libelle: Suppression des certificats d'économie d'énergie
     domaine: energie
@@ -379,6 +422,15 @@ mesures:
         gain nul. Montée : l'écart avec le droit est plus grand avant 2032 (un an en 2028) ; profil plafonné à 1,5 fois
         l'effet 2032 (limite du format).
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Lecture vague (64 voire 65). Avec le calendrier du droit voté (âge quasi à 64
+        ans dès 2032 pour les générations concernées), l'écart 2032 de 0,25 an est prudent, l'effet fort porte sur
+        2028-2031. Paramètre du barème relu (Cour des comptes 5,8 Md€ en 2035 par an d'âge). Pas de double compte avec
+        les autres mesures.
   - id: retraite-capitalisation
     libelle: Introduction d'un système de retraite par capitalisation
     domaine: retraites
@@ -412,7 +464,7 @@ mesures:
     effet_solde_primaire:
       central: 0.0
       bas: 0.0
-      haut: 70.48
+      haut: 64.82
       montee_en_charge:
         '2027': 0.0
         '2028': 0.2
@@ -429,7 +481,7 @@ mesures:
           unite: Md€
           note: « 140 milliards d'économies par an. Au minimum. »
         documente:
-          valeur: 69.52
+          valeur: 75.18
           source: somme des mesures d'économie de ce fichier
           unite: Md€ (2032)
           note: >-
@@ -439,9 +491,17 @@ mesures:
             contribution-ue-pre-covid, fin-ame, hebergement-urgence-irreguliers, aide-juridictionnelle-francais, privatisation-audiovisuel-public,
             subventions-associations-presse-syndicats
       explication: >-
-        Règle 6. Les 24 mesures du plan sont chiffrées une à une (somme des centraux d'économie : 69.52 Md€) : central
+        Règle 6. Les 24 mesures du plan sont chiffrées une à une (somme des centraux d'économie : 75.18 Md€) : central
         = 0 pour éviter le double compte ; haut = écart d'affichage avec les 140 Md€ ; bas = 0.
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Somme des centraux d'économie recalculée après les corrections de ce
+        vérificateur : 75,18 Md€ (69,52 avant) ; haut = 140 − 75,18 = 64,82. Central 0 correct (règle 6, enveloppe
+        globale). Annonce 140 Md€ relue sur budget2026.fr.
   - id: non-remplacement-800000-departs
     libelle: Non-remplacement de 800 000 départs dans les fonctions administratives sur le quinquennat
     domaine: fonction-publique
@@ -460,8 +520,8 @@ mesures:
     nature: economie
     effet_solde_primaire:
       central: 35.41
-      bas: 17.76
-      haut: 47.37
+      bas: 0.0
+      haut: 35.41
       montee_en_charge:
         '2027': 0.0
         '2028': 0.2
@@ -494,6 +554,7 @@ mesures:
         800 000 postes × coût moyen (Ecalle, 30 à 40 Md€), projeté, limité par les départs en retraite disponibles en
         cinq ans (136 700 par an, soit 683 500) : 85 %. Bas : les enseignants, soignants, policiers et militaires étant
         épargnés, environ la moitié seulement des départs est mobilisable (convention). Haut : 800 000 atteints (40 Md€).
+        Vérification (règle 6) : bas = 0, haut = central.
     chiffrages_tiers:
       - auteur: François Ecalle (Fipeco), cité par franceinfo
         montant_md: 35
@@ -507,6 +568,16 @@ mesures:
         montant_md: 40
         url: https://www.budget2026.fr/
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Ecalle (30 à 40 Md€ pour 800 000 postes) relu via franceinfo ; plafond des
+        départs en retraite (136 700 par an, DGAFP) relu : 85 % de l'objectif. Règle 6 : économie ciblée sur la
+        fonction publique, central = montant annoncé plafonné par ce que le droit permet ; bas = 0, haut = central
+        (avant 17,76 et 47,37). Vigilance : la limite aux seuls départs en retraite (hors démissions et fins de
+        contrat) est une convention prudente.
   - id: gains-productivite-ia-administration
     libelle: Gains de productivité de l'IA dans les fonctions administratives
     domaine: fonction-publique
@@ -525,7 +596,7 @@ mesures:
     effet_solde_primaire:
       central: 0.0
       bas: 0.0
-      haut: 5.92
+      haut: 0.0
       montee_en_charge:
         '2027': 0.0
         '2028': 0.2
@@ -544,7 +615,16 @@ mesures:
       explication: >-
         Les gains de productivité de l'IA sont le moyen de supprimer les postes de la mesure non-remplacement-800000-departs
         : central = 0 pour éviter le double compte ; haut = montant affiché.
+        Vérification (règle 6) : bas = 0, haut = central.
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Mêmes emplois que le non-remplacement : double compte si additionné. Central 0
+        correct ; haut ramené à 0 (avant 5,92) car l'IA est le moyen de la mesure précédente, pas une économie de
+        plus.
   - id: prestations-non-contributives-francais
     libelle: Prestations sociales non contributives (RSA, APL, allocations familiales…) réservées aux Français
     domaine: immigration
@@ -561,8 +641,8 @@ mesures:
     nature: economie
     effet_solde_primaire:
       central: 8.02
-      bas: 0.72
-      haut: 8.64
+      bas: 0.0
+      haut: 8.02
       montee_en_charge:
         '2027': 0.0
         '2028': 0.4
@@ -593,11 +673,21 @@ mesures:
         2024, légère sous-estimation). Recoupement : RSA 15,6 % des foyers hors UE (≈ 1,8 Md€), APL 2,4 Md€, prestations
         familiales 1,6 Md€. Bas : nouveaux entrants seulement (droits acquis, Institut Montaigne 0,58). Risque de censure
         constitutionnelle signalé, non déduit.
+        Vérification (règle 6) : bas = 0, haut = central.
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 17.5
         url: https://www.budget2026.fr/
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. IFRAP (6 à 7 Md€ de prestations aux étrangers en situation régulière) rouvert :
+        le gain ne peut dépasser ce budget (8,0 Md€ projeté) ; le central en est le plafond, donc les 15 à 20 Md€
+        annoncés sont inatteignables. Règle 6 : bas = 0, haut = central (avant 0,72 et 8,64). Inclut les
+        ressortissants européens ; RSA des non-UE déjà exclu du volet RSA (pas de double compte).
   - id: rsa-limite-trois-ans
     libelle: RSA limité à trois ans pour les bénéficiaires en capacité de travailler
     domaine: social
@@ -611,8 +701,8 @@ mesures:
     nature: economie
     effet_solde_primaire:
       central: 4.8
-      bas: 2.4
-      haut: 5.68
+      bas: 0.0
+      haut: 4.8
       montee_en_charge:
         '2027': 0.0
         '2028': 0.4
@@ -644,11 +734,19 @@ mesures:
       explication: >-
         Chiffre de l'auteure (41 % du RSA versé, 11,7 Md€), projeté, net de la part déjà exclue par la préférence nationale
         (double compte). Bas : moitié (reports vers d'autres minima et l'hébergement, convention).
+        Vérification (règle 6) : bas = 0, haut = central.
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 4.8
         url: https://www.budget2026.fr/
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Annonce 4,8 Md€ projetée nette de la part des non-UE déjà exclue ; inférieure au
+        RSA versé (11,7 Md€ × 41 %). Règle 6 : bas = 0, haut = central (avant 2,4 et 5,68).
   - id: fraude-sociale-delinquants
     libelle: Lutte contre la fraude sociale et retrait des aides sociales aux délinquants et criminels
     domaine: social
@@ -694,6 +792,14 @@ mesures:
         montant_md: 2.5
         url: https://www.budget2026.fr/
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Recouvrement de la fraude sociale (HCFIPS) et règle du barème
+        fraude_sociale_estimee (doublement) appliquée ; annonce 2 à 3 Md€ en haut. Recette de lutte contre la fraude,
+        non ciblée sur un budget : règle 6 non applicable.
   - id: fin-soutien-enr-intermittentes
     libelle: Fin du soutien public aux énergies renouvelables intermittentes
     domaine: energie
@@ -710,7 +816,7 @@ mesures:
     effet_solde_primaire:
       central: 3.12
       bas: 0.0
-      haut: 9.47
+      haut: 3.12
       montee_en_charge:
         '2027': 0.0
         '2028': 0.0
@@ -734,11 +840,20 @@ mesures:
       explication: >-
         Même lecture que pour le RN : les contrats signés restent dus ; économie sur les contrats non engagés 2030-2032.
         Haut : montant affiché (8 Md€).
+        Vérification (règle 6) : bas = 0, haut = central.
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 8
         url: https://www.budget2026.fr/
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Charges éolien + photovoltaïque de la CRE (6,25 → 7,29 Md€) relues ; contrats
+        signés dus (engagement juridique) : le plafond légal est l'économie sur les seuls contrats non engagés (3,12),
+        très inférieure aux 8 Md€ annoncés. Règle 6 : haut = central (avant 9,47), bas 0.
   - id: fin-politique-de-la-ville
     libelle: Fin de la politique de la ville
     domaine: logement
@@ -754,8 +869,8 @@ mesures:
     nature: economie
     effet_solde_primaire:
       central: 0.77
-      bas: 0.39
-      haut: 9.47
+      bas: 0.0
+      haut: 0.77
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -782,11 +897,21 @@ mesures:
       explication: >-
         Central : crédits spécifiques (programme 147). Le chiffre de l'auteure (8 Md€) correspond au document de politique
         transversale (20 Md€ sur 32 programmes, crédits de droit commun : écoles, police…) : borne haute.
+        Vérification (règle 6) : bas = 0, haut = central.
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 8
         url: https://www.budget2026.fr/
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Programme 147 (651,7 M€, PLF 2026) relu dans le rapport du Sénat. Budget réel du
+        périmètre spécifique = 0,65 Md€ ; les 8 Md€ annoncés relèvent du document de politique transversale (crédits
+        de droit commun non supprimables). Règle 6 : central plafonné (0,77 projeté), bas = 0, haut = central (avant
+        0,39 et 9,47).
   - id: suppression-anah
     libelle: Suppression de l'Agence nationale de l'habitat (dont MaPrimeRénov')
     domaine: logement
@@ -800,7 +925,7 @@ mesures:
     nature: economie
     effet_solde_primaire:
       central: 1.78
-      bas: 0.89
+      bas: 0.0
       haut: 1.78
       montee_en_charge:
         '2027': 0.0
@@ -829,11 +954,20 @@ mesures:
         Seuls les crédits de l'État sont une dépense publique (≈ 0,9 Md€ de ressources CEE de l'Anah n'en sont pas).
         Le chiffre de l'auteure (6 Md€) dépasse le budget total de l'Anah. Bas : moitié (engagements pluriannuels déjà
         pris, convention).
+        Vérification (règle 6) : bas = 0, haut = central.
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 6
         url: https://www.budget2026.fr/
     confiance: moyenne
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Subvention de l'État à l'Anah 1 535 M€ (PLF 2026) relue dans le Sénat ; les 6
+        Md€ annoncés dépassent le budget de l'Anah financé par l'État (le reste vient des CEE, hors dépense publique).
+        Règle 6 : central = plafond (1,78), bas = 0 (avant 0,89). Les crédits de la LFI 2026 peuvent différer du PLF.
   - id: suppression-ademe
     libelle: Suppression de l'Ademe (hors soutien aux renouvelables déjà compté)
     domaine: ecologie
@@ -849,8 +983,8 @@ mesures:
     nature: economie
     effet_solde_primaire:
       central: 1.26
-      bas: 0.63
-      haut: 4.03
+      bas: 0.0
+      haut: 1.26
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -876,11 +1010,20 @@ mesures:
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Subvention de l'État en CP projetée. Bas : moitié (engagements en cours, 2,09 Md€ d'AE). Haut : chiffre affiché.
+        Vérification (règle 6) : bas = 0, haut = central.
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 3.4
         url: https://www.budget2026.fr/
     confiance: moyenne
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Subvention de l'État à l'Ademe (1,06 Md€, Sénat) : budget de l'État du périmètre
+        ; les 3,4 Md€ annoncés incluent des ressources hors subvention (non vérifié). Règle 6 : bas = 0, haut =
+        central (avant 0,63 et 4,03).
   - id: france-travail-mise-en-relation
     libelle: Suppression de la mission de placement de France Travail
     domaine: travail
@@ -894,8 +1037,8 @@ mesures:
     chiffrable: true
     nature: economie
     effet_solde_primaire:
-      central: 1.37
-      bas: 0.69
+      central: 4.74
+      bas: 0.0
       haut: 4.74
       montee_en_charge:
         '2027': 0.0
@@ -905,13 +1048,15 @@ mesures:
         '2031': 1.0
         '2032': 1.0
     calcul:
-      formule: scsp * f
+      formule: annonce * f
       parametres:
-        scsp:
-          valeur: 1.16
-          source: https://www.senat.fr/rap/l25-139-331/l25-139-331_mono.html
-          unite: Md€ (PLF 2026)
-          note: subvention pour charges de service public de l'État à France Travail
+        annonce:
+          valeur: 4
+          source: https://www.budget2026.fr/
+          unite: Md€
+          note: >-
+            chiffre de l'auteure ; plafond = budget de France Travail financé par des fonds publics (SCSP 1,16 Md€ +
+            contribution de l'Unédic, 11 % de ses recettes soit ≈ 5,2 Md€, Sénat PLF 2026) ≈ 6,4 Md€
         f:
           valeur: 1.1842
           source: >-
@@ -921,13 +1066,23 @@ mesures:
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
-        Central : subvention de l'État ; la contribution de l'Unédic (5,2 Md€) finance aussi l'accompagnement et l'indemnisation.
-        Bas : moitié (le placement n'est qu'une partie des missions). Haut : chiffre affiché.
+        Règle 6 (économie ciblée sur un périmètre nommé) : montant annoncé (4 Md€) projeté, inférieur au budget public
+        de France Travail (SCSP + contribution de l'Unédic, dépense des APU). Le placement n'est qu'une partie des
+        missions : bas = 0 (économie non réalisée), haut = central.
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 4
         url: https://www.budget2026.fr/
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Règle 6 : le central (1,37 = subvention de l'État seule) ignorait que la
+        contribution de l'Unédic (11 % de ses recettes, Sénat) est aussi une dépense des APU consacrée à France
+        Travail. Montant annoncé (4 Md€) projeté 4,74, sous le budget public de France Travail (≈ 6,4 Md€ avant
+        projection). Bas = 0, haut = central. Confiance faible : la part de la mission de placement n'est pas publiée.
   - id: suppression-ars
     libelle: Suppression des agences régionales de santé
     domaine: sante
@@ -942,8 +1097,8 @@ mesures:
     nature: economie
     effet_solde_primaire:
       central: 0.74
-      bas: 0.37
-      haut: 1.18
+      bas: 0.0
+      haut: 0.74
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -969,11 +1124,19 @@ mesures:
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Subvention de l'État projetée ; bas : moitié des missions reprises par les préfectures et l'assurance maladie.
+        Vérification (règle 6) : bas = 0, haut = central.
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 1
         url: https://www.budget2026.fr/
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Subvention de l'État aux ARS (0,627 Md€, Sénat) : budget du périmètre, inférieur
+        à l'annonce (1 Md€). Règle 6 : central = plafond 0,74, bas = 0, haut = central (avant 0,37 et 1,18).
   - id: suppression-autres-agences-cese
     libelle: >-
       Suppression d'autres agences et structures (Arcom, HCE, Conseil national du bruit…) et du CESE et des CESER
@@ -991,7 +1154,7 @@ mesures:
     effet_solde_primaire:
       central: 0.17
       bas: 0.0
-      haut: 1.26
+      haut: 0.17
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -1026,11 +1189,20 @@ mesures:
       explication: >-
         Organismes nommés dont le budget est connu (Arcom, CESE, CESER). Les autres structures citées sont de petite
         taille. Haut : chiffre affiché (1,066 Md€). Bas : missions de régulation reprises ailleurs.
+        Vérification (règle 6) : bas = 0, haut = central.
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 1.066
         url: https://www.budget2026.fr/
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Arcom, CESE, CESER relus (Sénat, AN) ; les autres structures citées sont
+        minimes. Central = budgets des seuls organismes chiffrables (0,17), très inférieur aux 1,07 Md€ annoncés.
+        Règle 6 : haut = central (avant 1,26), bas 0.
   - id: suppression-aide-publique-developpement
     libelle: Suppression de l'aide publique au développement et de l'AFD
     domaine: action-exterieure
@@ -1047,8 +1219,8 @@ mesures:
     nature: economie
     effet_solde_primaire:
       central: 4.35
-      bas: 2.17
-      haut: 15.75
+      bas: 0.0
+      haut: 4.35
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -1076,11 +1248,20 @@ mesures:
         Central : crédits de la mission APD. L'APD au sens OCDE (13,0 Md€ en 2025) inclut la part européenne (déjà dans
         la mesure sur l'UE), des prêts et des dépenses imputées (étudiants, réfugiés) : borne haute seulement. Bas :
         engagements en cours (moitié).
+        Vérification (règle 6) : bas = 0, haut = central.
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 14
         url: https://www.budget2026.fr/
     confiance: moyenne
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Mission APD 3,67 Md€ de CP (PLF 2026) relue : plafond budgétaire du périmètre
+        (l'APD OCDE de 13 Md€ inclut prêts, part de l'UE et dépenses imputées, non économisables à ce titre). Règle 6
+        : central = plafond 4,35, bas = 0, haut = central (avant 2,17 et 15,75).
   - id: contribution-ue-pre-covid
     libelle: Retour au budget européen d'avant le Covid et baisse de la contribution française
     domaine: europe
@@ -1098,7 +1279,7 @@ mesures:
     effet_solde_primaire:
       central: 0.0
       bas: 0.0
-      haut: 16.58
+      haut: 0.0
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -1117,11 +1298,19 @@ mesures:
       explication: >-
         Barème psr_ue : baisse unilatérale juridiquement impossible (décision ressources propres, unanimité) ; central
         et bas = 0, haut = chiffre affiché projeté.
+        Vérification (règle 6) : bas = 0, haut = central.
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 14
         url: https://www.budget2026.fr/
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Une baisse unilatérale de la contribution à l'UE est impossible (décision
+        ressources propres, unanimité) : central = 0 comme le veut la règle 6 ; haut ramené à 0 (avant 16,58), bas 0.
   - id: etudes-payantes-etudiants-etrangers
     libelle: Fin de la gratuité des études pour les étudiants étrangers
     domaine: education
@@ -1178,6 +1367,14 @@ mesures:
         montant_md: 4
         url: https://www.budget2026.fr/
     confiance: faible
+    verification:
+      statut: ok
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Droits différenciés (2 895 et 3 941 €) déjà en vigueur, exonérations plafonnées
+        à 30 % relues sur etudiant.gouv.fr ; recette, non économie budgétaire : le gain se réduit à la fin des
+        exonérations (0,12) ; haut = annonce (4,74), lecture « coût complet » conservée comme borne.
   - id: fin-ame
     libelle: Suppression de l'aide médicale d'État
     domaine: immigration
@@ -1193,7 +1390,7 @@ mesures:
     effet_solde_primaire:
       central: 0.86
       bas: 0.0
-      haut: 1.86
+      haut: 0.86
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -1220,11 +1417,20 @@ mesures:
       explication: >-
         Même lecture que pour le RN : une partie des soins bascule vers l'hôpital et les soins urgents. Haut : barème
         ame_depense haut projeté. Bas = 0.
+        Vérification (règle 6) : bas = 0, haut = central.
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 1.3
         url: https://www.budget2026.fr/
     confiance: moyenne
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Économie nette de 0,7 Md€ (Montaigne) après maintien des soins urgents, imposé
+        par le droit ; annonce 1,3 Md€ brute. Règle 6 : central plafonné par ce que le droit permet, bas = 0, haut =
+        central (avant 1,86).
   - id: hausse-cout-visas
     libelle: Augmentation du coût des visas
     domaine: immigration
@@ -1250,7 +1456,7 @@ mesures:
     effet_solde_primaire:
       central: 0.83
       bas: 0.0
-      haut: 2.18
+      haut: 0.83
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -1278,11 +1484,19 @@ mesures:
         Chiffre de l'auteure projeté. Haut : 60 % des 3,07 Md€ du programme 177 (part des hébergés en situation irrégulière
         selon le ministre du Logement, sans statistique officielle). Bas = 0 : principe d'accueil inconditionnel (code
         de l'action sociale), reports vers d'autres dispositifs.
+        Vérification (règle 6) : bas = 0, haut = central.
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 0.7
         url: https://www.budget2026.fr/
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Annonce 0,7 Md€ projetée, sous le programme 177 (3,07 Md€). Règle 6 : haut =
+        central (avant 2,18), bas 0 (accueil inconditionnel en droit).
   - id: aide-juridictionnelle-francais
     libelle: Aide juridictionnelle réservée aux Français
     domaine: justice
@@ -1297,7 +1511,7 @@ mesures:
     effet_solde_primaire:
       central: 0.06
       bas: 0.0
-      haut: 0.12
+      haut: 0.06
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -1331,6 +1545,13 @@ mesures:
         montant_md: 0.1
         url: https://www.budget2026.fr/
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Aide juridictionnelle 0,714 Md€ (Sénat) × part étrangers 7,5 % : plafond du
+        périmètre 0,06, sous les 0,1 Md€ annoncés. Règle 6 : haut = central (avant 0,12).
   - id: privatisation-audiovisuel-public
     libelle: Privatisation de l'audiovisuel public
     domaine: culture
@@ -1345,7 +1566,7 @@ mesures:
     chiffrable: true
     nature: economie
     effet_solde_primaire:
-      central: 2.3
+      central: 4.59
       bas: 0.0
       haut: 4.59
       montee_en_charge:
@@ -1356,19 +1577,13 @@ mesures:
         '2031': 1.0
         '2032': 1.0
     calcul:
-      formule: dotation * part_cedee * f
+      formule: dotation * f
       parametres:
         dotation:
           valeur: 3.878
           source: https://www.senat.fr/rap/l25-139-318/l25-139-318_mono.html
           unite: Md€ (PLF 2026)
           note: dotation de l'État à l'audiovisuel public
-        part_cedee:
-          valeur: 0.5
-          source: >-
-            https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/privatiser-laudiovisuel-public
-          unite: part
-          note: 'Montaigne : économie « réduite à la moitié de l''ensemble du champ » faute de repreneurs'
         f:
           valeur: 1.1842
           source: >-
@@ -1378,13 +1593,24 @@ mesures:
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
-        Institut Montaigne : la moitié du périmètre trouverait preneur ; le produit de cession améliore la dette, pas
-        le solde. Bas = 0 (plan social et reprise de missions). Haut : toute la dotation.
+        Règle 6 : économie ciblée sur un périmètre nommé (audiovisuel public), chiffrée comme appliquée : dotation de l'État
+        (3,878 Md€, PLF 2026), inférieure au montant annoncé projeté (4 Md€), projetée. Le produit de cession est une
+        opération financière, pas une amélioration du solde. Institut Montaigne : seule la moitié du périmètre trouverait
+        preneur (économie 2,3 Md€) ; bas = 0, haut = central.
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 4
         url: https://www.budget2026.fr/
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Dotation 3,878 Md€ relue (Sénat). Règle 6 : chiffrée comme appliquée, montant
+        annoncé (4 Md€ projeté 4,74) plafonné par la dotation projetée : 4,59 (avant 2,30 après une décote de moitié
+        tirée de Montaigne, qui traite un risque de réalisation). Bas = 0, haut = central. La cession d'actifs
+        n'améliore pas le solde.
   - id: subventions-associations-presse-syndicats
     libelle: Suppression des subventions aux associations « politisées », à la presse et aux syndicats
     domaine: etat
@@ -1400,8 +1626,8 @@ mesures:
     nature: economie
     effet_solde_primaire:
       central: 2.03
-      bas: 0.84
-      haut: 2.62
+      bas: 0.0
+      haut: 2.03
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -1441,11 +1667,19 @@ mesures:
         Associations : « politisées » non défini, chiffre affiché ; presse et syndicats : crédits de l'État. La contribution
         patronale de 0,016 % au fonds paritaire (0,12 Md€) est un prélèvement : sa suppression n'améliorerait pas le
         solde.
+        Vérification (règle 6) : bas = 0, haut = central.
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 1.8
         url: https://www.budget2026.fr/
     confiance: faible
+    verification:
+      statut: corrige
+      par: verificateur-sonnet
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL. Presse 0,178 (Sénat), syndicats 0,035 (AGFPN), associations 1,5 (milieu de la
+        fourchette annoncée, sous les 7,3 Md€ versés). Règle 6 : bas = 0, haut = central (avant 0,84 et 2,62).
   - id: remigration-expulsions
     libelle: >-
       « Remigration » - renvoi des détenus et délinquants étrangers, des clandestins, des étrangers chômeurs depuis un
