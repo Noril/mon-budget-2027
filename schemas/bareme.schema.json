@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Barème de chiffrage commun à tous les programmes",
+  "type": "object",
+  "required": ["id", "libelle", "valeur", "unite", "annee", "sources", "derivation"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+    "libelle": {"type": "string"},
+    "valeur": {"type": "number"},
+    "bas": {"type": "number"}, "haut": {"type": "number"},
+    "unite": {"type": "string", "description": "ex. Md€/an, Md€ par point, €, millions de personnes"},
+    "annee": {"type": "string", "description": "millésime des données ou année de référence du montant"},
+    "sources": {
+      "type": "array", "minItems": 1,
+      "items": {"type": "object", "required": ["titre", "url"], "additionalProperties": false,
+                "properties": {"titre": {"type": "string"}, "url": {"type": "string"}, "date": {"type": "string"},
+                               "extrait": {"type": "string"}}}
+    },
+    "derivation": {"type": "string", "description": "comment la valeur se lit ou se calcule dans les sources"},
+    "indicateur": {"type": "string", "description": "id@version d'un indicateur du dépôt quand il existe"},
+    "limites": {"type": "string"},
+    "verification": {
+      "type": "object", "additionalProperties": false,
+      "properties": {"statut": {"enum": ["ok", "corrige", "conteste"]}, "par": {"type": "string"},
+                     "date": {"type": "string"}, "commentaire": {"type": "string"}}
+    }
+  }
+}

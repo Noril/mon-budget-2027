@@ -104,6 +104,9 @@ def valider() -> list[str]:
         connus = ids_fiches if champ == "constats" else ids_evaluations
         if cible not in connus:
             erreurs.append(f"{ou} : {champ} renvoie à « {cible} », introuvable")
+    from .chiffrage import valider as valider_chiffrage  # import tardif : chiffrage importe plan
+
+    erreurs += valider_chiffrage()
     return erreurs
 
 
