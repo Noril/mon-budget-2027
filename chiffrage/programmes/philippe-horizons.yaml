@@ -210,6 +210,7 @@ mesures:
   raison_non_chiffrable: 'Objectif de solde (2 % du PIB en 2032) sans montant d''économies annoncé : ce n''est pas une mesure.
     L''écart entre cet objectif et le solde obtenu par les mesures chiffrées se lit sur la trajectoire (outils.chiffrage)
     ; l''ajouter comme enveloppe reviendrait à supposer l''objectif atteint.'
+  sens_probable: economie
 - id: baisse-depenses-sociales-niches
   libelle: Baisser les dépenses sociales et supprimer des niches fiscales plutôt qu'augmenter les impôts
   domaine: finances publiques
@@ -225,6 +226,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Trop vague pour être chiffré isolément : couvert par l''enveloppe deficit-2pct-2032 et les mesures
     détaillées (pas de double compte).'
+  sens_probable: economie
 - id: retraites-travailler-plus-longtemps
   libelle: 'Réforme des retraites : travailler plus longtemps, âge légal relevé selon les métiers'
   domaine: retraites
@@ -467,6 +469,7 @@ mesures:
     rapporte environ 108 M€ (Public Sénat, 2025) et le passage à trois jours a été voté au Sénat pour 2026 : l''effet résiduel
     est inférieur à 0,2 Md€ et dépend du droit 2026 exact ; la meilleure indemnisation des arrêts longs, en sens inverse,
     n''est pas paramétrée.'
+  sens_probable: economie
 - id: financement-social-hors-travail
   libelle: Rééquilibrer le financement de la protection sociale hors du travail pour augmenter le salaire net
   domaine: prélèvements sociaux
@@ -484,6 +487,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Bascule des cotisations vers un impôt à large assiette présentée comme à rendement constant, sans
     montant : effet nul par construction sur le solde (rien à chiffrer tant que l''asymétrie n''est pas documentée).'
+  sens_probable: neutre
 - id: enseignants-plus-20pct
   libelle: Augmenter de 20 % la rémunération moyenne des enseignants sur le quinquennat
   domaine: éducation
@@ -554,6 +558,16 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Ni volume d''heures ni rémunération des intervenants (bénévoles, anciens professeurs, IA) : trop
     vague pour être chiffré.'
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.5
+    bas: -1.5
+    haut: -0.1
+    lecture: Service de soutien scolaire universel (assistant IA, brigades d'anciens professeurs et d'étudiants indemnisés)
+      de l'ordre de « Devoirs faits » étendu à tous les élèves.
+    sources:
+    - cout_enseignant_apu
+    - https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants
 - id: part-fiscale-deuxieme-enfant
   libelle: Accorder une part entière de quotient familial dès le deuxième enfant
   domaine: fiscalité des ménages
@@ -614,6 +628,7 @@ mesures:
   precision: vague
   chiffrable: false
   raison_non_chiffrable: 'Fusion sans barème : effet présumé nul à périmètre constant, trop vague pour être chiffré.'
+  sens_probable: incertain
 - id: ptz-chaque-naissance
   libelle: Prêt à taux zéro à chaque naissance
   domaine: politique familiale / logement
@@ -628,6 +643,15 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Montant et durée du prêt non précisés : le coût d''un PTZ (bonification d''intérêts) dépend entièrement
     de ces paramètres.'
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.4
+    bas: -1.2
+    haut: -0.1
+    lecture: Prêt à taux zéro de ≈ 30 000 € pour ≈ 20 % des ≈ 660 000 naissances annuelles, coût de bonification de ≈ 10 % du
+      capital.
+    sources:
+    - https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants
 - id: temps-partiel-parental
   libelle: 'Temps partiel parental : 80 % payé 100 % pendant 2 mois'
   domaine: politique familiale
@@ -643,6 +667,17 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: Nombre de bénéficiaires (parents reprenant après un congé parental) et prise en charge (employeur
     ou branche famille) non précisés ; effet vraisemblablement faible, non documenté.
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.3
+    bas: -1.3
+    haut: -0.1
+    lecture: 'Complément de 20 % du salaire pendant deux mois pris en charge par la branche famille pour ≈ 300 000 parents reprenant
+      après un congé ; bas : tous les parents après congé de naissance (≈ 1,2 million).'
+    sources:
+    - salaire_brut_moyen_prive
+    - prestations_familiales_depense
+    - https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants
 - id: donations-plafonds-hausse
   libelle: Augmenter très sensiblement les abattements sur les donations pendant les trois premières années
   domaine: fiscalité du patrimoine
@@ -660,6 +695,16 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: Mesure temporaire (trois premières années du quinquennat) sans effet en régime de croisière 2032
     ; ampleur de la hausse non précisée. Coût transitoire 2028-2030 et moindres droits de succession ultérieurs non chiffrés.
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.3
+    bas: -1.5
+    haut: 0.0
+    lecture: 'Mesure temporaire 2027-2030 : en 2032, droits de succession perdus sur les patrimoines transmis par avance (les
+      donations anticipées rapportent en 2028-2030 moins que les successions qu''elles remplacent).'
+    sources:
+    - dmtg_rendement
+    - https://lcp.fr/actualites/chomage-edouard-philippe-veut-abaisser-la-duree-d-indemnisation-a-douze-mois-maximum
 - id: pacte-dutreil-maintien
   libelle: Maintenir le pacte Dutreil
   domaine: fiscalité du patrimoine
@@ -672,6 +717,7 @@ mesures:
   precision: precise
   chiffrable: false
   raison_non_chiffrable: 'Maintien de la législation en vigueur : aucun effet par rapport à la référence.'
+  sens_probable: neutre
 - id: moratoire-fiscal
   libelle: 'Moratoire normatif et fiscal : aucun nouvel impôt sur le quinquennat'
   domaine: fiscalité
@@ -684,6 +730,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Engagement de ne pas créer d''impôt : pas d''effet par rapport à la législation ; contrainte pour
     les autres mesures.'
+  sens_probable: neutre
 - id: fonds-adaptation-2md
   libelle: Fonds unique d'adaptation au changement climatique de 2 Md€ par an
   domaine: écologie / adaptation
@@ -772,6 +819,7 @@ mesures:
   precision: vague
   chiffrable: false
   raison_non_chiffrable: 'Financé par le doublement du Fonds vert (IFRAP) : compté dans fonds-vert-doublement.'
+  sens_probable: neutre
 - id: canadair-plans-adaptation
   libelle: Canadair français, plan baignade, plan infrastructures, plan montagne
   domaine: écologie / sécurité civile
@@ -789,6 +837,14 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: Supposés financés par le fonds d'adaptation de 2 Md€ (compté dans fonds-adaptation-2md) ; le coût
     propre du programme d'avion bombardier d'eau n'est pas documenté.
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.2
+    bas: -0.5
+    haut: 0.0
+    lecture: Développement d'un bombardier d'eau français (≈ 1 à 2 Md€ sur dix ans, en partie hors fonds d'adaptation).
+    sources:
+    - https://www.franceinfo.fr/elections/presidentielle/edouard-philippe-souhaite-doter-la-france-d-une-veritable-politique-de-securite-climatique_8197976.html
 - id: plan-baignade-piscines
   libelle: 'Plan baignade national : rivières baignables et rénovation des piscines'
   domaine: écologie
@@ -801,6 +857,7 @@ mesures:
   precision: vague
   chiffrable: false
   raison_non_chiffrable: 'Compris dans canadair-plans-adaptation (même plan) : pas de double compte.'
+  sens_probable: neutre
 - id: capture-carbone
   libelle: Investir massivement dans la capture de carbone
   domaine: écologie
@@ -813,6 +870,7 @@ mesures:
   precision: vague
   chiffrable: false
   raison_non_chiffrable: 'Trop vague : ni montant ni instrument.'
+  sens_probable: cout
 - id: fret-ferroviaire
   libelle: Grand plan fret ferroviaire
   domaine: transports
@@ -828,6 +886,15 @@ mesures:
     nationale) si le candidat ne précise pas.
   chiffrable: false
   raison_non_chiffrable: 'Aucun montant ni objectif chiffré (part modale, crédits) : trop vague pour être chiffré.'
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.5
+    bas: -1.5
+    haut: -0.2
+    lecture: 'Grand plan fret : doublement des aides publiques de la stratégie nationale de 2021 (≈ 0,25 Md€ par an d''investissement
+      et d''aides à l''exploitation).'
+    sources:
+    - https://lcp.fr/actualites/chomage-edouard-philippe-veut-abaisser-la-duree-d-indemnisation-a-douze-mois-maximum
 - id: stockage-eau
   libelle: Développer le stockage de l'eau
   domaine: écologie
@@ -840,6 +907,7 @@ mesures:
   precision: vague
   chiffrable: false
   raison_non_chiffrable: 'Trop vague : ni montant ni instrument.'
+  sens_probable: cout
 - id: ia-capacite-calcul
   libelle: Doubler la capacité de calcul d'IA en cinq ans, soutien aux champions européens
   domaine: numérique
@@ -852,6 +920,7 @@ mesures:
   precision: vague
   chiffrable: false
   raison_non_chiffrable: 'Part publique et instrument non définis : trop vague.'
+  sens_probable: cout
 - id: ingenieurs-100000
   libelle: Porter la formation d'ingénieurs de 40 000 à 100 000 par an en cinq ans
   domaine: enseignement supérieur
@@ -919,6 +988,7 @@ mesures:
   precision: vague
   chiffrable: false
   raison_non_chiffrable: 'Paramètres (exonération, plafond) inconnus : trop vague.'
+  sens_probable: cout
 - id: reservistes-smv
   libelle: Réservistes de 45 000 à 250 000, service militaire volontaire de 3 000 à 50 000 places par an
   domaine: défense
@@ -998,6 +1068,18 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Ni montant ni cible en points de PIB au-delà de la LPM actualisée (référence) : trop vague pour
     être chiffré.'
+  sens_probable: cout
+  estimation_indicative:
+    central: -3.5
+    bas: -7.0
+    haut: -1.5
+    lecture: 'Cibles chiffrées au-delà de la LPM : munitions de 100 000 à plusieurs centaines de milliers d''obus de 155 mm
+      par an (≈ 300 000 de plus à ≈ 8 000 € : 2,4 Md€), drones tactiques de masse (≈ 100 000 par an à quelques milliers d''euros
+      : 0,5 Md€), doublement des navires aux Antilles ; soit ≈ 0,1 point de PIB. Bas : 700 000 obus et 300 000 drones.'
+    sources:
+    - defense_0_1_point_pib_2032
+    - defense_credits_mission
+    - https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
   verification:
     statut: conteste
     par: verificateur-sonnet
@@ -1018,6 +1100,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Aucune mesure identifiée ; la référence n''a pas de tendanciel de dépense (REFERENCE.md) : « stabiliser
     » une dépense sans mesure n''a pas d''effet mesurable par rapport à la référence.'
+  sens_probable: neutre
 - id: reorganisation-etat-agences
   libelle: Regrouper ou privatiser agences et opérateurs de l'État
   domaine: État
@@ -1032,6 +1115,15 @@ mesures:
     du 5 juillet).
   chiffrable: false
   raison_non_chiffrable: 'Ni agences nommées ni montant : trop vague pour être chiffré.'
+  sens_probable: economie
+  estimation_indicative:
+    central: 1.0
+    bas: 0.0
+    haut: 3.0
+    lecture: 'Regroupement et privatisation d''agences et d''opérateurs : ≈ 1 Md€ d''économies de fonctionnement (haut : 2 à
+      3 Md€ annoncés en 2025 par le gouvernement pour la réforme des agences).'
+    sources:
+    - https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
 - id: fonction-publique-non-remplacement
   libelle: Recruter 7 000 fonctionnaires de moins que les départs en 2027
   domaine: fonction publique
@@ -1047,6 +1139,16 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: Suggestion adressée au gouvernement actuel pour le budget 2027 (financer les aides carburant), pas
     une mesure du quinquennat ; effet de l'ordre de 0,3 Md€ si pérennisé.
+  sens_probable: economie
+  estimation_indicative:
+    central: 0.17
+    bas: 0.0
+    haut: 0.24
+    lecture: '7 000 départs non remplacés en 2027, pérennisés : 7 000 × coût d''un entrant (24 100 €) ; haut : agent moyen (34
+      200 €) ; bas : simple suggestion pour 2027.'
+    sources:
+    - cout_enseignant_apu
+    - https://www.bfmtv.com/economie/economie-social/trouver-450-millions-dans-le-budget-de-l-etat-c-est-possible-edouard-philippe-suggere-de-supprimer-7-000-postes-de-fonctionnaires-en-2027-pour-financer-les-nouvelles-aides-carburant_AV-202609240327.html
 - id: amendes-prestations-sociales
   libelle: Recouvrement forcé des amendes non payées sur les prestations sociales
   domaine: justice / recettes
@@ -1060,6 +1162,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: Montant des amendes non recouvrées sur des allocataires non documenté ; effet vraisemblablement inférieur
     à 0,1 Md€.
+  sens_probable: economie
 - id: mineurs-narco-etablissements
   libelle: Établissements de réinsertion et de soin pour mineurs condamnés pour narcotrafic
   domaine: justice
@@ -1071,6 +1174,7 @@ mesures:
   precision: vague
   chiffrable: false
   raison_non_chiffrable: Nombre de places non précisé ; effet vraisemblablement inférieur à 0,1 Md€.
+  sens_probable: cout
 - id: agriculture-plan-transmission
   libelle: Plan de transmission et modernisation agricole, 100 territoires de souveraineté alimentaire
   domaine: agriculture
@@ -1084,6 +1188,7 @@ mesures:
   precision: vague
   chiffrable: false
   raison_non_chiffrable: 'Ni montant ni instrument : trop vague pour être chiffré.'
+  sens_probable: cout
 - id: regle-or-constitution
   libelle: Règle d'or de maîtrise des déficits dans la Constitution
   domaine: institutions
@@ -1095,6 +1200,7 @@ mesures:
   precision: partielle
   chiffrable: false
   raison_non_chiffrable: 'NON_BUDGETAIRE : règle constitutionnelle, sans effet mécanique sur le solde.'
+  sens_probable: neutre
 - id: justice-peines
   libelle: Peines planchers, courtes peines dès la première infraction, suppression du juge d'application des peines
   domaine: justice
@@ -1111,6 +1217,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'NON_BUDGETAIRE : réforme pénale ; effet sur la population carcérale (et le besoin de places) non
     chiffrable à ce stade.'
+  sens_probable: cout
 - id: immigration-quotas-algerie
   libelle: Dénoncer l'accord franco-algérien de 1968, liste de pays sûrs, quotas d'immigration économique
   domaine: immigration
@@ -1124,6 +1231,7 @@ mesures:
   precision: precise
   chiffrable: false
   raison_non_chiffrable: 'NON_BUDGETAIRE : mesures juridiques et diplomatiques.'
+  sens_probable: neutre
 - id: etrangers-delinquants-aides
   libelle: Expulsion immédiate et fin des aides sociales pour les étrangers délinquants
   domaine: immigration
@@ -1135,6 +1243,7 @@ mesures:
   precision: partielle
   chiffrable: false
   raison_non_chiffrable: Effet budgétaire probablement inférieur à 0,1 Md€ et non documenté.
+  sens_probable: economie
 - id: ecole-autonomie-rythmes
   libelle: Autonomie des chefs d'établissement, rythmes scolaires, vacances d'été raccourcies
   domaine: éducation
@@ -1150,3 +1259,4 @@ mesures:
   precision: partielle
   chiffrable: false
   raison_non_chiffrable: 'NON_BUDGETAIRE : organisation scolaire ; coût éventuel des vacances raccourcies non documenté.'
+  sens_probable: neutre
