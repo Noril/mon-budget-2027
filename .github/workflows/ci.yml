@@ -26,7 +26,7 @@ jobs:
       - uses: astral-sh/setup-uv@v6
       - run: uv sync
       # Dernières données brutes et normalisées : une source injoignable depuis GitHub garde sa dernière version
-      - uses: actions/cache@v4
+      - uses: actions/cache/restore@v4
         with:
           path: |
             data/brut
@@ -35,6 +35,14 @@ jobs:
           restore-keys: donnees-
       - name: Ingestion de toutes les sources actives
         run: uv run python -m pipelines.ingest
+      # Sauvegardé même en cas d'échec : chaque source réussie garde sa version pour les exécutions suivantes
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: |
+            data/brut
+            data/normalise
+          key: donnees-${{ github.run_id }}
       - run: uv run python -m pipelines.indicateurs
       - name: Recalcul indépendant de tous les indicateurs (autre modèle, sans voir le SQL)
         run: uv run python -m outils.recalcul --tous
