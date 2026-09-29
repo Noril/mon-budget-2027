@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "Si vous réutilisez ce chiffrage, merci de citer le projet."
+title: "Chiffrer les programmes 2027, en open data"
+type: dataset
+abstract: >-
+  Chiffrage indépendant et rejouable des programmes des candidats à l'élection présidentielle de 2027 : mesures citées
+  mot pour mot, coûts recalculés à partir de barèmes publics communs, trajectoire de la dette jusqu'en 2032.
+authors:
+  - name: "Les contributeurs du projet"
+repository-code: "https://github.com/Noril/open-politics"
+license: MIT
+keywords: [présidentielle 2027, chiffrage, open data, finances publiques]
+date-released: "2026-09-29"

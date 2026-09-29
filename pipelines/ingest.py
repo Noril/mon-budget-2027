@@ -80,7 +80,10 @@ def controler(source: dict, lignes: int, colonnes: set[str], manifeste: dict, li
         raise ControleEchoue(f"{source['id']} : {lignes} lignes contre {lignes_avant} à l'ingestion précédente (écart > 20 %)")
     modifie = manifeste["producteur"].get("modifie_le")
     if modifie and "fraicheur_max_jours" in source:
-        age = (datetime.now(timezone.utc) - datetime.fromisoformat(modifie)).days
+        date = datetime.fromisoformat(modifie)
+        if date.tzinfo is None:  # date sans fuseau : lue comme UTC plutôt que de lever une TypeError
+            date = date.replace(tzinfo=timezone.utc)
+        age = (datetime.now(timezone.utc) - date).days
         if age > source["fraicheur_max_jours"]:
             alertes.append(f"{source['id']} : dernière mise à jour du producteur il y a {age} jours")
     return alertes
@@ -117,6 +120,9 @@ def main(argv: list[str] | None = None) -> int:
     ids = args.sources or [i for i, s in catalogue.items() if s.get("statut", "actif") == "actif"]
     echecs, alertes = [], []
     for id_source in ids:
+        if id_source not in catalogue:
+            echecs.append(f"{id_source} : source absente du catalogue")
+            continue
         source = catalogue[id_source]
         if source.get("statut") == "a-brancher" or charger_connecteur(source["acces"]["mode"]) is None:
             print(f"  ~ {id_source} : connecteur « {source['acces']['mode']} » pas encore branché")
@@ -128,7 +134,7 @@ def main(argv: list[str] | None = None) -> int:
         except Exception as e:  # une source cassée ne bloque pas les autres
             if (NORMALISE / f"{id_source}.parquet").exists():
                 # producteur injoignable (403 aux robots, panne) : la dernière version contrôlée reste en place
-                alertes.append(f"{id_source} : source injoignable ({type(e).__name__}), dernière version normalisée conservée")
+                alertes.append(f"{id_source} : source injoignable ({type(e).__name__} : {e}), dernière version normalisée conservée")
             else:
                 echecs.append(f"{id_source} : {type(e).__name__} : {e}")
 
