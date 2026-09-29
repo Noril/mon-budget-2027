@@ -17,7 +17,7 @@ import yaml
 
 from pipelines.commun import RACINE
 
-from .simulateur import donnees, lire_leviers
+from .simulateur import COMMUN_CSS, COMMUN_JS, donnees, lire_leviers
 
 CARTES = RACINE / "chiffrage" / "cartes.yaml"
 SORTIE = RACINE / "build" / "jeu.html"
@@ -63,7 +63,7 @@ def valider(doc: dict | None = None) -> list[str]:
     return erreurs
 
 
-PAGE = """<!doctype html><html lang="fr"><head><meta charset="utf-8">
+PAGE = r"""<!doctype html><html lang="fr"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <title>Élysée 2027 : le jeu du budget</title><style>
 :root{--bg:#f4f1ea;--fg:#1d1d1b;--muted:#77756f;--line:#dcd8cd;--card:#fffdf8;--neg:#b03a2e;--pos:#1e7a4a;--acc:#2451a6}
@@ -89,6 +89,7 @@ PAGE = """<!doctype html><html lang="fr"><head><meta charset="utf-8">
 .boutons,.impacts{display:grid;grid-template-columns:1fr 1fr;gap:10px}.boutons{margin-top:14px}
 .impacts{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);text-align:center}
 .boutons button{font:inherit;font-size:.85rem;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}
+__COMMUN_CSS__
 .impact{display:block;font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
 .bas{display:flex;justify-content:space-between;color:var(--muted);font-size:.8rem;margin-top:10px}
 .bas a{color:var(--acc)}
@@ -143,6 +144,7 @@ function accord(c, choix) {
   return {pct: n ? 100 * s / n : 0, n};
 }
 
+__COMMUN_JS__
 const JAUGES = [
   {id: "dette", ic: "📈", nom: "Dette 2032", min: 115, max: 175, ref: D.reference.at(-1).dette, f: b => b.dette, u: " %", mauvais: +1},
   {id: "dep", ic: "🏛️", nom: "Dépenses", min: -120, max: 120, ref: 0, f: b => b.dep, u: " Md€"},
@@ -194,12 +196,16 @@ function demarrer() {
   choix = {}; historique = []; vues = 0;
   file = C.cartes.filter(c => !c.suite_seulement).map(c => c.id);
   total = file.length;
-  app.innerHTML = htmlJauges() + `<div id="table"></div><div class="bas"><span id="compteur"></span><a href="#" id="annuler">↶ Annuler</a></div>`;
+  app.innerHTML = htmlJauges() + `<div id="table"></div><div class="bas"><span id="compteur"></span><a href="#" id="annuler">↶ Carte précédente</a></div>`;
   document.getElementById("annuler").onclick = e => { e.preventDefault(); annuler(); };
   suivante();
 }
 function annuler() {
   const h = historique.pop(); if (!h) return;
+  if (!document.getElementById("table")) {  // depuis l'écran final : on retrouve la table de jeu
+    app.innerHTML = htmlJauges() + `<div id="table"></div><div class="bas"><span id="compteur"></span><a href="#" id="annuler">↶ Carte précédente</a></div>`;
+    document.getElementById("annuler").onclick = e => { e.preventDefault(); annuler(); };
+  }
   choix = h.choix; file = h.file; vues = h.vues; total = h.total; suivante();
 }
 function suivante() {
@@ -211,7 +217,7 @@ function suivante() {
   t.innerHTML = `<div class="carte" id="carte" style="border-top:6px solid ${p.couleur}">
     <div class="choix-haut"><span class="g">← ${carte.gauche.libelle}</span><span class="d">${carte.droite.libelle} →</span></div>
     <div class="perso">${p.emoji}</div><div class="nom" style="color:${p.couleur}">${p.nom}</div>
-    <div class="texte">${carte.texte}</div>
+    <div class="texte">${annoter(carte.texte)}</div>
     <div class="boutons"><button id="bg">← ${carte.gauche.libelle}</button><button id="bd">${carte.droite.libelle} →</button></div>
     <div class="impacts"><div>${impact(carte, "gauche")}</div><div>${impact(carte, "droite")}</div></div></div>`;
   const el = document.getElementById("carte"), g = el.querySelector(".g"), d = el.querySelector(".d");
@@ -220,7 +226,7 @@ function suivante() {
     g.style.opacity = dx < -20 ? Math.min(1, -dx / 90) : 0; d.style.opacity = dx > 20 ? Math.min(1, dx / 90) : 0;
     majJauges(dx < -20 ? avec(carte, "gauche") : dx > 20 ? avec(carte, "droite") : null);
   };
-  el.addEventListener("pointerdown", e => { if (e.target.tagName === "BUTTON") return; x0 = e.clientX; el.setPointerCapture(e.pointerId); el.classList.remove("anim"); });
+  el.addEventListener("pointerdown", e => { if (e.target.tagName === "BUTTON" || e.target.closest(".gl")) return; x0 = e.clientX; el.setPointerCapture(e.pointerId); el.classList.remove("anim"); });
   el.addEventListener("pointermove", e => { if (x0 === null) return; dx = e.clientX - x0; el.style.transform = `translateX(${dx}px) rotate(${dx / 18}deg)`; montrer(); });
   const lacher = () => { if (x0 === null) return; x0 = null;
     if (Math.abs(dx) > 90) decider(carte, dx < 0 ? "gauche" : "droite");
@@ -242,6 +248,7 @@ function decider(carte, cote) {
 }
 document.addEventListener("keydown", e => {
   const el = document.getElementById("carte"); if (!el) return;
+  if (e.key === "Backspace") { e.preventDefault(); annuler(); return; }
   if (e.key === "ArrowLeft") document.getElementById("bg").click(); if (e.key === "ArrowRight") document.getElementById("bd").click();
 });
 
@@ -264,7 +271,7 @@ function fin() {
   const b = bilan(choix), ref = D.reference.at(-1).dette;
   const faits = D.leviers.filter(l => (choix[l.id] ?? defaut(l)) !== defaut(l)).map(l => {
     const v = choix[l.id], e = effet(l, v).central;
-    const lib = l.type === "choix" ? l.options.find(o => o.id === v).libelle : `${l.question.replace(/ \\?$/, "")} : ${v > 0 ? "+" : ""}${v} ${l.curseur.unite}`;
+    const lib = l.type === "choix" ? l.options.find(o => o.id === v).libelle : `${l.question.replace(/ \?$/, "")} : ${v > 0 ? "+" : ""}${v} ${l.curseur.unite}`;
     return {lib, e};
   }).sort((a, b) => a.e - b.e);
   const proches = D.candidats.map(c => ({c, ...accord(c, choix)})).filter(r => r.n).sort((a, b) => b.pct - a.pct);
@@ -275,10 +282,12 @@ function fin() {
       <div><div class="petit">Dette publique en 2032</div><div class="gros">${fmt(b.dette, false)} %</div><div class="petit">droit actuel : ${fmt(ref, false)} %</div></div></div>
     <h3>Vos mesures</h3>${faits.length ? `<ul>${faits.map(f => `<li>${f.lib} <b class="${f.e < 0 ? "neg" : f.e > 0 ? "pos" : ""}">${fmt(f.e)} Md€</b></li>`).join("")}</ul>` : `<p class="petit">Aucun changement : vous gardez le droit actuel.</p>`}
     <h3>Les candidats les plus proches</h3><ol>${proches.slice(0, 5).map(r => `<li><b style="color:${r.c.couleur}">${r.c.nom}</b><span class="barre-acc" style="width:${r.pct * .6}px"></span><span class="petit">${Math.round(r.pct)} % d'accord (${r.n} décisions)</span></li>`).join("")}</ol>
-    <h3>Où vous situez-vous ?</h3>${carte(b)}
-    <p><button id="rejouer">Rejouer</button><a class="bt" href="${lien}">Ajuster dans le simulateur détaillé</a><button id="partager">Copier le lien</button></p>
+    <h3>Vos positions par thème</h3>${htmlAxes(choix)}
+    <h3>Dépenses et impôts</h3>${carte(b)}
+    <p><button id="retour">↶ Revenir à la dernière carte</button><button id="rejouer">Rejouer</button><a class="bt" href="${lien}">Ajuster dans le simulateur détaillé</a><button id="partager">Copier le lien</button></p>
     <p class="petit">Chiffrage : effet sur le solde public en 2032 par rapport au droit en vigueur, sans effet de second tour ; trajectoire : hypothèses du FMI. Données du ${D.genere}.</p></div>`;
   document.getElementById("rejouer").onclick = demarrer;
+  document.getElementById("retour").onclick = annuler;
   document.getElementById("partager").onclick = () => navigator.clipboard?.writeText(new URL(lien, location.href).href);
   window.scrollTo(0, 0);
 }
@@ -299,7 +308,7 @@ def main(argv: list[str] | None = None) -> int:
     if erreurs or args.valider:
         print(f"{len(erreurs)} erreur(s).")
         return 1 if erreurs else 0
-    page = PAGE.replace("__DONNEES__", json.dumps(donnees(), ensure_ascii=False)).replace(
+    page = PAGE.replace("__COMMUN_JS__", COMMUN_JS).replace("__COMMUN_CSS__", COMMUN_CSS).replace("__DONNEES__", json.dumps(donnees(), ensure_ascii=False)).replace(
         "__CARTES__", json.dumps(lire_cartes(), ensure_ascii=False))
     SORTIE.parent.mkdir(exist_ok=True)
     SORTIE.write_text(page, encoding="utf-8")
