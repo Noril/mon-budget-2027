@@ -457,7 +457,10 @@ composantes ; la méthode est dans chiffrage/README.md.</p>
 <p class="m">À lire avant de comparer : les programmes ne sont pas publiés au même degré de détail. La colonne « Mesures
 chiffrées » dit combien de mesures ont un effet budgétaire estimable ; une enveloppe d'économies globale sans mesure
 identifiée compte zéro au central et n'apparaît que dans le haut de la fourchette. Les programmes évoluent jusqu'au
-dépôt des candidatures : chaque fiche porte sa date de collecte.</p>
+dépôt des candidatures : chaque fiche porte sa date de collecte. La colonne « Mesures non chiffrées » donne un
+ordre de grandeur des promesses trop vagues pour être chiffrées (lecture la plus plausible) : il n'entre pas dans le
+solde, n'a pas encore été vérifié de façon indépendante, et sert à voir dans quel sens la couverture biaise la
+comparaison (négatif = le programme coûte probablement plus que le solde affiché).</p>
 <div class="scroll"><table><thead><tr><th>Programme</th><th>Précision</th><th>Confiance</th><th>Solde net / an</th><th>Mesures non chiffrées : ordre de grandeur</th><th>Dette 2032, % PIB (réf. {_md(traj['gel']['reference'][-1]['dette'], False)})</th></tr></thead>
 <tbody>{''.join(lignes)}</tbody></table></div>
 <h2>Dette publique projetée, scénario central (% du PIB)</h2>{_svg_dette(traj['gel'], agregats)}
