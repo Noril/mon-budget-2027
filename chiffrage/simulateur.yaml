@@ -46,14 +46,14 @@ leviers:
     axes:
       protection-sociale: 2
     effet:
-      central: -44.56
-      bas: -62.23
-      haut: -21.9
+      central: -26.58
+      bas: -44.4
+      haut: -17.65
     reprend:
     - le-pen-rn/retraites-60-62-ans
-    calcul: 'Chiffrage RN repris : retour à 62 ans (13,9 Md€) plus retour sur les mesures d''âge et de durée de 2003 à 2014
-      pour les carrières commencées avant 20 ans (Institut Montaigne, projeté en 2032) ; plus coûteux que l''option 60 ans
-      car les deux chiffrages reposent sur des sources différentes.'
+    calcul: 'Chiffrage RN repris, sur les mêmes barèmes que l''option 60 ans : retour à 62 ans (13,9 Md€), durée ramenée à
+      42 annuités (3,3 Md€) et, pour environ 35 % du coût d''un passage de tous à 60 ans et 40 annuités (convention appuyée
+      sur la part des générations ayant commencé avant 20 ans), 9,4 Md€.'
     candidats:
     - le-pen-rn
   - id: 62-ans

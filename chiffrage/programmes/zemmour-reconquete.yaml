@@ -93,12 +93,12 @@ mesures:
     domaine: fiscalite
     citation:
       texte: >-
-        Une mesure révolutionnaire : la suppression de la CSG sur les revenus d’activité. C’est 10% de salaire net en
-        plus pour tous les actifs, sans un centime de coût du travail en plus
+        Une mesure révolutionnaire : la suppression de la CSG sur les revenus d’activité. C’est 10 % de salaire net en
+        plus pour tous les actifs, sans un centime de coût du travail en plus.
       url: >-
-        https://www.cnews.fr/france/2026-08-30/impots-depenses-csg-droits-de-succession-sarah-knafo-devoile-15-mesures-pour
-      date: '2026-08-30'
-      support: presse (propos de Sarah Knafo au JDD)
+        https://www.lejdd.fr/politique/exclusif-le-casse-du-siecle-sarah-knafo-fait-le-proces-de-letat-depensier-182118
+      date: '2026-08-29'
+      support: entretien publié (Sarah Knafo au JDD, propos recueillis par Jules Torres)
     precision: precise
     interpretation: >-
       Proposition de Sarah Knafo, présentée comme la « mesure majeure » financée par les 130 Md€ d'économies (TF1, 7
@@ -136,7 +136,12 @@ mesures:
           valeur: 0.12
           source: chiffrage/REFERENCE.md, conventions communes n° 5 (barème csg_point, dérivation)
           unite: part du rendement de la CSG déductible supprimée qui revient en impôt sur le revenu
-          note: convention 10 à 15 % ; 0,12 au central (11,71 × 0,88 ≈ 10,3 Md€ net par point), 0,10 au bas, 0,15 au haut
+          note: >-
+            convention 10 à 15 % ; 0,12 au central (11,71 × 0,88 ≈ 10,3 Md€ net par point), 0,10 au bas, 0,15 au haut.
+            Recoupement : Fondation IFRAP (mai 2023, https://www.ifrap.org/budget-et-fiscalite/pourquoi-il-faut-rendre-la-csg-totalement-deductible-de-lir-sur-les-revenus-dactivite)
+            : « la CSG non déductible sur les revenus d’activité représente en 2021 18,64 milliards d’euros […] conduisant
+            probablement à un coût sur l’IR de 2,05 milliards d’euros », soit un retour d'IR de 11 % du rendement rendu
+            déductible, dans la fourchette de la convention
         point:
           valeur: 11.71
           bareme: csg_point_activite
@@ -159,27 +164,31 @@ mesures:
       Hausse de 10 % du salaire net invoquée comme soutien à la consommation et à l'offre de travail : non comptée.
     confiance: moyenne
     verification:
-      statut: corrige
-      par: verificateur-sonnet
+      statut: ok
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Point de CSG d'activité relu dans le tableau 6 de la CCSS (mai 2026) : 12,03 Md€
-        en 2025 mais 11,71 en 2026 (p) après la réforme de l'assiette des indépendants, déjà dans le droit. Central
-        recalculé sur le droit de 2026 : 9,2 × 11,71 × 1,1842 = 127,6 Md€ au lieu de 134,0 (le haut initial mélangeait
-        le point 2026 et le facteur 2025). Bas conservé (point 2025). Retour d'IR de la perte de déductibilité (6,8
-        points) non chiffré : coût net surestimé, source publique à trouver.
-        Recalé sur les conventions communes du 29/09 : point de CSG d'activité renvoyé au barème csg_point_activite (11,71)
-        et retour d'IR sur la part déductible (6,8 points) compté selon la convention 5 (12 % au central, 10 à 15 % en
-        fourchette) ; central −127,6 → −116,3, bas −134,0 → −124,1, haut −127,6 → −113,4.
+        Citation remplacée par la source primaire (entretien de S. Knafo au JDD du 29/08/2026, verbatim relu ;
+        l'article de CNews n'en était que la reprise). Retour d'IR de la convention 5 recoupé par une source
+        publique : IFRAP (2023), 2,05 Md€ d'IR pour 18,64 Md€ de CSG d'activité rendue déductible, soit 11 %.
+        Montants inchangés. Vérification précédente (verificateur-sonnet, corrige) : Citation retrouvée sur
+        l'URL. Point de CSG d'activité relu dans le tableau 6 de la CCSS (mai 2026) : 12,03 Md€ en 2025 mais
+        11,71 en 2026 (p) après la réforme de l'assiette des indépendants, déjà dans le droit. Central recalculé
+        sur le droit de 2026 : 9,2 × 11,71 × 1,1842 = 127,6 Md€ au lieu de 134,0 (le haut initial mélangeait le
+        point 2026 et le facteur 2025). Bas conservé (point 2025). Retour d'IR de la perte de déductibilité (6,8
+        points) non chiffré : coût net surestimé, source publique à trouver. Recalé sur les conventions communes
+        du 29/09 : point de CSG d'activité renvoyé au barème csg_point_activite (11,71) et retour d'IR sur la
+        part déductible (6,8 points) compté selon la convention 5 (12 % au central, 10 à 15 % en fourchette) ;
+        central −127,6 → −116,3, bas −134,0 → −124,1, haut −127,6 → −113,4.
   - id: suppression-droits-succession
     libelle: Suppression des droits de succession
     domaine: fiscalite
     citation:
-      texte: Nous devons abolir les droits de succession
+      texte: Nous devons abolir les droits de succession.
       url: >-
-        https://www.cnews.fr/france/2026-08-30/impots-depenses-csg-droits-de-succession-sarah-knafo-devoile-15-mesures-pour
-      date: '2026-08-30'
-      support: presse (propos de Sarah Knafo au JDD)
+        https://www.lejdd.fr/politique/exclusif-le-casse-du-siecle-sarah-knafo-fait-le-proces-de-letat-depensier-182118
+      date: '2026-08-29'
+      support: entretien publié (Sarah Knafo au JDD, propos recueillis par Jules Torres)
     precision: precise
     interpretation: >-
       Droits de succession seuls (≈ 16 Md€ en 2024), droits de donation maintenus (lecture littérale) ; lecture haute
@@ -206,7 +215,9 @@ mesures:
           valeur: 16.995
           source: https://www.senat.fr/rap/l25-139-1/l25-139-1_mono.html
           unite: Md€ (PLF 2026)
-          note: droits de succession seuls (ligne 1706), hors donations
+          note: >-
+            droits de succession seuls, hors donations (« 1706 Mutations à titre gratuit par décès (successions) 16 233
+            16 995 », produit 2025 révisé et 2026 PLF en M€ ; donations, ligne 1705 : 4 423 M€ en 2026)
         f:
           valeur: 1.1842
           bareme: facteur_pib_2026_2032
@@ -219,34 +230,41 @@ mesures:
     confiance: moyenne
     verification:
       statut: ok
-      par: verificateur-sonnet
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Droits de succession 16,995 Md€ (ligne 1706, PLF 2026) relus dans le rapport
-        général du Sénat ; projection au PIB prudente ; bas = ensemble des mutations à titre gratuit. Lecture
-        littérale (successions seules) cohérente.
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
+        Citation remplacée par la source primaire (entretien de S. Knafo au JDD du 29/08/2026 : « Nous devons
+        abolir les droits de succession », verbatim relu). Ligne 1706 du PLF 2026 relue dans le rapport général
+        du Sénat (16 995 M€) ; donations (ligne 1705, 4 423 M€) dans le bas. Lecture littérale (successions
+        seules) confirmée par l'entretien (« Vous proposez de les supprimer totalement »). Montants inchangés.
+        Vérification précédente (verificateur-sonnet, ok) : Citation retrouvée sur l'URL. Droits de succession
+        16,995 Md€ (ligne 1706, PLF 2026) relus dans le rapport général du Sénat ; projection au PIB prudente ;
+        bas = ensemble des mutations à titre gratuit. Lecture littérale (successions seules) cohérente. Recalé
+        sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
         (valeur inchangée).
   - id: suppression-impots-production
     libelle: Suppression des impôts de production
     domaine: fiscalite
     citation:
       texte: >-
-        Parmi elles figurent notamment la suppression des droits de succession, la mise en place d'un système de retraite
-        par capitalisation ou encore la suppression des impôts de production.
-      url: https://fr.finance.yahoo.com/actualites/130-milliards-d%C3%A9conomies-sarah-knafo-103113554.html
-      date: '2026-09-07'
-      support: presse
-    precision: vague
+        Pour l’industrie, elle supprime les impôts de production (CVAE, C3S, CFE) et la surtransposition des règles
+        européennes.
+      url: https://irdeme.org/les-15-resolutions-de-sarah-knafo-ne-sont-pas-toutes-des-solutions/
+      date: 2026-09
+      support: compte rendu du livre « Le Casse du siècle » (Fayard, 2 septembre 2026)
+    precision: partielle
     interpretation: >-
-      Périmètre non publié : CFE, C3S et CVAE résiduelle a minima (lecture basse) ; taxe foncière des entreprises, versement
-      mobilité, taxes sur salaires (lecture haute « impôts de production » au sens Insee, ≈ 70 Md€ ?). Le programme 2022
-      de Zemmour visait 30 Md€ de baisse. Collectivités compensées par l'État.
+      Proposition de Sarah Knafo (résolution du livre « Le Casse du siècle »). Source primaire introuvable en ligne (le
+      livre n'est pas consultable ; ni budget2026.fr ni l'entretien au JDD ne détaillent la mesure) : le périmètre (CVAE,
+      C3S, CFE) est celui du compte rendu de l'IRDEME, repris ici ; Capital (7 septembre 2026) mentionne seulement « la
+      suppression des impôts de production ». La CVAE est déjà supprimée en 2030 par la loi (LFI 2026) : seule l'avance
+      2028-2029 coûte. Taxes foncières des entreprises, versement mobilités et taxe sur les salaires hors du périmètre
+      nommé. Collectivités compensées par l'État (CFE), sécurité sociale compensée (C3S) : coût APU inchangé.
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
       central: -12.73
-      bas: -99.67
+      bas: -15.91
       haut: -12.73
       montee_en_charge:
         '2027': 0.0
@@ -255,8 +273,15 @@ mesures:
         '2030': 1.0
         '2031': 1.0
         '2032': 1.0
+      annuel:
+        '2027': 0.0
+        '2028': -16.43
+        '2029': -16.43
+        '2030': -12.73
+        '2031': -12.73
+        '2032': -12.73
     calcul:
-      formule: -((cfe + c3s) * f * (1 - retour_is))
+      formule: -((cfe + c3s) * f * (1 - retour_is)) + 0 * cvae
       parametres:
         cfe:
           valeur: 7.7
@@ -278,22 +303,35 @@ mesures:
             https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/baisse-des-impots-de-production-cvae-et-c3s
           unite: part
           note: retour d'IS au taux moyen effectif de 20 % (Institut Montaigne)
+        cvae:
+          valeur: 3.7
+          bareme: cvae_restante
+          unite: Md€/an
+          note: avance de la suppression déjà votée pour 2030, effet 2028 et 2029 seulement (effet_solde_primaire.annuel)
       explication: >-
-        Lecture centrale : CFE et C3S (la CVAE est déjà supprimée en 2030 par la loi), nettes du retour d'IS. Bas : tous
-        les impôts de production payés par les entreprises (86,8 Md€ en 2024, FIPECO : taxes foncières, taxe sur les
-        salaires, versement mobilités…), projetés, sans retour d'IS.
-        Vérification : bas = (86,8 − CVAE 3,9 − quotas carbone 2,1) × 1,2336 = 99,67 (la CVAE est déjà supprimée par la loi, les quotas ne sont pas un impôt national).
+        Périmètre nommé (CVAE, C3S, CFE). 2032 : CFE (7,7 Md€ en 2024, FIPECO : « la cotisation foncière des entreprises
+        (7,7 Md€) ») et C3S (5,2 Md€, barème c3s_rendement), projetées au PIB, nettes du retour d'IS (20 %) :
+        (7,7 + 5,2) × 1,2336 × 0,8 = 12,73. La CVAE, supprimée en 2030 par la loi, ne coûte que son avance en 2028 et 2029
+        (3,7 Md€, barème cvae_restante, sans retour d'IS comme pour le RN) : −16,43 ces deux années (annuel). Bas : sans
+        retour d'IS, (7,7 + 5,2) × 1,2336 = 15,91. L'ancien bas (99,7 Md€, tous les impôts de production au sens de
+        l'Insee) est abandonné : le périmètre de la promesse est désormais connu.
     confiance: faible
     verification:
       statut: corrige
-      par: verificateur-sonnet
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. CFE 7,7 et C3S 5,2 relus (FIPECO). Bas corrigé : les 86,8 Md€ d'impôts de
-        production comprennent la CVAE (3,9, déjà supprimée par la loi en 2030) et 2,1 Md€ de produit des quotas
-        carbone européens (non supprimable) : (86,8 − 3,9 − 2,1) × 1,2336 = 99,7 Md€ au lieu de 107,1. Central (CFE +
-        C3S) = lecture basse d'une promesse vague : plausible mais la définition usuelle (Insee) est bien plus large.
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
+        Citation de presse (Capital/Yahoo, sans périmètre) remplacée par le compte rendu du livre qui nomme le
+        périmètre (IRDEME : « elle supprime les impôts de production (CVAE, C3S, CFE) ») ; source primaire
+        (livre) introuvable en ligne. Précision vague → partielle. CFE 7,7 et C3S 5,2 Md€ relus sur FIPECO
+        (fiche « Les impôts sur la production »). Bas −99,67 → −15,91 (périmètre nommé, sans retour d'IS) ;
+        central et haut inchangés (−12,73) ; avance de la CVAE (−3,7 Md€ en 2028 et 2029, barème cvae_restante)
+        portée dans annuel. Vérification précédente (verificateur-sonnet, corrige) : Citation retrouvée sur
+        l'URL. CFE 7,7 et C3S 5,2 relus (FIPECO). Bas corrigé : les 86,8 Md€ d'impôts de production comprennent
+        la CVAE (3,9, déjà supprimée par la loi en 2030) et 2,1 Md€ de produit des quotas carbone européens (non
+        supprimable) : (86,8 − 3,9 − 2,1) × 1,2336 = 99,7 Md€ au lieu de 107,1. Central (CFE + C3S) = lecture
+        basse d'une promesse vague : plausible mais la définition usuelle (Insee) est bien plus large. Recalé
+        sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
         (valeur inchangée).
   - id: accise-carburants-moins-un-tiers
     libelle: Baisse d'un tiers de l'accise sur les carburants (ex-TICPE)
@@ -368,19 +406,28 @@ mesures:
     effets_retour: 'Hausse des volumes consommés (élasticité-prix) : non comptée.'
     confiance: moyenne
     verification:
-      statut: conteste
-      par: verificateur-sonnet
+      statut: ok
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Volumes, taux d'accise (FIPECO 59,40 et 68,29) et barème relus ; central 9,9 Md€
-        = accise seule. Mais l'interpretation dit que la TVA induite est à ajouter et le simulateur du candidat
-        annonce 12 Md€ : la TVA non déductible (ménages, véhicules de tourisme) sur la baisse de 20,7 c€/l, soit 1 à 2
-        Md€, est un effet mécanique absent du central (seul le bas 11,4 la couvre). Part de TVA non déductible non
-        trouvée en source publique : je ne peux pas trancher le central.
-        Recalé sur les conventions communes du 29/09 : TVA induite comptée au central selon la convention 6 (0,54 Md€
-        par c€/l, accise 0,48 + TVA 0,06), ce qui tranche la contestation sur la TVA induite ; central −9,9 → −11,2,
-        haut −9,3 → −10,6 (0,51 Md€ par c€/l), bas inchangé (0,55). Statut conteste conservé (règle de recalage) : l'objection
-        est levée, à clore par le vérificateur.
+        Contestation close : la TVA induite est comptée au central selon la convention commune 6 (0,54 Md€ par
+        c€/l = accise 0,48 + TVA non déductible 0,06, dérivation du barème ticpe_centime_litre, SDES § 4.2.6).
+        Rejoué : taux moyen pondéré (34,7 × 59,40 + 14,8 × 68,29) / 49,5 = 62,06 c€/l, un tiers = 20,69 c€/l ×
+        0,54 = 11,17 Md€ ; bas 0,55 → 11,38, haut 0,51 → 10,55. Citation relue sur combienjegagne.fr (« La
+        baisse de l’accise : 12 milliards d’euros de manque à gagner pour l’État »), écart de 0,8 Md€ avec notre
+        central expliqué par le volume retenu. Limite signalée : le remboursement partiel d'accise aux
+        transporteurs routiers (gazole professionnel) réduirait la perte si le taux descendait près du taux
+        plancher de remboursement (non chiffré, sans source publique du volume concerné) ; il joue dans le sens
+        du haut. Vérification précédente (verificateur-sonnet, conteste) : Citation retrouvée sur l'URL.
+        Volumes, taux d'accise (FIPECO 59,40 et 68,29) et barème relus ; central 9,9 Md€ = accise seule. Mais
+        l'interpretation dit que la TVA induite est à ajouter et le simulateur du candidat annonce 12 Md€ : la
+        TVA non déductible (ménages, véhicules de tourisme) sur la baisse de 20,7 c€/l, soit 1 à 2 Md€, est un
+        effet mécanique absent du central (seul le bas 11,4 la couvre). Part de TVA non déductible non trouvée
+        en source publique : je ne peux pas trancher le central. Recalé sur les conventions communes du 29/09 :
+        TVA induite comptée au central selon la convention 6 (0,54 Md€ par c€/l, accise 0,48 + TVA 0,06), ce qui
+        tranche la contestation sur la TVA induite ; central −9,9 → −11,2, haut −9,3 → −10,6 (0,51 Md€ par
+        c€/l), bas inchangé (0,55). Statut conteste conservé (règle de recalage) : l'objection est levée, à
+        clore par le vérificateur.
   - id: suppression-cee
     libelle: Suppression des certificats d'économie d'énergie
     domaine: energie
@@ -405,10 +452,11 @@ mesures:
       url: >-
         https://www.bfmtv.com/politique/elections/presidentielle/video-eric-zemmour-president-de-reconquete-dit-etre-favorable-au-depart-a-la-retraite-a-64-ans-voire-65_VN-202609170934.html
       date: '2026-09-17'
-      support: presse (titre de la vidéo BFMTV)
+      support: vidéo de l'émission Face à BFM (BFMTV), titre de l'extrait
     precision: vague
     interpretation: >-
-      Par rapport à la législation au 1er janvier 2027 (réforme 2023 suspendue jusqu'au 1er janvier 2028 puis reprise
+      Source primaire : l'émission elle-même (extrait vidéo publié par BFMTV) ; pas de transcription publiée, le texte
+      cité est le titre de l'extrait, qui reprend entre guillemets les mots du candidat. Par rapport à la législation au 1er janvier 2027 (réforme 2023 suspendue jusqu'au 1er janvier 2028 puis reprise
       vers 64 ans) : 64 ans = sortie de la suspension (léger gain 2027-2031, nul en 2032 si 64 ans est atteint), 65 ans
       = économie supplémentaire. Calendrier et durée de cotisation non précisés. Lecture centrale : 64 ans sans suspension
       ; haut : 65 ans à terme.
@@ -430,13 +478,13 @@ mesures:
       parametres:
         ecart_2032:
           valeur: 0.25
-          source: >-
-            chiffrage/REFERENCE.md (âge gelé à 62 ans et 9 mois jusqu'au 1er janvier 2028, puis calendrier 2023 : + 3
-            mois par génération)
+          source: https://www.cor-retraites.fr/sites/default/files/2026-07/RA_2026_def_1.pdf
           unite: année
           note: >-
-            écart d'âge légal en 2032 entre 64 ans immédiats et le calendrier repris le 1er janvier 2028 (62 ans et 9
-            mois gelés, puis + 3 mois par génération) : environ un trimestre
+            COR, rapport annuel 2026 : « l’âge d’ouverture des droits atteindra 64 ans pour les assurés de la génération
+            1969 et non plus la génération 1968 » (barème retraites_suspension_reforme_2023 : 62 ans 9 mois pour 1964,
+            puis + 3 mois par génération, 63 ans 9 mois pour 1968). Les assurés qui atteignent l'âge légal en 2032 sont de
+            la génération 1968 (63 ans 9 mois) : écart d'environ un trimestre avec 64 ans immédiats
         an:
           valeur: 6.6
           bareme: retraites_age_legal_1_an
@@ -456,41 +504,67 @@ mesures:
     confiance: faible
     verification:
       statut: ok
-      par: verificateur-sonnet
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Lecture vague (64 voire 65). Avec le calendrier du droit voté (âge quasi à 64
-        ans dès 2032 pour les générations concernées), l'écart 2032 de 0,25 an est prudent, l'effet fort porte sur
-        2028-2031. Paramètre du barème relu (Cour des comptes 5,8 Md€ en 2035 par an d'âge). Pas de double compte avec
-        les autres mesures.
-        Recalé sur les conventions communes du 29/09 : valeur inchangée (déjà sur le solde du système de retraite, convention
-        4) ; effet toutes APU décrit dans effets_retour.
+        Citation : la vidéo BFMTV est l'extrait officiel de l'émission (source primaire) ; pas de transcription
+        publiée, le titre cite le candidat entre guillemets (relu sur l'URL). Paramètre ecart_2032 sourcé au COR
+        (rapport annuel 2026 : 64 ans atteint pour la génération 1969 ; génération 1968 à 63 ans 9 mois en 2032)
+        au lieu de REFERENCE.md. Montants inchangés. Vérification précédente (verificateur-sonnet, ok) :
+        Citation retrouvée sur l'URL. Lecture vague (64 voire 65). Avec le calendrier du droit voté (âge quasi à
+        64 ans dès 2032 pour les générations concernées), l'écart 2032 de 0,25 an est prudent, l'effet fort
+        porte sur 2028-2031. Paramètre du barème relu (Cour des comptes 5,8 Md€ en 2035 par an d'âge). Pas de
+        double compte avec les autres mesures. Recalé sur les conventions communes du 29/09 : valeur inchangée
+        (déjà sur le solde du système de retraite, convention 4) ; effet toutes APU décrit dans effets_retour.
   - id: retraite-capitalisation
     libelle: Introduction d'un système de retraite par capitalisation
     domaine: retraites
     citation:
       texte: >-
-        Parmi elles figurent notamment la suppression des droits de succession, la mise en place d'un système de retraite
-        par capitalisation ou encore la suppression des impôts de production.
-      url: https://fr.finance.yahoo.com/actualites/130-milliards-d%C3%A9conomies-sarah-knafo-103113554.html
-      date: '2026-09-07'
-      support: presse
+        Elle remplace en 20 ans la retraite par répartition par la capitalisation (la période transitoire étant financée
+        par la vente des logements sociaux).
+      url: https://irdeme.org/les-15-resolutions-de-sarah-knafo-ne-sont-pas-toutes-des-solutions/
+      date: 2026-09
+      support: compte rendu du livre « Le Casse du siècle » (Fayard, 2 septembre 2026)
     precision: vague
+    interpretation: >-
+      Proposition de Sarah Knafo (résolution du livre). Source primaire introuvable en ligne (livre non consultable ;
+      Capital, 7 septembre 2026, mentionne seulement « la mise en place d'un système de retraite par capitalisation ») :
+      le calendrier (20 ans) et le financement de la transition (vente des logements sociaux) viennent du compte rendu
+      de l'IRDEME. La vente de logements sociaux est une opération financière (et les bailleurs sociaux ne sont pas
+      tous des administrations publiques) : elle n'améliore pas le solde ; le coût de transition (cotisations dirigées
+      vers la capitalisation alors que les pensions en cours restent dues) pèse donc sur le solde.
     chiffrable: false
     raison_non_chiffrable: >-
       Modalités inconnues (part des cotisations basculée, financement de la transition) : trop vague pour être chiffrée.
     sens_probable: cout
     estimation_indicative:
-      central: -2.0
-      bas: -15.0
+      central: -21.0
+      bas: -53.0
       haut: 0.0
-      lecture: 'Étage par capitalisation financé par des incitations fiscales ou par le basculement d''environ un quart de point
-        de cotisation vieillesse (6,2 Md€ par point en 2025, × 1,21), les pensions en cours restant dues. Bas : bascule de 2
-        points (coût de transition de la répartition) ; haut : étage volontaire sans incitation nouvelle. Cohérence avec retailleau-lr/retraite-capitalisation
-        (lectures différentes justifiées, voir cette mesure). Ordre de grandeur non sourcé pour la bascule d''un quart de point.'
+      lecture: 'Convention (lecture littérale d''un remplacement en 20 ans à partir de 2028) : en 2032, une part des cotisations
+        vieillesse des actifs est dirigée vers des comptes par capitalisation, tandis que les pensions en cours restent dues.
+        Assiette : environ 28 points de cotisation vieillesse (base et complémentaire, salarié du privé sous plafond) × 6,2 Md€
+        par point (barème retraites_cotisation_vieillesse_1_point, 2025) × 1,2106 ≈ 210 Md€ en 2032. Central : 10 % des cotisations
+        basculées (jeunes générations d''abord), ≈ 21 Md€ ; bas : bascule linéaire de 25 % de toutes les cotisations en cinq
+        ans sur vingt, ≈ 53 Md€ ; haut : étage volontaire sans incitation nouvelle, 0. Le produit de la vente de logements
+        sociaux n''est pas compté (opération financière). Ordre de grandeur non sourcé pour la part basculée, d''où la fourchette
+        large ; cohérence avec retailleau-lr/retraite-capitalisation (lectures différentes, promesses différentes).'
       sources:
       - retraites_cotisation_vieillesse_1_point
+      - retraites_depenses_totales
       - facteur_pib_2025_2032
+      - https://irdeme.org/les-15-resolutions-de-sarah-knafo-ne-sont-pas-toutes-des-solutions/
+    verification:
+      statut: corrige
+      par: passe-sources
+      date: '2026-09-29'
+      commentaire: >-
+        Citation de presse (Capital) remplacée par le compte rendu du livre qui précise la mesure (remplacement
+        de la répartition en 20 ans, transition financée par la vente des logements sociaux) ; source primaire
+        introuvable en ligne. Estimation indicative révisée : l'ancienne lecture (bascule d'un quart de point,
+        −2 Md€) ne correspondait pas à un remplacement en 20 ans ; nouvelle convention explicite −21 Md€ (−53 à
+        0), hors solde principal (mesure non chiffrable).
   - id: plan-140-md-economies
     libelle: Enveloppe globale de 140 Md€ d'économies annuelles « au minimum »
     domaine: etat
@@ -510,7 +584,7 @@ mesures:
     effet_solde_primaire:
       central: 0.0
       bas: 0.0
-      haut: 84.97
+      haut: 84.09
       montee_en_charge:
         '2027': 0.0
         '2028': 0.2
@@ -527,7 +601,7 @@ mesures:
           unite: Md€
           note: « 140 milliards d'économies par an. Au minimum. »
         documente:
-          valeur: 55.03
+          valeur: 55.91
           source: somme des mesures d'économie de ce fichier
           unite: Md€ (2032)
           note: >-
@@ -537,19 +611,23 @@ mesures:
             contribution-ue-pre-covid, fin-ame, hebergement-urgence-irreguliers, aide-juridictionnelle-francais, privatisation-audiovisuel-public,
             subventions-associations-presse-syndicats
       explication: >-
-        Règle 6. Les 24 mesures du plan sont chiffrées une à une (somme des centraux d'économie : 55.03 Md€) : central
+        Règle 6. Les 24 mesures du plan sont chiffrées une à une (somme des centraux d'économie : 55,91 Md€) : central
         = 0 pour éviter le double compte ; haut = écart d'affichage avec les 140 Md€ ; bas = 0.
     confiance: faible
     verification:
       statut: corrige
-      par: verificateur-sonnet
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Somme des centraux d'économie recalculée après les corrections de ce
-        vérificateur : 75,18 Md€ (69,52 avant) ; haut = 140 − 75,18 = 64,82. Central 0 correct (règle 6, enveloppe
-        globale). Annonce 140 Md€ relue sur budget2026.fr.
-        Recalé sur les conventions communes du 29/09 : somme des économies documentées ramenée de 75,18 à 55,03 Md€
-        après le recalage de non-remplacement-800000-departs (35,41 → 15,26) ; haut 64,82 → 84,97.
+        Annonce relue sur budget2026.fr et budget2027.fr (même page : « 140 milliards d’économies par an […] 24
+        mesures : tout est listé, chiffré, sourcé » ; montants ligne à ligne relus, sous-totaux ≈ 45 + 24,8 +
+        31,5 + 34,8 + 5,8 Md€). Les sources de l'auteure sont listées sur sarahknafo.fr/preuves. Somme
+        documentée 55,03 → 55,91 Md€ (correction du volet RSA) ; haut 84,97 → 84,09. Vérification précédente
+        (verificateur-sonnet, corrige) : Citation retrouvée sur l'URL. Somme des centraux d'économie recalculée
+        après les corrections de ce vérificateur : 75,18 Md€ (69,52 avant) ; haut = 140 − 75,18 = 64,82. Central
+        0 correct (règle 6, enveloppe globale). Annonce 140 Md€ relue sur budget2026.fr. Recalé sur les
+        conventions communes du 29/09 : somme des économies documentées ramenée de 75,18 à 55,03 Md€ après le
+        recalage de non-remplacement-800000-departs (35,41 → 15,26) ; haut 64,82 → 84,97.
   - id: non-remplacement-800000-departs
     libelle: Non-remplacement de 800 000 départs dans les fonctions administratives sur le quinquennat
     domaine: fonction-publique
@@ -620,18 +698,27 @@ mesures:
         url: https://www.budget2026.fr/
     confiance: faible
     verification:
-      statut: corrige
-      par: verificateur-sonnet
+      statut: ok
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Ecalle (30 à 40 Md€ pour 800 000 postes) relu via franceinfo ; plafond des
-        départs en retraite (136 700 par an, DGAFP) relu : 85 % de l'objectif. Règle 6 : économie ciblée sur la
-        fonction publique, central = montant annoncé plafonné par ce que le droit permet ; bas = 0, haut = central
-        (avant 17,76 et 47,37). Vigilance : la limite aux seuls départs en retraite (hors démissions et fins de
-        contrat) est une convention prudente.
-        Recalé sur les conventions communes du 29/09 : coût d'un poste ramené au coût d'un entrant pour le solde des APU
-        (31 000 € brut hors cotisations employeurs × 0,72, convention 1) au lieu du coût moyen chargé d'Ecalle projeté au
-        PIB (pas de projection : point d'indice gelé) ; central et haut 35,4 → 15,3 Md€.
+        Coût d'un entrant relu sur FIPECO : « Le coût moyen des entrants (salaire brut des agents de moins de 30
+        ans en pratique) est d’environ 31 000 € pour l’Etat […] Si ces 1 000 postes sont répartis entre les
+        trois fonctions publiques au prorata de leurs effectifs actuels, le coût pour les administrations
+        publiques est de 31 M€ » ; départs en retraite 136 700 en 2024 (DGAFP, barème). Citation relue sur
+        budget2026.fr (40 Md€ annoncés). Plafond aux seuls départs en retraite = convention prudente (les 2,3
+        millions de « départs naturels » de l'auteure incluent fins de contrat et démissions) ; à l'inverse,
+        limiter aux départs « administratifs » (hors enseignants, soignants, policiers, militaires : FPE hors
+        enseignants, FPT, part administrative de la FPH, contractuels) ramènerait le plafond vers 400 000 postes
+        (≈ 9 Md€) : les deux lectures restent dans la fourchette [0 ; 15,3]. Montants inchangés. Vérification
+        précédente (verificateur-sonnet, corrige) : Citation retrouvée sur l'URL. Ecalle (30 à 40 Md€ pour 800
+        000 postes) relu via franceinfo ; plafond des départs en retraite (136 700 par an, DGAFP) relu : 85 % de
+        l'objectif. Règle 6 : économie ciblée sur la fonction publique, central = montant annoncé plafonné par
+        ce que le droit permet ; bas = 0, haut = central (avant 17,76 et 47,37). Vigilance : la limite aux seuls
+        départs en retraite (hors démissions et fins de contrat) est une convention prudente. Recalé sur les
+        conventions communes du 29/09 : coût d'un poste ramené au coût d'un entrant pour le solde des APU (31
+        000 € brut hors cotisations employeurs × 0,72, convention 1) au lieu du coût moyen chargé d'Ecalle
+        projeté au PIB (pas de projection : point d'indice gelé) ; central et haut 35,4 → 15,3 Md€.
   - id: gains-productivite-ia-administration
     libelle: Gains de productivité de l'IA dans les fonctions administratives
     domaine: fonction-publique
@@ -732,16 +819,20 @@ mesures:
         url: https://www.budget2026.fr/
     confiance: faible
     verification:
-      statut: corrige
-      par: verificateur-sonnet
+      statut: ok
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. IFRAP (6 à 7 Md€ de prestations aux étrangers en situation régulière) rouvert :
-        le gain ne peut dépasser ce budget (8,0 Md€ projeté) ; le central en est le plafond, donc les 15 à 20 Md€
-        annoncés sont inatteignables. Règle 6 : bas = 0, haut = central (avant 0,72 et 8,64). Inclut les
-        ressortissants européens ; RSA des non-UE déjà exclu du volet RSA (pas de double compte).
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
-        (valeur inchangée).
+        IFRAP (17 juillet 2023) relu : étrangers « 13% des versements, soit environ 5,3 milliards d'euros » des
+        prestations CNAF (RSA, APL, prestations familiales, AAH) et « environ 1 milliard » de minimum
+        vieillesse, soit « entre 6 et 7 milliards d'euros » ; plafond du périmètre retenu au central (règle 6).
+        Inclut les ressortissants européens (le droit de l'UE rend leur exclusion douteuse, non déduit).
+        Montants inchangés. Vérification précédente (verificateur-sonnet, corrige) : Citation retrouvée sur
+        l'URL. IFRAP (6 à 7 Md€ de prestations aux étrangers en situation régulière) rouvert : le gain ne peut
+        dépasser ce budget (8,0 Md€ projeté) ; le central en est le plafond, donc les 15 à 20 Md€ annoncés sont
+        inatteignables. Règle 6 : bas = 0, haut = central (avant 0,72 et 8,64). Inclut les ressortissants
+        européens ; RSA des non-UE déjà exclu du volet RSA (pas de double compte). Recalé sur les conventions
+        communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032 (valeur inchangée).
   - id: rsa-limite-trois-ans
     libelle: RSA limité à trois ans pour les bénéficiaires en capacité de travailler
     domaine: social
@@ -754,9 +845,9 @@ mesures:
     chiffrable: true
     nature: economie
     effet_solde_primaire:
-      central: 4.8
+      central: 5.68
       bas: 0.0
-      haut: 4.8
+      haut: 5.68
       montee_en_charge:
         '2027': 0.0
         '2028': 0.4
@@ -765,28 +856,54 @@ mesures:
         '2031': 1.0
         '2032': 1.0
     calcul:
-      formule: annonce * f * (1 - part_etrangers)
+      formule: min(annonce * f, rsa_2023 * part_3ans * (1 - part_etrangers) * f23)
       parametres:
         annonce:
           valeur: 4.8
-          source: https://www.budget2026.fr/
+          source: https://sarahknafo.fr/preuves
           unite: Md€
-          note: chiffre de l'auteure (budget2026.fr)
+          note: >-
+            chiffre de l'auteure (budget2026.fr), déjà net des étrangers : « La part des allocataires au-delà de trois ans
+            est d’environ 40 %, soit des prestations d’environ 5,5 milliards d’euros sur les 13,7 milliards que coûte le
+            RSA chaque année. Après exclusion, dans le calcul, des 13 % de bénéficiaires étrangers déjà comptabilisés dans
+            la mesure de suppression des aides non contributives pour eux : 4,8 milliards d’économies. » (preuve n° 106)
         f:
           valeur: 1.1842
           bareme: facteur_pib_2026_2032
           unite: facteur
+          note: PIB nominal 2032 / 2026 (montant de l'auteure supposé en euros 2026)
+        rsa_2023:
+          valeur: 12.218
+          source: >-
+            https://drees.solidarites-sante.gouv.fr/sites/default/files/2025-12/MS2025%20-%20Fiche%2007%20-%20Les%20d%C3%A9penses%20d'allocations.pdf
+          unite: Md€ (2023)
           note: >-
-            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+            DREES, Minima sociaux 2025, fiche 07 : « Le montant des allocations versées à ce titre s’élève à 12,2 milliards
+            d’euros » (tableau 1 : 12 218 M€ en 2023)
+        part_3ans:
+          valeur: 0.5
+          source: >-
+            https://drees.solidarites-sante.gouv.fr/sites/default/files/2024-10/MS24%20-%20Fiche%2023%20-%20Le%20revenu%20de%20solidarit%C3%A9%20active%20(RSA).pdf
+          unite: part des bénéficiaires
+          note: >-
+            DREES, Minima sociaux 2024, fiche 23, ancienneté dans le RSA fin 2022 (ensemble) : moins de 1 an 26 %, 1 à 2 ans
+            13 %, 2 à 5 ans 25 %, 5 à 10 ans 20 %, 10 ans ou plus 18 % ; au-delà de 3 ans ≈ 38 % + la moitié des 2 à 5 ans
+            ≈ 50 % (convention de répartition dans la tranche 2-5 ans ; l'auteure retient 40 %)
         part_etrangers:
           valeur: 0.156
           source: https://questions.assemblee-nationale.fr/q16/16-5157QE.htm
           unite: part
           note: foyers RSA dont le responsable est hors UE/EEE, déjà exclus par la mesure de préférence nationale
+        f23:
+          valeur: 1.2777
+          bareme: facteur_pib_2023_2032
+          unite: facteur
       explication: >-
-        Chiffre de l'auteure (41 % du RSA versé, 11,7 Md€), projeté, net de la part déjà exclue par la préférence nationale
-        (double compte). Bas : moitié (reports vers d'autres minima et l'hébergement, convention).
-        Vérification (règle 6) : bas = 0, haut = central.
+        Règle 6 (économie ciblée sur un périmètre nommé) : montant annoncé (4,8 Md€, déjà net des étrangers selon
+        l'auteure) projeté, plafonné par le budget réel du périmètre : allocations RSA (12,2 Md€ en 2023, DREES) × part
+        des bénéficiaires présents depuis plus de trois ans (≈ 50 %, DREES) × part non exclue par la préférence nationale
+        (84,4 %), projeté, soit 6,6 Md€ : le plafond ne mord pas, central = 4,8 × 1,1842 = 5,68. Bas = 0 (économie non
+        réalisée : bénéficiaires jugés inaptes au travail, reports vers d'autres minima et l'hébergement), haut = central.
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 4.8
@@ -794,12 +911,17 @@ mesures:
     confiance: faible
     verification:
       statut: corrige
-      par: verificateur-sonnet
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Annonce 4,8 Md€ projetée nette de la part des non-UE déjà exclue ; inférieure au
-        RSA versé (11,7 Md€ × 41 %). Règle 6 : bas = 0, haut = central (avant 2,4 et 5,68).
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
+        Double déduction corrigée : le chiffre de l'auteure (4,8 Md€) exclut déjà les 13 % d'étrangers
+        (sarahknafo.fr/preuves, preuve n° 106) ; la formule le multipliait encore par (1 − 0,156). Plafond du
+        périmètre ajouté (règle 6) : allocations RSA 12,2 Md€ en 2023 (DREES, fiche 07) × ≈ 50 % de
+        bénéficiaires présents depuis plus de trois ans (DREES, fiche 23) × 84,4 % × 1,2777 ≈ 6,6 Md€, non
+        atteint. Central et haut 4,80 → 5,68 ; bas 0. Vérification précédente (verificateur-sonnet, corrige) :
+        Citation retrouvée sur l'URL. Annonce 4,8 Md€ projetée nette de la part des non-UE déjà exclue ;
+        inférieure au RSA versé (11,7 Md€ × 41 %). Règle 6 : bas = 0, haut = central (avant 2,4 et 5,68). Recalé
+        sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
         (valeur inchangée).
   - id: fraude-sociale-delinquants
     libelle: Lutte contre la fraude sociale et retrait des aides sociales aux délinquants et criminels
@@ -901,13 +1023,19 @@ mesures:
         url: https://www.budget2026.fr/
     confiance: faible
     verification:
-      statut: corrige
-      par: verificateur-sonnet
+      statut: ok
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Charges éolien + photovoltaïque de la CRE (6,25 → 7,29 Md€) relues ; contrats
-        signés dus (engagement juridique) : le plafond légal est l'économie sur les seuls contrats non engagés (3,12),
-        très inférieure aux 8 Md€ annoncés. Règle 6 : haut = central (avant 9,47), bas 0.
+        Tableau 3 de la délibération CRE 2026-149 relu : éolien terrestre + éolien en mer + photovoltaïque = 1
+        157,1 + 965,6 + 4 125,5 = 6 248 M€ (2026) et 1 404,6 + 1 306,7 + 4 579,2 = 7 291 M€ (2027), soit + 1,04
+        Md€ par an ; « environ +10 GWe estimés par la CRE entre 2026 et 2029 » dont le soutien est déjà engagé.
+        Budget réel du poste en 2027 (7,3 Md€) inférieur aux 8 Md€ annoncés, et contrats signés dus : central =
+        contrats non engagés 2030-2032. Montants inchangés. Vérification précédente (verificateur-sonnet,
+        corrige) : Citation retrouvée sur l'URL. Charges éolien + photovoltaïque de la CRE (6,25 → 7,29 Md€)
+        relues ; contrats signés dus (engagement juridique) : le plafond légal est l'économie sur les seuls
+        contrats non engagés (3,12), très inférieure aux 8 Md€ annoncés. Règle 6 : haut = central (avant 9,47),
+        bas 0.
   - id: fin-politique-de-la-ville
     libelle: Fin de la politique de la ville
     domaine: logement
@@ -978,9 +1106,9 @@ mesures:
     chiffrable: true
     nature: economie
     effet_solde_primaire:
-      central: 1.78
+      central: 1.82
       bas: 0.0
-      haut: 1.78
+      haut: 1.82
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -992,10 +1120,12 @@ mesures:
       formule: credits_anah * f
       parametres:
         credits_anah:
-          valeur: 1.5
+          valeur: 1.5353
           source: https://www.senat.fr/rap/l25-139-35-1/l25-139-35-1_mono.html
           unite: Md€ (PLF 2026)
-          note: crédits de l'État à l'Anah (programme 135)
+          note: >-
+            crédits de l'État à l'Anah (programme 135) : « Les crédits passent ainsi de 2 035,3 millions d'euros en LFI
+            pour 2025 à 1 535,3 millions d'euros dans le PLF pour 2026 »
         f:
           valeur: 1.1842
           bareme: facteur_pib_2026_2032
@@ -1014,14 +1144,17 @@ mesures:
     confiance: moyenne
     verification:
       statut: corrige
-      par: verificateur-sonnet
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Subvention de l'État à l'Anah 1 535 M€ (PLF 2026) relue dans le Sénat ; les 6
-        Md€ annoncés dépassent le budget de l'Anah financé par l'État (le reste vient des CEE, hors dépense publique).
-        Règle 6 : central = plafond (1,78), bas = 0 (avant 0,89). Les crédits de la LFI 2026 peuvent différer du PLF.
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
-        (valeur inchangée).
+        Subvention de l'État relue dans le rapport du Sénat (PLF 2026) : 1 535,3 M€ de CP (le paramètre
+        arrondissait à 1,5) ; central et haut 1,78 → 1,82. Les 6 Md€ annoncés dépassent le budget de l'Anah
+        financé par l'État (le reste vient des CEE, hors dépense publique). Vérification précédente
+        (verificateur-sonnet, corrige) : Citation retrouvée sur l'URL. Subvention de l'État à l'Anah 1 535 M€
+        (PLF 2026) relue dans le Sénat ; les 6 Md€ annoncés dépassent le budget de l'Anah financé par l'État (le
+        reste vient des CEE, hors dépense publique). Règle 6 : central = plafond (1,78), bas = 0 (avant 0,89).
+        Les crédits de la LFI 2026 peuvent différer du PLF. Recalé sur les conventions communes du 29/09 :
+        facteur de projection renvoyé au barème facteur_pib_2026_2032 (valeur inchangée).
   - id: suppression-ademe
     libelle: Suppression de l'Ademe (hors soutien aux renouvelables déjà compté)
     domaine: ecologie
@@ -1069,15 +1202,17 @@ mesures:
         url: https://www.budget2026.fr/
     confiance: moyenne
     verification:
-      statut: corrige
-      par: verificateur-sonnet
+      statut: ok
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Subvention de l'État à l'Ademe (1,06 Md€, Sénat) : budget de l'État du périmètre
-        ; les 3,4 Md€ annoncés incluent des ressources hors subvention (non vérifié). Règle 6 : bas = 0, haut =
-        central (avant 0,63 et 4,03).
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
-        (valeur inchangée).
+        Rapport du Sénat (PLF 2026) relu : « Une subvention de 2,09 milliards d'euros en AE et de 1,06 milliard
+        d'euros en CP est inscrite pour l'Ademe pour 2026 ». Budget réel financé par l'État très inférieur aux
+        3,4 Md€ annoncés. Montants inchangés. Vérification précédente (verificateur-sonnet, corrige) : Citation
+        retrouvée sur l'URL. Subvention de l'État à l'Ademe (1,06 Md€, Sénat) : budget de l'État du périmètre ;
+        les 3,4 Md€ annoncés incluent des ressources hors subvention (non vérifié). Règle 6 : bas = 0, haut =
+        central (avant 0,63 et 4,03). Recalé sur les conventions communes du 29/09 : facteur de projection
+        renvoyé au barème facteur_pib_2026_2032 (valeur inchangée).
   - id: france-travail-mise-en-relation
     libelle: Suppression de la mission de placement de France Travail
     domaine: travail
@@ -1109,8 +1244,10 @@ mesures:
           source: https://www.budget2026.fr/
           unite: Md€
           note: >-
-            chiffre de l'auteure ; plafond = budget de France Travail financé par des fonds publics (SCSP 1,16 Md€ +
-            contribution de l'Unédic, 11 % de ses recettes soit ≈ 5,2 Md€, Sénat PLF 2026) ≈ 6,4 Md€
+            chiffre de l'auteure ; plafond = budget de France Travail financé par des fonds publics ≈ 6,4 Md€ : Sénat, avis
+            PLF 2026 (https://www.senat.fr/rap/a25-142-6/a25-142-6_mono.html) : « une subvention en diminution de 13,9 %
+            à 1,16 milliard d'euros » et contribution de l'Unédic (« un taux de 11 % sur les contributions d'assurance
+            chômage de l'année n -2 ») qui « devrait ainsi atteindre 5,2 milliards d'euros »
         f:
           valeur: 1.1842
           bareme: facteur_pib_2026_2032
@@ -1127,16 +1264,20 @@ mesures:
         url: https://www.budget2026.fr/
     confiance: faible
     verification:
-      statut: corrige
-      par: verificateur-sonnet
+      statut: ok
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Règle 6 : le central (1,37 = subvention de l'État seule) ignorait que la
-        contribution de l'Unédic (11 % de ses recettes, Sénat) est aussi une dépense des APU consacrée à France
-        Travail. Montant annoncé (4 Md€) projeté 4,74, sous le budget public de France Travail (≈ 6,4 Md€ avant
-        projection). Bas = 0, haut = central. Confiance faible : la part de la mission de placement n'est pas publiée.
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
-        (valeur inchangée).
+        Budget public de France Travail relu dans l'avis du Sénat sur le PLF 2026 : subvention de l'État 1,16
+        Md€ et contribution de l'Unédic 5,2 Md€ (11 % des contributions d'assurance chômage), soit ≈ 6,4 Md€ ;
+        l'annonce (4 Md€) est sous ce plafond. La part de la seule mission de mise en relation n'est pas publiée
+        : central = annonce projetée (règle 6), bas 0, confiance faible. Montants inchangés. Vérification
+        précédente (verificateur-sonnet, corrige) : Citation retrouvée sur l'URL. Règle 6 : le central (1,37 =
+        subvention de l'État seule) ignorait que la contribution de l'Unédic (11 % de ses recettes, Sénat) est
+        aussi une dépense des APU consacrée à France Travail. Montant annoncé (4 Md€) projeté 4,74, sous le
+        budget public de France Travail (≈ 6,4 Md€ avant projection). Bas = 0, haut = central. Confiance faible
+        : la part de la mission de placement n'est pas publiée. Recalé sur les conventions communes du 29/09 :
+        facteur de projection renvoyé au barème facteur_pib_2026_2032 (valeur inchangée).
   - id: suppression-ars
     libelle: Suppression des agences régionales de santé
     domaine: sante
@@ -1183,14 +1324,17 @@ mesures:
         url: https://www.budget2026.fr/
     confiance: faible
     verification:
-      statut: corrige
-      par: verificateur-sonnet
+      statut: ok
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Subvention de l'État aux ARS (0,627 Md€, Sénat) : budget du périmètre, inférieur
-        à l'annonce (1 Md€). Règle 6 : central = plafond 0,74, bas = 0, haut = central (avant 0,37 et 1,18).
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
-        (valeur inchangée).
+        Rapport du Sénat (PLF 2026) relu : « Agences régionales de santé (P124-155) 612 749 627 142 » k€
+        (subvention de l'État). Les ARS reçoivent aussi une dotation de l'assurance maladie (non retrouvée pour
+        2026) : le central est prudent. Montants inchangés. Vérification précédente (verificateur-sonnet,
+        corrige) : Citation retrouvée sur l'URL. Subvention de l'État aux ARS (0,627 Md€, Sénat) : budget du
+        périmètre, inférieur à l'annonce (1 Md€). Règle 6 : central = plafond 0,74, bas = 0, haut = central
+        (avant 0,37 et 1,18). Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au
+        barème facteur_pib_2026_2032 (valeur inchangée).
   - id: suppression-autres-agences-cese
     libelle: >-
       Suppression d'autres agences et structures (Arcom, HCE, Conseil national du bruit…) et du CESE et des CESER
@@ -1307,15 +1451,19 @@ mesures:
         url: https://www.budget2026.fr/
     confiance: moyenne
     verification:
-      statut: corrige
-      par: verificateur-sonnet
+      statut: ok
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Mission APD 3,67 Md€ de CP (PLF 2026) relue : plafond budgétaire du périmètre
-        (l'APD OCDE de 13 Md€ inclut prêts, part de l'UE et dépenses imputées, non économisables à ce titre). Règle 6
-        : central = plafond 4,35, bas = 0, haut = central (avant 2,17 et 15,75).
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
-        (valeur inchangée).
+        Rapport du Sénat (PLF 2026) relu : « 4,43 milliards d'euros en autorisations d'engagement et 3,67
+        milliards d'euros en crédits de paiement » pour la mission APD. L'APD au sens de l'OCDE (13,9 Md€ en
+        2023 selon l'auteure) inclut prêts de l'AFD (opérations financières), part européenne et dépenses
+        imputées : non économisables à ce titre. Montants inchangés. Vérification précédente
+        (verificateur-sonnet, corrige) : Citation retrouvée sur l'URL. Mission APD 3,67 Md€ de CP (PLF 2026)
+        relue : plafond budgétaire du périmètre (l'APD OCDE de 13 Md€ inclut prêts, part de l'UE et dépenses
+        imputées, non économisables à ce titre). Règle 6 : central = plafond 4,35, bas = 0, haut = central
+        (avant 2,17 et 15,75). Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au
+        barème facteur_pib_2026_2032 (valeur inchangée).
   - id: contribution-ue-pre-covid
     libelle: Retour au budget européen d'avant le Covid et baisse de la contribution française
     domaine: europe
@@ -1665,16 +1813,19 @@ mesures:
         url: https://www.budget2026.fr/
     confiance: faible
     verification:
-      statut: corrige
-      par: verificateur-sonnet
+      statut: ok
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Dotation 3,878 Md€ relue (Sénat). Règle 6 : chiffrée comme appliquée, montant
-        annoncé (4 Md€ projeté 4,74) plafonné par la dotation projetée : 4,59 (avant 2,30 après une décote de moitié
-        tirée de Montaigne, qui traite un risque de réalisation). Bas = 0, haut = central. La cession d'actifs
-        n'améliore pas le solde.
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
-        (valeur inchangée).
+        Dotation relue dans le rapport spécial du Sénat (PLF 2026) : « Total 3 949,16 3 878,31 » M€ (France
+        Télévisions 2 440,58, Radio France 648,03, ARTE France 298,11, France Médias Monde 303,88, INA 103,46,
+        TV5 Monde 84,24). ARTE (traité franco-allemand) et TV5 Monde (multilatéral) sont difficilement
+        privatisables : le central est un plafond. Montants inchangés. Vérification précédente
+        (verificateur-sonnet, corrige) : Citation retrouvée sur l'URL. Dotation 3,878 Md€ relue (Sénat). Règle 6
+        : chiffrée comme appliquée, montant annoncé (4 Md€ projeté 4,74) plafonné par la dotation projetée :
+        4,59 (avant 2,30 après une décote de moitié tirée de Montaigne, qui traite un risque de réalisation).
+        Bas = 0, haut = central. La cession d'actifs n'améliore pas le solde. Recalé sur les conventions
+        communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032 (valeur inchangée).
   - id: subventions-associations-presse-syndicats
     libelle: Suppression des subventions aux associations « politisées », à la presse et aux syndicats
     domaine: etat
@@ -1736,14 +1887,16 @@ mesures:
         url: https://www.budget2026.fr/
     confiance: faible
     verification:
-      statut: corrige
-      par: verificateur-sonnet
+      statut: ok
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Presse 0,178 (Sénat), syndicats 0,035 (AGFPN), associations 1,5 (milieu de la
-        fourchette annoncée, sous les 7,3 Md€ versés). Règle 6 : bas = 0, haut = central (avant 0,84 et 2,62).
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
-        (valeur inchangée).
+        Aides à la presse relues (Sénat, PLF 2026) : « Le montant total des aides à la presse écrite devrait
+        atteindre 178,29 millions d'euros en 2026 ». Montants inchangés. Vérification précédente
+        (verificateur-sonnet, corrige) : Citation retrouvée sur l'URL. Presse 0,178 (Sénat), syndicats 0,035
+        (AGFPN), associations 1,5 (milieu de la fourchette annoncée, sous les 7,3 Md€ versés). Règle 6 : bas =
+        0, haut = central (avant 0,84 et 2,62). Recalé sur les conventions communes du 29/09 : facteur de
+        projection renvoyé au barème facteur_pib_2026_2032 (valeur inchangée).
   - id: remigration-expulsions
     libelle: >-
       « Remigration » - renvoi des détenus et délinquants étrangers, des clandestins, des étrangers chômeurs depuis un
@@ -1760,7 +1913,10 @@ mesures:
       support: presse (AFP)
     precision: vague
     interpretation: >-
-      Effet budgétaire = prestations et allocations chômage non versées moins coût des éloignements (rétention, transport)
+      Propos tenus dans l'émission Face à BFM (BFMTV, 17 septembre 2026) : source primaire introuvable sous forme écrite
+      (replay vidéo sans transcription publiée) ; citation reprise de la dépêche AFP. Le discours de Port-Marly (13
+      septembre 2026, extrait vidéo CNews https://www.youtube.com/watch?v=hozCe9Dtlgc : « Aucune civilisation n’a jamais
+      survécu à un changement de peuple ») porte la même ligne. Effet budgétaire = prestations et allocations chômage non versées moins coût des éloignements (rétention, transport)
       ; volumes non précisés. Recoupe fortement la mesure prestations-non-contributives-francais : ne chiffrer que l'assurance
       chômage et le coût des éloignements pour éviter le double compte.
     chiffrable: false
@@ -1782,23 +1938,42 @@ mesures:
       - https://www.ccomptes.fr/fr/publications/la-politique-de-lutte-contre-limmigration-irreguliere
       - assurance_chomage_depenses
       - immigration_depenses_etat
+    verification:
+      statut: ok
+      par: passe-sources
+      date: '2026-09-29'
+      commentaire: >-
+        Citation AFP (Le Figaro) conservée : source primaire (émission Face à BFM du 17/09/2026) sans
+        transcription publiée, signalé dans interpretation ; extrait vidéo du discours de Port-Marly ajouté.
+        Mesure non chiffrable, estimation indicative inchangée.
   - id: ia-nucleaire-priorite
     libelle: >-
       Priorité à l'IA (électricité nucléaire excédentaire réservée aux centres de calcul, formation dès l'école) et relance
       du nucléaire
     domaine: numerique
     citation:
-      texte: >-
-        le chef de file de Reconquête a mis en avant plusieurs points, dont la formation à l'intelligence artificielle
-        dès l'école, afin de faire de la France le troisième puissance mondiale dans le domaine.
-      url: >-
-        https://www.cnews.fr/france/2026-09-13/presidentielle-2027-remigration-intelligence-artificielle-ce-quil-faut-retenir-du
+      texte: « L’IA est la troisième grande révolution industrielle de l’histoire de l’Occident »
+      url: https://www.youtube.com/watch?v=QjpjdKuO9zA
       date: '2026-09-13'
-      support: presse
+      support: vidéo (extrait du discours de Port-Marly, chaîne YouTube de CNews)
     precision: vague
+    interpretation: >-
+      Source primaire : enregistrement du discours (titre de l'extrait, entre guillemets). Le détail des propositions
+      (formation à l'IA dès l'école, « troisième puissance mondiale » dans le domaine, électricité nucléaire pour les
+      centres de calcul) vient du compte rendu de CNews
+      (https://www.cnews.fr/france/2026-09-13/presidentielle-2027-remigration-intelligence-artificielle-ce-quil-faut-retenir-du),
+      aucun texte du discours n'ayant été publié par le parti.
     chiffrable: false
     raison_non_chiffrable: Orientations sans montant ni dispositif précis.
     sens_probable: cout
+    verification:
+      statut: corrige
+      par: passe-sources
+      date: '2026-09-29'
+      commentaire: >-
+        Citation de presse remplacée par l'extrait vidéo du discours de Port-Marly (verbatim du titre relu via
+        l'oEmbed YouTube, chaîne CNews) ; compte rendu CNews gardé dans interpretation pour le détail. Non
+        chiffrable.
   - id: interdiction-voile-espace-public
     libelle: Interdiction du voile islamique dans l'espace public
     domaine: societe
@@ -1810,9 +1985,19 @@ mesures:
       date: '2026-09-20'
       support: presse
     precision: vague
+    interpretation: >-
+      Source primaire introuvable (ni sur les sites de Reconquête et de Sarah Knafo, ni dans l'entretien au JDD) :
+      présentation par la presse du « corpus identitaire » de Reconquête. Mesure sans effet budgétaire.
     chiffrable: false
     raison_non_chiffrable: Mesure non budgétaire.
     sens_probable: neutre
+    verification:
+      statut: ok
+      par: passe-sources
+      date: '2026-09-29'
+      commentaire: >-
+        Source primaire introuvable (sites de Reconquête et de S. Knafo, entretien au JDD) : citation de presse
+        conservée, signalée dans interpretation. Mesure non budgétaire.
   - id: refus-impot-europeen
     libelle: Refus de tout impôt européen (« ressources propres »)
     domaine: europe
