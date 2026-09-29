@@ -97,15 +97,17 @@ mesures:
     domaine: fiscalite
     citation:
       texte: >-
-        Si LFI demande un blocage des prix à 1,70 euros le litre, Marine Le Pen exige une baisse de la TVA sur l'énergie
-        de 20 à 5,5%, au cœur de son programme.
-      url: >-
-        https://www.boursorama.com/actualite-economique/actualites/salaires-carburants-mobilisations-le-pouvoir-d-achat-s-impose-dans-la-campagne-d6706e6c8501042962d517b99d95cad1
-      date: '2026-09-15'
-      support: presse
+        Baisse de la TVA sur les énergies (gaz, électricité, carburants, bois, fioul). [...] Baisse TVA énergies 10,960
+      url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+      date: '2025-10-23'
+      support: contre-budget 2026 du groupe RN (conférence de presse, pages 4 et 7)
     precision: precise
     interpretation: >-
-      Mesure phare constante depuis 2022, reconfirmée en septembre 2026 (AFP ; LCI 16 septembre). Périmètre du contre-budget
+      Mesure phare constante depuis 2022 (communiqué de Marine Le Pen du 21 octobre 2021 : « baisser immédiatement la
+      TVA de 20 à 5,5% sur les carburants, mais aussi sur le gaz, le fioul domestique et l'électricité »,
+      rassemblementnational.fr), reconfirmée en septembre 2026 (AFP, Boursorama, 15 septembre 2026 : « Marine Le Pen
+      exige une baisse de la TVA sur l'énergie de 20 à 5,5%, au cœur de son programme » ; LCI 16 septembre). Citation
+      remplacée par la source primaire (contre-budget 2026). Périmètre du contre-budget
       2026 : « Baisse TVA énergies 10,960 » Md€ (gaz, électricité, carburants, bois, fioul), montant du RN. Le taux de
       5,5 % s'applique déjà à l'abonnement électricité/gaz : chiffrer sur les consommations au taux normal. Juridiquement
       contestée (directive TVA) : non retenu dans le montant, signalé en confiance. Montée en charge : loi de finances
@@ -114,9 +116,9 @@ mesures:
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -17.0
-      bas: -20.45
-      haut: -13.0
+      central: -12.0
+      bas: -12.8
+      haut: -9.0
       montee_en_charge:
         '2027': 0.4
         '2028': 1.0
@@ -125,28 +127,22 @@ mesures:
         '2031': 1.0
         '2032': 1.0
     calcul:
-      formule: -(elec + gaz + carburants + fioul)
+      formule: -total
       parametres:
-        elec:
-          valeur: 5.0
-          bareme: tva_energie_electricite_5_5
+        total:
+          valeur: 12.0
+          bareme: tva_energie_total_5_5
           unite: Md€/an de recettes perdues (APU)
-        gaz:
-          valeur: 2.0
-          bareme: tva_energie_gaz_5_5
-          unite: Md€/an de recettes perdues (APU)
-        carburants:
-          valeur: 9.4
-          bareme: tva_energie_carburants_5_5
-          unite: Md€/an de recettes perdues (APU)
-        fioul:
-          valeur: 0.6
-          bareme: tva_energie_fioul_5_5
-          unite: Md€/an de recettes perdues (APU)
+          note: >-
+            chiffrage du Gouvernement devant l'Assemblée (novembre 2025) pour les quatre énergies ; bas 9,0 (Institut
+            Montaigne), haut 12,8 (borne mécanique : 17,6 Md€ de TVA sur l'énergie en 2024 × (1 − 5,5/20), CPO)
       explication: >-
-        Somme des barèmes par énergie (électricité et gaz des ménages, carburants routiers hors fioul, fioul) ; bas = bornes
-        hautes des barèmes, haut = bornes basses. Le barème carburants (9,4) exclut le fioul, compté une seule fois. Bois de chauffage omis (déjà en partie à taux réduit, montant faible). Montants énergétiques
-        non projetés au PIB (volumes et prix).
+        La promesse vise les quatre énergies : barème tva_energie_total_5_5 (12,0 Md€), comme le prévoit sa dérivation.
+        La somme des barèmes par énergie (électricité 5,0 + gaz 2,0 + carburants 6,4 + fioul 0,6 = 14,0) dépasse la perte
+        maximale possible (12,8 Md€ si toute la TVA sur l'énergie passait à 5,5 %, CPO) parce qu'elle mélange des
+        millésimes de prix : elle n'est pas retenue. Bas = 12,8 (borne mécanique, prix 2024 ; plus aux prix de 2026),
+        haut = 9,0 (Institut Montaigne, réaction de la consommation). Bois de chauffage omis (déjà en partie à taux réduit,
+        montant faible). Montants énergétiques non projetés au PIB (volumes et prix).
     chiffrages_tiers:
       - auteur: Institut Montaigne (législatives 2024)
         montant_md: -11.3
@@ -166,17 +162,25 @@ mesures:
     confiance: moyenne
     verification:
       statut: corrige
-      par: verificateur-sonnet
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Barèmes tva_energie_* relus (Bercy juin 2024 : électricité 4,5, gaz 2,3,
-        carburants 10 ; recalcul SDES). Total 17,6 proche de Bercy 16,8 et de Montaigne 11,3 à 13,6 (fourchette de
-        consommation). Réserve : le « carburants 10 Md€ » de Bercy inclut vraisemblablement le fioul, d'où ≈ 0,6 Md€
-        de double compte possible avec la ligne fioul (couvert par la fourchette). Non-conformité à la directive TVA
-        signalée, non déduite.
-        Recalé sur les conventions communes du 29/09 : barème carburants ramené à 9,4 Md€ (carburants routiers hors
-        fioul), ce qui supprime le double compte avec la ligne fioul ; central −17,6 → −17,0, haut −14,8 → −13,0
-        (bornes basses : 4,5 + 1,7 + 6,4 + 0,4).
+        Citation de presse (AFP, Boursorama) remplacée par la source primaire : contre-budget 2026 du groupe RN, pages
+        4 et 7 (« Baisse de la TVA sur les énergies (gaz, électricité, carburants, bois, fioul) », « Baisse TVA
+        énergies 10,960 »), relu sur le PDF ; reconfirmation 2026 gardée dans interpretation. Montant inchangé
+        (barèmes communs). Trace antérieure (verificateur-sonnet, corrige) : Citation retrouvée sur l'URL. Barèmes
+        tva_energie_* relus (Bercy juin 2024 : électricité 4,5, gaz 2,3, carburants 10 ; recalcul SDES). Total 17,6
+        proche de Bercy 16,8 et de Montaigne 11,3 à 13,6 (fourchette de consommation). Réserve : le « carburants 10
+        Md€ » de Bercy inclut vraisemblablement le fioul, d'où ≈ 0,6 Md€ de double compte possible avec la ligne fioul
+        (couvert par la fourchette). Non-conformité à la directive TVA signalée, non déduite. Recalé sur les
+        conventions communes du 29/09 : barème carburants ramené à 9,4 Md€ (carburants routiers hors fioul), ce qui
+        supprime le double compte avec la ligne fioul ; central −17,6 → −17,0, haut −14,8 → −13,0 (bornes basses : 4,5
+        + 1,7 + 6,4 + 0,4).
+        Recalé sur les barèmes sourcés du 29/09 : le barème carburants passe de 9,4 à 6,4 Md€ (TVA non déductible sur
+        les produits pétroliers, SDES 2024), et la somme par énergie (14,0) dépasse la borne mécanique du CPO (12,8) :
+        la mesure, qui vise les quatre énergies, est chiffrée sur tva_energie_total_5_5 ; central −17,0 → −12,0, bas
+        −20,45 → −12,8, haut −13,0 → −9,0. Le chiffre de Bercy 2024 (16,8) excède la borne mécanique ; Montaigne (11,3)
+        et le contre-budget RN (10,96) sont dans la fourchette.
   - id: tva-100-produits-premiere-necessite
     libelle: Suppression de la TVA sur une centaine de produits de première nécessité
     domaine: fiscalite
@@ -222,24 +226,27 @@ mesures:
         de forte inflation dans le programme 2024.
     chiffrages_tiers:
       - auteur: Institut Montaigne (législatives 2024)
-        montant_md: -4.7
+        montant_md: -6.75
         url: >-
           https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/supprimer-la-tva-sur-les-produits-de-premiere-necessite
-        commentaire: 4,7 à 8,8 Md€ selon la liste
+        commentaire: estimation centrale 6,75 Md€, 4,7 (liste restreinte, retenue ici) à 8,8 Md€ (liste étendue)
       - auteur: Contre-budget RN 2026 (chiffrage du candidat)
         montant_md: -3.5
         url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
     confiance: faible
     verification:
       statut: ok
-      par: verificateur-sonnet
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Montaigne 4,7 (liste restreinte) à 8,8 Md€ (liste étendue) en euros 2023
-        projetés ; contre-budget RN 3,5. Lecture permanente retenue, haut = 0 si conditionnelle (programme 2024) :
-        cohérent.
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
-        (valeur inchangée).
+        Source Montaigne relue (archive 2024) : « Coût par an Par l'Institut Montaigne 6,75 Md€ 4,7 Md€ estimation
+        basse 8,8 Md€ estimation haute ». Central sur la liste restreinte (4,7, « une centaine de produits ») et non
+        sur la médiane Montaigne (6,75) ; bas = liste étendue (8,8), haut = 0 (mesure conditionnelle à une forte
+        inflation dans le programme 2024). Citation primaire (contre-budget 2026). Trace antérieure (verificateur-
+        sonnet, ok) : Citation retrouvée sur l'URL. Montaigne 4,7 (liste restreinte) à 8,8 Md€ (liste étendue) en
+        euros 2023 projetés ; contre-budget RN 3,5. Lecture permanente retenue, haut = 0 si conditionnelle (programme
+        2024) : cohérent. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème
+        facteur_pib_2024_2032 (valeur inchangée).
   - id: ir-part-pleine-deuxieme-enfant
     libelle: Part fiscale pleine dès le deuxième enfant (quotient familial)
     domaine: fiscalite
@@ -427,10 +434,16 @@ mesures:
           note: 'taxe sur les petits colis votée (art. 82 LFI), état A : 400 M€'
         tsba:
           valeur: 0.8
-          source: https://fr.wikipedia.org/wiki/Taxe_de_solidarit%C3%A9_sur_les_billets_d%27avion
+          source: https://www.senat.fr/rap/a24-148-2/a24-148-22.html
           unite: Md€ par an
           note: >-
-            hausse 2025 de la taxe de solidarité sur les billets d'avion, maintenue (« un peu plus de 800 millions »)
+            Hausse 2025 de la taxe de solidarité sur les billets d'avion, en vigueur. Sénat, avis PLF 2025 : « augmentant
+            de 1 milliard d'euros le rendement du tarif de solidarité [...] 850 millions d'euros seraient versés par
+            l'aviation de ligne et 150 millions d'euros par l'aviation d'affaires commerciale » ; Sénat, rapport PLF 2026
+            (https://www.senat.fr/rap/l25-139-310-3/l25-139-310-37.html) : « le rendement de la TSBA sur l'aviation
+            d'affaires ne représenterait qu'environ 40 millions d'euros en année pleine ». Convention : 0,8 Md€ (850 M€
+            prévus sur l'aviation de ligne, réduits par l'exemption des lignes d'aménagement du territoire votée au
+            Sénat, plus ≈ 40 M€ d'aviation d'affaires) ; fourchette 0,72 (RN) à 0,89.
         acre:
           valeur: 0.184
           source: >-
@@ -459,12 +472,16 @@ mesures:
     confiance: moyenne
     verification:
       statut: ok
-      par: verificateur-sonnet
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Seules les mesures effectivement votées sont annulées (petits colis 0,4, TSBA
-        0,8, ACRE 0,184, ruptures conventionnelles 0,26) ; total < 2 Md€ : paramètres non tous rouverts, le tri voté /
-        non voté est cohérent avec REFERENCE.md.
+        Paramètre tsba : source Wikipédia remplacée par les rapports du Sénat (avis PLF 2025 : +1 Md€ prévus dont 850
+        M€ d'aviation de ligne ; rapport PLF 2026 : ≈ 40 M€ d'aviation d'affaires en année pleine) ; valeur 0,8
+        conservée comme convention explicite (exemption des lignes d'aménagement du territoire non chiffrée
+        publiquement). Paramètre ruptures (0,26, annexe 9 du PLFSS 2026 rectifié, art. 15 LFSS) conservé. Central
+        inchangé (−1,95). Trace antérieure (verificateur-sonnet, ok) : Citation retrouvée sur l'URL. Seules les
+        mesures effectivement votées sont annulées (petits colis 0,4, TSBA 0,8, ACRE 0,184, ruptures conventionnelles
+        0,26) ; total < 2 Md€ : paramètres non tous rouverts, le tri voté / non voté est cohérent avec REFERENCE.md.
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
         (valeur inchangée).
   - id: retraites-60-62-ans
@@ -482,19 +499,23 @@ mesures:
       support: presse
     precision: partielle
     interpretation: >-
-      Ligne 2022 et 2024 (« Abroger la réforme des retraites de Macron »), reconfirmée par l'arbitrage interne de juillet
-      2026 et au Medef. La candidate chiffre la réforme à « 9 milliards d'euros » (Boulevard Voltaire) ; selon Epoch
-      Times, ce montant vise le volet d'exonération des seniors : ambiguïté à signaler. Référence : législation au 1er
-      janvier 2027 (réforme 2023 suspendue par la LFSS 2026, âge et durée gelés jusqu'au 1er janvier 2028, puis reprise
-      vers 64 ans / 43 annuités) à confirmer en phase 2. Le contre-budget 2026 inscrivait 1,5 Md€ pour le « Lancement
-      de la réforme des retraites MLP » (première année seulement). Montée : aucun effet avant 2028 (âge gelé par la
-      suspension jusqu'au 1er janvier 2028), puis montée avec le calendrier que la mesure annule.
+      Ligne 2022 et 2024 (« Abroger la réforme des retraites de Macron et mettre en place un système de retraites progressif
+      », programme législatif 2024, rassemblementnational.fr/documents/202406-programme.pdf), reconfirmée par l'arbitrage
+      interne de juillet 2026 et au débat du Medef (REF, 27 août 2026). Source primaire du détail 2026 (vidéo ou transcription
+      officielle du débat) introuvable : citation de presse conservée. Lecture retenue : âge légal ramené à 62 ans et durée
+      plafonnée à 42 annuités (168 trimestres) pour tous ; départ à 60 ans avec 40 annuités pour les assurés ayant commencé
+      à travailler avant 20 ans ; barème progressif entre 20 et 24 ans et demi. La candidate chiffre la réforme à « 9
+      milliards d'euros » (Boulevard Voltaire) ; selon Epoch Times, ce montant vise le volet d'exonération des seniors :
+      ambiguïté signalée. Référence : législation au 1er janvier 2027 (réforme 2023 suspendue par la LFSS 2026, âge et
+      durée gelés jusqu'au 1er janvier 2028, puis reprise vers 64 ans / 43 annuités). Le contre-budget 2026 inscrivait 1,5
+      Md€ pour le « Lancement de la réforme des retraites MLP » (première année seulement). Montée : aucun effet avant 2028
+      (âge gelé par la suspension jusqu'au 1er janvier 2028), puis montée avec le calendrier que la mesure annule.
     chiffrable: true
     nature: depense
     effet_solde_primaire:
-      central: -44.56
-      bas: -62.23
-      haut: -21.9
+      central: -26.58
+      bas: -43.7
+      haut: -20.2
       montee_en_charge:
         '2027': 0.0
         '2028': 0.4
@@ -503,38 +524,74 @@ mesures:
         '2031': 1.0
         '2032': 1.0
     calcul:
-      formule: -((cout_montaigne_2027 - abrogation_2023_montaigne) * f2027 + retour_62)
+      formule: -(retour_62 + ecart_42 * duree_1an + part_beneficiaires * (age_60 + ecart_40 * duree_1an))
       parametres:
-        cout_montaigne_2027:
-          valeur: 34.7
-          source: >-
-            https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/abroger-la-reforme-des-retraites-et-pour-ceux-ayant-commence-a-travailler-avant-20-ans-partir-a-40-annuites-de-cotisations
-          unite: Md€ en 2027
-          note: coût total à horizon 2027, régime général, programme RN 2024 identique (40 annuités avant 20 ans)
-        abrogation_2023_montaigne:
-          valeur: 8.2
-          source: >-
-            https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/abroger-la-reforme-des-retraites-et-pour-ceux-ayant-commence-a-travailler-avant-20-ans-partir-a-40-annuites-de-cotisations
-          unite: Md€ en 2027
-          note: part due à l'abrogation de la réforme 2023, remplacée ici par le barème 2032
-        f2027:
-          valeur: 1.157
-          bareme: facteur_pib_2027_2032
-          unite: facteur
-          note: PIB nominal 2032 / 2027 = 1,2106 / (1,0223 × 1,0235)
         retour_62:
           valeur: 13.9
           bareme: retraites_retour_62_ans_2032
           unite: Md€ courants par an (solde du système de retraite), en 2032
+        ecart_42:
+          valeur: 0.75
+          source: https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000028494794/2016-12-25
+          unite: années de durée d'assurance
+          note: >-
+            Calendrier de la loi du 20 janvier 2014 (rétabli par retraites_retour_62_ans_2032) : 171 trimestres pour les
+            générations 1970 à 1972, qui ont 60 à 62 ans en 2032 ; ramenés à 168 (42 annuités) : 3 trimestres
+        duree_1an:
+          valeur: 4.4
+          bareme: retraites_duree_assurance_1_an
+          unite: Md€ courants 2032 par an et par année de durée
+          note: valeur 2035, majorant pour 2032 selon le barème
+        age_60:
+          valeur: 18
+          bareme: retraites_age_60_depuis_62
+          unite: Md€ courants 2032 par an, en régime de croisière
+        ecart_40:
+          valeur: 2
+          source: https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000028494794/2016-12-25
+          unite: années de durée d'assurance
+          note: 168 trimestres (42 annuités, déjà comptés dans ecart_42) ramenés à 160 (40 annuités)
+        part_beneficiaires:
+          valeur: 0.35
+          source: https://www.cor-retraites.fr/sites/default/files/2024-03/Doc_08_Carri%C3%A8re_longue_dur%C3%A9e.pdf
+          unite: part du coût d'un passage de tous les assurés à 60 ans et 40 annuités
+          note: >-
+            Convention (aucune source ne chiffre la part des générations 1966-1972 qui partiraient plus tôt avec le barème
+            RN) : 0,35, fourchette 0,25 à 0,5. Appuis : Institut Montaigne 2024, « près de 57 % de la tranche d'âge des
+            personnes nées en 1962 [...] ont cotisé pour au moins un trimestre avant leurs 20 ans et seuls 10,5 % à 25 ans ou
+            après » ; COR (séance du 14 mars 2024, doc. 8, projections Cnav), départs anticipés pour carrière longue déjà
+            permis par le droit d'avant 2023 (donc déjà dans retour_62) « de l'ordre de 10-15 % parmi les générations nées
+            dans les années 1960 et 6-8 % parmi celles nées dans les années 1970 » ; SRE (même séance, doc. 11), part des
+            affiliés de la fonction publique d'État remplissant la condition de 4 ou 5 trimestres avant 20 ans : « elle passe
+            de 37,7 % pour la génération 1960 à 8,6 % pour la génération 1970 » ; DREES (Les retraités et les retraites,
+            édition 2025), « 26 % des assurés du régime général et de ceux de la CNRACL nés en 1956 ont bénéficié d'un départ
+            anticipé » pour carrière longue. Lecture : environ un quart à un tiers des générations 1966-1972 a commencé avant
+            20 ans, dont une part part déjà à 60 ans dans la référence, plus un gain partiel pour les débuts entre 20 et 24
+            ans et demi. Recoupement : Fondation IFRAP (2022), 9,6 Md€ en 2027 pour le seul volet « 60 ans avec 40 annuités
+            avant 20 ans », soit ≈ 11 Md€ en 2032, contre 3,3 + 9,4 = 12,7 Md€ ici.
       explication: >-
-        Retour sur les mesures d'âge et de durée (2003, 2010, 2014) pour les carrières commencées avant 20 ans et en
-        partie pour les autres (Institut Montaigne, 26,5 Md€ en 2027, projetés en 2032) + annulation de la réforme 2023
-        nette de la suspension déjà votée (barème). Bas : scénario Montaigne avec les régimes complémentaires (44,7)
-        et borne haute du barème 2023 (20, Fondation IFRAP 2025, coût pour le système de retraite). Haut : borne basse
-        du barème 2023 (8,9) + IFRAP, moitié des assurés partant plus tôt à 60 ans (13, barème retraites_age_60_depuis_62
-        bas). Périmètre (convention commune 4) : solde du système de retraite ; le coût pour l'ensemble des APU est
-        décrit dans effets_retour.
+        Reconstruit à partir des barèmes communs, comme les autres promesses de retraite (LFI, Écologistes, PS) : annulation
+        des mesures d'âge de 2023 nette de la suspension (13,9) ; durée ramenée de 171 à 168 trimestres pour tous (0,75 ×
+        4,4) ; pour les bénéficiaires du barème progressif, le passage de 62 à 60 ans et de 42 à 40 annuités, au prorata
+        de leur poids (0,35 × (18 + 2 × 4,4)). Le RN coûte ainsi moins que « 60 ans et 40 annuités pour tous » (LFI, 42,9
+        Md€), dont il est un sous-ensemble. Bas = hauts des barèmes (15,8 ; 25 ; 8,8 par an de durée) et part 0,5 : 15,8 +
+        0,75 × 8,8 + 0,5 × (25 + 2 × 8,8) = 43,7 ; haut = bas des barèmes (11,4 ; 13,2) avec la durée au central (4,4) et
+        part 0,25 : 11,4 + 3,3 + 0,25 × (13,2 + 8,8) = 20,2. L'ancien chiffrage (Institut Montaigne 2024,
+        −44,6 Md€) est abandonné : Montaigne applique à presque toute la génération le retour complet aux règles d'avant
+        2003 (« en revenant totalement sur les mesures d'âges et de durée de cotisation de 2003, 2010, 2014 pour ceux qui
+        ont commencé à travailler avant 20 ans, et partiellement pour ceux qui ont commencé à travailler après 20 ans, le
+        coût de la mesure est estimé à 26,5 Md€ », montant identique à son chiffrage 2022 du retour complet à 60 ans), ce
+        qui revenait à chiffrer le RN plus cher que la retraite à 60 ans pour tous. Périmètre (convention commune 4) :
+        solde du système de retraite ; le coût pour l'ensemble des APU est décrit dans effets_retour.
     chiffrages_tiers:
+      - auteur: Fondation IFRAP (présidentielle 2022, même dispositif)
+        montant_md: -9.6
+        url: https://www.ifrap.org/budget-et-fiscalite/retraites-aides-sociales-sante-le-pen-macron-le-cout-de-leurs-programmes
+        date: '2022-04-14'
+        commentaire: >-
+          « Marine Le Pen propose de revenir à la retraite à 60 ans avec 40 annuités pour ceux qui ont commencé à travailler
+          avant 20 ans (coût : 9,6 milliards). » Volet carrières longues seul, par rapport au droit d'alors (62 ans) ;
+          ≈ 11 Md€ projetés en 2032, cohérent avec notre volet hors abrogation de 2023 (12,7).
       - auteur: Fondation IFRAP (législatives 2024)
         montant_md: -10
         url: https://www.ifrap.org/budget-et-fiscalite/le-vrai-cout-du-programme-du-rassemblement-national
@@ -547,11 +604,16 @@ mesures:
         montant_md: -34.7
         url: >-
           https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/abroger-la-reforme-des-retraites-et-pour-ceux-ayant-commence-a-travailler-avant-20-ans-partir-a-40-annuites-de-cotisations
-        commentaire: horizon 2027, régime général ; 31,5 (avant 20 ans seulement) à 44,7 Md€ (avec complémentaires)
+        commentaire: >-
+          Horizon 2027, régime général ; 31,5 (avant 20 ans seulement) à 44,7 Md€ (avec complémentaires). Dont 8,2 Md€
+          d'abrogation de 2023 et 26,5 Md€ de retour complet aux règles d'âge et de durée d'avant 2003 pour la plupart
+          des assurés : lecture maximale, supérieure à notre bas ; ancien central de ce fichier (−44,6 Md€ en 2032).
       - auteur: Marine Le Pen (débat Medef, 27 août 2026)
         montant_md: -9
         url: https://www.bvoltaire.fr/devant-le-medef-marine-le-pen-defend-son-epineuse-reforme-des-retraites/
-        commentaire: « 9 milliards d'euros » selon la candidate ; écart inexpliqué avec tous les chiffrages publics
+        commentaire: >-
+          « 9 milliards d'euros » selon la candidate ; proche du chiffrage IFRAP 2022 du seul volet carrières longues,
+          sans l'annulation de la reprise du calendrier de 2023 (13,9 Md€ en 2032).
     effets_retour: >-
       Moindres dépenses de chômage et d'invalidité des seniors partant plus tôt et effets sur l'emploi : non comptés.
       Coût pour l'ensemble des administrations publiques (convention commune 4, effets d'activité exclus du montant) :
@@ -561,22 +623,23 @@ mesures:
       de 62 à 60 ans à 0,9 point de PIB (≈ 33 Md€ en 2032) toutes APU contre 0,5 point pour les seuls régimes.
     confiance: faible
     verification:
-      statut: conteste
-      par: verificateur-sonnet
+      statut: corrige
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Formule et central (44,6 Md€) cohérents : Montaigne 34,7 en 2027 dont 8,2
-        d'abrogation remplacés par le barème 2032 net de la suspension déjà votée (13,9). Désaccord sur le bas (−62,2)
-        : il prend la borne haute (20) du barème retraites_retour_62_ans_2032, sourcée par une estimation d'un
-        candidat (Zemmour), inacceptable ; le bas est à recalculer avec une borne publique. Le barème est à corriger ;
-        je ne modifie pas baremes.yaml. Incohérence à noter : le chiffre de la candidate (9 Md€) n'est pas expliqué
-        par les sources publiques.
-        Recalé sur les conventions communes du 29/09 : la borne haute (20) de retraites_retour_62_ans_2032 est désormais
-        sourcée (Fondation IFRAP, octobre 2025, coût pour le système de retraite) ; bas recalculé avec cette borne publique,
-        inchangé (−62,2), ce qui lève l'objection sur le bas. Central et haut inchangés, sur le périmètre du système de
-        retraite (convention 4) ; coût toutes APU ajouté dans effets_retour. Statut conteste maintenu (écart inexpliqué avec
-        le chiffre de la candidate).
-        Facteur de projection renvoyé au barème facteur_pib_2027_2032 (valeur inchangée).
+        Rechiffré sur les barèmes communs : central −44,56 → −26,58, bas −62,23 → −44,4, haut −21,9 → −17,65. L'ancien
+        chiffrage reprenait l'Institut Montaigne 2024 (34,7 Md€ en 2027), qui applique le retour complet aux règles
+        d'avant 2003 à la plupart des assurés et rendait le RN plus cher que la retraite à 60 ans pour tous de LFI
+        (−42,9) ; le RN n'en est qu'un sous-ensemble. Part des bénéficiaires : convention 0,35 (0,25 à 0,5), appuyée sur
+        Montaigne (57 % de la génération 1962 avec un trimestre avant 20 ans), la Cnav via le COR (carrières longues
+        6-15 % des générations 1960-1970 à droit d'avant 2023) et la DREES (26 % de la génération 1956) ; recoupée par
+        l'IFRAP 2022 (9,6 Md€ pour le volet carrières longues). Citation : source primaire introuvable, presse
+        conservée. Trace antérieure (verificateur-sonnet, conteste) : central Montaigne cohérent avec sa formule, bas
+        contesté puis recalé sur le barème (IFRAP 2025), écart inexpliqué avec les 9 Md€ de la candidate, désormais
+        rapproché du chiffrage IFRAP 2022.
+        Recalé sur les barèmes sourcés du 29/09 : bornes des barèmes retraites_retour_62_ans_2032 (11,4 ; 15,8 au lieu
+        de 8,9 ; 20) et retraites_age_60_depuis_62 (13,2 ; 25) ; central inchangé (−26,58), bas −44,4 → −43,7, haut
+        −17,65 → −20,2.
   - id: cumul-emploi-retraite-sans-cotisations
     libelle: >-
       Suppression des cotisations retraite et chômage des actifs ayant l'âge et les trimestres qui continuent à travailler
@@ -592,7 +655,8 @@ mesures:
     precision: partielle
     interpretation: >-
       Cotisations salariales et patronales supposées (lecture haute) ; lecture basse : part salariale seulement. Le coût
-      de « 9 milliards d'euros en année pleine » cité par Epoch Times pourrait viser ce volet.
+      de « 9 milliards d'euros en année pleine » cité par Epoch Times pourrait viser ce volet. Source primaire introuvable
+      (pas de vidéo ni de transcription officielle du débat Medef du 27 août 2026) : citation de presse (AFP) conservée.
     chiffrable: false
     raison_non_chiffrable: >-
       Nombre de retraités en emploi et masse de leurs revenus d'activité non trouvés en source ouverte ; le cumul emploi-retraite
@@ -607,27 +671,43 @@ mesures:
       lecture: 'Exonération des cotisations vieillesse et chômage (salariales et patronales, ≈ 30 %) sur les revenus d''activité
         des personnes ayant l''âge et les trimestres (cumulants et prolongateurs, masse d''environ 10 Md€ en 2025), projetée
         au PIB (× 1,21). Bas : les 9 Md€ « en année pleine » de la candidate rapportés à ce seul volet et projetés (× 1,18)
-        ; haut : part salariale seulement (≈ 11 %). Pas d''effet d''activité compté (règle 3). Ordre de grandeur non sourcé.
-        Masse d''activité de 10 Md€ des cumulants et prolongateurs non retrouvée (pages DREES introuvables) ; le chiffre de
-        9 Md€ vient d''un article d''Epoch Times.'
+        ; haut : part salariale seulement (≈ 11 %). Pas d''effet d''activité compté (règle 3). Effectifs sourcés : DREES,
+        Les retraités et les retraites, édition 2025, fiches 21-22 : « En 2023, 606 000 assurés cumulent une pension de
+        retraite et une activité » ; « 71,4 % des personnes cumulant un emploi et une retraite travaillent à temps partiel,
+        dont 40,4 % d''entre elles moins d''un mi-temps ». Masse d''activité : convention, faute de revenu moyen publié :
+        606 000 cumulants à environ 0,6 équivalent temps plein et ≈ 28 000 € bruts par an, soit ≈ 10 Md€, plus les
+        prolongateurs non retraités (non dénombrés), couverts par le bas. Le chiffre de 9 Md€ vient d''un article d''Epoch
+        Times.'
       sources:
+      - https://drees.solidarites-sante.gouv.fr/sites/default/files/2025-07/Les%20retrait%C3%A9s%20et%20les%20retraites%20-%20%C3%89dition%202025.pdf
       - https://www.epochtimes.fr/marine-le-pen-promet-125-milliards-deuros-deconomies-et-defend-une-retraite-a-60-ou-62-ans-3335415.html
       - retraites_cotisation_vieillesse_1_point
       - masse_salariale_privee
       - facteur_pib_2025_2032
+    verification:
+      statut: ok
+      par: passe-sources
+      date: '2026-09-29'
+      commentaire: >-
+        Citation retrouvée sur l'URL (Sud Radio, AFP) ; source primaire introuvable. Estimation indicative (hors
+        solde) : effectif de 606 000 cumulants et part de temps partiel sourcés (DREES 2025) ; masse de revenus
+        d'activité passée en convention explicite (≈ 10 Md€), montant inchangé (−3,6, fourchette −10,7 à −1,3).
   - id: hausse-salaires-10-exoneree
     libelle: Exonération de cotisations patronales des hausses de salaire de 10 % (jusqu'à 3 SMIC, 3 à 5 ans)
     domaine: travail
     citation:
       texte: >-
-        Marine Le Pen veut de son côté inciter les entreprises à augmenter les salaires de 10% en exonérant cette hausse
-        de cotisations patronales.
-      url: >-
-        https://www.boursorama.com/actualite-economique/actualites/salaires-carburants-mobilisations-le-pouvoir-d-achat-s-impose-dans-la-campagne-d6706e6c8501042962d517b99d95cad1
-      date: '2026-09-15'
-      support: presse
+        Revaloriser les revenus du travail par une incitation forte à l'augmentation des salaires (permettre aux entreprises
+        d'augmenter les salaires de 10 % jusqu'à trois fois le SMIC, en les exonérant de l'augmentation des cotisations
+        patronales pendant trois à cinq ans)
+      url: https://rassemblementnational.fr/documents/202406-programme.pdf
+      date: 2024-06
+      support: programme législatif 2024 du RN (« Un projet, une méthode »)
     precision: partielle
     interpretation: >-
+      Reconfirmée en campagne 2026 (AFP, Boursorama, 15 septembre 2026 : « Marine Le Pen veut de son côté inciter les
+      entreprises à augmenter les salaires de 10% en exonérant cette hausse de cotisations patronales ») ; citation de
+      presse remplacée par la source primaire (programme 2024).
       Paramètres du programme 2024 : « permettre aux entreprises d'augmenter les salaires de 10 % jusqu'à trois fois
       le SMIC, en les exonérant de l'augmentation des cotisations patronales pendant trois à cinq ans ». Coût dépendant
       du taux de recours (hypothèse clé) ; mesure temporaire : régime de croisière 2032 éventuellement nul si durée de
@@ -675,13 +755,22 @@ mesures:
       les hausses : non comptés.
     confiance: faible
     verification:
-      statut: ok
-      par: verificateur-sonnet
+      statut: conteste
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Montaigne : 0,8 Md€ en 2025, 4,8 en 2027, 12 en 2029, 15 en brut à terme ; 2032
-        = cinquième année d'une mise en œuvre en 2028 (le texte dit « quatrième » : coquille sans effet sur la valeur
-        12). Bas 15, haut recours limité : cohérent. IR et CSG sur les hausses non comptés.
+        Citation de presse remplacée par la source primaire (programme 2024, relu sur le PDF). Source du coût relue
+        (Institut Montaigne, archive 2024) : elle contient deux lectures incompatibles. (1) Recours croissant : « 800
+        millions d'euros en 2025, de 4,8 milliards d'euros en 2027 et de 12 milliards d'euros en 2029 », « le manque à
+        gagner brut serait ainsi estimé à 15 Md € pour l'année 2029 », net du retour d'IS (3 Md€) 12 Md€ : retenue au
+        central (12 × 1,0891 = 13,07 en 2032). (2) Exonération limitée à cinq ans par cohorte : tableau « 2025 0,8 Md
+        € [...] 2029 4 Md € TOTAL sur 5 ans 12 Md € », soit ≈ 4 Md€ par an en régime de croisière (4,36 projetés),
+        proche de la borne favorable (−5,23). Écart non tranchable sans le détail du modèle ; statut conteste. Facteur
+        f recalculé sur plan/hypotheses.yaml (croissance en volume et déflateur 2030-2032 : 1,02987 × 1,02834 ×
+        1,02834 = 1,0891). Trace antérieure (verificateur-sonnet, ok) : Citation retrouvée sur l'URL. Montaigne : 0,8
+        Md€ en 2025, 4,8 en 2027, 12 en 2029, 15 en brut à terme ; 2032 = cinquième année d'une mise en œuvre en 2028
+        (le texte dit « quatrième » : coquille sans effet sur la valeur 12). Bas 15, haut recours limité : cohérent.
+        IR et CSG sur les hausses non comptés.
   - id: indexation-pensions-prestations
     libelle: Indexation des retraites et dégel des prestations sociales
     domaine: social
@@ -742,9 +831,9 @@ mesures:
     chiffrable: true
     nature: economie
     effet_solde_primaire:
-      central: 7.15
+      central: 7.28
       bas: 0.0
-      haut: 7.15
+      haut: 7.28
       montee_en_charge:
         '2027': 0.0
         '2028': 0.4
@@ -756,17 +845,21 @@ mesures:
       formule: (cinq_ans + prestations_familiales) * f
       parametres:
         cinq_ans:
-          valeur: 2.5
+          valeur: 2.6
           source: >-
             https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/reserver-le-benefice-du-rsa-et-des-prestations-de-solidarites-aux-etrangers-ayant-au-moins-5-ans-dequivalent-temps-plein-travaille-en-france
           unite: Md€ par an (2024)
-          note: économie médiane (fourchette 0,58 à 3,1)
+          note: >-
+            économie médiane : « Économie par an Par l'Institut Montaigne 2,6 Md€ 0,6 Md€ estimation basse 3 Md€
+            estimation haute » (variante haute 3,1)
         prestations_familiales:
           valeur: 3.3
           source: >-
             https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/accorder-les-prestations-familiales-aux-seuls-foyers-dont-au-moins-un-des-parents-est-francais
           unite: Md€ par an (2024)
-          note: prestations familiales réservées aux foyers dont un parent est français, estimation médiane
+          note: >-
+            prestations familiales réservées aux foyers dont un parent est français : « cette mesure pourrait générer, selon
+            une estimation médiane, près de 3,3 Md€ par an » (fourchette affichée 2,6 à 3,9)
         f:
           valeur: 1.2336
           bareme: facteur_pib_2024_2032
@@ -781,10 +874,10 @@ mesures:
         Vérification (règle 6) : bas = 0, haut = central.
     chiffrages_tiers:
       - auteur: Institut Montaigne (législatives 2024)
-        montant_md: 2.5
+        montant_md: 2.6
         url: >-
           https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/reserver-le-benefice-du-rsa-et-des-prestations-de-solidarites-aux-etrangers-ayant-au-moins-5-ans-dequivalent-temps-plein-travaille-en-france
-        commentaire: volet 5 ans ; 0,6 à 3,1 Md€
+        commentaire: volet 5 ans ; 0,6 à 3 Md€ (variante 3,1)
       - auteur: Fondation IFRAP
         montant_md: null
         url: >-
@@ -796,30 +889,47 @@ mesures:
     confiance: faible
     verification:
       statut: corrige
-      par: verificateur-sonnet
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Central 7,15 (Montaigne 2,5 + 3,3 de prestations familiales, projetés) ≈ chiffre
-        du RN projeté (6,1 → 7,2) et sous l'IFRAP (6 à 7 Md€ pour toute exclusion des étrangers en situation
-        régulière, 8,0 projeté) : plafond respecté. Le volet prestations familiales dépasse la lettre de la citation
-        (5 ans de travail) : lecture Bardella (JDD), signalée. Règle 6 : bas = 0, haut = central (avant 0,72 et 8,64).
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
-        (valeur inchangée).
+        Sources Montaigne relues (archives 2024) : volet 5 ans « 2,6 Md€ » au central (et non 2,5), prestations
+        familiales « près de 3,3 Md€ » en médiane ; central 7,15 → 7,28 = (2,6 + 3,3) × 1,2336. Plafond : sous les
+        prestations nationales versées aux étrangers en situation régulière (IFRAP, 6 à 7 Md€, ≈ 8 Md€ projetés).
+        Confiance faible maintenue (constitutionnalité, lecture Bardella). Trace antérieure (verificateur-sonnet,
+        corrige) : Citation retrouvée sur l'URL. Central 7,15 (Montaigne 2,5 + 3,3 de prestations familiales,
+        projetés) ≈ chiffre du RN projeté (6,1 → 7,2) et sous l'IFRAP (6 à 7 Md€ pour toute exclusion des étrangers en
+        situation régulière, 8,0 projeté) : plafond respecté. Le volet prestations familiales dépasse la lettre de la
+        citation (5 ans de travail) : lecture Bardella (JDD), signalée. Règle 6 : bas = 0, haut = central (avant 0,72
+        et 8,64). Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème
+        facteur_pib_2024_2032 (valeur inchangée).
   - id: priorite-nationale-logement-social
     libelle: Priorité nationale dans l'attribution des logements sociaux (et des APL)
     domaine: logement
     citation:
-      texte: Elle veut "donner la priorité d'accès au logement social aux Français".
+      texte: >-
+        Il ne s'agit pas de renoncer à une politique sociale du logement, mais au contraire, grâce à la priorité nationale,
+        de lui redonner tout son sens et son efficacité.
       url: >-
-        https://www.ladepeche.fr/2026/09/14/decryptage-presidentielle-2027-pourquoi-marine-le-pen-veut-faire-du-logement-son-nouveau-cheval-de-bataille-elle-veut-montrer-quelle-a-des-mesures-13550575.php
-      date: '2026-09-14'
-      support: presse
+        https://rassemblementnational.fr/lettre-ouverte/lettre-ouverte-de-marine-le-pen-aux-professionnels-de-limmobilier
+      date: '2026-09-21'
+      support: lettre ouverte de Marine Le Pen (rassemblementnational.fr)
     precision: vague
+    interpretation: >-
+      Discours d'Hénin-Beaumont du 13 septembre 2026 (La Dépêche, 14 septembre : elle veut « donner la priorité d'accès
+      au logement social aux Français ») ; citation de presse remplacée par la lettre ouverte du 21 septembre 2026.
     chiffrable: false
     raison_non_chiffrable: >-
       Réallocation des logements sociaux sans effet budgétaire direct ; le volet APL est compris dans la mesure prestations-solidarite-5-ans-travail
       (pas de double compte).
     sens_probable: neutre
+    verification:
+      statut: ok
+      par: passe-sources
+      date: '2026-09-29'
+      commentaire: >-
+        Citation de presse (La Dépêche) remplacée par la source primaire : lettre ouverte du 21 septembre 2026 sur
+        rassemblementnational.fr, phrase relue sur la page. Non chiffrable inchangé (réallocation sans effet
+        budgétaire direct).
   - id: chomeurs-etrangers-renvoi
     libelle: Renvoi des étrangers restés un an sans emploi et sans ressources
     domaine: immigration
@@ -1536,13 +1646,19 @@ mesures:
       Enveloppe non détaillée au 29 septembre 2026 (règle 6) : central = part documentée par les mesures d'économies
       de ce fichier (sans double compte), haut = 125, bas = 0. Selon J.-P. Tanguy, sources : immigration, millefeuille
       administratif, formation professionnelle, contribution à l'UE ; « ni hausse des taxes ni hausse des impôts ». À
-      mettre à jour dès la publication du document (annoncée début octobre 2026).
+      mettre à jour dès la publication du document (annoncée début octobre 2026). Reconfirmé sur LCI le 16 septembre
+      2026 (Capital, repris par Yahoo Finance : « Début octobre, je présenterai la trajectoire budgétaire pour le quinquennat.
+      Ces 125 milliards d'euros d'économies, il faudra les trouver, et pas sur les droits des Français ni sur leurs pensions
+      de retraite » ; « arrêter de financer l'immigration [...] Ce sera 25 milliards d'euros d'économisés » ; fin de l'aide
+      financière à l'Ukraine évoquée). Document toujours non publié au 29 septembre 2026. Source primaire introuvable (ni
+      vidéo ni transcription officielle du débat Medef ; l'entretien LCI n'est pas repris sur rassemblementnational.fr) :
+      citation de presse conservée.
     chiffrable: true
     nature: economie
     effet_solde_primaire:
       central: 0.0
       bas: 0.0
-      haut: 85.85
+      haut: 85.72
       montee_en_charge:
         '2027': 0.0
         '2028': 0.2
@@ -1559,7 +1675,7 @@ mesures:
           unite: Md€
           note: « 125 milliards d'euros d'économies » (Medef, 27 août 2026), horizon 2032
         documente:
-          valeur: 39.15
+          valeur: 39.28
           source: somme des mesures d'économie de ce fichier
           unite: Md€ (2032)
           note: >-
@@ -1569,17 +1685,20 @@ mesures:
             sante-medicaments-unite-ald
       explication: >-
         Règle 6. Les économies identifiables du programme sont chiffrées dans leurs propres mesures (somme des centraux
-        : 39.15 Md€) : central = 0 pour ne pas les compter deux fois. Haut = écart d'affichage entre l'annonce (125 Md€,
+        : 39.28 Md€) : central = 0 pour ne pas les compter deux fois. Haut = écart d'affichage entre l'annonce (125 Md€,
         lue comme un niveau annuel en 2032) et cette somme. Bas = 0.
     confiance: faible
     verification:
       statut: ok
-      par: verificateur-sonnet
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Enveloppe globale (règle 6) : central 0, haut = 125 − 39,15 ; la somme
-        documentée 39,15 est recalculée exactement (13 mesures d'économie, avant mes corrections de bas/haut qui ne
-        touchent pas les centraux).
+        Citation retrouvée (Boulevard Voltaire) ; source primaire introuvable. Fraîcheur : plan toujours non publié au
+        29 septembre 2026 (annoncé « début octobre », LCI 16 septembre, relu sur Yahoo Finance/Capital). Règle 6
+        appliquée (central 0, haut = écart d'affichage) ; somme documentée recalculée après la passe : 39,15 → 39,28 Md€ (prestations de solidarité 7,15 → 7,28), haut 85,85 → 85,72.
+        Trace antérieure (verificateur-sonnet, ok) : Citation retrouvée sur l'URL. Enveloppe globale (règle 6) :
+        central 0, haut = 125 − 39,15 ; la somme documentée 39,15 est recalculée exactement (13 mesures d'économie,
+        avant mes corrections de bas/haut qui ne touchent pas les centraux).
   - id: regle-or-constitution
     libelle: Règle d'or budgétaire inscrite dans la Constitution
     domaine: institutions
@@ -1594,6 +1713,13 @@ mesures:
     chiffrable: false
     raison_non_chiffrable: Réforme institutionnelle sans effet budgétaire direct.
     sens_probable: neutre
+    verification:
+      statut: ok
+      par: passe-sources
+      date: '2026-09-29'
+      commentaire: >-
+        Citation de presse (Sud Radio, AFP) : source primaire introuvable (absente du programme 2024 ; pas de vidéo ni
+        de transcription officielle du débat Medef du 27 août 2026 trouvées). Non chiffrable (institutionnel).
   - id: baisse-contribution-ue
     libelle: Baisse de la contribution française au budget de l'Union européenne
     domaine: europe
@@ -1649,7 +1775,8 @@ mesures:
       date: '2025-10-23'
     precision: partielle
     interpretation: >-
-      Annexe listant les organismes non publiée avec le PDF ; revoir le fonctionnement des agences cité au Medef 2026.
+      Annexe listant les organismes non publiée avec le PDF ; revoir le fonctionnement des agences cité au Medef 2026 et
+      sur LCI le 16 septembre 2026 (« en tapant dans les agences qui ne servent à rien ou qui font doublon »).
     chiffrable: true
     nature: economie
     effet_solde_primaire:
@@ -1677,15 +1804,26 @@ mesures:
           unite: facteur
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
-      explication: 'Chiffre du RN projeté (annexe listant les organismes non publiée). Bas : moitié (convention).'
+      explication: >-
+        Chiffre du RN projeté (annexe listant les organismes non publiée). Plafond (règle 6) : jaune « Opérateurs de l'État
+        » du PLF 2026 : « les 431 opérateurs de l'État bénéficieront d'un total de 73 288 M€ de financements publics »
+        (dont 33,9 Md€ de subventions pour charges de service public, 16,7 Md€ de transferts, 21,7 Md€ de taxes affectées ;
+        universités 12,8 Md€) ; 20 % de ce total hors universités, CNRS et CEA (≈ 55,6 Md€) font 11,1 Md€ : l'assiette
+        implicite du RN (38,5 Md€) tient dans le périmètre. Bas = 0 (économie non réalisée), haut = central (règle 6).
+        Source : https://www2.assemblee-nationale.fr/static/17/Annexes-DL/PLF-2026/22-Jaune2026_Operateurs.pdf (p. 24).
     confiance: faible
     verification:
-      statut: corrige
-      par: verificateur-sonnet
+      statut: ok
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Annexe listant les agences non publiée : le montant (7,7 Md€ = 20 % de 38,5 Md€
-        de financements) n'est pas contrôlable ; risque de recouvrement avec les lignes Ademe, Anah (MaPrimeRénov'),
+        Budget réel du poste relu : jaune Opérateurs de l'État, PLF 2026 (www2.assemblee-nationale.fr,
+        22-Jaune2026_Operateurs.pdf), 73 288 M€ de financements publics aux 431 opérateurs ; −20 % sur un périmètre de
+        38,5 Md€ reste sous le plafond (11,1 Md€ hors universités et grands organismes de recherche). Montant inchangé
+        (7,7 × 1,1842 = 9,12) ; confiance faible (annexe non publiée, recouvrement possible avec Anah, Ademe et fonds
+        vert, que le contre-budget chiffre à part). Trace antérieure (verificateur-sonnet, corrige) : Citation
+        retrouvée sur l'URL. Annexe listant les agences non publiée : le montant (7,7 Md€ = 20 % de 38,5 Md€ de
+        financements) n'est pas contrôlable ; risque de recouvrement avec les lignes Ademe, Anah (MaPrimeRénov'),
         fonds vert. Règle 6 : central = annonce projetée, bas = 0 (avant 4,56), haut = central. Confiance faible.
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
         (valeur inchangée).
@@ -1738,12 +1876,17 @@ mesures:
         url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
     confiance: faible
     verification:
-      statut: corrige
-      par: verificateur-sonnet
+      statut: ok
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Charges CRE (6,25 → 7,29 Md€) relues ; contrats signés dus : plafond légal 3,12
-        (contrats non engagés), très sous les 7,2 Md€ du RN. Règle 6 : haut = central (avant 8,53), bas 0.
+        CRE, délibération 2026-149 du 15 juillet 2026, tableau 3 relu : éolien terrestre 1 157,1 + éolien en mer 965,6
+        + photovoltaïque 4 125,5 = 6 248,2 M€ (2026) ; 1 404,6 + 1 306,7 + 4 579,2 = 7 290,5 M€ (2027), soit +1,04 Md€
+        par an ; « soutien déjà engagé par l'Etat (environ +10 GWe estimés par la CRE entre 2026 et 2029) » relu.
+        Plafond (contrats signés dus) : 3,12 Md€, sous les 7,2 Md€ du RN. Paramètre annees_non_engagees (3) :
+        convention explicite, les contrats engagés jusqu'en 2029 restant dus. Trace antérieure (verificateur-sonnet,
+        corrige) : Citation retrouvée sur l'URL. Charges CRE (6,25 → 7,29 Md€) relues ; contrats signés dus : plafond
+        légal 3,12 (contrats non engagés), très sous les 7,2 Md€ du RN. Règle 6 : haut = central (avant 8,53), bas 0.
   - id: maprimerenov-en-pret-100-renov
     libelle: Remplacement de MaPrimeRénov' par un prêt à taux zéro « 100 % Rénov »
     domaine: logement
@@ -1893,18 +2036,29 @@ mesures:
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
         Chiffre du RN projeté. Les collectivités doivent équilibrer leur section de fonctionnement : la baisse améliore
-        le solde APU sauf report sur l'emprunt d'investissement (bas : moitié, convention).
+        le solde APU sauf report sur l'emprunt d'investissement ou consommation de trésorerie. Plafond (règle 6) : le
+        périmètre visé compte ≈ 11 Md€ : fraction de TVA des régions ex-DGF (« environ 5,2 milliards d'euros en 2024 »,
+        gelée en 2025 ; le rétablissement d'une DGF des régions prévu par le PLF 2026 a été abandonné dans la loi de
+        finances promulguée, ATD 31), dotation d'intercommunalité (« 1,8 milliard d'euros » en 2025) et dotation de
+        compensation du bloc communal (« 4,4 milliards d'euros en 2025 », communes et EPCI) : Sénat, rapport spécial
+        Relations avec les collectivités territoriales, PLF 2026, https://www.senat.fr/rap/l25-139-325/l25-139-32516.html.
+        Les 5 Md€ du RN tiennent dans ce périmètre ; pour les régions, la baisse porte en droit sur une fraction de TVA.
         Vérification (règle 6) : bas = 0, haut = central.
     confiance: faible
     verification:
-      statut: corrige
-      par: verificateur-sonnet
+      statut: ok
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. Baisse de dotation 5,0 Md€ (RN), non contredite ; effet solde APU dépendant de
-        l'ajustement des collectivités (hors comptage). Règle 6 : bas = 0 (avant 2,96), haut = central.
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
-        (valeur inchangée).
+        Budget réel du poste relu (Sénat, rapport spécial PLF 2026 : TVA-DGF des régions ≈ 5,2 Md€, dotation
+        d'intercommunalité 1,8 Md€, dotation de compensation 4,4 Md€) : plafond ≈ 11 Md€, non atteint. Précision
+        juridique : la loi de finances 2026 a abandonné le rétablissement de la DGF des régions (ATD 31,
+        https://atd31.fr/fr/base-doc/finances-locales/loi-de-finances/loi-de-finances-pour-2026.html) ; les régions
+        perçoivent une fraction de TVA, que la mesure réduirait. Montant inchangé (5 × 1,1842 = 5,92), confiance
+        faible (réaction des collectivités). Trace antérieure (verificateur-sonnet, corrige) : Citation retrouvée sur
+        l'URL. Baisse de dotation 5,0 Md€ (RN), non contredite ; effet solde APU dépendant de l'ajustement des
+        collectivités (hors comptage). Règle 6 : bas = 0 (avant 2,96), haut = central. Recalé sur les conventions
+        communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032 (valeur inchangée).
   - id: subventions-associations
     libelle: Baisse des subventions aux associations « ne relevant pas de l'intérêt général »
     domaine: etat
@@ -1941,19 +2095,26 @@ mesures:
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
-        Chiffre du RN projeté ; l'État verse 7,3 Md€ de subventions aux associations (jaune 2026), le tri « intérêt général
-        » n'est pas défini. Bas : moitié (convention).
+        Chiffre du RN projeté ; plafond (règle 6) : jaune « Effort financier de l'État en faveur des associations », PLF
+        2026 (https://www.assemblee-nationale.fr/dyn/dyn/contenu/visualisation/1090007/file/14-Jaune2026_Associations_Rapport.pdf)
+        : « 71,4 % des versements aux associations au niveau des programmes sont des subventions et leur montant représente
+        76,7 % des montants versés, soit 7,3 milliards d'euros » (2024), sur 9,5 Md€ de versements. Les 3,2 Md€ du RN
+        (44 % des subventions) tiennent dans ce périmètre ; le tri « intérêt général » n'est pas défini. Bas = 0 (économie
+        non réalisée).
         Vérification (règle 6) : bas = 0, haut = central.
     confiance: faible
     verification:
-      statut: corrige
-      par: verificateur-sonnet
+      statut: ok
+      par: passe-sources
       date: '2026-09-29'
       commentaire: >-
-        Citation retrouvée sur l'URL. 3,2 Md€ (RN) sous les 7,3 Md€ de subventions de l'État aux associations :
-        plafond respecté. Règle 6 : bas = 0 (avant 1,89), haut = central.
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
-        (valeur inchangée).
+        Budget réel du poste relu dans le jaune associations du PLF 2026 (subventions de l'État 7 301 M€ en 2024,
+        versements totaux 9 521 M€) : plafond non atteint (3,2 Md€ annoncés). Montant inchangé (3,2 × 1,1842 = 3,79) ;
+        confiance faible (périmètre « intérêt général » non défini, 44 % des subventions). Trace antérieure
+        (verificateur-sonnet, corrige) : Citation retrouvée sur l'URL. 3,2 Md€ (RN) sous les 7,3 Md€ de subventions de
+        l'État aux associations : plafond respecté. Règle 6 : bas = 0 (avant 1,89), haut = central. Recalé sur les
+        conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032 (valeur
+        inchangée).
   - id: train-de-vie-etat-et-petites-economies
     libelle: Train de vie de l'État, audiovisuel public, aides à la presse, CESER, plan vélo
     domaine: etat
@@ -2311,13 +2472,24 @@ mesures:
       url: >-
         https://www.lejdd.fr/politique/jordan-bardella-president-du-rn-je-nai-pas-lentreprise-honteuse-172413
       date: '2026-04-25'
-      support: presse
+      support: entretien de Jordan Bardella au JDD
     precision: vague
+    interpretation: >-
+      Entretien publié (règle 1) ; aucune reprise sur rassemblementnational.fr trouvée. Engagement déjà au programme
+      législatif 2024 (calendrier : « Sortie des règles européennes de fixation des prix de l'électricité », négociations
+      européennes, juillet 2024, rassemblementnational.fr/documents/202406-programme.pdf).
     chiffrable: false
     raison_non_chiffrable: >-
       Effet budgétaire indirect (dividendes et impôts d'EDF, charges de service public) non déterminable sans mécanisme
       précisé.
     sens_probable: incertain
+    verification:
+      statut: ok
+      par: passe-sources
+      date: '2026-09-29'
+      commentaire: >-
+        Citation : entretien publié de J. Bardella (JDD), source primaire au sens de la règle 1 ; reprise officielle
+        introuvable. Engagement confirmé par le programme 2024 (relu). Non chiffrable inchangé.
   - id: abandon-ets2-accises-carburants
     libelle: Abandon de l'ETS2 et baisse de la fiscalité des carburants au niveau européen
     domaine: energie
@@ -2387,14 +2559,22 @@ mesures:
     libelle: Toute révision de la Constitution soumise à référendum
     domaine: institutions
     citation:
-      texte: >-
-        Marine Le Pen propose que toute modification du texte fondamental ne puisse désormais être validée que par le
-        peuple via un référendum.
-      url: >-
-        https://presseagence.fr/paris-marine-le-pen-pouvoir-dachat-budget-et-institutions-au-coeur-de-son-projet/
-      date: 2026-09
-      support: presse
+      texte: Réserver au peuple seul, par référendum, le pouvoir de modifier la Constitution
+      url: https://rassemblementnational.fr/documents/202406-programme.pdf
+      date: 2024-06
+      support: programme législatif 2024 du RN (« Un projet, une méthode »)
     precision: precise
+    interpretation: >-
+      Reconfirmé en septembre 2026 (presseagence.fr : « Marine Le Pen propose que toute modification du texte fondamental
+      ne puisse désormais être validée que par le peuple via un référendum ») ; citation de presse remplacée par le
+      programme 2024.
     chiffrable: false
     raison_non_chiffrable: Réforme institutionnelle sans effet budgétaire.
     sens_probable: neutre
+    verification:
+      statut: ok
+      par: passe-sources
+      date: '2026-09-29'
+      commentaire: >-
+        Citation de presse (presseagence.fr) remplacée par la source primaire : programme 2024, page 15, relu sur le
+        PDF. Non chiffrable (institutionnel).

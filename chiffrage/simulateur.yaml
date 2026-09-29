@@ -46,14 +46,14 @@ leviers:
     axes:
       protection-sociale: 2
     effet:
-      central: -44.56
-      bas: -62.23
-      haut: -21.9
+      central: -26.58
+      bas: -44.4
+      haut: -17.65
     reprend:
     - le-pen-rn/retraites-60-62-ans
-    calcul: 'Chiffrage RN repris : retour à 62 ans (13,9 Md€) plus retour sur les mesures d''âge et de durée de 2003 à 2014
-      pour les carrières commencées avant 20 ans (Institut Montaigne, projeté en 2032) ; plus coûteux que l''option 60 ans
-      car les deux chiffrages reposent sur des sources différentes.'
+    calcul: 'Chiffrage RN repris, sur les mêmes barèmes que l''option 60 ans : retour à 62 ans (13,9 Md€), durée ramenée à
+      42 annuités (3,3 Md€) et, pour environ 35 % du coût d''un passage de tous à 60 ans et 40 annuités (convention appuyée
+      sur la part des générations ayant commencé avant 20 ans), 9,4 Md€.'
     candidats:
     - le-pen-rn
   - id: 62-ans
@@ -92,15 +92,16 @@ leviers:
     axes:
       protection-sociale: -1
     effet:
-      central: 3.3
+      central: 1.48
       bas: 0.0
-      haut: 7.9
+      haut: 4.43
     reprend:
     - philippe-horizons/retraites-travailler-plus-longtemps
     - retailleau-lr/retraites-age-63-taux-plein-65
     - zemmour-reconquete/retraite-64-voire-65
     calcul: Chiffrage Philippe repris (66 ans à terme, 3 mois par génération) ; effet 2032 limité par le calendrier. Retailleau
-      (63 ans minimum, taux plein à 65 ans) est chiffré à 4,19 et Zemmour (64 voire 65 ans) à 1,65.
+      (63 ans minimum, taux plein à 65 ans) est chiffré à 4,19 et Zemmour (64 voire 65 ans) à 1,65. [Recalé le 2026-09-29
+      sur le chiffrage de philippe-horizons.]
     candidats:
     - philippe-horizons
     - retailleau-lr
@@ -116,7 +117,7 @@ leviers:
   theme: Retraites
   question: Comment revaloriser les pensions de retraite ?
   aide: Les pensions suivent l'inflation ; un point de revalorisation de toutes les pensions coûte environ 5 Md€ par an en
-    2032, 4,3 Md€ après prélèvements (barèmes retraites_revalo_1pct et retour_prelevements_pensions).
+    2032, 4,2 Md€ après prélèvements (barèmes retraites_revalo_1pct et retour_prelevements_pensions).
   type: choix
   axe: depenses
   options:
@@ -125,12 +126,13 @@ leviers:
     axes:
       protection-sociale: -1
     effet:
-      central: 6.47
-      bas: 5.57
-      haut: 9.09
+      central: 6.36
+      bas: 5.48
+      haut: 8.93
     reprend:
     - attal-renaissance/annee-blanche-2028
-    calcul: Chiffrage Attal repris ; il couvre aussi les prestations sociales hors retraites.
+    calcul: Chiffrage Attal repris ; il couvre aussi les prestations sociales hors retraites. [Recalé le 2026-09-29 sur le
+      chiffrage de attal-renaissance.]
     candidats:
     - attal-renaissance
     montee:
@@ -175,14 +177,15 @@ leviers:
     axes:
       protection-sociale: 2
     effet:
-      central: -31.64
-      bas: -40.46
-      haut: -20.49
+      central: -29.82
+      bas: -50.4
+      haut: -19.21
     reprend:
     - melenchon-lfi/indexation-pensions-salaires
     - melenchon-lfi/pension-minimale-smic
     - melenchon-lfi/minimum-vieillesse-seuil-pauvrete
-    calcul: 'Somme des trois mesures LFI : indexation sur les salaires, pension minimale au Smic, Aspa au seuil de pauvreté.'
+    calcul: 'Somme des trois mesures LFI : indexation sur les salaires, pension minimale au Smic, Aspa au seuil de pauvreté.
+      [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.]'
     candidats:
     - melenchon-lfi
     montee:
@@ -195,8 +198,8 @@ leviers:
 - id: point-indice
   theme: Fonction publique
   question: Comment faire évoluer la rémunération des agents publics (point d'indice) ?
-  aide: Le point d'indice est gelé en droit constant ; l'indexer sur l'inflation de 2027 à 2032 coûte environ 28,6 Md€ bruts
-    en 2032, 20,6 Md€ nets des prélèvements en retour (barème indexation_point_indice_2027_2032).
+  aide: Le point d'indice est gelé en droit constant ; l'indexer sur l'inflation de 2027 à 2032 coûte environ 20,6 Md€ bruts
+    en 2032, 14,8 Md€ nets des prélèvements en retour (barème indexation_point_indice_2027_2032).
   type: choix
   axe: depenses
   options:
@@ -217,19 +220,21 @@ leviers:
       central: -5.59
       bas: -6.03
       haut: -5.1
-    calcul: '3 × point_indice_1pct_2032 (2,59) × (1 − 0,28) ; bornes : 2,68 × 0,75 et 2,5 × 0,68 (convention 12).'
+    calcul: '3 × point_indice_1pct_2032 (1,86) × (1 − 0,28) ≈ 4,0 ; bornes : 3 × 1,93 × 0,75 ≈ 4,3 et 3 × 1,80 × 0,68 ≈ 3,7
+      (convention 12).'
     candidats: []
   - id: indexation
     libelle: Indexation sur l'inflation
     axes:
       services-agents-publics: 1
     effet:
-      central: -20.59
-      bas: -24.1
-      haut: -16.05
+      central: -14.83
+      bas: -17.65
+      haut: -11.56
     reprend:
     - glucksmann-place-publique/point-indice-indexe-inflation
-    calcul: Barème indexation_point_indice_2027_2032 net (20,6), chiffrage Glucksmann repris.
+    calcul: 'Barème indexation_point_indice_2027_2032 : 20,6 Md€ brut × (1 − 0,28) ≈ 14,8 Md€ net ; chiffrage Glucksmann repris.
+      [Recalé le 2026-09-29 sur le chiffrage de glucksmann-place-publique.]'
     candidats:
     - glucksmann-place-publique
     montee:
@@ -244,12 +249,12 @@ leviers:
     axes:
       services-agents-publics: 2
     effet:
-      central: -33.22
-      bas: -37.77
-      haut: -27.4
+      central: -23.91
+      bas: -27.5
+      haut: -19.73
     reprend:
     - tondelier-ecologistes/point-indice-fonctionnaires
-    calcul: Chiffrage Tondelier repris (indexation + 10 % sur B et C).
+    calcul: Chiffrage Tondelier repris (indexation + 10 % sur B et C). [Recalé le 2026-09-29 sur le chiffrage de tondelier-ecologistes.]
     candidats:
     - tondelier-ecologistes
     montee:
@@ -264,13 +269,14 @@ leviers:
     axes:
       services-agents-publics: 2
     effet:
-      central: -41.3
-      bas: -46.51
-      haut: -34.65
+      central: -29.71
+      bas: -33.79
+      haut: -24.96
     reprend:
     - melenchon-lfi/point-indice-10-pct
     - melenchon-lfi/echelle-mobile-salaires
-    calcul: 'Somme des deux mesures LFI : +10 % du point (effet croisé compris) et indexation (échelle mobile).'
+    calcul: 'Somme des deux mesures LFI : +10 % du point (effet croisé compris) et indexation (échelle mobile). [Recalé le
+      2026-09-29 sur le chiffrage de melenchon-lfi.]'
     candidats:
     - melenchon-lfi
     montee:
@@ -284,7 +290,7 @@ leviers:
   theme: Fonction publique
   question: Combien d'agents publics ?
   aide: La fonction publique compte 5,8 millions d'agents et 136 700 départs à la retraite par an (barèmes fp_effectifs_total,
-    fp_departs_retraite_annuels) ; un poste d'enseignant pèse environ 24 000 € par an sur le solde (cout_enseignant_apu).
+    fp_departs_retraite_annuels) ; un poste d'enseignant pèse environ 25 000 € par an sur le solde (cout_enseignant_apu).
   type: choix
   axe: depenses
   options:
@@ -363,12 +369,13 @@ leviers:
   - id: suppression-activite
     libelle: La supprimer sur les revenus d'activité
     effet:
-      central: -116.26
-      bas: -124.08
-      haut: -113.43
+      central: -112.49
+      bas: -120.12
+      haut: -110.13
     reprend:
     - zemmour-reconquete/suppression-csg-activite
-    calcul: Chiffrage Zemmour repris (CSG sur les revenus d'activité, nette du retour d'impôt sur le revenu).
+    calcul: Chiffrage Zemmour repris (CSG sur les revenus d'activité, nette du retour d'impôt sur le revenu). [Recalé le 2026-09-29
+      sur le chiffrage de zemmour-reconquete.]
     candidats:
     - zemmour-reconquete
     montee:
@@ -381,12 +388,13 @@ leviers:
   - id: baisse-salaires
     libelle: La baisser sur les salaires (environ 15 Md€ rendus)
     effet:
-      central: -13.2
-      bas: -15.99
-      haut: -12.75
+      central: -12.6
+      bas: -15.28
+      haut: -12.23
     reprend:
     - glucksmann-place-publique/baisse-csg-salaires
-    calcul: 'Chiffrage Glucksmann repris (convention 5 : retour d''IR de 12 %).'
+    calcul: 'Chiffrage Glucksmann repris (net du retour d''impôt sur le revenu, barème retour_ir_csg_deductible : 16 %). [Recalé
+      le 2026-09-29 sur le chiffrage de glucksmann-place-publique.]'
     candidats:
     - glucksmann-place-publique
     montee:
@@ -410,12 +418,13 @@ leviers:
     axes:
       imposition-hauts-revenus-patrimoine: 1
     effet:
-      central: 19.11
-      bas: 11.79
-      haut: 19.55
+      central: 18.24
+      bas: 11.3
+      haut: 18.68
     reprend:
     - tondelier-ecologistes/csg-progressive-plus-un-point
-    calcul: Chiffrage Tondelier repris (un point sur toutes les assiettes, net).
+    calcul: Chiffrage Tondelier repris (un point sur toutes les assiettes, net). [Recalé le 2026-09-29 sur le chiffrage de
+      tondelier-ecologistes.]
     candidats:
     - tondelier-ecologistes
     montee:
@@ -434,14 +443,14 @@ leviers:
   axe: prelevements
   options:
   - id: baisse-forte
-    libelle: Les baisser fortement (environ 250 € nets de plus par mois au salaire médian)
+    libelle: Les baisser fortement (gain annoncé de 250 € nets par mois au salaire médian)
     effet:
-      central: -46.63
-      bas: -103.9
-      haut: -31.09
+      central: -40.68
+      bas: -89.35
+      haut: -39.47
     reprend:
     - attal-renaissance/droit-au-brut-13e-mois
-    calcul: Chiffrage Attal repris (« droit au brut »).
+    calcul: Chiffrage Attal repris (« droit au brut »). [Recalé le 2026-09-29 sur le chiffrage de attal-renaissance.]
     candidats:
     - attal-renaissance
     montee:
@@ -452,7 +461,7 @@ leviers:
       '2031': 1.0
       '2032': 1.0
   - id: baisse-15-md
-    libelle: Les baisser d'environ 15 Md€ (environ 500 € par an au salaire médian)
+    libelle: Les baisser d'environ 15 Md€ (gain annoncé d'environ 500 € nets par an au salaire médian)
     effet:
       central: -17.76
       bas: -17.76
@@ -503,12 +512,12 @@ leviers:
     axes:
       imposition-hauts-revenus-patrimoine: 1
     effet:
-      central: 17.89
+      central: 19.65
       bas: 15.77
-      haut: 21.22
+      haut: 23.29
     reprend:
     - melenchon-lfi/hausse-cotisation-vieillesse
-    calcul: Chiffrage LFI repris.
+    calcul: Chiffrage LFI repris. [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.]
     candidats:
     - melenchon-lfi
     montee:
@@ -555,12 +564,13 @@ leviers:
   - id: fiscalisation
     libelle: Les soumettre à l'impôt et aux cotisations comme les autres heures
     effet:
-      central: 6.54
+      central: 6.39
       bas: 5.2
-      haut: 6.54
+      haut: 6.39
     reprend:
     - melenchon-lfi/heures-sup-fiscalisation
     calcul: Chiffrage LFI repris ; Tondelier supprime aussi ces exonérations, compté dans le levier des cotisations patronales.
+      [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.]
     candidats:
     - melenchon-lfi
     montee:
@@ -696,14 +706,14 @@ leviers:
     axes:
       imposition-hauts-revenus-patrimoine: 1
     effet:
-      central: 4.95
+      central: 7.14
       bas: 2.7
-      haut: 15.32
+      haut: 14.68
     reprend:
     - glucksmann-place-publique/successions-pacte-dutreil
     - glucksmann-place-publique/successions-plus-values-latentes
     - glucksmann-place-publique/successions-tranche-haute-50
-    calcul: Somme des trois mesures Glucksmann.
+    calcul: Somme des trois mesures Glucksmann. [Recalé le 2026-09-29 sur le chiffrage de glucksmann-place-publique.]
     candidats:
     - glucksmann-place-publique
     montee:
@@ -718,14 +728,15 @@ leviers:
     axes:
       imposition-hauts-revenus-patrimoine: 2
     effet:
-      central: 10.0
-      bas: 1.5
-      haut: 15.0
+      central: 10.98
+      bas: 4.25
+      haut: 15.42
     reprend:
     - tondelier-ecologistes/successions-grands-heritages
     - melenchon-lfi/successions-heritage-maximal
     - melenchon-lfi/pacte-dutreil
     calcul: Chiffrage Tondelier repris (10) ; LFI (héritage maximal de 12 M€ et pacte Dutreil limité) est chiffré à 8,89.
+      [Recalé le 2026-09-29 sur le chiffrage de tondelier-ecologistes.]
     candidats:
     - tondelier-ecologistes
     - melenchon-lfi
@@ -837,8 +848,9 @@ leviers:
 - id: revenus-capital
   theme: Fiscalité des ménages
   question: Comment imposer les revenus du capital (dividendes, intérêts, plus-values) ?
-  aide: Supprimer le prélèvement forfaitaire unique de 31,4 % et imposer ces revenus au barème rapporterait de 0 à 1,7 Md€ (barème
-    pfu_passage_bareme) ; la taxe sur les transactions financières rapporte environ 2,5 Md€ (ttf_rendement).
+  aide: Le prélèvement forfaitaire unique est de 31,4 % depuis 2026 ; le supprimer et imposer ces revenus au barème rapporterait
+    de 0 à 3,1 Md€ selon la réaction des dividendes, environ 1,5 Md€ au central (barème pfu_passage_bareme) ; la taxe sur
+    les transactions financières rapporte environ 2,5 Md€ (ttf_rendement).
   type: choix
   axe: prelevements
   options:
@@ -856,12 +868,12 @@ leviers:
     axes:
       imposition-hauts-revenus-patrimoine: 1
     effet:
-      central: 0.6
+      central: 1.5
       bas: 0.0
-      haut: 1.7
+      haut: 3.1
     reprend:
     - melenchon-lfi/suppression-flat-tax
-    calcul: Barème pfu_passage_bareme, chiffrage LFI de cette seule mesure.
+    calcul: Barème pfu_passage_bareme, chiffrage LFI de cette seule mesure. [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.]
     candidats: []
     montee:
       '2027': 0.0
@@ -875,12 +887,12 @@ leviers:
     axes:
       imposition-hauts-revenus-patrimoine: 2
     effet:
-      central: 7.84
-      bas: 6.63
-      haut: 8.81
+      central: 11.36
+      bas: 7.37
+      haut: 11.63
     reprend:
     - tondelier-ecologistes/pfu-csg-capital-ttf
-    calcul: Chiffrage Tondelier repris.
+    calcul: Chiffrage Tondelier repris. [Recalé le 2026-09-29 sur le chiffrage de tondelier-ecologistes.]
     candidats:
     - tondelier-ecologistes
     montee:
@@ -895,14 +907,14 @@ leviers:
     axes:
       imposition-hauts-revenus-patrimoine: 2
     effet:
-      central: 8.65
-      bas: 0.73
-      haut: 15.16
+      central: 11.01
+      bas: 1.45
+      haut: 16.8
     reprend:
     - melenchon-lfi/suppression-flat-tax
     - melenchon-lfi/taxe-dividendes-rachats
     - melenchon-lfi/taxe-transactions-financieres
-    calcul: Somme des trois mesures LFI.
+    calcul: Somme des trois mesures LFI. [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.]
     candidats:
     - melenchon-lfi
     montee:
@@ -1057,12 +1069,12 @@ leviers:
     axes:
       soutien-entreprises: -1
     effet:
-      central: 9.32
+      central: 9.52
       bas: 3.0
-      haut: 9.32
+      haut: 9.52
     reprend:
     - melenchon-lfi/suppression-cir
-    calcul: Chiffrage LFI repris.
+    calcul: Chiffrage LFI repris. [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.]
     candidats:
     - melenchon-lfi
     montee:
@@ -1077,12 +1089,13 @@ leviers:
     axes:
       soutien-entreprises: -2
     effet:
-      central: 60.53
+      central: 55.34
       bas: 0.0
-      haut: 60.53
+      haut: 55.34
     reprend:
     - philippe-horizons/aides-entreprises-moins-50md
-    calcul: 'Chiffrage Philippe repris : 50 Md€ de 2025 projetés en 2032, bas = 0 si les aides visées ne sont pas identifiées.'
+    calcul: 'Chiffrage Philippe repris : 50 Md€ de 2025 projetés en 2032, bas = 0 si les aides visées ne sont pas identifiées.
+      [Recalé le 2026-09-29 sur le chiffrage de philippe-horizons.]'
     candidats:
     - philippe-horizons
     montee:
@@ -1095,7 +1108,7 @@ leviers:
 - id: cotisations-patronales
   theme: Entreprises
   question: Faut-il modifier les cotisations patronales et leurs allègements ?
-  aide: Les allègements généraux de cotisations patronales coûtent environ 72 Md€ par an (barème allegements_generaux_cout).
+  aide: Les allègements généraux de cotisations patronales coûtent environ 76 Md€ en 2025 (barème allegements_generaux_cout).
   type: choix
   axe: prelevements
   options:
@@ -1173,14 +1186,14 @@ leviers:
     axes:
       soutien-entreprises: -1
     effet:
-      central: 7.86
-      bas: 6.46
-      haut: 9.26
+      central: 19.51
+      bas: 15.81
+      haut: 19.9
     reprend:
     - tondelier-ecologistes/exonerations-cotisations-rationalisation
     - melenchon-lfi/exonerations-cotisations-2-smic
     calcul: Chiffrage Tondelier repris (au-delà de 1,6 Smic, heures supplémentaires comprises) ; LFI (au-delà de 2 Smic) est
-      chiffré à 5,15.
+      chiffré à 5,15. [Recalé le 2026-09-29 sur le chiffrage de tondelier-ecologistes.]
     candidats:
     - tondelier-ecologistes
     - melenchon-lfi
@@ -1194,8 +1207,9 @@ leviers:
 - id: taxes-energie
   theme: Énergie
   question: Faut-il baisser les taxes sur l'énergie (TVA, accise sur l'électricité) ?
-  aide: Passer la TVA de 20 % à 5,5 % sur l'électricité, le gaz, les carburants et le fioul coûterait environ 16,8 Md€ par
-    an ; 1 €/MWh d'accise sur l'électricité vaut environ 0,3 Md€ (barèmes tva_energie_total_5_5, accise_electricite_1_euro_mwh).
+  aide: Passer la TVA de 20 % à 5,5 % sur l'électricité, le gaz, les carburants et le fioul coûterait environ 12 Md€ par an
+    selon le Gouvernement (9 à 12,8 Md€ selon les sources) ; 1 €/MWh d'accise sur l'électricité vaut environ 0,3 Md€ (barèmes
+    tva_energie_total_5_5, accise_electricite_1_euro_mwh).
   type: choix
   axe: prelevements
   options:
@@ -1204,12 +1218,12 @@ leviers:
     axes:
       transition-ecologique: -1
     effet:
-      central: -17.0
-      bas: -20.45
-      haut: -13.0
+      central: -12.0
+      bas: -12.8
+      haut: -9.0
     reprend:
     - le-pen-rn/tva-energie-5-5
-    calcul: Chiffrage RN repris.
+    calcul: Chiffrage RN repris. [Recalé le 2026-09-29 sur le chiffrage de le-pen-rn.]
     candidats:
     - le-pen-rn
     montee:
@@ -1324,8 +1338,8 @@ leviers:
 - id: smic
   theme: Social
   question: Faut-il augmenter le Smic au-delà de sa revalorisation légale ?
-  aide: Une hausse de 1 % du Smic coûte environ 0,31 Md€ aux administrations publiques (allègements, salaires publics), davantage
-    au-delà de 10 % (barème smic_1pct_cout_apu, convention 7).
+  aide: 'Une hausse de 1 % du Smic coûte environ 0,9 Md€ par an aux administrations publiques (0,3 à 1,7 selon les hypothèses
+    : allègements, salaires publics, prestations), davantage au-delà de 10 % (barème smic_1pct_cout_apu, convention 7).'
   type: choix
   axe: depenses
   options:
@@ -1341,12 +1355,12 @@ leviers:
   - id: 1600-net
     libelle: Smic à 1 600 € nets en deux ans
     effet:
-      central: -1.06
-      bas: -11.0
-      haut: -0.82
+      central: -3.08
+      bas: -17.0
+      haut: -1.06
     reprend:
     - glucksmann-place-publique/smic-1600-net
-    calcul: Chiffrage Glucksmann repris.
+    calcul: Chiffrage Glucksmann repris. [Recalé le 2026-09-29 sur le chiffrage de glucksmann-place-publique.]
     candidats:
     - glucksmann-place-publique
     montee:
@@ -1359,12 +1373,12 @@ leviers:
   - id: 2000-brut
     libelle: Smic à 2 000 € bruts dès 2027, avec aide aux petites entreprises
     effet:
-      central: -2.09
-      bas: -7.43
-      haut: -1.62
+      central: -6.08
+      bas: -11.49
+      haut: -2.09
     reprend:
     - tondelier-ecologistes/smic-2000-brut
-    calcul: Chiffrage Tondelier repris.
+    calcul: Chiffrage Tondelier repris. [Recalé le 2026-09-29 sur le chiffrage de tondelier-ecologistes.]
     candidats:
     - tondelier-ecologistes
     montee:
@@ -1377,12 +1391,12 @@ leviers:
   - id: 1700-net
     libelle: Smic à 1 700 € nets
     effet:
-      central: -5.64
-      bas: -20.0
-      haut: -5.64
+      central: -16.37
+      bas: -30.92
+      haut: -16.37
     reprend:
     - melenchon-lfi/smic-1700-net
-    calcul: Chiffrage LFI repris.
+    calcul: Chiffrage LFI repris. [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.]
     candidats:
     - melenchon-lfi
     montee:
@@ -1404,12 +1418,12 @@ leviers:
     axes:
       protection-sociale: -1
     effet:
-      central: 4.8
+      central: 5.68
       bas: 0.0
-      haut: 4.8
+      haut: 5.68
     reprend:
     - zemmour-reconquete/rsa-limite-trois-ans
-    calcul: Chiffrage Zemmour repris (économie ciblée, bas = 0).
+    calcul: Chiffrage Zemmour repris (économie ciblée, bas = 0). [Recalé le 2026-09-29 sur le chiffrage de zemmour-reconquete.]
     candidats:
     - zemmour-reconquete
   - id: fusion-plafond
@@ -1468,13 +1482,13 @@ leviers:
     axes:
       protection-sociale: 2
     effet:
-      central: -52.63
-      bas: -87.51
-      haut: -28.8
+      central: -54.49
+      bas: -73.41
+      haut: -30.91
     reprend:
     - melenchon-lfi/garantie-autonomie
     - melenchon-lfi/aah-smic
-    calcul: Somme des deux mesures LFI.
+    calcul: Somme des deux mesures LFI. [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.]
     candidats:
     - melenchon-lfi
     montee:
@@ -1572,13 +1586,13 @@ leviers:
     axes:
       protection-sociale: 2
     effet:
-      central: -23.06
-      bas: -33.16
-      haut: -12.97
+      central: -22.51
+      bas: -32.1
+      haut: -9.45
     reprend:
     - melenchon-lfi/assurance-chomage-abrogation
     - melenchon-lfi/garantie-emploi
-    calcul: Somme des deux mesures LFI.
+    calcul: Somme des deux mesures LFI. [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.]
     candidats:
     - melenchon-lfi
     montee:
@@ -1625,13 +1639,13 @@ leviers:
     axes:
       conditions-etrangers: 2
     effet:
-      central: 8.01
+      central: 8.14
       bas: 0.0
-      haut: 8.01
+      haut: 8.14
     reprend:
     - le-pen-rn/prestations-solidarite-5-ans-travail
     - le-pen-rn/ame-en-amu
-    calcul: Somme des deux mesures RN ; bas = 0.
+    calcul: Somme des deux mesures RN ; bas = 0. [Recalé le 2026-09-29 sur le chiffrage de le-pen-rn.]
     candidats:
     - le-pen-rn
     montee:
@@ -1694,8 +1708,8 @@ leviers:
 - id: salaires-enseignants
   theme: Éducation
   question: De combien revaloriser les enseignants, au-delà du point d'indice ?
-  aide: 'Un enseignant pèse environ 24 000 € à 34 000 € par an sur le solde public, net des cotisations et des prélèvements
-    en retour (barème cout_enseignant_apu) : 10 % de hausse représentent environ 2,5 à 3 Md€.'
+  aide: 'Un enseignant pèse environ 25 000 € (entrant) à 33 000 € (agent moyen) par an sur le solde public, net des cotisations
+    et des prélèvements en retour (barème cout_enseignant_apu) : 10 % de hausse représentent environ 2,5 à 3 Md€.'
   type: choix
   axe: depenses
   options:
@@ -1735,13 +1749,14 @@ leviers:
     axes:
       services-agents-publics: 1
     effet:
-      central: -2.72
+      central: -2.6
       bas: -6.0
-      haut: -2.46
+      haut: -2.36
     reprend:
     - glucksmann-place-publique/salaires-enseignants-10-pct
     - melenchon-lfi/revalorisation-enseignants
-    calcul: Chiffrage Glucksmann repris (2,72) ; LFI (rattrapage du gel du point) est chiffré à 3,60.
+    calcul: Chiffrage Glucksmann repris (2,72) ; LFI (rattrapage du gel du point) est chiffré à 3,60. [Recalé le 2026-09-29
+      sur le chiffrage de glucksmann-place-publique.]
     candidats:
     - glucksmann-place-publique
     - melenchon-lfi
@@ -1757,12 +1772,12 @@ leviers:
     axes:
       services-agents-publics: 2
     effet:
-      central: -4.07
-      bas: -4.32
-      haut: -3.69
+      central: -3.91
+      bas: -4.14
+      haut: -3.54
     reprend:
     - tondelier-ecologistes/enseignants-plus-15pct
-    calcul: Chiffrage Tondelier repris.
+    calcul: Chiffrage Tondelier repris. [Recalé le 2026-09-29 sur le chiffrage de tondelier-ecologistes.]
     candidats:
     - tondelier-ecologistes
     montee:
@@ -1777,12 +1792,12 @@ leviers:
     axes:
       services-agents-publics: 2
     effet:
-      central: -5.43
-      bas: -6.69
-      haut: -4.93
+      central: -5.21
+      bas: -6.43
+      haut: -4.72
     reprend:
     - philippe-horizons/enseignants-plus-20pct
-    calcul: Chiffrage Philippe repris.
+    calcul: Chiffrage Philippe repris. [Recalé le 2026-09-29 sur le chiffrage de philippe-horizons.]
     candidats:
     - philippe-horizons
     montee:
@@ -1854,8 +1869,9 @@ leviers:
 - id: aide-developpement
   theme: Europe et international
   question: Quel niveau d'aide publique au développement ?
-  aide: L'aide publique au développement représente environ 0,42 % du revenu national brut, soit près de 15 Md€ en 2032 ;
-    la porter à 0,7 % coûterait environ 10 Md€ de plus (barèmes apd_part_rnb, rnb_nominal_2032).
+  aide: L'aide publique au développement représente environ 0,42 % du revenu national brut, soit environ 15 Md€ en 2032 ;
+    la porter à 0,7 % coûterait au plus environ 10 Md€ de plus, une partie de l'aide prenant la forme de prêts (barèmes apd_part_rnb,
+    rnb_nominal_2032).
   type: choix
   axe: depenses
   options:
@@ -2058,8 +2074,9 @@ leviers:
 - id: defense
   theme: Défense
   question: Combien de dépenses de défense et de service national en plus de la loi de programmation militaire ?
-  aide: 0,1 point de PIB d'effort de défense représente environ 3,6 Md€ en 2032 ; les crédits de la mission Défense sont d'environ
-    57 Md€ (barèmes defense_0_1_point_pib_2032, defense_credits_mission).
+  aide: 0,1 point de PIB d'effort de défense représente environ 3,6 Md€ en 2032 ; la loi de programmation militaire actualisée
+    (août 2026) porte les crédits de la mission Défense d'environ 57 Md€ en 2026 à 76 Md€ en 2030 (barèmes defense_0_1_point_pib_2032,
+    defense_credits_mission).
   type: curseur
   axe: depenses
   axes:
@@ -2078,8 +2095,8 @@ leviers:
 - id: education
   theme: Éducation
   question: Combien de dépenses d'éducation et de petite enfance en plus, hors salaires des enseignants ?
-  aide: 'Un poste d''enseignant pèse environ 24 000 € par an sur le solde public (barème cout_enseignant_apu) : 10 000 postes
-    représentent environ 0,24 Md€ ; taille des classes, gratuité, crèches et bâti scolaire passent par ce curseur.'
+  aide: 'Un poste d''enseignant pèse environ 25 000 € par an sur le solde public (barème cout_enseignant_apu) : 10 000 postes
+    représentent environ 0,25 Md€ ; taille des classes, gratuité, crèches et bâti scolaire passent par ce curseur.'
   type: curseur
   axe: depenses
   axes:
@@ -2100,8 +2117,9 @@ leviers:
   theme: Écologie
   question: Combien de dépenses de transition écologique en plus (investissements, adaptation, transports, énergies renouvelables),
     hors rénovation des logements ?
-  aide: Un point de PIB représente environ 36 Md€ en 2032 (barème point_pib_2032) ; ne plus signer de nouveaux contrats de soutien aux énergies
-    renouvelables intermittentes économiserait environ 3 Md€ par an en 2032 selon les programmes qui le proposent.
+  aide: Un point de PIB représente environ 36 Md€ en 2032 (barème point_pib_2032) ; le soutien public à l'éolien et au solaire
+    dépasse 6 Md€ en 2026 selon la Commission de régulation de l'énergie, surtout pour des contrats anciens, et les programmes
+    qui proposent d'y mettre fin en chiffrent l'économie à environ 3 Md€ par an.
   type: curseur
   axe: depenses
   axes:
