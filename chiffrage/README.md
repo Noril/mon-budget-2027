@@ -47,7 +47,11 @@ uv run python -m outils.chiffrage             # build/chiffrage.md, build/chiffr
    des APU, sauf la dépense nouvelle qu'ils financent. Un transfert fléché vers une dépense promise (« une fraction
    de TVA aux communes qui construisent ») compte comme cette dépense ; `haut` = 0 si la dépense n'est pas certaine.
 7. **Non chiffrable** : réformes institutionnelles, mesures sans effet budgétaire significatif (< 0,1 Md€) ou trop
-   vagues pour être lues. `raison_non_chiffrable` le dit.
+   vagues pour être lues. `raison_non_chiffrable` le dit, et `sens_probable` (coût, économie, neutre, incertain) dit
+   dans quel sens la mesure pèserait. Pour une mesure trop vague mais dont l'objet est clair, `estimation_indicative`
+   donne un ordre de grandeur (lecture la plus plausible, fourchette large, sources) : il est affiché à part et
+   **n'entre pas dans le solde principal**. Le rapport montre ainsi la couverture de chaque programme et le sens du
+   biais qu'introduisent les mesures non chiffrées.
 8. **Chiffrages tiers** : Institut Montaigne, IFRAP, OFCE, IPP, Terra Nova, Cour des comptes, COR, presse
    spécialisée. Consignés avec leur montant et leur lien ; un écart important avec notre chiffre est expliqué.
 9. **Vérification indépendante** : un second agent, qui n'a pas écrit le chiffrage, relit la citation, rejoue la
