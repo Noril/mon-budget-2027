@@ -33,7 +33,17 @@ def depenses() -> dict[tuple[str, int], float]:
 
 
 def contributions() -> dict[tuple[str, int], float]:
-    return _valeurs(LIBELLES_CONTRIBUTIONS)
+    """Ligne publiée jusqu'en 2020 ; à partir de 2021, reconstitution selon la `construction` :
+    TOTAL Own resources - Customs duties - Sugar levies + TOTAL Balances and adjustments."""
+    resultat = _valeurs(LIBELLES_CONTRIBUTIONS)
+    ressources = _valeurs("TOTAL Own resources")
+    douane = _valeurs("Customs duties")
+    sucre = _valeurs("Sugar levies")
+    ajustements = _valeurs("TOTAL Balances and adjustments")
+    for cle, valeur in ressources.items():
+        if cle in douane and cle in sucre and cle in ajustements and cle not in resultat:
+            resultat[cle] = valeur - douane[cle] - sucre[cle] + ajustements[cle]
+    return resultat
 
 
 def rnb() -> dict[tuple[str, int], float]:
