@@ -89,9 +89,9 @@ mesures:
   chiffrable: true
   nature: baisse_recette
   effet_solde_primaire:
-    central: -15.0
-    bas: -17.76
-    haut: -15.0
+    central: -13.2
+    bas: -15.99
+    haut: -12.75
     montee_en_charge:
       '2027': 0
       '2028': 1
@@ -100,7 +100,7 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: -montant * f
+    formule: -montant * f * (1 - retour_ir)
     parametres:
       montant:
         valeur: 15
@@ -112,24 +112,32 @@ mesures:
         unite: facteur
         source: https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/augmenter-les-salaires-en-taxant-les-plus-gros-heritages-la-proposition-de-raphael-glucksmann-est-elle-realiste_8076284.html
         note: montant pris en euros courants tel qu'annoncé (enveloppe fixée par le rendement des successions)
-    explication: 'Enveloppe revendiquée de 15 Md€ rendue sur les salaires, soit environ 1,0 point de CSG sur les revenus d''activité
-      en 2032 (barème csg_point_activite : 12,03 Md€ par point en 2025, ≈ 14,6 Md€ en 2032). Bas : enveloppe indexée comme
-      l''assiette salariale (15 × 1,1842, PIB 2026→2032). Montée en charge : loi de finances et LFSS votées fin 2027, effet
-      au 1er janvier 2028.'
+      retour_ir:
+        valeur: 0.12
+        unite: part du rendement de la CSG baissée qui revient en impôt sur le revenu
+        source: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS%20mai%202026_assembl%c3%a9_V2.pdf
+        note: 'convention commune n° 5 (REFERENCE.md ; limites du barème csg_point) : une baisse d''un point de CSG déductible
+          relève le revenu imposable et rend 10 à 15 % en IR ; point médian 0,12 (10,3 Md€ net par point d''activité en 2026)'
+    explication: 'Enveloppe revendiquée de 15 Md€ rendue sur les salaires, soit environ 1,1 point de CSG sur les revenus d''activité
+      (barème csg_point_activite : 11,71 Md€ par point en 2026, ≈ 13,9 Md€ en 2032). Convention commune n° 5 : la CSG sur
+      les revenus d''activité étant déductible pour 6,8 points sur 9,2, la baisse relève l''IR de 10 à 15 % de son montant
+      ; coût net = 15 × (1 − 0,12) = 13,2 Md€. Bas : enveloppe indexée comme l''assiette salariale (15 × 1,1842, facteur_pib_2026_2032)
+      et retour de 10 %. Haut : retour de 15 %. Montée en charge : loi de finances et LFSS votées fin 2027, effet au 1er janvier
+      2028.'
   chiffrages_tiers:
   - auteur: Candidat (équipe de campagne, via franceinfo)
     montant_md: -15
     url: https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/augmenter-les-salaires-en-taxant-les-plus-gros-heritages-la-proposition-de-raphael-glucksmann-est-elle-realiste_8076284.html
     date: '2026-08-25'
     commentaire: 'Coût implicite : 15 Md€ transférés sur la fiche de paie.'
-  effets_retour: Hausse du salaire net et de la consommation invoquée par le candidat, non comptée. La CSG étant en partie
-    déductible de l'IR, une baisse de CSG déductible augmente légèrement l'IR (non compté, dépend du barème de la baisse).
+  effets_retour: Hausse du salaire net et de la consommation invoquée par le candidat, non comptée. Le supplément d'IR dû
+    à la baisse de CSG déductible est compté (convention commune, 12 %) ; nul si la baisse portait sur la seule part non déductible.
   confiance: moyenne
   verification:
-    statut: ok
+    statut: corrige
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée (LCP). -15 = enveloppe annoncée (franceinfo 25/08/2026 : « récupérer 15 milliards » en taxant les 1 % des plus gros héritages) : ≈ 1,0 point de CSG activité en 2032 (12,03 Md€/pt en 2025 × 1,2106 = 14,6), cohérent ; bas 17,76 = enveloppe indexée. Le « 200 € net par mois » cité en interprétation (LCI) est incompatible avec 15 Md€ (≈ 46 € par mois et par salarié, ~ 27 M de salariés) : soit le barème réel est plus lourd que l'annonce (bas insuffisant si 200 € tous salariés = ~ 60 Md€), soit la phrase vise un cas particulier ; non chiffré, à revérifier. Pas de double compte avec les successions (gage compté à part) ; écart de financement ≈ 10 Md€ visible (15 annoncés contre ≈ 5 chiffrés)."
+    commentaire: "Citation retrouvée (LCP). -15 = enveloppe annoncée (franceinfo 25/08/2026 : « récupérer 15 milliards » en taxant les 1 % des plus gros héritages) : ≈ 1,0 point de CSG activité en 2032 (12,03 Md€/pt en 2025 × 1,2106 = 14,6), cohérent ; bas 17,76 = enveloppe indexée. Le « 200 € net par mois » cité en interprétation (LCI) est incompatible avec 15 Md€ (≈ 46 € par mois et par salarié, ~ 27 M de salariés) : soit le barème réel est plus lourd que l'annonce (bas insuffisant si 200 € tous salariés = ~ 60 Md€), soit la phrase vise un cas particulier ; non chiffré, à revérifier. Pas de double compte avec les successions (gage compté à part) ; écart de financement ≈ 10 Md€ visible (15 annoncés contre ≈ 5 chiffrés). Recalé sur les conventions communes du 29/09 : retour d'IR de la CSG déductible (12 %, fourchette 10-15 %) déduit ; −15,0 → −13,2 (bas −17,76 → −15,99 ; haut −15,0 → −12,75)."
 - id: successions-tranche-haute-50
   libelle: 'Droits de succession : taux marginal porté de 45 % à 50 % au-delà de 1,8 M€ (successions > 2 M€)'
   domaine: fiscalite-patrimoine
@@ -167,7 +175,7 @@ mesures:
       f: &id002
         valeur: 1.1842
         unite: facteur
-        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        bareme: facteur_pib_2026_2032
         note: PIB nominal 2032 / 2026 = 1,2106 (en-tête baremes.yaml, 2025→2032) / (1,00858 × 1,01358) (croissance nominale
           2026)
       part:
@@ -189,7 +197,7 @@ mesures:
     montant_md: 2
     url: https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/augmenter-les-salaires-en-taxant-les-plus-gros-heritages-la-proposition-de-raphael-glucksmann-est-elle-realiste_8076284.html
     date: '2026-08-25'
-    commentaire: Rendement revendiqué.
+    commentaire: 'Rendement revendiqué.'
   - auteur: Fondation IFRAP (sur le programme du NFP, 2024)
     montant_md: 5.0
     url: https://www.ifrap.org/budget-et-fiscalite/nouveau-front-populaire-pourquoi-le-chiffrage-du-programme-par-la-fondation-ifrap-differe-t-il-de-celui-du-parti
@@ -203,7 +211,7 @@ mesures:
     statut: ok
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée (franceinfo). Formule rejouée : 5/45 × 17 × 1,1842 × 0,5 = 1,12. Recoupement indépendant : le CAE (note 69) indique que le top 1 % des héritiers reçoit ≈ 4,2 M€ en moyenne (top 0,1 % : 13 M€) et que le top 0,1 % paie ≈ 10 % effectif : la base au-delà de 1,8 M€ est de l'ordre de 15 à 20 Md€, soit 0,8 à 1 Md€ statique à 5 points, avant évitement : le central 1,12 est déjà dans le haut de ce recoupement et le « 2 Md€ » revendiqué (89 % de tous les droits de succession dans la tranche à 45 %) n'est pas atteignable ; haut 2,24 = maximum théorique. Pas de correction (part = 0,5 reste une convention, bas = 0). Total successions (1,1 + 2,0 + 1,8 = 4,95) contre 15 annoncés : l'écart vient surtout du « 10 Md€ » de plus-values latentes ramené à 1,8 (CAE) ; la fourchette haute des trois (2,2 + 3,1 + 10 = 15,3) restitue l'annonce."
+    commentaire: "Citation retrouvée (franceinfo). Formule rejouée : 5/45 × 17 × 1,1842 × 0,5 = 1,12. Recoupement indépendant : le CAE (note 69) indique que le top 1 % des héritiers reçoit ≈ 4,2 M€ en moyenne (top 0,1 % : 13 M€) et que le top 0,1 % paie ≈ 10 % effectif : la base au-delà de 1,8 M€ est de l'ordre de 15 à 20 Md€, soit 0,8 à 1 Md€ statique à 5 points, avant évitement : le central 1,12 est déjà dans le haut de ce recoupement et le « 2 Md€ » revendiqué (89 % de tous les droits de succession dans la tranche à 45 %) n'est pas atteignable ; haut 2,24 = maximum théorique. Pas de correction (part = 0,5 reste une convention, bas = 0). Total successions (1,1 + 2,0 + 1,8 = 4,95) contre 15 annoncés : l'écart vient surtout du « 10 Md€ » de plus-values latentes ramené à 1,8 (CAE) ; la fourchette haute des trois (2,2 + 3,1 + 10 = 15,3) restitue l'annonce. Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2026_2032 ; valeur inchangée."
 - id: successions-pacte-dutreil
   libelle: Pacte Dutreil recentré (biens professionnels, reprises durables)
   domaine: fiscalite-patrimoine
@@ -397,7 +405,7 @@ mesures:
       f:
         valeur: 1.2106
         unite: facteur
-        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        bareme: facteur_pib_2025_2032
         note: PIB nominal 2032 / 2025 (en-tête de chiffrage/baremes.yaml)
     explication: 'Le SMIC est indexé par la loi (inflation + moitié du pouvoir d''achat du salaire ouvrier) : en 2029, il
       atteindrait environ 1 556 € net sans mesure ; 1 600 € demandent donc un coup de pouce d''environ 2,8 %, conservé ensuite
@@ -412,7 +420,7 @@ mesures:
     statut: ok
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée (PDF Acte I). SMIC net 1 477,93 € au 1/6/2026 confirmé (compta-online, +2,41 %). Rejoué : (1600 / (1477,93 × 1,0528) − 1) × 100 × 0,31 × 1,2106 = 1,06. Réserve : la revalorisation légale comprend aussi la moitié du gain de pouvoir d'achat des ouvriers, ignorée (base 2029 sous-estimée d'≈ 1 %) : le coup de pouce est donc un peu surestimé, coût central ≈ 0,7 à 1,1 (< 1 Md€ d'écart). Le barème DG Trésor 2017 (0,24 Md€ pour 1 %) est ancien ; la RGDU rend le coût des allègements plus sensible (bas 11 le couvre). Pas de double compte avec le point d'indice (interprétation)."
+    commentaire: "Citation retrouvée (PDF Acte I). SMIC net 1 477,93 € au 1/6/2026 confirmé (compta-online, +2,41 %). Rejoué : (1600 / (1477,93 × 1,0528) − 1) × 100 × 0,31 × 1,2106 = 1,06. Réserve : la revalorisation légale comprend aussi la moitié du gain de pouvoir d'achat des ouvriers, ignorée (base 2029 sous-estimée d'≈ 1 %) : le coup de pouce est donc un peu surestimé, coût central ≈ 0,7 à 1,1 (< 1 Md€ d'écart). Le barème DG Trésor 2017 (0,24 Md€ pour 1 %) est ancien ; la RGDU rend le coût des allègements plus sensible (bas 11 le couvre). Pas de double compte avec le point d'indice (interprétation). Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2025_2032 ; valeur inchangée."
 - id: point-indice-indexe-inflation
   libelle: Indexation du point d'indice de la fonction publique sur l'inflation et rattrapage entre ministères
   domaine: fonction-publique
@@ -432,52 +440,41 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -23.28
-    bas: -35.3
-    haut: -22.96
+    central: -20.59
+    bas: -24.1
+    haut: -16.05
     montee_en_charge:
-      '2027': 0.07
+      '2027': 0.13
       '2028': 0.3
       '2029': 0.48
       '2030': 0.66
       '2031': 0.83
       '2032': 1
   calcul:
-    formule: -(infl - 1) * 100 * pi_1pct * rapport_pib * (1 - retours)
+    formule: -indexation * (1 - retours)
     parametres:
-      infl:
-        valeur: 1.1104
-        unite: facteur
-        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
-        note: 'déflateur du PIB cumulé 2027-2032 : 1,0146 × 1,01862 × 1,01863 × 1,0186 × 1,01757 × 1,01757 (plan/hypotheses.yaml)'
-      pi_1pct:
-        valeur: 2.2
-        unite: Md€ par an pour 1 % de hausse, toutes APU
-        bareme: point_indice_1pct
-      rapport_pib:
-        valeur: 1.278
-        unite: facteur
-        source: https://www.senat.fr/rap/a25-145-5/a25-145-5.html
-        note: 'masse salariale 2032 / 2023 à part de PIB constante : PIB 2032 / PIB 2023 = 3 621 / 2 834 (dérivation du barème
-          point_indice_1pct)'
-      retours: &id001
-        valeur: 0.25
-        unite: part
-        source: https://www.senat.fr/rap/a25-145-5/a25-145-5.html
-        note: 'prélèvements revenant aux APU (CSG, cotisations salariales, IR) sur une hausse de rémunération publique : «
-          environ un quart » (limites du barème point_indice_1pct)'
-    explication: 'Droit constant (REFERENCE.md) : le point d''indice n''est indexé par aucune loi, donc gelé en référence.
-      L''indexer sur l''inflation coûte en 2032 l''inflation cumulée 2027-2032 (déflateur FMI, +11,04 %) × coût d''un point
-      (2,2 Md€ en 2023, × 1,278 pour 2032), net d''un quart de prélèvements en retour. Montée en charge = inflation cumulée
-      à chaque date (revalorisation par décret possible dès juillet 2027). Bas : barème haut (2,5 Md€) sans déduction des
-      retours, plus la convergence interministérielle non chiffrée. Haut : barème bas (2,17 Md€).'
+      indexation:
+        valeur: 28.6
+        unite: Md€ courants 2032 par an, rémunérations brutes hors cotisations employeurs
+        bareme: indexation_point_indice_2027_2032
+      retours:
+        valeur: 0.28
+        unite: part de la rémunération brute supplémentaire
+        bareme: retour_prelevements_salaires_publics
+    explication: 'Convention commune (REFERENCE.md, point 2) : point gelé à droit constant ; l''indexer sur l''inflation de
+      2027 à 2032 coûte le barème indexation_point_indice_2027_2032 (2,59 Md€ par point en 2032 × 11,03 points d''inflation
+      cumulée = 28,6 Md€ brut hors cotisations employeurs), net des prélèvements qui reviennent aux APU (× 0,72), sans projection
+      par le PIB. Montée en charge imposée par le barème (0,13 / 0,30 / 0,48 / 0,66 / 0,83 / 1). Bas : indexation sur les
+      prix à la consommation (30,8 Md€, haut du barème), retour bas (0,25) et pensions induites (≈ 1 Md€ en 2032) : −(30,8
+      × 0,75 + 1,0) = −24,1 ; la convergence interministérielle n''est pas chiffrée. Haut : bas du barème (23,6), retour haut
+      (0,32) : −16,05.'
   effets_retour: 'Attractivité de la fonction publique invoquée : non comptée.'
   confiance: moyenne
   verification:
     statut: conteste
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée. Arithmétique rejouée : 11,04 × 2,2 × 1,278 × 0,75 = 23,28. Trois réserves, non tranchées faute de source ouverte : (1) le « quart de retours » est attribué au Sénat (a25-145-5) mais n'y figure pas (la page ne donne que 7,6 Md€ pour 3,5 % et 3,4 Md€ pour 1,5 %) : hypothèse propre non sourcée, plausible (CSG-CRDS 9,7 % + cotisations salariales + IR) mais à documenter ; (2) le coût brut 2,2 Md€ inclut les cotisations employeurs, dont les contributions au CAS Pensions et à la CNRACL, flux internes aux APU, alors que salaires-enseignants-10-pct retire 35 % de CAS : traitement incohérent entre les deux mesures du même fichier (le net consolidé serait plus bas que 23,3) ; (3) la base 2032 est portée par le PIB nominal (× 1,278) alors que, point gelé, la masse n'augmente que du volume et du glissement : l'inflation est comptée deux fois (dans la base puis dans l'indexation) ; base gelée ≈ 2,6 (2,27 × 1,046 × 1,02² × 1,01⁶), soit −21,7 au lieu de −23,3 (écart ≈ 1,6 Md€). ÉCART DE CONVENTION : Tondelier compte −27,6 (11,04 × 2,5, barème haut) sans aucun retour ; Mélenchon et Glucksmann comptent −23,3 net d'un quart de retours. Sur une base brute commune, l'écart Glucksmann/Tondelier (31,0 brut contre 27,6) vient de la projection PIB. Central non modifié ; la fourchette −35,3 (sans retour, barème haut) à −22,96 couvre l'écart."
+    commentaire: "Citation retrouvée. Arithmétique rejouée : 11,04 × 2,2 × 1,278 × 0,75 = 23,28. Trois réserves, non tranchées faute de source ouverte : (1) le « quart de retours » est attribué au Sénat (a25-145-5) mais n'y figure pas (la page ne donne que 7,6 Md€ pour 3,5 % et 3,4 Md€ pour 1,5 %) : hypothèse propre non sourcée, plausible (CSG-CRDS 9,7 % + cotisations salariales + IR) mais à documenter ; (2) le coût brut 2,2 Md€ inclut les cotisations employeurs, dont les contributions au CAS Pensions et à la CNRACL, flux internes aux APU, alors que salaires-enseignants-10-pct retire 35 % de CAS : traitement incohérent entre les deux mesures du même fichier (le net consolidé serait plus bas que 23,3) ; (3) la base 2032 est portée par le PIB nominal (× 1,278) alors que, point gelé, la masse n'augmente que du volume et du glissement : l'inflation est comptée deux fois (dans la base puis dans l'indexation) ; base gelée ≈ 2,6 (2,27 × 1,046 × 1,02² × 1,01⁶), soit −21,7 au lieu de −23,3 (écart ≈ 1,6 Md€). ÉCART DE CONVENTION : Tondelier compte −27,6 (11,04 × 2,5, barème haut) sans aucun retour ; Mélenchon et Glucksmann comptent −23,3 net d'un quart de retours. Sur une base brute commune, l'écart Glucksmann/Tondelier (31,0 brut contre 27,6) vient de la projection PIB. Central non modifié ; la fourchette −35,3 (sans retour, barème haut) à −22,96 couvre l'écart. Recalé sur les conventions communes du 29/09 : barème indexation_point_indice_2027_2032 (28,6 Md€ brut hors cotisations employeurs, sans projection PIB) net du retour 0,28 (au lieu du « quart » non sourcé), montée en charge imposée (0,13 en 2027) ; −23,28 → −20,59 (bas −35,3 → −24,1 avec pensions induites ; haut −22,96 → −16,05). Les trois réserves ci-dessus sont levées par la convention."
 - id: abrogation-reforme-retraites-2023
   libelle: Abrogation de la réforme des retraites de 2023, puis réforme fondée sur la pénibilité et l'espérance de vie
   domaine: retraites
@@ -518,7 +515,10 @@ mesures:
       les générations qui auraient vu leur âge relevé à partir de 2028 (profil conventionnel ; le COR situe l''effet maximal
       vers 2032).'
   effets_retour: 'Moindre emploi des seniors et moindres recettes de cotisations au-delà du périmètre du barème, et effets
-    sur le chômage des seniors : non comptés.'
+    sur le chômage des seniors : non comptés (convention commune n° 4 : le central porte sur le solde du système de retraite).
+    Coût pour l''ensemble des APU, effets d''emploi compris : la DG Trésor chiffre le gain total de la réforme 2023 à 24,2
+    Md€ constants 2024 en 2030 (contre 9,7 Md€ pour le seul système ; Cour des comptes, tableau n° 5), soit un coût complet
+    de l''abrogation de l''ordre de 25 Md€ en 2032.'
   confiance: moyenne
   verification:
     statut: ok
@@ -561,7 +561,7 @@ mesures:
       f:
         valeur: 1.157
         unite: facteur
-        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        bareme: facteur_pib_2027_2032
         note: PIB nominal 2032 / 2027 = 1,1842 / (1,00876 × 1,0146)
     explication: 'Lecture centrale : « la réforme Macron » = réforme de 2023 (baisse de 25 % des durées d''indemnisation),
       chiffrée par l''Unédic à 4,5 Md€ par an à pleine charge (2027), projetée en 2032 avec le PIB nominal (× 1,157). Bas
@@ -574,7 +574,7 @@ mesures:
     statut: ok
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée. Unédic relue : moindres dépenses « de l'ordre de 4,5 Md€ par an » à l'horizon 2027 pour la réforme de contracyclicité, conjoncture stable. 4,5 × 1,157 = 5,21 rejoué. Réserves : les économies Unédic sont brutes : une part des allocataires sortis de droits bascule vers l'ASS et le RSA (coût État), ce qui réduirait le coût net d'abrogation pour les APU (favorable au solde, dans le haut de la fourchette) ; l'effet de contracyclicité dépend du taux de chômage (< 9 % : durées réduites de 25 %). Bornes cohérentes."
+    commentaire: "Citation retrouvée. Unédic relue : moindres dépenses « de l'ordre de 4,5 Md€ par an » à l'horizon 2027 pour la réforme de contracyclicité, conjoncture stable. 4,5 × 1,157 = 5,21 rejoué. Réserves : les économies Unédic sont brutes : une part des allocataires sortis de droits bascule vers l'ASS et le RSA (coût État), ce qui réduirait le coût net d'abrogation pour les APU (favorable au solde, dans le haut de la fourchette) ; l'effet de contracyclicité dépend du taux de chômage (< 9 % : durées réduites de 25 %). Bornes cohérentes. Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2027_2032 ; valeur inchangée."
 - id: minimum-social-unique-18-ans
   libelle: Minimum social unique ouvert dès 18 ans
   domaine: solidarite
@@ -897,9 +897,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -3.9
-    bas: -7.11
-    haut: -3.74
+    central: -2.72
+    bas: -6.0
+    haut: -2.46
     montee_en_charge:
       '2027': 0
       '2028': 0.2
@@ -908,35 +908,30 @@ mesures:
       '2031': 0.8
       '2032': 1
   calcul:
-    formule: -hausse * cout_enseignant * etpt * part_hors_cas * (1 - retours) * f / 1e9
+    formule: -hausse * salaire_moyen_net * etpt / 1e9
     parametres:
       hausse:
         valeur: 0.1
         unite: part
         source: https://www.franceinfo.fr/elections/presidentielle/le-candidat-a-l-election-presidentielle-raphael-glucksmann-veut-augmenter-de-10-les-salaires-de-tous-les-enseignants_8169542.html
         note: « une augmentation pour tous [les enseignants] de 10% »
-      cout_enseignant:
-        valeur: 85000
-        unite: € par ETPT et par an
-        bareme: cout_enseignant_charge
+      salaire_moyen_net:
+        valeur: 34200
+        unite: € par ETP et par an (enseignant moyen, rémunération brute hors cotisations employeurs nette des retours)
+        bareme: cout_enseignant_apu
+        note: haut du barème (agent en place), à utiliser pour une revalorisation (convention commune n° 1)
       etpt:
         valeur: 793863
         unite: ETPT
         source: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
         note: programmes 140 (341 897) et 141 (451 966), PLF 2026 (dérivation du barème cout_enseignant_charge)
-      part_hors_cas:
-        valeur: 0.65
-        unite: part
-        source: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
-        note: le CAS Pensions représente ≈ 35 % du titre 2 (limites du barème cout_enseignant_charge) ; la contribution au
-          CAS est un flux interne à l'État
-      retours: *id001
-      f: *id002
-    explication: '+10 % sur la rémunération hors CAS des enseignants du public (793 863 ETPT × 85 000 € × 65 %), net d''un
-      quart de prélèvements en retour, porté en 2032 (× 1,1842), montée en charge sur cinq ans (Acte I : revalorisation «
-      planifiée sur 5 ans »). Bas : coût annoncé par le candidat, « 6 milliards en tout », qui inclut la composante carrière
-      (jusqu''à +25 %) et sans doute le privé sous contrat, porté en 2032 (6 × 1,1842). Haut : coût moyen bas du barème (81
-      500 €). Les pensions futures, calculées sur le dernier traitement, augmenteront après 2032 (non compté).'
+    explication: 'Convention commune (REFERENCE.md, point 1) : +10 % sur la rémunération brute hors cotisations employeurs
+      (le CAS Pensions est un flux interne aux APU) des enseignants du public, nette des prélèvements en retour : 793 863 ETPT
+      × 34 200 € (haut du barème cout_enseignant_apu, enseignant moyen : 45 640 € brut × 0,75) × 10 %. Pas de projection
+      par le PIB : à droit constant le point est gelé. Montée en charge sur cinq ans (Acte I : revalorisation « planifiée sur
+      5 ans »). Bas : coût annoncé par le candidat, « 6 milliards en tout », qui inclut la composante carrière (jusqu''à +25
+      %) et sans doute le privé sous contrat, pris tel quel. Haut : retour haut (0,32 au lieu de 0,25) : × 0,68 / 0,75. Les
+      pensions futures, calculées sur le dernier traitement, augmenteront après 2032 (non compté).'
   chiffrages_tiers:
   - auteur: Candidat
     montant_md: -6
@@ -949,7 +944,7 @@ mesures:
     statut: corrige
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée (franceinfo, « coûte 6 milliards en tout », écart d'espace avant la virgule). Rejoué : 0,1 × 85 000 × 793 863 × 0,65 × 0,75 × 1,1842 = 3,90. Correction sans effet sur le montant : l'interprétation disait « public et privé sous contrat » alors que le calcul ne porte que sur le public (793 863 ETPT, programmes 140 et 141) ; texte aligné, privé sous contrat (≈ +15 %) signalé. Réserve : le central ne chiffre que le +10 % ; le coût annoncé (6 Md€, composante carrière jusqu'à +25 %) est en bas de fourchette (7,11) ; l'écart au coût annoncé (−3,9 contre −6 en euros courants) reste à documenter. Effet croisé avec l'indexation du point (≈ 0,4) non compté, signalé. Convention 0,65 × 0,75 différente de celle du point d'indice (voir cette mesure)."
+    commentaire: "Citation retrouvée (franceinfo, « coûte 6 milliards en tout », écart d'espace avant la virgule). Rejoué : 0,1 × 85 000 × 793 863 × 0,65 × 0,75 × 1,1842 = 3,90. Correction sans effet sur le montant : l'interprétation disait « public et privé sous contrat » alors que le calcul ne porte que sur le public (793 863 ETPT, programmes 140 et 141) ; texte aligné, privé sous contrat (≈ +15 %) signalé. Réserve : le central ne chiffre que le +10 % ; le coût annoncé (6 Md€, composante carrière jusqu'à +25 %) est en bas de fourchette (7,11) ; l'écart au coût annoncé (−3,9 contre −6 en euros courants) reste à documenter. Effet croisé avec l'indexation du point (≈ 0,4) non compté, signalé. Convention 0,65 × 0,75 différente de celle du point d'indice (voir cette mesure). Recalé sur les conventions communes du 29/09 : coût chargé (85 000 € × 65 % hors CAS × 0,75) et projection PIB (× 1,1842) remplacés par le salaire moyen du barème cout_enseignant_apu (34 200 €, brut hors cotisations employeurs net des retours), sans projection (point gelé) ; −3,90 → −2,72 (bas −7,11 → −6,0, coût annoncé non projeté ; haut −3,74 → −2,46)."
 - id: encadrement-eleves-primaire
   libelle: Baisse du nombre d'élèves par enseignant en primaire (maintien des postes malgré la baisse démographique)
   domaine: education
@@ -1190,9 +1185,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -11.59
-    bas: -12.0
-    haut: -7.97
+    central: -10.32
+    bas: -11.79
+    haut: -8.11
     montee_en_charge:
       '2027': 0
       '2028': 0.2
@@ -1201,36 +1196,36 @@ mesures:
       '2031': 0.8
       '2032': 1
   calcul:
-    formule: -(cible - niveau_2026) / 100 * pib_2032
+    formule: -(cible - niveau) / 100 * rnb_2032
     parametres:
       cible:
         valeur: 0.7
         unite: '% du RNB'
         source: https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf
         note: « atteindre progressivement 0,7 % du RNB »
-      niveau_2026:
-        valeur: 0.38
+      niveau:
+        valeur: 0.42
         unite: '% du RNB'
-        source: https://www.alternatives-economiques.fr/aide-au-developpement-la-france-s-eloigne-de-son-objectif-au-detriment-des-pays-les-plus-pauvres_04
-        note: « Après adoption du budget 2026, l'enveloppe pourrait retomber à 0,38 % »
-      pib_2032:
-        valeur: 3621
+        bareme: apd_part_rnb
+        note: 'niveau 2025 (données préliminaires) ; bas : 0,38 % « après adoption du budget 2026 » selon Alternatives Économiques
+          (https://www.alternatives-economiques.fr/aide-au-developpement-la-france-s-eloigne-de-son-objectif-au-detriment-des-pays-les-plus-pauvres_04)'
+      rnb_2032:
+        valeur: 3685
         unite: Md€ courants
-        bareme: pib_nominal_2032
-        note: RNB approché par le PIB (écart de l'ordre de 1 à 2 %)
-    explication: 'Écart entre 0,7 % et le niveau 2026 (0,38 %, droit constant) appliqué au PIB 2032, trajectoire linéaire
-      jusqu''en 2032. Haut : écart calculé depuis 0,48 % (niveau 2024), si « progressivement » laisse la cible au-delà de
-      2032 ou si une partie de l''effort est comptée hors budget (annulations de dettes, frais d''accueil des réfugiés et
-      des étudiants). Bas : RNB supérieur au PIB (France : revenus primaires nets positifs, RNB ≈ PIB × 1,03 ; 0,48 % du RNB
-      = 15 Md€ en 2024 selon la source, soit un RNB proche de 3 100 Md€ pour un PIB de 2 920), soit −0,32 % × 3 621 × 1,03
-      ≈ −12,0.'
+        bareme: rnb_nominal_2032
+    explication: 'Convention commune n° 10 : écart entre 0,7 % et le niveau de référence (barème apd_part_rnb, 0,42 % en 2025)
+      appliqué au RNB 2032 (barème rnb_nominal_2032), trajectoire linéaire jusqu''en 2032. C''est un majorant : l''APD au
+      sens de l''OCDE comprend des prêts (en équivalent-don), des annulations de dette et des frais d''accueil qui ne sont
+      pas des dépenses budgétaires. Bas : depuis 0,38 % (niveau 2026 annoncé après le budget 2026), −0,32 % × 3 685. Haut
+      : depuis 0,48 % (niveau 2024), si « progressivement » laisse la cible au-delà de 2032 ou si une partie de l''effort est
+      comptée hors budget, −0,22 % × 3 685.'
   effets_retour: 'Effets diplomatiques et migratoires invoqués : non comptés.'
   confiance: moyenne
   verification:
     statut: corrige
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée (PDF Acte I). Alternatives Économiques relu : 0,48 % du RNB en 2024 (15 Md€), « pourrait retomber à 0,38 % » après le budget 2026. Rejoué −(0,7 − 0,38)/100 × 3 621 = −11,59. Correction du bas (−11,59 → −12,0) : RNB > PIB (0,48 % = 15 Md€ implique un RNB d'≈ 3 100 Md€ contre un PIB de 2 920), l'hypothèse « écart de 1 à 2 % » de la note est trop basse. Central inchangé (écart < 0,4 Md€). Réserve importante : l'APD au sens OCDE inclut des composantes hors dépense budgétaire (équivalent-don des prêts, annulations de dette, accueil des réfugiés, contribution UE) ; la montée à 0,7 % ne coûte donc pas tout en solde primaire : la borne haute (−7,97) est plutôt un plancher de prudence que de l'optimisme. Le niveau 0,38 % est une projection « pourrait » (conditionnel)."
+    commentaire: "Citation retrouvée (PDF Acte I). Alternatives Économiques relu : 0,48 % du RNB en 2024 (15 Md€), « pourrait retomber à 0,38 % » après le budget 2026. Rejoué −(0,7 − 0,38)/100 × 3 621 = −11,59. Correction du bas (−11,59 → −12,0) : RNB > PIB (0,48 % = 15 Md€ implique un RNB d'≈ 3 100 Md€ contre un PIB de 2 920), l'hypothèse « écart de 1 à 2 % » de la note est trop basse. Central inchangé (écart < 0,4 Md€). Réserve importante : l'APD au sens OCDE inclut des composantes hors dépense budgétaire (équivalent-don des prêts, annulations de dette, accueil des réfugiés, contribution UE) ; la montée à 0,7 % ne coûte donc pas tout en solde primaire : la borne haute (−7,97) est plutôt un plancher de prudence que de l'optimisme. Le niveau 0,38 % est une projection « pourrait » (conditionnel). Recalé sur les conventions communes du 29/09 : assiette RNB 2032 (barème rnb_nominal_2032, 3 685 Md€) au lieu du PIB, niveau de départ harmonisé sur le barème apd_part_rnb (0,42 %, le 0,38 % conditionnel passe en bas), chiffre présenté comme majorant ; −11,59 → −10,32 (bas −12,0 → −11,79 ; haut −7,97 → −8,11)."
 - id: defense-reserve-industrie-ukraine
   libelle: 'Effort de défense : production industrielle, drones et spatial, cyber, réserve opérationnelle, aide militaire
     à l''Ukraine'
