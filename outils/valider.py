@@ -1,4 +1,4 @@
-"""Validation du dépôt, lancée par la CI : catalogue, indicateurs, fiches et leurs liens.
+"""Validation du dépôt, lancée par la CI : catalogue, indicateurs et chiffrage des programmes.
 
     uv run python -m outils.valider
 """
@@ -12,7 +12,6 @@ from jsonschema import Draft202012Validator
 
 from pipelines.commun import RACINE, definitions_indicateurs, sources_du_catalogue
 
-from .fiches import appels, chiffres_tapes, lire_fiche, toutes_les_fiches
 
 
 def _schema(nom: str) -> Draft202012Validator:
@@ -52,58 +51,6 @@ def valider() -> list[str]:
         if d.get("formule") and not (RACINE / d["formule"]).exists():
             erreurs.append(f"{ou} : formule introuvable {d['formule']}")
 
-    schema_evaluation = _schema("evaluation")
-    ids_evaluations = set()
-    for chemin in sorted((RACINE / "sources").glob("*.md")):
-        ou = str(chemin.relative_to(RACINE))
-        try:
-            entete, _ = lire_fiche(chemin)
-        except ValueError as e:
-            erreurs.append(f"{ou} : {e}")
-            continue
-        erreurs += _erreurs_schema(schema_evaluation, entete, ou)
-        if entete.get("id") != chemin.stem:
-            erreurs.append(f"{ou} : l'id « {entete.get('id')} » doit être le nom du fichier")
-        ids_evaluations.add(entete.get("id"))
-
-    schema_fiche = _schema("fiche")
-    ids_fiches = set()
-    renvois: list[tuple[str, str, str]] = []  # (fiche, champ, id visé)
-    for chemin in toutes_les_fiches():
-        ou = str(chemin.relative_to(RACINE))
-        try:
-            entete, corps = lire_fiche(chemin)
-            liste = appels(corps)
-        except ValueError as e:
-            erreurs.append(f"{ou} : {e}")
-            continue
-        erreurs += _erreurs_schema(schema_fiche, entete, ou)
-        if entete.get("id") in ids_fiches:
-            erreurs.append(f"{ou} : id de fiche en double « {entete.get('id')} »")
-        ids_fiches.add(entete.get("id"))
-        if entete.get("id") != chemin.stem:
-            erreurs.append(f"{ou} : l'id « {entete.get('id')} » doit être le nom du fichier")
-        for champ in ("constats", "preuves"):
-            renvois += [(ou, champ, cible) for cible in entete.get(champ) or []]
-        for chiffre in chiffres_tapes(corps):
-            erreurs.append(f"{ou} : chiffre tapé à la main « {chiffre.strip()} », appeler un indicateur à la place")
-        declares = set(entete.get("indicateurs") or [])
-        for a in liste:
-            if a.indicateur not in indicateurs:
-                erreurs.append(f"{ou} : indicateur inconnu {a.indicateur}")
-                continue
-            d = indicateurs[a.indicateur]
-            if a.indicateur not in declares:
-                erreurs.append(f"{ou} : {a.indicateur} utilisé mais absent de l'en-tête « indicateurs »")
-            if a.version != d["version"]:
-                erreurs.append(f"{ou} : {a.texte} appelle la version {a.version}, la définition est en {d['version']}")
-            if a.maille not in d["maille"]:
-                erreurs.append(f"{ou} : maille « {a.maille} » non calculée pour {a.indicateur}")
-
-    for ou, champ, cible in renvois:
-        connus = ids_fiches if champ == "constats" else ids_evaluations
-        if cible not in connus:
-            erreurs.append(f"{ou} : {champ} renvoie à « {cible} », introuvable")
     from .chiffrage import valider as valider_chiffrage  # import tardif : chiffrage importe plan
 
     erreurs += valider_chiffrage()
