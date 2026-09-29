@@ -64,3 +64,14 @@ Elles s'appliquent à tous les programmes ; le détail et les sources sont dans 
     de l'OCDE n'est pas qu'une dépense budgétaire.
 11. **Projection en euros 2032.** Barèmes `facteur_pib_<année>_2032` pour les montants qui suivent l'activité ;
     pas de projection pour ce qui est gelé à droit constant.
+12. **Lectures communes des bornes.**
+    - Postes créés ou supprimés : entrant (`cout_*_apu`) au central, agent moyen (haut du barème) dans la borne
+      défavorable au solde.
+    - Revalorisation ciblée d'agents en place : taux × effectifs × haut du barème `cout_*_apu`, sans facteur PIB.
+    - Hausse de x % du point : borne défavorable = barème haut avec retour 0,25 ; borne favorable = barème bas avec
+      retour 0,32. L'effet croisé avec une indexation promise va dans la ligne de la hausse.
+    - CSG déductible : retour d'impôt sur le revenu de 0,12 au central (0,10 à 0,15) ; aucun sur la CSG du capital.
+    - Cotisation vieillesse de type non précisé : central du barème, sans retour.
+    - APD : départ à `apd_part_rnb` sur `rnb_nominal_2032`, borne défavorable depuis 0,38 %.
+    - Retraites (âge) : les bornes n'incluent pas le coût toutes administrations.
+    - Smic au-delà de 10 % : le produit linéaire est la borne favorable.
