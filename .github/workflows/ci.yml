@@ -59,8 +59,8 @@ jobs:
         run: uv run python -m outils.simulateur
       - name: Jeu de cartes
         run: uv run python -m outils.jeu
-      - name: Site public (aperçu)
-        run: uv run python -m outils.site --brouillon
+      - name: Site public
+        run: uv run python -m outils.site
       - uses: actions/upload-artifact@v4
         with:
           name: chiffrage-et-lignage
