@@ -31,3 +31,9 @@ def test_simulateur_valide():
     from outils import simulateur
 
     assert simulateur.valider() == []
+
+
+def test_cartes_du_jeu_valides():
+    from outils import jeu
+
+    assert jeu.valider() == []

@@ -174,6 +174,11 @@ D.leviers.forEach(l => (parTheme[l.theme] ??= []).push(l));
 const defaut = l => l.type === "choix" ? l.options.find(o => o.defaut).id : 0;
 const candidat = id => D.candidats.find(c => c.id === id);
 const court = c => c.nom.split(" ").slice(1).join(" ");
+function placer(occupees, x, y) {  // décale verticalement une étiquette qui en chevauche une autre
+  let yy = y;
+  while (occupees.some(o => Math.abs(o.x - x) < 70 && Math.abs(o.y - yy) < 11)) yy += 11;
+  occupees.push({x, y: yy}); return yy;
+}
 
 function effet(l, v) {
   if (l.type === "choix") { const o = l.options.find(o => o.id === v); return {...o.effet, montee: o.montee}; }
@@ -271,9 +276,11 @@ function svgCarte(moi) {
   let s = `<line x1="${m}" x2="${W - m}" y1="${H / 2}" y2="${H / 2}" class="grille"/><line y1="${m / 2}" y2="${H - m / 2}" x1="${W / 2}" x2="${W / 2}" class="grille"/>
     <text x="${W - m}" y="${H / 2 - 5}" text-anchor="end" class="axe">plus de dépenses →</text><text x="${m}" y="${H / 2 - 5}" class="axe">← moins de dépenses</text>
     <text x="${W / 2 + 5}" y="${m / 2 + 8}" class="axe">↑ plus d'impôts</text><text x="${W / 2 + 5}" y="${H - m / 2}" class="axe">↓ moins d'impôts</text>`;
-  for (const p of pts) {
-    if (p.moi) s += `<circle cx="${x(p.dep)}" cy="${y(p.prel)}" r="8" fill="var(--acc)" stroke="var(--card)" stroke-width="2"><title>Vous</title></circle><text x="${x(p.dep) + 10}" y="${y(p.prel) + 4}" font-size="11" font-weight="700" fill="var(--acc)">Vous</text>`;
-    else s += `<circle cx="${x(p.dep)}" cy="${y(p.prel)}" r="5" fill="${p.c.couleur}"><title>${p.c.nom} : dépenses ${fmt(p.dep)}, prélèvements ${fmt(p.prel)} Md€</title></circle><text x="${x(p.dep) + (x(p.dep) > W - 90 ? -7 : 7)}" y="${y(p.prel) + 3}" text-anchor="${x(p.dep) > W - 90 ? "end" : "start"}" font-size="10" fill="${p.c.couleur}">${court(p.c)}</text>`;
+  const occ = [];
+  for (const p of [...pts].sort((a, b) => (b.moi ? 1 : 0) - (a.moi ? 1 : 0))) {
+    const ly = placer(occ, x(p.dep), y(p.prel));
+    if (p.moi) s += `<circle cx="${x(p.dep)}" cy="${y(p.prel)}" r="8" fill="var(--acc)" stroke="var(--card)" stroke-width="2"><title>Vous</title></circle><text x="${x(p.dep) + 10}" y="${ly + 4}" font-size="11" font-weight="700" fill="var(--acc)">Vous</text>`;
+    else s += `<circle cx="${x(p.dep)}" cy="${y(p.prel)}" r="5" fill="${p.c.couleur}"><title>${p.c.nom} : dépenses ${fmt(p.dep)}, prélèvements ${fmt(p.prel)} Md€</title></circle><text x="${x(p.dep) + (x(p.dep) > W - 90 ? -7 : 7)}" y="${ly + 3}" text-anchor="${x(p.dep) > W - 90 ? "end" : "start"}" font-size="10" fill="${p.c.couleur}">${court(p.c)}</text>`;
   }
   return s;
 }

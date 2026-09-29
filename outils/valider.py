@@ -57,6 +57,9 @@ def valider() -> list[str]:
     from .simulateur import valider as valider_simulateur
 
     erreurs += valider_simulateur()
+    from .jeu import valider as valider_jeu
+
+    erreurs += valider_jeu()
     return erreurs
 
 
