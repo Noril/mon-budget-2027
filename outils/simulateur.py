@@ -45,6 +45,19 @@ def lire_leviers() -> dict:
     return json.loads(json.dumps(yaml.safe_load(LEVIERS.read_text(encoding="utf-8")), default=str))
 
 
+def groupes_repris(option: dict, programmes: dict[str, dict]) -> dict[str, dict[str, float]]:
+    """Somme des effets (central, bas, haut) des mesures reprises par une option, par programme."""
+    g: dict[str, dict[str, float]] = {}
+    for r in option.get("reprend", []):
+        prog, mes = r.split("/")
+        e = programmes.get(prog, {}).get(mes, {}).get("effet_solde_primaire")
+        if e:
+            s = g.setdefault(prog, {"central": 0.0, "bas": 0.0, "haut": 0.0})
+            for k in s:
+                s[k] += e[k]
+    return g
+
+
 def valider(doc: dict | None = None) -> list[str]:
     if not LEVIERS.exists():
         return []
@@ -77,6 +90,11 @@ def valider(doc: dict | None = None) -> list[str]:
                     prog, mes = r.split("/")
                     if mes not in programmes.get(prog, {}):
                         erreurs.append(f"{ou}/{o['id']} : mesure reprise introuvable « {r} »")
+                groupes = groupes_repris(o, programmes)
+                if groupes and not any(abs(s["central"] - e["central"]) <= TOLERANCE_REPRISE for s in groupes.values()):
+                    repris = ", ".join(f"{p} {s['central']:.2f}" for p, s in groupes.items())
+                    erreurs.append(f"{ou}/{o['id']} : désynchronisée du chiffrage repris ({e['central']} contre {repris}) : "
+                                   "`uv run python -m outils.simulateur --synchroniser`")
             for c in programmes:
                 if sum(c in o.get("candidats", []) for o in opts) > 1:
                     erreurs.append(f"{ou} : « {c} » associé à plusieurs options")
@@ -96,6 +114,25 @@ def valider(doc: dict | None = None) -> list[str]:
             if a not in AXES:
                 erreurs.append(f"{ou} : axe inconnu « {a} »")
     return erreurs
+
+
+def synchroniser() -> None:
+    """Recale l'effet des options désynchronisées sur les mesures reprises du premier candidat de l'option."""
+    texte = LEVIERS.read_text(encoding="utf-8")
+    entete = "".join(l for l in texte.splitlines(keepends=True)[:50] if l.startswith("#")) if texte.startswith("#") else ""
+    doc = yaml.safe_load(texte)
+    programmes = {p["id"]: {m["id"]: m for m in p["mesures"]} for _, p in lire_programmes()}
+    for l in doc["leviers"]:
+        for o in l.get("options", []):
+            groupes = groupes_repris(o, programmes)
+            if not groupes or any(abs(s["central"] - o["effet"]["central"]) <= TOLERANCE_REPRISE for s in groupes.values()):
+                continue
+            ref = next((c for c in o.get("candidats", []) if c in groupes), next(iter(groupes)))
+            s = {k: round(v, 2) for k, v in groupes[ref].items()}
+            print(f"  ~ {l['id']}/{o['id']} : {o['effet']['central']} -> {s['central']} (d'après {ref})")
+            o["effet"] = s
+            o["calcul"] = (o.get("calcul", "") + f" [Recalé le {date.today().isoformat()} sur le chiffrage de {ref}.]").strip()
+    LEVIERS.write_text(entete + yaml.safe_dump(doc, allow_unicode=True, sort_keys=False, width=120), encoding="utf-8")
 
 
 def donnees() -> dict:
@@ -408,10 +445,14 @@ charger(initial);
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--valider", action="store_true")
+    parser.add_argument("--synchroniser", action="store_true",
+                        help="recale les options qui reprennent des mesures sur leur chiffrage actuel")
     args = parser.parse_args(argv)
     if not LEVIERS.exists():
         print("chiffrage/simulateur.yaml absent : simulateur non généré")
         return 0
+    if args.synchroniser:
+        synchroniser()
     erreurs = valider()
     for e in erreurs:
         print(f"ÉCHEC {e}", file=sys.stderr)
