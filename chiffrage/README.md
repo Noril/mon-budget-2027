@@ -57,6 +57,24 @@ uv run python -m outils.chiffrage             # build/chiffrage.md, build/chiffr
 9. **Vérification indépendante** : un second agent, qui n'a pas écrit le chiffrage, relit la citation, rejoue la
    formule, contrôle les paramètres dans les sources et renseigne `verification` (ok, corrige, conteste).
 
+## Notes de précision et de confiance
+
+Deux notes sur 100, traduites en lettres (AAA ≥ 85, AA ≥ 75, A ≥ 65, BBB ≥ 55, BB ≥ 45, B ≥ 35, CCC en dessous),
+calculées par `outils/chiffrage.py` (`noter`) à partir des champs des fichiers de programme :
+
+| Note | Composante | Poids | Calcul |
+| --- | --- | --- | --- |
+| Précision du programme | Couverture | 40 % | mesures chiffrées / mesures à effet budgétaire probable (chiffrées + non chiffrées de sens coût, économie ou incertain) |
+| | Précision des promesses | 30 % | moyenne sur les mesures budgétaires : précise 1, partielle 0,5, vague 0 |
+| | Économies documentées | 20 % | économies et recettes chiffrées / (celles-ci + enveloppes annoncées sans mesure) |
+| | Chiffrage publié | 10 % | coût et financement globaux publiés par le candidat : 1, l'un des deux : 0,5, aucun : 0 |
+| Confiance du chiffrage | Confiance par mesure | 35 % | haute 1, moyenne 0,6, faible 0,25, pondéré par le montant |
+| | Vérification indépendante | 25 % | confirmée ou corrigée 1, contestée 0, non vérifiée 0,5, pondéré par le montant |
+| | Étroitesse des fourchettes | 25 % | 1 − largeur cumulée des fourchettes / (2 × mouvements bruts), hors enveloppes |
+| | Barèmes communs | 15 % | part des paramètres tirés de `baremes.yaml`, pondérée par le montant de la mesure |
+
+Les poids sont un choix, à discuter : ils sont dans le code, et chaque composante est affichée.
+
 ## Trajectoire de dette
 
 Les effets annuels (régime de croisière × montée en charge) sont convertis en points de PIB et injectés dans
