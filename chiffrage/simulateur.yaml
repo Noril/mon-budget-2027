@@ -1,0 +1,1995 @@
+# Leviers du simulateur budgétaire (schéma schemas/simulateur.schema.json).
+# Effets en Md€ courants 2032 sur le solde primaire des APU, par rapport au droit en vigueur au 29 septembre 2026
+# (chiffrage/REFERENCE.md) ; négatif = coût ; bas = hypothèse défavorable au solde. Une option qui « reprend » une
+# mesure en reprend le chiffrage (chiffrage/programmes/) ; les autres sont tirées de chiffrage/baremes.yaml.
+# Pas de levier « économies non détaillées » : une enveloppe sans mesure n'a pas d'effet (règle 6 du README).
+# Curseurs : Δ de dépenses en Md€ ; positions = somme des mesures du programme dans le domaine, hors mesures déjà
+# couvertes par un levier à choix. Montée en charge : celle des mesures reprises, sinon montee_par_defaut.
+montee_par_defaut:
+  '2027': 0
+  '2028': 0.4
+  '2029': 0.7
+  '2030': 0.9
+  '2031': 1
+  '2032': 1
+leviers:
+- id: retraites-age
+  theme: Retraites
+  question: À quel âge ouvrir le droit à la retraite ?
+  aide: Le droit en vigueur reprend en 2028 la montée vers 64 ans ; un an d'âge légal vaut environ 6,6 Md€ par an en 2032
+    pour le système de retraite (barème retraites_age_legal_1_an).
+  type: choix
+  axe: depenses
+  options:
+  - id: 60-ans
+    libelle: 60 ans pour tous, 40 annuités pour le taux plein
+    effet:
+      central: -42.9
+      bas: -60.0
+      haut: -32.9
+    reprend:
+    - melenchon-lfi/retraite-60-ans
+    calcul: 'Chiffrage LFI repris : retour à 62 ans (13,9 Md€) plus passage de 62 à 60 ans et à 40 annuités.'
+    candidats:
+    - melenchon-lfi
+    montee:
+      '2027': 0.0
+      '2028': 0.35
+      '2029': 0.55
+      '2030': 0.75
+      '2031': 0.9
+      '2032': 1.0
+  - id: 62-ans-carrieres-longues
+    libelle: 62 ans (42 annuités), 60 ans avec 40 annuités pour ceux qui ont commencé à travailler tôt
+    effet:
+      central: -44.56
+      bas: -62.23
+      haut: -21.9
+    reprend:
+    - le-pen-rn/retraites-60-62-ans
+    calcul: 'Chiffrage RN repris : retour à 62 ans (13,9 Md€) plus retour sur les mesures d''âge et de durée de 2003 à 2014
+      pour les carrières commencées avant 20 ans (Institut Montaigne, projeté en 2032) ; plus coûteux que l''option 60 ans
+      car les deux chiffrages reposent sur des sources différentes.'
+    candidats:
+    - le-pen-rn
+  - id: 62-ans
+    libelle: 62 ans (abrogation de la réforme de 2023)
+    effet:
+      central: -13.9
+      bas: -20.0
+      haut: -8.9
+    reprend:
+    - glucksmann-place-publique/abrogation-reforme-retraites-2023
+    - tondelier-ecologistes/retraites-retour-62-ans
+    calcul: Barème retraites_retour_62_ans_2032 (13,9 Md€), identique dans les deux programmes.
+    candidats:
+    - glucksmann-place-publique
+    - tondelier-ecologistes
+    montee:
+      '2027': 0.0
+      '2028': 0.15
+      '2029': 0.35
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1.0
+  - id: 64-ans
+    libelle: 64 ans, calendrier en vigueur
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: plus-de-64-ans
+    libelle: Au-delà de 64 ans à terme (65 à 67 ans, ou taux plein plus tardif)
+    effet:
+      central: 3.3
+      bas: 0.0
+      haut: 7.9
+    reprend:
+    - philippe-horizons/retraites-travailler-plus-longtemps
+    - retailleau-lr/retraites-age-63-taux-plein-65
+    - zemmour-reconquete/retraite-64-voire-65
+    calcul: Chiffrage Philippe repris (66 ans à terme, 3 mois par génération) ; effet 2032 limité par le calendrier. Retailleau
+      (63 ans minimum, taux plein à 65 ans) est chiffré à 4,19 et Zemmour (64 voire 65 ans) à 1,65.
+    candidats:
+    - philippe-horizons
+    - retailleau-lr
+    - zemmour-reconquete
+    montee:
+      '2027': 0.0
+      '2028': 0.1
+      '2029': 0.3
+      '2030': 0.5
+      '2031': 0.75
+      '2032': 1.0
+- id: pensions
+  theme: Retraites
+  question: Comment revaloriser les pensions de retraite ?
+  aide: Les pensions suivent l'inflation ; un point de revalorisation de toutes les pensions coûte environ 5 Md€ par an en
+    2032, 4,3 Md€ après prélèvements (barèmes retraites_revalo_1pct et retour_prelevements_pensions).
+  type: choix
+  axe: depenses
+  options:
+  - id: gel-2028
+    libelle: Une année sans revalorisation en 2028 (petites retraites protégées), étendue aux autres prestations
+    effet:
+      central: 6.47
+      bas: 5.57
+      haut: 9.09
+    reprend:
+    - attal-renaissance/annee-blanche-2028
+    calcul: Chiffrage Attal repris ; il couvre aussi les prestations sociales hors retraites.
+    candidats:
+    - attal-renaissance
+    montee:
+      '2027': 0.0
+      '2028': 0.8
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: inflation
+    libelle: Sur l'inflation (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: petites-pensions
+    libelle: Minimum vieillesse et petites pensions portés vers le seuil de pauvreté
+    effet:
+      central: -2.21
+      bas: -2.21
+      haut: -2.21
+    reprend:
+    - tondelier-ecologistes/retraites-petites-pensions
+    - melenchon-lfi/minimum-vieillesse-seuil-pauvrete
+    calcul: Aspa au seuil de pauvreté pour les allocataires actuels, même chiffrage dans les deux programmes (2,21).
+    candidats:
+    - tondelier-ecologistes
+    montee:
+      '2027': 0.0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1.0
+  - id: salaires-et-minimum-smic
+    libelle: Indexation sur les salaires et pension minimale au niveau du Smic pour une carrière complète
+    effet:
+      central: -31.64
+      bas: -40.46
+      haut: -20.49
+    reprend:
+    - melenchon-lfi/indexation-pensions-salaires
+    - melenchon-lfi/pension-minimale-smic
+    - melenchon-lfi/minimum-vieillesse-seuil-pauvrete
+    calcul: 'Somme des trois mesures LFI : indexation sur les salaires, pension minimale au Smic, Aspa au seuil de pauvreté.'
+    candidats:
+    - melenchon-lfi
+    montee:
+      '2027': 0.0
+      '2028': 0.62
+      '2029': 0.71
+      '2030': 0.81
+      '2031': 0.9
+      '2032': 1.0
+- id: point-indice
+  theme: Fonction publique
+  question: Comment faire évoluer la rémunération des agents publics (point d'indice) ?
+  aide: Le point d'indice est gelé en droit constant ; l'indexer sur l'inflation de 2027 à 2032 coûte environ 28,6 Md€ bruts
+    en 2032, 20,6 Md€ nets des prélèvements en retour (barème indexation_point_indice_2027_2032).
+  type: choix
+  axe: depenses
+  options:
+  - id: gel
+    libelle: Pas d'évolution automatique (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: hausse-3-pct
+    libelle: Hausse ponctuelle de 3 %, sans indexation
+    effet:
+      central: -5.59
+      bas: -6.03
+      haut: -5.1
+    calcul: '3 × point_indice_1pct_2032 (2,59) × (1 − 0,28) ; bornes : 2,68 × 0,75 et 2,5 × 0,68 (convention 12).'
+    candidats: []
+  - id: indexation
+    libelle: Indexation sur l'inflation
+    effet:
+      central: -20.59
+      bas: -24.1
+      haut: -16.05
+    reprend:
+    - glucksmann-place-publique/point-indice-indexe-inflation
+    calcul: Barème indexation_point_indice_2027_2032 net (20,6), chiffrage Glucksmann repris.
+    candidats:
+    - glucksmann-place-publique
+    montee:
+      '2027': 0.13
+      '2028': 0.3
+      '2029': 0.48
+      '2030': 0.66
+      '2031': 0.83
+      '2032': 1.0
+  - id: indexation-hausse-ciblee
+    libelle: Indexation sur l'inflation et +10 % pour les catégories qui ont perdu du pouvoir d'achat
+    effet:
+      central: -33.22
+      bas: -37.77
+      haut: -27.4
+    reprend:
+    - tondelier-ecologistes/point-indice-fonctionnaires
+    calcul: Chiffrage Tondelier repris (indexation + 10 % sur B et C).
+    candidats:
+    - tondelier-ecologistes
+    montee:
+      '2027': 0.08
+      '2028': 0.26
+      '2029': 0.44
+      '2030': 0.63
+      '2031': 0.81
+      '2032': 1.0
+  - id: hausse-10-indexation
+    libelle: Hausse de 10 % pour tous puis indexation sur l'inflation
+    effet:
+      central: -41.3
+      bas: -46.51
+      haut: -34.65
+    reprend:
+    - melenchon-lfi/point-indice-10-pct
+    - melenchon-lfi/echelle-mobile-salaires
+    calcul: 'Somme des deux mesures LFI : +10 % du point (effet croisé compris) et indexation (échelle mobile).'
+    candidats:
+    - melenchon-lfi
+    montee:
+      '2027': 0.32
+      '2028': 0.65
+      '2029': 0.74
+      '2030': 0.83
+      '2031': 0.92
+      '2032': 1.0
+- id: effectifs-publics
+  theme: Fonction publique
+  question: Combien d'agents publics ?
+  aide: La fonction publique compte 5,8 millions d'agents et 136 700 départs à la retraite par an (barèmes fp_effectifs_total,
+    fp_departs_retraite_annuels) ; un poste d'enseignant pèse environ 24 000 € par an sur le solde (cout_enseignant_apu).
+  type: choix
+  axe: depenses
+  options:
+  - id: creations
+    libelle: Créer des postes dans les services publics de proximité
+    effet:
+      central: -5.47
+      bas: -8.2
+      haut: -2.73
+    reprend:
+    - melenchon-lfi/services-publics-proximite-postes
+    calcul: Chiffrage LFI repris.
+    candidats:
+    - melenchon-lfi
+  - id: stables
+    libelle: Effectifs inchangés (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: moins-100000
+    libelle: Environ 100 000 à 125 000 postes en moins (départs non remplacés)
+    effet:
+      central: 2.23
+      bas: 2.02
+      haut: 3.21
+    reprend:
+    - attal-renaissance/fonctionnaires-moins-100000
+    - retailleau-lr/non-remplacement-125000-departs
+    calcul: Chiffrage Attal repris (100 000 postes, 2,23) ; Retailleau (125 000 départs non remplacés) est chiffré à 2,79.
+    candidats:
+    - attal-renaissance
+    - retailleau-lr
+    montee:
+      '2027': 0.0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1.0
+  - id: moins-800000
+    libelle: Ne pas remplacer 800 000 départs dans les fonctions administratives
+    effet:
+      central: 15.26
+      bas: 0.0
+      haut: 15.26
+    reprend:
+    - zemmour-reconquete/non-remplacement-800000-departs
+    calcul: Chiffrage Zemmour repris ; économie ciblée (règle 6), bas = 0 si elle n'est pas réalisée.
+    candidats:
+    - zemmour-reconquete
+    montee:
+      '2027': 0.0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1.0
+- id: csg
+  theme: Fiscalité des ménages
+  question: Faut-il modifier la CSG ?
+  aide: La CSG rapporte environ 157 Md€ ; un point sur les revenus d'activité vaut environ 11,7 Md€, un point sur toutes les
+    assiettes 17,9 Md€ (barèmes csg_rendement, csg_point_activite, csg_point).
+  type: choix
+  axe: prelevements
+  options:
+  - id: suppression-activite
+    libelle: La supprimer sur les revenus d'activité
+    effet:
+      central: -116.26
+      bas: -124.08
+      haut: -113.43
+    reprend:
+    - zemmour-reconquete/suppression-csg-activite
+    calcul: Chiffrage Zemmour repris (CSG sur les revenus d'activité, nette du retour d'impôt sur le revenu).
+    candidats:
+    - zemmour-reconquete
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: baisse-salaires
+    libelle: La baisser sur les salaires (environ 15 Md€ rendus)
+    effet:
+      central: -13.2
+      bas: -15.99
+      haut: -12.75
+    reprend:
+    - glucksmann-place-publique/baisse-csg-salaires
+    calcul: 'Chiffrage Glucksmann repris (convention 5 : retour d''IR de 12 %).'
+    candidats:
+    - glucksmann-place-publique
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: inchangee
+    libelle: Inchangée (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: hausse-progressive
+    libelle: La rendre progressive et la relever d'un point
+    effet:
+      central: 19.11
+      bas: 11.79
+      haut: 19.55
+    reprend:
+    - tondelier-ecologistes/csg-progressive-plus-un-point
+    calcul: Chiffrage Tondelier repris (un point sur toutes les assiettes, net).
+    candidats:
+    - tondelier-ecologistes
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+- id: cotisations-salaries
+  theme: Fiscalité des ménages
+  question: Faut-il modifier les cotisations prélevées sur les salaires (part salariale, cotisations vieillesse) ?
+  aide: La masse salariale privée est d'environ 740 Md€ ; un point de cotisation vieillesse au régime général rapporte environ
+    6,2 Md€ (barèmes masse_salariale_privee, retraites_cotisation_vieillesse_1_point).
+  type: choix
+  axe: prelevements
+  options:
+  - id: baisse-forte
+    libelle: Les baisser fortement (environ 250 € nets de plus par mois au salaire médian)
+    effet:
+      central: -46.63
+      bas: -103.9
+      haut: -31.09
+    reprend:
+    - attal-renaissance/droit-au-brut-13e-mois
+    calcul: Chiffrage Attal repris (« droit au brut »).
+    candidats:
+    - attal-renaissance
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: baisse-15-md
+    libelle: Les baisser d'environ 15 Md€ (environ 500 € par an au salaire médian)
+    effet:
+      central: -17.76
+      bas: -17.76
+      haut: -15.0
+    reprend:
+    - retailleau-lr/restitution-pouvoir-achat-salaries
+    calcul: Chiffrage Retailleau repris (15 Md€ de 2025 projetés en 2032).
+    candidats:
+    - retailleau-lr
+    montee:
+      '2027': 0.0
+      '2028': 0.5
+      '2029': 0.75
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: inchangees
+    libelle: Inchangées (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: hausse-ciblee
+    libelle: Cotisations vieillesse étendues à l'épargne salariale et un point de cotisation déplafonnée en plus
+    effet:
+      central: 7.51
+      bas: 5.81
+      haut: 8.1
+    reprend:
+    - tondelier-ecologistes/retraites-recettes-nouvelles
+    calcul: Chiffrage Tondelier repris.
+    candidats:
+    - tondelier-ecologistes
+    montee:
+      '2027': 0.0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1.0
+  - id: hausse-forte
+    libelle: Cotisation vieillesse relevée de 0,25 point par an et étendue aux dividendes et à l'intéressement
+    effet:
+      central: 17.89
+      bas: 15.77
+      haut: 21.22
+    reprend:
+    - melenchon-lfi/hausse-cotisation-vieillesse
+    calcul: Chiffrage LFI repris.
+    candidats:
+    - melenchon-lfi
+    montee:
+      '2027': 0.0
+      '2028': 0.58
+      '2029': 0.69
+      '2030': 0.79
+      '2031': 0.9
+      '2032': 1.0
+- id: heures-supplementaires
+  theme: Fiscalité des ménages
+  question: Quel régime pour les heures supplémentaires ?
+  aide: Les exonérations d'impôt et de cotisations sur les heures supplémentaires coûtent environ 5,4 Md€ par an (barème hs_exoneration_cout).
+  type: choix
+  axe: prelevements
+  options:
+  - id: zero-cotisation
+    libelle: Exonérer totalement de cotisations les heures travaillées au-delà de 1 623 heures par an
+    effet:
+      central: -4.78
+      bas: -12.11
+      haut: -4.2
+    reprend:
+    - retailleau-lr/seuil-zero-cotisation
+    calcul: Chiffrage Retailleau repris.
+    candidats:
+    - retailleau-lr
+    montee:
+      '2027': 0.25
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: exoneration-actuelle
+    libelle: Exonération actuelle (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: fiscalisation
+    libelle: Les soumettre à l'impôt et aux cotisations comme les autres heures
+    effet:
+      central: 6.54
+      bas: 5.2
+      haut: 6.54
+    reprend:
+    - melenchon-lfi/heures-sup-fiscalisation
+    calcul: Chiffrage LFI repris ; Tondelier supprime aussi ces exonérations, compté dans le levier des cotisations patronales.
+    candidats:
+    - melenchon-lfi
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+- id: impot-revenu
+  theme: Fiscalité des ménages
+  question: Faut-il modifier l'impôt sur le revenu ?
+  aide: L'impôt sur le revenu rapporte environ 95 Md€ ; une baisse uniforme de 1 % de l'impôt dû coûte environ 1 Md€ (barèmes
+    ir_rendement, ir_baisse_1pct).
+  type: choix
+  axe: prelevements
+  options:
+  - id: baisse-10-pct
+    libelle: Baisse générale de 10 %
+    effet:
+      central: -10.4
+      bas: -12.6
+      haut: -9.5
+    calcul: 10 × ir_baisse_1pct (1,04 ; bornes 1,26 et 0,95).
+    candidats: []
+  - id: quotient-deuxieme-enfant
+    libelle: Part fiscale entière dès le deuxième enfant
+    effet:
+      central: -4.19
+      bas: -4.19
+      haut: -3.39
+    reprend:
+    - le-pen-rn/ir-part-pleine-deuxieme-enfant
+    - philippe-horizons/part-fiscale-deuxieme-enfant
+    calcul: Même chiffrage dans les deux programmes (4,19).
+    candidats:
+    - le-pen-rn
+    - philippe-horizons
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: baisse-classes-moyennes
+    libelle: Baisse ciblée sur les classes moyennes (environ 2 Md€)
+    effet:
+      central: -2.0
+      bas: -2.0
+      haut: 0.0
+    reprend:
+    - attal-renaissance/impots-classes-moyennes-2md
+    calcul: Chiffrage Attal repris (montant annoncé).
+    candidats:
+    - attal-renaissance
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: inchange
+    libelle: Inchangé, barème indexé sur l'inflation (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: plus-progressif
+    libelle: Barème plus progressif (14 tranches)
+    effet:
+      central: 5.8
+      bas: 0.0
+      haut: 5.8
+    reprend:
+    - melenchon-lfi/ir-14-tranches
+    calcul: Chiffrage LFI repris.
+    candidats:
+    - melenchon-lfi
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+- id: successions
+  theme: Fiscalité des ménages
+  question: Faut-il modifier les droits de succession et de donation ?
+  aide: Les droits de succession et de donation rapportent environ 21 Md€ par an (barème dmtg_rendement).
+  type: choix
+  axe: prelevements
+  options:
+  - id: suppression
+    libelle: Les supprimer
+    effet:
+      central: -20.13
+      bas: -25.34
+      haut: -20.13
+    reprend:
+    - zemmour-reconquete/suppression-droits-succession
+    calcul: Chiffrage Zemmour repris.
+    candidats:
+    - zemmour-reconquete
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: inchanges
+    libelle: Inchangés (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: hausse-moderee
+    libelle: Taux marginal relevé, pacte Dutreil recentré, plus-values imposées au décès
+    effet:
+      central: 4.95
+      bas: 2.7
+      haut: 15.32
+    reprend:
+    - glucksmann-place-publique/successions-pacte-dutreil
+    - glucksmann-place-publique/successions-plus-values-latentes
+    - glucksmann-place-publique/successions-tranche-haute-50
+    calcul: Somme des trois mesures Glucksmann.
+    candidats:
+    - glucksmann-place-publique
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: hausse-forte
+    libelle: Nouvelles tranches élevées sur les très grands héritages
+    effet:
+      central: 10.0
+      bas: 1.5
+      haut: 15.0
+    reprend:
+    - tondelier-ecologistes/successions-grands-heritages
+    - melenchon-lfi/successions-heritage-maximal
+    - melenchon-lfi/pacte-dutreil
+    calcul: Chiffrage Tondelier repris (10) ; LFI (héritage maximal de 12 M€ et pacte Dutreil limité) est chiffré à 8,89.
+    candidats:
+    - tondelier-ecologistes
+    - melenchon-lfi
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+- id: grands-patrimoines
+  theme: Fiscalité des ménages
+  question: Faut-il taxer davantage les très grands patrimoines ?
+  aide: L'impôt sur la fortune immobilière rapporte environ 2,8 Md€ ; rétablir l'ISF de 2017 rapporterait environ 3,1 Md€
+    nets en 2032 (barèmes ifi_rendement, isf_retabli_gain_net).
+  type: choix
+  axe: prelevements
+  options:
+  - id: ifi
+    libelle: Impôt sur la fortune immobilière actuel (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: isf
+    libelle: Rétablir l'impôt de solidarité sur la fortune
+    effet:
+      central: 3.1
+      bas: 1.3
+      haut: 5.1
+    reprend:
+    - tondelier-ecologistes/isf-climatique
+    - melenchon-lfi/isf-climatique
+    calcul: Barème isf_retabli_gain_net ; LFI et Tondelier le proposent avec un impôt plancher (options suivantes).
+    candidats: []
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: plancher-100m
+    libelle: Impôt plancher de 2 % sur les patrimoines de plus de 100 M€, sans ISF
+    effet:
+      central: 10.0
+      bas: 5.0
+      haut: 25.0
+    reprend:
+    - tondelier-ecologistes/taxe-zucman
+    calcul: Chiffrage Tondelier de la taxe Zucman seule.
+    candidats: []
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: isf-plancher-milliardaires
+    libelle: ISF rétabli et impôt plancher de 2 % sur les milliardaires
+    effet:
+      central: 9.4
+      bas: 5.2
+      haut: 29.3
+    reprend:
+    - melenchon-lfi/isf-climatique
+    - melenchon-lfi/taxe-zucman-2-pct
+    calcul: Somme des deux mesures LFI.
+    candidats:
+    - melenchon-lfi
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: isf-plancher-100m
+    libelle: ISF rétabli et impôt plancher de 2 % au-delà de 100 M€
+    effet:
+      central: 13.1
+      bas: 6.3
+      haut: 30.1
+    reprend:
+    - tondelier-ecologistes/isf-climatique
+    - tondelier-ecologistes/taxe-zucman
+    calcul: Somme des deux mesures Tondelier.
+    candidats:
+    - tondelier-ecologistes
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+- id: revenus-capital
+  theme: Fiscalité des ménages
+  question: Comment imposer les revenus du capital (dividendes, intérêts, plus-values) ?
+  aide: Supprimer le prélèvement forfaitaire unique de 30 % et imposer ces revenus au barème rapporterait de 0 à 1,7 Md€ (barème
+    pfu_passage_bareme) ; la taxe sur les transactions financières rapporte environ 2,5 Md€ (ttf_rendement).
+  type: choix
+  axe: prelevements
+  options:
+  - id: pfu
+    libelle: Prélèvement forfaitaire unique de 30 % (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: bareme
+    libelle: Revenus du capital imposés au barème de l'impôt sur le revenu
+    effet:
+      central: 0.6
+      bas: 0.0
+      haut: 1.7
+    reprend:
+    - melenchon-lfi/suppression-flat-tax
+    calcul: Barème pfu_passage_bareme, chiffrage LFI de cette seule mesure.
+    candidats: []
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: pfu-plus-3
+    libelle: Prélèvement forfaitaire et CSG sur le capital relevés de 3 points, taxe sur les transactions renforcée
+    effet:
+      central: 7.84
+      bas: 6.63
+      haut: 8.81
+    reprend:
+    - tondelier-ecologistes/pfu-csg-capital-ttf
+    calcul: Chiffrage Tondelier repris.
+    candidats:
+    - tondelier-ecologistes
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: bareme-et-taxes
+    libelle: Imposition au barème, taxe sur les dividendes et les rachats d'actions, taxe sur les transactions renforcée
+    effet:
+      central: 8.65
+      bas: 0.73
+      haut: 15.16
+    reprend:
+    - melenchon-lfi/suppression-flat-tax
+    - melenchon-lfi/taxe-dividendes-rachats
+    - melenchon-lfi/taxe-transactions-financieres
+    calcul: Somme des trois mesures LFI.
+    candidats:
+    - melenchon-lfi
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+- id: impots-production
+  theme: Entreprises
+  question: Faut-il modifier les impôts de production (CFE, C3S, CVAE…) ?
+  aide: La C3S rapporte environ 5,2 Md€ et la CVAE restante 3,7 Md€, supprimée en 2030 selon la loi en vigueur (barèmes c3s_rendement,
+    cvae_restante).
+  type: choix
+  axe: prelevements
+  options:
+  - id: baisse-50-md
+    libelle: Les baisser de 50 Md€
+    effet:
+      central: -44.84
+      bas: -60.53
+      haut: -34.73
+    reprend:
+    - philippe-horizons/impots-production-moins-50md
+    calcul: Chiffrage Philippe repris (50 Md€ de 2025 projetés en 2032, net de l'impôt sur les sociétés induit).
+    candidats:
+    - philippe-horizons
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: suppression-c3s-cfe
+    libelle: Supprimer la C3S et la CFE
+    effet:
+      central: -12.73
+      bas: -15.91
+      haut: -12.73
+    reprend:
+    - le-pen-rn/suppression-cfe
+    - le-pen-rn/suppression-c3s
+    - zemmour-reconquete/suppression-impots-production
+    calcul: Somme des deux mesures RN (12,73), identique au chiffrage central de Zemmour.
+    candidats:
+    - le-pen-rn
+    - zemmour-reconquete
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: suppression-c3s
+    libelle: Supprimer la C3S et exonérer la part industrielle de la CFE
+    effet:
+      central: -6.53
+      bas: -8.71
+      haut: -6.24
+    reprend:
+    - retailleau-lr/suppression-c3s
+    - retailleau-lr/cfe-exoneration-industrielle
+    calcul: Somme des deux mesures Retailleau.
+    candidats:
+    - retailleau-lr
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: calendrier-actuel
+    libelle: Calendrier en vigueur (fin de la CVAE en 2030)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: retablir-cvae
+    libelle: Maintenir la CVAE et revenir sur la baisse de la CFE
+    effet:
+      central: 4.48
+      bas: 3.7
+      haut: 11.0
+    reprend:
+    - melenchon-lfi/cvae-cfe-retablies
+    - tondelier-ecologistes/collectivites-cvae-dilico
+    calcul: Chiffrage LFI repris (4,48) ; Tondelier (CVAE seule) est chiffré à 3,36.
+    candidats:
+    - melenchon-lfi
+    - tondelier-ecologistes
+    montee:
+      '2027': 0.0
+      '2028': 0.3
+      '2029': 0.6
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+- id: aides-entreprises
+  theme: Entreprises
+  question: Faut-il réduire les aides publiques aux entreprises (hors allègements généraux de cotisations) ?
+  aide: Les aides publiques aux entreprises sont estimées à environ 211 Md€ par an, allègements de cotisations compris (barème
+    aides_publiques_entreprises).
+  type: choix
+  axe: depenses
+  options:
+  - id: inchangees
+    libelle: Inchangées (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: cir-recentre
+    libelle: Recentrer le crédit d'impôt recherche sur les PME et ETI
+    effet:
+      central: 4.09
+      bas: 0.0
+      haut: 4.09
+    reprend:
+    - tondelier-ecologistes/cir-recentrage
+    calcul: Chiffrage Tondelier repris.
+    candidats:
+    - tondelier-ecologistes
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: cir-supprime
+    libelle: Supprimer le crédit d'impôt recherche
+    effet:
+      central: 9.32
+      bas: 3.0
+      haut: 9.32
+    reprend:
+    - melenchon-lfi/suppression-cir
+    calcul: Chiffrage LFI repris.
+    candidats:
+    - melenchon-lfi
+    montee:
+      '2027': 0.0
+      '2028': 0.3
+      '2029': 0.6
+      '2030': 0.9
+      '2031': 1.0
+      '2032': 1.0
+  - id: moins-50-md
+    libelle: Réduire de 50 Md€ les aides jugées improductives
+    effet:
+      central: 60.53
+      bas: 0.0
+      haut: 60.53
+    reprend:
+    - philippe-horizons/aides-entreprises-moins-50md
+    calcul: 'Chiffrage Philippe repris : 50 Md€ de 2025 projetés en 2032, bas = 0 si les aides visées ne sont pas identifiées.'
+    candidats:
+    - philippe-horizons
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+- id: cotisations-patronales
+  theme: Entreprises
+  question: Faut-il modifier les cotisations patronales et leurs allègements ?
+  aide: Les allègements généraux de cotisations patronales coûtent environ 72 Md€ par an (barème allegements_generaux_cout).
+  type: choix
+  axe: prelevements
+  options:
+  - id: baisse-15-md
+    libelle: Baisser d'environ 15 Md€ les cotisations patronales finançant la famille, la santé et le logement
+    effet:
+      central: -17.76
+      bas: -17.76
+      haut: -15.0
+    reprend:
+    - retailleau-lr/baisse-cotisations-patronales-non-contributives
+    calcul: Chiffrage Retailleau repris.
+    candidats:
+    - retailleau-lr
+    montee:
+      '2027': 0.25
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: exonerer-hausses-salaire
+    libelle: Exonérer de cotisations patronales les hausses de salaire de 10 % (jusqu'à 3 Smic)
+    effet:
+      central: -13.07
+      bas: -16.34
+      haut: -5.23
+    reprend:
+    - le-pen-rn/hausse-salaires-10-exoneree
+    calcul: Chiffrage RN repris.
+    candidats:
+    - le-pen-rn
+    montee:
+      '2027': 0.0
+      '2028': 0.1
+      '2029': 0.4
+      '2030': 0.7
+      '2031': 0.9
+      '2032': 1.0
+  - id: annuler-hausses-recentes
+    libelle: Annuler les hausses du coût du travail décidées depuis 2024
+    effet:
+      central: -1.89
+      bas: -1.89
+      haut: -1.6
+    reprend:
+    - attal-renaissance/cout-travail-hausses-2024
+    calcul: Chiffrage Attal repris.
+    candidats:
+    - attal-renaissance
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: inchangees
+    libelle: Inchangées (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: reduire-allegements
+    libelle: Supprimer les allègements au-dessus de 1,6 à 2 Smic
+    effet:
+      central: 7.86
+      bas: 6.46
+      haut: 9.26
+    reprend:
+    - tondelier-ecologistes/exonerations-cotisations-rationalisation
+    - melenchon-lfi/exonerations-cotisations-2-smic
+    calcul: Chiffrage Tondelier repris (au-delà de 1,6 Smic, heures supplémentaires comprises) ; LFI (au-delà de 2 Smic) est
+      chiffré à 5,15.
+    candidats:
+    - tondelier-ecologistes
+    - melenchon-lfi
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+- id: taxes-energie
+  theme: Énergie
+  question: Faut-il baisser les taxes sur l'énergie (TVA, accise sur l'électricité) ?
+  aide: Passer la TVA de 20 % à 5,5 % sur l'électricité, le gaz, les carburants et le fioul coûterait environ 16,8 Md€ par
+    an ; 1 €/MWh d'accise sur l'électricité vaut environ 0,3 Md€ (barèmes tva_energie_total_5_5, accise_electricite_1_euro_mwh).
+  type: choix
+  axe: prelevements
+  options:
+  - id: tva-toutes-energies
+    libelle: TVA à 5,5 % sur toutes les énergies, carburants compris
+    effet:
+      central: -17.0
+      bas: -20.45
+      haut: -13.0
+    reprend:
+    - le-pen-rn/tva-energie-5-5
+    calcul: Chiffrage RN repris.
+    candidats:
+    - le-pen-rn
+    montee:
+      '2027': 0.4
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: tva-electricite-gaz
+    libelle: TVA à 5,5 % sur l'électricité et le gaz
+    effet:
+      central: -7.0
+      bas: -7.4
+      haut: -6.2
+    calcul: Barèmes tva_energie_electricite_5_5 (5,0) + tva_energie_gaz_5_5 (2,0).
+    candidats: []
+  - id: accise-electricite
+    libelle: Annuler la hausse de l'accise sur l'électricité de 2024
+    effet:
+      central: -4.0
+      bas: -5.97
+      haut: -4.0
+    reprend:
+    - glucksmann-place-publique/annulation-hausse-accise-electricite-2024
+    - melenchon-lfi/abolir-hausse-accise-electricite
+    calcul: Chiffrage Glucksmann repris (4,0) ; LFI est chiffré à 4,14.
+    candidats:
+    - glucksmann-place-publique
+    - melenchon-lfi
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: inchangees
+    libelle: Inchangées (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+- id: carburants
+  theme: Énergie
+  question: Faut-il réduire le coût des carburants par l'impôt ou par une aide ?
+  aide: L'accise sur les carburants rapporte environ 30 Md€ ; un centime par litre vaut environ 0,54 Md€ avec la TVA induite
+    (barèmes ticpe_rendement_total, ticpe_centime_litre, convention 6).
+  type: choix
+  axe: prelevements
+  options:
+  - id: accise-moins-un-tiers
+    libelle: Baisser d'un tiers l'accise sur les carburants
+    effet:
+      central: -11.17
+      bas: -11.38
+      haut: -10.55
+    reprend:
+    - zemmour-reconquete/accise-carburants-moins-un-tiers
+    calcul: Chiffrage Zemmour repris.
+    candidats:
+    - zemmour-reconquete
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: accise-moins-10-centimes
+    libelle: Baisser l'accise de 10 centimes par litre
+    effet:
+      central: -5.4
+      bas: -5.9
+      haut: -4.9
+    calcul: 10 × 0,54 Md€ par centime (convention 6) ; bornes à ± 10 %.
+    candidats: []
+  - id: cheque-carburant
+    libelle: Tripler le chèque carburant et énergie et l'étendre aux classes moyennes
+    effet:
+      central: -1.56
+      bas: -2.31
+      haut: -1.38
+    reprend:
+    - glucksmann-place-publique/cheque-carburant-energie-triple
+    calcul: Chiffrage Glucksmann repris (dépense, pas un impôt).
+    candidats:
+    - glucksmann-place-publique
+    montee:
+      '2027': 0.5
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: inchange
+    libelle: Inchangé (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+- id: smic
+  theme: Social
+  question: Faut-il augmenter le Smic au-delà de sa revalorisation légale ?
+  aide: Une hausse de 1 % du Smic coûte environ 0,31 Md€ aux administrations publiques (allègements, salaires publics), davantage
+    au-delà de 10 % (barème smic_1pct_cout_apu, convention 7).
+  type: choix
+  axe: depenses
+  options:
+  - id: revalorisation-legale
+    libelle: Revalorisation légale seulement (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: 1600-net
+    libelle: Smic à 1 600 € nets en deux ans
+    effet:
+      central: -1.06
+      bas: -11.0
+      haut: -0.82
+    reprend:
+    - glucksmann-place-publique/smic-1600-net
+    calcul: Chiffrage Glucksmann repris.
+    candidats:
+    - glucksmann-place-publique
+    montee:
+      '2027': 0.3
+      '2028': 0.6
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: 2000-brut
+    libelle: Smic à 2 000 € bruts dès 2027, avec aide aux petites entreprises
+    effet:
+      central: -2.09
+      bas: -7.43
+      haut: -1.62
+    reprend:
+    - tondelier-ecologistes/smic-2000-brut
+    calcul: Chiffrage Tondelier repris.
+    candidats:
+    - tondelier-ecologistes
+    montee:
+      '2027': 0.5
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: 1700-net
+    libelle: Smic à 1 700 € nets
+    effet:
+      central: -5.64
+      bas: -20.0
+      haut: -5.64
+    reprend:
+    - melenchon-lfi/smic-1700-net
+    calcul: Chiffrage LFI repris.
+    candidats:
+    - melenchon-lfi
+    montee:
+      '2027': 0.5
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+- id: minima-sociaux
+  theme: Social
+  question: Faut-il modifier les minima sociaux (RSA, AAH) ?
+  aide: Le RSA coûte environ 11,7 Md€ par an et l'allocation aux adultes handicapés 14,6 Md€ (barèmes rsa_depense, aah_depense).
+  type: choix
+  axe: depenses
+  options:
+  - id: rsa-limite-3-ans
+    libelle: Limiter le RSA à trois ans pour les personnes en capacité de travailler
+    effet:
+      central: 4.8
+      bas: 0.0
+      haut: 4.8
+    reprend:
+    - zemmour-reconquete/rsa-limite-trois-ans
+    calcul: Chiffrage Zemmour repris (économie ciblée, bas = 0).
+    candidats:
+    - zemmour-reconquete
+  - id: fusion-plafond
+    libelle: Fusionner RSA, prime d'activité et ASS, plafonner le cumul des aides à 70 % du Smic
+    effet:
+      central: 3.26
+      bas: 0.0
+      haut: 14.53
+    reprend:
+    - retailleau-lr/revenu-incitation-activite
+    - retailleau-lr/compte-social-unique-plafond-70-smic
+    calcul: Somme des deux mesures Retailleau.
+    candidats:
+    - retailleau-lr
+    montee:
+      '2027': 0.0
+      '2028': 0.0
+      '2029': 0.5
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: inchanges
+    libelle: Inchangés (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: hausse-ciblee
+    libelle: AAH relevée de 250 € par mois, revenu minimum ouvert dès 18 ans
+    effet:
+      central: -7.36
+      bas: -8.26
+      haut: -6.15
+    reprend:
+    - tondelier-ecologistes/aah-plus-250
+    - tondelier-ecologistes/garantie-autonomie-rsa
+    calcul: Somme des deux mesures Tondelier.
+    candidats:
+    - tondelier-ecologistes
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: seuil-pauvrete
+    libelle: Revenu garanti au seuil de pauvreté pour tous, AAH au niveau du Smic
+    effet:
+      central: -52.63
+      bas: -87.51
+      haut: -28.8
+    reprend:
+    - melenchon-lfi/garantie-autonomie
+    - melenchon-lfi/aah-smic
+    calcul: Somme des deux mesures LFI.
+    candidats:
+    - melenchon-lfi
+    montee:
+      '2027': 0.0
+      '2028': 0.53
+      '2029': 0.76
+      '2030': 0.92
+      '2031': 1.0
+      '2032': 1.0
+- id: assurance-chomage
+  theme: Social
+  question: Faut-il modifier les règles de l'assurance chômage ?
+  aide: L'assurance chômage dépense environ 46,6 Md€ par an (barème assurance_chomage_depenses).
+  type: choix
+  axe: depenses
+  options:
+  - id: durcir-fortement
+    libelle: Durcir fortement (durée maximale réduite, ruptures conventionnelles, hauts revenus, frontaliers)
+    effet:
+      central: 12.13
+      bas: 10.51
+      haut: 13.72
+    reprend:
+    - retailleau-lr/chomage-regles-juin-2024
+    - retailleau-lr/chomage-ruptures-conventionnelles
+    - retailleau-lr/chomage-alternance-hauts-revenus
+    - retailleau-lr/chomage-frontaliers
+    calcul: Somme des quatre mesures Retailleau.
+    candidats:
+    - retailleau-lr
+    montee:
+      '2027': 0.0
+      '2028': 0.6
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: durcir
+    libelle: Durcir (environ 5 Md€ d'économies, durée d'indemnisation réduite)
+    effet:
+      central: 4.44
+      bas: 3.6
+      haut: 5.0
+    reprend:
+    - attal-renaissance/assurance-chomage-5md
+    - philippe-horizons/chomage-12-mois-moins-50-ans
+    calcul: Chiffrage Attal repris (4,44) ; Philippe (12 mois pour les moins de 50 ans) est chiffré à 5,21.
+    candidats:
+    - attal-renaissance
+    - philippe-horizons
+    montee:
+      '2027': 0.0
+      '2028': 0.5
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: inchangees
+    libelle: Inchangées (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: abroger
+    libelle: Abroger les réformes récentes
+    effet:
+      central: -5.21
+      bas: -7.87
+      haut: -2.31
+    reprend:
+    - glucksmann-place-publique/abrogation-reforme-assurance-chomage
+    - tondelier-ecologistes/assurance-chomage-abrogation-reformes
+    calcul: Chiffrage Glucksmann repris (5,21) ; Tondelier (depuis 2017, allocations indexées) est chiffré à 6,4.
+    candidats:
+    - glucksmann-place-publique
+    - tondelier-ecologistes
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: abroger-garantie-emploi
+    libelle: Abroger les réformes récentes et garantir un emploi au Smic aux chômeurs de longue durée
+    effet:
+      central: -23.06
+      bas: -33.16
+      haut: -12.97
+    reprend:
+    - melenchon-lfi/assurance-chomage-abrogation
+    - melenchon-lfi/garantie-emploi
+    calcul: Somme des deux mesures LFI.
+    candidats:
+    - melenchon-lfi
+    montee:
+      '2027': 0.0
+      '2028': 0.41
+      '2029': 0.66
+      '2030': 0.83
+      '2031': 1.0
+      '2032': 1.0
+- id: conditions-prestations
+  theme: Social
+  question: Faut-il conditionner les prestations sociales et l'aide médicale d'État à la nationalité ou à la durée de résidence
+    ?
+  aide: L'aide médicale d'État coûte environ 1,4 Md€ par an, les aides au logement 16,1 Md€ et les prestations familiales
+    33,3 Md€ (barèmes ame_depense, aides_logement_depense, prestations_familiales_depense).
+  type: choix
+  axe: depenses
+  options:
+  - id: nationalite
+    libelle: Prestations non contributives réservées aux Français, AME et hébergement d'urgence des personnes en situation
+      irrégulière supprimés
+    effet:
+      central: 9.71
+      bas: 0.0
+      haut: 9.71
+    reprend:
+    - zemmour-reconquete/prestations-non-contributives-francais
+    - zemmour-reconquete/fin-ame
+    - zemmour-reconquete/hebergement-urgence-irreguliers
+    calcul: Somme des trois mesures Zemmour ; constitutionnalité incertaine, bas = 0.
+    candidats:
+    - zemmour-reconquete
+    montee:
+      '2027': 0.0
+      '2028': 0.5
+      '2029': 0.75
+      '2030': 0.92
+      '2031': 1.0
+      '2032': 1.0
+  - id: cinq-ans-travail
+    libelle: Prestations de solidarité après cinq ans de travail en France, AME réduite à l'urgence
+    effet:
+      central: 8.01
+      bas: 0.0
+      haut: 8.01
+    reprend:
+    - le-pen-rn/prestations-solidarite-5-ans-travail
+    - le-pen-rn/ame-en-amu
+    calcul: Somme des deux mesures RN ; bas = 0.
+    candidats:
+    - le-pen-rn
+    montee:
+      '2027': 0.0
+      '2028': 0.46
+      '2029': 0.73
+      '2030': 0.91
+      '2031': 1.0
+      '2032': 1.0
+  - id: cinq-ans-residence
+    libelle: Aides non contributives après cinq ans de résidence régulière, AME et hébergement d'urgence restreints
+    effet:
+      central: 4.48
+      bas: 0.0
+      haut: 6.6
+    reprend:
+    - retailleau-lr/condition-residence-5-ans-aides
+    - retailleau-lr/ame-reduction
+    - retailleau-lr/hebergement-urgence-regularite-sejour
+    calcul: Somme des trois mesures Retailleau ; bas = 0.
+    candidats:
+    - retailleau-lr
+    montee:
+      '2027': 0.0
+      '2028': 0.45
+      '2029': 0.59
+      '2030': 0.72
+      '2031': 0.86
+      '2032': 1.0
+  - id: ame-urgence
+    libelle: AME seule réduite aux soins urgents
+    effet:
+      central: 0.86
+      bas: 0.0
+      haut: 0.86
+    reprend:
+    - le-pen-rn/ame-en-amu
+    calcul: Chiffrage RN de la seule transformation de l'AME en aide médicale d'urgence.
+    candidats: []
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: inchangees
+    libelle: Conditions actuelles (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+- id: salaires-enseignants
+  theme: Éducation
+  question: De combien revaloriser les enseignants, au-delà du point d'indice ?
+  aide: 'Un enseignant pèse environ 24 000 € à 34 000 € par an sur le solde public, net des cotisations et des prélèvements
+    en retour (barème cout_enseignant_apu) : 10 % de hausse représentent environ 2,5 à 3 Md€.'
+  type: choix
+  axe: depenses
+  options:
+  - id: inchanges
+    libelle: Pas de revalorisation propre (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: 150-200-euros
+    libelle: Environ 150 à 200 € nets de plus par mois
+    effet:
+      central: -1.71
+      bas: -2.88
+      haut: -1.62
+    reprend:
+    - attal-renaissance/enseignants-200-500-euros
+    - retailleau-lr/revalorisation-enseignants
+    calcul: Chiffrage Attal repris (1,71) ; Retailleau (+135 € en début de carrière, +300 € en milieu) est chiffré à 1,24.
+    candidats:
+    - attal-renaissance
+    - retailleau-lr
+    montee:
+      '2027': 0.3
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: 10-pct
+    libelle: Environ +10 %, davantage en milieu de carrière
+    effet:
+      central: -2.72
+      bas: -6.0
+      haut: -2.46
+    reprend:
+    - glucksmann-place-publique/salaires-enseignants-10-pct
+    - melenchon-lfi/revalorisation-enseignants
+    calcul: Chiffrage Glucksmann repris (2,72) ; LFI (rattrapage du gel du point) est chiffré à 3,60.
+    candidats:
+    - glucksmann-place-publique
+    - melenchon-lfi
+    montee:
+      '2027': 0.0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1.0
+  - id: 15-pct
+    libelle: +15 % en cinq ans
+    effet:
+      central: -4.07
+      bas: -4.32
+      haut: -3.69
+    reprend:
+    - tondelier-ecologistes/enseignants-plus-15pct
+    calcul: Chiffrage Tondelier repris.
+    candidats:
+    - tondelier-ecologistes
+    montee:
+      '2027': 0.0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1.0
+  - id: 20-pct
+    libelle: +20 % en cinq ans
+    effet:
+      central: -5.43
+      bas: -6.69
+      haut: -4.93
+    reprend:
+    - philippe-horizons/enseignants-plus-20pct
+    calcul: Chiffrage Philippe repris.
+    candidats:
+    - philippe-horizons
+    montee:
+      '2027': 0.0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1.0
+- id: renovation-logements
+  theme: Écologie
+  question: Quel soutien public à la rénovation énergétique des logements ?
+  aide: Supprimer MaPrimeRénov' ou la remplacer par un prêt à taux zéro économiserait environ 1,8 Md€ par an en 2032, d'après
+    les chiffrages des programmes qui le proposent.
+  type: choix
+  axe: depenses
+  options:
+  - id: aides-supprimees
+    libelle: Supprimer les subventions (MaPrimeRénov', Anah) ou les remplacer par un prêt à taux zéro
+    effet:
+      central: 1.78
+      bas: 0.0
+      haut: 1.78
+    reprend:
+    - le-pen-rn/maprimerenov-en-pret-100-renov
+    - zemmour-reconquete/suppression-anah
+    calcul: Même chiffrage dans les deux programmes (1,78), bas = 0.
+    candidats:
+    - le-pen-rn
+    - zemmour-reconquete
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: inchange
+    libelle: Dispositifs actuels (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: 500000-renovations
+    libelle: 500 000 rénovations performantes par an, prise en charge intégrale pour les ménages modestes
+    effet:
+      central: -18.28
+      bas: -20.97
+      haut: -18.28
+    reprend:
+    - tondelier-ecologistes/renovation-500000-maprimerenov
+    calcul: Chiffrage Tondelier repris.
+    candidats:
+    - tondelier-ecologistes
+    montee:
+      '2027': 0.0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1.0
+- id: aide-developpement
+  theme: Europe et international
+  question: Quel niveau d'aide publique au développement ?
+  aide: L'aide publique au développement représente environ 0,42 % du revenu national brut, soit près de 15 Md€ en 2032 ;
+    la porter à 0,7 % coûterait environ 10 Md€ de plus (barèmes apd_part_rnb, rnb_nominal_2032).
+  type: choix
+  axe: depenses
+  options:
+  - id: suppression
+    libelle: La supprimer (fin de l'Agence française de développement)
+    effet:
+      central: 4.35
+      bas: 0.0
+      haut: 4.35
+    reprend:
+    - zemmour-reconquete/suppression-aide-publique-developpement
+    calcul: Chiffrage Zemmour repris (part budgétaire), bas = 0.
+    candidats:
+    - zemmour-reconquete
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: reduction
+    libelle: La réduire de 10 à 20 %
+    effet:
+      central: 2.72
+      bas: 0.0
+      haut: 2.72
+    reprend:
+    - le-pen-rn/aide-publique-developpement
+    - retailleau-lr/aide-publique-developpement-baisse
+    calcul: Chiffrage RN repris (2,72) ; Retailleau (−10 %) est chiffré à 1,20.
+    candidats:
+    - le-pen-rn
+    - retailleau-lr
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: inchangee
+    libelle: Niveau actuel (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: 0-7-pct
+    libelle: 0,7 % du revenu national brut
+    effet:
+      central: -10.32
+      bas: -11.79
+      haut: -8.11
+    reprend:
+    - glucksmann-place-publique/aide-publique-developpement-0-7
+    - melenchon-lfi/aide-developpement-0-7
+    - tondelier-ecologistes/apd-07-pnb
+    calcul: 'Même chiffrage dans les trois programmes (convention 10) : (0,7 − 0,42) % × 3 685 Md€.'
+    candidats:
+    - glucksmann-place-publique
+    - melenchon-lfi
+    - tondelier-ecologistes
+    montee:
+      '2027': 0.0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1.0
+- id: agences-dotations
+  theme: État et collectivités
+  question: Faut-il réduire les agences de l'État, les subventions et les dotations aux collectivités ?
+  aide: Les concours financiers de l'État aux collectivités s'élèvent à environ 53 Md€ par an, dont 27 Md€ de dotation globale
+    de fonctionnement (barèmes concours_financiers_collectivites, dgf).
+  type: choix
+  axe: depenses
+  options:
+  - id: agences-subventions-dotations
+    libelle: Baisser de 20 % certaines agences, les subventions aux associations et la dotation des régions et intercommunalités
+    effet:
+      central: 19.91
+      bas: 0.0
+      haut: 19.91
+    reprend:
+    - le-pen-rn/agences-operateurs-moins-20
+    - le-pen-rn/subventions-associations
+    - le-pen-rn/train-de-vie-etat-et-petites-economies
+    - le-pen-rn/dgf-regions-epci
+    calcul: Somme des quatre mesures RN ; économies ciblées (règle 6), bas = 0.
+    candidats:
+    - le-pen-rn
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: agences-audiovisuel
+    libelle: Privatiser l'audiovisuel public, supprimer des agences et des subventions
+    effet:
+      central: 6.79
+      bas: 0.0
+      haut: 6.79
+    reprend:
+    - zemmour-reconquete/privatisation-audiovisuel-public
+    - zemmour-reconquete/subventions-associations-presse-syndicats
+    - zemmour-reconquete/suppression-autres-agences-cese
+    calcul: Somme des trois mesures Zemmour ; bas = 0.
+    candidats:
+    - zemmour-reconquete
+    montee:
+      '2027': 0.0
+      '2028': 0.59
+      '2029': 0.8
+      '2030': 0.93
+      '2031': 1.0
+      '2032': 1.0
+  - id: achats-publics
+    libelle: Économiser sur les achats publics (intelligence artificielle, mutualisation)
+    effet:
+      central: 4.0
+      bas: 0.0
+      haut: 4.0
+    reprend:
+    - retailleau-lr/ia-achats-publics
+    calcul: Chiffrage Retailleau repris (4 Md€ annoncés), bas = 0.
+    candidats:
+    - retailleau-lr
+    montee:
+      '2027': 0.0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1.0
+  - id: inchangees
+    libelle: Inchangées (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: hausse-dotations
+    libelle: Relever et indexer la dotation globale de fonctionnement des collectivités
+    effet:
+      central: -5.33
+      bas: -6.0
+      haut: 0.0
+    reprend:
+    - melenchon-lfi/dotations-collectivites
+    calcul: Chiffrage LFI repris.
+    candidats:
+    - melenchon-lfi
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+- id: sante
+  theme: Santé
+  question: Combien de dépenses de santé en plus (ou en moins) par rapport à aujourd'hui ?
+  aide: Pour ordre de grandeur, un point de CSG sur toutes les assiettes rapporte environ 17,9 Md€ (barème csg_point) ; remboursement
+    intégral, franchises, recrutements de soignants et économies de gestion passent par ce curseur.
+  type: curseur
+  axe: depenses
+  curseur:
+    min: -10
+    max: 40
+    pas: 0.5
+    unite: Md€
+    md_par_unite: 1
+    positions:
+      melenchon-lfi: 36.5
+      tondelier-ecologistes: 3.21
+      le-pen-rn: -1.18
+      zemmour-reconquete: -0.74
+- id: defense
+  theme: Défense
+  question: Combien de dépenses de défense et de service national en plus de la loi de programmation militaire ?
+  aide: 0,1 point de PIB d'effort de défense représente environ 3,6 Md€ en 2032 ; les crédits de la mission Défense sont d'environ
+    57 Md€ (barèmes defense_0_1_point_pib_2032, defense_credits_mission).
+  type: curseur
+  axe: depenses
+  curseur:
+    min: -5
+    max: 30
+    pas: 0.5
+    unite: Md€
+    md_par_unite: 1
+    positions:
+      melenchon-lfi: 27.32
+      retailleau-lr: 7.2
+      philippe-horizons: 3.69
+      glucksmann-place-publique: 4.49
+- id: education
+  theme: Éducation
+  question: Combien de dépenses d'éducation et de petite enfance en plus, hors salaires des enseignants ?
+  aide: 'Un poste d''enseignant pèse environ 24 000 € par an sur le solde public (barème cout_enseignant_apu) : 10 000 postes
+    représentent environ 0,24 Md€ ; taille des classes, gratuité, crèches et bâti scolaire passent par ce curseur.'
+  type: curseur
+  axe: depenses
+  curseur:
+    min: -10
+    max: 40
+    pas: 0.5
+    unite: Md€
+    md_par_unite: 1
+    positions:
+      melenchon-lfi: 35.75
+      tondelier-ecologistes: -2.02
+      retailleau-lr: -0.85
+      le-pen-rn: -0.12
+      zemmour-reconquete: -0.12
+- id: transition-ecologique
+  theme: Écologie
+  question: Combien de dépenses de transition écologique en plus (investissements, adaptation, transports, énergies renouvelables),
+    hors rénovation des logements ?
+  aide: Un point de PIB représente environ 36 Md€ en 2032 (barème point_pib_2032) ; le soutien public aux énergies renouvelables
+    intermittentes est chiffré à environ 3 Md€ par an dans les programmes qui proposent d'y mettre fin.
+  type: curseur
+  axe: depenses
+  curseur:
+    min: -10
+    max: 50
+    pas: 0.5
+    unite: Md€
+    md_par_unite: 1
+    positions:
+      melenchon-lfi: 41.18
+      tondelier-ecologistes: 8.4
+      philippe-horizons: 3.07
+      le-pen-rn: -3.66
+      zemmour-reconquete: -4.38
+      retailleau-lr: -3.12
+- id: recherche-innovation
+  theme: Recherche
+  question: Combien de dépenses de recherche, d'enseignement supérieur et d'innovation en plus ?
+  aide: 0,1 point de PIB représente environ 3,6 Md€ en 2032 (barème point_pib_2032).
+  type: curseur
+  axe: depenses
+  curseur:
+    min: -5
+    max: 20
+    pas: 0.5
+    unite: Md€
+    md_par_unite: 1
+    positions:
+      attal-renaissance: 10.0
+      melenchon-lfi: 2.72
+      philippe-horizons: 3.39
+      retailleau-lr: 1.6
