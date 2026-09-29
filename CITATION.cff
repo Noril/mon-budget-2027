@@ -8,6 +8,6 @@ abstract: >-
 authors:
   - name: "Les contributeurs du projet"
 repository-code: "https://github.com/Noril/open-politics"
-license: MIT
+license: [MIT, CC-BY-4.0]
 keywords: [présidentielle 2027, chiffrage, open data, finances publiques]
 date-released: "2026-09-29"
