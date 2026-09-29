@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
       - run: uv sync
-      - uses: actions/cache@v4
+      - uses: actions/cache/restore@v4
         with:
           path: |
             data/brut
@@ -22,6 +22,14 @@ jobs:
           restore-keys: donnees-
       # Un contrôle en échec fait échouer le job : GitHub notifie les mainteneurs
       - run: uv run python -m pipelines.ingest
+      # Sauvegardé même en cas d'échec : chaque source réussie garde sa version pour les exécutions suivantes
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: |
+            data/brut
+            data/normalise
+          key: donnees-${{ github.run_id }}
       - run: uv run python -m pipelines.indicateurs
       # TODO(P1) : pousser data/ vers le stockage objet UE et ouvrir une PR si une valeur publiée change
       - uses: actions/upload-artifact@v4
