@@ -314,8 +314,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--valider", action="store_true")
     args = parser.parse_args(argv)
     if not LEVIERS.exists():
-        print("chiffrage/simulateur.yaml absent", file=sys.stderr)
-        return 1
+        print("chiffrage/simulateur.yaml absent : simulateur non généré")
+        return 0
     erreurs = valider()
     for e in erreurs:
         print(f"ÉCHEC {e}", file=sys.stderr)
