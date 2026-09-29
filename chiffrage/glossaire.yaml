@@ -1,0 +1,463 @@
+# Glossaire du jeu et du simulateur : termes expliqués au grand public quand ils apparaissent dans les cartes
+# (chiffrage/cartes.yaml : texte et libellés) et dans les questions, aides et options de chiffrage/simulateur.yaml.
+# `terme` : forme exacte telle qu'elle apparaît (sensible à la casse pour les sigles) ; `variantes` : autres formes à
+# reconnaître. Définitions factuelles et neutres, 250 caractères au plus ; ordres de grandeur tirés de
+# chiffrage/baremes.yaml (identifiant du barème entre parenthèses dans les commentaires quand il sert).
+
+# ====================================================================================================
+# Unités et notions budgétaires
+# ====================================================================================================
+
+- terme: Md€
+  variantes: ["milliard d'euros", "milliards d'euros"]
+  definition: "Milliard d'euros, soit mille millions d'euros. Pour comparer : l'impôt sur le revenu rapporte environ 95 Md€ par an et la TVA environ 209 Md€."
+
+- terme: PIB
+  variantes: ["produit intérieur brut", "point de PIB", "points de PIB"]
+  definition: "Produit intérieur brut : valeur de tout ce qui est produit en France en un an. Projeté à environ 3 600 Md€ en 2032 ; un point de PIB vaut alors environ 36 Md€."
+
+- terme: solde public
+  variantes: ["solde", "déficit public", "déficit"]
+  definition: "Différence entre les recettes et les dépenses de l'ensemble des administrations publiques (État, Sécurité sociale, collectivités) sur une année. Négatif, c'est un déficit, financé par l'emprunt."
+
+- terme: solde primaire
+  definition: "Solde public hors intérêts de la dette. C'est sur lui que portent les chiffrages : une mesure qui coûte 10 Md€ dégrade le solde primaire de 10 Md€, avant son effet sur les intérêts."
+
+- terme: dette publique
+  variantes: ["dette", "dette publique en % du PIB"]
+  definition: "Somme des emprunts de l'État, de la Sécurité sociale et des collectivités. On la rapporte au PIB pour la comparer dans le temps et entre pays : elle dépasse 110 % du PIB en France au milieu des années 2020."
+
+- terme: droit en vigueur
+  variantes: ["droit constant", "calendrier en vigueur"]
+  definition: "Lois votées au 29 septembre 2026, supposées inchangées jusqu'en 2032, calendriers déjà prévus compris. C'est la référence du chiffrage : une option « droit en vigueur » coûte et rapporte zéro."
+
+- terme: effet de second tour
+  variantes: ["effets de second tour"]
+  definition: "Conséquence indirecte d'une mesure sur l'économie (emploi, croissance, consommation) qui modifie à son tour les recettes et les dépenses. Les chiffrages présentés ici n'en tiennent pas compte."
+
+- terme: prélèvements en retour
+  variantes: ["nets des prélèvements en retour", "après prélèvements"]
+  definition: "Part d'une hausse de salaire public ou de pension qui revient aux caisses publiques sous forme d'impôt et de cotisations : environ 28 % pour un salaire public, 14 % pour une pension."
+
+- terme: inflation
+  definition: "Hausse générale des prix. Le chiffrage retient environ 11 % d'inflation cumulée de 2027 à 2032."
+
+- terme: indexation
+  variantes: ["indexer", "indexé", "indexée", "indexés", "indexées"]
+  definition: "Règle qui fait évoluer automatiquement un montant (pension, prestation, barème d'impôt, salaire) comme un indice de référence, le plus souvent l'inflation, parfois les salaires."
+
+- terme: revalorisation
+  variantes: ["revaloriser", "revalorisé", "revalorisée"]
+  definition: "Augmentation d'un montant (pension, prestation, salaire, Smic). Elle peut être automatique, par indexation, ou décidée ponctuellement."
+
+- terme: année blanche
+  definition: "Année sans revalorisation des pensions, prestations ou barèmes d'impôt, alors que les prix augmentent. Un point de revalorisation de toutes les pensions vaut environ 5 Md€ par an en 2032."
+
+- terme: RNB
+  variantes: ["revenu national brut", "revenu national"]
+  definition: "Revenu national brut : PIB plus les revenus reçus de l'étranger, moins ceux versés à l'étranger. Environ 3 700 Md€ projetés en 2032 ; sert de base aux objectifs d'aide au développement."
+
+# ====================================================================================================
+# Impôts et prélèvements
+# ====================================================================================================
+
+- terme: CSG
+  variantes: ["contribution sociale généralisée"]
+  definition: "Contribution sociale généralisée : impôt prélevé sur presque tous les revenus (salaires, pensions, revenus du capital) pour financer la Sécurité sociale. Environ 157 Md€ ; un point sur toutes les assiettes rapporte environ 18 Md€."
+
+- terme: CRDS
+  variantes: ["contribution au remboursement de la dette sociale"]
+  definition: "Contribution au remboursement de la dette sociale : prélèvement de 0,5 % sur la plupart des revenus, qui sert à rembourser la dette accumulée par la Sécurité sociale."
+
+- terme: TVA
+  variantes: ["taxe sur la valeur ajoutée"]
+  definition: "Taxe sur la valeur ajoutée, payée par le consommateur sur le prix de la plupart des biens et services (taux normal 20 %, réduits 10 %, 5,5 % et 2,1 %). Premier impôt français : environ 209 Md€ par an."
+
+- terme: accise
+  variantes: ["accises", "accise sur les carburants", "accise sur l'électricité"]
+  definition: "Impôt calculé sur la quantité consommée (litre, MWh) et non sur le prix. Sur les carburants, elle rapporte environ 30 Md€ par an ; un centime par litre vaut environ 0,5 Md€."
+
+- terme: MWh
+  variantes: ["mégawattheure"]
+  definition: "Mégawattheure : mille kilowattheures, unité de quantité d'électricité. Un euro d'accise par MWh d'électricité rapporte environ 0,3 Md€ par an."
+
+- terme: impôt sur le revenu
+  variantes: ["IR"]
+  definition: "Impôt progressif sur les revenus du foyer fiscal, calculé par tranches selon un barème. Il rapporte environ 95 Md€ par an ; une baisse de 1 % de l'impôt dû coûte environ 1 Md€."
+
+- terme: barème
+  variantes: ["barème de l'impôt sur le revenu", "imposés au barème", "imposition au barème"]
+  definition: "Grille de l'impôt sur le revenu : chaque tranche de revenu est imposée à un taux croissant (0, 11, 30, 41 et 45 %). « Au barème » signifie imposé comme les salaires, et non à un taux forfaitaire."
+
+- terme: tranches
+  variantes: ["tranche", "14 tranches"]
+  definition: "Parts successives du revenu ou de l'héritage, chacune imposée à son propre taux. Ajouter des tranches permet de taxer plus finement les montants élevés."
+
+- terme: taux marginal
+  definition: "Taux d'imposition appliqué à la tranche la plus haute atteinte, c'est-à-dire aux derniers euros de revenu ou d'héritage. Il est plus élevé que le taux moyen réellement payé."
+
+- terme: part fiscale
+  variantes: ["quotient familial", "part entière"]
+  definition: "Unité du quotient familial, qui réduit l'impôt sur le revenu selon la taille du foyer. Aujourd'hui, les deux premiers enfants comptent chacun pour une demi-part, le troisième pour une part."
+
+- terme: PFU
+  variantes: ["prélèvement forfaitaire unique", "flat tax", "prélèvement forfaitaire"]
+  definition: "Prélèvement forfaitaire unique (« flat tax ») : taux unique d'environ 30 %, prélèvements sociaux compris, sur les dividendes, intérêts et plus-values, au lieu du barème de l'impôt sur le revenu."
+
+- terme: revenus du capital
+  variantes: ["revenus du patrimoine"]
+  definition: "Revenus tirés d'un patrimoine plutôt que du travail : dividendes, intérêts, plus-values, loyers."
+
+- terme: dividendes
+  variantes: ["dividende"]
+  definition: "Part des bénéfices d'une entreprise versée à ses actionnaires."
+
+- terme: plus-values
+  variantes: ["plus-value", "plus-values imposées au décès"]
+  definition: "Gain réalisé en revendant un bien (action, immeuble) plus cher qu'il n'a été acheté. Aujourd'hui, la plus-value accumulée sur un bien transmis au décès n'est pas imposée."
+
+- terme: rachats d'actions
+  variantes: ["rachat d'actions"]
+  definition: "Opération par laquelle une entreprise rachète ses propres actions, ce qui redistribue de l'argent aux actionnaires sans passer par un dividende."
+
+- terme: TTF
+  variantes: ["taxe sur les transactions financières", "taxe sur les transactions"]
+  definition: "Taxe sur les transactions financières : 0,4 % du prix des actions de grandes entreprises françaises achetées. Elle rapporte environ 2,5 Md€ par an."
+
+- terme: ISF
+  variantes: ["impôt de solidarité sur la fortune"]
+  definition: "Impôt de solidarité sur la fortune : impôt annuel sur l'ensemble du patrimoine au-delà de 1,3 M€, remplacé en 2018 par l'IFI. Il rapportait 4,1 Md€ en 2017 ; le rétablir rapporterait environ 3,1 Md€ nets."
+
+- terme: IFI
+  variantes: ["impôt sur la fortune immobilière"]
+  definition: "Impôt sur la fortune immobilière : impôt annuel sur le patrimoine immobilier net supérieur à 1,3 M€, créé en 2018 à la place de l'ISF. Il rapporte environ 2,8 Md€ par an."
+
+- terme: impôt plancher
+  variantes: ["taxe Zucman", "impôt minimum"]
+  definition: "Impôt minimum sur les très grandes fortunes, proposé notamment par l'économiste Gabriel Zucman : 2 % du patrimoine par an, diminué des impôts déjà payés, au-delà de 100 M€ (ou pour les seuls milliardaires)."
+
+- terme: droits de succession et de donation
+  variantes: ["droits de succession", "droits de donation", "droits de mutation à titre gratuit"]
+  definition: "Impôt payé par ceux qui reçoivent un héritage ou une donation, selon le montant et le lien de parenté, après abattements. Il rapporte environ 21 Md€ par an."
+
+- terme: pacte Dutreil
+  definition: "Dispositif qui exonère de droits de succession ou de donation 75 % de la valeur d'une entreprise transmise, si les héritiers s'engagent à conserver les titres et à la diriger pendant plusieurs années."
+
+- terme: heures supplémentaires
+  variantes: ["heures sup"]
+  definition: "Heures travaillées au-delà de la durée légale (35 heures par semaine). Elles sont en partie exonérées d'impôt sur le revenu et de cotisations, pour un coût d'environ 5,4 Md€ par an."
+
+- terme: crédit d'impôt
+  definition: "Somme déduite de l'impôt dû, voire remboursée si elle dépasse l'impôt. C'est une aide publique qui passe par la fiscalité."
+
+- terme: CIR
+  variantes: ["crédit d'impôt recherche"]
+  definition: "Crédit d'impôt recherche : réduction d'impôt pour les entreprises égale à une part (30 % en général) de leurs dépenses de recherche. Sa suppression est chiffrée à environ 9 Md€ en 2032."
+
+# ====================================================================================================
+# Entreprises et cotisations
+# ====================================================================================================
+
+- terme: impôts de production
+  variantes: ["impôt de production"]
+  definition: "Impôts payés par les entreprises indépendamment de leurs bénéfices, sur leur chiffre d'affaires, leur valeur ajoutée ou leurs locaux (C3S, CVAE, CFE, taxe foncière…)."
+
+- terme: CVAE
+  variantes: ["cotisation sur la valeur ajoutée des entreprises"]
+  definition: "Cotisation sur la valeur ajoutée des entreprises : impôt de production en voie de suppression. Elle rapporte encore environ 3,7 Md€ ; la loi prévoit sa disparition en 2030."
+
+- terme: C3S
+  variantes: ["contribution sociale de solidarité des sociétés"]
+  definition: "Contribution sociale de solidarité des sociétés : impôt de production de 0,16 % sur le chiffre d'affaires des entreprises réalisant plus de 19 M€. Il rapporte environ 5,2 Md€ par an."
+
+- terme: CFE
+  variantes: ["cotisation foncière des entreprises"]
+  definition: "Cotisation foncière des entreprises : impôt local sur la valeur des locaux utilisés par l'entreprise, versé aux communes et intercommunalités, dû même les années sans bénéfice."
+
+- terme: aides publiques aux entreprises
+  variantes: ["aides aux entreprises"]
+  definition: "Ensemble des soutiens publics aux entreprises : subventions, crédits et niches d'impôt, allègements de cotisations. Selon le périmètre retenu par le Sénat, environ 211 Md€ par an."
+
+- terme: cotisations patronales
+  variantes: ["cotisation patronale"]
+  definition: "Cotisations sociales payées par l'employeur en plus du salaire brut, qui financent la retraite, la santé, la famille et le chômage."
+
+- terme: part salariale
+  variantes: ["cotisations salariales", "cotisations prélevées sur les salaires"]
+  definition: "Cotisations retenues sur le salaire brut du salarié (surtout pour la retraite) ; elles font la différence entre salaire brut et salaire net, avec la CSG et la CRDS."
+
+- terme: allègements de cotisations
+  variantes: ["allègements", "allègements généraux", "allègements généraux de cotisations"]
+  definition: "Réductions des cotisations patronales, maximales au Smic et dégressives jusqu'à environ 3 Smic, pour baisser le coût du travail. Elles coûtent environ 72 Md€ par an."
+
+- terme: coût du travail
+  definition: "Ce que paie l'employeur pour un salarié : salaire brut plus cotisations patronales, moins les allègements."
+
+- terme: cotisation vieillesse
+  variantes: ["cotisations vieillesse"]
+  definition: "Cotisation sur les salaires qui finance les pensions de retraite. Un point de cotisation vieillesse au régime général rapporte environ 6,2 Md€ par an."
+
+- terme: cotisation déplafonnée
+  variantes: ["point déplafonné"]
+  definition: "Cotisation prélevée sur la totalité du salaire, et non seulement jusqu'au plafond de la Sécurité sociale (environ 4 000 € bruts par mois)."
+
+- terme: épargne salariale
+  variantes: ["intéressement"]
+  definition: "Sommes versées aux salariés en fonction des résultats de l'entreprise (intéressement, participation). Elles échappent aux cotisations sociales mais pas à la CSG."
+
+- terme: masse salariale
+  definition: "Total des salaires versés. Dans le secteur privé, environ 740 Md€ bruts par an."
+
+- terme: PME
+  variantes: ["petites et moyennes entreprises", "petites entreprises"]
+  definition: "Petites et moyennes entreprises : moins de 250 salariés et au plus 50 M€ de chiffre d'affaires."
+
+- terme: ETI
+  variantes: ["entreprises de taille intermédiaire"]
+  definition: "Entreprises de taille intermédiaire : de 250 à 4 999 salariés, entre les PME et les grandes entreprises."
+
+# ====================================================================================================
+# Salaires, emploi et chômage
+# ====================================================================================================
+
+- terme: Smic
+  variantes: ["SMIC", "salaire minimum"]
+  definition: "Salaire minimum interprofessionnel de croissance, revalorisé chaque année selon la loi (inflation et une partie des hausses de salaires). Environ 2,2 millions de salariés au Smic ; +1 % coûte 0,3 Md€ aux administrations."
+
+- terme: revalorisation légale
+  definition: "Hausse du Smic imposée chaque 1er janvier par la loi, calculée sur l'inflation et la moitié du gain de pouvoir d'achat du salaire horaire ouvrier. Le gouvernement peut décider un « coup de pouce » en plus."
+
+- terme: salaire médian
+  definition: "Salaire qui partage les salariés en deux moitiés égales : la moitié gagne moins, l'autre plus. Il est inférieur au salaire moyen, tiré vers le haut par les hauts salaires."
+
+- terme: salaire brut
+  variantes: ["salaire net"]
+  definition: "Salaire avant retenue des cotisations salariales, de la CSG et de la CRDS. Le net, versé au salarié, est inférieur d'environ 22 % dans le privé."
+
+- terme: assurance chômage
+  variantes: ["indemnisation", "durée d'indemnisation"]
+  definition: "Régime géré par l'Unédic et financé par des contributions sur les salaires, qui indemnise les salariés ayant perdu leur emploi pour une durée limitée. Environ 46,6 Md€ de dépenses par an."
+
+- terme: rupture conventionnelle
+  variantes: ["ruptures conventionnelles"]
+  definition: "Fin d'un contrat de travail décidée d'un commun accord entre salarié et employeur ; elle ouvre droit aux allocations chômage, contrairement à une démission."
+
+- terme: frontaliers
+  variantes: ["travailleurs frontaliers"]
+  definition: "Personnes qui vivent en France et travaillent dans un pays voisin (Suisse, Luxembourg…). S'ils perdent leur emploi, c'est l'assurance chômage française qui les indemnise, sur la base de leur salaire étranger."
+
+- terme: chômeurs de longue durée
+  variantes: ["chômage de longue durée"]
+  definition: "Personnes au chômage depuis plus d'un an."
+
+# ====================================================================================================
+# Retraites
+# ====================================================================================================
+
+- terme: âge légal
+  variantes: ["âge d'ouverture des droits"]
+  definition: "Âge à partir duquel on peut demander sa retraite : 62 ans et 9 mois aujourd'hui, 64 ans à terme selon la loi. Un an d'âge légal vaut environ 6,6 Md€ par an en 2032."
+
+- terme: annuités
+  variantes: ["annuité", "trimestres", "durée d'assurance"]
+  definition: "Années de cotisation (quatre trimestres chacune) exigées pour une retraite à taux plein : 170 trimestres, soit 42,5 annuités, pour la génération 1964, 172 trimestres (43 annuités) à terme."
+
+- terme: taux plein
+  definition: "Retraite sans décote, obtenue quand on a cotisé la durée requise, ou automatiquement à 67 ans. Au régime général, la pension de base vaut alors 50 % du salaire moyen des 25 meilleures années."
+
+- terme: décote
+  definition: "Réduction de la pension, définitive, quand on part avant 67 ans sans avoir la durée de cotisation requise : 1,25 % par trimestre manquant au régime général, dans la limite de 20 trimestres."
+
+- terme: carrières longues
+  variantes: ["carrière longue"]
+  definition: "Dispositif qui permet de partir avant l'âge légal à ceux qui ont commencé à travailler jeunes (avant 16, 18, 20 ou 21 ans) et ont la durée de cotisation requise."
+
+- terme: minimum contributif
+  variantes: ["pension minimale", "Mico"]
+  definition: "Montant minimal de la pension de base pour une retraite à taux plein après une carrière à bas salaires. Une hausse de 100 € par mois coûte environ 1,6 Md€ par an."
+
+- terme: ASPA
+  variantes: ["Aspa", "minimum vieillesse", "allocation de solidarité aux personnes âgées"]
+  definition: "Allocation de solidarité aux personnes âgées (« minimum vieillesse ») : complète les ressources des personnes de 65 ans ou plus sous un plafond. Environ 4,1 Md€ par an."
+
+- terme: petites pensions
+  variantes: ["petites retraites"]
+  definition: "Pensions de faible montant, souvent issues de carrières courtes, incomplètes ou à bas salaires."
+
+- terme: réforme de 2023
+  definition: "Loi qui repousse l'âge légal de 62 à 64 ans et accélère la hausse de la durée de cotisation. Suspendue jusqu'au 1er janvier 2028 par la loi de financement de la Sécurité sociale pour 2026."
+
+# ====================================================================================================
+# Prestations et minima sociaux
+# ====================================================================================================
+
+- terme: RSA
+  variantes: ["revenu de solidarité active"]
+  definition: "Revenu de solidarité active : minimum social versé aux personnes de 25 ans ou plus (sauf exceptions) aux ressources faibles. Environ 11,7 Md€ par an."
+
+- terme: AAH
+  variantes: ["allocation aux adultes handicapés"]
+  definition: "Allocation aux adultes handicapés : minimum social versé aux personnes handicapées aux ressources faibles. Environ 14,6 Md€ par an."
+
+- terme: ASS
+  variantes: ["allocation de solidarité spécifique", "allocation de solidarité"]
+  definition: "Allocation de solidarité spécifique : versée par l'État aux chômeurs qui ont épuisé leurs droits à l'assurance chômage, sous conditions. Environ 2,1 Md€ par an."
+
+- terme: prime d'activité
+  definition: "Complément de revenu versé aux travailleurs modestes, salariés ou indépendants. Environ 10,6 Md€ par an."
+
+- terme: minima sociaux
+  variantes: ["minimum social"]
+  definition: "Allocations versées sous condition de ressources pour garantir un revenu minimal : RSA, AAH, minimum vieillesse, allocation de solidarité spécifique…"
+
+- terme: seuil de pauvreté
+  definition: "Niveau de revenu égal à 60 % du revenu médian, sous lequel une personne est dite pauvre : environ 1 300 € par mois pour une personne seule au milieu des années 2020."
+
+- terme: prestations non contributives
+  variantes: ["aides non contributives", "prestations de solidarité"]
+  definition: "Prestations versées sans avoir cotisé, financées par l'impôt : RSA, prime d'activité, aides au logement, prestations familiales, AAH, minimum vieillesse."
+
+- terme: prestations sociales
+  variantes: ["prestations"]
+  definition: "Sommes versées aux ménages par la Sécurité sociale, l'État ou les collectivités : retraites, allocations familiales, aides au logement, minima sociaux, indemnités chômage, remboursements de soins."
+
+- terme: AME
+  variantes: ["aide médicale d'État", "aide médicale de l'État"]
+  definition: "Aide médicale d'État : prise en charge des soins des étrangers en situation irrégulière résidant en France depuis plus de trois mois, sous condition de ressources. Environ 1,4 Md€ par an."
+
+- terme: soins urgents
+  definition: "Soins dont l'absence mettrait la vie en danger ou entraînerait une altération grave de la santé. Ils sont pris en charge même sans droit à l'aide médicale d'État."
+
+- terme: situation irrégulière
+  definition: "Situation d'un étranger présent en France sans titre de séjour valable."
+
+- terme: résidence régulière
+  definition: "Séjour en France d'un étranger qui dispose d'un titre de séjour valable."
+
+- terme: hébergement d'urgence
+  definition: "Places d'hébergement ouvertes sans condition à toute personne sans abri en détresse, financées par l'État."
+
+- terme: préférence nationale
+  variantes: ["priorité nationale", "réservées aux Français"]
+  definition: "Principe consistant à réserver certaines prestations, emplois ou logements aux personnes de nationalité française, ou à les leur attribuer en priorité."
+
+# ====================================================================================================
+# Fonction publique, collectivités, État
+# ====================================================================================================
+
+- terme: point d'indice
+  definition: "Valeur qui sert à calculer le traitement des fonctionnaires. Il n'évolue que sur décision du gouvernement ; +1 % coûte environ 2,6 Md€ bruts par an en 2032."
+
+- terme: agents publics
+  variantes: ["fonction publique", "fonctionnaires"]
+  definition: "Personnes employées par l'État, les collectivités ou les hôpitaux publics, fonctionnaires ou contractuels : environ 5,8 millions, avec près de 137 000 départs à la retraite par an."
+
+- terme: DGF
+  variantes: ["dotation globale de fonctionnement", "dotation globale"]
+  definition: "Dotation globale de fonctionnement : principale somme versée chaque année par l'État aux communes, départements et régions, sans affectation imposée. Environ 27 Md€ par an."
+
+- terme: dotations
+  variantes: ["dotation"]
+  definition: "Sommes versées par l'État aux collectivités territoriales. L'ensemble des concours financiers de l'État aux collectivités atteint environ 53 Md€ par an."
+
+- terme: intercommunalités
+  variantes: ["intercommunalité"]
+  definition: "Regroupements de communes (communautés de communes, d'agglomération, métropoles) qui exercent ensemble certaines compétences : transports, déchets, développement économique."
+
+- terme: agences de l'État
+  variantes: ["agences", "opérateurs de l'État"]
+  definition: "Organismes publics chargés d'une mission pour l'État avec leur propre budget : France Travail, Ademe, agences régionales de santé, universités…"
+
+- terme: ARS
+  variantes: ["agence régionale de santé", "agences régionales de santé"]
+  definition: "Agence régionale de santé : établissement public qui pilote l'organisation des soins, les hôpitaux et la prévention dans chaque région."
+
+- terme: ADEME
+  variantes: ["Ademe", "Agence de la transition écologique"]
+  definition: "Agence de l'environnement et de la maîtrise de l'énergie (Agence de la transition écologique) : distribue des aides et conseille sur l'énergie, les déchets et le climat."
+
+- terme: audiovisuel public
+  definition: "Chaînes et radios détenues par l'État (France Télévisions, Radio France, Arte France, France Médias Monde, INA), financées depuis 2022 par une part de TVA."
+
+- terme: achats publics
+  variantes: ["commande publique"]
+  definition: "Achats de biens, services et travaux par l'État, les collectivités et les hôpitaux, passés en principe par des marchés publics mis en concurrence."
+
+- terme: IA
+  variantes: ["intelligence artificielle"]
+  definition: "Intelligence artificielle : logiciels capables d'automatiser des tâches (traitement de dossiers, analyse de documents) réalisées jusque-là par des personnes."
+
+# ====================================================================================================
+# Santé
+# ====================================================================================================
+
+- terme: franchises
+  variantes: ["franchises médicales"]
+  definition: "Petites sommes retenues sur les remboursements de médicaments, consultations et transports sanitaires, dans la limite d'un plafond annuel."
+
+- terme: complémentaires
+  variantes: ["complémentaires santé", "mutuelles"]
+  definition: "Mutuelles et assurances qui remboursent tout ou partie des frais de santé non pris en charge par l'Assurance maladie."
+
+# ====================================================================================================
+# Énergie, climat, logement
+# ====================================================================================================
+
+- terme: passoires thermiques
+  variantes: ["passoire thermique"]
+  definition: "Logements très mal isolés, classés F ou G au diagnostic de performance énergétique."
+
+- terme: rénovation performante
+  variantes: ["rénovations performantes", "rénovation énergétique"]
+  definition: "Travaux d'isolation, de chauffage et de ventilation qui réduisent fortement la consommation d'énergie d'un logement et le font gagner plusieurs classes au diagnostic de performance énergétique."
+
+- terme: MaPrimeRénov'
+  definition: "Aide de l'État aux travaux de rénovation énergétique des logements, versée par l'Anah et modulée selon les revenus du ménage."
+
+- terme: Anah
+  variantes: ["Agence nationale de l'habitat"]
+  definition: "Agence nationale de l'habitat : établissement public qui finance l'amélioration des logements privés, notamment par MaPrimeRénov'."
+
+- terme: prêt à taux zéro
+  variantes: ["PTZ"]
+  definition: "Prêt sans intérêts, dont l'État prend en charge le coût auprès de la banque."
+
+- terme: énergies renouvelables
+  variantes: ["renouvelables", "éoliennes", "solaire"]
+  definition: "Énergies tirées de sources qui se renouvellent (vent, soleil, eau, biomasse). Le soutien public à l'éolien et au solaire est estimé à environ 3 Md€ par an."
+
+- terme: adaptation au climat
+  variantes: ["adaptation"]
+  definition: "Investissements qui limitent les dégâts du réchauffement déjà engagé : protection contre les inondations, les canicules et la sécheresse, adaptation des bâtiments et des réseaux."
+
+- terme: chèque carburant
+  variantes: ["chèque énergie", "chèque carburant et énergie"]
+  definition: "Aide versée directement aux ménages modestes pour payer leurs factures d'énergie ou leur carburant, au lieu d'une baisse de taxe pour tous."
+
+- terme: RER
+  variantes: ["RER métropolitains", "services express régionaux métropolitains"]
+  definition: "Réseau express régional : trains fréquents reliant une grande ville à sa périphérie. Une loi de 2023 prévoit d'en créer autour de plusieurs métropoles."
+
+- terme: fret
+  variantes: ["fret ferroviaire"]
+  definition: "Transport de marchandises, ici par le train plutôt que par la route."
+
+# ====================================================================================================
+# Défense et international
+# ====================================================================================================
+
+- terme: LPM
+  variantes: ["loi de programmation militaire"]
+  definition: "Loi de programmation militaire : fixe le budget des armées sur plusieurs années (2024-2030 pour l'actuelle). Les crédits de la mission Défense sont d'environ 57 Md€ en 2026."
+
+- terme: conscription
+  variantes: ["service national", "service militaire"]
+  definition: "Service obligatoire pour les jeunes d'une classe d'âge, militaire ou civil. Le service militaire obligatoire est suspendu en France depuis 1997."
+
+- terme: APD
+  variantes: ["aide publique au développement", "aide au développement"]
+  definition: "Aide publique au développement : dons et prêts aidés aux pays en développement. Environ 0,42 % du revenu national brut en 2025 ; l'objectif international est de 0,7 %."
+
+- terme: Agence française de développement
+  variantes: ["AFD"]
+  definition: "Banque publique qui finance des projets dans les pays en développement (santé, éducation, climat) ; elle met en œuvre une grande partie de l'aide française au développement."
