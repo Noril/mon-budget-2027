@@ -268,6 +268,16 @@ mesures:
   interpretation: 'Aucun paramètre : phase 2 à borner (bas 0) ou à déclarer non chiffrable.'
   chiffrable: false
   raison_non_chiffrable: 'Aucun paramètre (jours de carence, plafonds d''IJ, contrôles) : trop vague pour être chiffré.'
+  sens_probable: economie
+  estimation_indicative:
+    central: 0.75
+    bas: 0.0
+    haut: 2.24
+    lecture: 'Baisse de 5 % des indemnités journalières maladie (12,1 Md€ en 2024, DREES) par des jours de carence, des plafonds
+      et des contrôles, projetée (× 1,23). Bas : 0 ; haut : baisse de 15 %.'
+    sources:
+    - https://drees.solidarites-sante.gouv.fr/sites/default/files/2025-09/CNS%20-%20Fiche%2025%20-%20Les%20indemnit%C3%A9s%20journali%C3%A8res_0.pdf
+    - facteur_pib_2024_2032
 - id: fonctionnaires-moins-100000
   libelle: Supprimer 100 000 postes dans l'État et les collectivités (départs volontaires, non-remplacement)
   domaine: fonction publique
@@ -341,6 +351,7 @@ mesures:
   raison_non_chiffrable: 'Carte des collectivités non publiée ; la Cour des comptes n''a pas constaté d''économie nette des
     fusions de régions de 2016 (surcoût de régime indemnitaire d''environ 50 M€/an, Banque des Territoires) : aucune base
     pour chiffrer une économie.'
+  sens_probable: incertain
 - id: retraites-reprise-calendrier-2023
   libelle: Reprendre le calendrier de la réforme des retraites de 2023 à la fin de sa suspension
   domaine: retraites
@@ -357,6 +368,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Déjà dans la législation de référence : la montée vers 64 ans reprend le 1er janvier 2028 (REFERENCE.md).
     Coût ou gain nul.'
+  sens_probable: neutre
 - id: retraites-systeme-universel
   libelle: Système universel sans âge légal, fondé sur la durée de cotisation
   domaine: retraites
@@ -374,6 +386,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Barèmes de décote et de surcote non publiés ; le système est présenté comme actuariellement neutre
     : effet présumé nul, impossible à borner sans paramètres.'
+  sens_probable: incertain
 - id: capitalisation-1000-euros-naissance
   libelle: Dotation de 1 000 € par l'État à chaque naissance sur un compte retraite bloqué
   domaine: retraites / capitalisation
@@ -590,6 +603,18 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: La contribution exceptionnelle sur les bénéfices des grandes entreprises s'éteint après l'exercice
     2026 dans la référence (coût nul) ; les autres taxes visées ne sont pas identifiées.
+  sens_probable: cout
+  estimation_indicative:
+    central: -1.0
+    bas: -3.0
+    haut: -0.3
+    lecture: 'Retour sur la hausse de la taxe de solidarité sur les billets d''avion (≈ 0,8 Md€) et la taxe sur les holdings
+      (LFI 2026, rendement faible), projeté. Bas : suppression aussi de la contribution différentielle sur les hauts revenus
+      si elle est encore en vigueur ; haut : une seule taxe supprimée. La contribution exceptionnelle sur les bénéfices s''éteint
+      déjà dans la référence.'
+    sources:
+    - https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Recettes-fiscales.pdf
+    - facteur_pib_2025_2032
 - id: enseignants-200-500-euros
   libelle: Revaloriser les enseignants de 200 € nets par mois (jusqu'à 500 € en milieu de carrière) dès 2027
   domaine: éducation
@@ -671,6 +696,16 @@ mesures:
   interpretation: 'Montant non précisé ; ordre de grandeur de la précédente mesure : +100 € nets/mois.'
   chiffrable: false
   raison_non_chiffrable: 'Montant de la revalorisation non précisé (« aller plus loin ») : trop vague pour être chiffré.'
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.17
+    bas: -0.5
+    haut: -0.1
+    lecture: 'Nouvelle hausse de 100 € nets par mois pour les 140 000 AESH, au coût de la revalorisation de 2023 (240 M€ par
+      an), nette des prélèvements (× 0,72). Bas : création d''un corps (titularisation, grille) ; haut : hausse plus faible.'
+    sources:
+    - https://www.senat.fr/rap/l25-139-313/l25-139-31310.html
+    - retour_prelevements_salaires_publics
 - id: classes-moins-20-remplacants
   libelle: Moins de 20 élèves par classe en primaire et postes de remplaçants, grâce à la baisse démographique
   domaine: éducation
@@ -689,6 +724,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Redéploiement des postes libérés par la baisse démographique : effet nul par rapport à une référence
     sans tendanciel de dépense (REFERENCE.md) ; aucun poste supplémentaire annoncé.'
+  sens_probable: neutre
 - id: choc-des-savoirs-certificat
   libelle: Rétablir le Choc des savoirs, certificat d'études en fin de CM2 et année passerelle
   domaine: éducation
@@ -704,6 +740,17 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Ni volume d''heures (groupes de niveau) ni nombre d''élèves en année passerelle : trop vague pour
     être chiffré.'
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.15
+    bas: -0.4
+    haut: -0.05
+    lecture: 'Groupes de niveau rétablis au collège (≈ 2 300 postes, comme à la rentrée 2024) et année passerelle pour une partie
+      des élèves, au coût d''un enseignant entrant (24 100 € net pour le solde) et à la marge d''une année de scolarité. Bas
+      : groupes dans toutes les matières et année passerelle large ; haut : moyens pris sur la baisse démographique.'
+    sources:
+    - https://attalpresident.fr/programme/education
+    - cout_enseignant_apu
 - id: assistant-ia-eleves
   libelle: Assistant d'IA gratuit pour chaque élève
   domaine: éducation / numérique
@@ -719,6 +766,15 @@ mesures:
     évoque un assistant médical IA pour tous les Français.
   chiffrable: false
   raison_non_chiffrable: Coût unitaire de l'outil commandé par l'État non documenté.
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.15
+    bas: -0.4
+    haut: -0.05
+    lecture: 'Licence d''environ 12 € par élève et par an pour 12 millions d''élèves, développement et hébergement souverain
+      compris. Bas : 30 € par élève ; haut : outil public mutualisé. Pourrait être imputé sur le plan France 2040 (déjà chiffré).'
+    sources:
+    - https://attalpresident.fr/programme/education
 - id: plan-ia-france-2040
   libelle: 'Plan « France 2040 » : 200 Md€ pour l''IA, la tech et l''innovation, moitié public'
   domaine: numérique / innovation
@@ -783,6 +839,17 @@ mesures:
   interpretation: Taux, assiette et plafond non précisés.
   chiffrable: false
   raison_non_chiffrable: 'Taux, assiette et plafond non précisés : trop vague pour être chiffré.'
+  sens_probable: cout
+  estimation_indicative:
+    central: -1.0
+    bas: -3.0
+    haut: -0.3
+    lecture: 'Crédit d''impôt de 20 à 30 % sur les dépenses d''adoption de l''IA plafonnées, à l''échelle du crédit d''impôt
+      innovation élargi (quelques centaines de millions) à un sur-amortissement numérique large (plusieurs Md€). Bas : assiette
+      large (logiciels, formation, équipements) ; haut : réservé aux PME.'
+    sources:
+    - https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Depenses-fiscales.pdf
+    - depenses_fiscales_total
 - id: formation-ia-20-millions
   libelle: Former 20 millions de salariés à l'IA d'ici 2030
   domaine: formation / numérique
@@ -796,6 +863,16 @@ mesures:
     courte.
   chiffrable: false
   raison_non_chiffrable: 'Coût unitaire et part publique (CPF, entreprises) non précisés : trop vague pour être chiffré.'
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.3
+    bas: -1.5
+    haut: 0.0
+    lecture: '20 millions de formations courtes (≈ 300 €) d''ici 2030, dont un tiers à la charge du CPF (France compétences,
+      dans les APU) : ≈ 0,5 Md€ par an jusqu''en 2030, moins en 2032 une fois l''objectif atteint. Bas : part publique de moitié
+      et poursuite après 2030 ; haut : financement par les entreprises.'
+    sources:
+    - https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos
 - id: garde-enfants-livret-200000
   libelle: Livret d'épargne garde d'enfants et formation de 200 000 professionnels de la petite enfance d'ici 2030
   domaine: politique familiale
@@ -812,6 +889,16 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: Paramètres du livret (exonération, plafond) et coût de formation non précisés ; le livret mobilise
     de l'épargne privée.
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.2
+    bas: -0.6
+    haut: -0.05
+    lecture: 'Livret défiscalisé de 10 à 20 Md€ d''encours rémunéré 2 à 3 % (IR et prélèvements sociaux perdus ≈ 0,1 Md€) et
+      formation de 200 000 professionnels en partie financée par l''État et les régions. Bas : encours élevé et formation publique
+      ; haut : encours faible, formation par les employeurs.'
+    sources:
+    - https://attalpresident.fr/actualites/gabriel-attal-annonce-ses-premieres-mesures-pour-les-familles-monoparentales-a-la-premiere-universite-d-ete
 - id: pensions-alimentaires-defiscalisation
   libelle: Défiscaliser les pensions alimentaires reçues pour les enfants
   domaine: fiscalité des ménages
@@ -873,6 +960,17 @@ mesures:
   raison_non_chiffrable: 'Coûts et volumes non documentés : le barème kilométrique (frais réels) n''est pas classé en dépense
     fiscale, le « coup de pouce » à l''occasion n''a pas de montant réglementaire, le nombre de conversions E85 est inconnu
     ; la prime employeur de 1 000 € a été relevée par le gouvernement le 22 septembre 2026.'
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.4
+    bas: -1.0
+    haut: -0.15
+    lecture: 'Revalorisation d''environ 10 % du barème kilométrique (≈ 0,4 Md€ d''IR en moins, ordre de grandeur de la revalorisation
+      de 2022), boîtiers E85 et bonus occasion à la marge (le bonus relève désormais des CEE, hors APU). Bas : revalorisation
+      plus forte et bonus budgétaire ; haut : revalorisation de 5 %.'
+    sources:
+    - https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Depenses-fiscales.pdf
+    - ir_rendement
 - id: heures-supplementaires-defiscalisation
   libelle: Défiscaliser les heures supplémentaires
   domaine: fiscalité des ménages
@@ -888,6 +986,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Source secondaire seulement (comparateur IFRAP) ; les heures supplémentaires sont déjà exonérées
     d''IR jusqu''à 7 500 € (barème hs_exoneration_cout) : promesse non distinguable du droit en vigueur.'
+  sens_probable: neutre
 - id: impots-classes-moyennes-2md
   libelle: Baisser de 2 Md€ les impôts des classes moyennes
   domaine: fiscalité des ménages
@@ -936,6 +1035,15 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: Paramètres du statut (taux d'amortissement, plafonds) non précisés ; le dispositif Jeanbrun est déjà
     dans la référence.
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.5
+    bas: -2.0
+    haut: 0.0
+    lecture: 'Extension du dispositif Jeanbrun (déjà dans la référence) à un statut du bailleur plus large (ancien, meublé)
+      : coût supplémentaire de l''ordre de 0,5 Md€. Bas : amortissement ouvert au stock ; haut : simple reconduction du Jeanbrun.'
+    sources:
+    - https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Depenses-fiscales.pdf
 - id: justice-3000-magistrats-prisons
   libelle: Recruter 3 000 magistrats et greffiers et construire des places de prison
   domaine: justice
@@ -1002,6 +1110,7 @@ mesures:
   precision: precise
   chiffrable: false
   raison_non_chiffrable: Redéploiement explicite à enveloppe constante et montant inférieur à 0,1 Md€.
+  sens_probable: neutre
 - id: plan-eau-fuites
   libelle: Plan massif de réparation des fuites d'eau, à euro constant
   domaine: écologie
@@ -1016,6 +1125,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Financé par redéploiement de crédits existants (Plan eau, Fonds vert) et prêts de la Banque des
     Territoires : effet nul sur le solde selon le candidat.'
+  sens_probable: neutre
 - id: electricite-75-euros-mwh
   libelle: Prix de l'électricité autour de 75 €/MWh, contrats < 50 €/MWh pour l'industrie exposée
   domaine: énergie
@@ -1028,6 +1138,7 @@ mesures:
   precision: partielle
   chiffrable: false
   raison_non_chiffrable: 'Instrument non précisé (régulation, contrats EDF, fiscalité) : effet budgétaire non identifiable.'
+  sens_probable: incertain
 - id: defense-moyens
   libelle: Continuer à augmenter les moyens de la défense
   domaine: défense
@@ -1040,6 +1151,16 @@ mesures:
   precision: vague
   chiffrable: false
   raison_non_chiffrable: 'Trop vague : aucune cible au-delà de la LPM (nouveau livre blanc annoncé).'
+  sens_probable: cout
+  estimation_indicative:
+    central: -1.8
+    bas: -7.2
+    haut: 0.0
+    lecture: 'La référence du chiffrage prolonge déjà la LPM actualisée vers 3,5 % du PIB en 2035 (≈ 2,9 % en 2032, barème defense_0_1_point_pib_2032)
+      ; « continuer à augmenter » au-delà ne vaut qu''un dépassement modéré, 0,05 point de PIB au central. Bas : 0,2 point ;
+      haut : trajectoire de référence.'
+    sources:
+    - defense_0_1_point_pib_2032
 - id: regle-or-referendum
   libelle: Règle d'or d'équilibre budgétaire dans la Constitution par référendum, « impunité zéro »
   domaine: institutions
@@ -1052,6 +1173,7 @@ mesures:
   precision: partielle
   chiffrable: false
   raison_non_chiffrable: 'NON_BUDGETAIRE : règle constitutionnelle et responsabilité politique, sans effet mécanique.'
+  sens_probable: neutre
 - id: loi-stabilite-fiscale-10-ans
   libelle: Loi de stabilité fiscale et économique sur dix ans (CIR, pacte Dutreil)
   domaine: fiscalité
@@ -1065,6 +1187,7 @@ mesures:
   precision: precise
   chiffrable: false
   raison_non_chiffrable: 'Maintien de dispositifs existants : aucun effet par rapport à la référence.'
+  sens_probable: neutre
 - id: epargne-salariale-per
   libelle: Fléchage obligatoire de 50 % de l'intéressement et de la participation vers l'épargne retraite
   domaine: épargne
@@ -1077,6 +1200,7 @@ mesures:
   precision: precise
   chiffrable: false
   raison_non_chiffrable: 'NON_BUDGETAIRE : orientation de l''épargne privée ; effet fiscal marginal non documenté.'
+  sens_probable: neutre
 - id: heures-sup-plafond-constitution-travail
   libelle: Supprimer le plafond annuel d'heures supplémentaires, « Constitution du travail »
   domaine: travail
@@ -1089,6 +1213,7 @@ mesures:
   precision: precise
   chiffrable: false
   raison_non_chiffrable: 'NON_BUDGETAIRE : droit du travail.'
+  sens_probable: neutre
 - id: immigration-quotas-points
   libelle: Quotas d'immigration par secteur votés par le Parlement, système à points
   domaine: immigration
@@ -1102,6 +1227,7 @@ mesures:
   precision: precise
   chiffrable: false
   raison_non_chiffrable: 'NON_BUDGETAIRE : politique migratoire.'
+  sens_probable: neutre
 - id: justice-jap-mineurs
   libelle: Suppression du juge d'application des peines, comparution immédiate des mineurs
   domaine: justice
@@ -1115,6 +1241,7 @@ mesures:
   precision: precise
   chiffrable: false
   raison_non_chiffrable: 'NON_BUDGETAIRE : procédure pénale.'
+  sens_probable: neutre
 - id: ukraine-avoirs-russes
   libelle: Financer l'aide à l'Ukraine par la saisie des avoirs russes gelés
   domaine: international
@@ -1127,6 +1254,7 @@ mesures:
   precision: precise
   chiffrable: false
   raison_non_chiffrable: 'NON_BUDGETAIRE : financement européen, hors solde des administrations françaises.'
+  sens_probable: neutre
 - id: mutuelle-publique-1-euro
   libelle: Complémentaire santé publique à 1 € par jour
   domaine: santé
@@ -1140,3 +1268,14 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: Promesse des législatives de 2024 (Premier ministre), non retrouvée dans les sources de campagne
     2026 ; reprise par certains agrégateurs. Non retenue en l'état.
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.5
+    bas: -1.5
+    haut: -0.1
+    lecture: 'Complémentaire publique à 365 € par an ouverte aux personnes sans mutuelle (≈ 4 % de la population, dont une partie
+      déjà éligible à la complémentaire santé solidaire) : 1 à 1,5 million d''adhérents, au déficit moyen de 300 à 400 € (prestations
+      complémentaires moyennes ≈ 700 €, sélection adverse). Bas : 3 millions d''adhérents ; haut : faible recours. Promesse
+      de 2024, non reconfirmée en 2026.'
+    sources:
+    - https://www.egora.fr/actus-pro/politiques/attal-promet-une-mutuelle-1-euro-par-jour

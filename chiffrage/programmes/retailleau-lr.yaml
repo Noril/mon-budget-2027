@@ -171,6 +171,7 @@ mesures:
     precision: vague
     chiffrable: false
     raison_non_chiffrable: Règle institutionnelle sans effet budgétaire direct.
+    sens_probable: neutre
 
   # --- Travail gagnant (décembre 2025 / janvier 2026) -------------------------------------------
   - id: seuil-zero-cotisation
@@ -741,6 +742,7 @@ mesures:
     chiffrable: false
     raison_non_chiffrable: 'Effet de second tour (hausse des bénéfices après baisse du coût du travail) : non compté
       (règle 3). Décrit dans les effets_retour de la baisse des cotisations patronales.'
+    sens_probable: neutre
   - id: seniors-exoneration-avant-age-legal
     libelle: Exonération totale de cotisations retraite et chômage pour les salariés ayant tous leurs trimestres avant l'âge légal
     domaine: retraites
@@ -758,6 +760,18 @@ mesures:
     raison_non_chiffrable: Effectif des salariés ayant tous leurs trimestres avant l'âge légal, hors carrières longues
       et pénibilité, non publié ; le coût statique (4 800 € employeur + 3 400 € salarié par personne au salaire médian)
       ne peut être multiplié par une assiette sourcée. Barème à ajouter (voir besoins).
+    sens_probable: cout
+    estimation_indicative:
+      central: -0.7
+      bas: -1.5
+      haut: -0.2
+      lecture: 'Environ 70 000 salariés par an ayant tous leurs trimestres avant l''âge légal hors carrières longues et pénibilité
+        (fenêtre étroite : débuts de carrière vers 20-21 ans), au coût statique cité par le livret (4 800 € employeur + 3 400
+        € salarié au salaire médian), projeté (× 1,18). Bas : 150 000 personnes ; haut : 30 000. Les prolongations d''activité
+        revendiquées ne sont pas comptées (règle 3).'
+      sources:
+      - https://republicains.fr/actualites/2026/05/02/priorite-travail-france-35h-salaires-retraites/
+      - facteur_pib_2026_2032
   - id: cumul-emploi-retraite-renove
     libelle: Cumul emploi-retraite rénové remplaçant la surcote (exonération de cotisations hors CSG-CRDS, pension minorée de 30 % du revenu d'activité)
     domaine: retraites
@@ -777,6 +791,19 @@ mesures:
     raison_non_chiffrable: Effets de signes opposés (exonération des cotisations des cumulants, minoration des pensions
       de 30 % du revenu d'activité, suppression de la surcote) sans données publiques suffisantes sur les revenus des
       cumulants et les flux de surcote. Barèmes à ajouter (voir besoins).
+    sens_probable: incertain
+    estimation_indicative:
+      central: -0.5
+      bas: -3.0
+      haut: 2.0
+      lecture: 'Trois effets de sens contraire sur environ 10 Md€ de revenus d''activité des cumulants : cotisations hors CSG-CRDS
+        perdues (≈ 35 %, ≈ −3,5 Md€), minoration des pensions de 30 % de ces revenus (≈ +3 Md€, moins la sortie du dispositif
+        de ceux qui y perdent), suppression de la surcote (économie progressive, faible en 2032). Bas : exonération sans minoration
+        effective ; haut : minoration pleine et fin de la surcote pour les nouvelles générations.'
+      sources:
+      - https://republicains.fr/actualites/2026/05/02/priorite-travail-france-35h-salaires-retraites/
+      - retraites_cotisation_vieillesse_1_point
+      - facteur_pib_2025_2032
   - id: temps-partiel-suppression-24h
     libelle: Suppression du minimum légal de 24 heures hebdomadaires pour le temps partiel, sauf accord collectif
     domaine: travail
@@ -790,6 +817,7 @@ mesures:
     precision: precise
     chiffrable: false
     raison_non_chiffrable: Mesure réglementaire sans effet budgétaire direct.
+    sens_probable: neutre
 
   # --- Retraites ------------------------------------------------------------------------------------
   - id: retraites-age-63-taux-plein-65
@@ -895,6 +923,19 @@ mesures:
     raison_non_chiffrable: 'Modalités contradictoires ou non précisées : étage « volontaire » alimenté par l''épargne
       salariale selon le livret (coût limité aux incitations fiscales, non précisées), « 25 à 30 % des retraites des
       jeunes » à l''oral (bascule de cotisations au coût de transition non chiffrable sans paramètres).'
+    sens_probable: cout
+    estimation_indicative:
+      central: -0.5
+      bas: -10.0
+      haut: 0.0
+      lecture: 'Lecture du livret : étage volontaire alimenté par l''intéressement, la participation et l''épargne volontaire
+        ; coût limité aux incitations fiscales et sociales nouvelles (≈ 0,5 Md€). Bas : lecture orale « 25 à 30 % des retraites
+        des jeunes », qui suppose de basculer à terme plus d''un point de cotisation (≈ 7,5 Md€ par point en 2032) ; haut : redéploiement
+        pur de l''épargne salariale existante.'
+      sources:
+      - https://republicains.fr/actualites/2026/05/02/priorite-travail-france-35h-salaires-retraites/
+      - retraites_cotisation_vieillesse_1_point
+      - facteur_pib_2025_2032
 
   # --- Produire plus (février 2026) -----------------------------------------------------------------
   - id: suppression-c3s
@@ -1173,6 +1214,19 @@ mesures:
     interpretation: Taux et assiette non précisés ; prendre comme référence le sur-amortissement Macron 2015-2017 (40 %) et son coût constaté.
     chiffrable: false
     raison_non_chiffrable: 'Taux, assiette et durée non précisés : trop vague pour être chiffré.'
+    sens_probable: cout
+    estimation_indicative:
+      central: -1.5
+      bas: -4.0
+      haut: -0.5
+      lecture: 'Sur-amortissement de 40 % (référence 2015-2017) sur l''investissement en équipements industriels (≈ 25 Md€ par
+        an) : 40 % × 25 Md€ × IS à 25 % ≈ 2,5 Md€ si tout est éligible ; central sur un champ restreint (industrie, biens neufs,
+        PME et ETI surtout), étalé sur la durée d''amortissement. Bas : champ large et 2032 à pleine charge ; haut : taux ou champ
+        réduits.'
+      sources:
+      - https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf
+      - is_rendement_net
+      - is_point
   - id: apprentissage-reorientation
     libelle: Réorientation des aides à l'apprentissage vers bac+2 et infra, aide de 6 000 € au pré-apprentissage des NEET
     domaine: travail
@@ -1189,6 +1243,7 @@ mesures:
     chiffrable: false
     raison_non_chiffrable: Présenté comme un redéploiement à enveloppe constante (« il ne s'agira pas fondamentalement
       de réduire l'apprentissage ») ; aucune cible de dépense ni effectif pour l'aide de 6 000 € aux NEET.
+    sens_probable: incertain
   - id: cir-sanctuarise
     libelle: Crédit d'impôt recherche sanctuarisé, contrôles renforcés
     domaine: fiscalite
@@ -1202,6 +1257,7 @@ mesures:
     precision: precise
     chiffrable: false
     raison_non_chiffrable: Statu quo par rapport à la législation en vigueur.
+    sens_probable: neutre
   - id: differe-dmtg-transmission-entreprises
     libelle: Différé automatique des droits de mutation sur la transmission d'entreprises et d'exploitations agricoles tant qu'il n'y a pas de cession
     domaine: fiscalite
@@ -1222,6 +1278,18 @@ mesures:
     raison_non_chiffrable: 'Assiette non publiée : montant des droits de mutation acquittés sur les transmissions de
       titres et d''entreprises hors pacte Dutreil. Effet de trésorerie (droits différés jusqu''à la cession) dont le
       coût définitif dépend des cessions futures. Barème à ajouter (voir besoins).'
+    sens_probable: cout
+    estimation_indicative:
+      central: -0.3
+      bas: -1.0
+      haut: -0.1
+      lecture: 'Droits de mutation sur les transmissions de titres et d''entreprises hors pacte Dutreil différés jusqu''à la cession
+        (dont une partie n''intervient jamais avant 2032) : ordre de grandeur de quelques pourcents du produit des DMTG (21 Md€),
+        l''essentiel des transmissions d''entreprises relevant déjà du Dutreil (4,5 Md€ de dépense fiscale). Bas : forte part
+        de transmissions hors Dutreil ; haut : différé marginal.'
+      sources:
+      - dmtg_rendement
+      - https://www.ccomptes.fr/sites/default/files/2025-11/20251118-Synthese-Pacte%20Dutreil.pdf
   - id: baisse-droits-succession
     libelle: Baisse des droits de succession « au maximum du possible » au cours du quinquennat
     domaine: fiscalite
@@ -1236,6 +1304,18 @@ mesures:
     interpretation: Ampleur non précisée. Chiffrable seulement en fourchette (0 à x % du produit des DMTG succession) ; peut être classée non chiffrable si rien de plus n'est publié.
     chiffrable: false
     raison_non_chiffrable: 'Ampleur non précisée (« au maximum du possible ») : trop vague pour être chiffrée.'
+    sens_probable: cout
+    estimation_indicative:
+      central: -2.1
+      bas: -6.2
+      haut: -0.5
+      lecture: 'Baisse de l''ordre de 10 % du produit des droits de succession (relèvement de l''abattement en ligne directe de
+        100 000 € à environ 150 000 €), sur un produit de 17 Md€ en 2025 projeté (× 1,21). Bas : baisse de 30 % (« au maximum
+        du possible ») ; haut : geste limité (≈ 0,5 Md€).'
+      sources:
+      - https://republicains.fr/actualites/2026/08/26/je-serai-le-president-qui-baissera-les-impots-de-succession/
+      - dmtg_rendement
+      - facteur_pib_2025_2032
   - id: choc-transmission-dons
     libelle: Choc de transmission pendant trois ans, dons exonérés jusqu'à 150 000 € (moins de 30 ans) et 100 000 € (moins de 40 ans)
     domaine: fiscalite
@@ -1256,6 +1336,17 @@ mesures:
     raison_non_chiffrable: 'Mesure temporaire (trois ans) : effet nul ou légèrement négatif en régime de croisière 2032
       (anticipation des successions) ; son coût transitoire 2028-2030 dépend du volume de dons supplémentaires, non
       documenté.'
+    sens_probable: cout
+    estimation_indicative:
+      central: -0.3
+      bas: -1.0
+      haut: 0.0
+      lecture: 'Dons exonérés (2027-2030) qui auraient été taxés à la succession : en 2032, perte de droits de succession sur
+        les patrimoines transmis par anticipation, sans recette de donation en contrepartie. Bas : dons massifs ; haut : effet
+        d''aubaine sur des dons qui auraient été exonérés de toute façon.'
+      sources:
+      - https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf
+      - dmtg_rendement
 
   # --- Famille (avril 2026) -------------------------------------------------------------------------
   - id: revenu-familial
@@ -1403,10 +1494,51 @@ mesures:
       support: tribune (La Tribune Dimanche, reprise sur republicains.fr)
     precision: partielle
     interpretation: Le livret Famille applique la même condition au revenu familial. Périmètre des aides à préciser ; risque constitutionnel non pris en compte dans le chiffrage.
-    chiffrable: false
-    raison_non_chiffrable: Pas de donnée publique sur les allocataires étrangers résidant depuis moins de cinq ans par
-      prestation ; périmètre des aides et condition d'activité (appliquée à tous les parents ?) ambigus ; risque constitutionnel.
-      Barème à ajouter.
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 3.08
+      bas: 0.0
+      haut: 3.82
+      montee_en_charge:
+        '2027': 0
+        '2028': 0.2
+        '2029': 0.4
+        '2030': 0.6
+        '2031': 0.8
+        '2032': 1
+    calcul:
+      formule: cinq_ans * f
+      parametres:
+        cinq_ans:
+          valeur: 2.5
+          source: https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/reserver-le-benefice-du-rsa-et-des-prestations-de-solidarites-aux-etrangers-ayant-au-moins-5-ans-dequivalent-temps-plein-travaille-en-france
+          unite: Md€ par an (2024)
+          note: économie médiane (fourchette 0,58 à 3,1), même paramètre que la mesure RN prestations-solidarite-5-ans-travail
+        f:
+          valeur: 1.2336
+          bareme: facteur_pib_2024_2032
+          unite: facteur
+          note: PIB nominal 2032 / 2024
+      explication: 'Même lecture et même source que la condition de cinq ans du RN (Institut Montaigne, médiane, projetée) : RSA,
+        prime d''activité, APL et prestations de solidarité réservées aux étrangers justifiant cinq ans d''activité et de résidence
+        légale. Appliquée aux nouveaux venus : l''effet monte en charge sur cinq ans et atteint en 2032 le stock des étrangers
+        de moins de cinq ans de résidence. Le volet revenu familial (enfants de parents récemment arrivés) n''est pas ajouté,
+        faute de donnée. Haut : haut de la fourchette Montaigne (3,1 Md€) projeté. Bas : 0 (censure constitutionnelle possible,
+        comme pour le RN).'
+    chiffrages_tiers:
+    - auteur: Institut Montaigne (législatives 2024, mesure RN équivalente)
+      montant_md: 2.5
+      url: https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/reserver-le-benefice-du-rsa-et-des-prestations-de-solidarites-aux-etrangers-ayant-au-moins-5-ans-dequivalent-temps-plein-travaille-en-france
+      commentaire: 0,6 à 3,1 Md€
+    confiance: faible
+    verification:
+      statut: corrige
+      par: recalage-couverture
+      date: '2026-09-29'
+      commentaire: 'Classée non chiffrable à tort : la condition de cinq ans d''activité et de résidence est la même que celle
+        du RN (prestations-solidarite-5-ans-travail), chiffrée avec la médiane de l''Institut Montaigne ; même paramètre et même
+        projection ici, sans le volet prestations familiales propre au RN.'
   - id: revenu-familial-gains-gestion
     libelle: Gestion du revenu familial par la DGFiP, gains de gestion dans les CAF et la MSA
     domaine: famille
@@ -1582,6 +1714,18 @@ mesures:
     chiffrable: false
     raison_non_chiffrable: Nombre de foyers avec enfants mineurs remboursant un prêt pour leur résidence principale
       et intérêts payés non publiés à ce niveau ; stock ou flux de prêts non précisé. Barème à ajouter (voir besoins).
+    sens_probable: cout
+    estimation_indicative:
+      central: -1.5
+      bas: -3.5
+      haut: -0.4
+      lecture: 'Réduction d''impôt ouverte aux nouveaux emprunts à partir de 2028 : environ 300 000 acquéreurs avec enfants mineurs
+        par an, qui s''accumulent jusqu''en 2032, à environ 1 000 € de réduction moyenne (plafonds de 800 à 1 600 € selon les
+        enfants). Bas : stock des emprunts en cours (≈ 3,5 millions de foyers) ; haut : première année seulement, sur le modèle
+        du crédit d''impôt TEPA limité à cinq annuités.'
+      sources:
+      - https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf
+      - ir_rendement
 
   # --- Logement (mai 2026) --------------------------------------------------------------------------
   - id: statut-bailleur-prive
@@ -1607,6 +1751,18 @@ mesures:
       voté en LFI 2026.'
     effets_retour: >-
       Candidat : gain net de 1,9 Md€ par les recettes induites de 70 000 logements supplémentaires par an.
+    sens_probable: cout
+    estimation_indicative:
+      central: -1.5
+      bas: -6.0
+      haut: -0.5
+      lecture: 'Amortissement de 4 % du bâti ouvert aux acquisitions nouvelles (lecture du rapport Daubresse-Cosson), en sus du
+        dispositif Jeanbrun déjà dans la référence : ≈ 1,5 Md€ d''IR et de prélèvements sociaux en moins à l''horizon 2032. Bas
+        : ouverture au stock des bailleurs de logements nus et option PFU ; haut : acquisitions dans le neuf seulement. Le gain
+        de 1,9 Md€ revendiqué (recettes induites) n''est pas compté (règle 3).'
+      sources:
+      - https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf
+      - https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Depenses-fiscales.pdf
   - id: tva-communes-logement-neuf
     libelle: Versement automatique aux communes d'une fraction de TVA de 9 000 € par logement neuf
     domaine: logement
@@ -1686,6 +1842,7 @@ mesures:
     raison_non_chiffrable: Coût actuel du PTZ par génération et volume de prêts dans l'ancien hors zonage non disponibles
       ; la prise en charge par la Caisse des dépôts (hors APU) réduit la dépense de l'État mais aussi ses versements
       à l'État. Barème à ajouter.
+    sens_probable: incertain
   - id: suppression-exoneration-is-hlm
     libelle: Suppression progressive sur cinq ans de l'exonération d'IS des organismes HLM (350 M€), redistribuée en aides à la pierre
     domaine: logement
@@ -1797,6 +1954,7 @@ mesures:
     raison_non_chiffrable: >-
       Déjà dans la législation au 1er janvier 2027 (LF 2026, à confirmer) : effet nul par rapport au référentiel,
       hors gain de contrôle non documenté.
+    sens_probable: neutre
   - id: apl-etudiants-d9-d10
     libelle: Exclusion de l'APL des étudiants dont les parents appartiennent aux deux derniers déciles
     domaine: logement
@@ -1913,6 +2071,7 @@ mesures:
     chiffrable: false
     raison_non_chiffrable: Organismes HLM hors APU ; seul un abondement public du fonds de mutualisation pèserait sur
       le solde, non précisé et vraisemblablement inférieur à 0,1 Md€.
+    sens_probable: neutre
   - id: fin-dpe-zan-encadrement
     libelle: Fin des interdictions de louer liées au DPE, suppression du ZAN et de l'encadrement des loyers
     domaine: logement
@@ -1925,6 +2084,7 @@ mesures:
     precision: precise
     chiffrable: false
     raison_non_chiffrable: Mesures réglementaires sans effet budgétaire direct.
+    sens_probable: neutre
 
   # --- Électricité (juin 2026) ----------------------------------------------------------------------
   - id: fin-soutien-nouvelles-enr
@@ -1945,10 +2105,43 @@ mesures:
       Économie sur les charges de service public de l'énergie (budget de l'État, programme 345 / CAS) pour les
       projets non encore engagés au 1er janvier 2027, par rapport à la PPE 3. Fortement dépendante des prix de
       marché ; le raccordement relève des réseaux (hors APU).
-    chiffrable: false
-    raison_non_chiffrable: Dépend des volumes des appels d'offres futurs et des prix de marché de l'électricité ; aucune
-      projection publique des charges de service public pour les seuls contrats 2028-2032 n'a été relue. Barème à ajouter
-      (CRE).
+    chiffrable: true
+    nature: economie
+    effet_solde_primaire:
+      central: 3.12
+      bas: 0.0
+      haut: 3.12
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 0.0
+        '2029': 0.0
+        '2030': 0.33
+        '2031': 0.67
+        '2032': 1.0
+    calcul:
+      formule: croissance_annuelle * annees_non_engagees
+      parametres:
+        croissance_annuelle:
+          valeur: 1.04
+          source: https://www.cre.fr/fileadmin/Documents/Deliberations/2026/260715_2026-149_CSPE_2026-2027.pdf
+          unite: Md€ par an
+          note: hausse 2026→2027 des charges éolien + photovoltaïque (6,25 → 7,29 Md€, tableau 3)
+        annees_non_engagees:
+          valeur: 3
+          source: https://www.cre.fr/fileadmin/Documents/Deliberations/2026/260715_2026-149_CSPE_2026-2027.pdf
+          unite: années
+          note: 'soutien déjà engagé jusqu''en 2029 (« environ +10 GWe estimés par la CRE entre 2026 et 2029 ») : 2030-2032'
+      explication: 'Même calcul que la mesure RN et Reconquête fin-soutien-enr-intermittentes dans sa lecture « nouveaux contrats
+        » : les contrats signés restent dus (le livret le dit), l''économie porte sur les contrats non engagés 2030-2032, approchés
+        par la hausse annuelle récente des charges. Très sensible au prix de marché (≈ 90 M€ par €/MWh, CRE). Le raccordement
+        relève des réseaux (hors APU). Bas : 0 (règle 6, économie non réalisée si les prix de marché remontent).'
+    confiance: faible
+    verification:
+      statut: corrige
+      par: recalage-couverture
+      date: '2026-09-29'
+      commentaire: 'Classée non chiffrable à tort : la lecture est sans ambiguïté (fin du soutien aux seuls projets futurs) et
+        le barème CRE utilisé pour le RN et Reconquête s''applique tel quel ; même montant (3,12 Md€ en 2032).'
   - id: electricite-hors-cee-contrat-nucleaire
     libelle: Sortie de l'électricité des CEE, contrat de long terme EDF-fournisseurs (30 TWh), réacteurs à 80 ans, 8 EPR2 supplémentaires
     domaine: energie
@@ -1964,6 +2157,7 @@ mesures:
       Hors comptes publics : les CEE sont une obligation des fournisseurs, EDF est hors APU et le contrat pour
       différence est « structuré comme un produit financier entre EDF et les fournisseurs - et non entre EDF et
       l'État » (livret). Un éventuel prêt d'État aux EPR2 serait une opération financière.
+    sens_probable: neutre
 
   # --- IA et État (juillet 2026) --------------------------------------------------------------------
   - id: non-remplacement-125000-departs
@@ -2301,6 +2495,17 @@ mesures:
     interpretation: Le livret Agriculture annonce seulement une « rationalisation des moyens » de l'ANSES (170 M€ de budget). Sans montant, probablement classée non chiffrable.
     chiffrable: false
     raison_non_chiffrable: 'Aucun montant ni périmètre : trop vague pour être chiffré (règle 7).'
+    sens_probable: economie
+    estimation_indicative:
+      central: 2.3
+      bas: 0.0
+      haut: 4.6
+      lecture: 'Baisse de 5 % des subventions pour charges de service public et taxes affectées aux opérateurs et agences (≈ 45,6
+        Md€ en 2032, assiette reprise de la mesure RN agences-operateurs-moins-20). Bas : 0 (économie non réalisée, règle 6) ;
+        haut : baisse de 10 %. Partie de l''enveloppe de 120 Md€, sans double compte au central (enveloppe à 0).'
+      sources:
+      - https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+      - facteur_pib_2026_2032
 
   # --- École (septembre 2026) -----------------------------------------------------------------------
   - id: revalorisation-enseignants
@@ -2508,6 +2713,17 @@ mesures:
     interpretation: Environ 100 établissements ; capacité et coût à la place (référence CEF, EPM) à documenter.
     chiffrable: false
     raison_non_chiffrable: 'Capacité et nombre de places non précisés : trop vague pour être chiffré.'
+    sens_probable: cout
+    estimation_indicative:
+      central: -0.35
+      bas: -0.8
+      haut: -0.15
+      lecture: 'Un internat par département, soit environ 100 établissements de 12 places (format des centres éducatifs fermés),
+        à environ 250 000 € par place et par an de fonctionnement plus la construction amortie, projeté. Bas : 20 places par établissement
+        ; haut : reconversion de structures existantes.'
+      sources:
+      - https://www.ccomptes.fr/fr/publications/le-plan-15000-places-de-prison-une-ambition-forte-une-concretisation-laborieuse
+      - facteur_pib_2025_2032
   - id: peines-courtes-abrogation-belloubet
     libelle: Courtes peines de prison dès le premier délit grave, abrogation de la loi Belloubet, peines planchers
     domaine: justice
@@ -2522,6 +2738,16 @@ mesures:
     chiffrable: false
     raison_non_chiffrable: Effet sur la population carcérale et les places non quantifiable sans hypothèse de volume
       de condamnations ; aucun programme immobilier annoncé.
+    sens_probable: cout
+    estimation_indicative:
+      central: -0.4
+      bas: -1.2
+      haut: -0.1
+      lecture: 'Courtes peines et peines planchers : environ 6 000 détenus de plus, à 100-150 € par jour et 400 000 € par place
+        construite (amortis sur 30 ans), projeté. Bas : 15 000 détenus de plus ; haut : surpopulation qui limite l''exécution.'
+      sources:
+      - https://www.ccomptes.fr/fr/publications/le-plan-15000-places-de-prison-une-ambition-forte-une-concretisation-laborieuse
+      - facteur_pib_2025_2032
 
   # --- Institutions et normes (non budgétaires) -----------------------------------------------------
   - id: referendum-pacte-constitutionnel
@@ -2537,6 +2763,7 @@ mesures:
     precision: precise
     chiffrable: false
     raison_non_chiffrable: Réforme institutionnelle sans effet budgétaire significatif.
+    sens_probable: neutre
   - id: cour-disciplinaire-magistrature
     libelle: Cour disciplinaire de la magistrature remplaçant le CSM pour la discipline
     domaine: justice
@@ -2550,6 +2777,7 @@ mesures:
     precision: precise
     chiffrable: false
     raison_non_chiffrable: Réforme institutionnelle sans effet budgétaire significatif.
+    sens_probable: neutre
   - id: suppression-50-normes
     libelle: Suppression dès le lendemain de l'élection des 50 règles les plus pénalisantes (seuil de 50 salariés porté à 100, principe de précaution, ICPE…)
     domaine: normes
@@ -2564,6 +2792,7 @@ mesures:
     chiffrable: false
     raison_non_chiffrable: Déréglementation sans effet budgétaire direct (effets sur l'activité non comptés).
     effets_retour: Le candidat évalue le coût de la surréglementation à 3 à 4 points de PIB.
+    sens_probable: neutre
   - id: code-travail-50-principes
     libelle: Refondation du Code du travail sur 50 principes, le reste renvoyé à la négociation collective ; sortie des 35 heures
     domaine: travail
@@ -2576,6 +2805,7 @@ mesures:
     precision: partielle
     chiffrable: false
     raison_non_chiffrable: Réforme du droit du travail sans effet budgétaire direct.
+    sens_probable: neutre
   - id: un-pour-un-autorite-veto
     libelle: Règle du « un pour un » en valeur, autorité indépendante de contrôle préalable avec veto, pas de surtransposition
     domaine: normes
@@ -2590,6 +2820,7 @@ mesures:
     precision: precise
     chiffrable: false
     raison_non_chiffrable: Mesure de procédure normative sans effet budgétaire significatif.
+    sens_probable: neutre
   - id: reciprocite-commerciale-controles-imports
     libelle: Clauses de réciprocité, MACF étendu aux produits transformés, 50 % des contrôles consacrés aux importations à effectifs constants
     domaine: europe
@@ -2603,6 +2834,7 @@ mesures:
     precision: partielle
     chiffrable: false
     raison_non_chiffrable: Position de négociation européenne ; contrôles « à effectifs constants » ; recettes MACF européennes.
+    sens_probable: neutre
   - id: pac-redeploiement-agriculture
     libelle: Redéploiement des soutiens agricoles (dont crédits PAC bio jusqu'à 700 M€) vers l'investissement productif
     domaine: agriculture
@@ -2617,3 +2849,4 @@ mesures:
     precision: partielle
     chiffrable: false
     raison_non_chiffrable: Redéploiement à enveloppe constante (crédits européens), sans effet net sur le solde.
+    sens_probable: neutre

@@ -395,6 +395,7 @@ mesures:
     raison_non_chiffrable: >-
       Les CEE sont une obligation privée hors comptes publics : pas d'effet direct sur le solde (sauf si des aides publiques
       devaient reprendre les rénovations financées par les CEE, non prévu).
+    sens_probable: neutre
   - id: retraite-64-voire-65
     libelle: Âge légal de départ à 64 ans, voire 65 ans
     domaine: retraites
@@ -478,6 +479,17 @@ mesures:
     chiffrable: false
     raison_non_chiffrable: >-
       Modalités inconnues (part des cotisations basculée, financement de la transition) : trop vague pour être chiffrée.
+    sens_probable: cout
+    estimation_indicative:
+      central: -2.0
+      bas: -15.0
+      haut: 0.0
+      lecture: 'Étage par capitalisation financé par des incitations fiscales ou par le basculement d''environ un quart de point
+        de cotisation vieillesse (6,2 Md€ par point en 2025, × 1,21), les pensions en cours restant dues. Bas : bascule de 2 points
+        (coût de transition de la répartition) ; haut : étage volontaire sans incitation nouvelle.'
+      sources:
+      - retraites_cotisation_vieillesse_1_point
+      - facteur_pib_2025_2032
   - id: plan-140-md-economies
     libelle: Enveloppe globale de 140 Md€ d'économies annuelles « au minimum »
     domaine: etat
@@ -1483,6 +1495,16 @@ mesures:
     interpretation: 'Montant affiché : 0,7 Md€ ; les droits de visa Schengen sont fixés par le code des visas de l''UE.'
     chiffrable: false
     raison_non_chiffrable: Droits de visa de court séjour fixés par le code des visas de l'UE (90 €) ; hausse non précisée.
+    sens_probable: economie
+    estimation_indicative:
+      central: 0.1
+      bas: 0.0
+      haut: 0.8
+      lecture: 'Surcoût national d''environ 35 € par visa de court séjour sur 2,5 à 3 millions de visas par an. Bas : 0 (droits
+        fixés par le code des visas de l''UE) ; haut : montant affiché par Reconquête (0,7 Md€), projeté.'
+      sources:
+      - https://eur-lex.europa.eu/eli/reg/2009/810/oj
+      - facteur_pib_2026_2032
   - id: hebergement-urgence-irreguliers
     libelle: Interdiction de l'hébergement d'urgence aux étrangers en situation irrégulière
     domaine: immigration
@@ -1745,6 +1767,20 @@ mesures:
       Volumes d'étrangers visés (chômeurs depuis un an, bénéficiaires exclusifs d'aides, délinquants) et allocations
       en jeu non publiés ; les prestations non contributives qu'ils perçoivent sont déjà retirées par la mesure prestations-non-contributives-francais
       (double compte) ; coût d'un éloignement forcé : 4 414 € (Cour des comptes, 2022), volume d'éloignements non chiffrable.
+    sens_probable: incertain
+    estimation_indicative:
+      central: 0.2
+      bas: -1.5
+      haut: 2.0
+      lecture: 'Solde de deux effets : allocations chômage non versées aux étrangers chômeurs depuis un an effectivement éloignés
+        (≈ 0,5 à 1 Md€), les prestations non contributives étant déjà retirées par prestations-non-contributives-francais et l''AME
+        par fin-ame (non recomptées) ; coût d''éloignements forcés à grande échelle (4 414 € l''unité selon la Cour des comptes,
+        plus des places de rétention), ≈ 0,5 Md€ pour 100 000 éloignements par an. Bas : éloignements massifs peu suivis d''effet
+        ; haut : départs nombreux de chômeurs indemnisés.'
+      sources:
+      - https://www.ccomptes.fr/fr/publications/la-politique-de-lutte-contre-limmigration-irreguliere
+      - assurance_chomage_depenses
+      - immigration_depenses_etat
   - id: ia-nucleaire-priorite
     libelle: >-
       Priorité à l'IA (électricité nucléaire excédentaire réservée aux centres de calcul, formation dès l'école) et relance
@@ -1761,6 +1797,7 @@ mesures:
     precision: vague
     chiffrable: false
     raison_non_chiffrable: Orientations sans montant ni dispositif précis.
+    sens_probable: cout
   - id: interdiction-voile-espace-public
     libelle: Interdiction du voile islamique dans l'espace public
     domaine: societe
@@ -1774,6 +1811,7 @@ mesures:
     precision: vague
     chiffrable: false
     raison_non_chiffrable: Mesure non budgétaire.
+    sens_probable: neutre
   - id: refus-impot-europeen
     libelle: Refus de tout impôt européen (« ressources propres »)
     domaine: europe
@@ -1788,3 +1826,4 @@ mesures:
     raison_non_chiffrable: >-
       Position de négociation européenne sans effet direct sur le solde national (l'absence de nouvelles ressources propres
       reporte le remboursement de NextGenerationEU sur les contributions nationales).
+    sens_probable: neutre
