@@ -22,3 +22,9 @@ def test_pages_echappent_le_html():
     cfg["contact"] = "<i>@x"
     assert "<script>x" not in site.mentions(cfg)
     assert "<i>@x" not in site.accueil(cfg)
+
+
+def test_vercel_json_impose_csp_sans_ressource_externe():
+    csp = next(h["value"] for h in site.VERCEL["headers"][0]["headers"] if h["key"] == "Content-Security-Policy")
+    assert "default-src 'none'" in csp and "http" not in csp
+    assert site.VERCEL["cleanUrls"] is True

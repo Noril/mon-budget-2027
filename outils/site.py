@@ -5,6 +5,7 @@
 Les pages produites par outils.chiffrage, outils.simulateur et outils.jeu doivent déjà exister dans build/.
 """
 import html
+import json
 import shutil
 import sys
 from datetime import date
@@ -18,6 +19,19 @@ SORTIE = BUILD / "site"
 PAGES = {"chiffrage.html": "rapport.html", "simulateur.html": "simulateur.html", "jeu.html": "jeu.html"}
 FICHIERS = ["chiffrage.md", "tableau-de-bord.md"]
 DONNEES = [RACINE / "data" / "chiffrage.json"]
+
+# Pages autonomes : scripts et styles en ligne, aucune ressource externe.
+CSP = "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+VERCEL = {
+    "cleanUrls": True,
+    "trailingSlash": False,
+    "headers": [{"source": "/(.*)", "headers": [
+        {"key": "Content-Security-Policy", "value": CSP},
+        {"key": "X-Content-Type-Options", "value": "nosniff"},
+        {"key": "Referrer-Policy", "value": "no-referrer"},
+        {"key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()"},
+    ]}],
+}
 
 CSS = """
 :root{--bg:#fbfaf7;--fg:#1c1b19;--mut:#5e5a52;--card:#fff;--line:#e2ded4;--acc:#1f4e9c}
@@ -179,7 +193,7 @@ def main():
     (SORTIE / "index.html").write_text(accueil(cfg), encoding="utf-8")
     (SORTIE / "methode.html").write_text(methode(cfg), encoding="utf-8")
     (SORTIE / "mentions-legales.html").write_text(mentions(cfg), encoding="utf-8")
-    (SORTIE / ".nojekyll").write_text("", encoding="utf-8")
+    (SORTIE / "vercel.json").write_text(json.dumps(VERCEL, indent=2) + "\n", encoding="utf-8")
     (SORTIE / "robots.txt").write_text("User-agent: *\nAllow: /\n", encoding="utf-8")
     print(f"-> {SORTIE.relative_to(RACINE)}/")
 
