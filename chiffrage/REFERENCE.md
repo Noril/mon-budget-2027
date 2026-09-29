@@ -34,3 +34,33 @@ gelé en points de PIB) n'est pas « à droit constant » : l'écart est une lim
 Points à trancher : les dispositions exactes des LFI et LFSS 2026 sur les allègements généraux, les APL des
 étudiants étrangers et la prime carburant ; relevées par les agents de collecte, elles sont vérifiées mesure par
 mesure et la lecture retenue est écrite dans `interpretation`.
+
+## Conventions communes de chiffrage (barèmes harmonisés, 29 septembre 2026)
+
+Elles s'appliquent à tous les programmes ; le détail et les sources sont dans `baremes.yaml`.
+
+1. **Salaires publics et postes.** Les cotisations employeurs (CAS Pensions, CNRACL, maladie, famille) vont à
+   d'autres administrations publiques : elles ne comptent pas pour le solde (FIPECO). Effet sur le solde =
+   rémunération brute hors cotisations employeurs × (1 − `retour_prelevements_salaires_publics`, 0,28). Pour un
+   poste créé ou supprimé, utiliser les barèmes `cout_*_apu` (coût d'un entrant) ; pour revaloriser les agents en
+   place, le salaire moyen (haut des barèmes `_apu`). Les barèmes `cout_*_charge` sont des coûts budgétaires de
+   l'État, à ne plus utiliser pour le solde.
+2. **Point d'indice.** Gelé à droit constant ; aucune projection par le PIB. Hausse ponctuelle de x % :
+   x × `point_indice_1pct_2032` brut, × 0,72 en net. Indexation 2027-2032 : `indexation_point_indice_2027_2032`
+   (28,6 brut, 20,6 net), montée en charge 0,13 / 0,30 / 0,48 / 0,66 / 0,83 / 1. Hausse de x % plus indexation :
+   les deux, plus l'effet croisé x × 28,6. Les pensions induites vont dans le bas.
+3. **Pensions.** Effet net = brut × (1 − `retour_prelevements_pensions`, 0,14) ; petites pensions 0,08 ; minima
+   (ASPA, AAH, RSA) sans retour.
+4. **Retraites (âge, durée).** Le central porte sur le solde du système de retraite. Le coût pour l'ensemble des
+   administrations (Cour des comptes, DG Trésor), qui ajoute surtout les prélèvements sur l'emploi des seniors,
+   relève d'un effet d'activité exclu par la règle 3 : il va dans `effets_retour` ou `chiffrages_tiers`.
+5. **CSG.** Une baisse d'un point de CSG déductible rend 10 à 15 % en impôt sur le revenu (convention) : net
+   ≈ 10,3 Md€ par point d'activité en 2026.
+6. **Accise carburants.** 0,54 Md€ par centime et par litre avec la TVA induite (chiffre pour le solde).
+7. **Smic.** Pour une hausse de 10 % ou plus, le produit linéaire de `smic_1pct_cout_apu` est un minorant.
+8. **Minimum contributif.** Linéaire seulement jusqu'à 100-150 € de hausse.
+9. **Cotisation vieillesse.** La valeur dépend du type de cotisation (voir le barème).
+10. **Aide publique au développement.** En % du RNB (`rnb_nominal_2032`), et c'est un majorant : l'APD au sens
+    de l'OCDE n'est pas qu'une dépense budgétaire.
+11. **Projection en euros 2032.** Barèmes `facteur_pib_<année>_2032` pour les montants qui suivent l'activité ;
+    pas de projection pour ce qui est gelé à droit constant.
