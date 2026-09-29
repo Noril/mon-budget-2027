@@ -7,17 +7,19 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: deploiement
   cancel-in-progress: false
 
 jobs:
-  build:
+  deployer:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 45
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
@@ -48,16 +50,15 @@ jobs:
       - run: uv run python -m outils.simulateur
       - run: uv run python -m outils.jeu
       - run: uv run python -m outils.site
-      - uses: actions/upload-pages-artifact@v3
+      # Le site est un dossier statique : seul le résultat est envoyé à Vercel
+      - name: Déploiement Vercel
+        run: |
+          if [ -z "$VERCEL_TOKEN" ] || [ -z "$VERCEL_ORG_ID" ] || [ -z "$VERCEL_PROJECT_ID" ]; then
+            echo "::warning::Secrets Vercel absents (VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID) : site construit, non déployé."
+            exit 0
+          fi
+          npx --yes vercel@latest deploy build/site --prod --yes --token "$VERCEL_TOKEN"
+      - uses: actions/upload-artifact@v4
         with:
-          path: build/site
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          name: site
+          path: build/site/
