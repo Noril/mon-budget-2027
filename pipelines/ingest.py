@@ -126,7 +126,11 @@ def main(argv: list[str] | None = None) -> int:
         except ControleEchoue as e:
             echecs.append(str(e))
         except Exception as e:  # une source cassée ne bloque pas les autres
-            echecs.append(f"{id_source} : {type(e).__name__} : {e}")
+            if (NORMALISE / f"{id_source}.parquet").exists():
+                # producteur injoignable (403 aux robots, panne) : la dernière version contrôlée reste en place
+                alertes.append(f"{id_source} : source injoignable ({type(e).__name__}), dernière version normalisée conservée")
+            else:
+                echecs.append(f"{id_source} : {type(e).__name__} : {e}")
 
     for a in alertes:
         print(f"ALERTE {a}")

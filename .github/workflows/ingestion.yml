@@ -8,10 +8,18 @@ on:
 jobs:
   ingerer:
     runs-on: ubuntu-latest
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
       - run: uv sync
+      - uses: actions/cache@v4
+        with:
+          path: |
+            data/brut
+            data/normalise
+          key: donnees-${{ github.run_id }}
+          restore-keys: donnees-
       # Un contrôle en échec fait échouer le job : GitHub notifie les mainteneurs
       - run: uv run python -m pipelines.ingest
       - run: uv run python -m pipelines.indicateurs
