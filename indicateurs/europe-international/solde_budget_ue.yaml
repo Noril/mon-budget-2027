@@ -22,7 +22,7 @@ construction: >
   dont le libellé est « TOTAL EXPENDITURE » (dépenses réparties par État membre, hors recettes affectées et hors
   NextGenerationEU). Contributions : ligne « TOTAL national contribution » (jusqu'en 2020) ou « TOTAL National
   contributions » (depuis 2021), astérisques de renvoi retirés : ressources TVA, RNB et plastique, corrections et
-  ajustements, hors droits de douane. Valeur = dépenses − contributions, en millions d'euros, sans arrondi ;
+  ajustements, hors droits de douane. Le fichier 2000-2025 ne porte plus cette ligne pour 2021 et après : elle est reconstituée (« TOTAL Own resources » − « Customs duties » − « Sugar levies » + « TOTAL Balances and adjustments »), ce qui redonne au centime près la ligne publiée dans le fichier 2000-2023. Valeur = dépenses − contributions, en millions d'euros, sans arrondi ;
   même pays et même année. Code et libellé = code pays du classeur. Maille france = colonne FR.
 comparaison_ue: maille pays, États membres (UE27 et Royaume-Uni jusqu'en 2020 ; pas d'agrégat, le solde de l'UE entière n'a pas de sens)
 version: 1.0.0

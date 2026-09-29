@@ -14,6 +14,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (fin février et fin août ; année N-1 provisoire)
+  fraicheur_max_jours: 400
   domaines: [culture]
   controles:
     lignes_min: 3000
@@ -38,6 +39,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (enquête sur les forces de travail)
+  fraicheur_max_jours: 400
   domaines: [culture]
   controles:
     lignes_min: 800

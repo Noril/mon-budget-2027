@@ -13,7 +13,7 @@ limites: >
   suivante), qui peut différer du RNB publié ensuite par l'INSEE ou Eurostat.
 construction: >
   Même lecture que europe_international.solde_budget_ue pour les dépenses (« TOTAL EXPENDITURE ») et les
-  contributions (« TOTAL national contribution » ou « TOTAL National contributions »). Dénominateur : ligne dont
+  contributions (« TOTAL national contribution » ou « TOTAL National contributions »). Le fichier 2000-2025 ne porte plus cette ligne pour 2021 et après : elle est reconstituée (« TOTAL Own resources » − « Customs duties » − « Sugar levies » + « TOTAL Balances and adjustments »), ce qui redonne au centime près la ligne publiée dans le fichier 2000-2023. Dénominateur : ligne dont
   le libellé commence par « Gross National Income (GNI) » (RNB en millions d'euros), même pays et même année.
   Valeur = 100 × (dépenses − contributions) / RNB, sans arrondi. Code et libellé = code pays du classeur. Maille
   france = colonne FR.

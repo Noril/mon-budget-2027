@@ -14,6 +14,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (enquête TIC entreprises, publication en juin de l'année suivante ; 2021, puis annuel depuis 2023)
+  fraicheur_max_jours: 400
   domaines: [numerique]
   controles:
     lignes_min: 300
@@ -39,6 +40,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (enquête TIC ménages ; première année 2025)
+  fraicheur_max_jours: 400
   domaines: [numerique]
   controles:
     lignes_min: 50
@@ -62,6 +64,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (enquête TIC ménages)
+  fraicheur_max_jours: 400
   domaines: [numerique]
   controles:
     lignes_min: 100
@@ -86,6 +89,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (enquête Forces de travail, définition large fondée sur les professions CITP-08)
+  fraicheur_max_jours: 400
   domaines: [numerique]
   controles:
     lignes_min: 1000
@@ -107,6 +111,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel
+  fraicheur_max_jours: 400
   domaines: [numerique]
   controles:
     lignes_min: 1000
@@ -135,6 +140,7 @@
   licence: Licence Ouverte 2.0
   maille: [commune]
   millesime: trimestriel (publication environ deux mois et demi après la fin du trimestre)
+  fraicheur_max_jours: 120
   domaines: [numerique]
   normalisation: arcep_thd
   controles:
@@ -188,6 +194,7 @@
   licence: Données publiques du TOP500, réutilisation avec citation de la source (https://top500.org)
   maille: [pays]
   millesime: semestriel (juin et novembre)
+  fraicheur_max_jours: 200
   domaines: [numerique]
   normalisation: top500
   controles:
@@ -216,6 +223,7 @@
   licence: Licence Ouverte 2.0
   maille: [france]
   millesime: trimestriel (Observatoire 2, depuis 2023)
+  fraicheur_max_jours: 120
   domaines: [numerique]
   normalisation: dinum_observatoire
   controles:

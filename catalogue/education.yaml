@@ -119,6 +119,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (enquête Forces de travail)
+  fraicheur_max_jours: 400
   domaines: [education]
   controles:
     lignes_min: 800
@@ -142,6 +143,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (enquête Forces de travail)
+  fraicheur_max_jours: 400
   domaines: [education]
   controles:
     lignes_min: 800

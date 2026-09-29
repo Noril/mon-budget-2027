@@ -472,19 +472,40 @@
 - id: cvae_restante
   libelle: "CVAE restante (rendement, soit le coût de sa suppression complète)"
   valeur: 3.7
+  haut: 4.04
   unite: Md€/an
-  annee: "2025"
+  annee: "2025 (haut = évaluation 2026 de la recette de l'État)"
   sources:
     - titre: "FIPECO, fiche « La cotisation sur la valeur ajoutée des entreprises », 7 juillet 2026"
       url: https://www.fipeco.fr/fiche/La-cotisation-sur-la-valeur-ajout%C3%A9e-des-entreprises
       date: "2026-07-07"
       extrait: "En 2025, la CVAE prélevée sur les entreprises s’est élevée à 3,7 Md€."
+    - titre: "Code général des impôts, article 1586 quater, version en vigueur du 1er janvier 2026 au 1er janvier 2028 (modifié par la loi n° 2025-127 du 14 février 2025 de finances pour 2025, art. 62)"
+      url: https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000048860944
+      date: "2025-02-14"
+      extrait: "0,28 %"
+    - titre: "BOFiP, BOI-CVAE-LIQ-10-20251119 (calcul de la CVAE : taux 2026-2029 et suppression en 2030)"
+      url: https://bofip.impots.gouv.fr/bofip/839-PGP.html/identifiant=BOI-CVAE-LIQ-10-20251119
+      date: "2025-11-19"
+      extrait: "Une contribution complémentaire temporaire assise sur la CVAE est instituée, due uniquement au titre de l'année 2025, dont le taux est fixé à 47,4 %"
+    - titre: "Assemblée nationale, amendement du Gouvernement n° 3611 au PLF 2026 (état A, nouvelle lecture, 20 janvier 2026)"
+      url: https://www.assemblee-nationale.fr/dyn/17/amendements/2247/AN/3611
+      date: "2026-01-20"
+      extrait: "1497 Cotisation sur la valeur ajoutée des entreprises 4 041 291 801"
   derivation: >
-    Lecture directe. La loi de finances 2025 a majoré la CVAE en 2026 et 2027 et reporté sa suppression à 2030 :
-    en législation 2027, la suppression est déjà votée pour 2030 ; une promesse de suppression n'a donc un coût
-    qu'en 2027-2029 (≈ 3,7 à 4 Md€/an), nul en 2032. Inversement, maintenir la CVAE après 2030 rapporterait
+    Lecture directe (FIPECO, 2025). Haut : recette de l'État évaluée pour 2026 à l'état A du texte adopté (4,04 Md€,
+    taux maximal de 0,28 % maintenu). Calendrier en vigueur au 29 septembre 2026, fixé par la loi de finances pour
+    2025 (loi n° 2025-127, art. 62, qui a reporté de trois ans la trajectoire de baisse) et non modifié par la loi de
+    finances pour 2026 (loi n° 2026-103 du 19 février 2026, dont l'article qui avançait la suppression à 2028 a été
+    retiré) : taux maximal 0,28 % en 2026 et 2027, 0,19 % en 2028, 0,09 % en 2029, suppression en 2030. Une promesse
+    de suppression n'a donc un coût qu'en 2027-2029 (≈ 3,7 à 4 Md€ en 2027, ≈ 2,5 à 2,7 en 2028 et ≈ 1,2 à 1,3 en
+    2029 au prorata des taux), nul en 2032. Inversement, maintenir la CVAE après 2030 rapporterait
     ≈ 3,7 × 1,2106 ≈ 4,5 Md€ en 2032.
-  limites: "CVAE affectée à l'État depuis 2023 (collectivités compensées en TVA). Calendrier susceptible de changer en LFI 2027."
+  limites: >
+    CVAE affectée à l'État depuis 2023 (collectivités compensées en TVA). La recette budgétaire de l'État (4,0 à
+    4,3 Md€ en 2024-2026) dépasse le montant prélevé l'année (3,7 Md€ en 2025) du fait des acomptes et soldes ;
+    le rythme de recouvrement répartit la baisse de taux entre 2028 et 2029. Calendrier susceptible de changer en
+    LFI 2027 (PLF 2027 non déposé au 30 septembre 2026).
 
 - id: c3s_rendement
   libelle: "Rendement de la contribution sociale de solidarité des sociétés (C3S)"
@@ -639,9 +660,8 @@
   libelle: Coût d'une baisse uniforme de 1 % de l'impôt sur le revenu dû
   valeur: 1.04
   bas: 0.95
-  haut: 1.26
   unite: Md€/an
-  annee: "2026"
+  annee: "2026 (prévision) ; bas = exécution 2025"
   sources:
     - titre: Sénat, rapport général n° 139 (2025-2026), PLF 2026, tome I
       url: https://www.senat.fr/rap/l25-139-1/l25-139-1_mono.html
@@ -652,9 +672,11 @@
       date: "2026-04-22"
       extrait: "Les recettes nettes d’impôt sur le revenu (94,9 Md€)"
   derivation: >
-    1 % du produit net de l'IR : 0,01 × 104,0 = 1,04 Md€ (PLF 2026). `bas` = 0,01 × 94,9 (exécution 2025) ;
-    `haut` = 0,01 × 104,0 × 1,2106 ≈ 1,26 Md€ (projection 2032 au PIB nominal). Pour une baisse de x % des taux de
-    toutes les tranches, multiplier par x. À distinguer de ir_indexation_1pct (relèvement des seuils).
+    1 % du produit net de l'IR : 0,01 × 104,0 = 1,04 Md€ (PLF 2026). `bas` = 0,01 × 94,9 (exécution 2025).
+    Projection 2032 au PIB nominal, chacun avec le facteur de son année : 1,04 × 1,1842 (facteur_pib_2026_2032)
+    ≈ 1,23 Md€ ; 0,949 × 1,2106 (facteur_pib_2025_2032) ≈ 1,15 Md€. Pour une baisse de x % des taux de toutes les
+    tranches, multiplier par x. (Jusqu'au 30 septembre 2026, un `haut` de 1,26 mêlait la projection 2032 aux
+    montants 2025-2026 et appliquait le facteur 2025→2032 à un montant 2026 : retiré.) À distinguer de ir_indexation_1pct (relèvement des seuils).
   limites: >
     Approximation : une baisse proportionnelle des taux réduit l'impôt brut, pas les crédits d'impôt remboursables
     (inclus dans les remboursements et dégrèvements) ; le coût réel est donc un peu supérieur à 1 % du produit net
@@ -810,9 +832,8 @@
 - id: hs_exoneration_cout
   libelle: Coût des exonérations sur les heures supplémentaires (IR, cotisations salariales, déduction patronale)
   valeur: 5.4
-  bas: 5.2
   unite: Md€/an
-  annee: "2026 (prévision) ; bas = 2024"
+  annee: "2026 (prévision)"
   sources:
     - titre: Cour des comptes, NEB 2025 Dépenses fiscales, avril 2026 (dépense fiscale n° 120146)
       url: https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Depenses-fiscales.pdf
@@ -830,11 +851,18 @@
       url: https://dares.travail-emploi.gouv.fr/publication/les-heures-supplementaires-remunerees-quels-salaries-quelles-entreprises
       date: "2025-06"
       extrait: "En 2023, 8,8 millions de salariés effectuent des heures supplémentaires rémunérées, soit 53 % des salariés à temps complet du secteur privé dont le temps de travail est décompté en heures. Les salariés concernés … en effectuent en moyenne 104 dans l'année, pour un peu plus de 1 900 euros brut."
+    - titre: "OFCE, É. Heyer, « La suppression de la défiscalisation des heures supplémentaires va-t-elle créer des emplois ? », Revue de l'OFCE, hors-série 2012"
+      url: https://www.ofce.sciences-po.fr/pdf/revue/2012/6-2012-1.pdf
+      date: "2012"
+      extrait: "la baisse des heures supplémentaires pourrait être de 1,2 % en 2012 et de 5,9 % en 2013, soit une baisse de 7,1 % par rapport au niveau observé aujourd’hui."
   derivation: >
     2026 : IR 2 250 M€ + exonération de cotisations salariales 2 306 M€ + déduction forfaitaire de cotisations
     patronales (entreprises de moins de 250 salariés) 872 M€ = 5 428 M€ ≈ 5,4 Md€. 2024 : 2 144 + 2 228 + 865 =
-    5,24 Md€. Suppression totale : + 5,4 Md€ ; suppression du seul volet fiscal : + 2,25 Md€ ; du volet salarial :
-    + 2,3 Md€.
+    5,24 Md€ (exécution, en euros 2024 : ne sert pas de borne d'une mesure en 2032). Suppression totale : + 5,4 Md€ ;
+    suppression du seul volet fiscal : + 2,25 Md€ ; du volet salarial : + 2,3 Md€. Projection 2032 : × 1,1842
+    (facteur_pib_2026_2032), soit ≈ 6,4 Md€. Réaction documentée à une suppression : l'OFCE (2012) attendait une
+    baisse de 7,1 % du volume d'heures supplémentaires après la suppression de 2012, d'où un gain réduit
+    d'autant (≈ 5,9 Md€ en 2032).
   limites: >
     Chiffrages statiques : une suppression réduirait le recours aux heures supplémentaires et donc le gain. La part
     salariale n'est pas compensée à la sécurité sociale, la déduction patronale l'est par l'État : le coût APU est la
@@ -1302,8 +1330,8 @@
   unite: Md€/an
   annee: "2024"
   sources:
-    - titre: Institut Montaigne, législatives 2024, Nouveau Front populaire, « Porter l'allocation adulte handicapé (AAH) au niveau du Smic de 1 600 € net »
-      url: https://www.institutmontaigne.org/legislatives-2024/nouveau-front-populaire/porter-lallocation-dautonomie-handicapee-aah-au-niveau-du-smic-de-1600e-net/
+    - titre: Institut Montaigne, législatives 2024, Nouveau Front populaire, « Porter l'allocation adulte handicapé (AAH) au niveau du Smic de 1 600 € net » (copie Wayback Machine du 19/12/2024, le site refusant les robots)
+      url: https://web.archive.org/web/20241219095821/https://www.institutmontaigne.org/legislatives-2024/nouveau-front-populaire/porter-lallocation-dautonomie-handicapee-aah-au-niveau-du-smic-de-1600e-net/
       date: "2024-06"
       extrait: "conduirait à une dépense supplémentaire de l'ordre de 7,3 Md€ par an"
     - titre: Sénat, rapport général PLF 2026, mission Solidarité, insertion et égalité des chances
@@ -1337,8 +1365,8 @@
       url: https://www.service-public.gouv.fr/particuliers/vosdroits/F16871
       date: "2026-06-23"
       extrait: "1 043,59 € par mois"
-    - titre: Institut Montaigne, législatives 2024, Nouveau Front populaire (minimum vieillesse au seuil de pauvreté)
-      url: https://www.institutmontaigne.org/legislatives-2024/nouveau-front-populaire/abroger-la-reforme-des-retraites-restaurer-la-retraite-a-60-ans-en-prenant-en-compte-le-rsa-en-portant-le-minimum-contributif-au-smic/
+    - titre: Institut Montaigne, législatives 2024, Nouveau Front populaire (minimum vieillesse au seuil de pauvreté) (copie Wayback Machine du 03/08/2026, le site refusant les robots)
+      url: https://web.archive.org/web/20260803202202/https://www.institutmontaigne.org/legislatives-2024/nouveau-front-populaire/abroger-la-reforme-des-retraites-restaurer-la-retraite-a-60-ans-en-prenant-en-compte-le-rsa-en-portant-le-minimum-contributif-au-smic/
       date: "2024-07"
       extrait: "le coût annuel de la revalorisation du minimum vieillesse au seuil de pauvreté est de 614 M€ supplémentaires ( = (1058-961)*527700*12 )"
   derivation: >
@@ -2349,9 +2377,18 @@
       url: https://www.cnracl.retraites.fr/employeur/actualites/augmentation-des-taux-de-cotisations-au-1er-janvier-2026-contribution-et-surcotisation
       date: "2025-12-19"
       extrait: "Le taux de contribution employeurs à compter du 1 er janvier 2026 est de 37,65 %."
+    - titre: "Décret n° 91-613 du 28 juin 1991, article 5, version en vigueur du 1er janvier 2026 au 1er janvier 2027 (modifié par le décret n° 2025-86 du 30 janvier 2025, art. 1)"
+      url: https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000029924582
+      date: "2025-01-30"
+      extrait: "Le taux de la contribution sur les traitements prévue au I de l'article 5 du décret du 7 février 2007 relatif à la Caisse nationale de retraites des agents des collectivités locales est fixé à 37,65 %."
+    - titre: "Décret n° 2025-86 du 30 janvier 2025 relatif au taux de cotisations vieillesse des employeurs des agents affiliés à la CNRACL"
+      url: https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051070354
+      date: "2025-01-30"
   derivation: >
-    Lecture directe. Hausse progressive prévue par le décret n° 2025-86 du 30 janvier 2025 (3 points par an de 2025
-    à 2028). Toutes cotisations employeurs confondues (CNRACL, maladie, famille, ATIACL, FNAL, CSA, formation), la
+    Lecture directe. Hausse progressive fixée par le décret n° 2025-86 du 30 janvier 2025, qui modifie l'article 5
+    du décret n° 91-613 du 28 juin 1991 : 34,65 % au 1er janvier 2025, 37,65 % en 2026, 40,65 % en 2027 et 43,65 %
+    en 2028 (3 points par an). Version de l'article 5 en vigueur du 1er janvier 2026 au 1er janvier 2027, relue le
+    30 septembre 2026 : « est fixé à 37,65 % ». Toutes cotisations employeurs confondues (CNRACL, maladie, famille, ATIACL, FNAL, CSA, formation), la
     charge atteint environ 53 % du traitement indiciaire en 2026 (46 à 48 % en 2025 selon Emploi-Collectivités,
     https://www.emploi-collectivites.fr/charges-cotisations-salaire-fpt-blog-territorial, + 7 points de CNRACL).
   limites: >
@@ -2976,20 +3013,35 @@
 - id: apd_part_rnb
   libelle: Aide publique au développement (APD) de la France, en équivalent-don, montant et part du revenu national brut
   valeur: 0.42
-  bas: 0.42
+  bas: 0.38
   haut: 0.48
   unite: "% du RNB"
-  annee: "2025 (données préliminaires) ; 0,48 % en 2024"
+  annee: "2025 (données préliminaires) ; 0,48 % en 2024 ; bas = projection 2026 non officielle"
   sources:
     - titre: "OCDE, Comité d'aide au développement, base DAC1 (apports par fournisseur), France, API SDMX"
       url: https://sdmx.oecd.org/public/rest/data/OECD.DCD.FSD,DSD_DAC1@DF_DAC1/FRA.......?startPeriod=2023&format=csvfilewithlabels
       date: "2026-04"
       extrait: "11002 ODA as percent of GNI, grant equivalent : 2023 0.49 ; 2024 0.48 ; 2025 0.42. 11010 ODA, grant equivalent, national currency (millions) : 2023 13947.24 ; 2024 14283.46 ; 2025 12884.87. 1 Gross National Income (GNI), national currency : 2025 3043666"
+    - titre: "PLF 2026, document de politique transversale « Politique française en faveur du développement » (dernière prévision officielle : 2025)"
+      url: https://www.assemblee-nationale.fr/dyn/dyn/contenu/visualisation/1090070/file/1-DPT2026_Developpement.pdf
+      date: "2025-10"
+      extrait: "En 2025, l'APD française devrait baisser (-1 392 M€) pour s'établir à 0,43 % du RNB"
+    - titre: "Sénat, avis n° 141 (2025-2026), tome IV, Aide publique au développement (PLF 2026)"
+      url: https://www.senat.fr/rap/a25-141-4/a25-141-4_mono.html
+      date: "2025-11"
+      extrait: "passant de 0,56 % en 2022 à 0,43 % en 2025 et très probablement moins en 2026"
+    - titre: "Focus 2030 (ONG), « Projet de loi de finances 2026 : de nouvelles coupes en vue pour l'aide publique au développement », mis à jour le 3 février 2026 (projection non officielle, borne basse)"
+      url: https://focus2030.org/Projet-de-loi-de-finances-2026-de-nouvelles-coupes-en-vue-pour-l-aide-publique
+      date: "2026-02-03"
+      extrait: "Avec l'adoption de ce budget, l'aide publique au développement totale de la France, telle que comptabilisée par l'OCDE, pourrait retomber à 0,38 % du RNB en 2026"
   derivation: >
     APD 2025 = 12,88 Md€ en équivalent-don, RNB 2025 = 3 043,7 Md€, soit 0,42 % (14,28 Md€ et 0,48 % en 2024).
     Projection : RNB 2032 ≈ PIB 2032 × (RNB / PIB 2025 = 3 043,7 / 2 991,1 = 1,0176) ≈ 3 685 Md€ ; un point de RNB
     en 2032 vaut ≈ 36,8 Md€, un dixième ≈ 3,7 Md€. Atteindre 0,7 % en 2032 depuis 0,42 % coûte
-    (0,70 − 0,42) × 36,8 ≈ 10,3 Md€ par an en 2032 (depuis 0,48 % : 8,1 Md€). Haut = niveau 2024.
+    (0,70 − 0,42) × 36,8 ≈ 10,3 Md€ par an en 2032 (depuis 0,48 % : 8,1 Md€). Haut = niveau 2024. Bas = 0,38 %,
+    projection 2026 de Focus 2030 après le vote de la LFI 2026 : aucune prévision officielle de l'APD 2026 en % du
+    RNB n'est publiée au 30 septembre 2026 (le DPT du PLF 2026 s'arrête à 2025, 0,43 % prévu ; le Sénat écrit
+    « très probablement moins en 2026 ») ; depuis 0,38 %, atteindre 0,7 % coûte 0,32 × 36,8 ≈ 11,8 Md€.
   limites: >
     L'APD au sens du CAD n'est pas une dépense budgétaire : elle comprend des prêts (en équivalent-don), des
     annulations de dette, les frais d'écolage d'étudiants étrangers et l'accueil des réfugiés la première année.
@@ -3004,6 +3056,9 @@
     commentaire: >
       Série OCDE DAC1 relue (API SDMX, 29/09/2026) : APD 12 884,87 M€ en 2025, 0,42 % du RNB (0,48 % en 2024) ; RNB
       3 043 666 M€. Confirmé. Le caractère majorant (APD non entièrement budgétaire) est une limite documentée.
+      Audit du 30/09/2026 : série relue à nouveau (0,42 % en 2025) ; le 0,38 % utilisé en borne défavorable par
+      trois programmes, jusque-là attribué à la presse, vient de Focus 2030 (projection d'ONG) : inscrit en `bas`
+      avec sa source et son statut non officiel.
 
 - id: psr_ue
   libelle: Contribution française au budget de l'Union européenne (prélèvement sur recettes, PSR-UE)
@@ -3053,6 +3108,10 @@
       url: https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054694832
       date: "2026-08-16"
       extrait: "en fixant l’objectif de porter l’effort national de défense de 2 % du produit intérieur brut en 2025 à 2,5 % au minimum en 2030, avec l’objectif d’atteindre 3,5 % à l’horizon 2035."
+    - titre: "Assemblée nationale, texte adopté n° 325 du 1er juillet 2026 (texte définitif du projet de loi actualisant la programmation militaire, promulgué le 16 août 2026), article 1er"
+      url: https://www.assemblee-nationale.fr/dyn/17/textes/l17t0325_texte-adopte-provisoire.pdf
+      date: "2026-07-01"
+      extrait: "en fixant l’objectif de porter l’effort national de défense de 2 % du produit intérieur brut en 2025 à 2,5 % au minimum en 2030, avec l’objectif d’atteindre 3,5 % à l’horizon 2035."
   derivation: >
     Valeur lue (PLF 2026, 57,15 Md€, égal aux 57,1 Md€ de 2026 de la trajectoire actualisée). La LPM actualisée
     est promulguée (loi n° 2026-791 du 16 août 2026) : c'est du droit en vigueur au sens de REFERENCE.md.
@@ -3088,6 +3147,10 @@
     - titre: "Loi n° 2026-791 du 16 août 2026 actualisant la programmation militaire, article 1er (rapport annexé)"
       url: https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054694832
       date: "2026-08-16"
+      extrait: "en fixant l’objectif de porter l’effort national de défense de 2 % du produit intérieur brut en 2025 à 2,5 % au minimum en 2030, avec l’objectif d’atteindre 3,5 % à l’horizon 2035."
+    - titre: "Assemblée nationale, texte adopté n° 325 du 1er juillet 2026 (texte définitif du projet de loi actualisant la programmation militaire, promulgué le 16 août 2026), article 1er"
+      url: https://www.assemblee-nationale.fr/dyn/17/textes/l17t0325_texte-adopte-provisoire.pdf
+      date: "2026-07-01"
       extrait: "en fixant l’objectif de porter l’effort national de défense de 2 % du produit intérieur brut en 2025 à 2,5 % au minimum en 2030, avec l’objectif d’atteindre 3,5 % à l’horizon 2035."
   derivation: >
     0,1 % × 3 621 Md€ (pib_nominal_2032) = 3,6 Md€. Une promesse « 3 % du PIB en 2032 » se chiffre par l'écart

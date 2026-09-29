@@ -14,6 +14,7 @@
   licence: OCDE, CC BY 4.0
   maille: [pays, france]
   millesime: annuel (données préliminaires N-1 en avril, définitives en décembre)
+  fraicheur_max_jours: 400
   domaines: [europe-international]
   controles:
     lignes_min: 1000
@@ -27,17 +28,18 @@
     renomme Donor_1, Measure_1… pour éviter la collision avec les codes.
 
 - id: ce-budget-ue-depenses-recettes
-  titre: EU spending and revenue 2000-2024 (dépenses et recettes du budget de l'UE par État membre)
+  titre: EU spending and revenue 2000-2025 (dépenses et recettes du budget de l'UE par État membre)
   producteur: Commission européenne, DG Budget
   doc: https://commission.europa.eu/strategy-and-policy/eu-budget/long-term-eu-budget/2021-2027/spending-and-revenue_en
   acces:
     mode: fichier
-    urls: ["https://commission.europa.eu/document/download/45d0623a-529e-44d2-aae4-2ca9bac87ec3_en?filename=eu_budget_spending_and_revenue_2000-2023.xlsx"]
+    urls: ["https://commission.europa.eu/document/download/9f334bee-d097-4b68-8f93-2225eabeb631_en?filename=eu_budget_spending_and_revenue_2000-2025.xlsx"]
     format: XLSX (servi sans extension), un onglet par année, montants en millions d'euros
     auth: aucune
   licence: Commission européenne, réutilisation autorisée avec mention de la source (décision 2011/833/UE, CC BY 4.0)
   maille: [pays, france]
-  millesime: annuel (exercice N-1 publié à l'été ; le fichier nommé « 2000-2023 » contient l'onglet 2024)
+  millesime: annuel (exercice N-1 publié à l'été ; fichier 2000-2025 en ligne au 30 septembre 2026)
+  fraicheur_max_jours: 400
   domaines: [europe-international]
   normalisation: ue_depenses_recettes
   controles:
@@ -50,4 +52,6 @@
     (ressources propres traditionnelles, ressources TVA, RNB et plastique, corrections, « TOTAL national
     contribution(s) » = contributions nationales hors droits de douane) ; RNB par État membre. Le solde
     budgétaire opérationnel officiel de la Commission (qui retire aussi les dépenses administratives) n'y figure
-    pas. L'identifiant du document change à chaque mise à jour.
+    pas. L'identifiant du document change à chaque mise à jour (le fichier 2000-2023 a été retiré, 403, et remplacé
+    le 30 septembre 2026). Depuis le fichier 2000-2025, la ligne « TOTAL National contributions » n'est plus publiée
+    pour 2021 et après : les indicateurs la reconstituent (voir contribution_budget_ue.sql).

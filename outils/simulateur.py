@@ -26,7 +26,7 @@ from .chiffrage import ANNEES, agreger, lire_programmes
 
 LEVIERS = RACINE / "chiffrage" / "simulateur.yaml"
 SORTIE = RACINE / "build" / "simulateur.html"
-COULEURS = ["#c0392b", "#8e44ad", "#2471a3", "#17a589", "#b7950b", "#ca6f1e", "#566573", "#943126", "#1e8449", "#1f618d"]
+COULEURS = ["#c0392b", "#8e44ad", "#2471a3", "#117864", "#7d6608", "#a04000", "#566573", "#943126", "#1e8449", "#1f618d"]
 TOLERANCE_REPRISE = 0.05  # Md€
 GLOSSAIRE = RACINE / "chiffrage" / "glossaire.yaml"
 # Axes de comparaison thématiques : des directions descriptives, jamais un jugement.

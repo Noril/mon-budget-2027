@@ -217,11 +217,12 @@ leviers:
     axes:
       services-agents-publics: 1
     effet:
-      central: -5.59
-      bas: -6.03
-      haut: -5.1
-    calcul: '3 × point_indice_1pct_2032 (1,86) × (1 − 0,28) ≈ 4,0 ; bornes : 3 × 1,93 × 0,75 ≈ 4,3 et 3 × 1,80 × 0,68 ≈ 3,7
-      (convention 12).'
+      central: -4.02
+      bas: -4.34
+      haut: -3.67
+    calcul: '3 × point_indice_1pct_2032 (1,86) × (1 − 0,28) ≈ 4,0 Md€ nets (5,6 bruts) ; bornes : 3 × 1,93 × 0,75 ≈ 4,3 et
+      3 × 1,80 × 0,68 ≈ 3,7 (convention 12). Effet net des prélèvements en retour, comme les autres options du levier (jusqu''au
+      30/09/2026, l''effet portait par erreur le montant brut).'
     candidats: []
   - id: indexation
     libelle: Indexation sur l'inflation
@@ -361,8 +362,9 @@ leviers:
 - id: csg
   theme: Fiscalité des ménages
   question: Faut-il modifier la CSG ?
-  aide: La CSG rapporte environ 157 Md€ ; un point sur les revenus d'activité vaut environ 11,7 Md€, un point sur toutes les
-    assiettes 17,9 Md€ (barèmes csg_rendement, csg_point_activite, csg_point).
+  aide: La CSG rapporte environ 157 Md€ (2025) ; un point sur les revenus d'activité vaut environ 11,7 Md€ en 2026 (13,9 Md€
+    en 2032), un point sur toutes les assiettes 17,9 Md€ en 2025 (21,7 Md€ en 2032) (barèmes csg_rendement, csg_point_activite,
+    csg_point).
   type: choix
   axe: prelevements
   options:
@@ -388,13 +390,13 @@ leviers:
   - id: baisse-salaires
     libelle: La baisser sur les salaires (environ 15 Md€ rendus)
     effet:
-      central: -12.6
+      central: -14.92
       bas: -15.28
       haut: -12.23
     reprend:
     - glucksmann-place-publique/baisse-csg-salaires
-    calcul: 'Chiffrage Glucksmann repris (net du retour d''impôt sur le revenu, barème retour_ir_csg_deductible : 16 %). [Recalé
-      le 2026-09-29 sur le chiffrage de glucksmann-place-publique.]'
+    calcul: 'Chiffrage Glucksmann repris : enveloppe de 15 Md€ annoncée en 2026, projetée en 2032, nette du retour d''impôt
+      sur le revenu (barème retour_ir_csg_deductible : 16 %). [Recalé le 2026-09-30 sur le chiffrage de glucksmann-place-publique.]'
     candidats:
     - glucksmann-place-publique
     montee:
@@ -463,12 +465,13 @@ leviers:
   - id: baisse-15-md
     libelle: Les baisser d'environ 15 Md€ (gain annoncé d'environ 500 € nets par an au salaire médian)
     effet:
-      central: -17.76
-      bas: -17.76
-      haut: -15.0
+      central: -14.92
+      bas: -15.28
+      haut: -12.23
     reprend:
     - retailleau-lr/restitution-pouvoir-achat-salaries
-    calcul: Chiffrage Retailleau repris (15 Md€ de 2025 projetés en 2032).
+    calcul: 'Chiffrage Retailleau repris : 15 Md€ de 2026 projetés en 2032, nets du retour d''impôt sur le revenu (barème
+      retour_ir_cotisation_salariale : 16 %). [Recalé le 2026-09-30 sur le chiffrage de retailleau-lr.]'
     candidats:
     - retailleau-lr
     montee:
@@ -530,7 +533,8 @@ leviers:
 - id: heures-supplementaires
   theme: Fiscalité des ménages
   question: Quel régime pour les heures supplémentaires ?
-  aide: Les exonérations d'impôt et de cotisations sur les heures supplémentaires coûtent environ 5,4 Md€ par an (barème hs_exoneration_cout).
+  aide: Les exonérations d'impôt et de cotisations sur les heures supplémentaires coûtent environ 5,4 Md€ en 2026, 6,4 Md€
+    en 2032 (barème hs_exoneration_cout).
   type: choix
   axe: prelevements
   options:
@@ -565,7 +569,7 @@ leviers:
     libelle: Les soumettre à l'impôt et aux cotisations comme les autres heures
     effet:
       central: 6.39
-      bas: 5.2
+      bas: 5.94
       haut: 6.39
     reprend:
     - melenchon-lfi/heures-sup-fiscalisation
@@ -583,8 +587,8 @@ leviers:
 - id: impot-revenu
   theme: Fiscalité des ménages
   question: Faut-il modifier l'impôt sur le revenu ?
-  aide: L'impôt sur le revenu rapporte environ 95 Md€ ; une baisse uniforme de 1 % de l'impôt dû coûte environ 1 Md€ (barèmes
-    ir_rendement, ir_baisse_1pct).
+  aide: L'impôt sur le revenu rapporte environ 95 Md€ (2025) ; une baisse uniforme de 1 % de l'impôt dû coûte environ 1 Md€
+    en 2026, 1,2 Md€ en 2032 (barèmes ir_rendement, ir_baisse_1pct).
   type: choix
   axe: prelevements
   options:
@@ -593,10 +597,12 @@ leviers:
     axes:
       imposition-hauts-revenus-patrimoine: -1
     effet:
-      central: -10.4
-      bas: -12.6
-      haut: -9.5
-    calcul: 10 × ir_baisse_1pct (1,04 ; bornes 1,26 et 0,95).
+      central: -12.32
+      bas: -13.15
+      haut: -11.49
+    calcul: '10 × ir_baisse_1pct (1,04 Md€ en 2026) × facteur_pib_2026_2032 (1,1842) ≈ 12,3 Md€ en 2032 ; haut : 10 × 0,949
+      (exécution 2025) × facteur_pib_2025_2032 (1,2106) ≈ 11,5 ; bas : écart symétrique (≈ 13,2), pour la part des crédits
+      d''impôt qu''une baisse des taux ne réduit pas (limites du barème).'
     candidats: []
   - id: quotient-deuxieme-enfant
     libelle: Part fiscale entière dès le deuxième enfant
@@ -626,7 +632,8 @@ leviers:
       haut: 0.0
     reprend:
     - attal-renaissance/impots-classes-moyennes-2md
-    calcul: Chiffrage Attal repris (montant annoncé).
+    calcul: Montant annoncé par Attal (2 Md€) ; mesure non chiffrable dans son programme faute de dispositif publié (estimation
+      indicative, hors solde).
     candidats:
     - attal-renaissance
     montee:
@@ -735,7 +742,7 @@ leviers:
     - tondelier-ecologistes/successions-grands-heritages
     - melenchon-lfi/successions-heritage-maximal
     - melenchon-lfi/pacte-dutreil
-    calcul: Chiffrage Tondelier repris (10) ; LFI (héritage maximal de 12 M€ et pacte Dutreil limité) est chiffré à 8,89.
+    calcul: Chiffrage Tondelier repris (10,98) ; LFI (héritage maximal de 12 M€ et pacte Dutreil limité) est chiffré à 8,89.
       [Recalé le 2026-09-29 sur le chiffrage de tondelier-ecologistes.]
     candidats:
     - tondelier-ecologistes
@@ -1193,7 +1200,7 @@ leviers:
     - tondelier-ecologistes/exonerations-cotisations-rationalisation
     - melenchon-lfi/exonerations-cotisations-2-smic
     calcul: Chiffrage Tondelier repris (au-delà de 1,6 Smic, heures supplémentaires comprises) ; LFI (au-delà de 2 Smic) est
-      chiffré à 5,15. [Recalé le 2026-09-29 sur le chiffrage de tondelier-ecologistes.]
+      chiffré à 5,6. [Recalé le 2026-09-29 sur le chiffrage de tondelier-ecologistes.]
     candidats:
     - tondelier-ecologistes
     - melenchon-lfi
@@ -1250,7 +1257,8 @@ leviers:
     reprend:
     - glucksmann-place-publique/annulation-hausse-accise-electricite-2024
     - melenchon-lfi/abolir-hausse-accise-electricite
-    calcul: Chiffrage Glucksmann repris (4,0) ; LFI est chiffré à 4,14.
+    calcul: Chiffrage Glucksmann repris (4,0) ; LFI (suppression de la « taxe de 10 % » sur les factures d'énergie) est chiffré
+      à 6,0.
     candidats:
     - glucksmann-place-publique
     - melenchon-lfi
@@ -1570,7 +1578,7 @@ leviers:
     reprend:
     - glucksmann-place-publique/abrogation-reforme-assurance-chomage
     - tondelier-ecologistes/assurance-chomage-abrogation-reformes
-    calcul: Chiffrage Glucksmann repris (5,21) ; Tondelier (depuis 2017, allocations indexées) est chiffré à 6,4.
+    calcul: Chiffrage Glucksmann repris (5,21) ; Tondelier (réformes depuis 2017, allocations indexées) est chiffré à 10,6.
     candidats:
     - glucksmann-place-publique
     - tondelier-ecologistes
@@ -1755,7 +1763,7 @@ leviers:
     reprend:
     - glucksmann-place-publique/salaires-enseignants-10-pct
     - melenchon-lfi/revalorisation-enseignants
-    calcul: Chiffrage Glucksmann repris (2,72) ; LFI (rattrapage du gel du point) est chiffré à 3,60. [Recalé le 2026-09-29
+    calcul: Chiffrage Glucksmann repris (2,6) ; LFI (rattrapage du gel du point) est chiffré à 3,6. [Recalé le 2026-09-29
       sur le chiffrage de glucksmann-place-publique.]
     candidats:
     - glucksmann-place-publique
@@ -1826,7 +1834,7 @@ leviers:
     reprend:
     - le-pen-rn/maprimerenov-en-pret-100-renov
     - zemmour-reconquete/suppression-anah
-    calcul: Même chiffrage dans les deux programmes (1,78), bas = 0.
+    calcul: Chiffrage RN repris (1,78) ; Zemmour (suppression de l'Anah) est chiffré à 1,82 ; bas = 0.
     candidats:
     - le-pen-rn
     - zemmour-reconquete
@@ -1869,9 +1877,9 @@ leviers:
 - id: aide-developpement
   theme: Europe et international
   question: Quel niveau d'aide publique au développement ?
-  aide: L'aide publique au développement représente environ 0,42 % du revenu national brut, soit environ 15 Md€ en 2032 ;
-    la porter à 0,7 % coûterait au plus environ 10 Md€ de plus, une partie de l'aide prenant la forme de prêts (barèmes apd_part_rnb,
-    rnb_nominal_2032).
+  aide: L'aide publique au développement représente 0,42 % du revenu national brut en 2025 selon l'OCDE, soit environ 15 Md€
+    à l'échelle de 2032 ; la porter à 0,7 % coûterait au plus 10 à 12 Md€ de plus, une partie de l'aide prenant la forme de
+    prêts (barèmes apd_part_rnb, rnb_nominal_2032).
   type: choix
   axe: depenses
   options:
@@ -1906,7 +1914,8 @@ leviers:
     reprend:
     - le-pen-rn/aide-publique-developpement
     - retailleau-lr/aide-publique-developpement-baisse
-    calcul: Chiffrage RN repris (2,72) ; Retailleau (−10 %) est chiffré à 1,20.
+    calcul: 'Chiffrage RN repris (2,72). Retailleau : baisse de 10 % relevée par le comparateur de l''IFRAP, sans source primaire
+      du candidat ; non chiffrée (estimation indicative 1,2, hors solde).'
     candidats:
     - le-pen-rn
     - retailleau-lr
@@ -1938,7 +1947,8 @@ leviers:
     - glucksmann-place-publique/aide-publique-developpement-0-7
     - melenchon-lfi/aide-developpement-0-7
     - tondelier-ecologistes/apd-07-pnb
-    calcul: 'Même chiffrage dans les trois programmes (convention 10) : (0,7 − 0,42) % × 3 685 Md€.'
+    calcul: 'Même chiffrage dans les trois programmes (convention 10) : (0,7 − 0,42) % × 3 685 Md€ ; bas depuis 0,38 % (projection
+      2026 non officielle), haut propre à chaque lecture.'
     candidats:
     - glucksmann-place-publique
     - melenchon-lfi

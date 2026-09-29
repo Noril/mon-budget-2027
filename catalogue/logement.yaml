@@ -39,6 +39,7 @@
   licence: Licence Ouverte 2.0
   maille: [france, departement]
   millesime: semestriel (avril, octobre) ; cinq dernières années glissantes
+  fraicheur_max_jours: 200
   domaines: [logement]
   normalisation: dvf_stats
   controles:

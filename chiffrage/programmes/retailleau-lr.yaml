@@ -73,8 +73,10 @@ annonce_candidat:
     supplémentaires, 15 Md€ d'impôts de production), présenté comme « identifié, financé » ; « Travail gagnant » :
     mesures générant « au moins 30 milliards d'euros de gains » (tableau : 28,5 à 31,7 Md€) « intégralement
     restitués aux salariés et aux entreprises » ; IA : « économies nettes de l'ordre de 15 milliards d'euros par an
-    à terme » ; retraites : « 40 milliards d'économies en cumulé sur cinq ans ». Selon ÉlyséeScope (d'après un
-    entretien au Figaro fin mars 2026, non consulté) : baisse des dépenses publiques de 80 Md€.
+    à terme » ; retraites : « 40 milliards d'économies en cumulé sur cinq ans ». Un chiffre de 80 Md€ de baisse
+    des dépenses, attribué par l'agrégateur ÉlyséeScope à « un entretien au Figaro (fin mars 2026) », n'a pas été
+    retrouvé (recherche du 30/09/2026) : l'article cité en source (Le Figaro, 29 mars 2026) est un récit sur l'appel
+    à une candidature unique de la droite et du centre, pas un entretien ; chiffre écarté.
   url: https://contrepoints.org/flat-tax-aides-aux-entreprises-assurances-sociales-calendrier-des-reformes-bruno-retailleau-repond-a-nos-questions/
 notes: >-
   Phase 1 (collecte), 29 septembre 2026. Pas de programme présidentiel unique publié : le projet est une série de
@@ -88,9 +90,10 @@ notes: >-
   (ii) les « 30 Md€ » de Travail gagnant financent la moitié salariale (15 Md€) et la moitié entreprises
   (15 Md€, la même que les 15 Md€ de cotisations patronales) ; (iii) les 250 000 postes (entretien du 1er juillet
   2026) contre 125 000 départs non remplacés (livret IA) ; (iv) la fraude sociale dans le CSU (10 Md€) et dans
-  le livret IA (3 à 4 Md€) ; (v) l'enveloppe de 120 Md€ d'économies d'ici 2032. Recherche web interrompue
-  (quota) avant d'avoir trouvé les sources primaires sur l'AME, l'APD et la justice des mineurs : citations
-  reprises d'agrégateurs, à revérifier.
+  le livret IA (3 à 4 Md€) ; (v) l'enveloppe de 120 Md€ d'économies d'ici 2032. Recherche des sources
+  primaires du 30/09/2026 : AME retrouvée (entretien au Parisien du 24 novembre 2025, repris sur republicains.fr) ;
+  justice des mineurs déjà citée d'après l'entretien au JDD du 15 juin 2025 ; baisse de 10 % de l'APD introuvable
+  hors comparateur IFRAP (passée en non chiffrable) ; 80 Md€ d'ÉlyséeScope introuvables (écartés).
 mesures:
   # --- Cadre budgétaire -------------------------------------------------------------------------
   - id: enveloppe-economies-120md
@@ -111,13 +114,15 @@ mesures:
       chiffre de 120 Md€ au 29 septembre 2026).
       Enveloppe non détaillée : règle 6 (central = part documentée par les mesures identifiables ci-dessous, sans
       double compte ; haut = 120 ; bas = 0). L'IFRAP la résume « uniquement par la baisse des dépenses et sans
-      hausses d'impôts autres que celles annoncées en juillet 2025 ». ÉlyséeScope cite 80 Md€ (Figaro, mars 2026).
+      hausses d'impôts autres que celles annoncées en juillet 2025 ». Le chiffre de 80 Md€ que l'agrégateur
+      ÉlyséeScope attribue à un entretien au Figaro de mars 2026 n'a pas été retrouvé (l'article cité n'est pas un
+      entretien ; recherche du 30/09/2026) : écarté.
     chiffrable: true
     nature: economie
     effet_solde_primaire:
       central: 0.0
       bas: 0.0
-      haut: 86.57
+      haut: 87.74
       montee_en_charge:
         '2027': 0
         '2028': 0.2
@@ -134,17 +139,17 @@ mesures:
           unite: Md€/an en 2032
           note: « un plan d'économies de 120 milliards d'euros à l'horizon 2032 »
         deja_compte:
-          valeur: 33.43
+          valeur: 32.26
           source: chiffrage/programmes/retailleau-lr.yaml
           unite: Md€
           note: 'somme des centraux des mesures d''économie de dépense chiffrées dans ce fichier : revenu-incitation-activite,
             compte-social-unique-plafond-70-smic, chomage-regles-juin-2024, chomage-ruptures-conventionnelles, chomage-frontaliers,
             chomage-alternance-hauts-revenus, retraites-age-63-taux-plein-65, revenu-familial-gains-gestion, apl-etudiants-d9-d10,
             hebergement-urgence-regularite-sejour, non-remplacement-125000-departs, ia-achats-publics, ia-lutte-fraude,
-            aide-publique-developpement-baisse, ame-reduction, postes-enseignants-demographie'
-      explication: 'Règle 6 : central = 0, toutes les économies documentées étant déjà comptées dans leurs lignes (33.43
-        Md€) ; haut = annonce moins ces économies, soit l''écart d''affichage non documenté. Les 80 Md€ cités par ÉlyséeScope
-        (Figaro, mars 2026) sont inférieurs à l''annonce retenue.'
+            ame-reduction, postes-enseignants-demographie'
+      explication: 'Règle 6 : central = 0, toutes les économies documentées étant déjà comptées dans leurs lignes (32.26
+        Md€) ; haut = annonce moins ces économies, soit l''écart d''affichage non documenté. Les 80 Md€ attribués par
+        ÉlyséeScope à un entretien au Figaro (mars 2026) n''ont pas été retrouvés et ne sont pas retenus.'
     chiffrages_tiers:
       - auteur: Fondation IFRAP (synthèse, pas de chiffrage propre)
         montant_md: 120
@@ -165,7 +170,9 @@ mesures:
         ia-lutte-fraude, désormais chiffrées selon la règle 6 ciblée), donc haut 84,99 -> 78,33 Md€.
         Recalé sur les conventions communes du 29/09 : économies déjà comptées ramenées de 41,67 à 33,43 Md€ après le
         recalage de non-remplacement-125000-departs (8,88 → 2,79) et postes-enseignants-demographie (3,0 → 0,85) ;
-        haut 78,33 → 86,57.
+        haut 78,33 → 86,57. Recherche des sources primaires (30/09/2026) : aide-publique-developpement-baisse passée
+        en non chiffrable (source primaire introuvable), donc retirée des économies déjà comptées (33,43 → 32,26 Md€, somme des centraux recalculée) ;
+        haut 86,57 → 87,74. Les 80 Md€ d'ÉlyséeScope, introuvables, sont écartés.
   - id: regle-or-constitution
     libelle: Règle d'or budgétaire dans la Constitution (révision soumise à référendum dès 2027)
     domaine: institutions
@@ -354,9 +361,9 @@ mesures:
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -17.76
-      bas: -17.76
-      haut: -15.0
+      central: -14.92
+      bas: -15.28
+      haut: -12.23
       montee_en_charge:
         '2027': 0
         '2028': 0.5
@@ -365,7 +372,7 @@ mesures:
         '2031': 1
         '2032': 1
     calcul:
-      formule: -montant_annonce*facteur
+      formule: -montant_annonce*facteur*(1 - retour_ir)
       parametres:
         montant_annonce:
           valeur: 15
@@ -376,7 +383,12 @@ mesures:
           valeur: 1.1842
           bareme: facteur_pib_2026_2032
           unite: facteur PIB nominal 2026→2032
-      explication: 'Restitution de 15 Md€ aux salariés par une baisse de cotisations (site de campagne, mesure n° 24), projetée en 2032 au PIB nominal ; montée au rythme des économies annoncées. Haut : montant nominal.'
+        retour_ir:
+          valeur: 0.16
+          bareme: retour_ir_cotisation_salariale
+          unite: part de la baisse de cotisation salariale qui revient en impôt sur le revenu
+          note: convention commune n° 5 (cotisation salariale déductible de l'IR) ; 0,14 dans la borne défavorable, 0,185 dans la favorable
+      explication: 'Restitution de 15 Md€ aux salariés par une baisse de cotisations (site de campagne, mesure n° 24), projetée en 2032 au PIB nominal (15 Md€ de 2026 × 1,1842), nette du retour d''impôt sur le revenu (cotisation salariale déductible, convention commune n° 5, barème retour_ir_cotisation_salariale : 16 %) : 15 × 1,1842 × 0,84 = 14,92 ; montée au rythme des économies annoncées. Bas : retour de 14 % (15,28). Haut : montant nominal non projeté, retour de 18,5 % (12,23). Même traitement que la baisse de CSG sur les salaires de Glucksmann (enveloppe de 15 Md€).'
     confiance: moyenne
     verification:
       statut: ok
@@ -390,7 +402,9 @@ mesures:
         (15 Md€ = ligne précédente) : pas de double compte. Instrument non précisé, promesse vague, effet
         en euros courants 2032 par convention (haut = non indexé). Les 30 Md€ de « gains » finançant ces
         restitutions sont comptés dans les lignes d'économie (chômage, RIA, CSU) ; le 4 Md€ d'IS «
-        mécanique » du tableau p. 35 n'est pas compté (second tour).
+        mécanique » du tableau p. 35 n'est pas compté (second tour). Audit du 30/09/2026 : retour d'impôt sur le
+        revenu de la convention commune n° 5 appliqué (il ne l'était pas, contrairement aux autres baisses de
+        cotisations salariales) : central −17,76 → −14,92 ; bas −17,76 → −15,28 ; haut −15,0 → −12,23.
         Recalé sur les conventions communes du 29/09 : facteur de projection 1,2106 / 1,022 = 1,1846 remplacé par le
         barème facteur_pib_2026_2032 (1,1842) ; central et bas −17,77 → −17,76.
   - id: revenu-incitation-activite
@@ -1076,7 +1090,7 @@ mesures:
         cvae_restante:
           valeur: 3.7
           bareme: cvae_restante
-      explication: 'La suppression de la CVAE en 2030 est déjà votée (LFI 2026, REFERENCE.md) : effet nul en régime
+      explication: 'La suppression de la CVAE en 2030 est déjà votée (LFI 2025, calendrier inchangé par la LFI 2026, REFERENCE.md) : effet nul en régime
         de croisière 2032. L''avance de calendrier (loi de finances votée fin 2027) coûte la CVAE restante en 2028 et
         2029, portée dans `annuel` à 2,78 Md€ par an (barème cvae_restante, 2025, net du surcroît d''IS de 25 % car la CVAE
         est déductible, comme pour la C3S ; majorant, les taux légaux baissant avant 2030).'
@@ -2458,68 +2472,66 @@ mesures:
         Baisser de 10% et recentrer les crédits de l'aide publique au développement (APD) : 1,2 Md€ d'économies.
       url: https://www.ifrap.org/comparateurs/presidentielles-2027
       date: 2026-09-29
-      support: synthèse tierce (IFRAP) ; source primaire non retrouvée
+      support: synthèse tierce (IFRAP, sans source citée) ; source primaire introuvable
     precision: partielle
-    interpretation: 10 % de l'APD au sens CAD (environ 12 Md€) ou des crédits de la mission APD (environ 3,7 Md€ en 2026) ? Le chiffre de 1,2 Md€ suggère l'APD au sens CAD.
-    chiffrable: true
-    nature: economie
-    effet_solde_primaire:
+    interpretation: >-
+      Source primaire introuvable (recherche du 30/09/2026 : republicains.fr, entretiens repris sur le site, livrets
+      thématiques, entretien Contrepoints/IREF, presse) ; la phrase n'est connue que par le comparateur IFRAP, qui ne
+      cite pas de source et ne rapporte pas de propos du candidat. Seules traces primaires sur l'APD :
+      « conditionner l'aide au développement à la reprise des ressortissants » (entretien du 2 août 2026,
+      https://republicains.fr/actualites/2026/08/02/lespace-schengen-doit-etre-reserve-aux-europeens/), qui n'est
+      pas une baisse, et les coupes votées par la majorité sénatoriale LR sur la mission APD du PLF 2026 (position de
+      groupe). Périmètre ambigu : 10 % de l'APD au sens CAD (environ 12 Md€) ou des crédits de la mission APD
+      (environ 3,7 Md€ en 2026) ; le chiffre de 1,2 Md€ suggère l'APD au sens CAD.
+    chiffrable: false
+    raison_non_chiffrable: >-
+      Source secondaire seulement (comparateur IFRAP, sans citation du candidat), source primaire introuvable à la
+      recherche du 30/09/2026 : non retenue dans le solde principal ; ordre de grandeur en estimation indicative.
+    sens_probable: economie
+    estimation_indicative:
       central: 1.2
       bas: 0.0
       haut: 1.2
-      montee_en_charge:
-        '2027': 0
-        '2028': 1
-        '2029': 1
-        '2030': 1
-        '2031': 1
-        '2032': 1
-    calcul:
-      formule: min(economie, part_baisse * apd_part_rnb / 100 * rnb_nominal_2032)
-      parametres:
-        economie:
-          valeur: 1.2
-          source: https://www.ifrap.org/comparateurs/presidentielles-2027
-          unite: Md€/an
-          note: '« Baisser de 10% … : 1,2 Md€ d''économies » (synthèse IFRAP)'
-        part_baisse:
-          valeur: 0.1
-          source: https://www.ifrap.org/comparateurs/presidentielles-2027
-          unite: part de l'APD
-        apd_part_rnb:
-          valeur: 0.42
-          bareme: apd_part_rnb
-          unite: "% du RNB"
-        rnb_nominal_2032:
-          valeur: 3685
-          bareme: rnb_nominal_2032
-          unite: Md€ courants
-      explication: 'Montant de la synthèse IFRAP, nominal ; source primaire non retrouvée. Règle 6 (économie ciblée sur
-        un périmètre nommé) : central = montant annoncé (10 % de l''APD au sens CAD, environ 12 Md€), bas = 0 (économie
-        non réalisée), haut = central. Si le périmètre était la seule mission APD (3,7 Md€), 10 % ne vaudrait que 0,4 Md€.
-        Plafond (convention commune 10) : 10 % de l''APD en part du RNB 2032 (0,1 × 0,42 % × 3 685 ≈ 1,55 Md€), majorant
-        puisque l''APD au sens de l''OCDE n''est pas qu''une dépense budgétaire ; non contraignant.'
-    confiance: faible
+      lecture: '1,2 Md€ nominaux par an si la promesse rapportée par l''IFRAP est reprise (10 % de l''APD au sens CAD,
+        environ 12 Md€ ; plafond de 10 % de l''APD en part du RNB 2032 : 0,1 × 0,42 % × 3 685 ≈ 1,55 Md€, non
+        contraignant). Bas : 0 (économie non réalisée ou non promise, règle 6). Si le périmètre était la seule mission
+        APD (environ 3,7 Md€), 10 % ne vaudrait que 0,4 Md€.'
+      sources:
+      - https://www.ifrap.org/comparateurs/presidentielles-2027
+      - apd_part_rnb
+      - rnb_nominal_2032
     verification:
       statut: corrige
-      par: verificateur-sonnet
-      date: "2026-09-29"
+      par: passe-sources
+      date: "2026-09-30"
       commentaire: >-
-        Citation vérifiée sur l'agrégateur IFRAP (source primaire non retrouvée). Corrigé selon la règle 6
-        révisée : bas 1,2 -> 0 (économie non réalisée), central et haut 1,2 Md€. Périmètre ambigu : 10 % de
-        l'APD au sens CAD (~12 Md€) vaut 1,2 Md€, 10 % de la seule mission APD (3,7 Md€) vaudrait 0,4 Md€.
-        Recalé sur les conventions communes du 29/09 : plafond exprimé en part du RNB 2032 (barèmes apd_part_rnb et
-        rnb_nominal_2032, convention 10), soit 1,55 Md€, non contraignant ; valeur inchangée.
+        Recherche des sources primaires (30/09/2026) : aucune source du candidat ou du parti ne reprend la baisse de
+        10 % ni les 1,2 Md€ ; mesure passée en non chiffrable avec estimation indicative (1,2 ; bas 0 ; haut 1,2) : le
+        solde principal central perd 1,2 Md€ d'économie (bas inchangé ; haut inchangé, l'enveloppe de 120 Md€ reprenant
+        l'écart). Vérification précédente (verificateur-sonnet, 29/09, corrige) : citation vérifiée sur l'agrégateur
+        IFRAP ; règle 6 appliquée (bas 0, central et haut 1,2) ; plafond en part du RNB 2032 (1,55 Md€) non contraignant.
   - id: ame-reduction
-    libelle: Réduction du nombre de bénéficiaires et du panier de soins de l'AME (transformation en aide médicale d'urgence)
+    libelle: Suppression de l'AME et transformation en aide médicale d'urgence
     domaine: sante
     citation:
-      texte: Baisser le nombre de bénéficiaires de l'AME, et réduire le panier de soins couvert.
-      url: https://www.ifrap.org/comparateurs/presidentielles-2027
-      date: 2026-09-29
-      support: synthèse tierce (IFRAP) ; source primaire 2027 non retrouvée
-    precision: vague
-    interpretation: Position constante de Retailleau (« transformer en aide médicale d'urgence », loi immigration 2023). Chiffrer sur la base AME d'environ 1,2 Md€ et du rapport Évin-Stefanini (2023).
+      texte: >-
+        Nous réduirons drastiquement les crédits sur les agences qu'il ne faut pas avoir peur de supprimer. Nous
+        supprimerons l'AME en la transformant en une aide médicale d'urgence. Les Français en ont marre de toujours
+        payer plus alors que les clandestins ont désormais, pour un certain nombre de soins, des taux de couverture
+        supérieurs à ceux qui travaillent et cotisent.
+      url: https://republicains.fr/actualites/2025/11/24/bruno-retailleau-ce-budget-cest-le-hold-up-du-siecle/
+      date: 2025-11-24
+      support: entretien (Le Parisien, 24 novembre 2025, reproduit sur republicains.fr)
+    precision: partielle
+    interpretation: >-
+      Source primaire : entretien au Parisien reproduit sur le site des Républicains, pendant l'examen du PLF 2026 au
+      Sénat (le « nous » désigne la majorité sénatoriale que le candidat présidait) ; position constante du candidat
+      (amendement du Sénat sur la loi immigration de 2023 ; il « ne veut pas supprimer l'AME mais la transformer en aide
+      médicale d'urgence », franceinfo,
+      https://www.franceinfo.fr/politique/bruno-retailleau/loi-immigration-bruno-retailleau-explique-qu-il-ne-veut-pas-supprimer-l-ame-mais-la-transformer-en-aide-medicale-d-urgence_6856973.html). L'IFRAP résume la position 2027 : « Baisser le nombre de
+      bénéficiaires de l'AME, et réduire le panier de soins couvert ». L'aide médicale d'urgence du Sénat (2023)
+      couvrait les maladies graves et douleurs aiguës, la grossesse, les vaccinations et la médecine préventive : une
+      partie de la dépense demeure. Chiffré sur la dépense AME de 2024 (1,39 Md€, dont 0,13 Md€ de soins urgents).
     chiffrable: true
     nature: economie
     effet_solde_primaire:
@@ -2549,19 +2561,21 @@ mesures:
           bareme: facteur_pib_2024_2032
           unite: facteur PIB nominal 2024→2032
       explication: 'Haut : AME de droit commun supprimée (transformation en aide médicale d''urgence), projetée en 2032.
-        Central : moitié, l''ampleur de la réduction n''étant pas précisée et une partie des soins se reportant sur
-        les urgences hospitalières (APU). Bas : 0.'
+        Central : moitié, l''aide médicale d''urgence conservant une partie du panier (maladies graves, douleurs aiguës,
+        grossesse, vaccinations, prévention) et une partie des soins se reportant sur les urgences hospitalières (APU).
+        Bas : 0.'
     confiance: faible
     verification:
-      statut: ok
-      par: verificateur-sonnet
-      date: "2026-09-29"
+      statut: corrige
+      par: passe-sources
+      date: "2026-09-30"
       commentaire: >-
-        Citation vérifiée sur l'agrégateur IFRAP (source primaire non retrouvée). Barème ame_depense relu
-        (Sénat : 1 387 M€ en 2024 dont 132 M€ de soins urgents). Central = moitié de la dépense hors soins
-        urgents, faute d'ampleur annoncée ; report partiel sur les urgences hospitalières.
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
-        (valeur inchangée).
+        Recherche des sources primaires (30/09/2026) : citation IFRAP remplacée par la source primaire (entretien au
+        Parisien du 24 novembre 2025, reproduit sur republicains.fr : « Nous supprimerons l'AME en la transformant en
+        une aide médicale d'urgence »), qui correspond à l'hypothèse haute ; précision vague → partielle ; montants
+        inchangés. Vérification précédente (verificateur-sonnet, 29/09, ok) : barème ame_depense relu (Sénat : 1 387 M€
+        en 2024 dont 132 M€ de soins urgents) ; central = moitié de la dépense hors soins urgents ; facteur de
+        projection renvoyé au barème facteur_pib_2024_2032.
   - id: agences-dotations-baisse
     libelle: Baisse des dotations aux agences de l'État (dont rationalisation de l'ANSES)
     domaine: etat

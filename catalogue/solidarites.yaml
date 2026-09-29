@@ -63,6 +63,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (année d'enquête N, revenus N-1)
+  fraicheur_max_jours: 400
   domaines: [solidarites]
   controles:
     lignes_min: 700
@@ -86,6 +87,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (année d'enquête N, revenus N-1)
+  fraicheur_max_jours: 400
   domaines: [solidarites]
   controles:
     lignes_min: 650
@@ -107,6 +109,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (N-1 provisoire pour quelques pays, N-2 pour l'agrégat UE)
+  fraicheur_max_jours: 400
   domaines: [solidarites]
   controles:
     lignes_min: 800

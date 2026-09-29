@@ -1227,7 +1227,7 @@ mesures:
           bareme: cvae_restante
           unite: Md€/an
       explication: >-
-        Suppression déjà votée pour 2030 (LFI 2026) : effet nul en 2032. L'avance coûte le rendement restant de la CVAE
+        Suppression déjà votée pour 2030 (LFI 2025, calendrier inchangé par la LFI 2026) : effet nul en 2032. L'avance coûte le rendement restant de la CVAE
         (barème cvae_restante, 3,7 Md€) en 2028 et 2029, porté par effet_solde_primaire.annuel (convention de REFERENCE.md).
         Mise en œuvre supposée en loi de finances pour 2028.
     confiance: haute

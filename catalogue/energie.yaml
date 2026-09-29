@@ -14,6 +14,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: semestriel (semestre S publié environ cinq mois après sa fin)
+  fraicheur_max_jours: 200
   domaines: [energie]
   controles:
     lignes_min: 1000
@@ -37,6 +38,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: semestriel
+  fraicheur_max_jours: 200
   domaines: [energie]
   controles:
     lignes_min: 800
@@ -60,6 +62,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (année N-2 publiée au début de l'année N)
+  fraicheur_max_jours: 400
   domaines: [energie]
   controles:
     lignes_min: 800
@@ -84,6 +87,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (année N-2 publiée au printemps de l'année N)
+  fraicheur_max_jours: 400
   domaines: [energie]
   controles:
     lignes_min: 3000
@@ -109,6 +113,7 @@
   licence: Licence Ouverte 2.0
   maille: [france]
   millesime: mensuel (données consolidées du mois M publiées en M+1, définitives au printemps de l'année suivante)
+  fraicheur_max_jours: 45
   domaines: [energie]
   controles:
     lignes_min: 170

@@ -60,6 +60,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: semestriel (notifications d'avril et d'octobre)
+  fraicheur_max_jours: 200
   domaines: [finances]
   controles:
     lignes_min: 2000
@@ -83,6 +84,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: semestriel
+  fraicheur_max_jours: 200
   domaines: [finances]
   controles:
     lignes_min: 1500
@@ -105,6 +107,7 @@
   licence: FMI, réutilisation des données avec citation (https://www.imf.org/external/terms.htm)
   maille: [france]
   millesime: semestriel (avril, octobre) ; projections sur cinq ans
+  fraicheur_max_jours: 200
   domaines: [finances]
   controles:
     lignes_min: 300

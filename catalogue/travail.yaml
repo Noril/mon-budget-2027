@@ -36,6 +36,7 @@
   licence: Licence Ouverte 2.0
   maille: [france, region, departement]
   millesime: trimestriel (environ 80 jours après la fin du trimestre)
+  fraicheur_max_jours: 120
   domaines: [travail]
   normalisation: insee_bdm
   controles:
@@ -60,6 +61,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel
+  fraicheur_max_jours: 400
   domaines: [travail]
   controles:
     lignes_min: 400
@@ -81,6 +83,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel
+  fraicheur_max_jours: 400
   domaines: [travail]
   controles:
     lignes_min: 400

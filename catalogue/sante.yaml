@@ -75,6 +75,7 @@
     auth: aucune
   licence: Licence Ouverte
   maille: [commune]
+  fraicheur_max_jours: 70
   domaines: [sante]
   statut: a-brancher
 
@@ -89,6 +90,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [france]
   millesime: annuel
+  fraicheur_max_jours: 400
   domaines: [sante]
   statut: a-brancher
 

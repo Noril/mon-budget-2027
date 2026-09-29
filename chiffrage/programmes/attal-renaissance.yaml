@@ -53,7 +53,9 @@ annonce_candidat:
 notes: 'Programme en construction : six pages thématiques sur attalpresident.fr et environ 75 comptes rendus d''entretiens
   et de déplacements (mai-septembre 2026), tous récupérés. Les comptes rendus du site sont rédigés par la campagne (citations
   du candidat entre guillemets, le reste paraphrasé par l''équipe). Deux mesures ne sont connues que par le comparateur IFRAP (défiscalisation des heures supplémentaires, 2 Md€
-  de baisse d''impôts) : source primaire introuvable à la passe sources du 29 septembre 2026.
+  de baisse d''impôts) : source primaire introuvable (passe sources du 29 septembre 2026, recherche du 30 septembre 2026
+  sur les 136 pages du site de campagne et dans la presse), toutes deux non chiffrables. Deux détails IFRAP (abondement
+  familial du compte bébé, objectif de 400 000 logements) sont signalés comme tels et n''entrent dans aucun montant.
   Grand meeting à Lyon le 10 octobre 2026 : nouvelles mesures probables. Phase 2 (29 septembre 2026) : chiffrage à droit constant
   (chiffrage/REFERENCE.md) avec les barèmes communs ; mesures non budgétaires préfixées NON_BUDGETAIRE. L''enveloppe de 120
   à 150 Md€ ne porte que l''écart d''affichage (règle 6) ; le « droit au brut » est chiffré brut, son financement annoncé
@@ -437,7 +439,11 @@ mesures:
     explication: '1 000 € (nominal, pas de revalorisation annoncée) × 643 905 naissances (Insee, 2025) = 0,64 Md€ par an. Bas
       : 660 000 naissances (chiffrage franceinfo, 0,66). Haut : poursuite de la baisse de 2,3 % par an jusqu''en 2032 (≈ 550 000
       à 560 000 naissances, 0,56). Abondement familial défiscalisé évoqué (comparateur IFRAP : « abondé par la famille jusqu''à
-      ses 18 ans, via un abattement fiscal ») non chiffré : paramètres inconnus.'
+      ses 18 ans, via un abattement fiscal ») non chiffré : paramètres inconnus. Il figurait dans l''amendement au budget 2026
+      déposé en novembre 2025 (« compléter ce montant jusqu''à la majorité de leur enfant, tout en profitant d''un abattement
+      fiscal sur les donations », 24matins, 11 novembre 2025,
+      https://www.24matins.fr/gabriel-attal-envisage-un-capital-de-1000-euros-a-la-naissance-pour-financer-les-retraites-1398384)
+      ; absent du site de campagne au 30 septembre 2026.'
   confiance: haute
   verification:
     statut: corrige
@@ -1008,9 +1014,13 @@ mesures:
     date: consulté le 2026-09-29
     support: comparateur de programmes (Fondation IFRAP), source primaire non retrouvée
   precision: vague
-  interpretation: 'Source primaire introuvable : ni le site de campagne (programme « Travail & salaires », 99 pages relues le
-    29 septembre 2026) ni les entretiens repris ne parlent de défiscalisation ; la page Travail & salaires promet seulement de
-    « supprimer le plafond d''heures supplémentaires fixé par le Code du travail » (mesure heures-sup-plafond-constitution-travail).
+  interpretation: 'Source primaire introuvable (recherche du 30/09/2026) : ni le site de campagne (programme « Travail & salaires »
+    et 136 pages du site relues le 30 septembre 2026) ni les entretiens repris ne promettent de défiscalisation ; la page Travail & salaires promet
+    seulement de « supprimer le plafond d''heures supplémentaires fixé par le Code du travail » (mesure heures-sup-plafond-constitution-travail).
+    Origine probable de la ligne IFRAP : l''entretien au Figaro du 30 avril 2026 (rapporté par l''AFP, https://www.france24.com/fr/info-en-continu/20260430-attal-continue-de-d%C3%A9velopper-la-th%C3%A9matique-travail-en-vue-de-2027),
+    où le candidat défend la défiscalisation existante contre les 37 heures de Jordan Bardella (« sa proposition empêcherait
+    les Français de bénéficier de la majoration et de la défiscalisation des heures supplémentaires », passage reproduit sur X,
+    https://x.com/Solange__C/status/2049950818363932971) : c''est un maintien du droit en vigueur, pas une promesse nouvelle.
     Les heures supplémentaires sont déjà exonérées d''IR jusqu''à 7 500 €/an (la défiscalisation totale votée en première lecture
     du PLF 2026 n''a pas été retenue) ; lecture possible : relèvement ou suppression du plafond.'
   chiffrable: false
@@ -1021,8 +1031,10 @@ mesures:
     statut: ok
     par: passe-sources
     date: '2026-09-29'
-    commentaire: Phrase retrouvée dans le comparateur IFRAP (rubrique Emploi & travail) ; aucune source primaire (site de campagne
-      entier relu, recherche web) ; maintenue en non chiffrable, sens neutre.
+    commentaire: 'Phrase retrouvée dans le comparateur IFRAP (rubrique Emploi & travail) ; aucune source primaire (site de campagne
+      entier relu, recherche web) ; maintenue en non chiffrable, sens neutre. Recherche du 30/09/2026 : source primaire toujours
+      introuvable ; l''entretien au Figaro du 30 avril 2026 défend la défiscalisation existante, ce qui confirme la lecture
+      « droit en vigueur » (sens neutre).'
 - id: impots-classes-moyennes-2md
   libelle: Baisser de 2 Md€ les impôts des classes moyennes
   domaine: fiscalité des ménages
@@ -1033,7 +1045,7 @@ mesures:
     support: comparateur de programmes (Fondation IFRAP), source primaire non retrouvée
   precision: precise
   interpretation: 'Source primaire de campagne introuvable (site de campagne relu en entier le 29 septembre 2026, recherche
-    web). Le montant correspond à l''engagement de 2023-2024 de l''exécutif, que Gabriel Attal, Premier ministre, promettait de
+    web ; nouvelle recherche du 30 septembre 2026 sur les 136 pages du site et dans la presse, sans résultat). Le montant correspond à l''engagement de 2023-2024 de l''exécutif, que Gabriel Attal, Premier ministre, promettait de
     tenir (« l''engagement d''une baisse de 2 milliards d''euros pour les ménages "sera tenu" », franceinfo, 18 avril 2024,
     https://www.franceinfo.fr/economie/impots/impots-gabriel-attal-promet-que-l-engagement-d-une-baisse-de-2-milliards-d-euros-pour-les-menages-sera-tenu_6494729.html)
     ; rien n''établit sa reprise dans le programme 2027 (le candidat dit « aucune hausse d''impôt », pas de baisse chiffrée).'
@@ -1066,7 +1078,8 @@ mesures:
     support: site du candidat (compte rendu du débat du Medef)
   precision: vague
   interpretation: 'Statut fiscal (amortissement du bien locatif) : dépense fiscale ; le dispositif Jeanbrun (LF 2026) est
-    déjà dans la référence. Objectif de 400 000 logements/an (IFRAP).'
+    déjà dans la référence. Objectif de 400 000 logements/an selon le comparateur IFRAP, absent du site de campagne (recherche
+    du 30/09/2026) : non retenu.'
   chiffrable: false
   raison_non_chiffrable: Paramètres du statut (taux d'amortissement, plafonds) non précisés ; le dispositif Jeanbrun est déjà
     dans la référence.

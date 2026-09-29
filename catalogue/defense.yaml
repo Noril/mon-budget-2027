@@ -14,6 +14,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (COFOG N-2 publié fin février, révisé en septembre)
+  fraicheur_max_jours: 400
   domaines: [defense]
   controles:
     lignes_min: 4000
@@ -39,6 +40,7 @@
   licence: OTAN, reproduction libre à des fins non commerciales avec mention de la source (conditions d'utilisation de nato.int)
   maille: [pays, france]
   millesime: annuel (publication à l'approche du sommet de l'OTAN, fin juin ; édition 2026 couvrant 2014-2026)
+  fraicheur_max_jours: 400
   domaines: [defense]
   normalisation: otan_depenses
   controles:
