@@ -1,0 +1,741 @@
+# Cartes du jeu « Reigns » : une carte = un dilemme sur un levier de chiffrage/simulateur.yaml.
+# Ordre du fichier = ordre du paquet. Une carte « suite » remplace le choix de la carte mère sur le même levier.
+# Personnages fictifs ; chaque carte présente l'argument d'un seul côté, les libellés restent factuels.
+
+personnages:
+  - id: syndicaliste
+    nom: La syndicaliste
+    emoji: "✊"
+    couleur: "#8e44ad"
+  - id: patronne-pme
+    nom: La patronne de PME
+    emoji: "💼"
+    couleur: "#2471a3"
+  - id: directeur-budget
+    nom: Le directeur du Budget
+    emoji: "📊"
+    couleur: "#566573"
+  - id: medecin-hospitaliere
+    nom: La médecin hospitalière
+    emoji: "🩺"
+    couleur: "#c0392b"
+  - id: maire-rural
+    nom: Le maire rural
+    emoji: "🏡"
+    couleur: "#1e8449"
+  - id: retraitee
+    nom: La retraitée
+    emoji: "👵"
+    couleur: "#b7950b"
+  - id: etudiante
+    nom: L'étudiante
+    emoji: "🎓"
+    couleur: "#17a589"
+  - id: general
+    nom: Le général
+    emoji: "🎖️"
+    couleur: "#34495e"
+  - id: economiste
+    nom: L'économiste
+    emoji: "📈"
+    couleur: "#1f618d"
+  - id: militante-ecologiste
+    nom: La militante écologiste
+    emoji: "🌱"
+    couleur: "#229954"
+  - id: agriculteur
+    nom: L'agriculteur
+    emoji: "🚜"
+    couleur: "#ca6f1e"
+  - id: eurodeputee
+    nom: L'eurodéputée
+    emoji: "🌍"
+    couleur: "#943126"
+
+cartes:
+  # 1. Énergie
+  - id: taxes-energie
+    personnage: retraitee
+    levier: taxes-energie
+    texte: "Ma facture d'électricité a bondi depuis la hausse de l'accise en 2024. On annule cette hausse ?"
+    gauche: {libelle: "Taxes inchangées", option: inchangees}
+    droite: {libelle: "Annuler la hausse de 2024", option: accise-electricite, suite: taxes-energie-tva}
+  - id: taxes-energie-tva
+    suite_seulement: true
+    personnage: agriculteur
+    levier: taxes-energie
+    texte: "Et la TVA à 5,5 % sur toutes les énergies, carburants compris ? Environ 17 Md€ par an."
+    gauche: {libelle: "Accise seulement", option: accise-electricite}
+    droite: {libelle: "TVA à 5,5 % partout", option: tva-toutes-energies}
+
+  # 2. Retraites
+  - id: retraites-age
+    personnage: syndicaliste
+    levier: retraites-age
+    texte: "La montée vers 64 ans reprend en 2028. Les salariés usés n'en peuvent plus. On revient à 62 ans ?"
+    gauche: {libelle: "Calendrier vers 64 ans", option: 64-ans, suite: retraites-au-dela}
+    droite: {libelle: "Retour à 62 ans", option: 62-ans, suite: retraites-carrieres-longues}
+  - id: retraites-au-dela
+    suite_seulement: true
+    personnage: economiste
+    levier: retraites-age
+    texte: "On vit plus longtemps et le système reste en déficit. On va au-delà de 64 ans à terme ?"
+    gauche: {libelle: "S'en tenir à 64 ans", option: 64-ans}
+    droite: {libelle: "Au-delà de 64 ans", option: plus-de-64-ans}
+  - id: retraites-carrieres-longues
+    suite_seulement: true
+    personnage: agriculteur
+    levier: retraites-age
+    texte: "J'ai commencé à travailler à 16 ans. Ceux qui ont 40 annuités devraient pouvoir partir à 60 ans."
+    gauche: {libelle: "62 ans pour tous", option: 62-ans}
+    droite: {libelle: "60 ans si 40 annuités", option: 62-ans-carrieres-longues, suite: retraites-60}
+  - id: retraites-60
+    suite_seulement: true
+    personnage: syndicaliste
+    levier: retraites-age
+    texte: "Pourquoi pas 60 ans pour tous, avec 40 annuités pour le taux plein ?"
+    gauche: {libelle: "60 ans : carrières longues", option: 62-ans-carrieres-longues}
+    droite: {libelle: "60 ans pour tous", option: 60-ans}
+
+  # 3. Smic
+  - id: smic
+    personnage: etudiante
+    levier: smic
+    texte: "Je travaille au Smic à côté de mes études et je ne boucle pas le mois. Un Smic à 1 600 € nets ?"
+    gauche: {libelle: "Revalorisation légale", option: revalorisation-legale}
+    droite: {libelle: "1 600 € nets en deux ans", option: 1600-net, suite: smic-2000-brut}
+  - id: smic-2000-brut
+    suite_seulement: true
+    personnage: syndicaliste
+    levier: smic
+    texte: "Plus vite : 2 000 € bruts dès 2027, avec une aide aux petites entreprises ?"
+    gauche: {libelle: "1 600 € nets en deux ans", option: 1600-net}
+    droite: {libelle: "2 000 € bruts dès 2027", option: 2000-brut, suite: smic-1700-net}
+  - id: smic-1700-net
+    suite_seulement: true
+    personnage: etudiante
+    levier: smic
+    texte: "Et aller jusqu'à 1 700 € nets ?"
+    gauche: {libelle: "2 000 € bruts", option: 2000-brut}
+    droite: {libelle: "1 700 € nets", option: 1700-net}
+
+  # 4. Fonction publique : effectifs
+  - id: effectifs-publics
+    personnage: directeur-budget
+    levier: effectifs-publics
+    texte: "136 700 agents publics partent à la retraite chaque année. On en remplace moins, pour environ 100 000 postes en moins ?"
+    gauche: {libelle: "Effectifs stables", option: stables, suite: effectifs-creations}
+    droite: {libelle: "100 000 postes en moins", option: moins-100000, suite: effectifs-800000}
+  - id: effectifs-creations
+    suite_seulement: true
+    personnage: maire-rural
+    levier: effectifs-publics
+    texte: "Chez nous, la poste, l'école et la gendarmerie manquent de bras. On crée des postes de proximité ?"
+    gauche: {libelle: "Effectifs stables", option: stables}
+    droite: {libelle: "Créer des postes", option: creations}
+  - id: effectifs-800000
+    suite_seulement: true
+    personnage: patronne-pme
+    levier: effectifs-publics
+    texte: "Pourquoi pas ne remplacer aucun départ dans les fonctions administratives, soit 800 000 postes ?"
+    gauche: {libelle: "Environ 100 000 postes", option: moins-100000}
+    droite: {libelle: "800 000 postes en moins", option: moins-800000}
+
+  # 5. Santé (curseur)
+  - id: sante
+    personnage: medecin-hospitaliere
+    levier: sante
+    texte: "Les urgences débordent et les soignants manquent. On recrute et on revalorise : +3 Md€ par an ?"
+    gauche: {libelle: "Budget actuel", valeur: 0, suite: sante-economies}
+    droite: {libelle: "+3 Md€ pour la santé", valeur: 3, suite: sante-remboursement}
+  - id: sante-economies
+    suite_seulement: true
+    personnage: directeur-budget
+    levier: sante
+    texte: "Franchises, frais de gestion des caisses : on peut économiser environ 1 Md€ sur la santé."
+    gauche: {libelle: "Budget actuel", valeur: 0}
+    droite: {libelle: "1 Md€ d'économies", valeur: -1}
+  - id: sante-remboursement
+    suite_seulement: true
+    personnage: retraitee
+    levier: sante
+    texte: "Et rembourser intégralement les soins prescrits, en intégrant les complémentaires ? Environ 36,5 Md€ par an."
+    gauche: {libelle: "+3 Md€", valeur: 3}
+    droite: {libelle: "Remboursement intégral", valeur: 36.5}
+
+  # 6. Carburants
+  - id: carburants
+    personnage: maire-rural
+    levier: carburants
+    texte: "Ici, sans voiture, on ne va ni au travail ni chez le médecin. On baisse d'un tiers l'accise sur les carburants ?"
+    gauche: {libelle: "Accise inchangée", option: inchange, suite: carburants-cheque}
+    droite: {libelle: "Accise baissée d'un tiers", option: accise-moins-un-tiers}
+  - id: carburants-cheque
+    suite_seulement: true
+    personnage: militante-ecologiste
+    levier: carburants
+    texte: "Plutôt qu'une baisse de taxe pour tous, un chèque carburant triplé et étendu aux classes moyennes ?"
+    gauche: {libelle: "Rien de plus", option: inchange}
+    droite: {libelle: "Chèque carburant triplé", option: cheque-carburant}
+
+  # 7. Défense (curseur)
+  - id: defense
+    personnage: general
+    levier: defense
+    texte: "Au-delà de la loi de programmation militaire, il manque des munitions et des stocks. +4 Md€ par an ?"
+    gauche: {libelle: "Programmation actuelle", valeur: 0}
+    droite: {libelle: "+4 Md€ pour la défense", valeur: 4, suite: defense-plus}
+  - id: defense-plus
+    suite_seulement: true
+    personnage: eurodeputee
+    levier: defense
+    texte: "Plusieurs voisins européens accélèrent leur réarmement. On porte l'effort à +7 Md€ ?"
+    gauche: {libelle: "+4 Md€", valeur: 4}
+    droite: {libelle: "+7 Md€", valeur: 7, suite: defense-conscription}
+  - id: defense-conscription
+    suite_seulement: true
+    personnage: general
+    levier: defense
+    texte: "Et une conscription citoyenne de neuf mois, payée au Smic, pour les moins de 25 ans ? Environ 27,5 Md€ au total."
+    gauche: {libelle: "+7 Md€ sans conscription", valeur: 7}
+    droite: {libelle: "Conscription : +27,5 Md€", valeur: 27.5}
+
+  # 8. Pensions
+  - id: pensions
+    personnage: retraitee
+    levier: pensions
+    texte: "J'ai une bonne pension et mes petits-enfants paient pour moi. Une année sans revalorisation en 2028, petites retraites protégées ?"
+    gauche: {libelle: "Indexation sur l'inflation", option: inflation, suite: pensions-petites}
+    droite: {libelle: "Année blanche en 2028", option: gel-2028}
+  - id: pensions-petites
+    suite_seulement: true
+    personnage: medecin-hospitaliere
+    levier: pensions
+    texte: "Je soigne des retraités qui renoncent à se chauffer. On porte les petites pensions vers le seuil de pauvreté ?"
+    gauche: {libelle: "Indexation sur l'inflation", option: inflation}
+    droite: {libelle: "Relever petites pensions", option: petites-pensions, suite: pensions-salaires}
+  - id: pensions-salaires
+    suite_seulement: true
+    personnage: syndicaliste
+    levier: pensions
+    texte: "Et indexer toutes les pensions sur les salaires, avec une pension minimale au Smic pour une carrière complète ?"
+    gauche: {libelle: "Petites pensions seulement", option: petites-pensions}
+    droite: {libelle: "Indexer sur les salaires", option: salaires-et-minimum-smic}
+
+  # 9. Successions
+  - id: successions
+    personnage: agriculteur
+    levier: successions
+    texte: "Transmettre la ferme à mon fils coûte une fortune en droits. On supprime les droits de succession et de donation ?"
+    gauche: {libelle: "Droits inchangés", option: inchanges, suite: successions-hausse}
+    droite: {libelle: "Supprimer les droits", option: suppression}
+  - id: successions-hausse
+    suite_seulement: true
+    personnage: economiste
+    levier: successions
+    texte: "Les héritages pèsent de plus en plus dans les patrimoines. On relève le taux marginal et on recentre le pacte Dutreil ?"
+    gauche: {libelle: "Droits inchangés", option: inchanges}
+    droite: {libelle: "Hausse modérée", option: hausse-moderee, suite: successions-grands-heritages}
+  - id: successions-grands-heritages
+    suite_seulement: true
+    personnage: etudiante
+    levier: successions
+    texte: "Plutôt créer de nouvelles tranches, très élevées, sur les plus grands héritages ?"
+    gauche: {libelle: "Hausse modérée", option: hausse-moderee}
+    droite: {libelle: "Tranches sur grands héritages", option: hausse-forte}
+
+  # 10. Enseignants
+  - id: salaires-enseignants
+    personnage: etudiante
+    levier: salaires-enseignants
+    texte: "Je voulais devenir professeure, mais le salaire me fait hésiter. On revalorise de 150 à 200 € nets par mois ?"
+    gauche: {libelle: "Pas de hausse propre", option: inchanges}
+    droite: {libelle: "+150 à 200 € par mois", option: 150-200-euros, suite: enseignants-10}
+  - id: enseignants-10
+    suite_seulement: true
+    personnage: syndicaliste
+    levier: salaires-enseignants
+    texte: "Les enseignants français sont moins payés que leurs voisins européens. Plutôt +10 %, davantage en milieu de carrière ?"
+    gauche: {libelle: "+150 à 200 € par mois", option: 150-200-euros}
+    droite: {libelle: "Environ +10 %", option: 10-pct, suite: enseignants-15}
+  - id: enseignants-15
+    suite_seulement: true
+    personnage: maire-rural
+    levier: salaires-enseignants
+    texte: "Nos écoles n'arrivent plus à recruter. +15 % en cinq ans ?"
+    gauche: {libelle: "Environ +10 %", option: 10-pct}
+    droite: {libelle: "+15 % en cinq ans", option: 15-pct, suite: enseignants-20}
+  - id: enseignants-20
+    suite_seulement: true
+    personnage: patronne-pme
+    levier: salaires-enseignants
+    texte: "L'école forme mes futurs salariés. Allons jusqu'à +20 % en cinq ans ?"
+    gauche: {libelle: "+15 % en cinq ans", option: 15-pct}
+    droite: {libelle: "+20 % en cinq ans", option: 20-pct}
+
+  # 11. Assurance chômage
+  - id: assurance-chomage
+    personnage: patronne-pme
+    levier: assurance-chomage
+    texte: "Je n'arrive pas à recruter alors que le chômage reste élevé. On réduit la durée d'indemnisation ?"
+    gauche: {libelle: "Règles inchangées", option: inchangees, suite: chomage-abroger}
+    droite: {libelle: "Durcir (5 Md€)", option: durcir, suite: chomage-durcir-fortement}
+  - id: chomage-durcir-fortement
+    suite_seulement: true
+    personnage: directeur-budget
+    levier: assurance-chomage
+    texte: "On peut aller plus loin : durée maximale réduite, ruptures conventionnelles, hauts revenus, frontaliers. Environ 12 Md€."
+    gauche: {libelle: "Durcir (5 Md€)", option: durcir}
+    droite: {libelle: "Durcir fortement (12 Md€)", option: durcir-fortement}
+  - id: chomage-abroger
+    suite_seulement: true
+    personnage: syndicaliste
+    levier: assurance-chomage
+    texte: "Les réformes récentes ont réduit les droits des chômeurs. On les abroge ?"
+    gauche: {libelle: "Règles inchangées", option: inchangees}
+    droite: {libelle: "Abroger les réformes", option: abroger, suite: chomage-garantie-emploi}
+  - id: chomage-garantie-emploi
+    suite_seulement: true
+    personnage: maire-rural
+    levier: assurance-chomage
+    texte: "Et garantir un emploi au Smic aux chômeurs de longue durée, dans des secteurs utiles ?"
+    gauche: {libelle: "Abrogation seule", option: abroger}
+    droite: {libelle: "Avec garantie d'emploi", option: abroger-garantie-emploi}
+
+  # 12. Rénovation des logements
+  - id: renovation-logements
+    personnage: militante-ecologiste
+    levier: renovation-logements
+    texte: "Des millions de passoires thermiques ruinent leurs occupants. 500 000 rénovations performantes par an, gratuites pour les ménages modestes ?"
+    gauche: {libelle: "Dispositifs actuels", option: inchange, suite: renovation-pret}
+    droite: {libelle: "500 000 rénovations par an", option: 500000-renovations}
+  - id: renovation-pret
+    suite_seulement: true
+    personnage: directeur-budget
+    levier: renovation-logements
+    texte: "MaPrimeRénov' coûte cher pour des résultats discutés. On remplace les subventions par un prêt à taux zéro ?"
+    gauche: {libelle: "Garder les subventions", option: inchange}
+    droite: {libelle: "Prêt à taux zéro", option: aides-supprimees}
+
+  # 13. Impôt sur le revenu
+  - id: impot-revenu
+    personnage: economiste
+    levier: impot-revenu
+    texte: "Un barème à 14 tranches rendrait l'impôt sur le revenu plus progressif et rapporterait environ 6 Md€."
+    gauche: {libelle: "Barème actuel", option: inchange, suite: impot-revenu-classes-moyennes}
+    droite: {libelle: "Barème à 14 tranches", option: plus-progressif}
+  - id: impot-revenu-classes-moyennes
+    suite_seulement: true
+    personnage: retraitee
+    levier: impot-revenu
+    texte: "Les classes moyennes ont le sentiment de tout payer. Une baisse ciblée d'environ 2 Md€ ?"
+    gauche: {libelle: "Barème actuel", option: inchange}
+    droite: {libelle: "Baisse classes moyennes", option: baisse-classes-moyennes, suite: impot-revenu-familles}
+  - id: impot-revenu-familles
+    suite_seulement: true
+    personnage: maire-rural
+    levier: impot-revenu
+    texte: "Plutôt aider les familles : une part fiscale entière dès le deuxième enfant ?"
+    gauche: {libelle: "Baisse classes moyennes", option: baisse-classes-moyennes}
+    droite: {libelle: "Part entière au 2e enfant", option: quotient-deuxieme-enfant}
+
+  # 14. Aide au développement
+  - id: aide-developpement
+    personnage: eurodeputee
+    levier: aide-developpement
+    texte: "La France s'est engagée à consacrer 0,7 % de son revenu national à l'aide au développement. On tient l'objectif ?"
+    gauche: {libelle: "Niveau actuel", option: inchangee, suite: aide-developpement-reduction}
+    droite: {libelle: "0,7 % du revenu national", option: 0-7-pct}
+  - id: aide-developpement-reduction
+    suite_seulement: true
+    personnage: general
+    levier: aide-developpement
+    texte: "L'aide ne sert pas toujours nos intérêts. On la réduit de 10 à 20 % ?"
+    gauche: {libelle: "Niveau actuel", option: inchangee}
+    droite: {libelle: "Réduire de 10 à 20 %", option: reduction, suite: aide-developpement-suppression}
+  - id: aide-developpement-suppression
+    suite_seulement: true
+    personnage: agriculteur
+    levier: aide-developpement
+    texte: "Et la supprimer, Agence française de développement comprise ?"
+    gauche: {libelle: "Réduire de 10 à 20 %", option: reduction}
+    droite: {libelle: "Supprimer l'aide", option: suppression}
+
+  # 15. Heures supplémentaires
+  - id: heures-supplementaires
+    personnage: syndicaliste
+    levier: heures-supplementaires
+    texte: "Mes collègues comptent sur leurs heures sup pour finir le mois. Zéro cotisation au-delà de 1 623 heures par an ?"
+    gauche: {libelle: "Exonération actuelle", option: exoneration-actuelle, suite: heures-supplementaires-fiscaliser}
+    droite: {libelle: "Zéro cotisation au-delà", option: zero-cotisation}
+  - id: heures-supplementaires-fiscaliser
+    suite_seulement: true
+    personnage: economiste
+    levier: heures-supplementaires
+    texte: "Les exonérations d'heures sup coûtent 5,4 Md€ et peuvent freiner l'embauche. On les impose comme les autres heures ?"
+    gauche: {libelle: "Exonération actuelle", option: exoneration-actuelle}
+    droite: {libelle: "Imposer comme les autres", option: fiscalisation}
+
+  # 16. Point d'indice
+  - id: point-indice
+    personnage: medecin-hospitaliere
+    levier: point-indice
+    texte: "Le point d'indice ne suit pas les prix : à l'hôpital, les salaires décrochent. On l'indexe sur l'inflation ?"
+    gauche: {libelle: "Point gelé", option: gel, suite: point-indice-hausse-3}
+    droite: {libelle: "Indexer sur l'inflation", option: indexation, suite: point-indice-rattrapage}
+  - id: point-indice-hausse-3
+    suite_seulement: true
+    personnage: directeur-budget
+    levier: point-indice
+    texte: "Indexer coûterait plus de 20 Md€. Un geste ponctuel de 3 %, sans indexation, en coûterait environ 5,6."
+    gauche: {libelle: "Point gelé", option: gel}
+    droite: {libelle: "+3 % une fois", option: hausse-3-pct}
+  - id: point-indice-rattrapage
+    suite_seulement: true
+    personnage: syndicaliste
+    levier: point-indice
+    texte: "Indexer ne rattrape pas les pertes passées. En plus, +10 % pour les catégories qui ont perdu du pouvoir d'achat ?"
+    gauche: {libelle: "Indexation seule", option: indexation}
+    droite: {libelle: "+10 % ciblés", option: indexation-hausse-ciblee, suite: point-indice-10-tous}
+  - id: point-indice-10-tous
+    suite_seulement: true
+    personnage: etudiante
+    levier: point-indice
+    texte: "Pourquoi pas +10 % pour tous les agents, puis l'indexation ?"
+    gauche: {libelle: "+10 % ciblés", option: indexation-hausse-ciblee}
+    droite: {libelle: "+10 % pour tous", option: hausse-10-indexation}
+
+  # 17. Agences et dotations
+  - id: agences-dotations
+    personnage: maire-rural
+    levier: agences-dotations
+    texte: "Ma dotation stagne pendant que les charges de la commune augmentent. On relève et on indexe la dotation globale ?"
+    gauche: {libelle: "Dotations inchangées", option: inchangees, suite: etat-achats}
+    droite: {libelle: "Relever et indexer la DGF", option: hausse-dotations}
+  - id: etat-achats
+    suite_seulement: true
+    personnage: economiste
+    levier: agences-dotations
+    texte: "En mutualisant les achats publics et en s'aidant de l'IA, l'État pourrait économiser environ 4 Md€."
+    gauche: {libelle: "Rien de changé", option: inchangees}
+    droite: {libelle: "Économies sur les achats", option: achats-publics, suite: etat-audiovisuel}
+  - id: etat-audiovisuel
+    suite_seulement: true
+    personnage: patronne-pme
+    levier: agences-dotations
+    texte: "Plutôt tailler dans les structures : privatiser l'audiovisuel public, supprimer des agences et des subventions ?"
+    gauche: {libelle: "Achats publics seulement", option: achats-publics}
+    droite: {libelle: "Audiovisuel et agences", option: agences-audiovisuel, suite: etat-dotations-20}
+  - id: etat-dotations-20
+    suite_seulement: true
+    personnage: directeur-budget
+    levier: agences-dotations
+    texte: "Autre voie : baisser de 20 % certaines agences, les subventions aux associations et les dotations des régions et intercommunalités."
+    gauche: {libelle: "Audiovisuel et agences", option: agences-audiovisuel}
+    droite: {libelle: "Baisse de 20 %", option: agences-subventions-dotations}
+
+  # 18. CSG
+  - id: csg
+    personnage: patronne-pme
+    levier: csg
+    texte: "Sur la fiche de paie, la CSG pèse lourd. On la baisse sur les salaires, pour environ 15 Md€ ?"
+    gauche: {libelle: "CSG inchangée", option: inchangee, suite: csg-progressive}
+    droite: {libelle: "Baisser sur les salaires", option: baisse-salaires, suite: csg-suppression}
+  - id: csg-progressive
+    suite_seulement: true
+    personnage: directeur-budget
+    levier: csg
+    texte: "Une CSG progressive, relevée d'un point, rapporterait environ 19 Md€."
+    gauche: {libelle: "CSG inchangée", option: inchangee}
+    droite: {libelle: "Progressive, +1 point", option: hausse-progressive}
+  - id: csg-suppression
+    suite_seulement: true
+    personnage: syndicaliste
+    levier: csg
+    texte: "Et la supprimer sur tous les revenus d'activité ? Plus de 100 Md€ rendus aux actifs."
+    gauche: {libelle: "Baisse d'environ 15 Md€", option: baisse-salaires}
+    droite: {libelle: "Suppression sur l'activité", option: suppression-activite}
+
+  # 19. Transition écologique (curseur)
+  - id: transition-ecologique
+    personnage: militante-ecologiste
+    levier: transition-ecologique
+    texte: "Transports du quotidien, adaptation au climat, énergies renouvelables : +3 Md€ par an pour commencer ?"
+    gauche: {libelle: "Budget actuel", valeur: 0, suite: transition-renouvelables}
+    droite: {libelle: "+3 Md€", valeur: 3, suite: transition-plus}
+  - id: transition-renouvelables
+    suite_seulement: true
+    personnage: agriculteur
+    levier: transition-ecologique
+    texte: "Le soutien public aux éoliennes et au solaire coûte environ 3 Md€ par an. On y met fin ?"
+    gauche: {libelle: "Budget actuel", valeur: 0}
+    droite: {libelle: "Fin du soutien : −3,5 Md€", valeur: -3.5}
+  - id: transition-plus
+    suite_seulement: true
+    personnage: economiste
+    levier: transition-ecologique
+    texte: "Les investissements d'adaptation évitent des dégâts plus coûteux. On porte l'effort à +8,5 Md€ ?"
+    gauche: {libelle: "+3 Md€", valeur: 3}
+    droite: {libelle: "+8,5 Md€", valeur: 8.5, suite: transition-plan}
+  - id: transition-plan
+    suite_seulement: true
+    personnage: militante-ecologiste
+    levier: transition-ecologique
+    texte: "Ou un plan massif : rail, fret, RER métropolitains, renouvelables. Environ 41 Md€ par an."
+    gauche: {libelle: "+8,5 Md€", valeur: 8.5}
+    droite: {libelle: "+41 Md€", valeur: 41}
+
+  # 20. Minima sociaux
+  - id: minima-sociaux
+    personnage: directeur-budget
+    levier: minima-sociaux
+    texte: "Fusionner RSA, prime d'activité et allocation de solidarité, et plafonner le cumul des aides à 70 % du Smic ?"
+    gauche: {libelle: "Minima inchangés", option: inchanges, suite: minima-hausse}
+    droite: {libelle: "Fusion et plafond à 70 %", option: fusion-plafond, suite: minima-rsa-3-ans}
+  - id: minima-rsa-3-ans
+    suite_seulement: true
+    personnage: maire-rural
+    levier: minima-sociaux
+    texte: "Et limiter le RSA à trois ans pour les personnes en capacité de travailler ?"
+    gauche: {libelle: "Fusion et plafond", option: fusion-plafond}
+    droite: {libelle: "RSA limité à trois ans", option: rsa-limite-3-ans}
+  - id: minima-hausse
+    suite_seulement: true
+    personnage: etudiante
+    levier: minima-sociaux
+    texte: "Avant 25 ans, pas de RSA. On ouvre un revenu minimum dès 18 ans et on relève l'AAH de 250 € par mois ?"
+    gauche: {libelle: "Minima inchangés", option: inchanges}
+    droite: {libelle: "AAH +250 €, dès 18 ans", option: hausse-ciblee, suite: minima-seuil-pauvrete}
+  - id: minima-seuil-pauvrete
+    suite_seulement: true
+    personnage: medecin-hospitaliere
+    levier: minima-sociaux
+    texte: "Aller jusqu'à un revenu garanti au seuil de pauvreté pour tous, et l'AAH au niveau du Smic ? Environ 53 Md€."
+    gauche: {libelle: "Hausse ciblée", option: hausse-ciblee}
+    droite: {libelle: "Seuil de pauvreté", option: seuil-pauvrete}
+
+  # 21. Grands patrimoines
+  - id: grands-patrimoines
+    personnage: directeur-budget
+    levier: grands-patrimoines
+    texte: "L'impôt sur la fortune immobilière rapporte 2,8 Md€. Rétablir l'ISF rapporterait environ 3,1 Md€ nets de plus."
+    gauche: {libelle: "IFI actuel", option: ifi}
+    droite: {libelle: "Rétablir l'ISF", option: isf, suite: grands-patrimoines-plancher}
+  - id: grands-patrimoines-plancher
+    suite_seulement: true
+    personnage: militante-ecologiste
+    levier: grands-patrimoines
+    texte: "Les milliardaires paient souvent moins que les autres en proportion. On ajoute un impôt plancher de 2 % sur leur patrimoine ?"
+    gauche: {libelle: "ISF seul", option: isf}
+    droite: {libelle: "ISF + 2 % milliardaires", option: isf-plancher-milliardaires, suite: grands-patrimoines-100m}
+  - id: grands-patrimoines-100m
+    suite_seulement: true
+    personnage: economiste
+    levier: grands-patrimoines
+    texte: "Abaisser le seuil de l'impôt plancher à 100 M€ de patrimoine ?"
+    gauche: {libelle: "Plancher : milliardaires", option: isf-plancher-milliardaires}
+    droite: {libelle: "Plancher dès 100 M€", option: isf-plancher-100m}
+
+  # 22. Conditions des prestations
+  - id: conditions-prestations
+    personnage: eurodeputee
+    levier: conditions-prestations
+    texte: "Plusieurs pays européens conditionnent leurs aides à la durée de séjour. On exige cinq ans de résidence régulière ?"
+    gauche: {libelle: "Conditions actuelles", option: inchangees, suite: prestations-ame}
+    droite: {libelle: "Cinq ans de résidence", option: cinq-ans-residence, suite: prestations-travail}
+  - id: prestations-ame
+    suite_seulement: true
+    personnage: medecin-hospitaliere
+    levier: conditions-prestations
+    texte: "L'aide médicale d'État coûte 1,4 Md€. La limiter aux soins urgents, sans toucher aux autres prestations ?"
+    gauche: {libelle: "Conditions actuelles", option: inchangees}
+    droite: {libelle: "AME limitée à l'urgence", option: ame-urgence}
+  - id: prestations-travail
+    suite_seulement: true
+    personnage: agriculteur
+    levier: conditions-prestations
+    texte: "Plutôt conditionner à cinq ans de travail en France, avec l'AME réduite à l'urgence ?"
+    gauche: {libelle: "Cinq ans de résidence", option: cinq-ans-residence}
+    droite: {libelle: "Cinq ans de travail", option: cinq-ans-travail, suite: prestations-nationalite}
+  - id: prestations-nationalite
+    suite_seulement: true
+    personnage: retraitee
+    levier: conditions-prestations
+    texte: "Ou réserver les prestations non contributives aux Français et supprimer l'AME ?"
+    gauche: {libelle: "Cinq ans de travail", option: cinq-ans-travail}
+    droite: {libelle: "Réservées aux Français", option: nationalite}
+
+  # 23. Éducation (curseur)
+  - id: education
+    personnage: maire-rural
+    levier: education
+    texte: "Cantine, transports et fournitures gratuits, classes de 19 élèves, 500 000 places en crèche : environ 36 Md€ par an."
+    gauche: {libelle: "Budget actuel", valeur: 0, suite: education-economies}
+    droite: {libelle: "+36 Md€ école et crèches", valeur: 36}
+  - id: education-economies
+    suite_seulement: true
+    personnage: directeur-budget
+    levier: education
+    texte: "Le nombre d'élèves baisse chaque année. On ajuste les moyens : 1 Md€ d'économies ?"
+    gauche: {libelle: "Budget actuel", valeur: 0}
+    droite: {libelle: "1 Md€ d'économies", valeur: -1, suite: education-economies-2}
+  - id: education-economies-2
+    suite_seulement: true
+    personnage: economiste
+    levier: education
+    texte: "Aller jusqu'à 2 Md€ d'économies ?"
+    gauche: {libelle: "1 Md€ d'économies", valeur: -1}
+    droite: {libelle: "2 Md€ d'économies", valeur: -2}
+
+  # 24. Recherche (curseur)
+  - id: recherche-innovation
+    personnage: economiste
+    levier: recherche-innovation
+    texte: "La France investit moins dans la recherche que plusieurs de ses voisins. +3 Md€ par an ?"
+    gauche: {libelle: "Budget actuel", valeur: 0, suite: recherche-modeste}
+    droite: {libelle: "+3 Md€", valeur: 3, suite: recherche-10}
+  - id: recherche-modeste
+    suite_seulement: true
+    personnage: patronne-pme
+    levier: recherche-innovation
+    texte: "Sans grand plan, +1,5 Md€ pour les laboratoires et l'innovation ?"
+    gauche: {libelle: "Budget actuel", valeur: 0}
+    droite: {libelle: "+1,5 Md€", valeur: 1.5}
+  - id: recherche-10
+    suite_seulement: true
+    personnage: etudiante
+    levier: recherche-innovation
+    texte: "Mes camarades de thèse partent à l'étranger. +10 Md€ pour la recherche et l'université ?"
+    gauche: {libelle: "+3 Md€", valeur: 3}
+    droite: {libelle: "+10 Md€", valeur: 10}
+
+  # 25. Cotisations salariales
+  - id: cotisations-salaries
+    personnage: syndicaliste
+    levier: cotisations-salaries
+    texte: "Pour financer les retraites, on étend les cotisations vieillesse à l'épargne salariale, avec un point déplafonné en plus ?"
+    gauche: {libelle: "Cotisations inchangées", option: inchangees, suite: cotisations-salaries-baisse}
+    droite: {libelle: "Cotisations élargies", option: hausse-ciblee, suite: cotisations-salaries-hausse-forte}
+  - id: cotisations-salaries-hausse-forte
+    suite_seulement: true
+    personnage: retraitee
+    levier: cotisations-salaries
+    texte: "Et relever la cotisation vieillesse de 0,25 point par an, en l'étendant aux dividendes et à l'intéressement ?"
+    gauche: {libelle: "Élargissement seul", option: hausse-ciblee}
+    droite: {libelle: "+0,25 point par an", option: hausse-forte}
+  - id: cotisations-salaries-baisse
+    suite_seulement: true
+    personnage: patronne-pme
+    levier: cotisations-salaries
+    texte: "Mes salariés veulent plus de net sur leur fiche de paie. On baisse leurs cotisations d'environ 15 Md€ ?"
+    gauche: {libelle: "Cotisations inchangées", option: inchangees}
+    droite: {libelle: "Baisse d'environ 15 Md€", option: baisse-15-md, suite: cotisations-salaries-baisse-forte}
+  - id: cotisations-salaries-baisse-forte
+    suite_seulement: true
+    personnage: etudiante
+    levier: cotisations-salaries
+    texte: "Aller jusqu'à 250 € nets de plus par mois au salaire médian ? Environ 47 Md€."
+    gauche: {libelle: "Baisse d'environ 15 Md€", option: baisse-15-md}
+    droite: {libelle: "Baisse forte (47 Md€)", option: baisse-forte}
+
+  # 26. Revenus du capital
+  - id: revenus-capital
+    personnage: etudiante
+    levier: revenus-capital
+    texte: "Les dividendes sont taxés à 30 % au plus, moins que bien des salaires. On relève ce prélèvement de 3 points ?"
+    gauche: {libelle: "Prélèvement à 30 %", option: pfu, suite: revenus-capital-bareme}
+    droite: {libelle: "+3 points et taxe renforcée", option: pfu-plus-3, suite: revenus-capital-taxes}
+  - id: revenus-capital-bareme
+    suite_seulement: true
+    personnage: eurodeputee
+    levier: revenus-capital
+    texte: "Sans relever les taux, on peut imposer les revenus du capital au barème, comme les salaires."
+    gauche: {libelle: "Prélèvement à 30 %", option: pfu}
+    droite: {libelle: "Imposition au barème", option: bareme}
+  - id: revenus-capital-taxes
+    suite_seulement: true
+    personnage: syndicaliste
+    levier: revenus-capital
+    texte: "Plutôt le barème, avec des taxes sur les dividendes et les rachats d'actions ?"
+    gauche: {libelle: "+3 points", option: pfu-plus-3}
+    droite: {libelle: "Barème et nouvelles taxes", option: bareme-et-taxes}
+
+  # 27. Impôts de production
+  - id: impots-production
+    personnage: patronne-pme
+    levier: impots-production
+    texte: "La C3S taxe mon chiffre d'affaires, même sans bénéfice. On la supprime, en exonérant l'industrie de CFE ?"
+    gauche: {libelle: "Calendrier en vigueur", option: calendrier-actuel, suite: impots-production-cvae}
+    droite: {libelle: "C3S et CFE industrielle", option: suppression-c3s, suite: impots-production-cfe}
+  - id: impots-production-cvae
+    suite_seulement: true
+    personnage: maire-rural
+    levier: impots-production
+    texte: "La CVAE doit disparaître en 2030. On la maintient et on revient sur la baisse de la CFE ?"
+    gauche: {libelle: "Calendrier en vigueur", option: calendrier-actuel}
+    droite: {libelle: "Maintenir la CVAE", option: retablir-cvae}
+  - id: impots-production-cfe
+    suite_seulement: true
+    personnage: agriculteur
+    levier: impots-production
+    texte: "Et supprimer toute la CFE, due même les années sans bénéfice ?"
+    gauche: {libelle: "C3S et CFE industrielle", option: suppression-c3s}
+    droite: {libelle: "Supprimer C3S et CFE", option: suppression-c3s-cfe, suite: impots-production-50}
+  - id: impots-production-50
+    suite_seulement: true
+    personnage: economiste
+    levier: impots-production
+    texte: "Les impôts de production pèsent plus en France que chez ses voisins. Les baisser de 50 Md€ ?"
+    gauche: {libelle: "Supprimer C3S et CFE", option: suppression-c3s-cfe}
+    droite: {libelle: "Baisse de 50 Md€", option: baisse-50-md}
+
+  # 28. Aides aux entreprises
+  - id: aides-entreprises
+    personnage: directeur-budget
+    levier: aides-entreprises
+    texte: "Les aides publiques aux entreprises dépassent 200 Md€ par an. On en supprime 50 Md€ jugées improductives ?"
+    gauche: {libelle: "Aides inchangées", option: inchangees, suite: aides-cir}
+    droite: {libelle: "−50 Md€ d'aides", option: moins-50-md}
+  - id: aides-cir
+    suite_seulement: true
+    personnage: patronne-pme
+    levier: aides-entreprises
+    texte: "Le crédit d'impôt recherche profite surtout aux grands groupes. On le recentre sur les PME et ETI ?"
+    gauche: {libelle: "Aides inchangées", option: inchangees}
+    droite: {libelle: "CIR recentré PME-ETI", option: cir-recentre, suite: aides-cir-supprime}
+  - id: aides-cir-supprime
+    suite_seulement: true
+    personnage: etudiante
+    levier: aides-entreprises
+    texte: "Ou le supprimer et verser l'argent aux universités et organismes de recherche ?"
+    gauche: {libelle: "CIR recentré", option: cir-recentre}
+    droite: {libelle: "Supprimer le CIR", option: cir-supprime}
+
+  # 29. Cotisations patronales
+  - id: cotisations-patronales
+    personnage: agriculteur
+    levier: cotisations-patronales
+    texte: "J'aimerais augmenter mes salariés de 10 %, mais les cotisations suivent. On exonère ces hausses jusqu'à 3 Smic ?"
+    gauche: {libelle: "Cotisations inchangées", option: inchangees, suite: patronales-allegements}
+    droite: {libelle: "Exonérer les hausses", option: exonerer-hausses-salaire}
+  - id: patronales-allegements
+    suite_seulement: true
+    personnage: economiste
+    levier: cotisations-patronales
+    texte: "Les allègements de cotisations coûtent 72 Md€ par an. On les supprime au-dessus de 1,6 à 2 Smic ?"
+    gauche: {libelle: "Allègements actuels", option: inchangees, suite: patronales-2024}
+    droite: {libelle: "Supprimer au-delà de 1,6 Smic", option: reduire-allegements}
+  - id: patronales-2024
+    suite_seulement: true
+    personnage: patronne-pme
+    levier: cotisations-patronales
+    texte: "Le coût du travail a augmenté depuis 2024. On annule ces hausses ?"
+    gauche: {libelle: "Cotisations inchangées", option: inchangees}
+    droite: {libelle: "Annuler les hausses", option: annuler-hausses-recentes, suite: patronales-15}
+  - id: patronales-15
+    suite_seulement: true
+    personnage: syndicaliste
+    levier: cotisations-patronales
+    texte: "Et baisser d'environ 15 Md€ les cotisations patronales qui financent famille, santé et logement ?"
+    gauche: {libelle: "Annuler les hausses", option: annuler-hausses-recentes}
+    droite: {libelle: "Baisse d'environ 15 Md€", option: baisse-15-md}
