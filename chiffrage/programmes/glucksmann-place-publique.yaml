@@ -595,13 +595,16 @@ mesures:
     central: -3.0
     bas: -8.0
     haut: -1.0
-    lecture: 'Ouverture d''un minimum social de niveau RSA aux 18-24 ans non étudiants et fiscalement autonomes (quelques centaines
-      de milliers d''allocataires, recours partiel) ; la fusion des minima est supposée à montant constant. Bas : ouverture
-      large (étudiants, montant relevé) ; haut : conditions strictes.'
+    lecture: 'Ouverture d''un minimum social de niveau RSA aux 18-24 ans non étudiants et fiscalement autonomes (quelques
+      centaines de milliers d''allocataires, recours partiel) ; la fusion des minima est supposée à montant constant. Bas
+      : ouverture large (étudiants, montant relevé) ; haut : conditions strictes. Contrôle : RSA de 646,52 € par mois pour
+      une personne seule (avril 2025) et 11,7 Md€ versés en 2023 pour ≈ 1,8 million de foyers (Wikipédia) ; 3 Md€ correspondent
+      à ≈ 400 000 allocataires supplémentaires. Effectif des 18-24 ans concernés non sourcé.'
     sources:
     - rsa_depense
     - prestations_hors_retraites_revalo_1pct
     - https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf
+    - https://fr.wikipedia.org/wiki/Revenu_de_solidarit%C3%A9_active
 - id: territoires-zero-chomeur
   libelle: Généralisation de Territoires zéro chômeur de longue durée et CDI d'insertion
   domaine: emploi
@@ -755,8 +758,9 @@ mesures:
     central: -1.0
     bas: -2.6
     haut: 0.0
-    lecture: 'Même dispositif que le leasing social chiffré chez Tondelier : ≈ 100 000 à 200 000 contrats par an à 7 000 € d''aide
-      (13 000 € en 2024) ; haut : financement par les certificats d''économies d''énergie, hors APU (2025).'
+    lecture: 'Même dispositif que le leasing social chiffré chez Tondelier : ≈ 100 000 à 200 000 contrats par an à 7 000 €
+      d''aide (13 000 € en 2024) ; haut : financement par les certificats d''économies d''énergie, hors APU (2025). Ordre
+      de grandeur non sourcé.'
     sources:
     - https://www.largus.fr/actualite-automobile/leasing-social-50-000-vehicules-electriques-subventionnes-mission-accomplie-30045168.html
     - https://france3-regions.franceinfo.fr/pays-de-la-loire/sarthe/le-mans/raphael-glucksmann-francois-hollande-et-bernard-cazeneuve-les-pontes-du-parti-socialiste-reunis-dans-la-sarthe-pour-parler-du-rechauffement-climatique-3377119.html
@@ -829,8 +833,9 @@ mesures:
     central: -1.0
     bas: -2.5
     haut: 0.0
-    lecture: '« Relancer » : retour de l''enveloppe MaPrimeRénov'' au niveau de 2024 (avant les coupes 2025-2026), soit ≈ 1
-      Md€ de plus par an ; bas : relance comparable au pic de 2024 augmenté ; haut : simple simplification.'
+    lecture: '« Relancer » : retour de l''enveloppe MaPrimeRénov'' au niveau de 2024 (avant les coupes 2025-2026), soit ≈
+      1 Md€ de plus par an ; bas : relance comparable au pic de 2024 augmenté ; haut : simple simplification. Ordre de grandeur
+      non sourcé.'
     sources:
     - https://www.anah.gouv.fr/presse/bilan-2024-de-l-anah-un-effort-massif-pour-mieux-renover-les-logements
     - https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf
@@ -870,7 +875,8 @@ mesures:
     bas: -3.0
     haut: -0.5
     lecture: '« Démultiplier les aides à SNCF Réseau » : ≈ 1,5 Md€ par an de régénération supplémentaire, besoin chiffré par
-      SNCF Réseau et la conférence Ambition France Transports (2025) ; bas : doublement avec les régions.'
+      SNCF Réseau et la conférence Ambition France Transports (2025) ; bas : doublement avec les régions. Besoin annuel de
+      1,5 Md€ non retrouvé dans une source ouverte : ordre de grandeur non sourcé.'
     sources:
     - https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf
 - id: ticket-climat
@@ -894,7 +900,9 @@ mesures:
     bas: -3.0
     haut: -0.3
     lecture: 'Titre national à tarif fixe d''abord réservé aux jeunes et précaires : compensation aux autorités organisatrices
-      de l''ordre d''un tiers du Deutschlandticket (3 Md€ par an de compensation publique) ; bas : extension à tous.'
+      de l''ordre d''un tiers du Deutschlandticket (3 Md€ par an de compensation publique) ; bas : extension à tous. Contrôle
+      : compensation allemande de 3 Md€ par an confirmée (Wikipédia allemand) ; un tiers pour jeunes et précaires, contre
+      le ticket pour tous chez Tondelier (2,5 Md€) : périmètres différents, écart justifié.'
     sources:
     - https://de.wikipedia.org/wiki/Deutschlandticket
     - https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf
@@ -922,7 +930,8 @@ mesures:
     bas: 0.3
     haut: 2.5
     lecture: 'Fiscalité du kérosène sur les vols intérieurs, TVA des billets alignée à 20 %, taxes jets privés, yachts, SUV
-      et camions en transit : quelques centaines de M€ chacune, le kérosène international restant hors d''atteinte.'
+      et camions en transit : quelques centaines de M€ chacune, le kérosène international restant hors d''atteinte. Ordre
+      de grandeur non sourcé.'
     sources:
     - tva_point_taux_normal
     - ticpe_centime_litre
@@ -964,8 +973,9 @@ mesures:
     central: 1.0
     bas: 0.0
     haut: 3.0
-    lecture: 'Plafonnement du CIR des grands groupes (41 % de 7,8 Md€ en 2023) avec réaffectation partielle à la recherche publique
-      ; haut : ≈ 3 Md€ d''économie brute ; bas : réaffectation totale.'
+    lecture: 'Plafonnement du CIR des grands groupes (41 % de 7,8 Md€ en 2023) avec réaffectation partielle à la recherche
+      publique ; haut : ≈ 3 Md€ d''économie brute ; bas : réaffectation totale. Ordre de grandeur non sourcé. CIR de 7,8 Md€
+      en 2023 dont 41 % pour les grands groupes non revérifié.'
     sources:
     - https://www.financeinnovation.fr/2026/01/22/cir-le-credit-impot-recherche-cir-en-2023-la-creance-continue-daugmenter-tout-en-comptant-moins-de-declarants/
     - https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf
@@ -1291,9 +1301,9 @@ mesures:
     central: -1.2
     bas: -3.5
     haut: -0.3
-    lecture: 'Revalorisation de ≈ 3 % des soignants hospitaliers, policiers, gendarmes et agents de justice (≈ 1,1 million d''agents,
-      ≈ 40 000 € brut) × (1 − 0,28), plus quelques milliers de postes judiciaires et pénitentiaires au coût d''un entrant. Bas
-      : ≈ 8 % ; haut : mesures catégorielles ciblées.'
+    lecture: 'Revalorisation de ≈ 3 % des soignants hospitaliers, policiers, gendarmes et agents de justice (≈ 1,1 million
+      d''agents, ≈ 40 000 € brut) × (1 − 0,28), plus quelques milliers de postes judiciaires et pénitentiaires au coût d''un
+      entrant. Bas : ≈ 8 % ; haut : mesures catégorielles ciblées. Ordre de grandeur non sourcé. Revalorisation de 3 % supposée.'
     sources:
     - fp_effectifs_fph
     - cout_soignant_hospitalier_apu

@@ -1070,16 +1070,22 @@ mesures:
     être chiffré.'
   sens_probable: cout
   estimation_indicative:
-    central: -3.5
-    bas: -7.0
+    central: -2.5
+    bas: -6.0
     haut: -1.5
     lecture: 'Cibles chiffrées au-delà de la LPM : munitions de 100 000 à plusieurs centaines de milliers d''obus de 155 mm
-      par an (≈ 300 000 de plus à ≈ 8 000 € : 2,4 Md€), drones tactiques de masse (≈ 100 000 par an à quelques milliers d''euros
-      : 0,5 Md€), doublement des navires aux Antilles ; soit ≈ 0,1 point de PIB. Bas : 700 000 obus et 300 000 drones.'
+      par an (≈ 300 000 de plus, valorisés ci-dessous), drones tactiques de masse (≈ 100 000 par an à quelques milliers d''euros
+      : 0,5 Md€), doublement des navires aux Antilles ; Ordre de grandeur ≈ 0,1 point de PIB. Correction
+      (vérification 2026-09-29) : un obus de 155 mm de série coûte de 800 $ à 6 000 € selon Wikipédia, 4 000 € pièce pour
+      un million d''obus (Lignes de défense) ; prix retenu 5 000 € au lieu de 8 000 €. Central : 300 000 obus × 5 000 € =
+      1,5 Md€, drones 0,5 Md€, navires et autres 0,5 Md€ ; bas : 700 000 obus × 6 000 € (4,2 Md€) et 300 000 drones. Munitions
+      et drones sont déjà programmés dans la LPM (16 et 5 Md€ sur 2024-2030, Wikipédia).'
     sources:
     - defense_0_1_point_pib_2032
     - defense_credits_mission
     - https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
+    - https://fr.wikipedia.org/wiki/Obus
+    - https://fr.wikipedia.org/wiki/Loi_de_programmation_militaire_2024-2030
   verification:
     statut: conteste
     par: verificateur-sonnet
