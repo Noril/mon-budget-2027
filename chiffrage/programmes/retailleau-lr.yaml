@@ -799,7 +799,7 @@ mesures:
       lecture: 'Trois effets de sens contraire sur environ 10 Md€ de revenus d''activité des cumulants : cotisations hors CSG-CRDS
         perdues (≈ 35 %, ≈ −3,5 Md€), minoration des pensions de 30 % de ces revenus (≈ +3 Md€, moins la sortie du dispositif
         de ceux qui y perdent), suppression de la surcote (économie progressive, faible en 2032). Bas : exonération sans minoration
-        effective ; haut : minoration pleine et fin de la surcote pour les nouvelles générations.'
+        effective ; haut : minoration pleine et fin de la surcote pour les nouvelles générations. Ordre de grandeur non sourcé.'
       sources:
       - https://republicains.fr/actualites/2026/05/02/priorite-travail-france-35h-salaires-retraites/
       - retraites_cotisation_vieillesse_1_point
@@ -930,8 +930,11 @@ mesures:
       haut: 0.0
       lecture: 'Lecture du livret : étage volontaire alimenté par l''intéressement, la participation et l''épargne volontaire
         ; coût limité aux incitations fiscales et sociales nouvelles (≈ 0,5 Md€). Bas : lecture orale « 25 à 30 % des retraites
-        des jeunes », qui suppose de basculer à terme plus d''un point de cotisation (≈ 7,5 Md€ par point en 2032) ; haut : redéploiement
-        pur de l''épargne salariale existante.'
+        des jeunes », qui suppose de basculer à terme plus d''un point de cotisation (≈ 7,5 Md€ par point en 2032) ; haut :
+        redéploiement pur de l''épargne salariale existante. Cohérence avec zemmour-reconquete/retraite-capitalisation : même
+        objet, lectures différentes justifiées (Retailleau : étage volontaire, incitations seules au central ; Zemmour : bascule
+        d''un quart de point au central) ; les bornes basses ont la même logique (bascule de cotisation). Coût de 7,5 Md€ par
+        point issu du barème.'
       sources:
       - https://republicains.fr/actualites/2026/05/02/priorite-travail-france-35h-salaires-retraites/
       - retraites_cotisation_vieillesse_1_point
@@ -1221,8 +1224,9 @@ mesures:
       haut: -0.5
       lecture: 'Sur-amortissement de 40 % (référence 2015-2017) sur l''investissement en équipements industriels (≈ 25 Md€ par
         an) : 40 % × 25 Md€ × IS à 25 % ≈ 2,5 Md€ si tout est éligible ; central sur un champ restreint (industrie, biens neufs,
-        PME et ETI surtout), étalé sur la durée d''amortissement. Bas : champ large et 2032 à pleine charge ; haut : taux ou champ
-        réduits.'
+        PME et ETI surtout), étalé sur la durée d''amortissement. Bas : champ large et 2032 à pleine charge ; haut : taux ou
+        champ réduits. Ordre de grandeur non sourcé. Investissement industriel de 25 Md€ par an et coût constaté du dispositif
+        2015-2017 non retrouvés.'
       sources:
       - https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf
       - is_rendement_net
@@ -1309,9 +1313,10 @@ mesures:
       central: -2.1
       bas: -6.2
       haut: -0.5
-      lecture: 'Baisse de l''ordre de 10 % du produit des droits de succession (relèvement de l''abattement en ligne directe de
-        100 000 € à environ 150 000 €), sur un produit de 17 Md€ en 2025 projeté (× 1,21). Bas : baisse de 30 % (« au maximum
-        du possible ») ; haut : geste limité (≈ 0,5 Md€).'
+      lecture: 'Baisse de l''ordre de 10 % du produit des droits de succession (relèvement de l''abattement en ligne directe
+        de 100 000 € à environ 150 000 €), sur un produit de 17 Md€ en 2025 projeté (× 1,21). Bas : baisse de 30 % (« au maximum
+        du possible ») ; haut : geste limité (≈ 0,5 Md€). Produit des droits de succession issu du barème dmtg_rendement ; l''ampleur
+        (10 %) est une hypothèse du chiffrage.'
       sources:
       - https://republicains.fr/actualites/2026/08/26/je-serai-le-president-qui-baissera-les-impots-de-succession/
       - dmtg_rendement
@@ -1719,10 +1724,11 @@ mesures:
       central: -1.5
       bas: -3.5
       haut: -0.4
-      lecture: 'Réduction d''impôt ouverte aux nouveaux emprunts à partir de 2028 : environ 300 000 acquéreurs avec enfants mineurs
-        par an, qui s''accumulent jusqu''en 2032, à environ 1 000 € de réduction moyenne (plafonds de 800 à 1 600 € selon les
-        enfants). Bas : stock des emprunts en cours (≈ 3,5 millions de foyers) ; haut : première année seulement, sur le modèle
-        du crédit d''impôt TEPA limité à cinq annuités.'
+      lecture: 'Réduction d''impôt ouverte aux nouveaux emprunts à partir de 2028 : environ 300 000 acquéreurs avec enfants
+        mineurs par an, qui s''accumulent jusqu''en 2032, à environ 1 000 € de réduction moyenne (plafonds de 800 à 1 600 €
+        selon les enfants). Bas : stock des emprunts en cours (≈ 3,5 millions de foyers) ; haut : première année seulement,
+        sur le modèle du crédit d''impôt TEPA limité à cinq annuités. Ordre de grandeur non sourcé. Nombre de 300 000 acquéreurs
+        avec enfants et réduction moyenne de 1 000 € non sourcés.'
       sources:
       - https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf
       - ir_rendement
@@ -1756,10 +1762,11 @@ mesures:
       central: -1.5
       bas: -6.0
       haut: -0.5
-      lecture: 'Amortissement de 4 % du bâti ouvert aux acquisitions nouvelles (lecture du rapport Daubresse-Cosson), en sus du
-        dispositif Jeanbrun déjà dans la référence : ≈ 1,5 Md€ d''IR et de prélèvements sociaux en moins à l''horizon 2032. Bas
-        : ouverture au stock des bailleurs de logements nus et option PFU ; haut : acquisitions dans le neuf seulement. Le gain
-        de 1,9 Md€ revendiqué (recettes induites) n''est pas compté (règle 3).'
+      lecture: 'Amortissement de 4 % du bâti ouvert aux acquisitions nouvelles (lecture du rapport Daubresse-Cosson), en sus
+        du dispositif Jeanbrun déjà dans la référence : ≈ 1,5 Md€ d''IR et de prélèvements sociaux en moins à l''horizon 2032.
+        Bas : ouverture au stock des bailleurs de logements nus et option PFU ; haut : acquisitions dans le neuf seulement.
+        Le gain de 1,9 Md€ revendiqué (recettes induites) n''est pas compté (règle 3). Ordre de grandeur non sourcé. Chiffre
+        du rapport Daubresse-Cosson non revérifié.'
       sources:
       - https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf
       - https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Depenses-fiscales.pdf
@@ -2500,9 +2507,10 @@ mesures:
       central: 2.3
       bas: 0.0
       haut: 4.6
-      lecture: 'Baisse de 5 % des subventions pour charges de service public et taxes affectées aux opérateurs et agences (≈ 45,6
-        Md€ en 2032, assiette reprise de la mesure RN agences-operateurs-moins-20). Bas : 0 (économie non réalisée, règle 6) ;
-        haut : baisse de 10 %. Partie de l''enveloppe de 120 Md€, sans double compte au central (enveloppe à 0).'
+      lecture: 'Baisse de 5 % des subventions pour charges de service public et taxes affectées aux opérateurs et agences (≈
+        45,6 Md€ en 2032, assiette reprise de la mesure RN agences-operateurs-moins-20). Bas : 0 (économie non réalisée, règle
+        6) ; haut : baisse de 10 %. Partie de l''enveloppe de 120 Md€, sans double compte au central (enveloppe à 0). Hypothèse
+        de baisse de 5 % sans source ; assiette reprise de la mesure RN agences-operateurs-moins-20.'
       sources:
       - https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
       - facteur_pib_2026_2032
