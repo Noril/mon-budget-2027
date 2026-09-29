@@ -114,7 +114,7 @@ mesures:
     effet_solde_primaire:
       central: 0.0
       bas: 0.0
-      haut: 78.33
+      haut: 86.57
       montee_en_charge:
         '2027': 0
         '2028': 0.2
@@ -131,7 +131,7 @@ mesures:
           unite: Md€/an en 2032
           note: « un plan d'économies de 120 milliards d'euros à l'horizon 2032 »
         deja_compte:
-          valeur: 41.67
+          valeur: 33.43
           source: chiffrage/programmes/retailleau-lr.yaml
           unite: Md€
           note: 'somme des centraux des mesures d''économie de dépense chiffrées dans ce fichier : revenu-incitation-activite,
@@ -139,7 +139,7 @@ mesures:
             chomage-alternance-hauts-revenus, retraites-age-63-taux-plein-65, revenu-familial-gains-gestion, apl-etudiants-d9-d10,
             hebergement-urgence-regularite-sejour, non-remplacement-125000-departs, ia-achats-publics, ia-lutte-fraude,
             aide-publique-developpement-baisse, ame-reduction, postes-enseignants-demographie'
-      explication: 'Règle 6 : central = 0, toutes les économies documentées étant déjà comptées dans leurs lignes (41.67
+      explication: 'Règle 6 : central = 0, toutes les économies documentées étant déjà comptées dans leurs lignes (33.43
         Md€) ; haut = annonce moins ces économies, soit l''écart d''affichage non documenté. Les 80 Md€ cités par ÉlyséeScope
         (Figaro, mars 2026) sont inférieurs à l''annonce retenue.'
     chiffrages_tiers:
@@ -157,6 +157,9 @@ mesures:
         Citation vérifiée (Contrepoints). Règle 6 (enveloppe globale) : central 0 correct. Valeurs
         corrigées : la somme des économies déjà comptées passe de 35,01 à 41,67 Md€ (ia-achats-publics et
         ia-lutte-fraude, désormais chiffrées selon la règle 6 ciblée), donc haut 84,99 -> 78,33 Md€.
+        Recalé sur les conventions communes du 29/09 : économies déjà comptées ramenées de 41,67 à 33,43 Md€ après le
+        recalage de non-remplacement-125000-departs (8,88 → 2,79) et postes-enseignants-demographie (3,0 → 0,85) ;
+        haut 78,33 → 86,57.
   - id: regle-or-constitution
     libelle: Règle d'or budgétaire dans la Constitution (révision soumise à référendum dès 2027)
     domaine: institutions
@@ -225,8 +228,8 @@ mesures:
           note: 16 heures entre 1 607 et 1 623 h sur 16 + 88 heures supplémentaires moyennes, p. 21
         facteur:
           valeur: 1.2106
+          bareme: facteur_pib_2025_2032
           unite: facteur PIB nominal 2025→2032
-          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
       explication: 'Effet statique : exonération totale des cotisations patronales sur les heures supplémentaires existantes
         au-delà de 1 623 h (4,3 Md€ selon le livret), moins la perte de l''exonération salariale sur les 16 heures entre
         1 607 et 1 623 h qui cessent d''être des heures supplémentaires ; projeté en 2032 au PIB nominal. Bas : 10 Md€
@@ -245,6 +248,8 @@ mesures:
         2,25 + salariale 2,306 + patronale 0,872). Formule statique cohérente, effet volume exclu ; bas 10
         Md€ = annonce IREF. Non-double compte avec les 15 Md€ : le bilan p. 38 sépare bien 15 Md€ « sur les
         1 623 heures » et 10 Md€ « au-delà ».
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032
+        (valeur inchangée).
   - id: baisse-cotisations-patronales-non-contributives
     libelle: Baisse de 15 Md€ des cotisations patronales finançant des dépenses universelles (famille, santé, logement, transport)
     domaine: fiscalite
@@ -270,8 +275,8 @@ mesures:
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -17.77
-      bas: -17.77
+      central: -17.76
+      bas: -17.76
       haut: -15.0
       montee_en_charge:
         '2027': 0.25
@@ -289,9 +294,9 @@ mesures:
           unite: Md€/an (2026)
           note: « 15 milliards d'euros rendus par une réforme du financement de la protection sociale »
         facteur:
-          valeur: 1.1846
+          valeur: 1.1842
+          bareme: facteur_pib_2026_2032
           unite: facteur PIB nominal 2026→2032
-          source: 'chiffrage/baremes.yaml : 1,2106 / 1,022 (croissance nominale 2026 ≈ 2,2 %, dérivation de dmtg_rendement)'
       explication: 'Baisse de 15 Md€ de cotisations patronales (montant 2026, projeté en 2032 au PIB nominal, l''assiette
         étant la masse salariale). Haut : montant nominal non indexé. Doubles comptes : les 40 Md€ « de compétitivité
         » = 15 Md€ (cette ligne) + 10 Md€ (seuil zéro cotisation) + 15 Md€ (impôts de production, lignes C3S, CVAE,
@@ -301,7 +306,7 @@ mesures:
       second tour, non compté.'
     confiance: moyenne
     verification:
-      statut: ok
+      statut: corrige
       par: verificateur-sonnet
       date: "2026-09-29"
       commentaire: >-
@@ -310,6 +315,8 @@ mesures:
         Travail gagnant (25 Md€ = 15 sur les 1 623 heures + 10 au-delà) confirme que la moitié «
         entreprises » des 30 Md€ est cette ligne. Coût brut, économies comptées dans leurs propres lignes :
         pas de double compte. Effet IS de 4 Md€ = second tour, correctement exclu.
+        Recalé sur les conventions communes du 29/09 : facteur de projection 1,2106 / 1,022 = 1,1846 remplacé par le
+        barème facteur_pib_2026_2032 (1,1842) ; central et bas −17,77 → −17,76.
   - id: restitution-pouvoir-achat-salaries
     libelle: Restitution de 15 Md€ de pouvoir d'achat aux salariés (environ 500 € par an au salaire médian)
     domaine: fiscalite
@@ -332,8 +339,8 @@ mesures:
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -17.77
-      bas: -17.77
+      central: -17.76
+      bas: -17.76
       haut: -15.0
       montee_en_charge:
         '2027': 0
@@ -351,14 +358,14 @@ mesures:
           unite: Md€/an
           note: moitié salariale des « au moins 30 milliards d'euros », p. 16 et 36
         facteur:
-          valeur: 1.1846
+          valeur: 1.1842
+          bareme: facteur_pib_2026_2032
           unite: facteur PIB nominal 2026→2032
-          source: 'chiffrage/baremes.yaml : 1,2106 / 1,022 (croissance nominale 2026 ≈ 2,2 %, dérivation de dmtg_rendement)'
       explication: 'Restitution de 15 Md€ aux salariés (instrument non précisé : baisse de cotisations salariales ou
         de CSG), projetée en 2032 au PIB nominal ; montée au rythme des économies annoncées. Haut : montant nominal.'
     confiance: faible
     verification:
-      statut: ok
+      statut: corrige
       par: verificateur-sonnet
       date: "2026-09-29"
       commentaire: >-
@@ -367,6 +374,8 @@ mesures:
         en euros courants 2032 par convention (haut = non indexé). Les 30 Md€ de « gains » finançant ces
         restitutions sont comptés dans les lignes d'économie (chômage, RIA, CSU) ; le 4 Md€ d'IS «
         mécanique » du tableau p. 35 n'est pas compté (second tour).
+        Recalé sur les conventions communes du 29/09 : facteur de projection 1,2106 / 1,022 = 1,1846 remplacé par le
+        barème facteur_pib_2026_2032 (1,1842) ; central et bas −17,77 → −17,76.
   - id: revenu-incitation-activite
     libelle: Revenu d'incitation à l'activité (RIA) fusionnant RSA, prime d'activité et ASS
     domaine: protection-sociale
@@ -407,8 +416,8 @@ mesures:
           note: « Revenu d'incitation à l'activité (RIA) 2,0 Md€ », tableau p. 35
         facteur:
           valeur: 1.2106
+          bareme: facteur_pib_2025_2032
           unite: facteur PIB nominal 2025→2032
-          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
       explication: 'Faute de microsimulation publique du RIA (barème individualisé 300 + 250 €, dégressivité 30 %, sortie
         à 1 833 €), on retient le gain affiché par le candidat, projeté en 2032. Bas : 0 (l''individualisation et le
         cumul avec les prestations familiales peuvent rendre la réforme coûteuse).'
@@ -421,6 +430,8 @@ mesures:
         Citation vérifiée (livret p. 23 ; les puces du PDF coupent le texte). Gain de 2,0 Md€ relu au
         tableau p. 35 ; pas de microsimulation publique pour le contredire, bas 0 prudent. Confiance faible
         maintenue.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032
+        (valeur inchangée).
   - id: compte-social-unique-plafond-70-smic
     libelle: Compte social unique et plafonnement du cumul des aides non contributives à 70 % du SMIC net par adulte, lutte contre la fraude
     domaine: protection-sociale
@@ -464,8 +475,8 @@ mesures:
           note: « Compte social unique (CSU) et lutte contre la fraude 10,0 Md€ »
         facteur:
           valeur: 1.2336
+          bareme: facteur_pib_2024_2032
           unite: facteur PIB nominal 2024→2032
-          source: chiffrage/baremes.yaml, dérivation de c3s_rendement et masse_salariale_apu (plan/hypotheses.yaml)
       explication: 'Règle 6 : l''annonce (10 Md€) n''est pas décomposée. Central = gain documenté, doublement du recouvrement
         de la fraude sociale (convention du barème fraude_sociale_estimee), projeté en 2032. Le plafonnement à 70 %
         du Smic n''est pas chiffrable faute de distribution publique des cumuls d''aides (le cas-type du candidat est
@@ -490,6 +501,8 @@ mesures:
         est prudent mais arbitraire ; l'annonce (12,1 Md€ en 2032) est en haut. Une application stricte de
         la règle 6 (périmètre nommé, plafonné par le budget visé) ne permet pas non plus de retenir 10 Md€
         sans hypothèse de détection. Valeurs inchangées.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
+        (valeur inchangée).
   - id: chomage-regles-juin-2024
     libelle: Mise en œuvre des règles d'assurance chômage de juin 2024 (durée maximale 18 à 15 mois, contracyclicité) et fin d'indemnisation au troisième refus d'offre raisonnable
     domaine: travail
@@ -528,8 +541,8 @@ mesures:
           note: « 4,0 à 5,0 Md€ », tableau p. 35 ; milieu de fourchette
         facteur:
           valeur: 1.2106
+          bareme: facteur_pib_2025_2032
           unite: facteur PIB nominal 2025→2032
-          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
       explication: Fourchette du candidat (Unédic, dans le champ des APU), projetée en 2032 au PIB nominal (les allocations
         suivent les salaires). Aucun chiffrage Unédic récent de ces paramètres n'a été relu.
     confiance: faible
@@ -543,6 +556,8 @@ mesures:
         appliquées donc hors du droit de référence. Recouvrement partiel avec la ligne ruptures
         conventionnelles (durée max de 15 mois) jugé faible, la durée moyenne de 11 mois étant inférieure à
         15.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032
+        (valeur inchangée).
   - id: chomage-ruptures-conventionnelles
     libelle: Indemnisation chômage après rupture conventionnelle limitée à six mois et plafonnée
     domaine: travail
@@ -592,8 +607,8 @@ mesures:
           note: « pendant une durée moyenne d'environ 11 mois », exemple p. 32
         facteur:
           valeur: 1.2106
+          bareme: facteur_pib_2025_2032
           unite: facteur PIB nominal 2025→2032
-          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
       explication: 'Le tableau du candidat compte 7 à 8 Md€, soit tout le coût des ruptures conventionnelles, alors
         que la mesure réduit seulement la durée : on retient la part au-delà de six mois (1 − 6/11), sans compter le
         plafonnement (non précisé), projetée en 2032. Bas/haut : coût de 7 ou 8 Md€.'
@@ -607,6 +622,8 @@ mesures:
         coût) et retient 7,5 × (1 - 6/11). La formule suppose une durée uniforme de 11 mois : elle
         surestime un peu l'économie (les durées inférieures à 6 mois ne changent pas), sans que la
         fourchette 3,85-4,4 le reflète. Confiance faible.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032
+        (valeur inchangée).
   - id: chomage-frontaliers
     libelle: Indemnisation chômage des travailleurs frontaliers calculée sur un salaire français équivalent
     domaine: travail
@@ -642,8 +659,8 @@ mesures:
           note: « 0,5 à 0,7 Md€ », tableau p. 35 ; milieu de fourchette
         facteur:
           valeur: 1.2106
+          bareme: facteur_pib_2025_2032
           unite: facteur PIB nominal 2025→2032
-          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
       explication: Fourchette du candidat (Unédic, dans le champ des APU), projetée en 2032 au PIB nominal (les allocations
         suivent les salaires). Aucun chiffrage Unédic récent de ces paramètres n'a été relu.
     confiance: faible
@@ -655,6 +672,8 @@ mesures:
         Citation vérifiée (livret p. 33). 0,5-0,7 Md€ = surcoût annuel selon le livret, milieu retenu ;
         économie supposée totale (le remboursement par le pays d'emploi est maintenu). Pas de source
         indépendante (Unédic non rouverte).
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032
+        (valeur inchangée).
   - id: chomage-alternance-hauts-revenus
     libelle: Plafonnement et dégressivité accélérée au-delà de 3 000 € nets, rechargement des droits porté à 9 ou 12 mois
     domaine: travail
@@ -691,8 +710,8 @@ mesures:
           note: « 1,0 à 2,0 Md€ », tableau p. 35 ; milieu de fourchette
         facteur:
           valeur: 1.2106
+          bareme: facteur_pib_2025_2032
           unite: facteur PIB nominal 2025→2032
-          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
       explication: Fourchette du candidat (Unédic, dans le champ des APU), projetée en 2032 au PIB nominal (les allocations
         suivent les salaires). Aucun chiffrage Unédic récent de ces paramètres n'a été relu.
     confiance: faible
@@ -703,6 +722,8 @@ mesures:
       commentaire: >-
         Citation vérifiée (livret p. 34). 1,0-2,0 Md€ relu au tableau p. 35, milieu retenu. Plafond non
         précisé, donc chiffrage sur l'annonce.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032
+        (valeur inchangée).
   - id: hausse-mecanique-is
     libelle: >-
       « Hausse mécanique des recettes d'impôt sur les sociétés » (4 Md€) comptée comme gain par le candidat
@@ -830,7 +851,12 @@ mesures:
         plein repoussé à 65 ans pour tous avec une décote de 7 %/an (au lieu de 5 %) produit des économies, mais le
         taux plein automatique à 65 ans sans condition de durée (au lieu de 67 ans) coûte. Haut : l''annonce du candidat
         (40 Md€ cumulés sur cinq ans, soit 13,3 Md€ en 2032 avec une montée linéaire). Central : milieu de la fourchette,
-        à remplacer par une simulation.'
+        à remplacer par une simulation. Périmètre (convention commune 4) : solde du système de retraite.'
+    effets_retour: >-
+      Effet pour l'ensemble des administrations publiques (convention commune 4, effets d'emploi exclus du montant) :
+      la Cour des comptes (février 2025) chiffre une avancée d'un an de l'âge à 13 Md€ pour les finances publiques
+      (5,8 Md€ pour le système de retraite) et un recul jusqu'à 17,7 Md€ en 2035. Le report de l'âge effectif induit par
+      la décote de 7 % par an relèverait surtout les prélèvements sur l'emploi des seniors, non comptés.
     confiance: faible
     verification:
       statut: conteste
@@ -845,6 +871,9 @@ mesures:
         Sans simulation COR/Cnav on ne peut trancher entre un gain de l'ordre de 13 Md€ et un solde
         faiblement positif. Le barème retraites_age_legal_1_an est en outre calé sur le solde du système
         (5,8 Md€) alors que la Cour donne 13 Md€ pour l'ensemble des APU. Valeurs inchangées.
+        Recalé sur les conventions communes du 29/09 : le périmètre du système de retraite est désormais la convention
+        commune (convention 4), ce qui lève l'objection sur le barème retraites_age_legal_1_an ; coût toutes APU
+        décrit dans effets_retour. Valeurs inchangées ; statut conteste maintenu (central sans simulation).
   - id: retraite-capitalisation
     libelle: Étage de retraite par capitalisation, compte d'épargne retraite pour chaque actif (25 à 30 % des retraites des jeunes)
     domaine: retraites
@@ -900,8 +929,8 @@ mesures:
           bareme: c3s_rendement
         facteur:
           valeur: 1.2336
+          bareme: facteur_pib_2024_2032
           unite: facteur PIB nominal 2024→2032
-          source: chiffrage/baremes.yaml, dérivation de c3s_rendement et masse_salariale_apu (plan/hypotheses.yaml)
         taux_is:
           valeur: 0.25
           unite: taux normal d'IS
@@ -920,6 +949,8 @@ mesures:
         cohérente : projection PIB 2024->2032, retour d'IS de 25 % car la C3S est déductible, première
         année pleine 2028. Le droit voté en 2026 sur la C3S (abattement) n'a pas pu être revérifié dans les
         textes promulgués.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
+        (valeur inchangée).
   - id: suppression-cvae
     libelle: Suppression définitive de la CVAE (4,3 Md€)
     domaine: fiscalite
@@ -1010,8 +1041,8 @@ mesures:
           note: « Forfait social (2,8 milliards d'euros) », p. 20, poids de la mesure dans les 15 Md€ d'impôts de production
         facteur:
           valeur: 1.2106
+          bareme: facteur_pib_2025_2032
           unite: facteur PIB nominal 2025→2032
-          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
         taux_is:
           valeur: 0.25
           unite: taux normal d'IS
@@ -1030,6 +1061,8 @@ mesures:
         le rendement total du forfait social alors que la promesse conserve 20 % sur la participation
         légale : le coût est donc un majorant, à affiner avec la ventilation Acoss (non publiée). Net d'IS,
         cohérent avec C3S et CFE.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032
+        (valeur inchangée).
   - id: cfe-exoneration-industrielle
     libelle: Exonération de la part industrielle de la CFE (1,9 Md€)
     domaine: fiscalite
@@ -1065,8 +1098,8 @@ mesures:
           note: « composante industrielle (1,9 milliard d'euros) », p. 20
         facteur:
           valeur: 1.2106
+          bareme: facteur_pib_2025_2032
           unite: facteur PIB nominal 2025→2032
-          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
         taux_is:
           valeur: 0.25
           unite: taux normal d'IS
@@ -1082,6 +1115,8 @@ mesures:
       commentaire: >-
         Citation vérifiée (livret p. 20 : 1,9 Md€). Recette des collectivités, coût pour les APU compensée
         ou non ; net d'IS cohérent. Montant du livret non recoupé avec une source fiscale indépendante.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032
+        (valeur inchangée).
   - id: fonds-france-production
     libelle: Fonds France Production de 600 M€ par an pour la modernisation de l'outil industriel, piloté par les régions
     domaine: industrie
@@ -1267,8 +1302,8 @@ mesures:
           note: 14 millions de mineurs × 240 € × 12, p. 12
         facteur:
           valeur: 1.2106
+          bareme: facteur_pib_2025_2032
           unite: facteur PIB nominal 2025→2032
-          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
       explication: 'Réforme présentée « à budget constant » : on reprend les deux masses du livret (gain net 0,7 Md€),
         projetées en 2032 à indexation identique. Fourchette : ± 5 % sur la masse des dispositifs supprimés (le quotient
         familial et les bourses ne sont pas ventilés dans le livret ; les allocations familiales seules pèsent 13,8
@@ -1290,6 +1325,8 @@ mesures:
         (13,8 Md€) cohérent avec la liste. La condition de résidence de cinq ans (qui réduirait le coût)
         est traitée à part. Solde net de 0,85 Md€ faible et plausible pour une réforme « à budget constant
         ».
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032
+        (valeur inchangée).
   - id: revenu-familial-troisieme-enfant
     libelle: Revenu familial doublé (480 €) pour le troisième enfant mineur
     domaine: famille
@@ -1461,8 +1498,8 @@ mesures:
           note: prolongation jusqu'à 26 semaines
         facteur:
           valeur: 1.2106
+          bareme: facteur_pib_2025_2032
           unite: facteur PIB nominal 2025→2032
-          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
       explication: 'Formule du livret (0,63 Md€ ; le texte arrondit à 0,7), projetée en 2032 au PIB nominal (indemnité
         proportionnelle aux salaires). Bas : 0,7 Md€ × 1,2106 ; haut : non projeté.'
     confiance: moyenne
@@ -1475,6 +1512,8 @@ mesures:
         650 000 × 50 % × 1 200 € × 7/4,33 ≈ 0,63 Md€ (le texte arrondit à 0,7), projetée avec les salaires
         ; le coût mensuel de 1 200 € paraît bas pour 70 % du salaire plafonné, ce que couvre le bas de
         -0,85.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032
+        (valeur inchangée).
   - id: garde-enfants-cif-exoneration
     libelle: Suppression du plafond de 500 000 € du crédit d'impôt famille, plafond d'exonération de l'aide employeur à la garde porté de 2 421 à 7 000 €
     domaine: famille
@@ -1510,8 +1549,8 @@ mesures:
           note: « coût total de ces deux mesures est estimé à 800 millions d'euros », p. 21
         facteur:
           valeur: 1.2106
+          bareme: facteur_pib_2025_2032
           unite: facteur PIB nominal 2025→2032
-          source: chiffrage/baremes.yaml, en-tête (plan/hypotheses.yaml, FMI WEO avril 2026)
       explication: 'Estimation du livret projetée en 2032 ; haut : non projetée. Le retour de 0,2 Md€ par l''emploi
         des mères est un effet de second tour, non compté.'
     effets_retour: Le candidat invoque 200 M€ de retour par l'emploi de 40 000 mères (non compté).
@@ -1523,6 +1562,8 @@ mesures:
       commentaire: >-
         Citation vérifiée (livret p. 21 : 800 M€). Le bénéfice de 200 M€ lié au retour à l'emploi des mères
         est un effet de second tour, correctement exclu ; le coût brut est projeté en 2032.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032
+        (valeur inchangée).
   - id: deduction-interets-emprunt-familles
     libelle: Réduction d'impôt sur les intérêts d'emprunt de la résidence principale pour les familles (50/75/100 % selon le nombre d'enfants, plafond 400 € + 400 € par enfant)
     domaine: logement
@@ -1840,8 +1881,8 @@ mesures:
             urgences)'
         facteur:
           valeur: 1.2336
+          bareme: facteur_pib_2024_2032
           unite: facteur PIB nominal 2024→2032
-          source: chiffrage/baremes.yaml, dérivation de c3s_rendement et masse_salariale_apu (plan/hypotheses.yaml)
       explication: 'Économie plafonnée au coût attribué aux étrangers en situation irrégulière (1 Md€, 2024), projeté
         en 2032 ; central à mi-chemin faute d''estimation des reports vers d''autres dispositifs. Bas : 0 (censure constitutionnelle
         ou reports intégraux).'
@@ -1854,6 +1895,8 @@ mesures:
         Citation vérifiée (livret logement, art. L. 345-2-2 CASF ; la Cour des comptes est citée p. 44 pour
         1 Md€ par an). Économie plafonnée au coût attribué aux irréguliers (1 Md€), central à 50 % faute de
         données sur les reports, bas 0 (censure possible du principe d'inconditionnalité). Cohérent.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
+        (valeur inchangée).
   - id: vente-pavillons-hlm
     libelle: Vente de 10 % des pavillons HLM (86 000) aux locataires avec décote de 20 %, fonds de mutualisation
     domaine: logement
@@ -1943,9 +1986,9 @@ mesures:
     chiffrable: true
     nature: economie
     effet_solde_primaire:
-      central: 8.88
-      bas: 4.44
-      haut: 8.88
+      central: 2.79
+      bas: 1.4
+      haut: 4.01
       montee_en_charge:
         '2027': 0
         '2028': 0.2
@@ -1954,32 +1997,37 @@ mesures:
         '2031': 0.8
         '2032': 1
     calcul:
-      formule: departs_non_remplaces*cout_entree*facteur/1e9
+      formule: departs_non_remplaces*brut_entrant*(1 - retour)/1e9
       parametres:
         departs_non_remplaces:
           valeur: 125000
           source: https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf
           unite: agents
           note: p. 27
-        cout_entree:
-          valeur: 60000
-          source: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
-          unite: € par emploi et par an (2026)
-          note: coût d'entrée complet d'un agent (CAS Pensions compris), dérivation des barèmes cout_enseignant_charge
-            et non_remplacement_un_sur_deux_etat
-        facteur:
-          valeur: 1.1846
-          unite: facteur PIB nominal 2026→2032
-          source: 'chiffrage/baremes.yaml : 1,2106 / 1,022 (croissance nominale 2026 ≈ 2,2 %, dérivation de dmtg_rendement)'
-      explication: '125 000 départs non remplacés d''ici 2032 × coût d''entrée complet, projeté en 2032 (7,5 Md€ en
-        euros 2026, comme le candidat). Les 125 000 agents « remis sur le terrain » ne produisent aucune économie (livret).
+        brut_entrant:
+          valeur: 31000
+          source: https://www.fipeco.fr/fiche/Le-niveau-et-l%C3%A9volution-de-la-masse-salariale-publique
+          unite: € brut par an, hors cotisations employeurs
+          note: >-
+            « coût moyen des entrants (salaire brut des agents de moins de 30 ans en pratique) d'environ 31 000 € pour
+            l'État, 28 000 € pour les collectivités locales et 34 000 € pour les hôpitaux » ; même base que les barèmes
+            cout_*_apu ; non projeté (point d'indice gelé à droit constant, convention 2)
+        retour:
+          valeur: 0.28
+          bareme: retour_prelevements_salaires_publics
+          unite: part de la rémunération brute
+      explication: '125 000 départs non remplacés d''ici 2032 × coût d''un entrant pour le solde des APU (convention
+        commune 1 : 31 000 € brut hors cotisations employeurs × (1 − 0,28) ≈ 22 300 €, non projeté). Le candidat
+        compte 60 000 € chargés (CAS Pensions compris, 7,5 Md€) : les cotisations employeurs vont à d''autres APU et
+        ne comptent pas pour le solde. Les 125 000 agents « remis sur le terrain » ne produisent aucune économie (livret).
         L''entretien du 1er juillet 2026 (« à peu près 250 000 postes ») et l''IFRAP (250 000 à 300 000) comptent les
         deux moitiés : pas de ligne supplémentaire. Bas : moitié rétrocédée en mesures catégorielles (convention RGPP
-        du barème non_remplacement_un_sur_deux_etat). Éducation nationale exclue : pas de double compte avec les postes
+        du barème non_remplacement_un_sur_deux_etat). Haut : postes valorisés au coût d''un agent moyen (masse salariale
+        brute APU hors cotisations employeurs 248 Md€ / 5,8 M agents ≈ 42 760 € × (1 − 0,25) ≈ 32 070 €). Éducation nationale exclue : pas de double compte avec les postes
         d''enseignants.'
     confiance: moyenne
     verification:
-      statut: ok
+      statut: corrige
       par: verificateur-sonnet
       date: "2026-09-29"
       commentaire: >-
@@ -1988,6 +2036,9 @@ mesures:
         comptés une fois). Réserve de barème : le coût d'entrée de 60 000 € inclut le CAS Pensions (82,28 %
         du traitement), transfert interne aux APU qui ne réduit pas à court terme les pensions versées ;
         l'économie nette réelle en 2032 serait plus proche de la masse salariale hors CAS.
+        Recalé sur les conventions communes du 29/09 : coût d'un poste ramené au coût d'un entrant pour le solde des APU
+        (31 000 € brut hors cotisations employeurs × 0,72, convention 1) au lieu de 60 000 € chargés projetés au PIB, ce
+        qui règle la réserve sur le CAS Pensions ; central 8,9 → 2,8 Md€, bas 4,4 → 1,4, haut 8,9 → 4,0 (agent moyen).
   - id: ia-achats-publics
     libelle: Économies sur les achats publics par l'IA (environ 4 Md€ par an)
     domaine: etat
@@ -2151,16 +2202,30 @@ mesures:
         '2031': 1
         '2032': 1
     calcul:
-      formule: economie
+      formule: min(economie, part_baisse * apd_part_rnb / 100 * rnb_nominal_2032)
       parametres:
         economie:
           valeur: 1.2
           source: https://www.ifrap.org/comparateurs/presidentielles-2027
           unite: Md€/an
           note: '« Baisser de 10% … : 1,2 Md€ d''économies » (synthèse IFRAP)'
+        part_baisse:
+          valeur: 0.1
+          source: https://www.ifrap.org/comparateurs/presidentielles-2027
+          unite: part de l'APD
+        apd_part_rnb:
+          valeur: 0.42
+          bareme: apd_part_rnb
+          unite: "% du RNB"
+        rnb_nominal_2032:
+          valeur: 3685
+          bareme: rnb_nominal_2032
+          unite: Md€ courants
       explication: 'Montant de la synthèse IFRAP, nominal ; source primaire non retrouvée. Règle 6 (économie ciblée sur
         un périmètre nommé) : central = montant annoncé (10 % de l''APD au sens CAD, environ 12 Md€), bas = 0 (économie
-        non réalisée), haut = central. Si le périmètre était la seule mission APD (3,7 Md€), 10 % ne vaudrait que 0,4 Md€.'
+        non réalisée), haut = central. Si le périmètre était la seule mission APD (3,7 Md€), 10 % ne vaudrait que 0,4 Md€.
+        Plafond (convention commune 10) : 10 % de l''APD en part du RNB 2032 (0,1 × 0,42 % × 3 685 ≈ 1,55 Md€), majorant
+        puisque l''APD au sens de l''OCDE n''est pas qu''une dépense budgétaire ; non contraignant.'
     confiance: faible
     verification:
       statut: corrige
@@ -2170,6 +2235,8 @@ mesures:
         Citation vérifiée sur l'agrégateur IFRAP (source primaire non retrouvée). Corrigé selon la règle 6
         révisée : bas 1,2 -> 0 (économie non réalisée), central et haut 1,2 Md€. Périmètre ambigu : 10 % de
         l'APD au sens CAD (~12 Md€) vaut 1,2 Md€, 10 % de la seule mission APD (3,7 Md€) vaudrait 0,4 Md€.
+        Recalé sur les conventions communes du 29/09 : plafond exprimé en part du RNB 2032 (barèmes apd_part_rnb et
+        rnb_nominal_2032, convention 10), soit 1,55 Md€, non contraignant ; valeur inchangée.
   - id: ame-reduction
     libelle: Réduction du nombre de bénéficiaires et du panier de soins de l'AME (transformation en aide médicale d'urgence)
     domaine: sante
@@ -2206,8 +2273,8 @@ mesures:
           note: soins urgents, maintenus (dérivation du barème ame_depense)
         facteur:
           valeur: 1.2336
+          bareme: facteur_pib_2024_2032
           unite: facteur PIB nominal 2024→2032
-          source: chiffrage/baremes.yaml, dérivation de c3s_rendement et masse_salariale_apu (plan/hypotheses.yaml)
       explication: 'Haut : AME de droit commun supprimée (transformation en aide médicale d''urgence), projetée en 2032.
         Central : moitié, l''ampleur de la réduction n''étant pas précisée et une partie des soins se reportant sur
         les urgences hospitalières (APU). Bas : 0.'
@@ -2220,6 +2287,8 @@ mesures:
         Citation vérifiée sur l'agrégateur IFRAP (source primaire non retrouvée). Barème ame_depense relu
         (Sénat : 1 387 M€ en 2024 dont 132 M€ de soins urgents). Central = moitié de la dépense hors soins
         urgents, faute d'ampleur annoncée ; report partiel sur les urgences hospitalières.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
+        (valeur inchangée).
   - id: agences-dotations-baisse
     libelle: Baisse des dotations aux agences de l'État (dont rationalisation de l'ANSES)
     domaine: etat
@@ -2250,9 +2319,9 @@ mesures:
     chiffrable: true
     nature: depense
     effet_solde_primaire:
-      central: -3.15
-      bas: -4.72
-      haut: -2.93
+      central: -1.24
+      bas: -2.14
+      haut: -1.09
       montee_en_charge:
         '2027': 0
         '2028': 1
@@ -2261,7 +2330,7 @@ mesures:
         '2031': 1
         '2032': 1
     calcul:
-      formule: -effectifs*hausse_nette_moyenne*12/ratio_net_brut*(1 + cas_pensions_taux_civils/100)/1e9
+      formule: -effectifs*hausse_nette_moyenne*12/ratio_net_brut*(1 - retour)/1e9
       parametres:
         effectifs:
           valeur: 793863
@@ -2278,16 +2347,19 @@ mesures:
           source: https://www.fonction-publique.gouv.fr/files/files/publications/rapport-annuel/cc-2025-web.pdf
           unite: net/brut
           note: cotisations salariales d'un fonctionnaire ≈ 20 % du traitement (pension civile, CSG-CRDS, RAFP)
-        cas_pensions_taux_civils:
-          valeur: 82.28
-          bareme: cas_pensions_taux_civils
-      explication: 'Hausse nette convertie en brut puis en coût employeur (CAS Pensions). Central : moyenne sur trois
-        tiers de carrière (+135, +300, 0 €) ; bas : +217,5 € pour tous (moyenne début-milieu) ; haut : +135 € pour tous.
-        Montants nominaux. Privé sous contrat (≈ 140 000 enseignants rémunérés par l''État) non inclus : le coût réel
+        retour:
+          valeur: 0.28
+          bareme: retour_prelevements_salaires_publics
+          unite: part de la rémunération brute
+      explication: 'Hausse nette convertie en brut (hors cotisations employeurs), puis nette des prélèvements qui
+        reviennent aux APU (convention commune 1 : × (1 − 0,28) ; le CAS Pensions, transfert interne aux APU, ne compte
+        plus). Central : moyenne sur trois tiers de carrière (+135, +300, 0 €) ; bas : +217,5 € pour tous (moyenne
+        début-milieu), retour 0,25, plus ≈ 0,2 Md€ de pensions induites en 2032 (convention 2) ; haut : +135 € pour
+        tous, retour 0,32. Montants nominaux (point d''indice gelé, pas de projection). Privé sous contrat (≈ 140 000 enseignants rémunérés par l''État) non inclus : le coût réel
         serait plus élevé.'
     confiance: moyenne
     verification:
-      statut: ok
+      statut: corrige
       par: verificateur-sonnet
       date: "2026-09-29"
       commentaire: >-
@@ -2296,6 +2368,9 @@ mesures:
         bas/haut ; enseignement privé sous contrat exclu (coût sous-estimé). Réserve de barème : le CAS
         Pensions (82,28 %) pèse pour près de la moitié du coût par agent alors qu'il s'agit d'un transfert
         interne aux APU.
+        Recalé sur les conventions communes du 29/09 : coût compté en brut hors cotisations employeurs × (1 − 0,28)
+        (convention 1) au lieu du coût employeur CAS Pensions compris, ce qui règle la réserve de barème ; central
+        −3,15 → −1,24, bas −4,72 → −2,14 (retour 0,25 et pensions induites ≈ 0,2), haut −2,93 → −1,09 (retour 0,32).
   - id: postes-enseignants-demographie
     libelle: Réduction des moyens d'enseignement suivant la baisse démographique, à taux d'encadrement constant (plus de 3 Md€ libérés)
     domaine: education
@@ -2315,9 +2390,9 @@ mesures:
     chiffrable: true
     nature: economie
     effet_solde_primaire:
-      central: 3.0
+      central: 0.85
       bas: 0.0
-      haut: 3.0
+      haut: 0.85
       montee_en_charge:
         '2027': 0
         '2028': 0.2
@@ -2326,15 +2401,27 @@ mesures:
         '2031': 0.8
         '2032': 1
     calcul:
-      formule: economie
+      formule: economie / cout_charge * cout_apu
       parametres:
         economie:
           valeur: 3.0
           source: https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf
           unite: Md€/an en fin de quinquennat
-          note: « libérer plus de 3 milliards d'euros par an », p. 10
+          note: « libérer plus de 3 milliards d'euros par an », p. 10 ; montant budgétaire de l'État
+        cout_charge:
+          valeur: 85000
+          bareme: cout_enseignant_charge
+          unite: € par ETPT et par an
+          note: coût budgétaire complet (CAS Pensions compris), sert seulement à convertir l'annonce en postes (≈ 35 000)
+        cout_apu:
+          valeur: 24100
+          bareme: cout_enseignant_apu
+          unite: € par ETP et par an
       explication: >-
         Règle 6 (économie ciblée sur un périmètre nommé) : bas = 0 (les postes ne sont pas supprimés) ; haut = central.
+        Convention commune 1 (postes supprimés) : l'annonce (3 Md€ budgétaires, coût chargé) est convertie en postes
+        (3 Md€ / 85 000 € ≈ 35 300) puis valorisée au coût d'un entrant pour le solde des APU (cout_enseignant_apu,
+        24 100 €) : les cotisations employeurs vont à d'autres APU.
         Montant du candidat (baisse de 1,7 million d'élèves en dix ans à taux d'encadrement constant) ; par rapport au
         référentiel (droit voté, effectifs non réduits automatiquement), c'est une économie. Pas de double compte avec
         les départs non remplacés (Éducation nationale exclue du livret IA).
@@ -2348,6 +2435,8 @@ mesures:
         règle 6 révisée : bas 3,0 -> 0 (les postes ne sont pas supprimés), central et haut 3,0 Md€ (plafond
         respecté : masse salariale enseignante ~60 Md€). Pas de double compte avec les départs non
         remplacés.
+        Recalé sur les conventions communes du 29/09 : annonce convertie en postes au coût chargé puis valorisée au coût
+        d'un entrant pour le solde des APU (cout_enseignant_apu, convention 1) ; central et haut 3,0 → 0,85 Md€.
 
   # --- Défense, justice -----------------------------------------------------------------------------
   - id: lpm-rallonge-50md
