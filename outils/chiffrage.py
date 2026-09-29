@@ -258,6 +258,32 @@ def _detail(m: dict) -> str:
     return "<details><summary>détail</summary>" + "".join(parts) + "</details>"
 
 
+def _svg_soldes(agregats: list[dict]) -> str:
+    """Solde net en régime de croisière, point central et fourchette, un programme par ligne."""
+    rangs = sorted(agregats, key=lambda a: a["croisiere"]["central"], reverse=True)
+    vals = [v for a in rangs for v in a["croisiere"].values()] + [0]
+    vmin, vmax = math.floor(min(vals) / 50) * 50, math.ceil(max(vals) / 50) * 50
+    L, g, d, h, pas = 760, 210, 20, 30, 34
+    H = h + pas * len(rangs) + 10
+    x = lambda v: g + (v - vmin) / (vmax - vmin) * (L - g - d)
+    parts = [f'<svg viewBox="0 0 {L} {H}" role="img" aria-label="Solde net par programme">']
+    for v in range(vmin, vmax + 1, 50):
+        parts.append(f'<line x1="{x(v):.1f}" x2="{x(v):.1f}" y1="{h - 8}" y2="{H - 6}" class="grille"/>'
+                     f'<text x="{x(v):.1f}" y="{h - 12}" text-anchor="middle" class="axe">{v:+d}</text>')
+    parts.append(f'<line x1="{x(0):.1f}" x2="{x(0):.1f}" y1="{h - 8}" y2="{H - 6}" stroke="var(--fg)" stroke-width="1"/>')
+    for i, a in enumerate(rangs):
+        y = h + pas * i + pas / 2
+        c = a["croisiere"]
+        coul = "var(--neg)" if c["central"] < 0 else "var(--pos)"
+        parts.append(
+            f'<text x="{g - 8}" y="{y + 4:.1f}" text-anchor="end" class="leg">{html.escape(a["candidat"])}</text>'
+            f'<line x1="{x(c["bas"]):.1f}" x2="{x(c["haut"]):.1f}" y1="{y:.1f}" y2="{y:.1f}" stroke="{coul}" stroke-opacity=".35" stroke-width="8" stroke-linecap="round"/>'
+            f'<circle cx="{x(c["central"]):.1f}" cy="{y:.1f}" r="6" fill="{coul}"/>'
+            f'<text x="{x(c["central"]):.1f}" y="{y - 9:.1f}" text-anchor="middle" class="leg">{_md(c["central"])}</text>')
+    parts.append("</svg>")
+    return "".join(parts)
+
+
 def rapport_html(agregats: list[dict], traj: dict) -> str:
     e = html.escape
     lignes = []
@@ -314,6 +340,11 @@ macroéconomiques du FMI, solde primaire de référence gelé au dernier niveau 
 <div class="scroll"><table><thead><tr><th>Programme</th><th>Mesures chiffrées</th><th>Coûts</th><th>Économies, recettes</th>
 <th>Solde net / an</th><th>Dette 2032, % PIB (réf. {_md(traj['gel']['reference'][-1]['dette'], False)})</th><th>Annonce du candidat</th></tr></thead>
 <tbody>{''.join(lignes)}</tbody></table></div>
+<h2>Solde net par an en 2032 (Md€, point central et fourchette)</h2>{_svg_soldes(agregats)}
+<p class="m">À lire avant de comparer : les programmes ne sont pas publiés au même degré de détail. La colonne « Mesures
+chiffrées » dit combien de mesures ont un effet budgétaire estimable ; une enveloppe d'économies globale sans mesure
+identifiée compte zéro au central et n'apparaît que dans le haut de la fourchette. Les programmes évoluent jusqu'au
+dépôt des candidatures : chaque fiche porte sa date de collecte.</p>
 <h2>Dette publique projetée, scénario central (% du PIB)</h2>{_svg_dette(traj['gel'], agregats)}
 {''.join(sections)}
 </main></body></html>"""
