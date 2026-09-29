@@ -1,10 +1,23 @@
 -- Solde public (capacité ou besoin de financement des APU) en % du PIB.
 -- France : INSEE (millésime le plus récent). Pays : Eurostat, notification PDE.
-WITH b9 AS (
-    SELECT DISTINCT TIME_PERIOD AS periode, CAST(OBS_VALUE AS DOUBLE) AS montant
+-- DD_CNA_APU : depuis 2023, les séries « consolidées » de dépenses, recettes et intérêts reprennent les montants non
+-- consolidés (voir le catalogue) ; seul le solde B9, invariant par consolidation, est lu ici. Garde-fou : B9 consolidé
+-- et non consolidé doivent coïncider chaque année où les deux sont publiés, sinon le calcul échoue.
+WITH b9_brut AS (
+    SELECT DISTINCT CONSOLIDATION AS conso, TIME_PERIOD AS periode, CAST(OBS_VALUE AS DOUBLE) AS montant
     FROM {{source:insee-comptes-apu}}
-    WHERE REF_SECTOR = 'S13' AND STO = 'B9' AND CONSOLIDATION = 'C' AND ACCOUNTING_ENTRY = 'B'
+    WHERE REF_SECTOR = 'S13' AND STO = 'B9' AND CONSOLIDATION IN ('C', 'N') AND ACCOUNTING_ENTRY = 'B'
       AND EXPENDITURE = '_Z' AND UNIT_MEASURE = 'XDC' AND OBS_VALUE IS NOT NULL
+),
+garde AS (
+    SELECT count(*) AS ecarts
+    FROM b9_brut c JOIN b9_brut n ON c.periode = n.periode AND c.conso = 'C' AND n.conso = 'N'
+    WHERE abs(c.montant - n.montant) > 0.5
+),
+b9 AS (
+    SELECT periode, montant FROM b9_brut, garde
+    WHERE conso = 'C'
+      AND (ecarts = 0 OR error('insee-comptes-apu : B9 consolidé différent du non consolidé, série à revoir'))
 ),
 pib AS (
     SELECT DISTINCT TIME_PERIOD AS periode, CAST(OBS_VALUE AS DOUBLE) AS montant

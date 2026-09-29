@@ -3,7 +3,10 @@
 France : INSEE DD_CNA_APU (insee-comptes-apu), REF_SECTOR=S13, STO=B9, CONSOLIDATION=C,
 ACCOUNTING_ENTRY=B, EXPENDITURE=_Z, UNIT_MEASURE=XDC, rapporté au PIB INSEE DD_CNA_AGREGATS
 (insee-pib, STO=B1GQ, PRICES=V, UNIT_MEASURE=XDC, TRANSFORMATION=N, COUNTERPART_AREA=W0) de la
-même année, x100, sans arrondi. Lignes identiques dédoublonnées.
+même année, x100, sans arrondi. Lignes identiques dédoublonnées. Depuis 2023, les séries
+« consolidées » de dépenses, recettes et intérêts de DD_CNA_APU reprennent les montants non
+consolidés ; B9 (solde, invariant par consolidation) est contrôlé : B9 consolidé (C) et non
+consolidé (N) doivent être égaux chaque année où les deux existent, sinon erreur.
 
 Pays (maille "pays", y compris le code FR) : Eurostat gov_10dd_edpt1, unit=MIO_NAC, sector=S13,
 na_item B9 / na_item B1GQ (sector S1) x100, par pays et année ; agrégats EU27_2020 et zones euro
@@ -37,13 +40,14 @@ def _calculer_france() -> list[dict]:
     pib_brut = _lignes_brutes(NORMALISE / "insee-pib.parquet")
 
     b9: dict[str, float] = {}
+    b9_non_consolide: dict[str, float] = {}
     vues: set[tuple] = set()
     for ligne in apu:
         if ligne["REF_SECTOR"] != "S13":
             continue
         if ligne["STO"] != "B9":
             continue
-        if ligne["CONSOLIDATION"] != "C":
+        if ligne["CONSOLIDATION"] not in ("C", "N"):
             continue
         if ligne["ACCOUNTING_ENTRY"] != "B":
             continue
@@ -55,11 +59,18 @@ def _calculer_france() -> list[dict]:
             continue
         annee = ligne["TIME_PERIOD"]
         valeur = float(ligne["OBS_VALUE"])
+        if ligne["CONSOLIDATION"] == "N":
+            b9_non_consolide[annee] = valeur
+            continue
         cle = (annee, valeur)
         if cle in vues:
             continue
         vues.add(cle)
         b9[annee] = valeur
+
+    for annee, valeur in b9.items():
+        if annee in b9_non_consolide and abs(valeur - b9_non_consolide[annee]) > 0.5:
+            raise ValueError(f"insee-comptes-apu : B9 {annee} consolidé ({valeur}) != non consolidé ({b9_non_consolide[annee]})")
 
     pib: dict[str, float] = {}
     for ligne in pib_brut:

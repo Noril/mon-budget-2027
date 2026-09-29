@@ -15,9 +15,8 @@ n'a pas pu être rejoué en ligne. Les points marqués « non vérifié » sont 
 
 ## Vérifié en ligne le 30 septembre 2026
 1. **Citations** (`uv run python -m outils.liens`) : les 453 citations écrites des 8 programmes sont retrouvées mot pour
-   mot dans leur source (HTML ou PDF, après normalisation des espaces, apostrophes, césures et puces) ; 2 citations
-   orales (vidéos) restent à vérifier à l'écoute : `zemmour-reconquete/ia-nucleaire-priorite` et une seconde listée
-   dans `build/liens.md`.
+   mot dans leur source (HTML ou PDF, après normalisation des espaces, apostrophes, césures et puces) ; les 2 citations
+   orales (vidéos) ont été vérifiées par transcription (voir plus bas).
 2. **Liens** (`--catalogue`) : 313 URL de barèmes et du catalogue testées ; 5 échecs, tous des 403 aux robots de liens
    valides (voir plus bas).
 3. **Chaîne de données** : ingestion complète (une seule source injoignable depuis un robot, dernière version conservée),
@@ -69,12 +68,35 @@ n'a pas pu être rejoué en ligne. Les points marqués « non vérifié » sont 
   baisse de l'aide au développement) ; la validation refuse désormais d'attribuer une option à un candidat sur la foi
   d'une mesure non chiffrée.
 
+- **Citations orales** (Zemmour) : verbatim établi par transcription automatique (Whisper large-v3-turbo) des extraits
+  vidéo, les sous-titres YouTube étant fermés aux robots. `retraite-64-voire-65` : le titre BFMTV reformulait ; citation
+  remplacée par « Je dis 64 voire 65. […] Je pense qu’il faut travailler plus » (Face à BFM, 0:46-0:54).
+  `ia-nucleaire-priorite` : le titre YouTube (« L’IA est… ») reformulait ; citation remplacée par la phrase prononcée
+  (« C’est la troisième grande révolution industrielle de l’histoire de l’Occident, après la machine à vapeur, après
+  l’électricité »), transcrite depuis le même extrait publié par CNews sur X et recoupée par le compte rendu écrit de CNews.
+- **`insee-comptes-apu`** : anomalie confirmée sur les données (OTE consolidé 1 550 Md€ en 2022, 2 138 Md€ en 2023 ;
+  D41 consolidé = non consolidé dès 2023). `finances.depenses_publiques` et `recettes_publiques` lisaient déjà Eurostat
+  (gov_10a_main, TE/TR, 2025 compris) : valeurs justes, inchangées. Seul `finances.solde_public` lit ce jeu (B9, invariant
+  par consolidation) : garde-fou ajouté dans le SQL et dans `verifications/finances_solde_public.py` (échec si B9
+  consolidé ≠ non consolidé) ; sortie inchangée, version 1.0.0 conservée ; 151 indicateurs recalculés sans écart.
+- **Dates de source** : dates de collecte (2026-09-29, « 2026-09 ») remplacées par la date de publication quand la page ou
+  le PDF la donne (3 : profession de foi Glucksmann, deux articles irdeme.org), par « mis à jour le … » pour les pages
+  qui évoluent (`dateModified` : choisir2027.fr, LFI, republicains.fr, votons-2027 ×3), sinon écrites « consulté le
+  2026-09-29 » (33 : comparateur IFRAP, budget2026.fr, combienjegagne.fr, Wikipédia, glucks2027.fr). `baremes.yaml` :
+  aucune date de collecte.
+- **Licences non ouvertes** (conditions lues le 30/09, citées dans `notes` du catalogue, `LICENSES.md` aligné) : aucune
+  n'interdit de publier des tables dérivées ; publication maintenue avec mention de la source. OTAN : crédit obligatoire,
+  ni vente ni publicité. FMI (conditions du 11/10/2024) : données réutilisables avec attribution, transformation signalée,
+  usage commercial sur autorisation. Parlement européen (mentions légales d'elections.europa.eu) : réutilisation avec
+  source et URL. TOP500 : aucune licence publiée ; seules des parts agrégées par pays sont publiées, jamais la liste.
+  Le tableau de bord se termine désormais par une section « Sources et licences » ; les pages mentionnent le WEO du FMI
+  comme données transformées.
+
 ## Points ouverts
-- Licences non ouvertes : `otan-depenses-defense` (non commercial), `top500-listes`, `fmi-weo`,
-  `pe-participation-europeennes` (conditions propres au producteur).
-- `insee-comptes-apu` : séries consolidées reprenant des montants non consolidés depuis 2023 ; le SQL de
-  `finances.depenses_publiques` est à adapter.
-- Dates de source : certaines portent la date de collecte, pas de publication.
+- TOP500 : absence de licence ; la publication de parts agrégées repose sur une lecture des conditions (« create
+  additional sublists and statistics »), pas sur une autorisation écrite ; à confirmer auprès de Prometeus GmbH.
+- Dates : date de mise en ligne du plan Knafo (budget2026.fr) inconnue ; livret École LR laissé à « 2026-09 » (daté
+  ainsi par le document).
 - Environ 60 paramètres hors barèmes communs listés dans `chiffrage/besoins/`.
 - Recette de la CVAE : 3,7 Md€ prélevés (FIPECO, 2025) contre 4,0 à 4,3 Md€ de recette budgétaire ; le rythme de
   recouvrement 2028-2029 et le PLF 2027 (non déposé) peuvent déplacer les coûts d'avance.

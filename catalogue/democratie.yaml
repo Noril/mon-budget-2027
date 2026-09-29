@@ -84,7 +84,7 @@
       - https://results.elections.europa.eu/data-sheets/csv/turnout/turnout-eu.csv
     format: CSV séparateur « ; » (YEAR, COUNTRY_ID, RATE, UPDATE_STATUS, UPDATE_TIME)
     auth: aucune
-  licence: Parlement européen, reproduction autorisée avec mention de la source (avis juridique europarl.europa.eu)
+  licence: Parlement européen, avis juridique du site des élections (réutilisation commerciale ou non autorisée avec mention de la source)
   maille: [pays, france]
   millesime: quinquennal (dernier scrutin 2024)
   fraicheur_max_jours: 1900
@@ -98,6 +98,14 @@
     RATE en % des inscrits (ou de l'électorat estimé, selon les États), à deux décimales. COUNTRY_ID vide pour
     le fichier UE (moyenne pondérée de l'Union dans sa composition de l'année : 9 pays en 1979, 28 en 2019,
     27 en 2024). Grèce = EL. Italie 2024 marquée PROVISIONAL.
+    Licence : avis juridique du site des élections européennes, lié depuis results.elections.europa.eu
+    (https://elections.europa.eu/fr/legal-notice/, consulté le 2026-09-30). Pas de licence Creative Commons, mais
+    « la réutilisation (reproduction ou utilisation) à usage personnel ou à des fins de rediffusion, commerciale
+    ou non, des données textuelles […] est autorisée moyennant le respect de l'intégrité des éléments reproduits
+    et la mention de la source » ; une reproduction partielle doit « référencer le lien "URL" du contenu intégral
+    ou de la page source ». Aucune mention de conditions différentes sur les fiches techniques. Décision :
+    publication des taux dérivés autorisée, avec mention « Source : Parlement européen » et l'URL de la page des
+    fiches techniques (section « Sources et licences » du tableau de bord).
 
 - id: eurobarometre-standard-confiance
   titre: Eurobaromètre standard, confiance dans les institutions (volume A, vagues 99 à 105)

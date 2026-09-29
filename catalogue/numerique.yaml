@@ -191,7 +191,7 @@
       - https://top500.org/lists/top500/2026/06/download/TOP500_202606.xlsx/
     format: un classeur xlsx par liste semestrielle, accessible sans compte
     auth: aucune
-  licence: Données publiques du TOP500, réutilisation avec citation de la source (https://top500.org)
+  licence: Aucune licence publiée (« Copyright 1993-2026 TOP500.org (c) », Prometeus GmbH)
   maille: [pays]
   millesime: semestriel (juin et novembre)
   fraicheur_max_jours: 200
@@ -205,6 +205,14 @@
     Ajouter l'URL de chaque nouvelle liste. Ne recense que les machines dont les performances ont été soumises
     (les systèmes privés ou militaires non déclarés, dont une partie de la puissance chinoise et des grappes
     d'IA des hyperscalers, en sont absents).
+    Licence : ni le site ni les classeurs xlsx ne portent de licence ni de conditions de réutilisation ; le pied
+    de page indique « Copyright 1993-2026 TOP500.org (c) » et l'imprint (https://top500.org/imprint/) ne traite
+    que de la responsabilité. Seule indication d'usage : « The list is freely available at http://www.top500.org/
+    where you can create additional sublists and statistics out of the TOP500 database on your own »
+    (https://top500.org/project/introduction/). Pages consultées le 2026-09-30. Aucune clause n'interdit la
+    publication de statistiques dérivées ; aucune n'autorise la redistribution de la liste. Décision : seules des
+    parts agrégées par pays (numerique.top500_puissance) sont publiées, avec citation de top500.org ; les
+    lignes de la liste (data/brut, hors git) ne sont jamais republiées.
 
 - id: dinum-observatoire-demarches
   titre: Observatoire de la qualité des démarches en ligne

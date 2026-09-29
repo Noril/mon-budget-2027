@@ -130,7 +130,7 @@ candidats sont décrits, pas comptés.</li>
 sources sont des déclarations publiques, pas un programme unique et stable.</li>
 <li>Les chiffres sont des ordres de grandeur, au droit constant, avec des barèmes moyens. Une promesse vague est
 chiffrée selon sa lecture la plus probable, qui est écrite.</li>
-<li>La trajectoire de la dette repose sur des hypothèses macroéconomiques du FMI, communes à tous.</li>
+<li>La trajectoire de la dette repose sur des hypothèses macroéconomiques tirées de la base World Economic Outlook du FMI (données transformées), communes à tous.</li>
 <li>Une erreur est possible : signalez-la, elle sera corrigée et l'historique des corrections est public.</li>
 </ul>
 <h2>Pour aller plus loin</h2>

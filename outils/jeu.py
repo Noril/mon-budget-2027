@@ -284,7 +284,7 @@ function fin() {
     <h3>Vos positions par thème</h3>${htmlAxes(choix)}
     <h3>Dépenses et impôts</h3>${carte(b)}
     <p><button id="retour">↶ Revenir à la dernière carte</button><button id="rejouer">Rejouer</button><a class="bt" href="${lien}">Ajuster dans le simulateur détaillé</a><button id="partager">Copier le lien</button></p>
-    <p class="petit">Chiffrage : effet sur le solde public en 2032 par rapport au droit en vigueur, sans effet de second tour ; trajectoire : hypothèses du FMI. Données du ${esc(D.genere)}.</p></div>`;
+    <p class="petit">Chiffrage : effet sur le solde public en 2032 par rapport au droit en vigueur, sans effet de second tour ; trajectoire : hypothèses tirées du World Economic Outlook du FMI (données transformées). Données du ${esc(D.genere)}.</p></div>`;
   document.getElementById("rejouer").onclick = demarrer;
   document.getElementById("retour").onclick = annuler;
   document.getElementById("partager").onclick = () => navigator.clipboard?.writeText(new URL(lien, location.href).href);
