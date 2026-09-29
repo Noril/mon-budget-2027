@@ -1,5 +1,8 @@
 name: CI
 
+permissions:
+  contents: read
+
 on:
   pull_request:
   push:
@@ -56,6 +59,8 @@ jobs:
         run: uv run python -m outils.simulateur
       - name: Jeu de cartes
         run: uv run python -m outils.jeu
+      - name: Site public (aperçu)
+        run: uv run python -m outils.site --brouillon
       - uses: actions/upload-artifact@v4
         with:
           name: chiffrage-et-lignage
@@ -65,5 +70,6 @@ jobs:
             build/chiffrage.md
             build/simulateur.html
             build/jeu.html
+            build/site/
             data/indicateurs/*.lignage.json
             data/brut/**/manifeste.json

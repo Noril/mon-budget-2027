@@ -1,8 +1,6 @@
-# Besoins de barèmes : Gabriel Attal (Renaissance)
+# Barèmes complémentaires : Gabriel Attal (Renaissance)
 
-Coûts unitaires nécessaires pour chiffrer les mesures marquées `A_CHIFFRER` dans
-`chiffrage/programmes/attal-renaissance.yaml`. Identifiants indicatifs ; reprendre ceux de `baremes.yaml` quand ils
-existent. Montants en Md€ courants, régime de croisière 2032, référence législation au 1er janvier 2027.
+Ce fichier recense les coûts unitaires et les paramètres dont le chiffrage du programme (`chiffrage/programmes/attal-renaissance.yaml`) avait besoin, et indique lesquels figurent désormais dans les barèmes communs (`chiffrage/baremes.yaml`). **Statut (état au 29 septembre 2026) : toutes les mesures du programme sont chiffrées ou classées non chiffrables ; aucune n'est en attente.** Les listes par domaine sont les recherches menées, avec des pistes de sources (ce ne sont pas des sources citées : chaque paramètre retenu porte sa propre source dans la mesure qui l'utilise) ; l'identifiant entre parenthèses ou après la flèche est celui de la mesure concernée. Un paramètre « non inscrit » est sourcé directement dans la mesure : il pourrait devenir un barème commun. Montants en Md€ courants, régime de croisière 2032, référence : législation au 1er janvier 2027 (`chiffrage/REFERENCE.md`).
 
 ## Prestations sociales et retraites
 - Coût d'un point de revalorisation, par prestation indexée : pensions de base et complémentaires, prestations familiales, aides au logement, RSA, prime d'activité, AAH, minimum vieillesse (DSS, PLFSS, CNAF). Inflation prévue 2028. → `annee-blanche-2028`
@@ -43,12 +41,15 @@ existent. Montants en Md€ courants, régime de croisière 2032, référence l�
 ## Cadre
 - PIB nominal 2027-2032 et solde public de référence (pour l'enveloppe `economies-120-150md`).
 
-## Barèmes à ajouter (phase 2 : paramètres sourcés dans le programme, faute de barème commun)
-- `masse_salariale_privee` : 740,0 Md€ (2025, assiette déplafonnée, Urssaf) ; 1 point de cotisation salariale ≈ 7,4 Md€. https://open.urssaf.fr/explore/dataset/masse-salariale-du-secteur-prive-france-entiere/
-- `salaire_brut_moyen_prive` : 3 602 €/mois (2024) — source secondaire, à remplacer par l'INSEE ou la DARES. https://www.raisin.com/fr-fr/economie/salaire-moyen-france/
-- `pensions_part_masse_sous_seuil` : 9,6 % (< 1 000 €), 15,4 % (< 1 200 €), 23,0 % (< 1 400 €), DREES EIR 2020, calcul par milieux de tranche. https://data.drees.solidarites-sante.gouv.fr/api/explore/v2.1/catalog/datasets/4178_distribution-des-pensions-mensuelles/attachments/eir2020_distribution_des_pensions_mensuelles_xlsx
-- `assurance_chomage_reforme_2024` : 3,6 Md€ (objectif du gouvernement, 2024). https://www.huffingtonpost.fr/economie/article/reforme-de-l-assurance-chomage-les-syndicats-et-le-patronat-parviennent-a-un-accord_242266.html
-- `pensions_alimentaires_defiscalisation` : 0,4 Md€ (séance du Sénat, 28 novembre 2025). https://www.senat.fr/seances/s202511/s20251128/s20251128006.html
-- `aesh_effectifs_cout` : 139 993 AESH, 3,16 Md€ ; revalorisation 2023 = 240 M€/an. https://www.senat.fr/rap/l25-139-313/l25-139-31310.html
-- `prison_cout_place` : ≈ 400 k€ par place (construction), 100 à 150 €/jour de détention ; plan 15 000 places : 5,7 Md€. https://www.ccomptes.fr/fr/publications/le-plan-15000-places-de-prison-une-ambition-forte-une-concretisation-laborieuse
-- `cout_greffier_charge` : absent (magistrat utilisé comme majorant).
+## Paramètres hors barèmes communs
+
+| Paramètre | Valeur utilisée | Statut dans `baremes.yaml` et source |
+|---|---|---|
+| `masse_salariale_privee` | 740,0 Md€ (2025, assiette déplafonnée, Urssaf) ; un point de cotisation salariale ≈ 7,4 Md€ | **Inscrit** : `masse_salariale_privee` ([Urssaf](https://open.urssaf.fr/explore/dataset/masse-salariale-du-secteur-prive-france-entiere/)) |
+| `salaire_brut_moyen_prive` | 3 602 €/mois (2024) | **Inscrit** : `salaire_brut_moyen_prive`, source INSEE Première du 23 octobre 2025 (la source secondaire utilisée d'abord est abandonnée) |
+| `pensions_part_masse_sous_seuil` | 9,6 % (< 1 000 €), 15,4 % (< 1 200 €), 23,0 % (< 1 400 €) de la masse des pensions ; DREES, EIR 2020, calcul par milieux de tranche | Non inscrit ; [DREES](https://data.drees.solidarites-sante.gouv.fr/api/explore/v2.1/catalog/datasets/4178_distribution-des-pensions-mensuelles/attachments/eir2020_distribution_des_pensions_mensuelles_xlsx) |
+| `assurance_chomage_reforme_2024` | 3,6 Md€ (objectif du gouvernement, 2024) | Non inscrit (`assurance_chomage_depenses` ne donne que la dépense totale) ; [HuffPost](https://www.huffingtonpost.fr/economie/article/reforme-de-l-assurance-chomage-les-syndicats-et-le-patronat-parviennent-a-un-accord_242266.html), source secondaire |
+| `pensions_alimentaires_defiscalisation` | 0,4 Md€ (séance du Sénat du 28 novembre 2025) | Non inscrit ; [Sénat](https://www.senat.fr/seances/s202511/s20251128/s20251128006.html) |
+| `aesh_effectifs_cout` | 139 993 AESH, 3,16 Md€ ; revalorisation de 2023 : 240 M€ par an | Non inscrit ; [Sénat](https://www.senat.fr/rap/l25-139-313/l25-139-31310.html) |
+| `prison_cout_place` | ≈ 400 k€ par place (construction), 100 à 150 € par jour de détention ; plan de 15 000 places : 5,7 Md€ | Non inscrit ; [Cour des comptes](https://www.ccomptes.fr/fr/publications/le-plan-15000-places-de-prison-une-ambition-forte-une-concretisation-laborieuse) |
+| `cout_greffier_charge` | 62 900 € par ETPT (coût budgétaire complet) ; 23 300 € pour l'effet sur le solde des APU | **Inscrit** : `cout_greffier_charge` et `cout_greffier_apu` (PAP 2024, programme 166) |

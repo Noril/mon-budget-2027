@@ -1,0 +1,15 @@
+name: Proposition (mesure, barème, source, indicateur)
+description: Ajouter une mesure, contester un barème, proposer une source ouverte ou un indicateur
+labels: [proposition]
+body:
+  - type: textarea
+    id: proposition
+    attributes:
+      label: Proposition
+    validations: {required: true}
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources ouvertes
+      description: URL, licence, millésime. Pas de citation sans lien.
+    validations: {required: true}

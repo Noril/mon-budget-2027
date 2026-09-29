@@ -1,7 +1,6 @@
-# Besoins de barèmes : Raphaël Glucksmann (Place publique)
+# Barèmes complémentaires : Raphaël Glucksmann (Place publique)
 
-Coûts unitaires nécessaires pour chiffrer les 36 mesures `A_CHIFFRER` de `programmes/glucksmann-place-publique.yaml`.
-Les sources indiquées sont des pistes : chaque barème doit citer ses propres sources et son millésime.
+Ce fichier recense les coûts unitaires et les paramètres dont le chiffrage du programme (`chiffrage/programmes/glucksmann-place-publique.yaml`) avait besoin, et indique lesquels figurent désormais dans les barèmes communs (`chiffrage/baremes.yaml`). **Statut (état au 29 septembre 2026) : toutes les mesures du programme sont chiffrées ou classées non chiffrables ; aucune n'est en attente.** Les listes par domaine sont les recherches menées, avec des pistes de sources (ce ne sont pas des sources citées : chaque paramètre retenu porte sa propre source dans la mesure qui l'utilise) ; l'identifiant entre parenthèses ou après la flèche est celui de la mesure concernée. Un paramètre « non inscrit » est sourcé directement dans la mesure : il pourrait devenir un barème commun. Montants en Md€ courants, régime de croisière 2032, référence : législation au 1er janvier 2027 (`chiffrage/REFERENCE.md`).
 
 ## Fiscalité et prélèvements
 
@@ -64,22 +63,22 @@ Les sources indiquées sont des pistes : chaque barème doit citer ses propres s
 | Dépense de prévention (hors ONDAM, fonds territorial) | prevention-sante-hors-ondam | DREES comptes de la santé |
 | LPM en vigueur, coût de la réserve opérationnelle par réserviste, aide à l'Ukraine | defense-reserve-industrie-ukraine | LPM 2024-2030 et actualisation ; Cour des comptes (réserves 2024) |
 
-## Barèmes à ajouter (paramètres sourcés utilisés en phase 2 hors `baremes.yaml`)
+## Paramètres hors barèmes communs
 
-| Paramètre | Valeur utilisée | Mesures | Source lue |
-|---|---|---|---|
-| SMIC net mensuel au 1er juin 2026 | 1 477,93 € | smic-1600-net | [compta-online](https://www.compta-online.com/smic-horaire-montant-mensuel-brut-net-ao1021) (arrêté du 22 mai 2026) |
-| Déflateur FMI cumulé 2027-2032 et facteurs PIB 2026→2032 (1,1842), 2027→2032 (1,1570) | 1,1104 | point-indice-indexe-inflation, salaires-enseignants-10-pct, abrogation-reforme-assurance-chomage, baisse-csg-salaires | `plan/hypotheses.yaml` (FMI WEO avril 2026) |
-| Part des prélèvements revenant aux APU sur une hausse de rémunération publique | 25 % | point-indice-indexe-inflation, salaires-enseignants-10-pct | limites du barème `point_indice_1pct` (Sénat) : à ériger en barème propre |
-| Économie de la réforme 2023 de l'assurance chômage (pleine charge 2027) | 4,5 Md€/an | abrogation-reforme-assurance-chomage | [Unédic](https://www.unedic.org/publications/reforme-2023-premiers-effets-de-la-reforme-de-contracyclicite) |
-| Économie de la réforme 2019-2021 de l'assurance chômage (rythme de croisière) | 2 à 2,3 Md€/an | abrogation-reforme-assurance-chomage | [AEF info, audition Unédic](https://www.aefinfo.fr/depeche/648868-chomage-on-evalue-leffet-de-la-reforme-entre-2-et-23-md-en-rythme-de-croisiere-christophe-valentie-unedic) |
-| Chèque énergie : foyers bénéficiaires (4,5 M), éligibles (6 M), montant moyen (153 €) | — | cheque-carburant-energie-triple | [Connaissance des énergies](https://www.connaissancedesenergies.org/questions-et-reponses-energies/quest-ce-que-le-cheque-energie) ; [Sud Radio / UFE](https://www.sudradio.fr/sud-radio/cheque-energie-2026-montants-criteres-et-nouveautes-pour-les-menages) |
-| Rendement d'1 €/MWh d'accise sur l'électricité (tous consommateurs) | 0,2 Md€ | annulation-hausse-accise-electricite-2024 | [Connaissance des énergies, tribune 2024](https://www.connaissancedesenergies.org/tribune-actualite-energies/du-sel-lelectricite-le-maniement-risque-des-taxes-de-rendement) : à remplacer par un barème Voies et moyens / CRE |
-| Droits de succession seuls (PLF 2026) | 17,0 Md€ | successions-tranche-haute-50 | dérivation du barème `dmtg_rendement` (Sénat) ; **manque** : répartition des droits par tranche (DGFiP) |
-| Gain d'une exonération Dutreil réduite à 50 % ; coût Dutreil 2018-2019 ; dépense 2022-2024 | 1,4 Md€ ; 2 à 3 Md€ ; 2,0 / 3,3 / 5,5 Md€ | successions-pacte-dutreil | [CAE note n° 69](https://www.cae-eco.fr/staticfiles/pdf/cae-note069.pdf) ; [Cour des comptes 2025](https://www.ccomptes.fr/sites/default/files/2025-11/20251118-Synthese-Pacte%20Dutreil.pdf) |
-| Coût de la purge des plus-values latentes | 0,05 % du PIB (≈ 1,3 Md€) | successions-plus-values-latentes | [CAE note n° 69](https://www.cae-eco.fr/staticfiles/pdf/cae-note069.pdf) ; PPL IGS [Sénat](https://www.senat.fr/leg/exposes-des-motifs/ppl25-190-expose.html) (9 Md€, statique) |
-| Indemnité de service civique (504,98 € net État, tutorat 100 €, prestation d'accueil 114,85 €) | — | service-civique-obligatoire | [barème ASC 2026](https://www.service-civique.gouv.fr/api/media/assets/document/asc-indemnites-et-cotisations-01012026.pdf) |
-| Budget du service civique 2026 | 465 M€ (110 000 volontaires) | service-civique-obligatoire | [Sénat, avis PLF 2026 JVA](https://www.senat.fr/rap/a25-144-62/a25-144-62_mono.html) |
-| Cohorte d'âge (naissances 2014) | 818 565 | service-civique-obligatoire | [INSEE](https://www.insee.fr/fr/statistiques/2381380) |
-| APD en % du RNB (2024 : 0,48 % ; 2026 : 0,38 %) | — | aide-publique-developpement-0-7 | [Alternatives économiques, 2026](https://www.alternatives-economiques.fr/aide-au-developpement-la-france-s-eloigne-de-son-objectif-au-detriment-des-pays-les-plus-pauvres_04) : à remplacer par OCDE CAD / PLF |
-| ETPT enseignants du public (programmes 140 et 141) | 793 863 | salaires-enseignants-10-pct | dérivation du barème `cout_enseignant_charge` (PLF 2026) ; **manque** : ETPT du privé sous contrat (programme 139) |
+| Paramètre | Valeur utilisée | Statut dans `baremes.yaml` et source |
+|---|---|---|
+| SMIC net mensuel au 1er juin 2026 | 1 477,93 € (smic-1600-net) | Non inscrit : cité dans la dérivation de `aah_au_smic_cout` ; [compta-online](https://www.compta-online.com/smic-horaire-montant-mensuel-brut-net-ao1021) (arrêté du 22 mai 2026) |
+| Déflateur cumulé 2027-2032 et facteurs PIB 2026→2032 et 2027→2032 | 1,1104 ; 1,1842 ; 1,1570 | **Inscrit** : `inflation_cumulee_2027_2032` (+11,03 %, produit exact 1,1103), `facteur_pib_2026_2032`, `facteur_pib_2027_2032` |
+| Part des prélèvements revenant aux APU sur une hausse de rémunération publique | 25 % | **Inscrit** : `retour_prelevements_salaires_publics` (0,28 ; bornes 0,25 et 0,32) ; 25 % en est la borne basse |
+| Économie de la réforme 2023 de l'assurance chômage (pleine charge 2027) | 4,5 Md€ par an | Non inscrit ; [Unédic](https://www.unedic.org/publications/reforme-2023-premiers-effets-de-la-reforme-de-contracyclicite) |
+| Économie de la réforme 2019-2021 de l'assurance chômage | 2 à 2,3 Md€ par an | Non inscrit ; [AEF info](https://www.aefinfo.fr/depeche/648868-chomage-on-evalue-leffet-de-la-reforme-entre-2-et-23-md-en-rythme-de-croisiere-christophe-valentie-unedic), audition Unédic |
+| Chèque énergie : foyers bénéficiaires (4,5 M), éligibles (6 M), montant moyen (153 €) | voir colonne précédente | Non inscrit ; [Connaissance des énergies](https://www.connaissancedesenergies.org/questions-et-reponses-energies/quest-ce-que-le-cheque-energie), [Sud Radio](https://www.sudradio.fr/sud-radio/cheque-energie-2026-montants-criteres-et-nouveautes-pour-les-menages) |
+| Rendement d'1 €/MWh d'accise sur l'électricité (tous consommateurs) | 0,2 Md€ | **Inscrit** : `accise_electricite_1_euro_mwh` retient 0,30 Md€ (0,16 pour les seuls ménages, 0,33 avec la TVA induite), en remplacement de la valeur de 0,2 Md€ tirée d'une tribune de 2024 |
+| Droits de succession seuls (PLF 2026) | 17,0 Md€ | **Inscrit en partie** : dérivation de `dmtg_rendement` ; manque la répartition des droits par tranche (DGFiP) |
+| Exonération Dutreil réduite à 50 % ; coût du Dutreil 2018-2019 ; dépense 2022-2024 | 1,4 Md€ ; 2 à 3 Md€ ; 2,0 / 3,3 / 5,5 Md€ | Non inscrit (dépenses fiscales rattachées aux DMTG : 4,5 Md€ en 2025, citées dans `dmtg_rendement`) ; [CAE, note n° 69](https://www.cae-eco.fr/staticfiles/pdf/cae-note069.pdf), [Cour des comptes 2025](https://www.ccomptes.fr/sites/default/files/2025-11/20251118-Synthese-Pacte%20Dutreil.pdf) |
+| Coût de la purge des plus-values latentes | 0,05 % du PIB (≈ 1,3 Md€) ; proposition de loi IGS : 9 Md€ (statique) | Non inscrit ; [CAE, note n° 69](https://www.cae-eco.fr/staticfiles/pdf/cae-note069.pdf), [Sénat](https://www.senat.fr/leg/exposes-des-motifs/ppl25-190-expose.html) |
+| Indemnité de service civique | 504,98 € net (État), tutorat 100 €, prestation d'accueil 114,85 € | Non inscrit ; [barème de l'Agence du service civique 2026](https://www.service-civique.gouv.fr/api/media/assets/document/asc-indemnites-et-cotisations-01012026.pdf) |
+| Budget du service civique 2026 | 465 M€ (110 000 volontaires) | Non inscrit ; [Sénat, avis PLF 2026](https://www.senat.fr/rap/a25-144-62/a25-144-62_mono.html) |
+| Cohorte d'âge (naissances 2014) | 818 565 | Non inscrit ; [INSEE](https://www.insee.fr/fr/statistiques/2381380) |
+| APD en % du RNB | 0,48 % en 2024 ; 0,38 % en 2026 | **Inscrit en partie** : `apd_part_rnb` (0,48 % en 2024, 0,42 % en 2025, OCDE, base CAD) ; le 0,38 % de 2026 vient d'une source secondaire ([Alternatives économiques](https://www.alternatives-economiques.fr/aide-au-developpement-la-france-s-eloigne-de-son-objectif-au-detriment-des-pays-les-plus-pauvres_04)) et n'est pas inscrit |
+| ETPT enseignants du public (programmes 140 et 141) | 793 863 | **Inscrit en partie** : somme des ETPT cités dans la dérivation de `cout_enseignant_charge` (341 897 + 451 966) ; manque l'effectif du privé sous contrat (programme 139) |

@@ -1,5 +1,8 @@
 name: Ingestion hebdomadaire
 
+permissions:
+  contents: read
+
 on:
   schedule:
     - cron: "0 4 * * 1"
@@ -31,7 +34,7 @@ jobs:
             data/normalise
           key: donnees-${{ github.run_id }}
       - run: uv run python -m pipelines.indicateurs
-      # TODO(P1) : pousser data/ vers le stockage objet UE et ouvrir une PR si une valeur publiée change
+      # Les données brutes et calculées restent des artefacts de CI (90 jours) ; elles se rejouent depuis le catalogue
       - uses: actions/upload-artifact@v4
         with:
           name: donnees

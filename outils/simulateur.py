@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from datetime import date
 
@@ -39,6 +40,16 @@ AXES = {
     "defense": ("Défense", "moins de dépenses", "plus de dépenses"),
     "ouverture-internationale": ("Aide au développement et Europe", "moins", "plus"),
 }
+
+
+def json_pour_script(objet) -> str:
+    """JSON à embarquer dans un <script> : `<`, `>` et `&` échappés (un « </script> » dans une donnée ne referme pas la balise)."""
+    return json.dumps(objet, ensure_ascii=False).replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
+
+
+def remplir(page: str, **valeurs: str) -> str:
+    """Remplace les marqueurs __NOM__ en un seul passage : une valeur insérée n'est jamais réinterprétée."""
+    return re.sub(r"__([A-Z_]+)__", lambda m: valeurs.get(m.group(1), m.group(0)), page)
 
 
 def lire_leviers() -> dict:
@@ -87,7 +98,7 @@ def valider(doc: dict | None = None) -> list[str]:
                     if c not in programmes:
                         erreurs.append(f"{ou}/{o['id']} : programme inconnu « {c} »")
                 for r in o.get("reprend", []):
-                    prog, mes = r.split("/")
+                    prog, _, mes = r.partition("/")
                     if mes not in programmes.get(prog, {}):
                         erreurs.append(f"{ou}/{o['id']} : mesure reprise introuvable « {r} »")
                 groupes = groupes_repris(o, programmes)
@@ -173,7 +184,7 @@ def donnees() -> dict:
     }
 
 
-COMMUN_CSS = r""".gl{border-bottom:1px dotted currentColor;cursor:help;position:relative;outline:none}.gl sup{font-size:.6em;color:var(--acc);margin-left:1px}
+COMMUN_CSS = r""".gl{border-bottom:1px dotted currentColor;cursor:help;position:relative}.gl:focus-visible{outline:2px solid var(--acc);outline-offset:2px}.gl sup{font-size:.6em;color:var(--acc);margin-left:1px}
 .gl .def{display:none;position:absolute;left:50%;bottom:130%;transform:translateX(-50%);width:min(280px,80vw);background:var(--fg);color:var(--bg);
   font-size:.8rem;line-height:1.35;font-weight:400;text-align:left;padding:8px 10px;border-radius:8px;z-index:20;box-shadow:0 4px 14px #0004}
 .gl:hover .def,.gl:focus .def{display:block}
@@ -188,15 +199,16 @@ COMMUN_CSS = r""".gl{border-bottom:1px dotted currentColor;cursor:help;position:
 COMMUN_JS = r"""// --- Glossaire : première occurrence de chaque terme soulignée, définition au survol ou au toucher
 const GL = (D.glossaire || []).flatMap(g => [g.terme, ...(g.variantes || [])].map(f => ({f, g})))
   .sort((a, b) => b.f.length - a.f.length);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));  // tout texte de données inséré en HTML passe par là
 const echap = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 function annoter(texte) {
   const pris = [], morceaux = [];
-  let s = texte;
+  let s = esc(texte);
   for (const {f, g} of GL) {
     if (pris.includes(g.terme)) continue;
-    const re = new RegExp(`(?<![\\p{L}\\d])${echap(f)}(?![\\p{L}\\d])`, /^[A-Z0-9]+$/.test(f) ? "u" : "iu");
+    const re = new RegExp(`(?<![\\p{L}\\d&])${echap(esc(f))}(?![\\p{L}\\d])`, /^[A-Z0-9]+$/.test(f) ? "u" : "iu");
     const m = s.match(re); if (!m) continue;
-    pris.push(g.terme); morceaux.push(`<span class="gl" tabindex="0">${m[0]}<sup>?</sup><span class="def">${g.definition}</span></span>`);
+    pris.push(g.terme); morceaux.push(`<span class="gl" tabindex="0">${m[0]}<sup>?</sup><span class="def">${esc(g.definition)}</span></span>`);
     s = s.slice(0, m.index) + `\u0000${morceaux.length - 1}\u0000` + s.slice(m.index + m[0].length);
   }
   return s.replace(/\u0000(\d+)\u0000/g, (_, i) => morceaux[+i]);
@@ -223,11 +235,11 @@ function scoresAxes(choix) {
 function htmlAxes(choix) {
   const moi = scoresAxes(choix), cand = D.candidats.map(c => ({c, s: scoresAxes(c.choix)}));
   const x = v => 50 + 50 * v / 2;
-  const lignes = D.axes.filter(a => a.id in moi).map(a => `<div class="axe-l"><div class="t">${a.nom}</div>
-    <div class="rail"><span class="z"></span>${cand.map(({c, s}) => `<span class="p" title="${c.nom}" style="left:${x(s[a.id])}%;background:${c.couleur}"></span>`).join("")}
+  const lignes = D.axes.filter(a => a.id in moi).map(a => `<div class="axe-l"><div class="t">${esc(a.nom)}</div>
+    <div class="rail"><span class="z"></span>${cand.map(({c, s}) => `<span class="p" title="${esc(c.nom)}" style="left:${x(s[a.id])}%;background:${esc(c.couleur)}"></span>`).join("")}
     <span class="moi" title="Vous" style="left:${x(moi[a.id])}%"></span></div>
-    <div class="bornes"><span>← ${a.moins}</span><span>${a.plus} →</span></div></div>`).join("");
-  return `<div class="legende"><span><i style="background:var(--acc)"></i><b>Vous</b></span>${D.candidats.map(c => `<span><i style="background:${c.couleur}"></i>${court(c)}</span>`).join("")}</div>
+    <div class="bornes"><span>← ${esc(a.moins)}</span><span>${esc(a.plus)} →</span></div></div>`).join("");
+  return `<div class="legende"><span><i style="background:var(--acc)"></i><b>Vous</b></span>${D.candidats.map(c => `<span><i style="background:${esc(c.couleur)}"></i>${court(c)}</span>`).join("")}</div>
     <div class="axes-l">${lignes}</div><p class="petit">Chaque thème fait la moyenne de vos choix sur les décisions qui le concernent (droit actuel au centre). Les
     positions des candidats sont reconstituées à partir des mêmes décisions.</p>`;
 }
@@ -236,7 +248,7 @@ function htmlAxes(choix) {
 
 PAGE = r"""<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Simulateur budgétaire 2027</title><style>
-:root{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#77756f;--line:#e2dfd7;--card:#fff;--neg:#b03a2e;--pos:#1e7a4a;--acc:#2451a6}
+:root{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#66645e;--line:#e2dfd7;--card:#fff;--neg:#b03a2e;--pos:#1e7a4a;--acc:#2451a6}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#161614;--fg:#ecebe6;--muted:#9a978f;--line:#34332f;--card:#1f1f1c;--neg:#e0796e;--pos:#6fcf97;--acc:#8fb0ff}}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
 header{max-width:1200px;margin:0 auto;padding:24px 16px 8px}h1{font-size:1.6rem;margin:0 0 .3em}p.m{color:var(--muted);max-width:80ch;margin:.3em 0}
@@ -268,13 +280,13 @@ footer{max-width:1200px;margin:0 auto;padding:0 16px 40px;color:var(--muted);fon
 la même méthode que le chiffrage des programmes : effet sur le solde public en 2032, par rapport au droit en vigueur, sans effet
 de second tour. Votre dette 2032 et les candidats dont vous êtes le plus proche se mettent à jour à chaque choix.</p>
 <div class="barre"><button id="raz">Tout remettre au droit actuel</button>
-<select id="depart"><option value="">Partir du programme de…</option></select>
+<select id="depart" aria-label="Partir du programme d'un candidat"><option value="">Partir du programme de…</option></select>
 <button id="partager">Copier le lien de mon budget</button></div></header>
 <main><div id="leviers"></div>
-<aside id="resultats"><div class="kpis"><div><div class="petit">Solde en 2032, par an</div><div class="gros" id="solde">0</div><div class="petit" id="fourchette"></div></div>
-<div><div class="petit">Dette publique en 2032</div><div class="gros" id="dette"></div><div class="petit" id="dette-ref"></div></div></div>
-<svg id="courbe" viewBox="0 0 380 170"></svg>
-<h3>Où vous situez-vous ?</h3><svg id="carte" viewBox="0 0 380 300"></svg>
+<aside id="resultats"><div class="kpis"><div><div class="petit">Solde en 2032, par an</div><div class="gros" id="solde" aria-live="polite">0</div><div class="petit" id="fourchette"></div></div>
+<div><div class="petit">Dette publique en 2032</div><div class="gros" id="dette" aria-live="polite"></div><div class="petit" id="dette-ref"></div></div></div>
+<svg id="courbe" viewBox="0 0 380 170" role="img" aria-label="Trajectoire de la dette publique jusqu'en 2032 : votre budget, le droit actuel et les candidats"></svg>
+<h3>Où vous situez-vous ?</h3><svg id="carte" viewBox="0 0 380 300" role="img" aria-label="Carte des dépenses et des impôts : vous et les candidats"></svg>
 <div class="petit">Axe horizontal : dépenses publiques en plus ou en moins ; axe vertical : impôts et cotisations en plus ou en
 moins, en Md€ par an en 2032, d'après les leviers de cette page.</div>
 <h3>Vos positions par thème</h3><div id="axes"></div>
@@ -287,12 +299,13 @@ primaire de référence gelé. Méthode, sources et chiffrage détaillé des pro
 const D = __DONNEES__;
 const fmt = (x, s = true) => (s && x > 0 ? "+" : "") + x.toFixed(1).replace(".", ",").replace("-", "−");
 const etat = {};
-const parTheme = {};
+const parTheme = {}, themes = [];
 D.leviers.forEach(l => (parTheme[l.theme] ??= []).push(l));
+Object.keys(parTheme).forEach(t => themes.push(t));
 const defaut = l => l.type === "choix" ? l.options.find(o => o.defaut).id : 0;
 __COMMUN_JS__
 const candidat = id => D.candidats.find(c => c.id === id);
-const court = c => c.nom.split(" ").slice(1).join(" ");
+const court = c => esc(c.nom.split(" ").slice(1).join(" "));  // déjà échappé : uniquement pour du HTML
 function placer(occupees, x, y) {  // décale verticalement une étiquette qui en chevauche une autre
   let yy = y;
   while (occupees.some(o => Math.abs(o.x - x) < 70 && Math.abs(o.y - yy) < 11)) yy += 11;
@@ -342,28 +355,28 @@ function accord(c) {
   return n ? {pct: 100 * s / n, n} : {pct: 0, n: 0};
 }
 function tags(o) {
-  return (o.candidats || []).map(id => { const c = candidat(id); return c ? `<span class="tag" style="background:${c.couleur}">${court(c)}</span>` : ""; }).join("");
+  return (o.candidats || []).map(id => { const c = candidat(id); return c ? `<span class="tag" style="background:${esc(c.couleur)}">${court(c)}</span>` : ""; }).join("");
 }
 function rendreLeviers() {
   const racine = document.getElementById("leviers"); racine.innerHTML = "";
   for (const [theme, ls] of Object.entries(parTheme)) {
     const d = document.createElement("details"); d.className = "theme"; d.open = true;
-    d.innerHTML = `<summary>${theme}<span class="t" data-theme="${theme}"></span></summary>`;
+    d.innerHTML = `<summary>${esc(theme)}<span class="t" data-i="${themes.indexOf(theme)}"></span></summary>`;
     for (const l of ls) {
       const div = document.createElement("div"); div.className = "levier";
       let h = `<div class="q">${annoter(l.question)}</div>${l.aide ? `<div class="aide">${annoter(l.aide)}</div>` : ""}`;
       if (l.type === "choix") {
         for (const o of l.options) {
           const e = o.effet.central;
-          h += `<label class="opt"><input type="radio" name="${l.id}" value="${o.id}" ${etat[l.id] === o.id ? "checked" : ""}>
-            <span>${o.libelle}</span><span class="eff ${e < 0 ? "neg" : e > 0 ? "pos" : ""}">${e ? fmt(e) + " Md€" : "—"}</span>
+          h += `<label class="opt"><input type="radio" name="${esc(l.id)}" value="${esc(o.id)}" ${etat[l.id] === o.id ? "checked" : ""}>
+            <span>${esc(o.libelle)}</span><span class="eff ${e < 0 ? "neg" : e > 0 ? "pos" : ""}">${e ? fmt(e) + " Md€" : "—"}</span>
             <span class="tags">${tags(o)}</span></label>`;
         }
       } else {
         const c = l.curseur, pos = Object.entries(c.positions || {}).map(([id, v]) => {
-          const k = candidat(id); return k ? `<span title="${k.nom} : ${v}" style="left:${100 * (v - c.min) / (c.max - c.min)}%;background:${k.couleur}"></span>` : ""; }).join("");
-        h += `<div class="pos-c">${pos}</div><div class="curseur"><input type="range" name="${l.id}" min="${c.min}" max="${c.max}" step="${c.pas}" value="${etat[l.id]}">
-          <span class="eff" id="v-${l.id}"></span></div>`;
+          const k = candidat(id); return k ? `<span title="${esc(k.nom)} : ${esc(v)}" style="left:${100 * (v - c.min) / (c.max - c.min)}%;background:${esc(k.couleur)}"></span>` : ""; }).join("");
+        h += `<div class="pos-c">${pos}</div><div class="curseur"><input type="range" name="${esc(l.id)}" aria-label="${esc(l.question)}" min="${c.min}" max="${c.max}" step="${c.pas}" value="${etat[l.id]}">
+          <span class="eff" id="v-${esc(l.id)}"></span></div>`;
       }
       div.innerHTML = h; d.appendChild(div);
     }
@@ -382,7 +395,7 @@ function svgCourbe(serie) {
   let s = "";
   for (let v = lo; v <= hi; v += 10) s += `<line x1="${g}" x2="${W - dr}" y1="${y(v)}" y2="${y(v)}" class="grille"/><text x="${g - 4}" y="${y(v) + 3}" text-anchor="end" class="axe">${v}</text>`;
   for (const a of [D.depart.annee, 2028, 2030, 2032]) s += `<text x="${x(a)}" y="${H - 5}" text-anchor="middle" class="axe">${a}</text>`;
-  for (const c of D.candidats) s += `<circle cx="${x(2032)}" cy="${y(c.dette2032)}" r="3" fill="${c.couleur}" opacity=".7"><title>${c.nom} : ${fmt(c.dette2032, false)} %</title></circle>`;
+  for (const c of D.candidats) s += `<circle cx="${x(2032)}" cy="${y(c.dette2032)}" r="3" fill="${esc(c.couleur)}" opacity=".7"><title>${esc(c.nom)} : ${fmt(c.dette2032, false)} %</title></circle>`;
   s += `<polyline fill="none" stroke="var(--muted)" stroke-dasharray="4 3" stroke-width="1.5" points="${D.reference.map(p => `${x(p.annee)},${y(p.dette)}`).join(" ")}"/>`;
   s += `<polyline fill="none" stroke="var(--acc)" stroke-width="2.5" points="${serie.map(p => `${x(p.annee)},${y(p.dette)}`).join(" ")}"/>`;
   return s;
@@ -399,7 +412,7 @@ function svgCarte(moi) {
   for (const p of [...pts].sort((a, b) => (b.moi ? 1 : 0) - (a.moi ? 1 : 0))) {
     const ly = placer(occ, x(p.dep), y(p.prel));
     if (p.moi) s += `<circle cx="${x(p.dep)}" cy="${y(p.prel)}" r="8" fill="var(--acc)" stroke="var(--card)" stroke-width="2"><title>Vous</title></circle><text x="${x(p.dep) + 10}" y="${ly + 4}" font-size="11" font-weight="700" fill="var(--acc)">Vous</text>`;
-    else s += `<circle cx="${x(p.dep)}" cy="${y(p.prel)}" r="5" fill="${p.c.couleur}"><title>${p.c.nom} : dépenses ${fmt(p.dep)}, prélèvements ${fmt(p.prel)} Md€</title></circle><text x="${x(p.dep) + (x(p.dep) > W - 90 ? -7 : 7)}" y="${ly + 3}" text-anchor="${x(p.dep) > W - 90 ? "end" : "start"}" font-size="10" fill="${p.c.couleur}">${court(p.c)}</text>`;
+    else s += `<circle cx="${x(p.dep)}" cy="${y(p.prel)}" r="5" fill="${esc(p.c.couleur)}"><title>${esc(p.c.nom)} : dépenses ${fmt(p.dep)}, prélèvements ${fmt(p.prel)} Md€</title></circle><text x="${x(p.dep) + (x(p.dep) > W - 90 ? -7 : 7)}" y="${ly + 3}" text-anchor="${x(p.dep) > W - 90 ? "end" : "start"}" font-size="10" fill="${esc(p.c.couleur)}">${court(p.c)}</text>`;
   }
   return s;
 }
@@ -416,11 +429,11 @@ function majResultats() {
   document.getElementById("carte").innerHTML = svgCarte(mouvements(etat));
   document.getElementById("axes").innerHTML = htmlAxes(etat);
   const cl = D.candidats.map(c => ({c, ...accord(c)})).filter(r => r.n).sort((a, b) => b.pct - a.pct);
-  document.getElementById("proches").innerHTML = cl.map(r => `<li><div class="ligne"><span style="color:${r.c.couleur};font-weight:600">${r.c.nom}</span><span class="barre-acc" style="width:${r.pct * 0.6}px"></span>
+  document.getElementById("proches").innerHTML = cl.map(r => `<li><div class="ligne"><span style="color:${esc(r.c.couleur)};font-weight:600">${esc(r.c.nom)}</span><span class="barre-acc" style="width:${r.pct * 0.6}px"></span>
     <span class="petit">${Math.round(r.pct)} % d'accord sur ${r.n} levier${r.n > 1 ? "s" : ""}</span></div></li>`).join("");
   for (const [theme, ls] of Object.entries(parTheme)) {
     const t = ls.reduce((s, l) => s + effet(l, etat[l.id]).central, 0);
-    const span = document.querySelector(`[data-theme="${theme}"]`); if (span) { span.textContent = t ? fmt(t) + " Md€" : ""; span.className = "t " + (t < 0 ? "neg" : t > 0 ? "pos" : ""); }
+    const span = document.querySelector(`[data-i="${themes.indexOf(theme)}"]`); if (span) { span.textContent = t ? fmt(t) + " Md€" : ""; span.className = "t " + (t < 0 ? "neg" : t > 0 ? "pos" : ""); }
   }
   for (const l of D.leviers) if (l.type === "curseur") {
     const v = etat[l.id], e = effet(l, v).central; const s = document.getElementById("v-" + l.id);
@@ -433,7 +446,7 @@ function charger(choix) {
   rendreLeviers(); majResultats();
 }
 const sel = document.getElementById("depart");
-for (const c of D.candidats) sel.insertAdjacentHTML("beforeend", `<option value="${c.id}">${c.nom}</option>`);
+for (const c of D.candidats) sel.insertAdjacentHTML("beforeend", `<option value="${esc(c.id)}">${esc(c.nom)}</option>`);
 sel.onchange = () => { if (sel.value) charger(candidat(sel.value).choix); sel.value = ""; };
 document.getElementById("raz").onclick = () => charger(null);
 document.getElementById("partager").onclick = () => { navigator.clipboard?.writeText(location.href); };
@@ -461,7 +474,7 @@ def main(argv: list[str] | None = None) -> int:
         return 1 if erreurs else 0
     d = donnees()
     SORTIE.parent.mkdir(exist_ok=True)
-    SORTIE.write_text(PAGE.replace("__COMMUN_JS__", COMMUN_JS).replace("__COMMUN_CSS__", COMMUN_CSS).replace("__DONNEES__", json.dumps(d, ensure_ascii=False)).replace("__GENERE__", d["genere"]), encoding="utf-8")
+    SORTIE.write_text(remplir(PAGE, COMMUN_JS=COMMUN_JS, COMMUN_CSS=COMMUN_CSS, DONNEES=json_pour_script(d), GENERE=d["genere"]), encoding="utf-8")
     print(f"-> {SORTIE.relative_to(RACINE)} ({len(d['leviers'])} leviers, {len(d['candidats'])} candidats)")
     return 0
 

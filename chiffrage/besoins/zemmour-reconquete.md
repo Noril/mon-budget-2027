@@ -1,8 +1,6 @@
-# Besoins de barèmes : Éric Zemmour (Reconquête)
+# Barèmes complémentaires : Éric Zemmour (Reconquête)
 
-Coûts unitaires à inscrire dans `chiffrage/baremes.yaml` pour chiffrer `programmes/zemmour-reconquete.yaml` (phase 2).
-Montants en Md€ par an, régime 2032. Entre parenthèses : mesures concernées. Plusieurs barèmes sont communs avec le RN
-(`besoins/le-pen-rn.md`) : même valeur obligatoire.
+Ce fichier recense les coûts unitaires et les paramètres dont le chiffrage du programme (`chiffrage/programmes/zemmour-reconquete.yaml`) avait besoin, et indique lesquels figurent désormais dans les barèmes communs (`chiffrage/baremes.yaml`). **Statut (état au 29 septembre 2026) : toutes les mesures du programme sont chiffrées ou classées non chiffrables ; aucune n'est en attente.** Les listes par domaine sont les recherches menées, avec des pistes de sources (ce ne sont pas des sources citées : chaque paramètre retenu porte sa propre source dans la mesure qui l'utilise) ; l'identifiant entre parenthèses ou après la flèche est celui de la mesure concernée. Un paramètre « non inscrit » est sourcé directement dans la mesure : il pourrait devenir un barème commun. Montants en Md€ courants, régime de croisière 2032, référence : législation au 1er janvier 2027 (`chiffrage/REFERENCE.md`). Entre parenthèses : mesures concernées. Plusieurs barèmes sont communs avec le RN (`besoins/le-pen-rn.md`) : même valeur pour les deux.
 
 ## Référence législative
 
@@ -55,17 +53,16 @@ Montants en Md€ par an, régime 2032. Entre parenthèses : mesures concernées
   (privatisation-audiovisuel-public, subventions-associations-presse-syndicats).
 - Rendement documenté de la lutte contre la fraude sociale (fraude-sociale-delinquants).
 
-## Barèmes à ajouter (phase 2 : paramètres sourcés utilisés faute de barème)
+## Paramètres hors barèmes communs
 
-- `droits_succession_rendement` : 16,995 Md€ (PLF 2026, Sénat) ; 16,1 Md€ (2025, FIPECO).
-- `cfe_rendement`, `impots_production_entreprises`, `is_retour_impots_production` : voir besoins/le-pen-rn.md.
-- `accise_taux_carburants` : 59,40 c€/l gazole, 68,29 c€/l SP95-E5 (2026, FIPECO) ; volumes 34,7 et 14,8 Gl (SDES 2024).
-- `fp_suppression_800000_postes` : 30 à 40 Md€ par an (François Ecalle, cité par franceinfo, septembre 2026).
-- `preference_nationale_prestations` : IFRAP 6 à 7 Md€ ; RSA 15,6 % des foyers hors UE (2022) ; APL 2,4 Md€ ;
-  prestations familiales 1,6 Md€.
-- Crédits PLF 2026 (Sénat) : programme 147 0,652 ; DPT Ville 20,0 ; Anah 1,5 ; subvention Ademe 1,06 CP ; France
-  Travail 1,16 ; ARS 0,627 ; CESE 0,034 ; Arcom 0,051 ; mission APD 3,67 ; audiovisuel public 3,878 ; presse 0,178 ;
-  aide juridictionnelle 0,714 ; programme 177 3,071 ; AGFPN (État) 0,035.
-- Étudiants étrangers : 108 100 relevant des droits différenciés, exonérations plafonnées à 30 % (2026-2027).
-- Manquants : part des cotisants épargnés par la retraite par capitalisation ; volume des éloignements visés par la
-  « remigration » ; retour d'IR de la suppression de la CSG déductible.
+| Paramètre | Valeur utilisée | Statut dans `baremes.yaml` |
+|---|---|---|
+| `droits_succession_rendement` | 16,995 Md€ (PLF 2026, Sénat) ; 16,1 Md€ (2025, FIPECO) | **Inscrit en partie** : `dmtg_rendement` (successions ≈ 17,0 Md€ dans la dérivation ; 21,4 Md€ avec les donations) ; non inscrit pour les 16,1 Md€ de 2025 |
+| `cfe_rendement`, `impots_production_entreprises`, `is_retour_impots_production` | Voir `besoins/le-pen-rn.md` | Non inscrit |
+| `accise_taux_carburants` | 59,40 c€/l pour le gazole et 68,29 c€/l pour le SP95-E5 (2026, FIPECO) ; volumes de 34,7 et 14,8 milliards de litres (SDES 2024) | **Inscrit en partie** : ces taux et volumes figurent dans la dérivation de `ticpe_centime_litre` (0,48 Md€ par centime hors TVA, 0,54 avec la TVA induite) |
+| `fp_suppression_800000_postes` | 30 à 40 Md€ par an (François Ecalle, cité par franceinfo, septembre 2026) | Non inscrit |
+| `preference_nationale_prestations` | IFRAP : 6 à 7 Md€ ; RSA : 15,6 % des foyers hors UE (2022) ; APL : 2,4 Md€ ; prestations familiales : 1,6 Md€ | Non inscrit |
+| Crédits du PLF 2026 (Sénat) | Programme 147 : 0,652 ; DPT Ville : 20,0 ; Anah : 1,5 ; subvention Ademe : 1,06 (CP) ; France Travail : 1,16 ; ARS : 0,627 ; CESE : 0,034 ; Arcom : 0,051 ; mission APD : 3,67 ; audiovisuel public : 3,878 ; presse : 0,178 ; aide juridictionnelle : 0,714 ; programme 177 : 3,071 ; AGFPN (État) : 0,035, en Md€ | **Inscrit en partie** : la mission APD (3,67 Md€) est citée dans les limites de `apd_part_rnb` ; non inscrit pour les autres |
+| Étudiants étrangers | 108 100 relevant des droits différenciés, exonérations plafonnées à 30 % (2026-2027) | Non inscrit (`droits_inscription_superieur` : 0,58 Md€ de droits d'inscription et de CVEC, sans le nombre d'étudiants étrangers) |
+
+Mesures laissées non chiffrables faute de données : part des cotisants épargnés par la retraite par capitalisation ; volume des éloignements visés par la « remigration » ; retour d'impôt sur le revenu de la suppression de la CSG déductible.

@@ -81,7 +81,8 @@ Elles s'appliquent à tous les programmes ; le détail et les sources sont dans 
       dans la borne défavorable d'une baisse, 0,185 dans celle d'une hausse) ; aucun sur la CSG non déductible ni sur
       la CSG du capital.
     - Cotisation vieillesse de type non précisé : central du barème, sans retour.
-    - APD : départ à `apd_part_rnb` sur `rnb_nominal_2032`, borne défavorable depuis 0,38 %.
+    - APD : départ à `apd_part_rnb` sur `rnb_nominal_2032`, borne défavorable depuis 0,38 % (prévision 2026 citée par
+      la presse spécialisée, source secondaire non inscrite dans `baremes.yaml`), borne favorable depuis 0,48 % (2024).
     - Retraites (âge) : les bornes n'incluent pas le coût toutes administrations.
     - Smic au-delà de 10 % : le produit linéaire est la borne favorable.
 13. **Allègements généraux supprimés au-dessus d'un seuil.** Part du coût de la réduction générale dégressive unique
