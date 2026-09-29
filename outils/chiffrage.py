@@ -269,7 +269,7 @@ def _svg_soldes(agregats: list[dict]) -> str:
     parts = [f'<svg viewBox="0 0 {L} {H}" role="img" aria-label="Solde net par programme">']
     for v in range(vmin, vmax + 1, 50):
         parts.append(f'<line x1="{x(v):.1f}" x2="{x(v):.1f}" y1="{h - 8}" y2="{H - 6}" class="grille"/>'
-                     f'<text x="{x(v):.1f}" y="{h - 12}" text-anchor="middle" class="axe">{v:+d}</text>')
+                     f'<text x="{x(v):.1f}" y="{h - 12}" text-anchor="middle" class="axe">{v if v == 0 else f'{v:+d}'}</text>')
     parts.append(f'<line x1="{x(0):.1f}" x2="{x(0):.1f}" y1="{h - 8}" y2="{H - 6}" stroke="var(--fg)" stroke-width="1"/>')
     for i, a in enumerate(rangs):
         y = h + pas * i + pas / 2
@@ -287,16 +287,14 @@ def _svg_soldes(agregats: list[dict]) -> str:
 def rapport_html(agregats: list[dict], traj: dict) -> str:
     e = html.escape
     lignes = []
-    for a in agregats:
+    for a in sorted(agregats, key=lambda a: a["croisiere"]["central"], reverse=True):
         dg = traj["gel"]["programmes"][a["id"]]
-        ann = (a.get("annonce") or {}).get("texte", "—")
         lignes.append(
             f"<tr><td><a href='#{a['id']}'>{e(a['candidat'])}</a><br><small>{e(a['parti'])}</small></td>"
             f"<td>{a['nb_chiffrees']} / {a['nb_mesures']}<br><small>{a['nb_verifiees']} vérifiées</small></td>"
             f"<td class='n neg'>{_md(a['couts'])}</td><td class='n pos'>{_md(a['gains'])}</td>"
             f"<td class='n'><b>{_md(a['croisiere']['central'])}</b><br><small>[{_md(a['croisiere']['bas'])} ; {_md(a['croisiere']['haut'])}]</small></td>"
-            f"<td class='n'><b>{_md(dg['central'][-1]['dette'], False)}</b><br><small>[{_md(dg['bas'][-1]['dette'], False)} ; {_md(dg['haut'][-1]['dette'], False)}]</small></td>"
-            f"<td><small>{e(ann)}</small></td></tr>"
+            f"<td class='n'><b>{_md(dg['central'][-1]['dette'], False)}</b><br><small>[{_md(dg['bas'][-1]['dette'], False)} ; {_md(dg['haut'][-1]['dette'], False)}]</small></td></tr>"
         )
     sections = []
     for a in agregats:
@@ -313,6 +311,7 @@ def rapport_html(agregats: list[dict], traj: dict) -> str:
                 rows.append(f"<tr class='nc'><td>{lien}</td><td>{e(m['domaine'])}</td><td colspan='5'><small>Non chiffrable : {e(m['raison'] or '')}</small></td></tr>")
         sections.append(
             f"<section id='{a['id']}'><h2>{e(a['candidat'])} <small>{e(a['parti'])}</small></h2>"
+            f"<p class='m'><b>Ce que dit le candidat.</b> {e((a.get('annonce') or {}).get('texte', 'Aucun chiffrage global publié.'))}</p>"
             "<div class='scroll'><table><thead><tr><th>Mesure</th><th>Domaine</th><th>Effet central</th><th>Fourchette</th>"
             "<th>Confiance</th><th>Chiffrages tiers</th><th>Vérif.</th></tr></thead><tbody>"
             + "".join(rows) + "</tbody></table></div></section>"
@@ -337,14 +336,14 @@ croisière (2032) ; négatif = coût pour les finances publiques. Chaque mesure 
 une formule rejouable à partir de barèmes publics, et confrontée aux chiffrages tiers quand ils existent. Aucun effet de
 second tour (croissance, emploi, taux) n'est compté. Trajectoires : modèle du dépôt (plan/trajectoire.py), hypothèses
 macroéconomiques du FMI, solde primaire de référence gelé au dernier niveau observé ({traj['gel']['depart']}).</p>
-<div class="scroll"><table><thead><tr><th>Programme</th><th>Mesures chiffrées</th><th>Coûts</th><th>Économies, recettes</th>
-<th>Solde net / an</th><th>Dette 2032, % PIB (réf. {_md(traj['gel']['reference'][-1]['dette'], False)})</th><th>Annonce du candidat</th></tr></thead>
-<tbody>{''.join(lignes)}</tbody></table></div>
 <h2>Solde net par an en 2032 (Md€, point central et fourchette)</h2>{_svg_soldes(agregats)}
 <p class="m">À lire avant de comparer : les programmes ne sont pas publiés au même degré de détail. La colonne « Mesures
 chiffrées » dit combien de mesures ont un effet budgétaire estimable ; une enveloppe d'économies globale sans mesure
 identifiée compte zéro au central et n'apparaît que dans le haut de la fourchette. Les programmes évoluent jusqu'au
 dépôt des candidatures : chaque fiche porte sa date de collecte.</p>
+<div class="scroll"><table><thead><tr><th>Programme</th><th>Mesures chiffrées</th><th>Coûts</th><th>Économies, recettes</th>
+<th>Solde net / an</th><th>Dette 2032, % PIB (réf. {_md(traj['gel']['reference'][-1]['dette'], False)})</th></tr></thead>
+<tbody>{''.join(lignes)}</tbody></table></div>
 <h2>Dette publique projetée, scénario central (% du PIB)</h2>{_svg_dette(traj['gel'], agregats)}
 {''.join(sections)}
 </main></body></html>"""
