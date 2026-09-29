@@ -1,7 +1,7 @@
 # Le compte de la France
 
-Brique financière du plan stratégique chiffré : d'où part la France (solde, dette, intérêts), où la mène la
-politique actuelle d'ici 2032, et ce que change chaque proposition du programme.
+Brique financière du chiffrage : d'où part la France (solde, dette, intérêts), où la mène la politique actuelle
+d'ici 2032, et ce que change chaque programme de candidat (`chiffrage/`).
 
 ```bash
 uv run python -m pipelines.ingest insee-comptes-apu insee-pib eurostat-gov-10dd-edpt1 eurostat-gov-10a-main fmi-weo
@@ -40,7 +40,7 @@ solde(t)           = solde_primaire(t) − charge_interets(t)
 
 - **Aucun effet en retour des réformes sur la croissance, l'inflation ou les taux.** Une mesure qui coûte
   10 Md€ dégrade le solde de 10 Md€, point. Les effets de second tour (multiplicateurs, recettes induites,
-  prime de risque) ne sont pas modélisés : s'ils sont invoqués dans une fiche, ils doivent y être sourcés et
+  prime de risque) ne sont pas modélisés : s'ils sont invoqués par un candidat, ils sont décrits et
   inscrits comme une ligne distincte du scénario, jamais noyés dans le coût.
 - **Pas de modèle macroéconomique.** Croissance et inflation sont exogènes (FMI) ; le taux apparent ne réagit ni
   à la dette ni aux taux de marché ; il n'y a pas de structure de la dette par maturité.
@@ -69,26 +69,8 @@ solde(t)           = solde_primaire(t) − charge_interets(t)
 Toutes les tables `finances.*` sauf le PIB ont une maille `pays` (codes Eurostat, dont `EU27_2020`) pour la
 comparaison européenne : `{{ind:finances.dette_publique@1.0.0 | pays=DE | 2025}}`.
 
-## Inscrire le coût d'une proposition
+## Programmes des candidats
 
-1. La fiche proposition (`domaines/<domaine>/propositions/<id>.md`) chiffre son coût, sourcé, dans son corps et
-   renseigne l'en-tête `cout` avec le chemin du scénario qui le porte.
-2. Le coût est inscrit comme une mesure d'un fichier `plan/scenarios/<id>.yaml` :
-
-   ```yaml
-   id: programme
-   libelle: Enveloppe des propositions adoptées
-   mesures:
-     - id: <id de la proposition>
-       fiche: domaines/<domaine>/propositions/<id>.md
-       effet_solde_primaire:
-         unite: md_eur          # ou pts_pib
-         valeurs: {2027: -2.0, 2028: -4.0}
-   ```
-
-   Signe : effet sur le solde primaire ; négatif = coût (dépense nouvelle ou recette perdue), positif = économie
-   ou recette nouvelle. Les milliards d'euros courants sont convertis en points avec le PIB nominal de la
-   trajectoire de référence de la même année.
-3. `uv run python -m plan.trajectoire --scenario plan/scenarios/<id>.yaml` affiche l'écart à la référence (solde
-   primaire, solde, dette) et écrit la trajectoire du scénario. Les intérêts sur la dette supplémentaire sont
-   comptés automatiquement ; rien d'autre ne l'est.
+`outils/chiffrage.py` convertit les effets annuels de chaque programme (`chiffrage/programmes/*.yaml`) en points de
+PIB et appelle `projeter` pour chacun, contre la référence gelée et la variante FMI (voir `chiffrage/README.md`).
+Le format `--scenario` (`plan/scenarios/exemple.yaml`) reste disponible pour tester un jeu d'effets à la main.
