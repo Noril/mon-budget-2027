@@ -2675,9 +2675,9 @@ mesures:
     chiffrable: true
     nature: economie
     effet_solde_primaire:
-      central: 0.85
+      central: 0.88
       bas: 0.0
-      haut: 0.85
+      haut: 0.88
       montee_en_charge:
         '2027': 0
         '2028': 0.2
@@ -2699,14 +2699,14 @@ mesures:
           unite: € par ETPT et par an
           note: coût budgétaire complet (CAS Pensions compris), sert seulement à convertir l'annonce en postes (≈ 35 000)
         cout_apu:
-          valeur: 24100
+          valeur: 24850
           bareme: cout_enseignant_apu
           unite: € par ETP et par an
       explication: >-
         Règle 6 (économie ciblée sur un périmètre nommé) : bas = 0 (les postes ne sont pas supprimés) ; haut = central.
         Convention commune 1 (postes supprimés) : l'annonce (3 Md€ budgétaires, coût chargé) est convertie en postes
         (3 Md€ / 85 000 € ≈ 35 300) puis valorisée au coût d'un entrant pour le solde des APU (cout_enseignant_apu,
-        24 100 €) : les cotisations employeurs vont à d'autres APU.
+        24 850 €) : les cotisations employeurs vont à d'autres APU.
         Montant du candidat (baisse de 1,7 million d'élèves en dix ans à taux d'encadrement constant) ; par rapport au
         référentiel (droit voté, effectifs non réduits automatiquement), c'est une économie. Pas de double compte avec
         les départs non remplacés (Éducation nationale exclue du livret IA).
@@ -2722,6 +2722,8 @@ mesures:
         remplacés.
         Recalé sur les conventions communes du 29/09 : annonce convertie en postes au coût chargé puis valorisée au coût
         d'un entrant pour le solde des APU (cout_enseignant_apu, convention 1) ; central et haut 3,0 → 0,85 Md€.
+        Recalé sur les barèmes sourcés du 29/09 : cout_enseignant_apu 24 100 → 24 850 € (entrant titulaire, rémunération
+        d'activité des PAP 2026) ; central et haut 0,85 → 0,88 Md€.
 
   # --- Défense, justice -----------------------------------------------------------------------------
   - id: lpm-rallonge-50md

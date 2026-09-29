@@ -455,9 +455,9 @@ mesures:
   chiffrable: true
   nature: recette
   effet_solde_primaire:
-    central: 10.08
-    bas: 7.56
-    haut: 11.05
+    central: 11.36
+    bas: 7.37
+    haut: 11.63
     montee_en_charge:
       '2027': 0
       '2028': 1
@@ -466,7 +466,7 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: 3 * csg_capital * facteur + 3 * ttf_dixieme + 3 * pfu_point * facteur
+    formule: 3 * csg_capital * facteur + 3 * (ttf - ttf_03) * facteur + 3 * pfu_point * facteur
     parametres:
       csg_capital:
         valeur: 1.91
@@ -479,11 +479,17 @@ mesures:
         valeur: 1.2106
         unite: facteur
         bareme: facteur_pib_2025_2032
-      ttf_dixieme:
-        valeur: 0.3
-        unite: Md€ par dixième de point
-        source: >-
-          chiffrage/baremes.yaml, dérivation du barème ttf_rendement (passage de 0,3 % à 0,4 % : 2,5 − 2,2 Md€)
+      ttf:
+        valeur: 2.5
+        unite: Md€/an (rendement de la TTF à 0,4 %)
+        bareme: ttf_rendement
+      ttf_03:
+        valeur: 1.9
+        unite: Md€/an (produit 2024 au taux de 0,3 %)
+        bareme: ttf_rendement
+        note: >-
+          bas du barème ; 2,5 − 1,9 = 0,6 Md€, rendement marginal observé du dernier dixième (0,3 → 0,4 % en 2025), même
+          lecture que la TTF de LFI (méthode commune)
       pfu_point:
         valeur: 0.6172
         unite: Md€ par point de la part IR du PFU (2025)
@@ -493,10 +499,12 @@ mesures:
           (Md€, 2024 et 2025) ; 7,9 / 12,8 points = 0,617 Md€ par point, rendement statique.
     explication: >-
       CSG sur les revenus du capital +3 points (1,91 Md€ par point en 2025, projeté en 2032), TTF de 0,4 % à 0,7 % (3
-      dixièmes à 0,3 Md€, haut 2,5/4 = 0,625 Md€) et part IR du PFU de 12,8 % à 15,8 % (3 × 0,617 Md€, projeté) : 6,94
-      + 0,9 + 2,24 = 10,08. Bas : rendements 2025 non projetés et moitié de la recette de PFU perdue par la baisse des
-      distributions (convention, la réforme de 2018 ayant fortement accru les dividendes selon France Stratégie, barème
-      pfu_passage_bareme) : 5,73 + 0,9 + 0,93 = 7,56. Haut : TTF à 0,625 Md€ par dixième, 8,81 + 2,24 = 11,05.
+      dixièmes au rendement marginal observé du dernier relèvement, 2,5 − 1,9 = 0,6 Md€ par dixième selon le barème
+      ttf_rendement, projeté : 2,18, même méthode que la TTF de LFI) et part IR du PFU de 12,8 % à 15,8 % (3 × 0,617
+      Md€, projeté) : 6,94 + 2,18 + 2,24 = 11,36. Bas : rendements 2025 non projetés, TTF au bas du barème (1,9 Md€, soit 3 × 1,9 / 4 × 0,5 = 0,71) et moitié
+      de la recette de PFU perdue par la baisse des distributions (convention, la réforme de 2018 ayant fortement accru
+      les dividendes selon France Stratégie, barème pfu_passage_bareme) : 5,73 + 0,71 + 0,93 = 7,37. Haut : TTF statique
+      au haut du barème (2,7 Md€ en année pleine à 0,4 %, 3 × 2,7 / 4 × 1,2106 = 2,45) : 6,94 + 2,45 + 2,24 = 11,63.
   effets_retour: Baisse des distributions de dividendes et des transactions (non comptée au-delà de la borne TTF).
   confiance: moyenne
   verification:
@@ -516,6 +524,13 @@ mesures:
       pas. Paramètres relus : CSG capital 1,91 Md€ par point (CCSS mai 2026) ; TTF 0,3 Md€ par dixième. La
       LFSS 2026 (CSG capital à 10,6 %) ne change pas le rendement du point additionnel. Valeurs inchangées.
       Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2025_2032 ; valeur inchangée.
+      Recalé sur les barèmes sourcés du 29/09 : rendement TTF recopié (0,3 Md€ par dixième, « 2,5 − 2,2 ») relié au
+      barème ttf_rendement (2,5 ; 1,9 à 2,7) avec une réaction des volumes de moitié au central et au bas ; central
+      10,08 → 10,12 ; bas 7,56 → 7,37 ; haut 11,05 → 11,2. Le rendement du point de PFU (Cour des comptes) ne dépend
+      pas du barème pfu_passage_bareme (inchangé). Harmonisation avec la TTF de LFI (même barème, même méthode) : rendement
+      marginal observé 2,5 − 1,9 = 0,6 Md€ par dixième, projeté en 2032, au central (au lieu de la moitié du rendement
+      statique non projetée) ; bas inchangé (moitié du statique sur le bas du barème) ; haut statique projeté. Central
+      10,12 → 11,36 ; haut 11,2 → 11,63.
 - id: impot-revenu-reforme
   libelle: >-
     Baisse de l'IR sur les premières tranches, tranche à 60 % au-delà de 250 000 €, plafonnement global des niches par
@@ -575,9 +590,9 @@ mesures:
   chiffrable: true
   nature: recette
   effet_solde_primaire:
-    central: 19.11
-    bas: 11.79
-    haut: 19.55
+    central: 18.24
+    bas: 11.3
+    haut: 18.68
     montee_en_charge:
       '2027': 0
       '2028': 1
@@ -597,21 +612,22 @@ mesures:
         unite: facteur
         bareme: facteur_pib_2025_2032
       retour_ir:
-        valeur: 0.12
+        valeur: 0.16
         unite: part du rendement du point de CSG perdue en impôt sur le revenu
-        source: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS%20mai%202026_assembl%c3%a9_V2.pdf
+        bareme: retour_ir_csg_deductible
         note: >-
-          convention commune n° 5 (REFERENCE.md ; limites du barème csg_point) : un point de CSG déductible modifie le revenu
-          imposable et l'IR de 10 à 15 % de son rendement, en sens inverse ; point médian 0,12
+          ratio de 2018 (3,9 Md€ d'IR pour 22,5 Md€ de CSG déductible, tous revenus), ajusté pour le barème d'IR de 2020 :
+          0,16 (0,14 à 0,185) ; une hausse de CSG déductible réduit l'IR d'autant
     explication: >-
       Un point de CSG toutes assiettes (17,94 Md€ en 2025, barème csg_point) projeté en 2032, net de la baisse d'IR induite
-      par la part déductible (convention commune n° 5 : 10 à 15 %, 12 % au centre). Bas : point sur les seuls revenus d'activité
-      (barème csg_point_activite, 11,71 Md€ en 2026 × facteur_pib_2026_2032), si la progressivité exonère de fait les petits
-      revenus de remplacement, retour de 15 %. Haut : toutes assiettes, retour de 10 %.
+      par la part déductible (barème retour_ir_csg_deductible : 16 %, 14 à 18,5 %) : 17,94 × 1,2106 × 0,84 = 18,24. Bas :
+      point sur les seuls revenus d'activité (barème csg_point_activite, 11,71 Md€ en 2026 × facteur_pib_2026_2032), si la
+      progressivité exonère de fait les petits revenus de remplacement, retour de 18,5 % : 11,30. Haut : toutes assiettes,
+      retour de 14 % : 18,68.
   effets_retour: 'Baisse du revenu disponible, effet sur la consommation : non compté.'
   confiance: moyenne
   verification:
-    statut: ok
+    statut: corrige
     par: passe-sources
     date: "2026-09-29"
     commentaire: >-
@@ -627,7 +643,10 @@ mesures:
       donc 3,9 Md€ par point est un majorant ; le bas (activité seule, 14,56) couvre ces deux réserves.
       Progressivité supposée neutre en moyenne. Recalé sur les conventions communes du 29/09 : retour d'IR de
       la CSG déductible retranché (12 %, fourchette 10-15 %), bas sur le point d'activité 2026 (11,71) projeté
-      par facteur_pib_2026_2032 ; 21,72 → 19,11 (bas 14,56 → 11,79 ; haut 21,72 → 19,55).
+      par facteur_pib_2026_2032 ; 21,72 → 19,11 (bas 14,56 → 11,79 ; haut 21,72 → 19,55). Recalé sur les barèmes
+      sourcés du 29/09 : retour d'IR 0,12 (0,10-0,15) remplacé par le barème retour_ir_csg_deductible 0,16
+      (0,14-0,185 ; hausse = recette, borne défavorable à 0,185) ; central 19,11 → 18,24 ; bas 11,79 → 11,3 ;
+      haut 19,55 → 18,68.
 - id: exonerations-cotisations-rationalisation
   libelle: >-
     Suppression des allègements de cotisations au-delà de 1,6 SMIC et sur les heures supplémentaires, montants nominalisés
@@ -651,9 +670,9 @@ mesures:
   chiffrable: true
   nature: recette
   effet_solde_primaire:
-    central: 16.53
-    bas: 8.73
-    haut: 18.21
+    central: 19.51
+    bas: 15.81
+    haut: 19.9
     montee_en_charge:
       '2027': 0
       '2028': 1
@@ -662,7 +681,7 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: (hs_salariale + hs_patronale + au_dela_1_6_smic * part_rgdu) * facteur26
+    formule: (hs_salariale + hs_patronale) * facteur26 + part_au_dela_1_6_smic * allegements * f25
     parametres:
       hs_salariale:
         valeur: 2.306
@@ -679,30 +698,47 @@ mesures:
         unite: facteur
         bareme: facteur_pib_2026_2032
         note: PIB nominal 2026→2032
-      au_dela_1_6_smic:
-        valeur: 12.2
-        unite: Md€/an (barème 2024)
-        source: https://www.strategie-plan.gouv.fr/files/files/Publications/Rapport/rapport_vffff_241003.pdf
+      part_au_dela_1_6_smic:
+        valeur: 0.172
+        unite: part du coût des allègements généraux (RGDU 2026) portée par les salaires supérieurs à 1,6 Smic
+        source: https://www.strategie-plan.gouv.fr/files/files/Publications/2024/SMIC/FS-2025-SMIC-RAPPORT-2024-12f%C3%A9v25.pdf
         note: >-
-          Rapport Bozio-Wasmer (octobre 2024), p. 203 : supprimer les bandeaux maladie et famille « en prolongeant la
-          courbe de la réduction générale jusqu'à une extinction complète des exonérations à 1,88 Smic […] génère ex ante
-          une économie budgétaire de 12,2 Md€ ». Proxy le plus proche de la promesse (extinction à 1,6 Smic, donc un peu
-          plus de gain).
-      part_rgdu:
-        valeur: 0.8837
-        unite: ratio
-        source: >-
-          https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2026/PLFSS2026-Annexe4-20251014-183718-59-11_avec%20couverture.pdf
-        note: >-
-          PLFSS 2026, annexe 4, tableau 13 : « ALLÈGEMENTS GÉNÉRAUX ET MESURES DE MODULATION DES TAUX 64 928 62 184 -4,2%
-          54 954 -11,6% » (M€, 2024, 2025, 2026) ; 54 954 / 62 184 = 0,884, baisse du coût des allègements par la RGDU
-          appliquée proportionnellement à la zone au-delà de 1,6 Smic (convention).
+          Groupe d'experts sur le Smic, rapport 2024, p. 80, graphique I.27 (DSS, données Urssaf, 2023) : coût des
+          allègements par tranche de 0,1 Smic (réduction générale, taux réduit maladie de 6 points jusqu'à 2,5 Smic,
+          taux réduit famille de 1,8 point jusqu'à 3,5 Smic ; par exemple 1,8 et 0,5 Md€ pour [1,6-1,7[, 0,8 et 0,2
+          Md€ pour [2,4-2,5[). La masse salariale de chaque tranche s'en déduit (taux réduit maladie / 0,06, ou famille
+          / 0,018 au-delà de 2,5 Smic) ; on lui applique le barème de la réduction générale dégressive unique de 2026
+          (coefficient = 0,02 + 0,3821 × [(1/2) × (3 Smic / rémunération − 1)]^1,75 jusqu'à 3 Smic, service-public.fr,
+          fiche F24542). Coût RGDU reconstitué : 73,3 Md€ sur les masses de 2023, dont 12,6 au-dessus de 1,6 Smic (part
+          0,172) et 4,5 au-dessus de 2 Smic (part 0,061). Recoupement : 1,2 Md€ au-dessus de 2,5 Smic, contre « 1
+          milliard d'euros pour une sortie du dispositif à 2,5 Smic » (Cour des comptes, RALFSS mai 2025, repris par le
+          Sénat, rapport n° 901)
+      allegements:
+        valeur: 75.6
+        unite: Md€/an (2025)
+        bareme: allegements_generaux_cout
+      f25:
+        valeur: 1.2106
+        unite: facteur PIB nominal 2025→2032
+        bareme: facteur_pib_2025_2032
     explication: >-
       Suppression des exonérations de cotisations sur les heures supplémentaires (salariale et patronale, pas l'IR) et
-      des allègements au-delà de 1,6 Smic : économie Bozio-Wasmer (12,2 Md€, barème 2024) ramenée au coût 2026 des
-      allègements (RGDU, × 0,884), projetée en 2032 : (2,306 + 0,872 + 10,78) × 1,1842 = 16,53. Bas : toute la baisse
-      2025-2026 (7,23 Md€) imputée à la zone au-delà de 1,6 Smic et non projetée : 3,76 + 4,97 = 8,73. Haut : 12,2 Md€
-      sans réduction RGDU, projeté : 18,21. Déductibilité des cotisations de l'IS non retranchée.
+      des allègements généraux sur les salaires supérieurs à 1,6 Smic. Méthode commune aux promesses de suppression
+      des allègements au-dessus d'un seuil (même méthode pour LFI au-dessus de 2 Smic) : part du coût de la RGDU de
+      2026 portée par les salaires au-dessus du seuil (0,172, reconstituée sur la distribution des allègements par
+      tranche de Smic publiée par le Groupe d'experts sur le Smic), appliquée au coût des allègements généraux
+      (barème allegements_generaux_cout, 75,6 Md€ en 2025, stable en 2026 après le gel du Smic de référence) et
+      projetée en 2032 : (2,306 + 0,872) × 1,1842 + 0,172 × 75,6 × 1,2106 = 3,76 + 15,74 = 19,51. Lecture littérale
+      (exonérations nulles au-dessus de 1,6 Smic, barème inchangé en dessous). Bas : coût bas des allègements (72,3)
+      et moindre IS sur les allègements supprimés (retour de 20 % : 0,4 Md€ d'IS pour 2 Md€ d'allègements en moins
+      en 2025, Sénat, rapport n° 901), 3,76 + 0,172 × 72,3 × 1,2106 × 0,8 = 15,81. Haut : coût haut des allègements
+      (77,5) : 19,90. Le rapport Bozio-Wasmer (12,2 Md€, p. 203) n'est plus utilisé : il chiffre, sur le barème de
+      2024, la suppression des bandeaux maladie et famille avec extension de la réduction générale jusqu'à 1,88 Smic,
+      soit une réforme qui touche aussi les salaires inférieurs au seuil et un barème qui n'existe plus. Lecture non
+      retenue : un barème lissé qui s'éteindrait à 1,6 Smic (comme la réduction générale d'avant 2024) rapporterait
+      ≈ 35 Md€ sur les masses de 2023, mais réduirait aussi les exonérations sous 1,6 Smic, contraire à la promesse.
+      La hausse du Smic promise par ailleurs (2 000 € brut) relève le seuil en euros et réduit un peu l'assiette : non
+      déduit.
   effets_retour: >-
     Effet emploi faible au-delà de 1,6 Smic selon Bozio-Wasmer ; hausse du coût du travail, possible baisse d'IS : non
     comptés.
@@ -722,6 +758,12 @@ mesures:
       est ancien et antérieur à la RGDU de 2026 : incertitude à ce niveau, portée par la fourchette.
       Désindexation et conditionnalité non comptées (prudent).
       Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2026_2032 ; valeur inchangée.
+      Recalé sur les barèmes sourcés du 29/09 : méthode commune aux suppressions d'allègements au-dessus d'un seuil
+      (Tondelier 1,6 Smic, LFI 2 Smic). Le proxy Bozio-Wasmer (12,2 Md€, barème 2024, suppression des bandeaux et
+      extension de la réduction générale à 1,88 Smic, relu p. 203) est remplacé par la part du coût de la RGDU de
+      2026 portée par les salaires au-dessus de 1,6 Smic (0,172, graphique I.27 du Groupe d'experts Smic et barème
+      RGDU de service-public.fr), appliquée au barème allegements_generaux_cout projeté ; moindre IS (20 %) dans le
+      bas. Central 16,53 → 19,51, bas 8,73 → 15,81, haut 18,21 → 19,90.
 - id: tva-verte
   libelle: >-
     TVA différenciée selon l'impact environnemental et sanitaire (baisse sur première nécessité, bio, réparation, transports
@@ -1124,9 +1166,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -2.09
-    bas: -7.43
-    haut: -1.62
+    central: -6.08
+    bas: -11.49
+    haut: -2.09
     montee_en_charge:
       '2027': 0.5
       '2028': 1
@@ -1154,7 +1196,7 @@ mesures:
           plan/hypotheses.yaml, déflateur du PIB 2027 (FMI WEO) https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
         note: revalorisation légale supposée du Smic au 1er janvier 2027
       cout_1pct:
-        valeur: 0.31
+        valeur: 0.9
         unite: Md€/an de moindre solde par point de % de hausse du Smic
         bareme: smic_1pct_cout_apu
       facteur:
@@ -1162,12 +1204,18 @@ mesures:
         unite: facteur
         bareme: facteur_pib_2025_2032
     explication: >-
-      Hausse de 5,6 % par rapport au Smic revalorisé de l'inflation en 2027, × coût APU d'un point de Smic (allègements,
-      masse salariale publique, prestations, nets des recettes induites ; DG Trésor), projeté en 2032.
+      Hausse de 5,6 % par rapport au Smic revalorisé de l'inflation en 2027, × coût APU d'un point de Smic (barème
+      smic_1pct_cout_apu, 0,9 Md€ : allègements au barème RGDU, masse salariale publique, prestations, nets des recettes
+      induites), projeté en 2032 : 5,58 × 0,9 × 1,2106 = 6,08. Bas : sensibilité haute (1,7, effet barème RGDU entier) :
+      11,49. Haut : sensibilité basse (0,31, DG Trésor 2017 avant la RGDU) : 2,09. Hausse inférieure à 10 % : pas de
+      majoration (convention 7). Masse salariale publique : le relèvement du minimum de traitement au-delà de l'inflation
+      n'est pas couvert par l'indexation du point (point-indice-fonctionnaires) : pas de double compte ; les +10 % des
+      catégories B et C peuvent en absorber une partie (recouvrement ≤ 0,25 Md€ par point de Smic,
+      soit ≤ 1,7 Md€ en 2032, non retranché).
   effets_retour: 'Effet sur l''emploi peu qualifié (négatif) et sur la consommation (positif) : non comptés.'
   confiance: moyenne
   verification:
-    statut: ok
+    statut: corrige
     par: verificateur-sonnet
     date: "2026-09-29"
     commentaire: >-
@@ -1177,6 +1225,8 @@ mesures:
       est lue comme un relèvement de niveau ensuite indexé (écart constant), ce qui est écrit dans
       l'interprétation. Baisse du taux réduit d'IS et de la taxe sur les salaires non comptée.
       Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2025_2032 ; valeur inchangée.
+      Recalé sur les barèmes sourcés du 29/09 : smic_1pct_cout_apu 0,31 → 0,9 Md€ par point (bornes 0,31-1,7) ;
+      central −2,09 → −6,08 ; bas −7,43 → −11,49 ; haut −1,62 → −2,09.
 - id: point-indice-fonctionnaires
   libelle: >-
     Point d'indice indexé sur l'inflation, +10 % pour les catégories C, B et A ayant perdu du pouvoir d'achat
@@ -1202,14 +1252,14 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -33.22
-    bas: -37.77
-    haut: -27.4
+    central: -23.91
+    bas: -27.5
+    haut: -19.73
     montee_en_charge:
       '2027': 0.081
       '2028': 0.257
       '2029': 0.442
-      '2030': 0.629
+      '2030': 0.63
       '2031': 0.813
       '2032': 1.0
   calcul:
@@ -1220,11 +1270,11 @@ mesures:
         unite: '%'
         source: https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
       point_1pct_2032:
-        valeur: 2.59
+        valeur: 1.86
         unite: Md€ courants 2032 par an pour 1 % de hausse, brut hors cotisations employeurs
         bareme: point_indice_1pct_2032
       indexation:
-        valeur: 28.6
+        valeur: 20.6
         unite: Md€ courants 2032 par an, rémunérations brutes hors cotisations employeurs
         bareme: indexation_point_indice_2027_2032
       retours:
@@ -1240,17 +1290,17 @@ mesures:
           % d'agents de catégorie B et de 39 % d'agents de catégorie C » (part d'effectifs, majorant de la part de masse
           salariale)
     explication: 'Convention commune (REFERENCE.md, point 2), sans projection par le PIB (point gelé à droit constant),
-      montants bruts hors cotisations employeurs : (1) +10 % pour les catégories B et C (61 % des agents) : 10 × 2,59 Md€
-      (point_indice_1pct_2032) × 0,61 = 15,8 Md€ ; (2) indexation du point sur l''inflation 2027-2032 (barème
-      indexation_point_indice_2027_2032) : 28,6 Md€ ; (3) effet croisé (la hausse de 10 % s''applique à une masse indexée)
-      : 0,10 × 0,61 × 28,6 = 1,7 Md€. Total brut 46,1 Md€, net des prélèvements en retour (× 0,72) : 33,2 Md€. Bas : haut
-      des barèmes (2,68 ; 30,8, indexation sur les prix à la consommation), retour 0,25 et pensions induites (≈ 1 Md€) :
-      −(49,0 × 0,75 + 1,0) = −37,8. Haut : bas des barèmes (2,5 ; 23,6), retour 0,32 : −40,3 × 0,68 = −27,4. Montée en
+      montants bruts hors cotisations employeurs : (1) +10 % pour les catégories B et C (61 % des agents) : 10 × 1,86 Md€
+      (point_indice_1pct_2032) × 0,61 = 11,3 Md€ ; (2) indexation du point sur l''inflation 2027-2032 (barème
+      indexation_point_indice_2027_2032) : 20,6 Md€ ; (3) effet croisé (la hausse de 10 % s''applique à une masse indexée)
+      : 0,10 × 0,61 × 20,6 = 1,3 Md€. Total brut 33,2 Md€, net des prélèvements en retour (× 0,72) : 23,9 Md€. Bas : haut
+      des barèmes (1,93 ; 22,2, indexation sur les prix à la consommation), retour 0,25 et pensions induites (≈ 1 Md€) :
+      −(35,3 × 0,75 + 1,0) = −27,5. Haut : bas des barèmes (1,80 ; 17,0), retour 0,32 : −29,0 × 0,68 = −19,7. Montée en
       charge : +10 % en cinq ans (0 / 0,2 / 0,4 / 0,6 / 0,8 / 1), indexation au profil imposé par le barème (0,13 / 0,30
       / 0,48 / 0,66 / 0,83 / 1), pondérées par leur poids brut.'
   confiance: faible
   verification:
-    statut: ok
+    statut: corrige
     par: passe-sources
     date: "2026-09-29"
     commentaire: >-
@@ -1270,6 +1320,9 @@ mesures:
       indexation_point_indice_2027_2032 (bruts hors cotisations employeurs, sans projection PIB), retour
       0,28 (aucun retour n'était déduit), effet croisé 10 % × indexation compté, pensions induites en bas,
       profil d'indexation imposé ; −44,73 → −33,22 (bas −50,49 → −37,77 ; haut −41,42 → −27,4).
+      Recalé sur les barèmes sourcés du 29/09 : point_indice_1pct_2032 2,59 → 1,86 Md€ (bornes 1,80-1,93),
+      indexation_point_indice_2027_2032 28,6 → 20,6 Md€ (bornes 17,0-22,2), effet croisé 0,10 × 0,61 × 20,6 ;
+      central −33,22 → −23,91 ; bas −37,77 → −27,5 ; haut −27,4 → −19,73 (convention 12).
 - id: securite-sociale-professionnelle
   libelle: >-
     Sécurité sociale professionnelle, salaire garanti deux ans en cas de perte d'emploi dans les secteurs exposés à la
@@ -1323,17 +1376,17 @@ mesures:
     du congé climatique par la Sécurité sociale sans paramètre de recours.
   sens_probable: cout
   estimation_indicative:
-    central: -1.5
+    central: -1.4
     bas: -2.7
     haut: -0.6
     lecture: 'Convention (aucune source publique accessible ne donne l''effectif des agents publics de nuit ou en métier pénible
       ; la DREES, panorama 2014, indique qu''environ la moitié des infirmiers et aides-soignants hospitaliers travaillent
       de nuit, page non accessible lors de la vérification) : passer de 35 h à 32 h sans perte de salaire impose de recruter
       35/32 − 1 = 9,4 % d''effectifs sur les postes concernés. Central : 40 % des 1,24 million d''agents de la FPH (barème
-      fp_effectifs_fph), soit 46 500 recrutements au coût d''un entrant (24 500 €, cout_soignant_hospitalier_apu) = 1,14 Md€,
+      fp_effectifs_fph), soit 46 500 recrutements au coût d''un entrant (23 700 €, cout_soignant_hospitalier_apu) = 1,10 Md€,
       plus 0,3 Md€ pour la part Sécurité sociale du « congé climatique » de 5 jours au plus (recours inconnu, convention
       0,1 à 0,5). Bas : 60 % de la FPH au coût de l''agent moyen (30 700 €), 2,14 Md€, plus 0,5 (sans compter police et
-      pompiers). Haut : 20 % de la FPH au bas du barème (23 100 €), 0,54 Md€, plus 0,1. Dans le privé, la mesure passe par
+      pompiers). Haut : 20 % de la FPH au bas du barème (22 400 €), 0,52 Md€, plus 0,1. Dans le privé, la mesure passe par
       la conditionnalité des aides : pas de coût public direct compté.'
     sources:
     - fp_effectifs_fph
@@ -1346,7 +1399,8 @@ mesures:
     commentaire: 'Passe-sources : l''analogie avec les 55 000 recrutements du chiffrage Mélenchon est remplacée par une
       convention explicite sur les effectifs de la FPH (barème) et le ratio d''heures 35/32 ; l''effectif concerné reste
       non sourcé. Central −2,0 → −1,5, bas −5,0 → −2,7, haut −0,5 → −0,6. Trace précédente : effectif de métiers pénibles
-      ou de nuit non sourcé.'
+      ou de nuit non sourcé. Recalé sur les barèmes sourcés du 29/09 : cout_soignant_hospitalier_apu 24 500 →
+      23 700 € (bas 23 100 → 22 400 €) ; central −1,5 → −1,4 (1,10 + 0,3) ; bas −2,7 et haut −0,6 inchangés.'
 - id: assurance-chomage-abrogation-reformes
   libelle: >-
     Abrogation des réformes de l'assurance chômage depuis 2017 (dont calcul du SJR), allocations indexées sur l'inflation
@@ -1546,8 +1600,8 @@ mesures:
   nature: depense
   effet_solde_primaire:
     central: -13.9
-    bas: -20.0
-    haut: -8.9
+    bas: -15.8
+    haut: -11.4
     montee_en_charge:
       '2027': 0
       '2028': 0.2
@@ -1562,14 +1616,15 @@ mesures:
         valeur: 13.9
         unite: Md€ courants par an (solde du système de retraite), en 2032
         bareme: retraites_retour_62_ans_2032
-    explication: 'Barème : annulation des mesures d''âge de 2023 nette du gel déjà voté jusqu''au 1er janvier 2028.'
+    explication: 'Barème : annulation des mesures d''âge de 2023 nette du gel déjà voté jusqu''au 1er janvier 2028. Bornes
+      du barème : bas −15,8 (profil Cnav porté au périmètre tous régimes), haut −11,4 (effet de l''âge seul).'
   effets_retour: 'Convention commune n° 4 : le central porte sur le solde du système de retraite. Coût pour l''ensemble
     des APU, effets d''emploi des seniors compris (non comptés, règle 3) : la DG Trésor chiffre le gain total de la réforme
     2023 à 24,2 Md€ constants 2024 en 2030 (contre 9,7 Md€ pour le seul système ; Cour des comptes, tableau n° 5), soit un
     coût complet de l''abrogation de l''ordre de 25 Md€ en 2032.'
   confiance: moyenne
   verification:
-    statut: ok
+    statut: corrige
     par: verificateur-sonnet
     date: "2026-09-29"
     commentaire: >-
@@ -1577,7 +1632,9 @@ mesures:
       suspension déjà votée = 13,9 Md€) relu ; le gel voté est bien déduit du coût. Réserve de barème : il
       s'agit du solde du système de retraite, pas de l'ensemble des APU (la Cour donne 13 Md€ contre 5,8
       Md€ pour un an d'âge en 2035), donc le coût APU est probablement sous-estimé ; la retraite à 60 ans
-      pour carrières longues n'est pas comptée. Fourchette 8,9-20.
+      pour carrières longues n'est pas comptée. Fourchette 8,9-20. Recalé sur les barèmes sourcés du 29/09 :
+      bornes ad hoc remplacées par celles du barème retraites_retour_62_ans_2032 ; central −13,9 inchangé ;
+      bas −20,0 → −15,8 ; haut −8,9 → −11,4.
 - id: retraites-petites-pensions
   libelle: Hausse du minimum contributif et de l'ASPA jusqu'au seuil de pauvreté, pensions agricoles
   domaine: retraites
@@ -1665,7 +1722,7 @@ mesures:
   effet_solde_primaire:
     central: 7.51
     bas: 5.81
-    haut: 8.1
+    haut: 7.91
     montee_en_charge:
       '2027': 0
       '2028': 0.2
@@ -1691,7 +1748,7 @@ mesures:
       commune n° 9), projeté en 2032 (facteur_pib_2025_2032, la masse salariale suit l'activité). Bas : part patronale sous
       plafond (4,8 Md€ le point, réduit par les allègements ; couvre aussi la part des employeurs publics, transfert interne
       aux APU) : 4,8 × 1,2106 = 5,81. Haut : salariale déplafonnée (7,6), nette du retour négatif sur l'IR d'une cotisation
-      salariale (× (1 − 0,12), même convention que la CSG déductible) : 7,6 × 0,88 × 1,2106 = 8,10.
+      salariale (barème retour_ir_cotisation_salariale, 0,14 pour la borne favorable) : 7,6 × 0,86 × 1,2106 = 7,91.
   effets_retour: 'Hausse du coût du travail et baisse du salaire net : non comptées.'
   confiance: moyenne
   verification:
@@ -1705,7 +1762,9 @@ mesures:
       haut ; le point déplafonné au-delà du PSS et l'épargne salariale ne sont pas comptés (recettes
       omises). Les deux écarts vont en sens contraire et restent dans 5,8-9,2. Recalé sur les conventions
       communes du 29/09 : type de cotisation non précisé lu au central du barème (convention n° 9, central
-      inchangé) ; le haut (salariale déplafonnée) est net du retour négatif sur l'IR (× 0,88) ; haut 9,2 → 8,1.
+      inchangé) ; le haut (salariale déplafonnée) est net du retour négatif sur l'IR (× 0,88) ; haut 9,2 → 8,1. Recalé sur les barèmes
+      sourcés du 29/09 : convention 0,12 remplacée par le barème retour_ir_cotisation_salariale (0,16 ; 0,14 en
+      borne favorable) ; central 7,51 et bas 5,81 inchangés ; haut 8,1 → 7,91.
 - id: garantie-autonomie-rsa
   libelle: >-
     Garantie d'autonomie remplaçant le RSA, à 50 % du SMIC net, sans contrepartie de 15 heures, ouverte dès 18 ans aux
@@ -2291,7 +2350,7 @@ mesures:
       sont financés par l''Assurance maladie et se substituent pour l''essentiel à des soins libéraux (non comptés). Coût
       public retenu = déficit couvert par les collectivités ou l''ARS : convention 1,5 M€ de dépenses par centre (milieu
       de la plage) × 10 % × 2 000 = 0,3 Md€ (0,1 à 0,6). Recrutements et revalorisations à l''hôpital sans cible : convention
-      1 Md€ (≈ 41 000 postes au coût d''entrant du barème cout_soignant_hospitalier_apu, 24 500 €), fourchette 0,3 à 3 Md€.
+      1 Md€ (≈ 42 000 postes au coût d''entrant du barème cout_soignant_hospitalier_apu, 23 700 €), fourchette 0,3 à 3 Md€.
       Central 0,3 + 1,0 = 1,3 ; bas 0,6 + 3,0 = 3,6 ; haut 0,1 + 0,3 = 0,4.'
     sources:
     - https://igas.gouv.fr/sites/igas/files/2025-02/Rapport%20Igas%20%20-%20Centres%20de%20sant%C3%A9%20pluriprofessionnels_0.pdf
@@ -2304,7 +2363,8 @@ mesures:
     commentaire: 'Passe-sources : coût d''un centre de santé fondé sur le rapport de l''IGAS (déficit médian de 10 % des
       dépenses), qui remplace l''analogie avec le contre-budget LFI ; le volet hospitalier, sans cible dans le programme,
       reste une convention explicite. Central −1,5 → −1,3, bas −4,0 → −3,6, haut −0,5 → −0,4. Trace précédente : aucune
-      vérification (ordre de grandeur non sourcé).'
+      vérification (ordre de grandeur non sourcé). Recalé sur les barèmes sourcés du 29/09 : coût d''entrant cité mis à jour (cout_soignant_hospitalier_apu
+      24 500 → 23 700 €, ≈ 42 000 postes pour 1 Md€) ; estimation indicative inchangée.'
 - id: sante-scolaire-plan-urgence
   libelle: >-
     Santé scolaire, 800 médecins et 1 000 psychologues (postes vacants), 7 500 infirmières scolaires, +500 € en début
@@ -2345,14 +2405,15 @@ mesures:
         source: >-
           https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
       cout:
-        valeur: 24500
+        valeur: 23700
         unite: € par ETP et par an (entrant, brut hors cotisations employeurs net des retours)
         bareme: cout_soignant_hospitalier_apu
         note: proxy pour une infirmière scolaire
     explication: >-
       Convention commune n° 1 : 7 500 infirmières scolaires supplémentaires au coût pour le solde d'un soignant entrant
-      (barème cout_soignant_hospitalier_apu, proxy : 34 000 € brut hors cotisations employeurs × 0,72), sans projection
-      par le PIB (point gelé). Bas : agent moyen (30 700 €) ; haut : bas du barème (23 100 €). Les 800 postes de médecins
+      (barème cout_soignant_hospitalier_apu, proxy : 32 900 € brut hors cotisations employeurs × 0,72 = 23 700 €), sans
+      projection par le PIB (point gelé) : 7 500 × 23 700 = 0,18 Md€. Bas : agent moyen (30 700 €) : 0,23 ; haut : bas du
+      barème (22 400 €) : 0,17. Les 800 postes de médecins
       et 1 000 de psychologues vacants sont déjà budgétés.
   confiance: moyenne
   verification:
@@ -2364,7 +2425,8 @@ mesures:
       budgétés, hausse de 500 € non comptée (petit minorant). Recalé sur les conventions communes du 29/09 :
       coût chargé (56 000 €, cotisations employeurs comprises) projeté au PIB remplacé par le barème
       cout_soignant_hospitalier_apu (24 500 €), sans projection ; −0,5 → −0,18 (bas −0,55 → −0,23 ; haut −0,44
-      → −0,17).
+      → −0,17). Recalé sur les barèmes sourcés du 29/09 : cout_soignant_hospitalier_apu
+      24 500 → 23 700 € (bas du barème 23 100 → 22 400 €) ; central −0,18, bas −0,23 et haut −0,17 inchangés à l'arrondi.
 - id: classes-19-eleves
   libelle: Classes de primaire à 19 élèves en 2032 et à 12 en REP/REP+
   domaine: education
@@ -2385,7 +2447,7 @@ mesures:
   nature: depense
   effet_solde_primaire:
     central: -0.22
-    bas: -1.23
+    bas: -1.18
     haut: 0.0
     montee_en_charge:
       '2027': 0
@@ -2407,7 +2469,7 @@ mesures:
         source: https://www.cafepedagogique.net/2026/01/14/premier-degre-baisse-demographique-consequente-en-10-ans/
         note: moyenne simple maternelle 21,3 et élémentaire 20,7 (DEPP, rentrée 2025, public)
       cout:
-        valeur: 24100
+        valeur: 24850
         unite: € par ETP et par an (entrant, brut hors cotisations employeurs net des retours)
         bareme: cout_enseignant_apu
       part_non_absorbee:
@@ -2422,8 +2484,8 @@ mesures:
           baisse étant très inégale selon les territoires (« Paris (- 29,3 %) » mais moins de 5 % ailleurs, même note).
     explication: >-
       Postes nécessaires pour passer de 21 à 19 élèves en moyenne (≈ 36 000), au coût pour le solde d'un enseignant
-      entrant (convention commune n° 1, barème cout_enseignant_apu : 24 100 €), sans projection par le PIB (point gelé)
-      ; central : trois quarts de l'écart absorbés par la démographie (DEPP) ; bas : aucune absorption, au coût d'un enseignant moyen (34 200 €,
+      entrant (convention commune n° 1, barème cout_enseignant_apu : 24 850 €), sans projection par le PIB (point gelé)
+      ; central : trois quarts de l'écart absorbés par la démographie (DEPP) ; bas : aucune absorption, au coût d'un enseignant moyen (32 800 €,
       haut du barème) ; haut : totalité.
   confiance: faible
   verification:
@@ -2442,6 +2504,8 @@ mesures:
       en REP/REP+ non chiffrées séparément. Recalé sur les conventions communes du 29/09 : coût chargé (85 000
       €, CAS Pensions compris) projeté au PIB remplacé par le barème cout_enseignant_apu (entrant 24 100 € ;
       bas au coût moyen 34 200 €), sans projection ; −1,81 → −0,43 (bas −3,62 → −1,23 ; haut 0).
+      Recalé sur les barèmes sourcés du 29/09 : cout_enseignant_apu entrant 24 100 → 24 850 €,
+      agent moyen 34 200 → 32 800 € ; central −0,22 inchangé à l'arrondi (−0,224) ; bas −1,23 → −1,18 ; haut 0.
 - id: enseignants-plus-15pct
   libelle: >-
     Salaires des enseignants +15 % en cinq ans, hausse des effectifs et salaires des AESH, AED, CPE, infirmières
@@ -2462,9 +2526,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -4.07
-    bas: -4.32
-    haut: -3.69
+    central: -3.91
+    bas: -4.14
+    haut: -3.54
     montee_en_charge:
       '2027': 0
       '2028': 0.2
@@ -2484,16 +2548,16 @@ mesures:
         unite: ETPT
         source: chiffrage/baremes.yaml, dérivation du barème cout_enseignant_charge (programme 141)
       cout:
-        valeur: 34200
+        valeur: 32800
         unite: € par ETP et par an (enseignant moyen, brut hors cotisations employeurs net des retours)
         bareme: cout_enseignant_apu
         note: haut du barème (agent en place), à utiliser pour une revalorisation (convention commune n° 1)
     explication: >-
       Convention commune n° 1 : 15 % de la rémunération brute hors cotisations employeurs des enseignants du public (premier
-      et second degrés), nette des prélèvements en retour (salaire moyen du barème cout_enseignant_apu : 45 640 € brut ×
-      0,75 = 34 200 €), en cinq ans, sans projection par le PIB (point gelé à droit constant). Bas : GVT et effectifs à 1
+      et second degrés), nette des prélèvements en retour (salaire moyen du barème cout_enseignant_apu : rémunération d'activité
+      moyenne 43 703 € × 0,75 = 32 800 €), en cinq ans, sans projection par le PIB (point gelé à droit constant). Bas : GVT et effectifs à 1
       % par an 2026-2032 (× 1,06). Haut : retour haut (0,32) : × 0,68 / 0,75. Effet croisé avec l'indexation du point
-      (point-indice-fonctionnaires, ≈ 0,45 Md€) non compté.
+      (point-indice-fonctionnaires, ≈ 0,4 Md€) non compté.
   confiance: moyenne
   verification:
     statut: corrige
@@ -2508,6 +2572,8 @@ mesures:
       cout_enseignant_apu (34 200 €, brut hors cotisations employeurs net des retours), sans projection
       (point gelé) ; effet croisé avec l'indexation du point (≈ 0,45 Md€) non compté ; −11,99 → −4,07 (bas
       −12,37 → −4,32 ; haut −11,5 → −3,69).
+      Recalé sur les barèmes sourcés du 29/09 : haut du barème cout_enseignant_apu (agent moyen)
+      34 200 → 32 800 € ; central −4,07 → −3,91 ; bas −4,32 → −4,14 ; haut −3,69 → −3,54.
 - id: enseignement-prive-financement-50pct
   libelle: >-
     Financement public de l'enseignement privé sous contrat ramené à 50 %, contre frais de scolarité et mixité sociale
@@ -3088,9 +3154,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -0.36
-    bas: -0.51
-    haut: -0.35
+    central: -0.38
+    bas: -0.52
+    haut: -0.37
     montee_en_charge:
       '2027': 0
       '2028': 0.2
@@ -3124,15 +3190,15 @@ mesures:
         unite: € par ETP et par an (entrant, brut hors cotisations employeurs net des retours)
         bareme: cout_magistrat_apu
       cout_b:
-        valeur: 23300
+        valeur: 24790
         unite: € par ETP et par an (entrant, brut hors cotisations employeurs net des retours)
         bareme: cout_greffier_apu
         note: greffier ; proxy pour les attachés de justice
     explication: >-
       Moitié de l'objectif décennal atteinte en 2032, au coût pour le solde d'un magistrat et d'un greffier entrants (convention
       commune n° 1, barèmes cout_magistrat_apu et cout_greffier_apu, le greffier servant de proxy pour les attachés), sans
-      projection par le PIB (point gelé). Bas : agents moyens (62 200 € et 26 700 €) ; haut : bas des barèmes (37 000 € et
-      22 100 €).
+      projection par le PIB (point gelé). Central : 4 500 × 37 000 + 8 500 × 24 790 = 0,38 Md€. Bas : agents moyens (62 200 € et
+      28 770 €) ; haut : bas des barèmes (37 000 € et 23 410 €).
   confiance: moyenne
   verification:
     statut: corrige
@@ -3146,6 +3212,8 @@ mesures:
       coûts chargés (138 700 € et proxy soignant 56 000 €) projetés au PIB remplacés par les barèmes
       cout_magistrat_apu (37 000 €) et cout_greffier_apu (23 300 €), sans projection ; −1,3 → −0,36 (bas −1,5
       → −0,51 ; haut −1,16 → −0,35).
+      Recalé sur les barèmes sourcés du 29/09 : cout_greffier_apu 23 300 → 24 790 € (bornes
+      23 410-28 770) ; central −0,36 → −0,38 ; bas −0,51 → −0,52 ; haut −0,35 → −0,37.
 - id: prisons-numerus-clausus
   libelle: >-
     Numerus clausus carcéral, moratoire sur les nouvelles places de prison, développement de la probation
