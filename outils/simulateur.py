@@ -320,7 +320,7 @@ moins, en Md€ par an en 2032, d'après les leviers de cette page.</div>
 <h3>Candidats les plus proches de vos choix</h3><ol class="proches" id="proches"></ol>
 <div class="petit">Part des leviers où votre choix est celui du candidat, sur les seuls leviers où son programme prend position.</div></aside></main>
 <div id="mini"><span>Solde 2032 <b id="mini-solde"></b></span><span>Dette <b id="mini-dette"></b></span><a href="#resultats">Résultats ↓</a></div>
-<footer>Données du __GENERE__. Montée en charge des mesures : convention commune ; trajectoire : hypothèses du FMI, solde
+<footer>Données du __GENERE__. Montée en charge des mesures : convention commune ; trajectoire : hypothèses tirées du World Economic Outlook du FMI (données transformées), solde
 primaire de référence gelé. Méthode, sources et chiffrage détaillé des programmes : rapport de chiffrage du même dépôt.</footer>
 <script>
 const D = __DONNEES__;

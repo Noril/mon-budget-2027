@@ -37,7 +37,7 @@
     urls: [https://www.nato.int/content/dam/nato/webready/documents/finance/def-exp-2026-en.xlsx]
     format: XLSX, un onglet par tableau (Table 1 à 8b), années en colonnes
     auth: aucune
-  licence: OTAN, reproduction libre à des fins non commerciales avec mention de la source (conditions d'utilisation de nato.int)
+  licence: OTAN, « Use of NATO content and brand » (pas de licence ouverte ; reprise gratuite avec crédit, sans vente ni publicité)
   maille: [pays, france]
   millesime: annuel (publication à l'approche du sommet de l'OTAN, fin juin ; édition 2026 couvrant 2014-2026)
   fraicheur_max_jours: 400
@@ -55,6 +55,14 @@
     PIB calculés aux prix de 2021. Tableaux : 1 et 2 montants, 3 part du PIB et croissance réelle, 4 synthèse,
     5 PIB, 6 par habitant, 7 personnel militaire (milliers), 8a et 8b répartition par catégorie (équipement,
     personnel, infrastructures, autres). SIPRI non retenu : sa base Milex n'est pas publiée sous licence ouverte.
+    Licence : conditions https://www.nato.int/en/about-us/official-texts-and-resources/use-of-nato-content-and-brand
+    (consulté le 2026-09-30). Aucune licence ouverte ; elles autorisent la republication de tables dérivées par un
+    site public non commercial, sous conditions : « All content taken from NATO and republished must be clearly
+    credited or sourced to NATO » ; pas de vente ni d'usage publicitaire (« No material produced by NATO is to be
+    sold, used for outside advertising or promotional purposes ») ; usage « objective and balanced », non
+    diffamatoire ; l'OTAN « reserves the right to request the removal » et demande, si un pays membre est critiqué,
+    qu'il soit dit qu'elle ne s'associe pas au contenu. Décision : publication des indicateurs dérivés maintenue,
+    avec crédit à l'OTAN (section « Sources et licences » du tableau de bord) ; tout usage commercial exclu.
 
 - id: armees-militaires-carriere-contrat
   titre: Évolution de la répartition des militaires de carrière et sous contrat par armée, sur 24 ans

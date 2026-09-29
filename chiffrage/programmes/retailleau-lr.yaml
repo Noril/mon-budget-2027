@@ -35,7 +35,7 @@ sources:
     date: 2026-09
   - titre: "Page « Nos propositions » (index des livrets et notes techniques)"
     url: https://republicains.fr/nos-propositions/
-    date: 2026-09-29
+    date: mis à jour le 2026-09-03
   - titre: "Contrepoints / IREF, « Flat tax, aides aux entreprises, assurances sociales, calendrier des réformes… Bruno Retailleau répond à nos questions »"
     url: https://contrepoints.org/flat-tax-aides-aux-entreprises-assurances-sociales-calendrier-des-reformes-bruno-retailleau-repond-a-nos-questions/
     date: 2026-04-15
@@ -59,10 +59,10 @@ sources:
     date: 2026-09-22
   - titre: "Fondation IFRAP, comparateur des programmes présidentielle 2027 (synthèse tierce)"
     url: https://www.ifrap.org/comparateurs/presidentielles-2027
-    date: 2026-09-29
+    date: consulté le 2026-09-29
   - titre: "Votons-2027, programme de Bruno Retailleau (agrégateur, 103 mesures citées)"
     url: https://votons-2027.fr/candidats/retailleau/programme
-    date: 2026-09-29
+    date: mis à jour le 2026-09-01
 annonce_candidat:
   cout_md: null
   financement_md: 120
@@ -179,7 +179,7 @@ mesures:
     citation:
       texte: Mettre en place une règle d'or dans le cadre de la révision constitutionnelle soumise à référendum dès 2027.
       url: https://www.ifrap.org/comparateurs/presidentielles-2027
-      date: 2026-09-29
+      date: consulté le 2026-09-29
       support: synthèse tierce (IFRAP) ; source primaire non retrouvée
     precision: vague
     chiffrable: false
@@ -2471,7 +2471,7 @@ mesures:
       texte: >-
         Baisser de 10% et recentrer les crédits de l'aide publique au développement (APD) : 1,2 Md€ d'économies.
       url: https://www.ifrap.org/comparateurs/presidentielles-2027
-      date: 2026-09-29
+      date: consulté le 2026-09-29
       support: synthèse tierce (IFRAP, sans source citée) ; source primaire introuvable
     precision: partielle
     interpretation: >-
@@ -2582,7 +2582,7 @@ mesures:
     citation:
       texte: Baisser les dotations aux agences de l'État.
       url: https://www.ifrap.org/comparateurs/presidentielles-2027
-      date: 2026-09-29
+      date: consulté le 2026-09-29
       support: synthèse tierce (IFRAP) ; source primaire non retrouvée
     precision: vague
     interpretation: Le livret Agriculture annonce seulement une « rationalisation des moyens » de l'ANSES (170 M€ de budget). Sans montant, probablement classée non chiffrable.

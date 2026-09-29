@@ -23,7 +23,9 @@
     Montants en millions d'euros (UNIT_MULT = 6). Lignes répétées à l'identique d'un tableau à l'autre.
     Anomalie constatée sur le millésime du 31 août 2026 : à partir de 2023, les séries « consolidées »
     (CONSOLIDATION = C) de dépenses (OTE), recettes (OTR) et intérêts (D41) reprennent les montants non
-    consolidés (OTE 2023 = 75 % du PIB contre 57 % chez Eurostat) ; seul le solde B9 est fiable. Dette au sens
+    consolidés (OTE 2023 = 75 % du PIB contre 57 % chez Eurostat ; D41 consolidé = non consolidé) ; seul le solde
+    B9, invariant par consolidation, est fiable (B9 C = N chaque année, contrôlé le 30/09/2026 et à chaque calcul de
+    finances.solde_public). Dépenses et recettes publiques sont donc lues chez Eurostat (gov_10a_main). Dette au sens
     de Maastricht (INSTR_ASSET = GD) absente après 1994 : lue chez Eurostat.
 
 - id: insee-pib
@@ -104,7 +106,7 @@
     cle: FRA.NGDP_RPCH+NGDP_D+PCPIPCH+NGDP+GGXONLB_NGDP+GGXCNL_NGDP+GGXWDG_NGDP.A
     entetes: {Accept: application/vnd.sdmx.data+csv}
     auth: aucune
-  licence: FMI, réutilisation des données avec citation (https://www.imf.org/external/terms.htm)
+  licence: FMI, « Copyright and Usage », conditions spéciales pour les données (réutilisation et œuvres dérivées autorisées avec attribution)
   maille: [france]
   millesime: semestriel (avril, octobre) ; projections sur cinq ans
   fraicheur_max_jours: 200
@@ -117,3 +119,15 @@
     Croissance réelle (NGDP_RPCH), déflateur du PIB (NGDP_D, indice), inflation IPC (PCPIPCH), PIB nominal (NGDP),
     solde primaire (GGXONLB_NGDP), solde (GGXCNL_NGDP) et dette brute (GGXWDG_NGDP) en % du PIB. Sert aux
     hypothèses de plan/hypotheses.yaml, pas aux indicateurs.
+    Licence : https://www.imf.org/en/about/copyright-and-terms (version « Effective: October 11, 2024 »),
+    consulté le 2026-09-30 ; imf.org refuse l'accès automatisé (403), texte lu dans la copie de l'Internet
+    Archive du 2026-06-25. Pas de licence Creative Commons : conditions propres au FMI. Le WEO figure
+    expressément parmi les « Data », pour lesquelles « You may download, extract, copy, create derivative works,
+    publish, distribute, and use Data », y compris hors usage non commercial, à condition de citer (« Source:
+    International Monetary Fund, Database Name »), de ne pas altérer les données et, si elles sont
+    « materially transformed », de le dire explicitement avec la citation. Réutilisation commerciale : demande à
+    copyright@imf.org. Les conditions générales interdisent aussi le « bulk download » automatisé sans
+    permission : l'ingestion se limite à sept séries France via l'API SDMX publique. Décision : publication des
+    hypothèses et trajectoires dérivées autorisée, avec la mention « Source : Fonds monétaire international,
+    World Economic Outlook database » et l'indication qu'elles sont transformées (reconduction 2032, taux
+    implicite).

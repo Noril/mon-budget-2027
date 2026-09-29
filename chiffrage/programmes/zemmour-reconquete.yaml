@@ -11,12 +11,12 @@ sources:
       Budget : le plan de Sarah Knafo – 24 mesures, 140 Md€ d'économies par an (site budget2026.fr / budget2027.fr, relayé
       par parti-reconquete.fr)
     url: https://www.budget2026.fr/
-    date: 2026-09
+    date: consulté le 2026-09-29
   - titre: >-
       Combien je gagne – simulateur carburant (baisse d'un tiers de l'accise, suppression des CEE, « avec Sarah Knafo
       et Éric Zemmour »)
     url: https://combienjegagne.fr/
-    date: 2026-09
+    date: consulté le 2026-09-29
   - titre: CNews (d'après le JDD) – Sarah Knafo dévoile 15 mesures dans son livre « Le Casse du siècle »
     url: >-
       https://www.cnews.fr/france/2026-08-30/impots-depenses-csg-droits-de-succession-sarah-knafo-devoile-15-mesures-pour
@@ -252,7 +252,7 @@ mesures:
         Pour l’industrie, elle supprime les impôts de production (CVAE, C3S, CFE) et la surtransposition des règles
         européennes.
       url: https://irdeme.org/les-15-resolutions-de-sarah-knafo-ne-sont-pas-toutes-des-solutions/
-      date: 2026-09
+      date: '2026-09-19'
       support: compte rendu du livre « Le Casse du siècle » (Fayard, 2 septembre 2026)
     precision: partielle
     interpretation: >-
@@ -341,7 +341,7 @@ mesures:
     citation:
       texte: 'La baisse de l’accise : 12 milliards d’euros de manque à gagner pour l’État.'
       url: https://combienjegagne.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: precise
     interpretation: >-
       « Baisser l'accise d'un tiers : 27 centimes de moins par litre d'essence, 24 centimes par litre de gazole ». Montant
@@ -438,7 +438,7 @@ mesures:
         La suppression des CEE : sans impact sur les comptes publics. Nous supprimons une obligation imposée aux énergéticiens,
         qui la répercutent sur vos factures.
       url: https://combienjegagne.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: precise
     chiffrable: false
     raison_non_chiffrable: >-
@@ -450,15 +450,18 @@ mesures:
     domaine: retraites
     citation:
       texte: >-
-        Éric Zemmour, président de Reconquête, dit être favorable au départ à “la retraite à 64 ans voire 65”
+        « Je dis 64 voire 65. […] Je pense qu’il faut travailler plus »
       url: >-
         https://www.bfmtv.com/politique/elections/presidentielle/video-eric-zemmour-president-de-reconquete-dit-etre-favorable-au-depart-a-la-retraite-a-64-ans-voire-65_VN-202609170934.html
       date: '2026-09-17'
-      support: vidéo de l'émission Face à BFM (BFMTV), titre de l'extrait
+      support: vidéo de l'émission Face à BFM (BFMTV), extrait de 2 min 15, verbatim à 0:46-0:54
     precision: vague
     interpretation: >-
-      Source primaire : l'émission elle-même (extrait vidéo publié par BFMTV) ; pas de transcription publiée, le texte
-      cité est le titre de l'extrait, qui reprend entre guillemets les mots du candidat. Par rapport à la législation au 1er janvier 2027 (réforme 2023 suspendue jusqu'au 1er janvier 2028 puis reprise
+      Source primaire : l'émission elle-même (extrait vidéo publié par BFMTV le 17/09/2026) ; pas de transcription
+      publiée. Verbatim vérifié le 30/09/2026 par transcription automatique (Whisper large-v3-turbo) de l'extrait
+      téléchargé depuis la page BFMTV : à la question « Vous dites 64 ans ? », le candidat répond « Je dis 64 voire
+      65 », puis « Voire 65. Je pense qu'il faut travailler plus » (0:45-0:54) ; le titre de l'extrait (« la retraite à
+      64 ans voire 65 ») en est une reformulation. Par rapport à la législation au 1er janvier 2027 (réforme 2023 suspendue jusqu'au 1er janvier 2028 puis reprise
       vers 64 ans) : 64 ans = sortie de la suspension (léger gain 2027-2031, nul en 2032 si 64 ans est atteint), 65 ans
       = économie supplémentaire. Calendrier et durée de cotisation non précisés. Lecture centrale : 64 ans sans suspension
       ; haut : 65 ans à terme.
@@ -505,12 +508,13 @@ mesures:
       des droits (prélèvements sur l'emploi des seniors).
     confiance: faible
     verification:
-      statut: ok
+      statut: corrige
       par: passe-sources
-      date: '2026-09-29'
+      date: '2026-09-30'
       commentaire: >-
-        Citation : la vidéo BFMTV est l'extrait officiel de l'émission (source primaire) ; pas de transcription
-        publiée, le titre cite le candidat entre guillemets (relu sur l'URL). Paramètre ecart_2032 sourcé au COR
+        Citation remplacée par le verbatim de l'extrait BFMTV (transcription automatique, 0:45-0:54) au lieu du
+        titre de l'extrait ; sens inchangé (64 voire 65 ans). Passe du 29/09 : la vidéo BFMTV est l'extrait
+        officiel de l'émission (source primaire), sans transcription publiée. Paramètre ecart_2032 sourcé au COR
         (rapport annuel 2026 : 64 ans atteint pour la génération 1969 ; génération 1968 à 63 ans 9 mois en 2032)
         au lieu de REFERENCE.md. Montants inchangés. Vérification précédente (verificateur-sonnet, ok) :
         Citation retrouvée sur l'URL. Lecture vague (64 voire 65). Avec le calendrier du droit voté (âge quasi à
@@ -526,7 +530,7 @@ mesures:
         Elle remplace en 20 ans la retraite par répartition par la capitalisation (la période transitoire étant financée
         par la vente des logements sociaux).
       url: https://irdeme.org/les-15-resolutions-de-sarah-knafo-ne-sont-pas-toutes-des-solutions/
-      date: 2026-09
+      date: '2026-09-19'
       support: compte rendu du livre « Le Casse du siècle » (Fayard, 2 septembre 2026)
     precision: vague
     interpretation: >-
@@ -575,7 +579,7 @@ mesures:
         Les Français ont trop payé. Il est temps de dépenser moins pour taxer moins. 24 mesures : tout est listé, chiffré,
         sourcé.
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: partielle
     interpretation: >-
       Total revendiqué 140 Md€ (livre : 130 Md€). Les 24 mesures sont détaillées ci-dessous ; cette entrée sert à rapprocher
@@ -638,7 +642,7 @@ mesures:
         Non-remplacement de 800 000 départs administratifs sur l’ensemble du quinquennat, sur 2,3 millions de départs
         naturels.
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: precise
     interpretation: >-
       Montant affiché : 40 Md€/an. Enseignants, soignants, policiers et militaires épargnés (Essentiel de l'Éco) : les
@@ -729,7 +733,7 @@ mesures:
         Gains de productivité de l’intelligence artificielle dans les fonctions administratives (estimation calculée
         à partir du rapport IGF-IGAS 2025).
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: vague
     interpretation: >-
       Montant affiché : 5 Md€. Recoupe probablement la mesure 800 000 départs (mêmes emplois) : risque de double compte.
@@ -775,7 +779,7 @@ mesures:
       texte: >-
         Limitation des prestations sociales non contributives (RSA, APL, allocations familiales…) aux citoyens français.
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: partielle
     interpretation: >-
       Montant affiché : 15 à 20 Md€. Plus large que la mesure RN (condition de 5 ans de travail) : exclusion de tous
@@ -841,7 +845,7 @@ mesures:
     citation:
       texte: Limitation à trois ans de l’allocation RSA pour les bénéficiaires en capacité de travailler.
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: partielle
     interpretation: 'Montant affiché : 4,8 Md€. Reports vers d''autres minima et l''hébergement non chiffrés par l''auteure.'
     chiffrable: true
@@ -931,7 +935,7 @@ mesures:
     citation:
       texte: Lutte contre la fraude sociale et retrait des aides sociales pour les délinquants et criminels.
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: vague
     interpretation: 'Montant affiché : 2 à 3 Md€.'
     chiffrable: true
@@ -984,7 +988,7 @@ mesures:
     citation:
       texte: Fin de l’engagement de soutien public aux énergies renouvelables intermittentes.
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: partielle
     interpretation: >-
       Montant affiché : 8 Md€. Contrats en cours = engagements juridiques (lecture basse : nouveaux contrats seulement).
@@ -1044,7 +1048,7 @@ mesures:
     citation:
       texte: Fin de la politique de la Ville.
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: vague
     interpretation: >-
       Montant affiché : 8 Md€ (7,9 Md€ dans le contre-budget 2025). Le programme 147 ne pèse qu'environ 0,6 Md€ ; le
@@ -1102,7 +1106,7 @@ mesures:
     citation:
       texte: Suppression de l’Agence nationale de l’habitat (Anah).
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: precise
     interpretation: 'Montant affiché : 6 Md€ (budget d''intervention de l''Anah, MaPrimeRénov'' comprise).'
     chiffrable: true
@@ -1165,7 +1169,7 @@ mesures:
         Suppression de l’Agence de l’environnement et de la maîtrise de l’énergie (Ademe), hors dispositifs de soutien
         aux renouvelables déjà comptabilisés à la ligne 6.
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: precise
     interpretation: 'Montant affiché : 3,4 Md€ (fonds chaleur, économie circulaire, fonctionnement).'
     chiffrable: true
@@ -1222,7 +1226,7 @@ mesures:
       texte: >-
         Suppression de la mission de mise en relation entre l’offre et la demande d’emploi de France Travail.
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: partielle
     interpretation: 'Montant affiché : 4 Md€.'
     chiffrable: true
@@ -1286,7 +1290,7 @@ mesures:
     citation:
       texte: Suppression des agences régionales de santé (ARS).
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: precise
     interpretation: >-
       Montant affiché : 1 Md€ ; économie nette = fonctionnement des ARS moins missions reprises (préfectures, CPAM).
@@ -1346,7 +1350,7 @@ mesures:
         Suppression d’autres agences et structures publiques inutiles ou nuisibles : Arcom, Conseil national du bruit,
         Haut Conseil à l’égalité, Observatoire de la laïcité, Haut Comité pour le logement…
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: partielle
     interpretation: 'Montants affichés : 1 Md€ ; plus « Suppression du CESE et des Ceser » 66 M€.'
     chiffrable: true
@@ -1409,7 +1413,7 @@ mesures:
     citation:
       texte: Suppression de l’aide publique au développement et de l’Agence française de développement.
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: precise
     interpretation: >-
       Montant affiché : 14 Md€. L'APD au sens OCDE inclut prêts, dépenses imputées (étudiants, réfugiés) et contribution
@@ -1472,7 +1476,7 @@ mesures:
     citation:
       texte: Retour au budget de l’UE pré-Covid et économies sur la dotation française.
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: partielle
     interpretation: >-
       Montant affiché : 14 Md€. Programme européen 2024 de Reconquête : « Diminuer de 20% la contribution annuelle de
@@ -1521,7 +1525,7 @@ mesures:
     citation:
       texte: Fin de la gratuité des études pour les étudiants étrangers.
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: partielle
     interpretation: 'Montant affiché : 4 Md€ (coût complet ; recette réelle = frais × effectifs restants).'
     chiffrable: true
@@ -1585,7 +1589,7 @@ mesures:
     citation:
       texte: Fin de l’aide médicale d’État.
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: precise
     interpretation: >-
       Montant affiché : 1,3 Md€ ; soins urgents (DSUV) reportés sur l'assurance maladie et les hôpitaux à déduire.
@@ -1641,7 +1645,7 @@ mesures:
     citation:
       texte: Augmentation du coût des visas.
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: vague
     interpretation: 'Montant affiché : 0,7 Md€ ; les droits de visa Schengen sont fixés par le code des visas de l''UE.'
     chiffrable: false
@@ -1662,7 +1666,7 @@ mesures:
     citation:
       texte: Interdiction de l’hébergement d’urgence aux étrangers en situation irrégulière.
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: precise
     interpretation: 'Montant affiché : 0,7 Md€.'
     chiffrable: true
@@ -1717,7 +1721,7 @@ mesures:
     citation:
       texte: Aide juridictionnelle réservée aux Français.
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: precise
     interpretation: 'Montant affiché : 0,1 Md€.'
     chiffrable: true
@@ -1772,7 +1776,7 @@ mesures:
     citation:
       texte: Privatisation de l’audiovisuel public.
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: precise
     interpretation: >-
       Montant affiché : 4 Md€ « + cession d'actifs ». Économie = dotation annuelle (≈ 4 Md€) ; le produit de cession
@@ -1834,7 +1838,7 @@ mesures:
     citation:
       texte: Suppression des subventions aux associations politisées.
       url: https://www.budget2026.fr/
-      date: 2026-09
+      date: consulté le 2026-09-29
     precision: vague
     interpretation: >-
       Montants affichés : associations 1 à 2 Md€ ; « Suppression des subventions à la presse » 0,2 Md€ ; « Suppression
@@ -1954,13 +1958,20 @@ mesures:
       du nucléaire
     domaine: numerique
     citation:
-      texte: « L’IA est la troisième grande révolution industrielle de l’histoire de l’Occident »
+      texte: >-
+        « L’intelligence artificielle n’est pas une mode californienne […]. C’est la troisième grande révolution
+        industrielle de l’histoire de l’Occident, après la machine à vapeur, après l’électricité. »
       url: https://www.youtube.com/watch?v=QjpjdKuO9zA
       date: '2026-09-13'
-      support: vidéo (extrait du discours de Port-Marly, chaîne YouTube de CNews)
+      support: vidéo (extrait du discours de Port-Marly, chaîne YouTube de CNews), verbatim à 0:48-1:03
     precision: vague
     interpretation: >-
-      Source primaire : enregistrement du discours (titre de l'extrait, entre guillemets). Le détail des propositions
+      Source primaire : enregistrement du discours. Le titre de l'extrait YouTube (« L’IA est la troisième grande
+      révolution industrielle de l’histoire de l’Occident ») reformule la phrase ; verbatim vérifié le 30/09/2026 par
+      transcription automatique (Whisper large-v3-turbo) du même extrait publié par CNews sur X
+      (https://x.com/CNEWS/status/2099144663747727520, 2 min 20), les sous-titres YouTube étant inaccessibles aux
+      robots ; le compte rendu écrit de CNews cite la même phrase (« C’est la troisième grande révolution industrielle
+      de l’histoire de l’Occident »). Le détail des propositions
       (formation à l'IA dès l'école, « troisième puissance mondiale » dans le domaine, électricité nucléaire pour les
       centres de calcul) vient du compte rendu de CNews
       (https://www.cnews.fr/france/2026-09-13/presidentielle-2027-remigration-intelligence-artificielle-ce-quil-faut-retenir-du),
@@ -1971,11 +1982,12 @@ mesures:
     verification:
       statut: corrige
       par: passe-sources
-      date: '2026-09-29'
+      date: '2026-09-30'
       commentaire: >-
-        Citation de presse remplacée par l'extrait vidéo du discours de Port-Marly (verbatim du titre relu via
-        l'oEmbed YouTube, chaîne CNews) ; compte rendu CNews gardé dans interpretation pour le détail. Non
-        chiffrable.
+        Citation remplacée par le verbatim du discours (transcription automatique de l'extrait CNews publié sur X) :
+        le titre YouTube « L’IA est la troisième… » était une reformulation. Passe du 29/09 : citation de presse
+        remplacée par l'extrait vidéo du discours de Port-Marly ; compte rendu CNews gardé dans interpretation pour
+        le détail. Non chiffrable.
   - id: interdiction-voile-espace-public
     libelle: Interdiction du voile islamique dans l'espace public
     domaine: societe

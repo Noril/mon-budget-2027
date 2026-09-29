@@ -13,7 +13,7 @@ from pathlib import Path
 
 import duckdb
 
-from pipelines.commun import INDICATEURS_CALCULES, RACINE, definitions_indicateurs, ecrire_json
+from pipelines.commun import INDICATEURS_CALCULES, RACINE, charger_catalogue, definitions_indicateurs, ecrire_json
 
 UE27 = "AT BE BG CY CZ DE DK EE EL ES FI FR HR HU IE IT LT LU LV MT NL PL PT RO SE SI SK".split()
 SORTIE = RACINE / "build" / "tableau-de-bord.md"
@@ -87,15 +87,29 @@ def _ligne(r: dict) -> str:
     return f"| {r['libelle']} ({r['unite']}) | {fr} | {evol} | {ue} | {rang} | {dep} |"
 
 
+def _sources(ids: set[str]) -> list[str]:
+    """Mention de chaque source et de sa licence, exigée par les producteurs (OTAN, FMI, Parlement européen…)."""
+    catalogue = charger_catalogue()
+    lignes = ["", "## Sources et licences", "",
+              "Valeurs calculées à partir des données des producteurs ci-dessous (données transformées : ratios, parts, "
+              "agrégats) ; elles n'engagent pas ces producteurs. Conditions de réutilisation : `catalogue/`.", ""]
+    for i in sorted(ids):
+        if s := catalogue.get(i):
+            lignes.append(f"- {s['producteur']}, {s['titre']} ({s['doc']}). Licence : {s['licence']}.")
+    return lignes
+
+
 def main() -> int:
     par_domaine: dict[str, list[dict]] = {}
     manquants = []
+    sources_publiees: set[str] = set()
     for chemin, d in definitions_indicateurs():
         table = INDICATEURS_CALCULES / f"{d['id']}@{d['version']}.parquet"
         if not table.exists():
             manquants.append(d["id"])
             continue
         par_domaine.setdefault(chemin.parent.name, []).append(resumer(d, table))
+        sources_publiees.update(d["sources"])
 
     lignes = [
         "# Tableau de bord global",
@@ -109,6 +123,7 @@ def main() -> int:
         lignes += [_ligne(r) for r in resumes]
     if manquants:
         lignes += ["", f"Indicateurs non calculés : {', '.join(manquants)}."]
+    lignes += _sources(sources_publiees)
     SORTIE.parent.mkdir(parents=True, exist_ok=True)
     SORTIE.write_text("\n".join(lignes) + "\n", encoding="utf-8")
     ecrire_json(RACINE / "data" / "tableau_de_bord.json", {"domaines": par_domaine})

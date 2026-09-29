@@ -453,7 +453,7 @@ code{{font-size:.8rem;word-break:break-all}}
 croisière (2032) ; négatif = coût pour les finances publiques. Chaque mesure est citée verbatim avec son lien, calculée par
 une formule rejouable à partir de barèmes publics, et confrontée aux chiffrages tiers quand ils existent. Aucun effet de
 second tour (croissance, emploi, taux) n'est compté. Trajectoires : modèle du dépôt (plan/trajectoire.py), hypothèses
-macroéconomiques du FMI, solde primaire de référence gelé au dernier niveau observé ({traj['gel']['depart']}).</p>
+macroéconomiques tirées de la base World Economic Outlook du FMI (source : Fonds monétaire international, World Economic Outlook database ; données transformées : prolongées jusqu'en 2032, taux d'intérêt implicite déduit), solde primaire de référence gelé au dernier niveau observé ({traj['gel']['depart']}).</p>
 <h2>Solde net par an en 2032 (Md€, point central et fourchette)</h2>{_svg_soldes(agregats)}
 <p class="m"><b>Notes.</b> Deux notes, à la manière d'une agence de notation (AAA à CCC). <b>Précision du
 programme</b> : ce que le candidat rend chiffrable (couverture, précision des promesses, économies documentées,
