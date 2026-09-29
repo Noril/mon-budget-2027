@@ -27,6 +27,18 @@ LEVIERS = RACINE / "chiffrage" / "simulateur.yaml"
 SORTIE = RACINE / "build" / "simulateur.html"
 COULEURS = ["#c0392b", "#8e44ad", "#2471a3", "#17a589", "#b7950b", "#ca6f1e", "#566573", "#943126", "#1e8449", "#1f618d"]
 TOLERANCE_REPRISE = 0.05  # Md€
+GLOSSAIRE = RACINE / "chiffrage" / "glossaire.yaml"
+# Axes de comparaison thématiques : des directions descriptives, jamais un jugement.
+AXES = {
+    "protection-sociale": ("Protection sociale", "prestations et retraites moins généreuses", "plus généreuses"),
+    "imposition-hauts-revenus-patrimoine": ("Impôts sur les hauts revenus et le patrimoine", "moins", "plus"),
+    "soutien-entreprises": ("Soutien aux entreprises", "moins d'aides et d'allègements", "plus"),
+    "services-agents-publics": ("Services et agents publics", "moins", "plus"),
+    "conditions-etrangers": ("Accès des étrangers aux prestations", "plus ouvert", "plus restreint"),
+    "transition-ecologique": ("Transition écologique", "moins d'effort", "plus d'effort"),
+    "defense": ("Défense", "moins de dépenses", "plus de dépenses"),
+    "ouverture-internationale": ("Aide au développement et Europe", "moins", "plus"),
+}
 
 
 def lire_leviers() -> dict:
@@ -80,6 +92,9 @@ def valider(doc: dict | None = None) -> list[str]:
                     erreurs.append(f"{ou} : programme inconnu « {c} »")
                 elif not cur["min"] <= v <= cur["max"]:
                     erreurs.append(f"{ou} : position de « {c} » hors bornes")
+        for a in list(l.get("axes", {})) + [a for o in l.get("options", []) for a in o.get("axes", {})]:
+            if a not in AXES:
+                erreurs.append(f"{ou} : axe inconnu « {a} »")
     return erreurs
 
 
@@ -106,8 +121,11 @@ def donnees() -> dict:
             "id": p["id"], "nom": p["candidat"], "parti": p["parti"], "couleur": COULEURS[i % len(COULEURS)],
             "solde": a["croisiere"]["central"], "dette2032": dette, "choix": choix,
         })
+    glossaire = yaml.safe_load(GLOSSAIRE.read_text(encoding="utf-8")) if GLOSSAIRE.exists() else []
     return {
         "genere": date.today().isoformat(),
+        "axes": [{"id": k, "nom": n, "moins": m, "plus": p} for k, (n, m, p) in AXES.items()],
+        "glossaire": glossaire,
         "annees": ANNEES,
         "montee": doc.get("montee_par_defaut") or {"2027": 0, "2028": 0.4, "2029": 0.7, "2030": 0.9, "2031": 1, "2032": 1},
         "leviers": doc["leviers"],
@@ -118,7 +136,68 @@ def donnees() -> dict:
     }
 
 
-PAGE = """<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+COMMUN_CSS = r""".gl{border-bottom:1px dotted currentColor;cursor:help;position:relative;outline:none}.gl sup{font-size:.6em;color:var(--acc);margin-left:1px}
+.gl .def{display:none;position:absolute;left:50%;bottom:130%;transform:translateX(-50%);width:min(280px,80vw);background:var(--fg);color:var(--bg);
+  font-size:.8rem;line-height:1.35;font-weight:400;text-align:left;padding:8px 10px;border-radius:8px;z-index:20;box-shadow:0 4px 14px #0004}
+.gl:hover .def,.gl:focus .def{display:block}
+.axes-l{margin:6px 0 4px}.axe-l{margin:10px 0}.axe-l .t{font-weight:600;font-size:.9rem}.axe-l .bornes{display:flex;justify-content:space-between;font-size:.72rem;color:var(--muted)}
+.axe-l .rail{position:relative;height:22px;margin:2px 6px}.axe-l .rail:before{content:"";position:absolute;left:0;right:0;top:10px;height:2px;background:var(--line)}
+.axe-l .rail .z{position:absolute;left:50%;top:5px;width:1px;height:12px;background:var(--muted)}
+.axe-l .rail .p{position:absolute;top:6px;width:10px;height:10px;border-radius:50%;transform:translateX(-50%);opacity:.85}
+.axe-l .rail .moi{position:absolute;top:2px;width:18px;height:18px;border-radius:50%;transform:translateX(-50%);background:var(--acc);border:3px solid var(--card);box-shadow:0 0 0 1px var(--acc)}
+.legende{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:.75rem;margin:4px 0}.legende i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:3px}
+"""
+
+COMMUN_JS = r"""// --- Glossaire : première occurrence de chaque terme soulignée, définition au survol ou au toucher
+const GL = (D.glossaire || []).flatMap(g => [g.terme, ...(g.variantes || [])].map(f => ({f, g})))
+  .sort((a, b) => b.f.length - a.f.length);
+const echap = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+function annoter(texte) {
+  const pris = [], morceaux = [];
+  let s = texte;
+  for (const {f, g} of GL) {
+    if (pris.includes(g.terme)) continue;
+    const re = new RegExp(`(?<![\\p{L}\\d])${echap(f)}(?![\\p{L}\\d])`, /^[A-Z0-9]+$/.test(f) ? "u" : "iu");
+    const m = s.match(re); if (!m) continue;
+    pris.push(g.terme); morceaux.push(`<span class="gl" tabindex="0">${m[0]}<sup>?</sup><span class="def">${g.definition}</span></span>`);
+    s = s.slice(0, m.index) + `\u0000${morceaux.length - 1}\u0000` + s.slice(m.index + m[0].length);
+  }
+  return s.replace(/\u0000(\d+)\u0000/g, (_, i) => morceaux[+i]);
+}
+// --- Axes thématiques : moyenne des scores (−2 à +2) des leviers de l'axe, droit en vigueur = 0
+function scoresAxes(choix) {
+  const r = {};
+  for (const a of D.axes) {
+    let s = 0, n = 0;
+    for (const l of D.leviers) {
+      if (l.type === "choix") {
+        if (!l.options.some(o => o.axes && a.id in o.axes)) continue;
+        const o = l.options.find(o => o.id === (choix[l.id] ?? defaut(l))); s += (o.axes || {})[a.id] || 0; n++;
+      } else if (l.axes && a.id in l.axes) {
+        const v = choix[l.id] ?? 0, borne = v >= 0 ? l.curseur.max : -l.curseur.min;
+        s += l.axes[a.id] * 2 * (borne ? v / borne : 0); n++;
+      }
+    }
+    if (n) r[a.id] = s / n;
+  }
+  return r;
+}
+
+function htmlAxes(choix) {
+  const moi = scoresAxes(choix), cand = D.candidats.map(c => ({c, s: scoresAxes(c.choix)}));
+  const x = v => 50 + 50 * v / 2;
+  const lignes = D.axes.filter(a => a.id in moi).map(a => `<div class="axe-l"><div class="t">${a.nom}</div>
+    <div class="rail"><span class="z"></span>${cand.map(({c, s}) => `<span class="p" title="${c.nom}" style="left:${x(s[a.id])}%;background:${c.couleur}"></span>`).join("")}
+    <span class="moi" title="Vous" style="left:${x(moi[a.id])}%"></span></div>
+    <div class="bornes"><span>← ${a.moins}</span><span>${a.plus} →</span></div></div>`).join("");
+  return `<div class="legende"><span><i style="background:var(--acc)"></i><b>Vous</b></span>${D.candidats.map(c => `<span><i style="background:${c.couleur}"></i>${court(c)}</span>`).join("")}</div>
+    <div class="axes-l">${lignes}</div><p class="petit">Chaque thème fait la moyenne de vos choix sur les décisions qui le concernent (droit actuel au centre). Les
+    positions des candidats sont reconstituées à partir des mêmes décisions.</p>`;
+}
+"""
+
+
+PAGE = r"""<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Simulateur budgétaire 2027</title><style>
 :root{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#77756f;--line:#e2dfd7;--card:#fff;--neg:#b03a2e;--pos:#1e7a4a;--acc:#2451a6}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#161614;--fg:#ecebe6;--muted:#9a978f;--line:#34332f;--card:#1f1f1c;--neg:#e0796e;--pos:#6fcf97;--acc:#8fb0ff}}
@@ -144,6 +223,7 @@ aside{position:sticky;top:12px;background:var(--card);border:1px solid var(--lin
 .kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}h3{font-size:.95rem;margin:14px 0 4px}
 svg{width:100%;height:auto;display:block}.grille{stroke:var(--line)}.axe{fill:var(--muted);font-size:10px}
 ol.proches{margin:4px 0;padding-left:18px}ol.proches li{margin:3px 0}ol.proches .ligne{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.barre-acc{height:6px;border-radius:3px;background:var(--acc);display:inline-block;vertical-align:middle;margin-left:6px}
+__COMMUN_CSS__
 footer{max-width:1200px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:.8rem}
 </style></head><body>
 <header><h1>Et vous, quel budget ?</h1>
@@ -160,6 +240,7 @@ de second tour. Votre dette 2032 et les candidats dont vous êtes le plus proche
 <h3>Où vous situez-vous ?</h3><svg id="carte" viewBox="0 0 380 300"></svg>
 <div class="petit">Axe horizontal : dépenses publiques en plus ou en moins ; axe vertical : impôts et cotisations en plus ou en
 moins, en Md€ par an en 2032, d'après les leviers de cette page.</div>
+<h3>Vos positions par thème</h3><div id="axes"></div>
 <h3>Candidats les plus proches de vos choix</h3><ol class="proches" id="proches"></ol>
 <div class="petit">Part des leviers où votre choix est celui du candidat, sur les seuls leviers où son programme prend position.</div></aside></main>
 <div id="mini"><span>Solde 2032 <b id="mini-solde"></b></span><span>Dette <b id="mini-dette"></b></span><a href="#resultats">Résultats ↓</a></div>
@@ -172,6 +253,7 @@ const etat = {};
 const parTheme = {};
 D.leviers.forEach(l => (parTheme[l.theme] ??= []).push(l));
 const defaut = l => l.type === "choix" ? l.options.find(o => o.defaut).id : 0;
+__COMMUN_JS__
 const candidat = id => D.candidats.find(c => c.id === id);
 const court = c => c.nom.split(" ").slice(1).join(" ");
 function placer(occupees, x, y) {  // décale verticalement une étiquette qui en chevauche une autre
@@ -232,7 +314,7 @@ function rendreLeviers() {
     d.innerHTML = `<summary>${theme}<span class="t" data-theme="${theme}"></span></summary>`;
     for (const l of ls) {
       const div = document.createElement("div"); div.className = "levier";
-      let h = `<div class="q">${l.question}</div>${l.aide ? `<div class="aide">${l.aide}</div>` : ""}`;
+      let h = `<div class="q">${annoter(l.question)}</div>${l.aide ? `<div class="aide">${annoter(l.aide)}</div>` : ""}`;
       if (l.type === "choix") {
         for (const o of l.options) {
           const e = o.effet.central;
@@ -295,6 +377,7 @@ function majResultats() {
   document.getElementById("dette-ref").textContent = `droit actuel : ${fmt(ref, false)} % du PIB`;
   document.getElementById("courbe").innerHTML = svgCourbe(serie);
   document.getElementById("carte").innerHTML = svgCarte(mouvements(etat));
+  document.getElementById("axes").innerHTML = htmlAxes(etat);
   const cl = D.candidats.map(c => ({c, ...accord(c)})).filter(r => r.n).sort((a, b) => b.pct - a.pct);
   document.getElementById("proches").innerHTML = cl.map(r => `<li><div class="ligne"><span style="color:${r.c.couleur};font-weight:600">${r.c.nom}</span><span class="barre-acc" style="width:${r.pct * 0.6}px"></span>
     <span class="petit">${Math.round(r.pct)} % d'accord sur ${r.n} levier${r.n > 1 ? "s" : ""}</span></div></li>`).join("");
@@ -337,7 +420,7 @@ def main(argv: list[str] | None = None) -> int:
         return 1 if erreurs else 0
     d = donnees()
     SORTIE.parent.mkdir(exist_ok=True)
-    SORTIE.write_text(PAGE.replace("__DONNEES__", json.dumps(d, ensure_ascii=False)).replace("__GENERE__", d["genere"]), encoding="utf-8")
+    SORTIE.write_text(PAGE.replace("__COMMUN_JS__", COMMUN_JS).replace("__COMMUN_CSS__", COMMUN_CSS).replace("__DONNEES__", json.dumps(d, ensure_ascii=False)).replace("__GENERE__", d["genere"]), encoding="utf-8")
     print(f"-> {SORTIE.relative_to(RACINE)} ({len(d['leviers'])} leviers, {len(d['candidats'])} candidats)")
     return 0
 

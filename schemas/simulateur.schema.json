@@ -128,6 +128,15 @@
                     "type": "string"
                   },
                   "description": "programmes qui proposent cette option"
+                },
+                "axes": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "number",
+                    "minimum": -2,
+                    "maximum": 2
+                  },
+                  "description": "scores thématiques de −2 à +2 (voir outils/simulateur.py, AXES) ; pour un curseur, sens +1 ou −1 appliqué à la valeur"
                 }
               }
             }
@@ -167,6 +176,15 @@
                 "description": "valeur du curseur retenue pour chaque programme qui s'y engage"
               }
             }
+          },
+          "axes": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "minimum": -2,
+              "maximum": 2
+            },
+            "description": "scores thématiques de −2 à +2 (voir outils/simulateur.py, AXES) ; pour un curseur, sens +1 ou −1 appliqué à la valeur"
           }
         }
       }
