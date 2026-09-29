@@ -313,6 +313,48 @@
               "type": "string"
             }
           }
+        },
+        "sens_probable": {
+          "enum": [
+            "cout",
+            "economie",
+            "neutre",
+            "incertain"
+          ],
+          "description": "mesure non chiffrable : sens probable de son effet sur le solde, pour mesurer le biais de couverture"
+        },
+        "estimation_indicative": {
+          "type": "object",
+          "required": [
+            "central",
+            "bas",
+            "haut",
+            "lecture",
+            "sources"
+          ],
+          "additionalProperties": false,
+          "description": "mesure trop vague pour un chiffrage : ordre de grandeur d'après la lecture la plus plausible, Md€ 2032, NON compté dans le solde principal",
+          "properties": {
+            "central": {
+              "type": "number"
+            },
+            "bas": {
+              "type": "number"
+            },
+            "haut": {
+              "type": "number"
+            },
+            "lecture": {
+              "type": "string"
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            }
+          }
         }
       },
       "if": {

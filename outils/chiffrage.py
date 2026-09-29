@@ -127,8 +127,14 @@ def agreger(p: dict) -> dict:
     croisiere = {cle: sum(m["effet_solde_primaire"][cle] for m in chiffrees) for cle in ("central", "bas", "haut")}
     couts = sum(min(m["effet_solde_primaire"]["central"], 0) for m in chiffrees)
     gains = sum(max(m["effet_solde_primaire"]["central"], 0) for m in chiffrees)
+    non_chiffrees = [m for m in p["mesures"] if not m.get("chiffrable")]
+    sens = {s: sum(1 for m in non_chiffrees if m.get("sens_probable") == s) for s in ("cout", "economie", "neutre", "incertain")}
+    indicatives = [m["estimation_indicative"] for m in non_chiffrees if "estimation_indicative" in m]
+    budgetaires = len(chiffrees) + sens["cout"] + sens["economie"] + sens["incertain"]
     return {
         "id": p["id"], "candidat": p["candidat"], "parti": p["parti"],
+        "sens_non_chiffrees": sens, "couverture": len(chiffrees) / budgetaires if budgetaires else None,
+        "indicatif": {c: sum(e[c] for e in indicatives) for c in ("central", "bas", "haut")}, "nb_indicatives": len(indicatives),
         "nb_mesures": len(p["mesures"]), "nb_chiffrees": len(chiffrees),
         "nb_verifiees": sum(1 for m in chiffrees if m.get("verification", {}).get("statut") in ("ok", "corrige")),
         "croisiere": croisiere, "couts": couts, "gains": gains, "par_annee": totaux,
@@ -139,7 +145,8 @@ def agreger(p: dict) -> dict:
              "haut": m.get("effet_solde_primaire", {}).get("haut"), "confiance": m.get("confiance"),
              "url": m["citation"]["url"], "verification": m.get("verification", {}).get("statut"),
              "tiers": [(t["auteur"], t.get("montant_md")) for t in m.get("chiffrages_tiers", [])],
-             "raison": m.get("raison_non_chiffrable"), "citation": m["citation"]["texte"],
+             "raison": m.get("raison_non_chiffrable"), "sens": m.get("sens_probable"),
+             "indicative": m.get("estimation_indicative"), "citation": m["citation"]["texte"],
              "date": m["citation"].get("date"), "interpretation": m.get("interpretation"),
              "formule": m.get("calcul", {}).get("formule"), "explication": m.get("calcul", {}).get("explication"),
              "parametres": {k: v["valeur"] for k, v in m.get("calcul", {}).get("parametres", {}).items()},
@@ -210,6 +217,10 @@ def rapport_md(agregats: list[dict], traj: dict) -> str:
             else:
                 l.append(f"| [{m['libelle']}]({m['url']}) | {m['domaine']} | non chiffrable | {m['raison']} | | | |")
     return "\n".join(l) + "\n"
+
+
+def _pct(x: float | None) -> str:
+    return "—" if x is None else f"{round(100 * x)} %"
 
 
 def _svg_dette(traj: dict, agregats: list[dict]) -> str:
@@ -294,6 +305,10 @@ def rapport_html(agregats: list[dict], traj: dict) -> str:
             f"<td>{a['nb_chiffrees']} / {a['nb_mesures']}<br><small>{a['nb_verifiees']} vérifiées</small></td>"
             f"<td class='n neg'>{_md(a['couts'])}</td><td class='n pos'>{_md(a['gains'])}</td>"
             f"<td class='n'><b>{_md(a['croisiere']['central'])}</b><br><small>[{_md(a['croisiere']['bas'])} ; {_md(a['croisiere']['haut'])}]</small></td>"
+            f"<td class='n'>{_md(a['indicatif']['central']) if a['nb_indicatives'] else '—'}<br><small>{a['nb_indicatives']} mesures ; "
+            f"coût probable {a['sens_non_chiffrees']['cout']}, économie {a['sens_non_chiffrees']['economie']}, "
+            f"incertain {a['sens_non_chiffrees']['incertain']}</small></td>"
+            f"<td class='n'>{_pct(a['couverture'])}</td>"
             f"<td class='n'><b>{_md(dg['central'][-1]['dette'], False)}</b><br><small>[{_md(dg['bas'][-1]['dette'], False)} ; {_md(dg['haut'][-1]['dette'], False)}]</small></td></tr>"
         )
     sections = []
@@ -308,7 +323,10 @@ def rapport_html(agregats: list[dict], traj: dict) -> str:
                             f"<td class='n'><small>[{_md(m['bas'])} ; {_md(m['haut'])}]</small></td><td>{e(m['confiance'] or '')}</td>"
                             f"<td><small>{tiers}</small></td><td>{e(m['verification'] or '—')}</td></tr>")
             else:
-                rows.append(f"<tr class='nc'><td>{lien}</td><td>{e(m['domaine'])}</td><td colspan='5'><small>Non chiffrable : {e(m['raison'] or '')}</small></td></tr>")
+                rows.append(f"<tr class='nc'><td>{lien}</td><td>{e(m['domaine'])}</td><td colspan='5'><small>Non chiffrable : {e(m['raison'] or '')}"
+                            f"{' — sens probable : ' + e(m['sens']) if m.get('sens') else ''}"
+                            f"{' — ordre de grandeur indicatif : ' + _md(m['indicative']['central']) + ' [' + _md(m['indicative']['bas']) + ' ; ' + _md(m['indicative']['haut']) + '] (' + e(m['indicative']['lecture']) + ')' if m.get('indicative') else ''}"
+                            "</small></td></tr>")
         sections.append(
             f"<section id='{a['id']}'><h2>{e(a['candidat'])} <small>{e(a['parti'])}</small></h2>"
             f"<p class='m'><b>Ce que dit le candidat.</b> {e((a.get('annonce') or {}).get('texte', 'Aucun chiffrage global publié.'))}</p>"
@@ -342,7 +360,7 @@ chiffrées » dit combien de mesures ont un effet budgétaire estimable ; une en
 identifiée compte zéro au central et n'apparaît que dans le haut de la fourchette. Les programmes évoluent jusqu'au
 dépôt des candidatures : chaque fiche porte sa date de collecte.</p>
 <div class="scroll"><table><thead><tr><th>Programme</th><th>Mesures chiffrées</th><th>Coûts</th><th>Économies, recettes</th>
-<th>Solde net / an</th><th>Dette 2032, % PIB (réf. {_md(traj['gel']['reference'][-1]['dette'], False)})</th></tr></thead>
+<th>Solde net / an</th><th>Non chiffré : estimation indicative</th><th>Couverture</th><th>Dette 2032, % PIB (réf. {_md(traj['gel']['reference'][-1]['dette'], False)})</th></tr></thead>
 <tbody>{''.join(lignes)}</tbody></table></div>
 <h2>Dette publique projetée, scénario central (% du PIB)</h2>{_svg_dette(traj['gel'], agregats)}
 {''.join(sections)}
