@@ -318,9 +318,10 @@ mesures:
     central: 2.7
     bas: 0.0
     haut: 10.0
-    lecture: 'Impôt minimal sur la part française des bénéfices des groupes de plus de 1 Md€ de chiffre d''affaires : même ordre
-      de grandeur que l''impôt sur les multinationales chiffré chez Mélenchon (Institut Montaigne, scénario bas intermédiaire,
-      2,7 Md€ en 2032) ; bas : conventions fiscales ; haut : taux élevé négocié.'
+    lecture: 'Impôt minimal sur la part française des bénéfices des groupes de plus de 1 Md€ de chiffre d''affaires : même
+      ordre de grandeur que l''impôt sur les multinationales chiffré chez Mélenchon (Institut Montaigne, scénario bas intermédiaire,
+      2,7 Md€ en 2032) ; bas : conventions fiscales ; haut : taux élevé négocié. Non revérifié : la page Institut Montaigne
+      citée renvoie une erreur 403 lors de la vérification ; ordre de grandeur non sourcé au-delà de cette référence.'
     sources:
     - https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/instaurer-un-impot-universel-sur-les-entreprises-et-sur-les-revenus-des-particuliers-faire-face-a-levasion-fiscale/
     - is_rendement_net
@@ -665,9 +666,11 @@ mesures:
     central: 1.5
     bas: 0.3
     haut: 4.0
-    lecture: Taux réduits fossiles (gazole routier des transporteurs, kérosène intérieur…) convertis en aides forfaitaires plus
-      faibles, malus au poids abaissé, taxe sur les bouteilles plastiques ; la taxe sur les superprofits est temporaire et le
-      fonds France Verte 2040 non doté. Sans double compte avec depenses-inutiles-fossiles (abattement des retraités).
+    lecture: Taux réduits fossiles (gazole routier des transporteurs, kérosène intérieur…) convertis en aides forfaitaires
+      plus faibles, malus au poids abaissé, taxe sur les bouteilles plastiques ; la taxe sur les superprofits est temporaire
+      et le fonds France Verte 2040 non doté. Sans double compte avec depenses-inutiles-fossiles (abattement des retraités).
+      Ordre de grandeur non sourcé. Le chiffre de 15 Md€ de subventions à la pollution est celui du groupe parlementaire,
+      non relu.
     sources:
     - depenses_fiscales_total
     - ticpe_centime_litre
@@ -722,7 +725,7 @@ mesures:
     bas: -5.0
     haut: -0.3
     lecture: 'Accise électricité ramenée vers celle du gaz (quelques €/MWh, 0,3 Md€ par €/MWh) et TVA de l''abonnement revenue
-      à 5,5 % ; bas : baisse forte de l''accise ; haut : unification par hausse du gaz.'
+      à 5,5 % ; bas : baisse forte de l''accise ; haut : unification par hausse du gaz. Ordre de grandeur non sourcé.'
     sources:
     - accise_electricite_1_euro_mwh
     - tva_energie_electricite_5_5
@@ -1167,7 +1170,9 @@ mesures:
     bas: -5.0
     haut: -0.5
     lecture: 32 h sans perte de salaire pour les agents publics de nuit ou pénibles (≈ 55 000 recrutements au coût d'un entrant,
-      comme chez Mélenchon, 1,5 Md€) et part Sécurité sociale du congé climatique de 5 jours (≈ 0,5 Md€).
+      comme chez Mélenchon, 1,5 Md€) et part Sécurité sociale du congé climatique de 5 jours (≈ 0,5 Md€). Cohérent avec melenchon-lfi/temps-travail-35h-32h
+      (même 55 000 recrutements, 1,5 Md€) ; s'y ajoute la part Sécurité sociale du congé climatique. Effectif de métiers pénibles
+      ou de nuit non sourcé.
     sources:
     - fp_effectifs_fph
     - cout_soignant_hospitalier_apu
@@ -1716,7 +1721,8 @@ mesures:
     bas: -6.0
     haut: 0.0
     lecture: 'Allocation d''environ 75 € par mois dès le premier enfant pour ≈ 3,5 millions de familles d''un enfant, majoration
-      à 14 ans ; haut : redistribution à enveloppe constante.'
+      à 14 ans ; haut : redistribution à enveloppe constante. Ordre de grandeur non sourcé. Le nombre de familles d''un enfant
+      et le montant de 75 € ne viennent d''aucune source relue.'
     sources:
     - allocations_familiales_depense
     - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
@@ -1811,7 +1817,8 @@ mesures:
     bas: -3.5
     haut: -0.7
     lecture: Suppression de la CVEC (0,21 Md€ en 2032), bourses revalorisées de ≈ 15 %, 150 000 logements en cinq ans au coût
-      public de ≈ 33 % de 80 000 € par logement (1 Md€ par an).
+      public de ≈ 33 % de 80 000 € par logement (1 Md€ par an). Ordre de grandeur non sourcé. Revalorisation de 15 % des bourses
+      supposée.
     sources:
     - droits_inscription_superieur
     - logement_social_aides_part_prix_revient
@@ -1895,11 +1902,14 @@ mesures:
     central: -3.0
     bas: -9.0
     haut: -1.0
-    lecture: 'Hausse du taux d''encadrement en Ehpad et revalorisations : ordre de grandeur des rapports Libault (≈ 9 Md€ à
-      l''horizon 2030, bas) ; central d''après les 210 000 recrutements chiffrés chez Mélenchon, ramenés au tiers.'
+    lecture: 'Hausse du taux d''encadrement en Ehpad et revalorisations : ordre de grandeur des rapports Libault (≈ 9 Md€
+      à l''horizon 2030, bas) ; central d''après les 210 000 recrutements chiffrés chez Mélenchon, ramenés au tiers. Contrôle
+      : le rapport Libault (mars 2019) chiffre l''ensemble de ses mesures à près de 10 Md€ par an à l''horizon 2030 (Les Echos,
+      Ouest-France) ; la borne basse de 9 Md€ est donc cohérente, le central (un tiers) reste une hypothèse.'
     sources:
     - cout_soignant_hospitalier_apu
     - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
+    - https://solidarites-sante.gouv.fr/IMG/pdf/rapport_libault_mars_2019.pdf
 - id: loi-integrale-vss-3md
   libelle: Loi intégrale contre les violences sexistes et sexuelles dotée de 3 Md€
   domaine: justice
@@ -2032,7 +2042,7 @@ mesures:
     bas: -4.0
     haut: -0.5
     lecture: 2 000 centres de santé (0,6 Md€ pour le plan comparable chiffré chez Mélenchon) plus recrutements et revalorisations
-      hospitalières sans cible (≈ 1 Md€).
+      hospitalières sans cible (≈ 1 Md€). Ordre de grandeur non sourcé.
     sources:
     - cout_soignant_hospitalier_apu
     - https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
@@ -2652,10 +2662,12 @@ mesures:
   sens_probable: cout
   estimation_indicative:
     central: -2.5
-    bas: -4.5
+    bas: -5.0
     haut: -1.0
     lecture: 'Ticket climat national sur le modèle du Deutschlandticket (3 Md€ par an de compensation publique) et gratuités
-      ciblées ; haut : tarif élevé.'
+      ciblées ; haut : tarif élevé. Contrôle : Bund et Länder compensent 3 Md€ par an aux transporteurs allemands (1,5 Md€
+      chacun, Wikipédia allemand) ; le manque à gagner des transporteurs est estimé à 5 Md€ en 2025 (même source) et le billet
+      est passé à 63 € en 2026 ; bas relevé de -4,5 à -5,0.'
     sources:
     - https://de.wikipedia.org/wiki/Deutschlandticket
     - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
@@ -2684,7 +2696,8 @@ mesures:
     bas: -3.0
     haut: -0.5
     lecture: 'Loi de programmation : ≈ 1,5 Md€ par an de régénération supplémentaire (besoin chiffré en 2025), plus un crédit
-      d''impôt vélo électrique de quelques dizaines de M€.'
+      d''impôt vélo électrique de quelques dizaines de M€. Cohérent avec glucksmann-place-publique/plan-rail (même 1,5 Md€
+      par an). Besoin de 1,5 Md€ par an non retrouvé dans une source ouverte : ordre de grandeur non sourcé.'
     sources:
     - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: renationalisation-autoroutes
@@ -2950,9 +2963,10 @@ mesures:
     central: -3.0
     bas: -12.0
     haut: 0.0
-    lecture: 'Budget européen porté vers 2 % du PIB de l''UE en 2035, en partie par des ressources propres : hausse de la contribution
-      française (28,8 Md€) de l''ordre de 10 % en 2032 ; bas : trajectoire linéaire financée par les contributions nationales
-      ; haut : pas d''accord à 27.'
+    lecture: 'Budget européen porté vers 2 % du PIB de l''UE en 2035, en partie par des ressources propres : hausse de la
+      contribution française (28,8 Md€) de l''ordre de 10 % en 2032 ; bas : trajectoire linéaire financée par les contributions
+      nationales ; haut : pas d''accord à 27. Ordre de grandeur non sourcé. Trajectoire et part française de la hausse non
+      sourcées.'
     sources:
     - psr_ue
     - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
@@ -3191,10 +3205,14 @@ mesures:
     haut: -4.0
     lecture: 'Transfert d''environ 40 % du scénario 100 % Sécu du HCAAM (22,5 Md€ en euros 2022 × 1,3643), les soins « optionnels
       » (dépassements, optique et dentaire hors panier) restant aux mutuelles ; bas : 100 % Sécu quasi complet ; haut : panier
-      restreint aux affections lourdes.'
+      restreint aux affections lourdes. Contrôle (vérification 2026-09-29) : prestations des complémentaires santé de 36,8
+      Md€ en 2024 (DREES, reprises par Wikipédia) ; 12 Md€ en représente un tiers, cohérent avec un transfert des seuls soins
+      essentiels (ticket modérateur, forfait hospitalier, panier de base). Base HCAAM de 22,5 Md€ non revérifiée (page Institut
+      Montaigne inaccessible).'
     sources:
     - https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/instaurer-le-100-secu-en-remboursant-100-les-soins-de-sante-prescrits-et-en-integrant-les-mutuelles-dans-la-securite-sociale/
     - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
+    - https://fr.wikipedia.org/wiki/Compl%C3%A9mentaire_sant%C3%A9_en_France
   verification:
     statut: corrige
     par: recalage-couverture
@@ -3224,7 +3242,8 @@ mesures:
     bas: -4.0
     haut: -0.8
     lecture: ≈ 660 000 naissances, recours d'un parent sur deux au congé de naissance porté à trois mois à 80 % d'un salaire
-      de ≈ 2 500 € (≈ 1,8 Md€ de plus que le droit 2026), plus le déplafonnement des IJ (≈ 0,2 Md€).
+      de ≈ 2 500 € (≈ 1,8 Md€ de plus que le droit 2026), plus le déplafonnement des IJ (≈ 0,2 Md€). Ordre de grandeur non
+      sourcé.
     sources:
     - salaire_brut_moyen_prive
     - https://www.senat.fr/rap/l20-107-2/l20-107-28.html

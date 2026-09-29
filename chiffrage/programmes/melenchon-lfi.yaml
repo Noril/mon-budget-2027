@@ -932,9 +932,10 @@ mesures:
     central: -1.5
     bas: -4.0
     haut: -0.5
-    lecture: '32 h sans perte de salaire pour les agents publics de nuit ou pénibles (≈ 600 000, surtout hôpital et forces de
-      sécurité) : ≈ 9 % d''heures à compenser, soit ≈ 55 000 postes au coût d''un entrant (≈ 24 500 € pour le solde). Bas :
-      périmètre d''un million d''agents et agent moyen ; haut : recrutements partiels.'
+    lecture: '32 h sans perte de salaire pour les agents publics de nuit ou pénibles (≈ 600 000, surtout hôpital et forces
+      de sécurité) : ≈ 9 % d''heures à compenser, soit ≈ 55 000 postes au coût d''un entrant (≈ 24 500 € pour le solde). Bas
+      : périmètre d''un million d''agents et agent moyen ; haut : recrutements partiels. Cohérent avec tondelier-ecologistes/trente-deux-heures-metiers-penibles
+      (même 55 000 recrutements). Effectif de 600 000 agents non sourcé.'
     sources:
     - fp_effectifs_fph
     - cout_soignant_hospitalier_apu
@@ -2442,7 +2443,8 @@ mesures:
     haut: 0.0
     lecture: 'Blocage réglementaire sans coût tant que les prix de marché restent sous le niveau bloqué ; en cas de hausse,
       l''État compense comme le bouclier tarifaire de 2022-2023 (plusieurs dizaines de Md€ au pic). Central : moyenne d''une
-      compensation occasionnelle ; bas : choc énergétique d''ampleur modérée en 2032.'
+      compensation occasionnelle ; bas : choc énergétique d''ampleur modérée en 2032. Ordre de grandeur non sourcé. Coût du
+      bouclier tarifaire 2022-2023 et probabilité d''un choc non sourcés ici.'
     sources:
     - tva_energie_total_5_5
     - ticpe_centime_litre
@@ -3444,7 +3446,8 @@ mesures:
     haut: 10.0
     lecture: 'Taxe permanente sur les bénéfices excédant une moyenne historique, tous secteurs : rendement modeste hors crise
       (la contribution sur les rentes infra-marginales de 2022-2023 a rapporté bien moins que prévu) ; haut : ordre de grandeur
-      revendiqué par le NFP (15 Md€) ramené au taux d''IS effectif.'
+      revendiqué par le NFP (15 Md€) ramené au taux d''IS effectif. Ordre de grandeur non sourcé. Le montant de 15 Md€ du
+      NFP n''a pas été retrouvé.'
     sources:
     - is_rendement_net
     - is_point
@@ -3622,8 +3625,10 @@ mesures:
     central: 3.0
     bas: 0.0
     haut: 6.0
-    lecture: 'Surcotisation de quelques points sur la part des salaires au-delà d''un seuil élevé (≈ 3 à 4 PSS), assiette de
-      l''ordre de 100 Md€ ; haut : 6 Md€ revendiqués par LFI (contre-budget 2026) ; bas : évitement et barème non publié.'
+    lecture: 'Surcotisation de quelques points sur la part des salaires au-delà d''un seuil élevé (≈ 3 à 4 PSS), assiette
+      de l''ordre de 100 Md€ ; haut : 6 Md€ revendiqués par LFI (contre-budget 2026) ; bas : évitement et barème non publié.
+      Contrôle : le contre-budget 2026 de LFI chiffre bien la « surcotisation sur les hauts salaires » à 6 Md€ de recettes
+      (p. 61) ; le central de 3 Md€ est la moitié de ce chiffre revendiqué (seuil et taux non publiés).'
     sources:
     - masse_salariale_privee
     - salaire_brut_moyen_prive
@@ -4039,6 +4044,19 @@ mesures:
   raison_non_chiffrable: 'Recettes affectées à des dépenses nouvelles de prévention : effet net supposé nul ; montant très
     incertain.'
   sens_probable: neutre
+  estimation_indicative:
+    central: 0.0
+    bas: -1.0
+    haut: 1.0
+    lecture: 'Recettes brutes ≈ 2 Md€ par an (accises et TVA sur 500 tonnes à 9 €/g, CAE, note n° 52, 2019) moins la dépense
+      de prévention et de lutte contre les addictions à laquelle le programme les affecte (« Affecter les recettes des taxes
+      sur le cannabis à des programmes de lutte contre les addictions ») : net nul. Même règle que chez Tondelier (recettes
+      nettes de la dépense affectée annoncée ; sans affectation annoncée, recette brute) : Tondelier n''annonce aucune affectation,
+      d''où +2 Md€ brut chez elle. Bas : dépense affectée supérieure aux recettes (monopole d''État) ; haut : la moitié des
+      recettes seulement dépensée.'
+    sources:
+    - https://www.cae-eco.fr/static/pdf/cae-note052.pdf
+    - https://web.archive.org/web/20260606164304/https://melenchon2027.fr/programme2025/livre/chapitre15/s3/
 - id: regularisation-travailleurs
   libelle: Régularisation des travailleurs, étudiants et parents d'enfants scolarisés ; carte de séjour de dix ans
   domaine: immigration
