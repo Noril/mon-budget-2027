@@ -313,6 +313,18 @@ mesures:
   raison_non_chiffrable: >-
     Taux et assiette de l'impôt minimal non précisés dans le programme ; modulation selon l'affectation des bénéfices
     non paramétrée. Trop vague pour être chiffré (règle 7).
+  sens_probable: economie
+  estimation_indicative:
+    central: 2.7
+    bas: 0.0
+    haut: 10.0
+    lecture: 'Impôt minimal sur la part française des bénéfices des groupes de plus de 1 Md€ de chiffre d''affaires : même ordre
+      de grandeur que l''impôt sur les multinationales chiffré chez Mélenchon (Institut Montaigne, scénario bas intermédiaire,
+      2,7 Md€ en 2032) ; bas : conventions fiscales ; haut : taux élevé négocié.'
+    sources:
+    - https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/instaurer-un-impot-universel-sur-les-entreprises-et-sur-les-revenus-des-particuliers-faire-face-a-levasion-fiscale/
+    - is_rendement_net
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: taxe-services-numeriques-5pct
   libelle: >-
     Taxe sur les services numériques portée de 3 à 5 %, seuil abaissé, extension au e-commerce et aux data centers
@@ -333,6 +345,15 @@ mesures:
     Référentiel incertain : le taux de la TSN voté dans la LFI 2026 (6 % adopté par l'Assemblée en première lecture)
     n'a pas pu être vérifié ; si 6 % est en vigueur, la promesse de 5 % est une baisse. Enjeu inférieur à 1 Md€ (rendement
     de l'ordre de 0,7 Md€ en 2024).
+  sens_probable: incertain
+  estimation_indicative:
+    central: 0.3
+    bas: -0.4
+    haut: 1.0
+    lecture: Si la TSN est à 3 % au 1er janvier 2027, passer à 5 % et élargir l'assiette (e-commerce, data centers) rapporte
+      ≈ 0,5 à 1 Md€ ; si le taux voté en 2026 est plus élevé (6 %), la promesse est une baisse (bas).
+    sources:
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: pfu-csg-capital-ttf
   libelle: >-
     PFU relevé de 3 points, CSG sur les revenus du capital +3 points, taxe sur les transactions financières portée à
@@ -431,6 +452,17 @@ mesures:
     Effet net de signe indéterminé : la tranche à 60 % au-delà de 250 000 € (recette de l'ordre de quelques Md€ par comparaison
     avec la CEHR, 1,5 Md€ en 2025) est combinée à une baisse non quantifiée de l'IR des premières tranches et à un plafonnement
     des niches sans montant.
+  sens_probable: incertain
+  estimation_indicative:
+    central: 0.0
+    bas: -5.0
+    haut: 4.0
+    lecture: 'Tranche à 60 % au-delà de 250 000 € (quelques Md€) et plafonnement des niches, contre une baisse des premières
+      tranches non chiffrée : effet net de signe inconnu ; bas : baisse de ≈ 5 % de l''IR dû ; haut : baisse minime.'
+    sources:
+    - ir_baisse_1pct
+    - ir_rendement
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: csg-progressive-plus-un-point
   libelle: >-
     CSG rendue progressive et relevée d'un point pour équilibrer l'assurance maladie ; hausse des taxes comportementales
@@ -600,6 +632,7 @@ mesures:
   raison_non_chiffrable: >-
     Taux non précisés (baisse sur les biens essentiels et durables, hausse sur luxe et produits nocifs) : effet net indéterminé,
     trop vague pour être chiffré.
+  sens_probable: incertain
 - id: niches-brunes-fiscalite-environnementale
   libelle: >-
     Suppression des niches fiscales fossiles, taxe sur les superprofits pétrogaziers et du fret maritime, malus poids
@@ -627,6 +660,18 @@ mesures:
     les superprofits (temporaire), malus poids et taxe sur les bouteilles sans barème, fonds « France Verte 2040 » sans
     dotation. Le chiffre de 15 Md€ de subventions à la pollution avancé par le groupe parlementaire est un stock, pas
     le rendement de la mesure.
+  sens_probable: economie
+  estimation_indicative:
+    central: 1.5
+    bas: 0.3
+    haut: 4.0
+    lecture: Taux réduits fossiles (gazole routier des transporteurs, kérosène intérieur…) convertis en aides forfaitaires plus
+      faibles, malus au poids abaissé, taxe sur les bouteilles plastiques ; la taxe sur les superprofits est temporaire et le
+      fonds France Verte 2040 non doté. Sans double compte avec depenses-inutiles-fossiles (abattement des retraités).
+    sources:
+    - depenses_fiscales_total
+    - ticpe_centime_litre
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: fiscalite-aerien
   libelle: Hausse de la taxe sur les billets d'avion et de la TVA sur les billets, interdiction des jets privés
   domaine: fiscalite
@@ -641,6 +686,15 @@ mesures:
   precision: vague
   chiffrable: false
   raison_non_chiffrable: Hausse de la TSBA et de la TVA sur les billets non chiffrée par le programme (taux absents).
+  sens_probable: economie
+  estimation_indicative:
+    central: 0.7
+    bas: 0.2
+    haut: 1.5
+    lecture: Nouvelle hausse de la TSBA (déjà relevée en 2025) et TVA des billets intérieurs portée de 10 à 20 %.
+    sources:
+    - tva_point_taux_normal
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: electricite-fiscalite-baisse
   libelle: >-
     Baisse de la fiscalité de l'électricité (accise unifiée gaz-électricité, TVA réduite sur l'abonnement)
@@ -662,6 +716,17 @@ mesures:
   raison_non_chiffrable: >-
     Sens et ampleur de l'unification de l'accise gaz-électricité non précisés ; baisse de TVA sur l'abonnement sans taux.
     Trop vague pour être chiffré.
+  sens_probable: cout
+  estimation_indicative:
+    central: -1.5
+    bas: -5.0
+    haut: -0.3
+    lecture: 'Accise électricité ramenée vers celle du gaz (quelques €/MWh, 0,3 Md€ par €/MWh) et TVA de l''abonnement revenue
+      à 5,5 % ; bas : baisse forte de l''accise ; haut : unification par hausse du gaz.'
+    sources:
+    - accise_electricite_1_euro_mwh
+    - tva_energie_electricite_5_5
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: depenses-inutiles-fossiles
   libelle: >-
     Économies annoncées (baisse des subventions à l'enseignement privé, CIR recentré sur PME/ETI, suppression de l'abattement
@@ -872,6 +937,17 @@ mesures:
   raison_non_chiffrable: >-
     Moyens de contrôle supplémentaires non quantifiés (effectifs, budget) : pas de base pour chiffrer un surcroît de
     recouvrement.
+  sens_probable: economie
+  estimation_indicative:
+    central: 0.5
+    bas: 0.0
+    haut: 2.0
+    lecture: 'Même traitement que la lutte contre la fraude chez Mélenchon (règle 6 : central nul faute de moyens chiffrés)
+      ; estimation : quelques pour cent de plus sur 17 Md€ de droits notifiés, recouvrement partiel.'
+    sources:
+    - controle_fiscal_rendement
+    - fraude_fiscale_tva_estimee
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: smic-2000-brut
   libelle: >-
     SMIC porté à 2 000 € brut par mois dès 2027, avec soutien aux TPE-PME et associations (baisse du taux réduit d'IS
@@ -1053,6 +1129,16 @@ mesures:
   raison_non_chiffrable: >-
     Effectifs concernés (licenciés des « secteurs les plus exposés ») non définis : impossible d'estimer le nombre de
     bénéficiaires du maintien de salaire.
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.5
+    bas: -2.0
+    haut: -0.1
+    lecture: 'Salaire maintenu deux ans (au lieu de l''assurance chômage) pour les licenciés des secteurs exposés : ≈ 20 000
+      à 40 000 personnes par an, complément d''environ 10 000 € par an.'
+    sources:
+    - assurance_chomage_depenses
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: trente-deux-heures-metiers-penibles
   libelle: >-
     32 heures sans perte de salaire dans les métiers pénibles ou de nuit (y compris fonction publique hospitalière),
@@ -1075,6 +1161,17 @@ mesures:
   raison_non_chiffrable: >-
     Périmètre des « métiers pénibles ou de nuit » non défini et part publique (hôpital, sécurité) non chiffrable ; financement
     du congé climatique par la Sécurité sociale sans paramètre de recours.
+  sens_probable: cout
+  estimation_indicative:
+    central: -2.0
+    bas: -5.0
+    haut: -0.5
+    lecture: 32 h sans perte de salaire pour les agents publics de nuit ou pénibles (≈ 55 000 recrutements au coût d'un entrant,
+      comme chez Mélenchon, 1,5 Md€) et part Sécurité sociale du congé climatique de 5 jours (≈ 0,5 Md€).
+    sources:
+    - fp_effectifs_fph
+    - cout_soignant_hospitalier_apu
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: assurance-chomage-abrogation-reformes
   libelle: >-
     Abrogation des réformes de l'assurance chômage depuis 2017 (dont calcul du SJR), allocations indexées sur l'inflation
@@ -1167,6 +1264,15 @@ mesures:
   precision: partielle
   chiffrable: false
   raison_non_chiffrable: Nombre de chômeurs de 55 ans et plus couverts et calendrier de l'essaimage non précisés.
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.4
+    bas: -1.5
+    haut: -0.1
+    lecture: 'Extension de TZCLD aux chômeurs de 55 ans et plus : ≈ 20 000 emplois en 2032 à ≈ 20 000 € de coût public net.'
+    sources:
+    - https://fr.wikipedia.org/wiki/Territoires_z%C3%A9ro_ch%C3%B4meur_de_longue_dur%C3%A9e
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: createurs-suspension-cotisations
   libelle: >-
     Suspension des cotisations patronales sur les premiers salariés des entreprises nouvelles (deux ans au plus, sous
@@ -1188,6 +1294,16 @@ mesures:
   raison_non_chiffrable: >-
     Suspension (report) des cotisations sous un seuil de chiffre d'affaires non précisé : effet de trésorerie, coût définitif
     inconnu.
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.2
+    bas: -1.0
+    haut: 0.0
+    lecture: 'Report des cotisations patronales des jeunes entreprises : coût définitif = créances non recouvrées (forte mortalité
+      des jeunes entreprises) ; bas : report transformé en exonération.'
+    sources:
+    - allegements_generaux_cout
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: pret-taux-zero-pme-decarbonation
   libelle: Prêt long terme à taux zéro pour la décarbonation des PME et ETI
   domaine: industrie
@@ -1206,6 +1322,14 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: >-
     Encours de prêts et opérateur (Bpifrance, hors APU ?) non précisés : coût de bonification non chiffrable.
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.3
+    bas: -1.0
+    haut: -0.05
+    lecture: Bonification d'un encours de ≈ 10 Md€ de prêts à taux zéro (≈ 3 % d'intérêts pris en charge).
+    sources:
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: retraites-retour-62-ans
   libelle: >-
     Abrogation de la réforme de 2023, retour immédiat à 62 ans, retraite à 60 ans pour carrières longues et pénibles
@@ -1531,6 +1655,15 @@ mesures:
   raison_non_chiffrable: >-
     Nombre de places nouvelles non précisé (« besoin estimé à 200 000 places certains soirs » alors que le parc en compte
     déjà environ 200 000).
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.5
+    bas: -1.5
+    haut: -0.2
+    lecture: '≈ 30 000 places d''hébergement ou de logement d''abord supplémentaires à ≈ 15 000 € par place et par an ; bas
+      : 100 000 places.'
+    sources:
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: cheque-energie-credit-impot
   libelle: >-
     Chèque énergie remplacé par un crédit d'impôt automatique ciblé sur la précarité, gratuité des premiers m³ d'eau
@@ -1548,6 +1681,15 @@ mesures:
   interpretation: Surcoût = hausse du taux de recours (versement automatique) ; montant non précisé.
   chiffrable: false
   raison_non_chiffrable: Montant du crédit d'impôt et gain de recours non précisés.
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.3
+    bas: -1.0
+    haut: 0.0
+    lecture: 'Versement automatique : fin d''une partie du non-recours au chèque énergie (≈ 20 % d''un dispositif d''environ
+      1 Md€) et ciblage élargi.'
+    sources:
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: allocations-familiales-premier-enfant
   libelle: Allocations familiales dès le premier enfant, retour de la majoration dès 14 ans
   domaine: famille
@@ -1568,6 +1710,16 @@ mesures:
   raison_non_chiffrable: >-
     Lecture ambiguë (« un même montant dès le premier enfant » peut être une redistribution à enveloppe constante) et
     nombre de familles d'un enfant ouvrant droit non récupéré.
+  sens_probable: cout
+  estimation_indicative:
+    central: -3.0
+    bas: -6.0
+    haut: 0.0
+    lecture: 'Allocation d''environ 75 € par mois dès le premier enfant pour ≈ 3,5 millions de familles d''un enfant, majoration
+      à 14 ans ; haut : redistribution à enveloppe constante.'
+    sources:
+    - allocations_familiales_depense
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: conges-parentalite-egaux
   libelle: >-
     Congé d'accueil de l'enfant de 16 semaines à 100 % pour chaque parent, congé de naissance indemnisé à 80 % et étendu
@@ -1653,6 +1805,18 @@ mesures:
   raison_non_chiffrable: >-
     Revalorisation des bourses et construction de 150 000 places sans paramètres ; la suppression de la CVEC (moins de
     0,2 Md€) est sous le seuil de la règle 7.
+  sens_probable: cout
+  estimation_indicative:
+    central: -1.6
+    bas: -3.5
+    haut: -0.7
+    lecture: Suppression de la CVEC (0,21 Md€ en 2032), bourses revalorisées de ≈ 15 %, 150 000 logements en cinq ans au coût
+      public de ≈ 33 % de 80 000 € par logement (1 Md€ par an).
+    sources:
+    - droits_inscription_superieur
+    - logement_social_aides_part_prix_revient
+    - https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/construire-15-000-logements-universitaires-supplementaires-par-an/
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: aah-plus-250
   libelle: AAH augmentée de 250 € par mois
   domaine: protection-sociale
@@ -1726,6 +1890,16 @@ mesures:
     Aucune cible chiffrée (places, ratio) : fourchette sur la base des rapports Libault ou El Khomri ; sinon non chiffrable.
   chiffrable: false
   raison_non_chiffrable: Aucune cible chiffrée (places, taux d'encadrement, revalorisations) dans le programme.
+  sens_probable: cout
+  estimation_indicative:
+    central: -3.0
+    bas: -9.0
+    haut: -1.0
+    lecture: 'Hausse du taux d''encadrement en Ehpad et revalorisations : ordre de grandeur des rapports Libault (≈ 9 Md€ à
+      l''horizon 2030, bas) ; central d''après les 210 000 recrutements chiffrés chez Mélenchon, ramenés au tiers.'
+    sources:
+    - cout_soignant_hospitalier_apu
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: loi-integrale-vss-3md
   libelle: Loi intégrale contre les violences sexistes et sexuelles dotée de 3 Md€
   domaine: justice
@@ -1852,6 +2026,17 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: >-
     2 000 centres de santé sans coût unitaire public ; recrutements et revalorisations hospitaliers sans cible.
+  sens_probable: cout
+  estimation_indicative:
+    central: -1.5
+    bas: -4.0
+    haut: -0.5
+    lecture: 2 000 centres de santé (0,6 Md€ pour le plan comparable chiffré chez Mélenchon) plus recrutements et revalorisations
+      hospitalières sans cible (≈ 1 Md€).
+    sources:
+    - cout_soignant_hospitalier_apu
+    - https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: sante-scolaire-plan-urgence
   libelle: >-
     Santé scolaire, 800 médecins et 1 000 psychologues (postes vacants), 7 500 infirmières scolaires, +500 € en début
@@ -2188,6 +2373,16 @@ mesures:
   raison_non_chiffrable: >-
     Masse salariale des personnels de recherche publique non récupérée (hausse de 10 %) et budgets des laboratoires sans
     montant : à chiffrer quand le barème existera (voir besoins).
+  sens_probable: cout
+  estimation_indicative:
+    central: -1.0
+    bas: -2.0
+    haut: -0.5
+    lecture: +10 % sur une masse salariale de la recherche publique d'environ 9 Md€ brut × (1 − 0,28), plus 10 % de crédits
+      de fonctionnement des laboratoires.
+    sources:
+    - retour_prelevements_salaires_publics
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: plan-adaptation-7md
   libelle: Plan national d'adaptation au changement climatique doté de 7 Md€ par an d'ici 2032
   domaine: environnement
@@ -2327,6 +2522,7 @@ mesures:
   raison_non_chiffrable: >-
     Recouvre largement les rénovations d'ampleur (qui incluent le changement de chauffage) : volume additionnel non isolable
     sans double compte ; fonds chaleur sans montant.
+  sens_probable: cout
 - id: logement-social-rls-tva
   libelle: >-
     Suppression de la réduction de loyer de solidarité, TVA réduite sur la construction HLM, abondement du FNAP
@@ -2453,6 +2649,16 @@ mesures:
     Tarif non précisé ; référence Deutschlandticket (49 à 58 €, environ 3 Md€ par an de compensation publique en Allemagne).
   chiffrable: false
   raison_non_chiffrable: 'Tarif du ticket unique non précisé : compensation aux autorités organisatrices non chiffrable.'
+  sens_probable: cout
+  estimation_indicative:
+    central: -2.5
+    bas: -4.5
+    haut: -1.0
+    lecture: 'Ticket climat national sur le modèle du Deutschlandticket (3 Md€ par an de compensation publique) et gratuités
+      ciblées ; haut : tarif élevé.'
+    sources:
+    - https://de.wikipedia.org/wiki/Deutschlandticket
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: ferroviaire-programmation-velo
   libelle: >-
     Loi de programmation ferroviaire à 10 ans (régénération, petites lignes, SERM, trains de nuit), doublement des voies
@@ -2472,6 +2678,15 @@ mesures:
     France Transports 2025). Vélo : crédit d'impôt sur les VAE (montant non précisé).
   chiffrable: false
   raison_non_chiffrable: Montants de la loi de programmation ferroviaire et du crédit d'impôt vélo non précisés.
+  sens_probable: cout
+  estimation_indicative:
+    central: -1.5
+    bas: -3.0
+    haut: -0.5
+    lecture: 'Loi de programmation : ≈ 1,5 Md€ par an de régénération supplémentaire (besoin chiffré en 2025), plus un crédit
+      d''impôt vélo électrique de quelques dizaines de M€.'
+    sources:
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: renationalisation-autoroutes
   libelle: Renationalisation progressive des autoroutes, recettes fléchées vers l'AFIT
   domaine: transports
@@ -2492,6 +2707,7 @@ mesures:
   raison_non_chiffrable: >-
     Reprise « progressive » à l'échéance des concessions (2031-2036) : le retour des autoroutes à l'État à l'échéance
     est déjà dans le droit ; un rachat anticipé serait une opération financière (dette), hors solde primaire.
+  sens_probable: neutre
 - id: agriculture-bio-installation
   libelle: >-
     Bio à 25 % de la SAU en 2032 (éco-régime bio, aide au maintien, revenu garanti trois ans en transition agroécologique),
@@ -2513,6 +2729,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: >-
     Aides financées principalement par la PAC (budget européen) ; part nationale et redéploiements non précisés.
+  sens_probable: cout
 - id: securite-sociale-alimentation
   libelle: >-
     Expérimentations de caisses locales de Sécurité sociale de l'alimentation, tarification sociale et cantine à 1 €
@@ -2533,6 +2750,7 @@ mesures:
   raison_non_chiffrable: >-
     Expérimentations locales : enjeu inférieur à 0,1 Md€ (règle 7) ; l'allocation universelle n'est qu'« envisagée à
     terme ».
+  sens_probable: cout
 - id: justice-recrutements
   libelle: >-
     9 000 magistrats, 10 000 greffiers et 7 000 attachés de justice sur dix ans, revalorisations, aide juridictionnelle
@@ -2630,6 +2848,15 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: >-
     Crédits restants du programme de 15 000 places et coût de la probation non récupérés : économie nette non chiffrable.
+  sens_probable: economie
+  estimation_indicative:
+    central: 0.3
+    bas: 0.0
+    haut: 0.8
+    lecture: Moratoire sur la fin du programme de 15 000 places (investissement et fonctionnement évités) net du coût de la
+      probation.
+    sources:
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: legalisation-cannabis
   libelle: Légalisation encadrée du cannabis avec fiscalité propre
   domaine: sante
@@ -2697,6 +2924,7 @@ mesures:
   raison_non_chiffrable: >-
     Effets croisés (bascule AME vers PUMA, prestations, cotisations et impôts des régularisés, économies de rétention)
     de signe incertain et sans effectifs de régularisation.
+  sens_probable: incertain
 - id: budget-ue-2pct
   libelle: Budget de l'Union porté à 2 % du PIB européen en 2035, nouvelles ressources propres, emprunt commun
   domaine: europe
@@ -2717,6 +2945,17 @@ mesures:
   raison_non_chiffrable: >-
     Dépend d'un accord européen unanime (cadre financier et décision ressources propres) ; montée en charge et partage
     entre contributions nationales et ressources propres non précisés.
+  sens_probable: cout
+  estimation_indicative:
+    central: -3.0
+    bas: -12.0
+    haut: 0.0
+    lecture: 'Budget européen porté vers 2 % du PIB de l''UE en 2035, en partie par des ressources propres : hausse de la contribution
+      française (28,8 Md€) de l''ordre de 10 % en 2032 ; bas : trajectoire linéaire financée par les contributions nationales
+      ; haut : pas d''accord à 27.'
+    sources:
+    - psr_ue
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
 - id: defense-haute-intensite
   libelle: >-
     Préparer l'armée à une guerre de haute intensité (artillerie, blindés, drones, division de réservistes, marine)
@@ -2737,6 +2976,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: >-
     Aucun montant : lecture retenue = trajectoire de la LPM actualisée (référentiel), sans écart chiffrable.
+  sens_probable: neutre
 - id: aide-ukraine
   libelle: >-
     Soutien militaire à l'Ukraine (fonds bilatéral, Facilité européenne pour la paix), avoirs russes gelés
@@ -2752,6 +2992,7 @@ mesures:
   precision: vague
   chiffrable: false
   raison_non_chiffrable: Maintien de l'existant, montant non précisé ; pas d'écart identifiable au référentiel.
+  sens_probable: neutre
 - id: apd-07-pnb
   libelle: Aide publique au développement ramenée sur la trajectoire de 0,7 % du RNB
   domaine: action-exterieure
@@ -2841,6 +3082,7 @@ mesures:
   raison_non_chiffrable: >-
     Cadre de programmation sans effet budgétaire propre ; sert de contexte (objectif de stabiliser la dette, sans cible
     chiffrée).
+  sens_probable: neutre
 - id: sortie-nucleaire-epr2
   libelle: Planification de la sortie du nucléaire, fin des programmes EPR2 et SMR
   domaine: energie
@@ -2855,6 +3097,7 @@ mesures:
   raison_non_chiffrable: >-
     EDF hors APU ; l'éventuel prêt de l'État aux EPR2 est une opération financière. Effets sur les dividendes et la CSPE
     (soutien accru aux EnR, chap. 1 mesure 6) à signaler, non chiffrés.
+  sens_probable: incertain
 - id: encadrement-loyers-generalise
   libelle: Encadrement des loyers généralisé et pérennisé
   domaine: logement
@@ -2868,6 +3111,7 @@ mesures:
   precision: partielle
   chiffrable: false
   raison_non_chiffrable: Mesure réglementaire sans effet budgétaire direct.
+  sens_probable: neutre
 - id: sixieme-republique-proportionnelle
   libelle: Processus constituant, proportionnelle intégrale, RIC, vote à 16 ans
   domaine: institutions
@@ -2882,6 +3126,7 @@ mesures:
   precision: partielle
   chiffrable: false
   raison_non_chiffrable: Réforme institutionnelle sans effet budgétaire significatif.
+  sens_probable: neutre
 - id: smic-ecarts-remuneration
   libelle: Écart de rémunération plafonné de 1 à 20 dans les entreprises
   domaine: travail
@@ -2895,6 +3140,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: >-
     Mesure de droit du travail ; effet sur les recettes (IR, cotisations sur hauts salaires) indirect et non documenté.
+  sens_probable: neutre
 - id: moratoire-grands-projets
   libelle: >-
     Moratoire sur les grands projets (canal Seine-Nord Europe, A69…), méga-bassines, data centers non souverains
@@ -2911,3 +3157,80 @@ mesures:
   raison_non_chiffrable: >-
     Effet budgétaire possible (économie sur la part publique de Seine-Nord Europe, pénalités de résiliation) mais liste
     ouverte et calendrier incertain ; à rouvrir en phase 2 si la liste des projets est précisée.
+  sens_probable: economie
+  estimation_indicative:
+    central: 0.2
+    bas: -0.2
+    haut: 0.5
+    lecture: 'Arrêt de Seine-Nord Europe (≈ 1 Md€ de part de l''État, chantier jusqu''en 2030) et d''autres projets : faible
+      économie résiduelle en 2032 ; bas : indemnités de résiliation et fonds européens perdus.'
+    sources:
+    - https://fr.wikipedia.org/wiki/Canal_Seine-Nord_Europe
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
+- id: sante-100pct-soins-essentiels
+  libelle: Prise en charge à 100 % des soins essentiels par l'Assurance maladie (transfert des complémentaires)
+  domaine: sante
+  citation:
+    texte: Garantir un remboursement total des soins essentiels nécessaires au maintien de l'autonomie et de la qualité de
+      vie par la prise en charge à 100 % par l'Assurance maladie. Supprimer les franchises. Concentrer la couverture par les
+      mutuelles aux seuls soins optionnels.
+    url: https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
+    date: 2026-07
+    support: programme (chap. 29, mesure 4)
+  precision: vague
+  interpretation: 'Volet non compté de sante-remboursement-100pct-franchises, qui ne chiffre que la suppression des franchises
+    : « soins essentiels » à 100 % et mutuelles limitées aux « soins optionnels », soit un transfert partiel des complémentaires
+    vers l''Assurance maladie (scénarios « Grande Sécu » du HCAAM 2022).'
+  chiffrable: false
+  raison_non_chiffrable: 'Périmètre des « soins essentiels » non défini : la part des 22,5 Md€ (euros 2022) du 100 % Sécu
+    complet (HCAAM, chiffré chez Mélenchon à 30,7 Md€ en 2032) transférée n''est pas lisible.'
+  sens_probable: cout
+  estimation_indicative:
+    central: -12.0
+    bas: -25.0
+    haut: -4.0
+    lecture: 'Transfert d''environ 40 % du scénario 100 % Sécu du HCAAM (22,5 Md€ en euros 2022 × 1,3643), les soins « optionnels
+      » (dépassements, optique et dentaire hors panier) restant aux mutuelles ; bas : 100 % Sécu quasi complet ; haut : panier
+      restreint aux affections lourdes.'
+    sources:
+    - https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/instaurer-le-100-secu-en-remboursant-100-les-soins-de-sante-prescrits-et-en-integrant-les-mutuelles-dans-la-securite-sociale/
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
+  verification:
+    statut: corrige
+    par: recalage-couverture
+    date: '2026-09-29'
+    commentaire: Volet séparé de sante-remboursement-100pct-franchises (contesté par le vérificateur pour ce motif) ; non
+      compté dans le solde principal.
+- id: conges-parentalite-indemnisation
+  libelle: Congés d'accueil à 100 % du salaire et congé de naissance à 80 % sur trois mois par parent
+  domaine: famille
+  citation:
+    texte: Rendre obligatoire et aligner la durée du congé d'accueil de l'enfant entre la mère et le second parent avec 16
+      semaines rémunérées à 100 % du salaire mensuel de base. Relever l'indemnisation du congé supplémentaire de naissance
+      à 80 % du revenu et l'étendre à trois mois par parents.
+    url: https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
+    date: 2026-07
+    support: programme (chap. 34, mesure 4)
+  precision: partielle
+  interpretation: 'Volet non compté de conges-parentalite-egaux, qui ne chiffre que l''allongement du congé du second parent
+    : indemnisation à 100 % du salaire au-delà du plafond des indemnités journalières, congé supplémentaire de naissance (LFSS
+    2026) porté à 80 % du revenu et à trois mois par parent.'
+  chiffrable: false
+  raison_non_chiffrable: Coût du congé de naissance créé par la LFSS 2026 et taux de recours non relus dans une source ouverte
+    ; part des salaires au-delà du plafond des IJ non documentée.
+  sens_probable: cout
+  estimation_indicative:
+    central: -2.0
+    bas: -4.0
+    haut: -0.8
+    lecture: ≈ 660 000 naissances, recours d'un parent sur deux au congé de naissance porté à trois mois à 80 % d'un salaire
+      de ≈ 2 500 € (≈ 1,8 Md€ de plus que le droit 2026), plus le déplafonnement des IJ (≈ 0,2 Md€).
+    sources:
+    - salaire_brut_moyen_prive
+    - https://www.senat.fr/rap/l20-107-2/l20-107-28.html
+    - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
+  verification:
+    statut: corrige
+    par: recalage-couverture
+    date: '2026-09-29'
+    commentaire: Volet séparé de conges-parentalite-egaux ; non compté dans le solde principal.

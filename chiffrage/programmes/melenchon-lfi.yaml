@@ -331,6 +331,7 @@ mesures:
   raison_non_chiffrable: Aucune source ouverte ne sépare le coût de la seule décote une fois l'âge ramené à 60 ans et la durée
     à 40 annuités ; son effet est couvert par la borne basse de retraite-60-ans (hauts des barèmes, qui incluent les effets
     d'ensemble).
+  sens_probable: cout
 - id: trimestres-rsa
   libelle: Validation de trimestres de retraite au titre du RSA
   domaine: retraites
@@ -758,6 +759,18 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Trop vague : ni le nombre de contractuels concernés ni le calendrier ne sont précisés, et l''écart
     de coût contractuel/titulaire n''a pas de source ouverte relue.'
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.6
+    bas: -2.0
+    haut: -0.1
+    lecture: 'Titularisation d''environ 400 000 contractuels sur besoins permanents (sur ≈ 1,2 million), gain de rémunération
+      brute d''environ 2 000 € par an (primes des titulaires) × (1 − 0,28) ; cotisations employeurs internes aux APU (convention
+      n° 1). Bas : 1 million d''agents et écart plus fort ; haut : titularisation limitée.'
+    sources:
+    - fp_effectifs_total
+    - retour_prelevements_salaires_publics
+    - https://web.archive.org/web/20260829202757/https://melenchon2027.fr/programme2025/livre/chapitre8/s3/
 - id: garantie-emploi
   libelle: Garantie d'emploi au SMIC pour les chômeurs de longue durée dans les « secteurs d'urgence »
   domaine: travail
@@ -836,6 +849,7 @@ mesures:
   interpretation: Volume non précisé ; chevauche la garantie d'emploi.
   chiffrable: false
   raison_non_chiffrable: Volume non précisé ; recouvre la garantie d'emploi et la garantie d'autonomie des jeunes, déjà chiffrées.
+  sens_probable: neutre
 - id: sixieme-semaine-conges
   libelle: Sixième semaine de congés payés
   domaine: travail
@@ -913,6 +927,19 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: Périmètre des « métiers pénibles ou de nuit » passant à 32 heures non défini ; aucune source ouverte
     sur les recrutements compensatoires dans le public.
+  sens_probable: cout
+  estimation_indicative:
+    central: -1.5
+    bas: -4.0
+    haut: -0.5
+    lecture: '32 h sans perte de salaire pour les agents publics de nuit ou pénibles (≈ 600 000, surtout hôpital et forces de
+      sécurité) : ≈ 9 % d''heures à compenser, soit ≈ 55 000 postes au coût d''un entrant (≈ 24 500 € pour le solde). Bas :
+      périmètre d''un million d''agents et agent moyen ; haut : recrutements partiels.'
+    sources:
+    - fp_effectifs_fph
+    - cout_soignant_hospitalier_apu
+    - cout_policier_apu
+    - https://web.archive.org/web/20260829202700/https://melenchon2027.fr/programme2025/livre/chapitre8/s2/
 - id: assurance-chomage-abrogation
   libelle: Abrogation des réformes de l'assurance chômage depuis 2019 ; indemnisation dès le premier jour
   domaine: travail
@@ -1236,6 +1263,18 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: Volume de la tranche gratuite et mode de financement (tarification progressive neutre ou budget)
     non précisés ; le contre-budget la renvoie aux années suivantes sans montant.
+  sens_probable: incertain
+  estimation_indicative:
+    central: 0.0
+    bas: -8.0
+    haut: 0.0
+    lecture: 'Lecture la plus plausible : tranche gratuite financée par une tarification progressive (neutre pour les APU, l''eau
+      étant communale et EDF hors APU). Bas : tranche d''environ 1 000 kWh d''électricité et quelques m³ d''eau compensés par
+      le budget pour ≈ 30 millions de ménages.'
+    sources:
+    - accise_electricite_1_euro_mwh
+    - tva_energie_electricite_5_5
+    - https://web.archive.org/web/20260608122507/https://melenchon2027.fr/programme2025/livre/chapitre7/s4/
 - id: zero-sans-abri
   libelle: 'Objectif zéro sans-abri : places d''hébergement et réquisition de logements vacants'
   domaine: logement
@@ -1673,9 +1712,61 @@ mesures:
   interpretation: Engagement déjà présent dans L'AEC 2022, reconfirmé par l'édition 2025 (dernière version publiée ; nouvelle
     version annoncée pour le 6 novembre 2026). Perte des droits d'inscription et de la CVEC ; « Construire 15 000 logements
     supplémentaires par an » (même section).
-  chiffrable: false
-  raison_non_chiffrable: Produit des droits d'inscription et de la CVEC non relu dans une source ouverte à la date du chiffrage
-    ; à chiffrer quand le barème sera disponible (listé dans les besoins).
+  chiffrable: true
+  nature: mixte
+  effet_solde_primaire:
+    central: -1.21
+    bas: -1.6
+    haut: -0.85
+    montee_en_charge:
+      '2027': 0
+      '2028': 1
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: -(droits * f25 + logements * cout_logement * part_publique / 100 / 1e9 * f23)
+    parametres:
+      droits:
+        valeur: 0.58
+        unite: Md€/an (2025)
+        bareme: droits_inscription_superieur
+        note: droits d'inscription des universités (≈ 0,40) + CVEC (0,177)
+      f25:
+        valeur: 1.2106
+        unite: facteur
+        bareme: facteur_pib_2025_2032
+      logements:
+        valeur: 15000
+        unite: logements supplémentaires par an
+        source: https://web.archive.org/web/20260608125104/https://melenchon2027.fr/programme2025/livre/chapitre5/s6/
+      cout_logement:
+        valeur: 80000
+        unite: € par logement étudiant
+        source: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/construire-15-000-logements-universitaires-supplementaires-par-an/
+        note: effort annuel de 1,2 Md€ pour 15 000 logements (Institut Montaigne 2022)
+      part_publique:
+        valeur: 33
+        unite: '% du prix de revient'
+        bareme: logement_social_aides_part_prix_revient
+        note: les logements étudiants sont surtout construits par des bailleurs sociaux (hors APU) ; seule l'aide publique compte
+      f23:
+        valeur: 1.2777
+        unite: facteur
+        bareme: facteur_pib_2023_2032
+        note: montant 2022 projeté avec le facteur 2023 (minorant d'un an de croissance)
+    explication: 'Gratuité : produit des droits d''inscription et de la CVEC (0,58 Md€ en 2025) projeté en 2032 = 0,70 Md€.
+      Logements : 15 000 × 80 000 € × 33 % d''aides publiques, projeté = 0,51 Md€. Bas : droits différenciés des étudiants
+      extra-européens et écoles publiques à droits propres (+0,2 Md€), aides à 43 % du prix de revient ; haut : droits
+      seuls (0,40 Md€ projeté) et aides à 24 %.'
+  confiance: moyenne
+  verification:
+    statut: corrige
+    par: recalage-couverture
+    date: '2026-09-29'
+    commentaire: Classée non chiffrable faute de barème ; le barème droits_inscription_superieur existe désormais (Sénat,
+      PLF 2026) et la lecture est sans ambiguïté. Repassée en chiffrable avec les conventions communes.
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 0.7
@@ -1696,6 +1787,7 @@ mesures:
     : 0,06 Md€.'
   chiffrable: false
   raison_non_chiffrable: 'Effet budgétaire inférieur à 0,1 Md€ (contre-budget : 60 M€)'
+  sens_probable: cout
 - id: conscription-citoyenne
   libelle: Conscription citoyenne de neuf mois rémunérée au SMIC pour les moins de 25 ans
   domaine: defense
@@ -2173,6 +2265,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Comptée dans plan-investissement-200-md, qui porte la ventilation sectorielle de l''enveloppe de
     200 Md€ (règle 6) : pas de double compte.'
+  sens_probable: neutre
 - id: plan-investissement-200-md
   libelle: Plan de 200 Md€ d'investissements écologiquement et socialement utiles
   domaine: ecologie
@@ -2234,6 +2327,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Comptée dans plan-investissement-200-md, qui porte la ventilation sectorielle de l''enveloppe de
     200 Md€ (règle 6) : pas de double compte.'
+  sens_probable: neutre
 - id: plan-rail-fret
   libelle: Plan rail et fret, RER métropolitains, petites lignes, trains de nuit
   domaine: transports
@@ -2249,6 +2343,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Comptée dans plan-investissement-200-md, qui porte la ventilation sectorielle de l''enveloppe de
     200 Md€ (règle 6) : pas de double compte.'
+  sens_probable: neutre
 - id: reconstruction-industrielle
   libelle: Plan de reconstruction industrielle dans les secteurs stratégiques
   domaine: economie
@@ -2265,6 +2360,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Comptée dans plan-investissement-200-md, qui porte la ventilation sectorielle de l''enveloppe de
     200 Md€ (règle 6) : pas de double compte.'
+  sens_probable: neutre
 - id: agriculture-bio-installation
   libelle: 'Révolution agricole : 300 000 emplois agricoles, caisse de défaisance des dettes des convertis au bio, installation'
   domaine: agriculture
@@ -2279,6 +2375,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Comptée dans plan-investissement-200-md, qui porte la ventilation sectorielle de l''enveloppe de
     200 Md€ (règle 6) : pas de double compte.'
+  sens_probable: neutre
 - id: tarifs-reglementes-gaz
   libelle: Tarifs réglementés de l'énergie au coût de production ; annulation des hausses du gaz depuis 2017
   domaine: energie
@@ -2338,6 +2435,18 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Mesure réglementaire sans compensation budgétaire annoncée : le coût éventuel (bouclier) dépend
     des prix de marché et d''un choix de compensation non précisé.'
+  sens_probable: cout
+  estimation_indicative:
+    central: -2.0
+    bas: -15.0
+    haut: 0.0
+    lecture: 'Blocage réglementaire sans coût tant que les prix de marché restent sous le niveau bloqué ; en cas de hausse,
+      l''État compense comme le bouclier tarifaire de 2022-2023 (plusieurs dizaines de Md€ au pic). Central : moyenne d''une
+      compensation occasionnelle ; bas : choc énergétique d''ampleur modérée en 2032.'
+    sources:
+    - tva_energie_total_5_5
+    - ticpe_centime_litre
+    - https://web.archive.org/web/20260730211950/https://melenchon2027.fr/programme2025/livre/chapitre9/s1/
 - id: abolir-hausse-accise-electricite
   libelle: Suppression de la « taxe Macron de 10 % » sur les factures d'énergie
   domaine: energie
@@ -2439,6 +2548,7 @@ mesures:
   raison_non_chiffrable: 'Acquisitions d''actions et reprises de concessions : opérations financières sans effet sur le solde
     primaire ; les effets de second ordre (dividendes, péages, indemnités de résiliation) ne sont documentés dans aucune source
     ouverte relue.'
+  sens_probable: incertain
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: null
@@ -2741,6 +2851,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Aucun niveau de dépense annoncé (livre blanc et loi de programmation à venir) : non chiffrable en
     l''état (décision de chiffrage).'
+  sens_probable: incertain
 - id: isf-climatique
   libelle: Rétablissement d'un ISF renforcé avec volet climatique
   domaine: fiscalite
@@ -3041,6 +3152,7 @@ mesures:
   raison_non_chiffrable: 'Barème non publié ; LFI la présente comme une baisse pour 90 % des contribuables compensée en haut
     de l''échelle : le sens même de l''effet sur le solde est indéterminé, et le contre-budget ne la chiffre qu''avec l''IR
     (voir ir-14-tranches).'
+  sens_probable: incertain
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: null
@@ -3325,6 +3437,18 @@ mesures:
   raison_non_chiffrable: 'Ni définition du « superprofit » (seuil par rapport à quelle référence), ni taux, ni assiette :
     non chiffrable. La contribution sur les rentes infra-marginales de l''électricité de 2022-2023 n''est pas transposable
     à tous les secteurs ; l''IFRAP juge ce type de recette non récurrent.'
+  sens_probable: economie
+  estimation_indicative:
+    central: 1.5
+    bas: 0.0
+    haut: 10.0
+    lecture: 'Taxe permanente sur les bénéfices excédant une moyenne historique, tous secteurs : rendement modeste hors crise
+      (la contribution sur les rentes infra-marginales de 2022-2023 a rapporté bien moins que prévu) ; haut : ordre de grandeur
+      revendiqué par le NFP (15 Md€) ramené au taux d''IS effectif.'
+    sources:
+    - is_rendement_net
+    - is_point
+    - https://web.archive.org/web/20260829203005/https://melenchon2027.fr/programme2025/livre/chapitre6/s5/
   chiffrages_tiers:
   - auteur: Fondation IFRAP (programme du NFP, 2024)
     montant_md: null
@@ -3493,6 +3617,17 @@ mesures:
   interpretation: Contre-budget 2026 ; seuil et taux non précisés.
   chiffrable: false
   raison_non_chiffrable: 'Ni seuil de salaire ni taux publiés (le contre-budget revendique 6 Md€ sans paramètre) : non chiffrable.'
+  sens_probable: economie
+  estimation_indicative:
+    central: 3.0
+    bas: 0.0
+    haut: 6.0
+    lecture: 'Surcotisation de quelques points sur la part des salaires au-delà d''un seuil élevé (≈ 3 à 4 PSS), assiette de
+      l''ordre de 100 Md€ ; haut : 6 Md€ revendiqués par LFI (contre-budget 2026) ; bas : évitement et barème non publié.'
+    sources:
+    - masse_salariale_privee
+    - salaire_brut_moyen_prive
+    - https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
 - id: heures-sup-fiscalisation
   libelle: Fiscalisation et socialisation des heures supplémentaires
   domaine: fiscalite
@@ -3713,6 +3848,7 @@ mesures:
   raison_non_chiffrable: 'Droits de douane et taxe aux frontières relèvent de la compétence exclusive de l''UE (union douanière,
     tarif extérieur commun) et leurs recettes sont des ressources propres de l''Union ; une taxe kilométrique unilatérale
     sur les importations n''a ni assiette ni taux publiés : non chiffrable.'
+  sens_probable: economie
 - id: fiscalite-locale-eau-mobilite
   libelle: Hausse du versement mobilité, des redevances eau et de la taxe sur les billets d'avion
   domaine: fiscalite
@@ -3728,6 +3864,7 @@ mesures:
   raison_non_chiffrable: 'Hausses de plafonds du versement mobilité et des redevances de l''eau non chiffrées par des taux
     ; recettes affectées aux autorités organisatrices de la mobilité et aux agences de l''eau, qui les dépensent (effet net
     sur le solde indéterminé, supposé nul) : non chiffrable.'
+  sens_probable: neutre
 - id: dette-bce-perpetuelle
   libelle: Gel ou annulation de la dette publique détenue par l'Eurosystème (dette perpétuelle à taux nul)
   domaine: economie
@@ -3745,6 +3882,7 @@ mesures:
   raison_non_chiffrable: 'Hors solde primaire : effet sur la charge d''intérêts et le stock de dette, subordonné à une décision
     de l''Eurosystème (Lagarde, Moulin : contraire à l''article 123 TFUE). Traité dans la trajectoire de dette, pas dans le
     solde primaire.'
+  sens_probable: neutre
   chiffrages_tiers:
   - auteur: Fondation IFRAP
     montant_md: null
@@ -3765,6 +3903,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Transfert à l''intérieur des administrations publiques : sans effet sur le solde APU, sauf si la
     CRDS/CSG affectée à la CADES est supprimée (non précisé).'
+  sens_probable: neutre
 - id: fin-oati
   libelle: Fin des émissions d'obligations indexées sur l'inflation
   domaine: economie
@@ -3777,6 +3916,7 @@ mesures:
   precision: precise
   chiffrable: false
   raison_non_chiffrable: 'Charge d''intérêts : hors solde primaire.'
+  sens_probable: neutre
 - id: sixieme-republique
   libelle: Assemblée constituante et passage à la 6e République
   domaine: democratie
@@ -3788,6 +3928,7 @@ mesures:
   precision: partielle
   chiffrable: false
   raison_non_chiffrable: Réforme institutionnelle, sans effet budgétaire significatif.
+  sens_probable: neutre
 - id: etat-urgence-sociale
   libelle: État d'urgence sociale et écologique
   domaine: democratie
@@ -3802,6 +3943,7 @@ mesures:
   interpretation: Procédure (décrets, ordonnances) ; les mesures qu'elle porte sont chiffrées séparément.
   chiffrable: false
   raison_non_chiffrable: Cadre juridique d'exécution, sans effet budgétaire propre.
+  sens_probable: neutre
 - id: blocage-loyers
   libelle: Blocage et encadrement des loyers
   domaine: logement
@@ -3815,6 +3957,7 @@ mesures:
   precision: vague
   chiffrable: false
   raison_non_chiffrable: Mesure réglementaire ; effets indirects (APL) non directs.
+  sens_probable: neutre
 - id: salaire-maximum
   libelle: Écart de salaires plafonné de 1 à 20 dans l'entreprise, plafonnement des dividendes
   domaine: travail
@@ -3828,6 +3971,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: Réglementation du droit du travail ; effet budgétaire indirect (IR, cotisations) non chiffrable sans
     hypothèse de comportement.
+  sens_probable: neutre
 - id: quota-precaires
   libelle: Quotas maximaux de contrats précaires (10 % PME, 5 % grandes entreprises)
   domaine: travail
@@ -3840,6 +3984,7 @@ mesures:
   precision: precise
   chiffrable: false
   raison_non_chiffrable: Réglementation, sans effet budgétaire direct.
+  sens_probable: neutre
 - id: sortie-nucleaire
   libelle: Sortie du nucléaire, abandon des EPR
   domaine: energie
@@ -3856,6 +4001,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: Effets surtout après 2032 et portés par EDF (hors APU tant qu'EDF est une société non financière)
     ; le financement public des EPR2 éventuellement économisé relève de prêts (opérations financières).
+  sens_probable: incertain
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: null
@@ -3876,6 +4022,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: Posture juridique et diplomatique, sans effet budgétaire direct (la contribution au budget de l'UE
     est traitée à part).
+  sens_probable: neutre
 - id: cannabis-legalisation
   libelle: Légalisation du cannabis sous monopole d'État
   domaine: sante
@@ -3891,6 +4038,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Recettes affectées à des dépenses nouvelles de prévention : effet net supposé nul ; montant très
     incertain.'
+  sens_probable: neutre
 - id: regularisation-travailleurs
   libelle: Régularisation des travailleurs, étudiants et parents d'enfants scolarisés ; carte de séjour de dix ans
   domaine: immigration
@@ -3904,6 +4052,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: Effets budgétaires indirects (cotisations, prestations) dépendant d'hypothèses de comportement ;
     non comptés (règle 3).
+  sens_probable: incertain
 - id: droit-sol-vote-etrangers
   libelle: Droit du sol intégral et droit de vote des étrangers aux élections locales
   domaine: democratie
@@ -3915,6 +4064,7 @@ mesures:
   precision: precise
   chiffrable: false
   raison_non_chiffrable: Mesure institutionnelle, sans effet budgétaire.
+  sens_probable: neutre
 - id: proportionnelle
   libelle: Scrutin proportionnel pour l'Assemblée nationale
   domaine: democratie
@@ -3926,3 +4076,67 @@ mesures:
   precision: precise
   chiffrable: false
   raison_non_chiffrable: Mesure institutionnelle, sans effet budgétaire.
+  sens_probable: neutre
+- id: minimum-vieillesse-seuil-pauvrete
+  libelle: Minimum vieillesse (Aspa) porté au seuil de pauvreté
+  domaine: retraites
+  citation:
+    texte: Porter a minima au niveau du SMIC revalorisé toutes les pensions pour une carrière complète (salarié, indépendant,
+      agriculteur), et le minimum vieillesse au niveau du seuil de pauvreté
+    url: https://web.archive.org/web/20260907170933/https://melenchon2027.fr/programme2025/livre/chapitre8/s8/
+    date: 2025-01
+    support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-09-07)'
+  precision: precise
+  interpretation: 'Volet non compté de pension-minimale-smic (« Le minimum vieillesse au seuil de pauvreté n''est toujours
+    pas chiffré »). Même lecture et mêmes paramètres que la promesse identique de Tondelier (retraites-petites-pensions) :
+    Aspa portée au seuil de pauvreté à 60 % du niveau de vie médian pour les allocataires actuels, sans les nouveaux entrants
+    (minorant).'
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -2.21
+    bas: -3.0
+    haut: -2.21
+    montee_en_charge:
+      '2027': 0
+      '2028': 1
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: -allocataires * (seuil - aspa) * 12 / 1e9
+    parametres:
+      allocataires:
+        valeur: 754460
+        unite: personnes
+        source: https://www.espace-social.com/minimum-vieillesse-le-nombre-de-beneficiaires-augmente-toujours-en-2024/
+        note: allocataires ASV ou Aspa fin 2024 (Drees)
+      seuil:
+        valeur: 1288
+        unite: € par mois
+        source: https://www.insee.fr/fr/statistiques/8600989
+        note: seuil de pauvreté 2023 (60 % du niveau de vie médian)
+      aspa:
+        valeur: 1043.59
+        unite: € par mois
+        source: https://www.service-public.gouv.fr/particuliers/vosdroits/F16871
+        note: Aspa personne seule 2026
+    explication: 'Aspa portée au seuil de pauvreté pour les allocataires actuels (allocation différentielle : +244 € par mois),
+      comme chez Tondelier. Pas de retour de prélèvements (minimum social, convention n° 3). Bas : nouveaux entrants attirés
+      par le plafond relevé (+ 1/3). Le chiffrage tiers de l''Institut Montaigne (0,67 Md€ en 2022) portait sur une cible
+      plus basse.'
+  chiffrages_tiers:
+  - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
+    montant_md: 0.67
+    url: https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/retablir-la-retraite-a-60-ans-apres-40-ans-annees-de-cotisation/
+    date: '2022'
+    commentaire: 'Minimum vieillesse : 0,67 Md€ (paramètres 2022), inclus dans le bas de pension-minimale-smic.'
+  confiance: moyenne
+  verification:
+    statut: corrige
+    par: recalage-couverture
+    date: '2026-09-29'
+    commentaire: 'Volet de pension-minimale-smic laissé hors chiffrage faute de barème Aspa ; lecture sans ambiguïté et paramètres
+      sourcés déjà utilisés pour Tondelier : chiffré à l''identique pour que la même promesse ait le même coût. Recouvrement
+      possible avec le bas de pension-minimale-smic (Montaigne, minimum vieillesse compris), de l''ordre de 0,9 Md€.'

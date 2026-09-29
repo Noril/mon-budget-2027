@@ -590,6 +590,18 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Montant, conditions et calendrier renvoyés à une « grande conférence sociale » ; l''ouverture aux
     moins de 25 ans n''est pas paramétrée (montant, conditions de ressources, rattachement fiscal) : trop vague (règle 7).'
+  sens_probable: cout
+  estimation_indicative:
+    central: -3.0
+    bas: -8.0
+    haut: -1.0
+    lecture: 'Ouverture d''un minimum social de niveau RSA aux 18-24 ans non étudiants et fiscalement autonomes (quelques centaines
+      de milliers d''allocataires, recours partiel) ; la fusion des minima est supposée à montant constant. Bas : ouverture
+      large (étudiants, montant relevé) ; haut : conditions strictes.'
+    sources:
+    - rsa_depense
+    - prestations_hors_retraites_revalo_1pct
+    - https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf
 - id: territoires-zero-chomeur
   libelle: Généralisation de Territoires zéro chômeur de longue durée et CDI d'insertion
   domaine: emploi
@@ -603,6 +615,17 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Nombre d''emplois cible non publié : « généraliser » TZCLD ne fixe ni le nombre de territoires ni
     le rythme d''habilitation (trop vague, règle 7).'
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.6
+    bas: -2.5
+    haut: -0.1
+    lecture: 'Généralisation progressive de TZCLD (≈ 4 500 salariés en 2026 dans 85 territoires) à ≈ 30 000 emplois en 2032,
+      coût public net d''environ 20 000 € par emploi (contribution au développement de l''emploi moins minima évités). Bas :
+      100 000 emplois ; haut : extension lente.'
+    sources:
+    - https://fr.wikipedia.org/wiki/Territoires_z%C3%A9ro_ch%C3%B4meur_de_longue_dur%C3%A9e
+    - https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf
 - id: indemnite-proche-aidant
   libelle: Statut et indemnité pour les proches aidants
   domaine: solidarite
@@ -615,6 +638,16 @@ mesures:
   interpretation: Montant et population non précisés ; à chiffrer par référence à l'AJPA existante.
   chiffrable: false
   raison_non_chiffrable: '« Travailler à une indemnité » : ni montant ni population ; engagement de principe (règle 7).'
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.5
+    bas: -2.0
+    haut: -0.1
+    lecture: 'Élargissement de l''AJPA existante (66,64 € par jour, 66 jours par aidé) : montant ou durée relevés, recours multiplié.
+      Bas : indemnité durable de réduction d''activité pour plusieurs centaines de milliers d''aidants.'
+    sources:
+    - https://www.service-public.gouv.fr/particuliers/vosdroits/F16920
+    - https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf
 - id: cheque-carburant-energie-triple
   libelle: Chèque carburant / chèque énergie triplé (500 €) et étendu aux classes moyennes
   domaine: energie
@@ -690,6 +723,16 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: Assiette, taux et seuil non publiés ; préférence affichée pour un dispositif européen ; rendement
     très dépendant des prix de l'énergie (la contribution temporaire de 2022-2023 n'était pas pérenne).
+  sens_probable: economie
+  estimation_indicative:
+    central: 0.3
+    bas: 0.0
+    haut: 2.0
+    lecture: 'Mécanisme de taxation des surprofits des énergéticiens, de préférence européen : rendement faible hors crise des
+      prix (contributions temporaires de 2022-2023) ; haut en cas de nouveau choc de prix.'
+    sources:
+    - is_rendement_net
+    - https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf
 - id: leasing-social-voiture-electrique
   libelle: 'Leasing social : voiture électrique à 100 €/mois pour les actifs modestes grands rouleurs'
   domaine: transports
@@ -707,6 +750,16 @@ mesures:
   raison_non_chiffrable: 'Nombre de contrats et cadence non précisés : la population visée (actifs à moins de 2 000 € par
     mois roulant plus de 30 km par jour) n''est pas chiffrée par une source publique, et le mode de financement (budget ou
     certificats d''économies d''énergie, hors APU) n''est pas dit.'
+  sens_probable: cout
+  estimation_indicative:
+    central: -1.0
+    bas: -2.6
+    haut: 0.0
+    lecture: 'Même dispositif que le leasing social chiffré chez Tondelier : ≈ 100 000 à 200 000 contrats par an à 7 000 € d''aide
+      (13 000 € en 2024) ; haut : financement par les certificats d''économies d''énergie, hors APU (2025).'
+    sources:
+    - https://www.largus.fr/actualite-automobile/leasing-social-50-000-vehicules-electriques-subventionnes-mission-accomplie-30045168.html
+    - https://france3-regions.franceinfo.fr/pays-de-la-loire/sarthe/le-mans/raphael-glucksmann-francois-hollande-et-bernard-cazeneuve-les-pontes-du-parti-socialiste-reunis-dans-la-sarthe-pour-parler-du-rechauffement-climatique-3377119.html
 - id: annulation-hausse-accise-electricite-2024
   libelle: Annulation de la hausse de l'accise sur l'électricité de 2024
   domaine: energie
@@ -771,6 +824,16 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Aucun montant ni objectif de rénovations : « relancer et simplifier » ne permet pas de fixer un
     écart à la loi de finances en vigueur (trop vague, règle 7).'
+  sens_probable: cout
+  estimation_indicative:
+    central: -1.0
+    bas: -2.5
+    haut: 0.0
+    lecture: '« Relancer » : retour de l''enveloppe MaPrimeRénov'' au niveau de 2024 (avant les coupes 2025-2026), soit ≈ 1
+      Md€ de plus par an ; bas : relance comparable au pic de 2024 augmenté ; haut : simple simplification.'
+    sources:
+    - https://www.anah.gouv.fr/presse/bilan-2024-de-l-anah-un-effort-massif-pour-mieux-renover-les-logements
+    - https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf
 - id: plan-enr-reseaux
   libelle: Plan pluriannuel d'investissement dans les renouvelables, les réseaux et le stockage
   domaine: energie
@@ -785,6 +848,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: Aucun montant ; l'investissement dans les réseaux et le stockage relève surtout de RTE, Enedis et
     des producteurs (hors APU) et le soutien public aux renouvelables dépend des prix de marché (trop vague, règle 7).
+  sens_probable: cout
 - id: plan-rail
   libelle: 'Plan Rail national : aides démultipliées à SNCF Réseau, trains de nuit, fret'
   domaine: transports
@@ -800,6 +864,15 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: '« Démultiplier les aides à SNCF Réseau » sans montant ni calendrier : écart à la trajectoire non
     lisible (trop vague, règle 7).'
+  sens_probable: cout
+  estimation_indicative:
+    central: -1.5
+    bas: -3.0
+    haut: -0.5
+    lecture: '« Démultiplier les aides à SNCF Réseau » : ≈ 1,5 Md€ par an de régénération supplémentaire, besoin chiffré par
+      SNCF Réseau et la conférence Ambition France Transports (2025) ; bas : doublement avec les régions.'
+    sources:
+    - https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf
 - id: ticket-climat
   libelle: 'Ticket climat : titre de transport national à tarif fixe, d''abord pour jeunes et précaires'
   domaine: transports
@@ -815,6 +888,16 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Tarif, périmètre (« d''abord réservé aux jeunes et aux publics précaires ») et partage avec les
     autorités organisatrices non fixés : coût non lisible (trop vague, règle 7).'
+  sens_probable: cout
+  estimation_indicative:
+    central: -1.0
+    bas: -3.0
+    haut: -0.3
+    lecture: 'Titre national à tarif fixe d''abord réservé aux jeunes et précaires : compensation aux autorités organisatrices
+      de l''ordre d''un tiers du Deutschlandticket (3 Md€ par an de compensation publique) ; bas : extension à tous.'
+    sources:
+    - https://de.wikipedia.org/wiki/Deutschlandticket
+    - https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf
 - id: fin-niches-transport-polluant
   libelle: Fin des exonérations sur le kérosène, taxation des jets privés, yachts, SUV et camions en transit
   domaine: fiscalite-environnement
@@ -833,6 +916,18 @@ mesures:
   raison_non_chiffrable: 'Liste de dispositifs (kérosène, TVA des billets, jets privés, yachts, SUV, camions en transit) sans
     taux ni périmètre : le kérosène international relève des conventions internationales et le coût des niches citées n''est
     pas publié mesure par mesure dans une source ouverte consultée (barèmes à ajouter).'
+  sens_probable: economie
+  estimation_indicative:
+    central: 1.0
+    bas: 0.3
+    haut: 2.5
+    lecture: 'Fiscalité du kérosène sur les vols intérieurs, TVA des billets alignée à 20 %, taxes jets privés, yachts, SUV
+      et camions en transit : quelques centaines de M€ chacune, le kérosène international restant hors d''atteinte.'
+    sources:
+    - tva_point_taux_normal
+    - ticpe_centime_litre
+    - depenses_fiscales_total
+    - https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf
 - id: suppression-niches-inefficaces
   libelle: Suppression des niches fiscales inefficaces et polluantes, audit de la dépense
   domaine: finances-publiques
@@ -848,6 +943,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Enveloppe sans montant (règle 6) : les niches identifiées sont chiffrées dans leurs propres mesures
     (successions-pacte-dutreil ; kérosène et CIR non chiffrables) ; la part documentée non déjà comptée est nulle.'
+  sens_probable: economie
 - id: cir-plafonne-grands-groupes
   libelle: Crédit d'impôt recherche plafonné pour les grands groupes
   domaine: fiscalite-entreprises
@@ -863,6 +959,16 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Niveau du plafond non publié et économie partiellement réaffectée à la recherche publique (même
     chantier) : solde net non lisible.'
+  sens_probable: economie
+  estimation_indicative:
+    central: 1.0
+    bas: 0.0
+    haut: 3.0
+    lecture: 'Plafonnement du CIR des grands groupes (41 % de 7,8 Md€ en 2023) avec réaffectation partielle à la recherche publique
+      ; haut : ≈ 3 Md€ d''économie brute ; bas : réaffectation totale.'
+    sources:
+    - https://www.financeinnovation.fr/2026/01/22/cir-le-credit-impot-recherche-cir-en-2023-la-creance-continue-daugmenter-tout-en-comptant-moins-de-declarants/
+    - https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf
 - id: hausse-taxe-gafam
   libelle: Hausse ciblée de la taxe sur les services numériques (« taxe GAFAM ») et taxe « Amazon » sur le e-commerce
   domaine: fiscalite-entreprises
@@ -879,6 +985,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Recette affectée à une dépense nouvelle (Agence industrielle du numérique et de l''IA) : effet net
     nul par construction ; taux de la hausse non précisé.'
+  sens_probable: neutre
 - id: salaires-enseignants-10-pct
   libelle: Hausse de 10 % du salaire de tous les enseignants, jusqu'à +25 % en milieu de carrière dans le primaire (6 Md€)
   domaine: education
@@ -962,6 +1069,7 @@ mesures:
   raison_non_chiffrable: 'Coût nul à droit constant : aucune suppression de postes n''est votée au-delà de la loi de finances
     2026 ; maintenir les postes malgré la baisse démographique est une moindre économie par rapport à une politique future,
     pas un coût par rapport à la législation.'
+  sens_probable: neutre
 - id: plan-batisseurs-ecoles
   libelle: 'Plan « bâtisseurs d''écoles » : rénovation thermique et construction'
   domaine: education
@@ -979,6 +1087,15 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Montant non publié en source écrite (« chiffré en milliards sur dix ans » à l''oral, RTL, 31/05/2026)
     et partage État-collectivités inconnu : trop vague (règle 7).'
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.5
+    bas: -2.0
+    haut: -0.1
+    lecture: '« Chiffré en milliards sur dix ans » : ≈ 5 Md€ de l''État sur dix ans, soit 0,5 Md€ par an ; bas : ordre de grandeur
+      du plan bâti scolaire chiffré chez Tondelier (2 à 4 Md€ par an toutes APU).'
+    sources:
+    - https://librejournal.fr/article/glucksmann-se-devoile/
 - id: service-civique-obligatoire
   libelle: Service civique universel et obligatoire de dix mois
   domaine: jeunesse
@@ -1058,6 +1175,15 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Coût d''un séjour, nombre d''enfants déjà couverts (pass colo, classes découvertes) et partage entre
     État, CAF et collectivités non publiés : pas de base de chiffrage sans hypothèse arbitraire.'
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.3
+    bas: -0.8
+    haut: -0.1
+    lecture: Un séjour collectif financé par enfant au cours de la scolarité (≈ 700 000 enfants par an, ≈ 500 € de reste à financer),
+      moins les séjours déjà financés (pass colo, classes découvertes).
+    sources:
+    - https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme
 - id: capital-formation-universel
   libelle: Capital formation universel en remplacement des bourses étudiantes
   domaine: enseignement-superieur
@@ -1072,6 +1198,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Montant de l''allocation non fixé, renvoyé à une concertation avec les syndicats et les universités
     : trop vague (règle 7).'
+  sens_probable: cout
 - id: pass-culture-part-individuelle
   libelle: Suppression de la part individuelle du pass Culture au profit d'artistes intervenant à l'école
   domaine: culture
@@ -1086,6 +1213,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Redéploiement à enveloppe constante (suppression de la part individuelle au profit des interventions
     d''artistes à l''école) : effet net nul par construction, montant non précisé.'
+  sens_probable: neutre
 - id: plan-violences-sexistes-1-md
   libelle: Plan d'un milliard d'euros contre les violences sexistes et sexuelles
   domaine: egalite
@@ -1142,6 +1270,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Aucun montant : sortir la prévention de l''ONDAM change la présentation, pas la dépense ; trop vague
     (règle 7).'
+  sens_probable: cout
 - id: revalorisation-soignants-police-justice
   libelle: Revalorisation des soignants, policiers et gendarmes, agents de justice ; hausse des effectifs judiciaires et pénitentiaires
   domaine: fonction-publique
@@ -1157,6 +1286,21 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Ni montant, ni effectifs, ni grille : « revaloriser » et « augmenter les effectifs » ne se chiffrent
     pas sans hypothèse arbitraire (règle 7).'
+  sens_probable: cout
+  estimation_indicative:
+    central: -1.2
+    bas: -3.5
+    haut: -0.3
+    lecture: 'Revalorisation de ≈ 3 % des soignants hospitaliers, policiers, gendarmes et agents de justice (≈ 1,1 million d''agents,
+      ≈ 40 000 € brut) × (1 − 0,28), plus quelques milliers de postes judiciaires et pénitentiaires au coût d''un entrant. Bas
+      : ≈ 8 % ; haut : mesures catégorielles ciblées.'
+    sources:
+    - fp_effectifs_fph
+    - cout_soignant_hospitalier_apu
+    - cout_policier_apu
+    - cout_greffier_apu
+    - retour_prelevements_salaires_publics
+    - https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf
 - id: logement-abordable-fonds-foncier
   libelle: 'Plan Marshall du logement : fonds national foncier, logement social, BRS, extension de Visale, « logement d''abord
     »'
@@ -1170,6 +1314,16 @@ mesures:
   interpretation: Aucun montant ni objectif chiffré de logements sociaux.
   chiffrable: false
   raison_non_chiffrable: 'Ni dotation du fonds foncier, ni objectif de logements sociaux ou de BRS : trop vague (règle 7).'
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.5
+    bas: -2.0
+    haut: -0.1
+    lecture: 'Dotation d''un fonds foncier national et soutien accru au logement social et au BRS : ≈ 0,5 Md€ par an ; bas :
+      « plan Marshall » de plusieurs Md€.'
+    sources:
+    - logement_social_aides_part_prix_revient
+    - https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf
 - id: aide-publique-developpement-0-7
   libelle: Aide publique au développement portée progressivement à 0,7 % du RNB
   domaine: international
@@ -1243,6 +1397,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: 'Aucune cible de budget (ni pourcentage du PIB, ni loi de programmation) : décision du coordinateur,
     défense vague = non chiffrable tant que rien de plus précis n''est publié.'
+  sens_probable: cout
 - id: fonds-europeen-defense-500-md
   libelle: Fonds européen de défense de 500 Md€ par emprunt commun
   domaine: europe-defense
@@ -1257,6 +1412,7 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: Mesure de niveau européen, dépendante d'un accord à 27 ; sans effet direct identifiable sur le solde
     primaire français 2027-2032.
+  sens_probable: neutre
 - id: grand-emprunt-europeen-ressources-propres
   libelle: Grand emprunt européen et ressources propres de l'Union
   domaine: europe
@@ -1268,6 +1424,7 @@ mesures:
   precision: vague
   chiffrable: false
   raison_non_chiffrable: Mesure de niveau européen ; effet sur la contribution française au budget de l'UE indéterminé.
+  sens_probable: incertain
 - id: convention-citoyenne-immigration
   libelle: Convention citoyenne sur l'immigration
   domaine: immigration
@@ -1279,6 +1436,7 @@ mesures:
   precision: precise
   chiffrable: false
   raison_non_chiffrable: Mesure institutionnelle sans effet budgétaire significatif.
+  sens_probable: neutre
 - id: reforme-institutions-proportionnelle
   libelle: Proportionnelle, investiture du Premier ministre, motion de censure constructive, fin du 49.3
   domaine: institutions
@@ -1291,6 +1449,7 @@ mesures:
   precision: precise
   chiffrable: false
   raison_non_chiffrable: Réforme institutionnelle.
+  sens_probable: neutre
 - id: droit-initiative-citoyenne
   libelle: Droit d'initiative citoyenne (référendums locaux et nationaux), vote à 16 ans aux élections locales
   domaine: institutions
@@ -1303,6 +1462,7 @@ mesures:
   precision: partielle
   chiffrable: false
   raison_non_chiffrable: Réforme institutionnelle.
+  sens_probable: neutre
 - id: mixite-sociale-prive-sous-contrat
   libelle: Établissements privés sous contrat intégrés à la carte scolaire
   domaine: education
@@ -1315,6 +1475,7 @@ mesures:
   precision: precise
   chiffrable: false
   raison_non_chiffrable: Mesure réglementaire sans effet budgétaire significatif.
+  sens_probable: neutre
 - id: reseaux-sociaux-moins-15-ans
   libelle: Interdiction des réseaux sociaux aux moins de 15 ans, bannissement de TikTok
   domaine: numerique
@@ -1327,6 +1488,7 @@ mesures:
   precision: precise
   chiffrable: false
   raison_non_chiffrable: Mesure réglementaire sans effet budgétaire significatif.
+  sens_probable: neutre
 - id: buy-european-act
   libelle: '« Buy European Act » : préférence européenne dans les marchés publics'
   domaine: industrie
@@ -1339,6 +1501,7 @@ mesures:
   precision: precise
   chiffrable: false
   raison_non_chiffrable: Mesure réglementaire européenne ; effet sur les prix d'achat publics non quantifiable.
+  sens_probable: neutre
 - id: encadrement-loyers-abrogation-kasbarian
   libelle: Encadrement des loyers en zone tendue, abrogation de la loi Kasbarian
   domaine: logement
@@ -1350,6 +1513,7 @@ mesures:
   precision: precise
   chiffrable: false
   raison_non_chiffrable: Mesure réglementaire sans effet budgétaire significatif.
+  sens_probable: neutre
 - id: abrogation-loi-immigration-2024
   libelle: Abrogation de la loi immigration de 2024, régularisation facilitée des travailleurs sans papiers
   domaine: immigration
@@ -1361,6 +1525,7 @@ mesures:
   precision: precise
   chiffrable: false
   raison_non_chiffrable: Mesure législative sans effet budgétaire direct significatif.
+  sens_probable: neutre
 - id: dissuasion-nucleaire-europeenne
   libelle: Extension de la dissuasion nucléaire française aux partenaires de l'UE
   domaine: defense
@@ -1373,6 +1538,7 @@ mesures:
   precision: partielle
   chiffrable: false
   raison_non_chiffrable: Mesure diplomatique et stratégique ; coût éventuel non déterminable.
+  sens_probable: incertain
 - id: prix-electricite-cout-production
   libelle: Prix de l'électricité fixé en partie sur le coût de production
   domaine: energie
@@ -1387,3 +1553,4 @@ mesures:
   chiffrable: false
   raison_non_chiffrable: Mesure de régulation du marché ; l'effet sur les comptes publics (dividendes EDF, CSPE) dépend de
     paramètres non publiés.
+  sens_probable: incertain
