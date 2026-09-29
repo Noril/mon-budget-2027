@@ -139,7 +139,12 @@ def agreger(p: dict) -> dict:
              "haut": m.get("effet_solde_primaire", {}).get("haut"), "confiance": m.get("confiance"),
              "url": m["citation"]["url"], "verification": m.get("verification", {}).get("statut"),
              "tiers": [(t["auteur"], t.get("montant_md")) for t in m.get("chiffrages_tiers", [])],
-             "raison": m.get("raison_non_chiffrable")}
+             "raison": m.get("raison_non_chiffrable"), "citation": m["citation"]["texte"],
+             "date": m["citation"].get("date"), "interpretation": m.get("interpretation"),
+             "formule": m.get("calcul", {}).get("formule"), "explication": m.get("calcul", {}).get("explication"),
+             "parametres": {k: v["valeur"] for k, v in m.get("calcul", {}).get("parametres", {}).items()},
+             "effets_retour": m.get("effets_retour"),
+             "commentaire_verif": m.get("verification", {}).get("commentaire")}
             for m in p["mesures"]
         ],
     }
@@ -240,6 +245,19 @@ def _svg_dette(traj: dict, agregats: list[dict]) -> str:
     return "".join(parts)
 
 
+def _detail(m: dict) -> str:
+    e = html.escape
+    parts = [f"<blockquote>« {e(m['citation'])} »{' (' + e(str(m['date'])) + ')' if m.get('date') else ''}</blockquote>"]
+    for titre, cle in (("Lecture retenue", "interpretation"), ("Calcul", "explication"), ("Non compté", "effets_retour"),
+                       ("Vérification", "commentaire_verif")):
+        if m.get(cle):
+            parts.append(f"<p><b>{titre}.</b> {e(str(m[cle]))}</p>")
+    if m.get("formule"):
+        params = ", ".join(f"{e(k)} = {v:g}" for k, v in m["parametres"].items())
+        parts.append(f"<p><code>{e(m['formule'])}</code><br><small>{params}</small></p>")
+    return "<details><summary>détail</summary>" + "".join(parts) + "</details>"
+
+
 def rapport_html(agregats: list[dict], traj: dict) -> str:
     e = html.escape
     lignes = []
@@ -258,7 +276,7 @@ def rapport_html(agregats: list[dict], traj: dict) -> str:
     for a in agregats:
         rows = []
         for m in sorted(a["mesures"], key=lambda m: (m["central"] is None, m["central"] or 0)):
-            lien = f"<a href='{e(m['url'])}'>{e(m['libelle'])}</a>"
+            lien = f"<a href='{e(m['url'])}'>{e(m['libelle'])}</a>" + _detail(m)
             if m["chiffrable"]:
                 tiers = "<br>".join(f"{e(t)} : {_md(v)}" for t, v in m["tiers"]) or "—"
                 cls = "neg" if (m["central"] or 0) < 0 else "pos"
@@ -283,7 +301,9 @@ h2 small{{color:var(--muted);font-weight:400;font-size:.7em}}a{{color:inherit}}p
 table{{border-collapse:collapse;width:100%;background:var(--card)}}th,td{{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}}
 th{{font-size:.8rem;color:var(--muted);font-weight:600}}.n{{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}}
 .neg{{color:var(--neg)}}.pos{{color:var(--pos)}}tr.nc td{{color:var(--muted)}}small{{color:var(--muted)}}
-.scroll{{overflow-x:auto}}svg{{width:100%;height:auto;background:var(--card)}}.grille{{stroke:var(--line)}}.axe{{fill:var(--muted);font-size:11px}}.leg{{font-size:11px}}
+.scroll{{overflow-x:auto}}details{{margin-top:4px}}summary{{cursor:pointer;color:var(--muted);font-size:.8rem}}
+details p,blockquote{{font-size:.85rem;max-width:70ch;margin:.4em 0}}blockquote{{border-left:3px solid var(--line);padding-left:8px;color:var(--muted)}}
+code{{font-size:.8rem;word-break:break-all}}svg{{width:100%;height:auto;background:var(--card)}}.grille{{stroke:var(--line)}}.axe{{fill:var(--muted);font-size:11px}}.leg{{font-size:11px}}
 </style></head><body><main>
 <h1>Chiffrage des programmes présidentiels 2027</h1>
 <p class="m">Généré le {date.today().isoformat()}. Effet sur le solde public primaire, en milliards d'euros courants par an en régime de
