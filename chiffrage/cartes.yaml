@@ -467,7 +467,7 @@ cartes:
     suite_seulement: true
     personnage: agriculteur
     levier: transition-ecologique
-    texte: "Le soutien public aux éoliennes et au solaire coûte environ 3 Md€ par an. On y met fin ?"
+    texte: "Le soutien aux éoliennes et au solaire pèse sur le budget de l'État. Ne plus signer de nouveaux contrats économiserait environ 3 Md€ par an en 2032. On y met fin ?"
     gauche: {libelle: "Budget actuel", valeur: 0}
     droite: {libelle: "Fin du soutien : −3,5 Md€", valeur: -3.5}
   - id: transition-plus
@@ -642,15 +642,15 @@ cartes:
   - id: revenus-capital
     personnage: etudiante
     levier: revenus-capital
-    texte: "Les dividendes sont taxés à 30 % au plus, moins que bien des salaires. On relève ce prélèvement de 3 points ?"
-    gauche: {libelle: "Prélèvement à 30 %", option: pfu, suite: revenus-capital-bareme}
+    texte: "Les dividendes sont taxés à 31,4 % au plus, moins que bien des salaires. On relève ce prélèvement de 3 points ?"
+    gauche: {libelle: "Prélèvement à 31,4 %", option: pfu, suite: revenus-capital-bareme}
     droite: {libelle: "+3 points et taxe renforcée", option: pfu-plus-3, suite: revenus-capital-taxes}
   - id: revenus-capital-bareme
     suite_seulement: true
     personnage: eurodeputee
     levier: revenus-capital
     texte: "Sans relever les taux, on peut imposer les revenus du capital au barème, comme les salaires."
-    gauche: {libelle: "Prélèvement à 30 %", option: pfu}
+    gauche: {libelle: "Prélèvement à 31,4 %", option: pfu}
     droite: {libelle: "Imposition au barème", option: bareme}
   - id: revenus-capital-taxes
     suite_seulement: true

@@ -837,13 +837,13 @@ leviers:
 - id: revenus-capital
   theme: Fiscalité des ménages
   question: Comment imposer les revenus du capital (dividendes, intérêts, plus-values) ?
-  aide: Supprimer le prélèvement forfaitaire unique de 30 % et imposer ces revenus au barème rapporterait de 0 à 1,7 Md€ (barème
+  aide: Supprimer le prélèvement forfaitaire unique de 31,4 % et imposer ces revenus au barème rapporterait de 0 à 1,7 Md€ (barème
     pfu_passage_bareme) ; la taxe sur les transactions financières rapporte environ 2,5 Md€ (ttf_rendement).
   type: choix
   axe: prelevements
   options:
   - id: pfu
-    libelle: Prélèvement forfaitaire unique de 30 % (droit en vigueur)
+    libelle: Prélèvement forfaitaire unique de 31,4 % (droit en vigueur)
     defaut: true
     effet:
       central: 0
@@ -2100,8 +2100,8 @@ leviers:
   theme: Écologie
   question: Combien de dépenses de transition écologique en plus (investissements, adaptation, transports, énergies renouvelables),
     hors rénovation des logements ?
-  aide: Un point de PIB représente environ 36 Md€ en 2032 (barème point_pib_2032) ; le soutien public aux énergies renouvelables
-    intermittentes est chiffré à environ 3 Md€ par an dans les programmes qui proposent d'y mettre fin.
+  aide: Un point de PIB représente environ 36 Md€ en 2032 (barème point_pib_2032) ; ne plus signer de nouveaux contrats de soutien aux énergies
+    renouvelables intermittentes économiserait environ 3 Md€ par an en 2032 selon les programmes qui le proposent.
   type: curseur
   axe: depenses
   axes:

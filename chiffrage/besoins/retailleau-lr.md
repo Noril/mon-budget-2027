@@ -1,7 +1,6 @@
-# Besoins de barèmes : Retailleau (LR)
+# Barèmes complémentaires : Retailleau (LR)
 
-Coûts unitaires et assiettes nécessaires pour chiffrer les mesures `A_CHIFFRER` de `programmes/retailleau-lr.yaml`.
-Millésime cible : 2032 en euros courants, référentiel = législation au 1er janvier 2027.
+Ce fichier recense les coûts unitaires et les paramètres dont le chiffrage du programme (`chiffrage/programmes/retailleau-lr.yaml`) avait besoin, et indique lesquels figurent désormais dans les barèmes communs (`chiffrage/baremes.yaml`). **Statut (état au 29 septembre 2026) : toutes les mesures du programme sont chiffrées ou classées non chiffrables ; aucune n'est en attente.** Les listes par domaine sont les recherches menées, avec des pistes de sources (ce ne sont pas des sources citées : chaque paramètre retenu porte sa propre source dans la mesure qui l'utilise) ; l'identifiant entre parenthèses ou après la flèche est celui de la mesure concernée. Un paramètre « non inscrit » est sourcé directement dans la mesure : il pourrait devenir un barème commun. Montants en Md€ courants, régime de croisière 2032, référence : législation au 1er janvier 2027 (`chiffrage/REFERENCE.md`).
 
 ## Travail, cotisations, fiscalité des entreprises
 - Masse salariale des heures supplémentaires (secteur privé) et taux de cotisations salariales et patronales effectifs sur ces heures, après réduction de 11,31 % et déduction forfaitaire (Acoss/Urssaf, Dares) → seuil zéro cotisation.
@@ -45,24 +44,26 @@ Millésime cible : 2032 en euros courants, référentiel = législation au 1er j
 - LPM : annuités 2027-2030 de la LPM actualisée adoptée contre la version +50 Md€ du Sénat.
 - Coût à la place de CEF/EPM et coût journalier d'un détenu (justice des mineurs, courtes peines).
 
-## Barèmes à ajouter (phase 2)
+## Paramètres hors barèmes communs
 
-Paramètres utilisés sans barème commun (sourcés dans la mesure) ou manquants, qui rendraient le chiffrage plus robuste :
+Paramètres utilisés sans barème commun (sourcés dans la mesure) ou qui manquaient, et qui rendraient le chiffrage plus robuste.
 
-- `hs_exoneration_part_salariale` : part salariale de l'exonération des heures supplémentaires (2 306 / 5 428 M€, Cour des comptes NEB 2026) ; heures supplémentaires par tranche annuelle (1 607-1 623 h, au-delà).
-- `cotisations_patronales_non_contributives` : rendement d'un point de cotisation famille, maladie, FNAL, versement mobilité après RGDU.
-- `forfait_social_par_assiette` : ventilation Acoss (participation légale, supra-légale, intéressement, PER, abondements).
-- `cfe_etablissements_industriels` : produit de CFE des établissements industriels (DGFiP, REI).
-- `logements_neufs_annuels` : autorisations et mises en chantier (SDES Sitadel ; 379 222 autorisés en 2025).
-- `unedic_ruptures_conventionnelles` : dépense d'allocation et durée moyenne après rupture conventionnelle (Unédic) ; chiffrage Unédic des règles de juin 2024.
-- `seniors_trimestres_complets_avant_age_legal` : effectif et salaire des salariés éligibles (Cnav, Drees EIR).
-- `cumul_emploi_retraite` : cumulants, revenus d'activité et cotisations (Drees) ; flux de surcote.
-- `retraites_taux_plein_65_decote_7pct` : simulation COR/Cnav d'un âge minimal 63 ans avec décote 7 %/an jusqu'à 65 ans et taux plein automatique à 65 ans.
-- `dmtg_titres_hors_dutreil` : droits de mutation sur transmissions d'entreprises hors pacte Dutreil.
-- `interets_emprunt_residence_principale_familles` : foyers avec enfants mineurs accédants et intérêts payés (ERFS, Banque de France).
-- `ptz_cout_generation` : coût budgétaire d'une génération de PTZ et part de l'ancien.
-- `revenus_fonciers_bati` : revenus fonciers et BIC meublés, valeur du bâti loué (DGFiP).
-- `hebergement_urgence_cout_place` et part des places occupées par des étrangers en situation irrégulière (Cour des comptes).
-- `cspe_contrats_futurs_enr` : charges de service public prévisionnelles des contrats EnR 2028-2032 (CRE).
-- `enseignants_prive_sous_contrat` : effectif et rémunération (programme 139).
-- `apd_cad_mission` : APD au sens du CAD et crédits de la mission APD.
+| Paramètre | Contenu recherché | Statut dans `baremes.yaml` |
+|---|---|---|
+| `hs_exoneration_part_salariale` | Part salariale de l'exonération des heures supplémentaires : 2 306 sur 5 428 M€ (Cour des comptes, NEB 2026) ; heures par tranche annuelle (1 607-1 623 h, au-delà) | **Inscrit en partie** : `hs_exoneration_cout` (5,4 Md€, part salariale de 2,3 Md€ détaillée dans la dérivation) ; la répartition des heures par tranche n'est pas inscrite |
+| `cotisations_patronales_non_contributives` | Rendement d'un point de cotisation famille, maladie, FNAL, versement mobilité après allègements | Non inscrit (`masse_salariale_privee` donne un ordre de grandeur brut de 7,4 Md€ par point, avant allègements) |
+| `forfait_social_par_assiette` | Ventilation Acoss (participation légale, supra-légale, intéressement, PER, abondements) | Non inscrit |
+| `cfe_etablissements_industriels` | Produit de la CFE des établissements industriels (DGFiP, REI) | Non inscrit |
+| `logements_neufs_annuels` | Autorisations et mises en chantier (SDES, Sitadel) ; 379 222 logements autorisés en 2025 | Non inscrit |
+| `unedic_ruptures_conventionnelles` | Dépense d'allocation et durée moyenne après rupture conventionnelle ; chiffrage Unédic des règles de juin 2024 | Non inscrit |
+| `seniors_trimestres_complets_avant_age_legal` | Effectif et salaire des salariés éligibles (Cnav, DREES EIR) | Non inscrit |
+| `cumul_emploi_retraite` | Cumulants, revenus d'activité et cotisations (DREES) ; flux de surcote | Non inscrit |
+| `retraites_taux_plein_65_decote_7pct` | Simulation COR/Cnav d'un âge minimal de 63 ans avec décote de 7 % par an jusqu'à 65 ans et taux plein automatique à 65 ans | Non inscrit (barèmes voisins : `retraites_age_legal_1_an`, `retraites_duree_assurance_1_an`) |
+| `dmtg_titres_hors_dutreil` | Droits de mutation sur les transmissions d'entreprises hors pacte Dutreil | Non inscrit (`dmtg_rendement` : 21,4 Md€ au total, dont ≈ 17,0 Md€ de successions, sans distinction du Dutreil) |
+| `interets_emprunt_residence_principale_familles` | Foyers avec enfants mineurs accédants et intérêts payés (ERFS, Banque de France) | Non inscrit |
+| `ptz_cout_generation` | Coût budgétaire d'une génération de prêts à taux zéro et part de l'ancien | Non inscrit |
+| `revenus_fonciers_bati` | Revenus fonciers et BIC meublés, valeur du bâti loué (DGFiP) | Non inscrit |
+| `hebergement_urgence_cout_place` | Coût d'une place d'hébergement d'urgence et part occupée par des étrangers en situation irrégulière (Cour des comptes) | Non inscrit |
+| `cspe_contrats_futurs_enr` | Charges de service public prévisionnelles des contrats d'énergies renouvelables 2028-2032 (CRE) | Non inscrit |
+| `enseignants_prive_sous_contrat` | Effectif et rémunération (programme 139) | Non inscrit |
+| `apd_cad_mission` | APD au sens du CAD et crédits de la mission APD | **Inscrit** : `apd_part_rnb` (APD de 12,88 Md€ en 2025, 0,42 % du RNB ; mission APD de 3,67 Md€ au PLF 2026 citée dans les limites) |

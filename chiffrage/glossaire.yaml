@@ -102,7 +102,7 @@
 
 - terme: PFU
   variantes: ["prélèvement forfaitaire unique", "flat tax", "prélèvement forfaitaire"]
-  definition: "Prélèvement forfaitaire unique (« flat tax ») : taux unique d'environ 30 %, prélèvements sociaux compris, sur les dividendes, intérêts et plus-values, au lieu du barème de l'impôt sur le revenu."
+  definition: "Prélèvement forfaitaire unique (« flat tax ») : taux unique de 31,4 % depuis 2026 (12,8 % d'impôt, le reste en prélèvements sociaux) sur la plupart des dividendes, intérêts et plus-values, au lieu du barème de l'impôt sur le revenu."
 
 - terme: revenus du capital
   variantes: ["revenus du patrimoine"]
@@ -222,7 +222,7 @@
 
 - terme: Smic
   variantes: ["SMIC", "salaire minimum"]
-  definition: "Salaire minimum interprofessionnel de croissance, revalorisé chaque année selon la loi (inflation et une partie des hausses de salaires). Environ 2,2 millions de salariés au Smic ; +1 % coûte 0,3 Md€ aux administrations."
+  definition: "Salaire minimum interprofessionnel de croissance, revalorisé chaque année selon la loi (inflation et une partie des hausses de salaires). Environ 2,2 millions de salariés concernés par sa revalorisation ; +1 % coûte 0,3 Md€ aux administrations."
 
 - terme: revalorisation légale
   definition: "Hausse du Smic imposée chaque 1er janvier par la loi, calculée sur l'inflation et la moitié du gain de pouvoir d'achat du salaire horaire ouvrier. Le gouvernement peut décider un « coup de pouce » en plus."
@@ -232,7 +232,7 @@
 
 - terme: salaire brut
   variantes: ["salaire net"]
-  definition: "Salaire avant retenue des cotisations salariales, de la CSG et de la CRDS. Le net, versé au salarié, est inférieur d'environ 22 % dans le privé."
+  definition: "Salaire avant retenue des cotisations salariales, de la CSG et de la CRDS. Le net, versé au salarié, est inférieur d'environ 24 % en moyenne dans le privé."
 
 - terme: assurance chômage
   variantes: ["indemnisation", "durée d'indemnisation"]
@@ -354,7 +354,7 @@
 
 - terme: DGF
   variantes: ["dotation globale de fonctionnement", "dotation globale"]
-  definition: "Dotation globale de fonctionnement : principale somme versée chaque année par l'État aux communes, départements et régions, sans affectation imposée. Environ 27 Md€ par an."
+  definition: "Dotation globale de fonctionnement : principale somme versée chaque année par l'État aux communes, aux intercommunalités et aux départements, sans affectation imposée. Environ 27 Md€ par an."
 
 - terme: dotations
   variantes: ["dotation"]
@@ -377,7 +377,7 @@
   definition: "Agence de l'environnement et de la maîtrise de l'énergie (Agence de la transition écologique) : distribue des aides et conseille sur l'énergie, les déchets et le climat."
 
 - terme: audiovisuel public
-  definition: "Chaînes et radios détenues par l'État (France Télévisions, Radio France, Arte France, France Médias Monde, INA), financées depuis 2022 par une part de TVA."
+  definition: "Chaînes et radios publiques (France Télévisions, Radio France, Arte France, France Médias Monde, INA), financées depuis 2022 par une part de TVA."
 
 - terme: achats publics
   variantes: ["commande publique"]
@@ -424,7 +424,7 @@
 
 - terme: énergies renouvelables
   variantes: ["renouvelables", "éoliennes", "solaire"]
-  definition: "Énergies tirées de sources qui se renouvellent (vent, soleil, eau, biomasse). Le soutien public à l'éolien et au solaire est estimé à environ 3 Md€ par an."
+  definition: "Énergies tirées de sources qui se renouvellent (vent, soleil, eau, biomasse). Le soutien public à l'éolien et au solaire passe surtout par des tarifs d'achat garantis, financés par le budget de l'État."
 
 - terme: adaptation au climat
   variantes: ["adaptation"]
