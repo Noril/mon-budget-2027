@@ -22,7 +22,7 @@ jobs:
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v6
+      - uses: astral-sh/setup-uv@v7
       - run: uv sync
       # Dernières données valides : une source injoignable garde sa dernière version, le site n'est jamais publié vide
       - uses: actions/cache/restore@v4
@@ -58,7 +58,7 @@ jobs:
             exit 0
           fi
           npx --yes vercel@latest deploy build/site --prod --yes --token "$VERCEL_TOKEN"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: site
           path: build/site/
