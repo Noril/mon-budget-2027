@@ -106,8 +106,8 @@ mesures:
         note: CVAE citée par l'entourage parmi les impôts visés ; sa suppression en 2030 est déjà dans la référence
       f: &id002
         valeur: 1.2106
+        bareme: facteur_pib_2025_2032
         unite: facteur 2025→2032
-        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP.A
         note: facteur PIB nominal (FMI WEO avril 2026, plan/hypotheses.yaml), indiqué en tête de chiffrage/baremes.yaml
       retour_is:
         valeur: 0.2
@@ -130,7 +130,7 @@ mesures:
     statut: corrige
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Le montant (50 Md€) est bien celui de la source, mais la source ne liste pas les impôts (CVAE, C3S, CFE : pas cités). Correction : retour d'IS omis (impôts de production déductibles, règle 3, même traitement que RN et Retailleau) : central -56,05 → -44,84 (bas -60,53 sans retour, haut -34,73). Net de CVAE conservé (suppression 2030 déjà votée, CVAE 3,7 Md€ FIPECO). Effets annuels recalculés."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Le montant (50 Md€) est bien celui de la source, mais la source ne liste pas les impôts (CVAE, C3S, CFE : pas cités). Correction : retour d'IS omis (impôts de production déductibles, règle 3, même traitement que RN et Retailleau) : central -56,05 → -44,84 (bas -60,53 sans retour, haut -34,73). Net de CVAE conservé (suppression 2030 déjà votée, CVAE 3,7 Md€ FIPECO). Effets annuels recalculés. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032 (valeur inchangée)."
 - id: aides-entreprises-moins-50md
   libelle: Supprimer 50 Md€ d'aides publiques « improductives » aux entreprises
   domaine: aides aux entreprises
@@ -154,24 +154,33 @@ mesures:
     haut: 60.53
     montee_en_charge: *id001
   calcul:
-    formule: min(montant, plafond) * f
+    formule: min(montant * f, (aides - allegements) * f23)
     parametres:
       montant:
         valeur: 50
         unite: Md€/an (euros 2025)
         source: https://www.publicsenat.fr/actualites/economie/entreprises-un-deal-a-250-milliards-deuros-sur-un-quinquennat-que-represente-la-proposition-dedouard-philippe
         note: « réduire de 50 milliards d'euros le montant annuel des aides versées aux entreprises »
-      plafond:
-        valeur: 70
-        unite: Md€/an (2025), aides aux entreprises hors allègements généraux
+      aides:
+        valeur: 211
+        unite: Md€/an (2023)
+        bareme: aides_publiques_entreprises
+        note: 'périmètre large du Sénat (bas du barème : 108, périmètre strict)'
+      allegements:
+        valeur: 75
+        unite: Md€/an (2023)
         source: https://www.senat.fr/rap/r24-808-1/r24-808-1_mono.html
-        note: 'rapport de la commission d''enquête du Sénat sur les aides publiques aux grandes entreprises (2025) : « d''environ
-          150 milliards d''euros » cette année (selon le ministre Lombard), « 40 milliards d''euros de dépenses fiscales, 30
-          milliards d''euros de dépenses budgétaires, et surtout, les 80 milliards d''euros d''allègements généraux » : 150 −
-          80 = 70 Md€ hors allègements généraux'
+        note: 'allègements généraux compris dans les 211 Md€ du Sénat (75 Md€ en 2023), exclus par l''entourage (« sans
+          réduire les allègements généraux ») ; le ministre Lombard, cité par le même rapport, retient 150 Md€ dont 80
+          d''allègements, soit 70 Md€ hors allègements en 2025'
       f: *id002
-    explication: 'Enveloppe ciblée sur un périmètre nommé (règle 6 révisée) : 50 Md€ annoncés, inférieurs au budget des aides hors
-      allègements généraux (70 Md€ en 2025 selon le ministre, cité par le Sénat), donc non plafonnés ; portés en euros 2032
+      f23:
+        valeur: 1.2777
+        unite: facteur 2023→2032
+        bareme: facteur_pib_2023_2032
+    explication: 'Enveloppe ciblée sur un périmètre nommé (règle 6 révisée) : 50 Md€ annoncés, inférieurs au plafond du périmètre
+      (barème aides_publiques_entreprises, 211 Md€ en 2023, moins 75 Md€ d''allègements généraux exclus par l''entourage, soit
+      136 Md€ et 174 Md€ en euros 2032 ; 70 Md€ en 2025 selon le ministre), donc non plafonnés ; portés en euros 2032
       avec le même facteur PIB que la baisse d''impôts de production (60,5 Md€), pour que le « deal » soit symétrique. Bas 0
       : économie non réalisée (aides non identifiées, confiance faible). Sensibilité au périmètre : le Sénat évalue à 211 Md€
       (2023) les aides « au sens large » (dont 41 Md€ de Bpifrance, prêts et garanties, 88 Md€ de dépenses fiscales, 75 Md€
@@ -183,7 +192,7 @@ mesures:
     statut: corrige
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Règle 6 révisée : économie ciblée sur un périmètre nommé, donc central = 50 Md€ plafonnés par le budget des aides hors allègements généraux (70 Md€ en 2025 : 40 dépenses fiscales + 30 budgétaires, ministre Lombard, rapport du Sénat r24-808 ; le plafond ne joue pas), soit 60,53 Md€ en 2032 (même facteur PIB que la baisse d'impôts, pour la symétrie) ; bas 0, haut = central. Première rédaction : central 0. Sensibilité : au sens strict du Sénat, hors allègements, le périmètre ne fait que 33 Md€ (plafond à 40 Md€ en 2032). Confiance faible."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Règle 6 révisée : économie ciblée sur un périmètre nommé, donc central = 50 Md€ plafonnés par le budget des aides hors allègements généraux (70 Md€ en 2025 : 40 dépenses fiscales + 30 budgétaires, ministre Lombard, rapport du Sénat r24-808 ; le plafond ne joue pas), soit 60,53 Md€ en 2032 (même facteur PIB que la baisse d'impôts, pour la symétrie) ; bas 0, haut = central. Première rédaction : central 0. Sensibilité : au sens strict du Sénat, hors allègements, le périmètre ne fait que 33 Md€ (plafond à 40 Md€ en 2032). Confiance faible. Recalé sur les conventions communes du 29/09 : plafond de la règle 6 calculé sur le barème aides_publiques_entreprises (211 Md€ en 2023, hors 75 Md€ d'allègements généraux, projeté par facteur_pib_2023_2032) ; non contraignant, valeur inchangée (60,53). Sur le périmètre strict (bas du barème, 108 − 75 = 33 Md€, soit 42 Md€ en 2032) le plafond jouerait. Facteur de projection renvoyé au barème facteur_pib_2025_2032 (valeur inchangée)."
 - id: deficit-2pct-2032
   libelle: Ramener le déficit public à 2 % du PIB en 2032 (enveloppe d'économies non détaillée)
   domaine: finances publiques
@@ -264,13 +273,15 @@ mesures:
       atteint en 2032. Bas : aucune accélération (le relèvement au-delà de 64 ans ne joue qu''après 2033) → 0 en 2032. Haut
       : un an d''âge effectif en plus, borne haute du barème (7,9).'
   effets_retour: 'Effet sur l''emploi des seniors et les recettes hors système de retraite (DG Trésor : 7,2 Md€ en 2035 pour
-    un an d''âge) : non compté.'
+    un an d''âge) : non compté. Convention commune 4 : le montant porte sur le solde du système de retraite ; pour
+    l''ensemble des administrations publiques, la Cour des comptes (février 2025) chiffre un recul d''un an de l''âge
+    d''ouverture des droits jusqu''à 17,7 Md€ en 2035, contre 5,8 Md€ pour le seul système.'
   confiance: faible
   verification:
     statut: conteste
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Âge cible inconnu (le candidat refuse tout chiffre). Le central 3,3 Md€ repose sur une accélération à 6 mois par génération dès 2028, qui ne figure dans aucune source et contredit l'interprétation écrite (3 mois par génération, âge 65/66/67, avec bas = 65) : à 3 mois par génération, un âge au-delà de 64 ans ne joue qu'après 2033 (générations 1970 et suivantes), donc effet 2032 proche de 0. Chiffre laissé en l'état, à ne lire que comme un ordre de grandeur (fourchette 0 à 7,9). Barème retraites_age_legal_1_an : 2035 converti en 2032 (voir notes du vérificateur)."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Âge cible inconnu (le candidat refuse tout chiffre). Le central 3,3 Md€ repose sur une accélération à 6 mois par génération dès 2028, qui ne figure dans aucune source et contredit l'interprétation écrite (3 mois par génération, âge 65/66/67, avec bas = 65) : à 3 mois par génération, un âge au-delà de 64 ans ne joue qu'après 2033 (générations 1970 et suivantes), donc effet 2032 proche de 0. Chiffre laissé en l'état, à ne lire que comme un ordre de grandeur (fourchette 0 à 7,9). Barème retraites_age_legal_1_an : 2035 converti en 2032 (voir notes du vérificateur). Recalé sur les conventions communes du 29/09 : valeur inchangée, déjà sur le solde du système de retraite (convention 4) ; effet toutes APU précisé dans effets_retour. Statut conteste maintenu (calendrier d'accélération non sourcé)."
 - id: retraites-capitalisation-10-15pct
   libelle: Créer un pilier de capitalisation représentant 10 à 15 % des pensions d'ici 15 ans
   domaine: retraites
@@ -290,7 +301,7 @@ mesures:
   nature: mixte
   effet_solde_primaire:
     central: 0.0
-    bas: -9.2
+    bas: -7.51
     haut: 0.0
     montee_en_charge: &id003
       '2027': 0
@@ -313,16 +324,17 @@ mesures:
         unite: Md€ par point (2025)
         bareme: retraites_cotisation_vieillesse_1_point
       f: *id002
-    explication: 'Central 0 : pilier alimenté par de l''épargne nouvelle. Bas : un point de cotisation retiré à la répartition
-      (borne haute du barème, 7,6 Md€ en 2025) × 1,2106 = 9,2 Md€ de recettes perdues en 2032 (coût de transition). Pour atteindre
+    explication: 'Central 0 : pilier alimenté par de l''épargne nouvelle. Bas : un point de cotisation retiré à la répartition,
+      de type non précisé, donc au central du barème sans retour (convention commune 9 : 6,2 Md€ en 2025) × 1,2106 = 7,5 Md€
+      de recettes perdues en 2032 (coût de transition). Pour atteindre
       10-15 % des pensions en 15 ans, un seul point est un minimum.'
   effets_retour: Le candidat attend un financement accru de l'économie ; non compté.
   confiance: faible
   verification:
-    statut: ok
+    statut: corrige
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Central 0 (épargne nouvelle) défendable ; bas = un point de cotisation détourné (7,6 Md€ × 1,2106 = 9,2, borne haute du barème retraites_cotisation_vieillesse_1_point, extrait Cour des comptes relu). Le paramètre 'points' à 0 rend la formule triviale : le coût de transition d'un pilier de 10-15 % des pensions pourrait dépasser un point (non chiffrable sans financement précisé)."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Central 0 (épargne nouvelle) défendable ; bas = un point de cotisation détourné (7,6 Md€ × 1,2106 = 9,2, borne haute du barème retraites_cotisation_vieillesse_1_point, extrait Cour des comptes relu). Le paramètre 'points' à 0 rend la formule triviale : le coût de transition d'un pilier de 10-15 % des pensions pourrait dépasser un point (non chiffrable sans financement précisé). Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032 (valeur inchangée). Bas recalé (convention 9, cotisation de type non précisé : central du barème retraites_cotisation_vieillesse_1_point, sans retour) : −9,2 → −7,51."
 - id: retraites-contribution-retraites
   libelle: Demander aux retraités de contribuer davantage au financement du système social
   domaine: retraites
@@ -341,10 +353,10 @@ mesures:
   effet_solde_primaire:
     central: 0.0
     bas: 0.0
-    haut: 5.0
+    haut: 4.3
     montee_en_charge: *id001
   calcul:
-    formule: points * revalo_point
+    formule: points * revalo_point * (1 - retour)
     parametres:
       points:
         valeur: 0.0
@@ -359,15 +371,20 @@ mesures:
         valeur: 5.0
         unite: Md€ 2032 par point
         bareme: retraites_revalo_1pct
+      retour:
+        valeur: 0.14
+        unite: part de la baisse brute des pensions qui ne revient plus aux APU (CSG, CRDS, CASA, IR)
+        bareme: retour_prelevements_pensions
     explication: 'Aucun levier précisé et aucun montant annoncé : central 0 (première rédaction : 5,0 Md€ par une hypothèse
       d''un point de revalorisation, sans base dans les sources, corrigée à la vérification du 2026-09-29). Haut : un point
-      de revalorisation des pensions (5,0 Md€ en 2032, effet permanent), du même ordre que les pistes de la presse. Bas 0.'
+      de revalorisation des pensions (5,0 Md€ brut en 2032, effet permanent), net des prélèvements sur les pensions
+      (convention commune 3 : × (1 − 0,14), soit 4,3 Md€), du même ordre que les pistes de la presse. Bas 0.'
   confiance: faible
   verification:
     statut: corrige
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Aucun levier ni montant dans la source (« contribuer davantage ») : le central de 5 Md€ (un point de sous-indexation) était une hypothèse sans appui, alors que la règle 6 ne compte que ce qui est annoncé ou documenté. Corrigé : central 0, bas 0, haut 5,0 (un point, du même ordre que les pistes de presse : Planet, « jusqu'à 6 milliards » pour une non-revalorisation totale selon la commission des finances). Ancien haut 10 ramené à 5."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Aucun levier ni montant dans la source (« contribuer davantage ») : le central de 5 Md€ (un point de sous-indexation) était une hypothèse sans appui, alors que la règle 6 ne compte que ce qui est annoncé ou documenté. Corrigé : central 0, bas 0, haut 5,0 (un point, du même ordre que les pistes de presse : Planet, « jusqu'à 6 milliards » pour une non-revalorisation totale selon la commission des finances). Ancien haut 10 ramené à 5. Recalé sur les conventions communes du 29/09 : pensions nettes de retour_prelevements_pensions (0,14, convention 3) ; haut 5,0 → 4,3, central et bas inchangés (0)."
 - id: chomage-12-mois-moins-50-ans
   libelle: Limiter à 12 mois la durée d'indemnisation chômage pour les moins de 50 ans
   domaine: assurance chômage
@@ -412,8 +429,8 @@ mesures:
           étroit (effet à la baisse)'
       f:
         valeur: 1.157
+        bareme: facteur_pib_2027_2032
         unite: facteur 2027→2032
-        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP.A
         note: 1,2106 / 1,0463 (PIB nominal 2027 / 2025 selon plan/hypotheses.yaml)
     explication: 'Transposition de l''économie Unédic de la réforme 2023 (six mois de durée maximale en moins : 4,5 Md€/an
       en 2027), portée en euros 2032. Aucune donnée publique ne donne la part des dépenses au-delà du 12e mois pour les moins
@@ -430,7 +447,7 @@ mesures:
     statut: ok
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Extrait Unédic relu (4,5 Md€ à l'horizon 2027 pour la réforme de contracyclicité : durée réduite de 25 %, tous âges). Ratio 1,0 défendable (baisse de 33 % de la durée mais champ limité aux moins de 50 ans). Facteur 1,157 = 1,2106 / 1,0463 exact. Réserve : l'économie Unédic est celle du régime ; une partie des allocataires en fin de droit bascule sur RSA/ASS (coût APU non déduit), ce qui pourrait retirer jusqu'à 10-20 % du chiffre."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Extrait Unédic relu (4,5 Md€ à l'horizon 2027 pour la réforme de contracyclicité : durée réduite de 25 %, tous âges). Ratio 1,0 défendable (baisse de 33 % de la durée mais champ limité aux moins de 50 ans). Facteur 1,157 = 1,2106 / 1,0463 exact. Réserve : l'économie Unédic est celle du régime ; une partie des allocataires en fin de droit bascule sur RSA/ASS (coût APU non déduit), ce qui pourrait retirer jusqu'à 10-20 % du chiffre. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2027_2032 (valeur inchangée)."
 - id: arrets-maladie-carence
   libelle: Renforcer les jours de carence d'ordre public sur les arrêts maladie courts
   domaine: santé / indemnités journalières
@@ -488,12 +505,12 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -6.58
-    bas: -9.05
-    haut: -6.31
+    central: -5.43
+    bas: -6.69
+    haut: -4.93
     montee_en_charge: *id003
   calcul:
-    formule: -taux * etpt * cout_etpt / 1000 * part_hors_cas * (1 - retour)
+    formule: -taux * etpt * cout_apu_moyen / 1000
     parametres:
       taux:
         valeur: 0.2
@@ -504,32 +521,26 @@ mesures:
         unite: millions d'ETPT (programmes 140 et 141, PLF 2026)
         source: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
         note: 341 897 + 451 966 ETPT, lus dans la dérivation du barème cout_enseignant_charge
-      cout_etpt:
-        valeur: 85000
-        unite: € par ETPT (2026)
-        bareme: cout_enseignant_charge
-      part_hors_cas:
-        valeur: 0.65
-        unite: part du titre 2 hors CAS Pensions
-        source: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
-        note: CAS Pensions ≈ 35 % du titre 2 (limites du barème cout_enseignant_charge) ; la contribution au CAS est un flux
-          interne à l'État
-      retour:
-        valeur: 0.25
-        unite: part du coût brut revenant aux APU (CSG, cotisations salariales, IR)
-        source: https://www.senat.fr/rap/a25-145-5/a25-145-5.html
-        note: "hypothèse de retour de prélèvements d'environ un quart, avancée dans les limites du barème point_indice_1pct ; la page du Sénat citée ne contient pas cette mention (vérifié le 2026-09-29) : ordre de grandeur non sourcé"
-    explication: 'Masse du titre 2 enseignants du public (0,794 M ETPT × 85 000 €, PLF 2026) hors CAS Pensions, × 20 %, nette
-      du retour de prélèvements (un quart). Convention de droit constant (REFERENCE.md) : point d''indice gelé en référence,
+      cout_apu_moyen:
+        valeur: 34200
+        unite: € par ETP et par an (enseignant moyen, net des cotisations employeurs et des retours)
+        bareme: cout_enseignant_apu
+        note: 'borne haute du barème (agent moyen, pour une revalorisation, convention commune 1) : rémunération brute
+          moyenne hors cotisations employeurs ≈ 45 640 € × (1 − 0,25)'
+    explication: 'Convention commune 1 (revalorisation des agents en place) : 20 % du coût moyen d''un enseignant pour le
+      solde des APU (haut du barème cout_enseignant_apu, 34 200 € : brut moyen hors cotisations employeurs net des
+      prélèvements qui reviennent aux APU ; le CAS Pensions, transfert interne, ne compte pas) × 0,794 M ETPT. Bas :
+      + enseignants du privé sous contrat (≈ 140 000, ≈ 1,0 Md€) et pensions induites en 2032 (≈ 0,3 Md€, convention 2).
+      Haut : retour de prélèvements 0,32 (45 640 € × 0,68 ≈ 31 000 €). Convention de droit constant (REFERENCE.md) : point d''indice gelé en référence,
       la hausse s''applique au niveau de rémunération actuel sans projection au PIB. Montée linéaire sur le quinquennat. Enseignants
       du privé sous contrat non inclus (sous-estimation). La baisse démographique invoquée n''est pas comptée en économie
       faute de suppression de postes annoncée.'
   confiance: moyenne
   verification:
-    statut: ok
+    statut: corrige
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Calcul rejoué (0,2 × 0,793863 M × 85 000 € × 0,65 × 0,75 = 6,58 Md€), effectifs et coût par ETPT conformes au barème. Réserves : (1) le retour de prélèvements de 25 % est attribué au rapport du Sénat (a25-145-5) qui ne le contient pas : note du paramètre corrigée, ordre de grandeur plausible (CSG, retenue pension, cotisations employeur hors CAS, IR ≈ 30 % du coût hors CAS) mais non sourcé ; (2) enseignants du privé sous contrat (payés par l'État) non inclus, environ +1 Md€ si le candidat les inclut."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Calcul rejoué (0,2 × 0,793863 M × 85 000 € × 0,65 × 0,75 = 6,58 Md€), effectifs et coût par ETPT conformes au barème. Réserves : (1) le retour de prélèvements de 25 % est attribué au rapport du Sénat (a25-145-5) qui ne le contient pas : note du paramètre corrigée, ordre de grandeur plausible (CSG, retenue pension, cotisations employeur hors CAS, IR ≈ 30 % du coût hors CAS) mais non sourcé ; (2) enseignants du privé sous contrat (payés par l'État) non inclus, environ +1 Md€ si le candidat les inclut. Recalé sur les conventions communes du 29/09 : coût par agent pris au haut du barème cout_enseignant_apu (agent moyen, brut hors cotisations employeurs, net des retours) au lieu du coût chargé × 0,65 × (1 − un quart non sourcé) ; central −6,58 → −5,43, bas −9,05 → −6,69 (privé sous contrat et pensions induites), haut −6,31 → −4,93 (retour 0,32)."
 - id: soutien-scolaire-universel
   libelle: Créer un service public universel du soutien scolaire (assistant IA et brigades)
   domaine: éducation
@@ -572,8 +583,8 @@ mesures:
         note: « Le chiffrage de cette mesure sur la base du modèle LexImpact [...] aboutit à un coût de 3,4 Md€ en 2024 »
       f: &id004
         valeur: 1.2336
+        bareme: facteur_pib_2024_2032
         unite: facteur 2024→2032
-        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP.A
         note: facteur PIB nominal (FMI WEO avril 2026, plan/hypotheses.yaml), indiqué en tête de chiffrage/baremes.yaml (valeur
           2024→2032 citée dans les barèmes c3s_rendement et masse_salariale_apu)
     explication: 'Chiffrage LexImpact (Institut Montaigne) de la même mesure proposée par le RN en 2024, porté en euros 2032
@@ -590,7 +601,7 @@ mesures:
     statut: ok
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Extrait Institut Montaigne relu via la Wayback Machine (3,4 Md€ en 2024, LexImpact, 8 % des foyers). Facteur 2024→2032 1,2336 cohérent. Mesure identique à celle du RN."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Extrait Institut Montaigne relu via la Wayback Machine (3,4 Md€ en 2024, LexImpact, 8 % des foyers). Facteur 2024→2032 1,2336 cohérent. Mesure identique à celle du RN. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032 (valeur inchangée)."
 - id: aide-unique-familles
   libelle: Fusionner les prestations familiales en une aide unique et universelle
   domaine: politique familiale
@@ -895,7 +906,7 @@ mesures:
     statut: corrige
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Extraits EESR relus (19 070 € CPGE, 12 460 € université). Erreur d'arithmétique de montée en charge : avec des entrées supplémentaires linéaires sur cinq ans (+12 000 en 2028 à +60 000 en 2032), les trois promotions en cours en 2032 valent (0,6 + 0,8 + 1)/3 = 0,8 de l'effectif à terme, pas 0,5. Central -2,12 → -3,39 Md€ ; bas -4,23 (100 % en 2032) inchangé ; haut -1,38 (50 %, coût université) inchangé."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Extraits EESR relus (19 070 € CPGE, 12 460 € université). Erreur d'arithmétique de montée en charge : avec des entrées supplémentaires linéaires sur cinq ans (+12 000 en 2028 à +60 000 en 2032), les trois promotions en cours en 2032 valent (0,6 + 0,8 + 1)/3 = 0,8 de l'effectif à terme, pas 0,5. Central -2,12 → -3,39 Md€ ; bas -4,23 (100 % en 2032) inchangé ; haut -1,38 (50 %, coût université) inchangé. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032 (valeur inchangée)."
 - id: livret-capital-france
   libelle: Livret capital France et capitalisation retraite pour financer les champions technologiques
   domaine: épargne
@@ -954,8 +965,8 @@ mesures:
           »
       f26:
         valeur: 1.1842
+        bareme: facteur_pib_2026_2032
         unite: facteur 2026→2032
-        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP.A
         note: 1,2106 / 1,0223 (croissance nominale 2026 = 0,858 % de volume et 1,358 % de déflateur, plan/hypotheses.yaml)
       f24: *id004
     explication: 'Réservistes supplémentaires × masse salariale moyenne par réserviste (2026), plus volontaires supplémentaires
@@ -968,7 +979,7 @@ mesures:
     statut: ok
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Masse salariale 318,8 M€ en 2026 relue dans le rapport du Sénat ; « 52 000 réservistes à fin 2026 » non retrouvé (48 595 réservistes opérationnels fin 2025 : le coût unitaire serait ≈ 6 560 €, écart < 0,3 Md€). Extrait SMV (53 M€ en 2022) relu. Surestimation possible : la LPM prévoit déjà 80 000 réservistes en 2030 (référence). Coût unitaire du SMV (38 000 €) tiré d'un dispositif de 1 200 places : prudent."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Masse salariale 318,8 M€ en 2026 relue dans le rapport du Sénat ; « 52 000 réservistes à fin 2026 » non retrouvé (48 595 réservistes opérationnels fin 2025 : le coût unitaire serait ≈ 6 560 €, écart < 0,3 Md€). Extrait SMV (53 M€ en 2022) relu. Surestimation possible : la LPM prévoit déjà 80 000 réservistes en 2030 (référence). Coût unitaire du SMV (38 000 €) tiré d'un dispositif de 1 200 places : prudent. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032 (valeur inchangée)."
 - id: lpm-massification
   libelle: 'Nouvelle LPM de la massification : drones, munitions, flotte navale'
   domaine: défense

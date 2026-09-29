@@ -107,9 +107,9 @@ mesures:
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -127.58
-      bas: -133.98
-      haut: -127.58
+      central: -116.26
+      bas: -124.08
+      haut: -113.43
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -118,7 +118,7 @@ mesures:
         '2031': 1.0
         '2032': 1.0
     calcul:
-      formule: -(taux * point * f)
+      formule: -(taux - deductible * retour_ir) * point * f
       parametres:
         taux:
           valeur: 9.2
@@ -126,26 +126,35 @@ mesures:
             https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS%20mai%202026_assembl%c3%a9_V2.pdf
           unite: points
           note: taux facial de la CSG sur les revenus d'activité
+        deductible:
+          valeur: 6.8
+          source: >-
+            https://web.archive.org/web/20240812043624/https://www.urssaf.fr/accueil/outils-documentation/taux-baremes/taux-cotisations-secteur-public.html
+          unite: points
+          note: part déductible de l'IR de la CSG d'activité (6,8 points sur 9,2 ; barème csg_point, dérivation)
+        retour_ir:
+          valeur: 0.12
+          source: chiffrage/REFERENCE.md, conventions communes n° 5 (barème csg_point, dérivation)
+          unite: part du rendement de la CSG déductible supprimée qui revient en impôt sur le revenu
+          note: convention 10 à 15 % ; 0,12 au central (11,71 × 0,88 ≈ 10,3 Md€ net par point), 0,10 au bas, 0,15 au haut
         point:
           valeur: 11.71
-          source: >-
-            https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS%20mai%202026_assembl%c3%a9_V2.pdf
+          bareme: csg_point_activite
           unite: Md€ par point de taux
           note: >-
             valeur de point 2026 (p) de la CSG d'activité après la réforme de l'assiette des indépendants, déjà dans la
             loi (barème csg_point_activite : 12,03 en 2025)
         f:
           valeur: 1.1842
-          source: >-
-            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
-            avril 2026)
+          bareme: facteur_pib_2026_2032
           unite: facteur
           note: PIB nominal 2032 / 2026 = 1,2106 / 1,0223
       explication: >-
         Rendement de la CSG d'activité = taux × valeur du point 2026 (11,71 Md€, après la réforme de l'assiette des
-        indépendants déjà votée), projeté 2026→2032. Bas : point 2025 (12,03) et facteur 2025→2032 (133,98). Retour d'impôt
-        sur le revenu (la CSG déductible, 6,8 points, disparaît : l'assiette de l'IR augmente) non chiffré faute de source
-        : le coût net est surestimé (plusieurs Md€).
+        indépendants déjà votée), projeté 2026→2032, net du retour d'impôt sur le revenu : la CSG déductible (6,8 points)
+        disparaît, l'assiette de l'IR augmente ; convention commune 5 : 12 % du rendement de la part déductible au
+        central (10 % au bas, 15 % au haut). Bas : point 2025 (12,03), facteur 2025→2032 et retour 10 %
+        ((9,2 − 0,68) × 12,03 × 1,2106 = 124,1). Haut : point 2026 et retour 15 % (113,4).
     effets_retour: >-
       Hausse de 10 % du salaire net invoquée comme soutien à la consommation et à l'offre de travail : non comptée.
     confiance: moyenne
@@ -159,6 +168,9 @@ mesures:
         recalculé sur le droit de 2026 : 9,2 × 11,71 × 1,1842 = 127,6 Md€ au lieu de 134,0 (le haut initial mélangeait
         le point 2026 et le facteur 2025). Bas conservé (point 2025). Retour d'IR de la perte de déductibilité (6,8
         points) non chiffré : coût net surestimé, source publique à trouver.
+        Recalé sur les conventions communes du 29/09 : point de CSG d'activité renvoyé au barème csg_point_activite (11,71)
+        et retour d'IR sur la part déductible (6,8 points) compté selon la convention 5 (12 % au central, 10 à 15 % en
+        fourchette) ; central −127,6 → −116,3, bas −134,0 → −124,1, haut −127,6 → −113,4.
   - id: suppression-droits-succession
     libelle: Suppression des droits de succession
     domaine: fiscalite
@@ -197,9 +209,7 @@ mesures:
           note: droits de succession seuls (ligne 1706), hors donations
         f:
           valeur: 1.1842
-          source: >-
-            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
-            avril 2026)
+          bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
@@ -215,6 +225,8 @@ mesures:
         Citation retrouvée sur l'URL. Droits de succession 16,995 Md€ (ligne 1706, PLF 2026) relus dans le rapport
         général du Sénat ; projection au PIB prudente ; bas = ensemble des mutations à titre gratuit. Lecture
         littérale (successions seules) cohérente.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
+        (valeur inchangée).
   - id: suppression-impots-production
     libelle: Suppression des impôts de production
     domaine: fiscalite
@@ -257,9 +269,7 @@ mesures:
           unite: Md€/an
         f:
           valeur: 1.2336
-          source: >-
-            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
-            avril 2026)
+          bareme: facteur_pib_2024_2032
           unite: facteur
           note: PIB nominal 2032 / 2024
         retour_is:
@@ -283,6 +293,8 @@ mesures:
         production comprennent la CVAE (3,9, déjà supprimée par la loi en 2030) et 2,1 Md€ de produit des quotas
         carbone européens (non supprimable) : (86,8 − 3,9 − 2,1) × 1,2336 = 99,7 Md€ au lieu de 107,1. Central (CFE +
         C3S) = lecture basse d'une promesse vague : plausible mais la définition usuelle (Insee) est bien plus large.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
+        (valeur inchangée).
   - id: accise-carburants-moins-un-tiers
     libelle: Baisse d'un tiers de l'accise sur les carburants (ex-TICPE)
     domaine: fiscalite
@@ -298,9 +310,9 @@ mesures:
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -9.93
+      central: -11.17
       bas: -11.38
-      haut: -9.31
+      haut: -10.55
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -310,12 +322,21 @@ mesures:
         '2032': 1.0
     calcul:
       formule: >-
-        -(centime * (vol_gazole * taux_gazole + vol_essence * taux_essence) / (vol_gazole + vol_essence) / 3)
+        -((centime + tva_induite) * (vol_gazole * taux_gazole + vol_essence * taux_essence) / (vol_gazole + vol_essence)
+        / 3)
       parametres:
         centime:
           valeur: 0.48
           bareme: ticpe_centime_litre
           unite: Md€/an par centime d'euro par litre
+          note: accise seule
+        tva_induite:
+          valeur: 0.06
+          source: >-
+            chiffrage/REFERENCE.md, conventions communes n° 6 ; baremes.yaml ticpe_centime_litre (dérivation : TVA non
+            déductible ≈ 0,495 × 0,65 × 0,20 ≈ 0,06 Md€ par c€/l, SDES § 4.2.6)
+          unite: Md€/an par centime d'euro par litre
+          note: accise + TVA induite = 0,54 Md€ par c€/l, chiffre à retenir pour le solde (convention 6)
         vol_gazole:
           valeur: 34.7
           source: https://www.statistiques.developpement-durable.gouv.fr/media/9087/download?inline
@@ -335,9 +356,10 @@ mesures:
           source: https://www.fipeco.fr/fiche/Les-taxes-sur-les-carburants
           unite: c€/l (2026, SP95-E5)
       explication: >-
-        Baisse moyenne pondérée d'un tiers des taux (≈ 20,7 c€/l) × rendement du centime (barème). Bas : borne haute
-        du barème (TVA induite comprise), haut : borne basse (volumes en baisse). Les taux restent au-dessus des minima
-        européens (33,0 et 35,9 c€/l).
+        Baisse moyenne pondérée d'un tiers des taux (≈ 20,7 c€/l) × 0,54 Md€ par c€/l (accise 0,48 + TVA induite 0,06,
+        convention commune 6). Bas : borne haute du barème (0,55, TVA induite comprise), haut : borne basse de l'accise
+        (0,45, volumes en baisse) + TVA induite, soit 0,51. Les taux restent au-dessus des minima européens (33,0 et
+        35,9 c€/l).
     chiffrages_tiers:
       - auteur: Sarah Knafo (simulateur combienjegagne.fr)
         montant_md: -12
@@ -355,6 +377,10 @@ mesures:
         annonce 12 Md€ : la TVA non déductible (ménages, véhicules de tourisme) sur la baisse de 20,7 c€/l, soit 1 à 2
         Md€, est un effet mécanique absent du central (seul le bas 11,4 la couvre). Part de TVA non déductible non
         trouvée en source publique : je ne peux pas trancher le central.
+        Recalé sur les conventions communes du 29/09 : TVA induite comptée au central selon la convention 6 (0,54 Md€
+        par c€/l, accise 0,48 + TVA 0,06), ce qui tranche la contestation sur la TVA induite ; central −9,9 → −11,2,
+        haut −9,3 → −10,6 (0,51 Md€ par c€/l), bas inchangé (0,55). Statut conteste conservé (règle de recalage) : l'objection
+        est levée, à clore par le vérificateur.
   - id: suppression-cee
     libelle: Suppression des certificats d'économie d'énergie
     domaine: energie
@@ -420,7 +446,12 @@ mesures:
         Lecture centrale : 64 ans sans attendre la fin de la suspension (gain d'environ un trimestre d'âge en 2032).
         Haut : trajectoire vers 65 ans, dont la moitié atteinte en 2032. Bas : simple maintien du droit (64 ans à terme),
         gain nul. Montée : l'écart avec le droit est plus grand avant 2032 (un an en 2028) ; profil plafonné à 1,5 fois
-        l'effet 2032 (limite du format).
+        l'effet 2032 (limite du format). Périmètre (convention commune 4) : solde du système de retraite.
+    effets_retour: >-
+      Effet pour l'ensemble des administrations publiques (convention commune 4, effets d'emploi exclus du montant) :
+      nettement supérieur à l'effet sur le système de retraite ; la Cour des comptes (février 2025) chiffre à 5,8 Md€
+      pour le système mais jusqu'à 17,7 Md€ pour les finances publiques en 2035 le recul d'un an de l'âge d'ouverture
+      des droits (prélèvements sur l'emploi des seniors).
     confiance: faible
     verification:
       statut: ok
@@ -431,6 +462,8 @@ mesures:
         ans dès 2032 pour les générations concernées), l'écart 2032 de 0,25 an est prudent, l'effet fort porte sur
         2028-2031. Paramètre du barème relu (Cour des comptes 5,8 Md€ en 2035 par an d'âge). Pas de double compte avec
         les autres mesures.
+        Recalé sur les conventions communes du 29/09 : valeur inchangée (déjà sur le solde du système de retraite, convention
+        4) ; effet toutes APU décrit dans effets_retour.
   - id: retraite-capitalisation
     libelle: Introduction d'un système de retraite par capitalisation
     domaine: retraites
@@ -464,7 +497,7 @@ mesures:
     effet_solde_primaire:
       central: 0.0
       bas: 0.0
-      haut: 64.82
+      haut: 84.97
       montee_en_charge:
         '2027': 0.0
         '2028': 0.2
@@ -481,7 +514,7 @@ mesures:
           unite: Md€
           note: « 140 milliards d'économies par an. Au minimum. »
         documente:
-          valeur: 75.18
+          valeur: 55.03
           source: somme des mesures d'économie de ce fichier
           unite: Md€ (2032)
           note: >-
@@ -491,7 +524,7 @@ mesures:
             contribution-ue-pre-covid, fin-ame, hebergement-urgence-irreguliers, aide-juridictionnelle-francais, privatisation-audiovisuel-public,
             subventions-associations-presse-syndicats
       explication: >-
-        Règle 6. Les 24 mesures du plan sont chiffrées une à une (somme des centraux d'économie : 75.18 Md€) : central
+        Règle 6. Les 24 mesures du plan sont chiffrées une à une (somme des centraux d'économie : 55.03 Md€) : central
         = 0 pour éviter le double compte ; haut = écart d'affichage avec les 140 Md€ ; bas = 0.
     confiance: faible
     verification:
@@ -502,6 +535,8 @@ mesures:
         Citation retrouvée sur l'URL. Somme des centraux d'économie recalculée après les corrections de ce
         vérificateur : 75,18 Md€ (69,52 avant) ; haut = 140 − 75,18 = 64,82. Central 0 correct (règle 6, enveloppe
         globale). Annonce 140 Md€ relue sur budget2026.fr.
+        Recalé sur les conventions communes du 29/09 : somme des économies documentées ramenée de 75,18 à 55,03 Md€
+        après le recalage de non-remplacement-800000-departs (35,41 → 15,26) ; haut 64,82 → 84,97.
   - id: non-remplacement-800000-departs
     libelle: Non-remplacement de 800 000 départs dans les fonctions administratives sur le quinquennat
     domaine: fonction-publique
@@ -519,9 +554,9 @@ mesures:
     chiffrable: true
     nature: economie
     effet_solde_primaire:
-      central: 35.41
+      central: 15.26
       bas: 0.0
-      haut: 35.41
+      haut: 15.26
       montee_en_charge:
         '2027': 0.0
         '2028': 0.2
@@ -530,31 +565,34 @@ mesures:
         '2031': 0.8
         '2032': 1.0
     calcul:
-      formule: ecalle * f * min(1, departs * 5 / 800000)
+      formule: min(postes, departs * 5) * brut_entrant * (1 - retour) / 1e9
       parametres:
-        ecalle:
-          valeur: 35
-          source: >-
-            https://www.franceinfo.fr/vrai-ou-fake/vrai-ou-faux-sarah-knafo-a-t-elle-raison-de-denoncer-dans-son-livre-un-casse-du-siecle-orchestre-par-l-etat-au-detriment-des-contribuables_8175293.html
-          unite: Md€ par an (2026)
-          note: 'François Ecalle (Fipeco) : « de l''ordre de 30 à 40 milliards d''euros par an », milieu'
-        f:
-          valeur: 1.1842
-          source: >-
-            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
-            avril 2026)
-          unite: facteur
+        postes:
+          valeur: 800000
+          source: https://www.budget2026.fr/
+          unite: postes non remplacés sur le quinquennat
+        brut_entrant:
+          valeur: 31000
+          source: https://www.fipeco.fr/fiche/Le-niveau-et-l%C3%A9volution-de-la-masse-salariale-publique
+          unite: € brut par an, hors cotisations employeurs
           note: >-
-            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+            « coût moyen des entrants (salaire brut des agents de moins de 30 ans en pratique) d'environ 31 000 € pour
+            l'État, 28 000 € pour les collectivités locales et 34 000 € pour les hôpitaux » ; même base que les barèmes
+            cout_*_apu ; non projeté (point d'indice gelé à droit constant, convention 2)
+        retour:
+          valeur: 0.28
+          bareme: retour_prelevements_salaires_publics
+          unite: part de la rémunération brute
         departs:
           valeur: 136700
           bareme: fp_departs_retraite_annuels
           unite: agents par an
       explication: >-
-        800 000 postes × coût moyen (Ecalle, 30 à 40 Md€), projeté, limité par les départs en retraite disponibles en
-        cinq ans (136 700 par an, soit 683 500) : 85 %. Bas : les enseignants, soignants, policiers et militaires étant
-        épargnés, environ la moitié seulement des départs est mobilisable (convention). Haut : 800 000 atteints (40 Md€).
-        Vérification (règle 6) : bas = 0, haut = central.
+        Convention commune 1 (postes supprimés) : postes non remplacés, limités par les départs en retraite disponibles
+        en cinq ans (136 700 par an, soit 683 500, 85 % de l'objectif) × coût d'un entrant pour le solde des APU
+        (31 000 € brut hors cotisations employeurs × (1 − 0,28) ≈ 22 300 €, comme les barèmes cout_*_apu). Les
+        cotisations employeurs vont à d'autres APU et ne comptent pas ; le chiffre d'Ecalle (30 à 40 Md€, coût moyen
+        chargé) est consigné en chiffrage tiers. Vérification (règle 6) : bas = 0, haut = central.
     chiffrages_tiers:
       - auteur: François Ecalle (Fipeco), cité par franceinfo
         montant_md: 35
@@ -578,6 +616,9 @@ mesures:
         fonction publique, central = montant annoncé plafonné par ce que le droit permet ; bas = 0, haut = central
         (avant 17,76 et 47,37). Vigilance : la limite aux seuls départs en retraite (hors démissions et fins de
         contrat) est une convention prudente.
+        Recalé sur les conventions communes du 29/09 : coût d'un poste ramené au coût d'un entrant pour le solde des APU
+        (31 000 € brut hors cotisations employeurs × 0,72, convention 1) au lieu du coût moyen chargé d'Ecalle projeté au
+        PIB (pas de projection : point d'indice gelé) ; central et haut 35,4 → 15,3 Md€.
   - id: gains-productivite-ia-administration
     libelle: Gains de productivité de l'IA dans les fonctions administratives
     domaine: fonction-publique
@@ -663,9 +704,7 @@ mesures:
             milieu
         f:
           valeur: 1.2336
-          source: >-
-            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
-            avril 2026)
+          bareme: facteur_pib_2024_2032
           unite: facteur
           note: PIB nominal 2032 / 2024
       explication: >-
@@ -688,6 +727,8 @@ mesures:
         le gain ne peut dépasser ce budget (8,0 Md€ projeté) ; le central en est le plafond, donc les 15 à 20 Md€
         annoncés sont inatteignables. Règle 6 : bas = 0, haut = central (avant 0,72 et 8,64). Inclut les
         ressortissants européens ; RSA des non-UE déjà exclu du volet RSA (pas de double compte).
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
+        (valeur inchangée).
   - id: rsa-limite-trois-ans
     libelle: RSA limité à trois ans pour les bénéficiaires en capacité de travailler
     domaine: social
@@ -720,9 +761,7 @@ mesures:
           note: chiffre de l'auteure (budget2026.fr)
         f:
           valeur: 1.1842
-          source: >-
-            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
-            avril 2026)
+          bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
@@ -747,6 +786,8 @@ mesures:
       commentaire: >-
         Citation retrouvée sur l'URL. Annonce 4,8 Md€ projetée nette de la part des non-UE déjà exclue ; inférieure au
         RSA versé (11,7 Md€ × 41 %). Règle 6 : bas = 0, haut = central (avant 2,4 et 5,68).
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
+        (valeur inchangée).
   - id: fraude-sociale-delinquants
     libelle: Lutte contre la fraude sociale et retrait des aides sociales aux délinquants et criminels
     domaine: social
@@ -780,9 +821,7 @@ mesures:
           note: 'règle du barème fraude_sociale_estimee : gain = doublement du recouvrement'
         f:
           valeur: 1.2336
-          source: >-
-            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
-            avril 2026)
+          bareme: facteur_pib_2024_2032
           unite: facteur
           note: PIB nominal 2032 / 2024
       explication: >-
@@ -800,6 +839,8 @@ mesures:
         Citation retrouvée sur l'URL. Recouvrement de la fraude sociale (HCFIPS) et règle du barème
         fraude_sociale_estimee (doublement) appliquée ; annonce 2 à 3 Md€ en haut. Recette de lutte contre la fraude,
         non ciblée sur un budget : règle 6 non applicable.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
+        (valeur inchangée).
   - id: fin-soutien-enr-intermittentes
     libelle: Fin du soutien public aux énergies renouvelables intermittentes
     domaine: energie
@@ -888,9 +929,7 @@ mesures:
           note: programme 147 « Politique de la ville »
         f:
           valeur: 1.1842
-          source: >-
-            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
-            avril 2026)
+          bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
@@ -912,6 +951,8 @@ mesures:
         périmètre spécifique = 0,65 Md€ ; les 8 Md€ annoncés relèvent du document de politique transversale (crédits
         de droit commun non supprimables). Règle 6 : central plafonné (0,77 projeté), bas = 0, haut = central (avant
         0,39 et 9,47).
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
+        (valeur inchangée).
   - id: suppression-anah
     libelle: Suppression de l'Agence nationale de l'habitat (dont MaPrimeRénov')
     domaine: logement
@@ -944,9 +985,7 @@ mesures:
           note: crédits de l'État à l'Anah (programme 135)
         f:
           valeur: 1.1842
-          source: >-
-            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
-            avril 2026)
+          bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
@@ -968,6 +1007,8 @@ mesures:
         Citation retrouvée sur l'URL. Subvention de l'État à l'Anah 1 535 M€ (PLF 2026) relue dans le Sénat ; les 6
         Md€ annoncés dépassent le budget de l'Anah financé par l'État (le reste vient des CEE, hors dépense publique).
         Règle 6 : central = plafond (1,78), bas = 0 (avant 0,89). Les crédits de la LFI 2026 peuvent différer du PLF.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
+        (valeur inchangée).
   - id: suppression-ademe
     libelle: Suppression de l'Ademe (hors soutien aux renouvelables déjà compté)
     domaine: ecologie
@@ -1002,9 +1043,7 @@ mesures:
           note: subvention de l'État à l'Ademe
         f:
           valeur: 1.1842
-          source: >-
-            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
-            avril 2026)
+          bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
@@ -1024,6 +1063,8 @@ mesures:
         Citation retrouvée sur l'URL. Subvention de l'État à l'Ademe (1,06 Md€, Sénat) : budget de l'État du périmètre
         ; les 3,4 Md€ annoncés incluent des ressources hors subvention (non vérifié). Règle 6 : bas = 0, haut =
         central (avant 0,63 et 4,03).
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
+        (valeur inchangée).
   - id: france-travail-mise-en-relation
     libelle: Suppression de la mission de placement de France Travail
     domaine: travail
@@ -1059,9 +1100,7 @@ mesures:
             contribution de l'Unédic, 11 % de ses recettes soit ≈ 5,2 Md€, Sénat PLF 2026) ≈ 6,4 Md€
         f:
           valeur: 1.1842
-          source: >-
-            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
-            avril 2026)
+          bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
@@ -1083,6 +1122,8 @@ mesures:
         contribution de l'Unédic (11 % de ses recettes, Sénat) est aussi une dépense des APU consacrée à France
         Travail. Montant annoncé (4 Md€) projeté 4,74, sous le budget public de France Travail (≈ 6,4 Md€ avant
         projection). Bas = 0, haut = central. Confiance faible : la part de la mission de placement n'est pas publiée.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
+        (valeur inchangée).
   - id: suppression-ars
     libelle: Suppression des agences régionales de santé
     domaine: sante
@@ -1116,9 +1157,7 @@ mesures:
           note: subvention de l'État aux ARS (8 114 ETPT)
         f:
           valeur: 1.1842
-          source: >-
-            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
-            avril 2026)
+          bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
@@ -1137,6 +1176,8 @@ mesures:
       commentaire: >-
         Citation retrouvée sur l'URL. Subvention de l'État aux ARS (0,627 Md€, Sénat) : budget du périmètre, inférieur
         à l'annonce (1 Md€). Règle 6 : central = plafond 0,74, bas = 0, haut = central (avant 0,37 et 1,18).
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
+        (valeur inchangée).
   - id: suppression-autres-agences-cese
     libelle: >-
       Suppression d'autres agences et structures (Arcom, HCE, Conseil national du bruit…) et du CESE et des CESER
@@ -1180,9 +1221,7 @@ mesures:
           note: « entre 50 et 60 millions d'euros »
         f:
           valeur: 1.1842
-          source: >-
-            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
-            avril 2026)
+          bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
@@ -1203,6 +1242,8 @@ mesures:
         Citation retrouvée sur l'URL. Arcom, CESE, CESER relus (Sénat, AN) ; les autres structures citées sont
         minimes. Central = budgets des seuls organismes chiffrables (0,17), très inférieur aux 1,07 Md€ annoncés.
         Règle 6 : haut = central (avant 1,26), bas 0.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
+        (valeur inchangée).
   - id: suppression-aide-publique-developpement
     libelle: Suppression de l'aide publique au développement et de l'AFD
     domaine: action-exterieure
@@ -1238,9 +1279,7 @@ mesures:
           note: mission « Aide publique au développement »
         f:
           valeur: 1.1842
-          source: >-
-            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
-            avril 2026)
+          bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
@@ -1262,6 +1301,8 @@ mesures:
         Citation retrouvée sur l'URL. Mission APD 3,67 Md€ de CP (PLF 2026) relue : plafond budgétaire du périmètre
         (l'APD OCDE de 13 Md€ inclut prêts, part de l'UE et dépenses imputées, non économisables à ce titre). Règle 6
         : central = plafond 4,35, bas = 0, haut = central (avant 2,17 et 15,75).
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
+        (valeur inchangée).
   - id: contribution-ue-pre-covid
     libelle: Retour au budget européen d'avant le Covid et baisse de la contribution française
     domaine: europe
@@ -1353,9 +1394,7 @@ mesures:
           note: moyenne approchée licence 2 895 € / master 3 941 €
         f:
           valeur: 1.1842
-          source: >-
-            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
-            avril 2026)
+          bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
@@ -1375,6 +1414,8 @@ mesures:
         Citation retrouvée sur l'URL. Droits différenciés (2 895 et 3 941 €) déjà en vigueur, exonérations plafonnées
         à 30 % relues sur etudiant.gouv.fr ; recette, non économie budgétaire : le gain se réduit à la fin des
         exonérations (0,12) ; haut = annonce (4,74), lecture « coût complet » conservée comme borne.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
+        (valeur inchangée).
   - id: fin-ame
     libelle: Suppression de l'aide médicale d'État
     domaine: immigration
@@ -1409,9 +1450,7 @@ mesures:
           note: économie nette après maintien des soins d'urgence (Institut Montaigne)
         f:
           valeur: 1.2336
-          source: >-
-            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
-            avril 2026)
+          bareme: facteur_pib_2024_2032
           unite: facteur
           note: PIB nominal 2032 / 2024
       explication: >-
@@ -1431,6 +1470,8 @@ mesures:
         Citation retrouvée sur l'URL. Économie nette de 0,7 Md€ (Montaigne) après maintien des soins urgents, imposé
         par le droit ; annonce 1,3 Md€ brute. Règle 6 : central plafonné par ce que le droit permet, bas = 0, haut =
         central (avant 1,86).
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
+        (valeur inchangée).
   - id: hausse-cout-visas
     libelle: Augmentation du coût des visas
     domaine: immigration
@@ -1474,9 +1515,7 @@ mesures:
           note: chiffre de l'auteure (budget2026.fr)
         f:
           valeur: 1.1842
-          source: >-
-            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
-            avril 2026)
+          bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
@@ -1497,6 +1536,8 @@ mesures:
       commentaire: >-
         Citation retrouvée sur l'URL. Annonce 0,7 Md€ projetée, sous le programme 177 (3,07 Md€). Règle 6 : haut =
         central (avant 2,18), bas 0 (accueil inconditionnel en droit).
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
+        (valeur inchangée).
   - id: aide-juridictionnelle-francais
     libelle: Aide juridictionnelle réservée aux Français
     domaine: justice
@@ -1533,9 +1574,7 @@ mesures:
           note: 'contentieux des étrangers et CNDA : 7,5 % des sommes versées (approximation)'
         f:
           valeur: 1.1842
-          source: >-
-            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
-            avril 2026)
+          bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
@@ -1552,6 +1591,8 @@ mesures:
       commentaire: >-
         Citation retrouvée sur l'URL. Aide juridictionnelle 0,714 Md€ (Sénat) × part étrangers 7,5 % : plafond du
         périmètre 0,06, sous les 0,1 Md€ annoncés. Règle 6 : haut = central (avant 0,12).
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
+        (valeur inchangée).
   - id: privatisation-audiovisuel-public
     libelle: Privatisation de l'audiovisuel public
     domaine: culture
@@ -1586,9 +1627,7 @@ mesures:
           note: dotation de l'État à l'audiovisuel public
         f:
           valeur: 1.1842
-          source: >-
-            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
-            avril 2026)
+          bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
@@ -1611,6 +1650,8 @@ mesures:
         annoncé (4 Md€ projeté 4,74) plafonné par la dotation projetée : 4,59 (avant 2,30 après une décote de moitié
         tirée de Montaigne, qui traite un risque de réalisation). Bas = 0, haut = central. La cession d'actifs
         n'améliore pas le solde.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
+        (valeur inchangée).
   - id: subventions-associations-presse-syndicats
     libelle: Suppression des subventions aux associations « politisées », à la presse et aux syndicats
     domaine: etat
@@ -1657,9 +1698,7 @@ mesures:
           note: subvention de l'État au fonds paritaire (AGFPN)
         f:
           valeur: 1.1842
-          source: >-
-            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
-            avril 2026)
+          bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
@@ -1680,6 +1719,8 @@ mesures:
       commentaire: >-
         Citation retrouvée sur l'URL. Presse 0,178 (Sénat), syndicats 0,035 (AGFPN), associations 1,5 (milieu de la
         fourchette annoncée, sous les 7,3 Md€ versés). Règle 6 : bas = 0, haut = central (avant 0,84 et 2,62).
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
+        (valeur inchangée).
   - id: remigration-expulsions
     libelle: >-
       « Remigration » - renvoi des détenus et délinquants étrangers, des clandestins, des étrangers chômeurs depuis un

@@ -80,7 +80,7 @@ mesures:
   effet_solde_primaire:
     central: 0.0
     bas: 0.0
-    haut: 103.7
+    haut: 106.86
     montee_en_charge: &id001
       '2027': 0
       '2028': 0.2
@@ -97,26 +97,26 @@ mesures:
         source: https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays
         note: « 120 milliards d’euros d’économies durant les cinq premières années » (150 Md€ jusqu'en 2037)
       documente:
-        valeur: 16.3
+        valeur: 13.14
         unite: Md€ 2032
         source: https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037
-        note: 'somme des économies centrales déjà chiffrées dans ce programme : annee-blanche-2028 (7,18), assurance-chomage-5md (4,44),
-          fonctionnaires-moins-100000 (4,68)'
+        note: 'somme des économies centrales déjà chiffrées dans ce programme : annee-blanche-2028 (6,47), assurance-chomage-5md (4,44),
+          fonctionnaires-moins-100000 (2,23)'
       part:
         valeur: 0.0
         unite: part de l'écart d'affichage réputée documentée
         source: https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037
         note: 'règle 6 : aucune autre économie identifiée'
-    explication: 'Règle 6 : les économies identifiées (16.3 Md€ en 2032) sont déjà comptées ligne à ligne ; cette ligne ne
-      porte que l''écart d''affichage (120 − 16.3 Md€), nul en central et en bas, entier en haut. Les 120 Md€ du candidat
+    explication: 'Règle 6 : les économies identifiées (13.14 Md€ en 2032) sont déjà comptées ligne à ligne ; cette ligne ne
+      porte que l''écart d''affichage (120 − 13.14 Md€), nul en central et en bas, entier en haut. Les 120 Md€ du candidat
       se mesurent par rapport à une évolution tendancielle de la dépense ; notre référence est le droit voté sans tendanciel
       : l''écart d''affichage est donc un majorant.'
   confiance: faible
   verification:
-    statut: ok
+    statut: corrige
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Règle 6 (enveloppe globale) correctement appliquée : central 0, bas 0, haut = 120 − économies identifiées. Mise à jour du haut (103,11 → 103,70) après la correction de l'année blanche. Réserve d'interprétation : « 120 milliards durant les cinq premières années » est lu comme un effort annuel atteint en 2032 ; en cumul sur cinq ans (ramp 0,2 à 1), le haut serait de l'ordre de 40 − 16 Md€. L'unité du paramètre annonce est ambiguë."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Règle 6 (enveloppe globale) correctement appliquée : central 0, bas 0, haut = 120 − économies identifiées. Mise à jour du haut (103,11 → 103,70) après la correction de l'année blanche. Réserve d'interprétation : « 120 milliards durant les cinq premières années » est lu comme un effort annuel atteint en 2032 ; en cumul sur cinq ans (ramp 0,2 à 1), le haut serait de l'ordre de 40 − 16 Md€. L'unité du paramètre annonce est ambiguë. Recalé sur les conventions communes du 29/09 : économies identifiées ramenées de 16,3 à 13,14 Md€ (annee-blanche-2028 6,47, fonctionnaires-moins-100000 2,23) ; haut 103,7 → 106,86."
 - id: annee-blanche-2028
   libelle: Année blanche sur l'ensemble des prestations sociales en 2028, sauf petites retraites
   domaine: prestations sociales / retraites
@@ -134,9 +134,9 @@ mesures:
   chiffrable: true
   nature: economie
   effet_solde_primaire:
-    central: 7.18
-    bas: 6.41
-    haut: 10.18
+    central: 6.47
+    bas: 5.57
+    haut: 9.09
     montee_en_charge:
       '2027': 0
       '2028': 0.8
@@ -145,7 +145,7 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: inflation_2028 * (prestations * f + pensions * (1 - part_petites))
+    formule: inflation_2028 * (prestations * f + pensions * (1 - part_petites) * (1 - retour_pensions))
     parametres:
       inflation_2028:
         valeur: 1.721
@@ -160,8 +160,8 @@ mesures:
         bareme: prestations_hors_retraites_revalo_1pct
       f: &id003
         valeur: 1.2106
+        bareme: facteur_pib_2025_2032
         unite: facteur 2025→2032
-        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP.A
         note: facteur PIB nominal (FMI WEO avril 2026, plan/hypotheses.yaml), indiqué en tête de chiffrage/baremes.yaml
       pensions:
         valeur: 3.5
@@ -174,8 +174,15 @@ mesures:
         source: https://data.drees.solidarites-sante.gouv.fr/api/explore/v2.1/catalog/datasets/4178_distribution-des-pensions-mensuelles/attachments/eir2020_distribution_des_pensions_mensuelles_xlsx
         note: 'DREES EIR 2020 (tableau 5) : 36,1 % des retraités ont une pension totale < 1 200 € bruts, soit environ 15,4
           % de la masse (calcul par milieux de tranche) ; bas 23,0 % (< 1 400 €), haut 9,6 % (< 1 000 €)'
+      retour_pensions:
+        valeur: 0.14
+        unite: part de la revalorisation brute des pensions qui revient aux APU (CSG, CRDS, CASA, IR)
+        bareme: retour_prelevements_pensions
+        note: 'convention commune 3 ; bas 0,18 (petites pensions épargnées : pensions gelées plus imposées), haut 0,14 ;
+          prestations hors retraites sans retour (minima et prestations non imposables)'
     explication: 'Gel en 2028 de la revalorisation légale (inflation 2027 ≈ 1,72 %) : prestations hors retraites (1 Md€ par point,
-      × 1,2106) et pensions des régimes de base (3,5 Md€ par point en 2032) hors « petites retraites ». Effet de niveau permanent
+      × 1,2106) et pensions des régimes de base (3,5 Md€ par point en 2032) hors « petites retraites », nettes des
+      prélèvements qui reviennent aux APU (convention commune 3 : × (1 − 0,14) ; bas 0,18). Effet de niveau permanent
       (pas de rattrapage annoncé). Haut : pensions complémentaires gelées aussi (5,0 Md€ par point) et seuil de petite retraite
       bas ; bas : seuil à 1 400 € et masse de prestations basse. Convention de droit constant : l''indexation est la référence,
       la sous-indexation une économie.'
@@ -184,7 +191,7 @@ mesures:
     statut: corrige
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Source : « gèlera temporairement » (effet de niveau conservé). Correction : la revalorisation légale de 2028 suit l'inflation de 2027 (prix à la consommation 1,72 % selon le FMI, série PCPIPCH présente dans data/normalise), et non le déflateur du PIB de 2028 (1,862 %). Central 7,77 → 7,18 Md€ (bas 6,41, haut 10,18). Part des petites retraites (15,4 % pour < 1 200 €) recalculée à partir du tableau 5 de la DREES : exacte, mais la table porte sur la pension de base seule (les seuils en pension totale protègent moins de monde : bas 23 %, haut 9,6 % couvrent la fourchette). Barème retraites_revalo_1pct brut de CSG et d'IR (retour non déduit, environ 0,5 Md€)."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Source : « gèlera temporairement » (effet de niveau conservé). Correction : la revalorisation légale de 2028 suit l'inflation de 2027 (prix à la consommation 1,72 % selon le FMI, série PCPIPCH présente dans data/normalise), et non le déflateur du PIB de 2028 (1,862 %). Central 7,77 → 7,18 Md€ (bas 6,41, haut 10,18). Part des petites retraites (15,4 % pour < 1 200 €) recalculée à partir du tableau 5 de la DREES : exacte, mais la table porte sur la pension de base seule (les seuils en pension totale protègent moins de monde : bas 23 %, haut 9,6 % couvrent la fourchette). Barème retraites_revalo_1pct brut de CSG et d'IR (retour non déduit, environ 0,5 Md€). Recalé sur les conventions communes du 29/09 : économie sur les pensions nette de retour_prelevements_pensions (0,14 au central et au haut, 0,18 au bas, les pensions gelées étant les plus élevées ; prestations hors retraites sans retour) ; central 7,18 → 6,47, bas 6,41 → 5,57, haut 10,18 → 9,09. Facteur de projection renvoyé au barème facteur_pib_2025_2032 (valeur inchangée)."
 - id: assurance-chomage-5md
   libelle: Reprendre la réforme de l'assurance chômage (5 Md€ d'économies)
   domaine: assurance chômage
@@ -235,8 +242,8 @@ mesures:
           travail sur 24 mois [...] à 8 mois travaillés sur 20 mois »
       f:
         valeur: 1.2336
+        bareme: facteur_pib_2024_2032
         unite: facteur 2024→2032
-        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP.A
         note: facteur PIB nominal (FMI WEO avril 2026, plan/hypotheses.yaml), indiqué en tête de chiffrage/baremes.yaml (valeur
           2024→2032 citée dans les barèmes c3s_rendement et masse_salariale_apu)
     explication: 'Économie attendue en 2024 de la réforme (3,6 Md€) portée en euros 2032 (× 1,2336). Bas : montant nominal
@@ -247,7 +254,7 @@ mesures:
     statut: ok
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Extrait HuffPost relu (3,6 Md€ pour 8 mois sur 20 mois), facteur 2024→2032 1,2336 cohérent ; bas 3,6, haut 5 (montant du candidat). Réserve : économie du régime, sans déduction du basculement de fin de droits vers RSA/ASS."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Extrait HuffPost relu (3,6 Md€ pour 8 mois sur 20 mois), facteur 2024→2032 1,2336 cohérent ; bas 3,6, haut 5 (montant du candidat). Réserve : économie du régime, sans déduction du basculement de fin de droits vers RSA/ASS. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032 (valeur inchangée)."
 - id: arrets-maladie
   libelle: Plan d'action contre la dérive des arrêts maladie
   domaine: santé / indemnités journalières
@@ -283,41 +290,40 @@ mesures:
   chiffrable: true
   nature: economie
   effet_solde_primaire:
-    central: 4.68
-    bas: 4.5
-    haut: 6.24
+    central: 2.23
+    bas: 2.02
+    haut: 3.21
     montee_en_charge: *id001
   calcul:
-    formule: postes * masse / effectifs * (1 - retour)
+    formule: postes * brut_entrant / 1000 * (1 - retour)
     parametres:
       postes:
         valeur: 0.1
         unite: million de postes
         source: https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037
-      masse:
-        valeur: 362.1
-        unite: Md€ (2024)
-        bareme: masse_salariale_apu
-      effectifs:
-        valeur: 5.8
-        unite: millions d'agents
-        bareme: fp_effectifs_total
+      brut_entrant:
+        valeur: 31000
+        unite: € brut par an, hors cotisations employeurs
+        source: https://www.fipeco.fr/fiche/Le-niveau-et-l%C3%A9volution-de-la-masse-salariale-publique
+        note: '« coût moyen des entrants (salaire brut des agents de moins de 30 ans en pratique) d''environ 31 000 € pour
+          l''État, 28 000 € pour les collectivités locales et 34 000 € pour les hôpitaux » ; même base que les barèmes
+          cout_*_apu ; non projeté (point d''indice gelé à droit constant)'
       retour:
-        valeur: 0.25
-        unite: part revenant aux APU
-        source: https://www.senat.fr/rap/a25-145-5/a25-145-5.html
-        note: "hypothèse de retour de prélèvements d'environ un quart, avancée dans les limites du barème point_indice_1pct ; la page du Sénat citée ne contient pas cette mention (vérifié le 2026-09-29) : ordre de grandeur non sourcé"
-    explication: '100 000 postes × coût moyen d''un agent (masse salariale APU 2024 / effectifs = 62 400 €), net du retour
-      de prélèvements. Convention de droit constant (REFERENCE.md) : point d''indice gelé en référence, la hausse s''applique
-      au niveau de rémunération actuel sans projection au PIB. Bas : coût d''entrée d''un agent (environ 60 000 €, dérivation
-      de cout_enseignant_charge). Haut : sans retour. Indemnités de départ volontaire (coût transitoire) non comptées ; la
-      masse salariale inclut des cotisations employeurs versées à d''autres APU (surestimation possible).'
+        valeur: 0.28
+        unite: part de la rémunération brute revenant aux APU
+        bareme: retour_prelevements_salaires_publics
+    explication: 'Convention commune 1 (postes supprimés) : 100 000 postes × coût d''un entrant pour le solde des APU
+      (31 000 € brut hors cotisations employeurs × (1 − 0,28) ≈ 22 300 €, comme les barèmes cout_*_apu). Les cotisations
+      employeurs vont à d''autres APU et ne comptent pas. Point d''indice gelé en référence : pas de projection au PIB. Bas :
+      entrant des collectivités (28 000 €). Haut : départs volontaires d''agents moyens (masse salariale brute APU hors
+      cotisations employeurs 248 Md€ / 5,8 M agents ≈ 42 760 € × (1 − 0,25)). Indemnités de départ volontaire (coût
+      transitoire) non comptées.'
   confiance: moyenne
   verification:
-    statut: ok
+    statut: corrige
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Extrait L'Opinion relu (« 100 000 postes supprimés pour 7 milliards d'euros économisés » : 70 000 € par poste, au-dessus du central 46 800 €). Réserve : la masse D1 par agent (62 400 €) inclut les cotisations employeurs imputées, intra-APU, et le retour de 25 % est un ordre de grandeur non sourcé (le rapport du Sénat cité ne le contient pas : note corrigée) ; le coût net réel pourrait être plus bas d'environ 1 Md€. Hors régaliens : le coût moyen des postes concernés peut différer de la moyenne des trois versants."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Extrait L'Opinion relu (« 100 000 postes supprimés pour 7 milliards d'euros économisés » : 70 000 € par poste, au-dessus du central 46 800 €). Réserve : la masse D1 par agent (62 400 €) inclut les cotisations employeurs imputées, intra-APU, et le retour de 25 % est un ordre de grandeur non sourcé (le rapport du Sénat cité ne le contient pas : note corrigée) ; le coût net réel pourrait être plus bas d'environ 1 Md€. Hors régaliens : le coût moyen des postes concernés peut différer de la moyenne des trois versants. Recalé sur les conventions communes du 29/09 : coût d'un poste ramené au coût d'un entrant pour le solde des APU (31 000 € brut hors cotisations employeurs × 0,72, convention 1) au lieu de la masse D1 par agent (cotisations employeurs comprises) et du « quart » non sourcé ; central 4,68 → 2,23, bas 4,5 → 2,02, haut 6,24 → 3,21."
 - id: collectivites-strate
   libelle: Supprimer une strate de collectivités (« big bang » territorial)
   domaine: collectivités
@@ -475,7 +481,7 @@ mesures:
     statut: conteste
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Les sources ne définissent pas le périmètre : elles disent « hausse ciblée de 250 € nets par mois pour les salariés au salaire médian (2 200 €) », « classes moyennes qui travaillent », « suppression des cotisations », « scénario de réduction directe des cotisations salariales » (Échos, 17 juin 2026) ; aucune part de salariés. Le paramètre part = 0,75 est donc une convention sans source (règle 5), non défendable comme telle ; les 250 € valent 11,4 % du net, soit ≈ 8,8 % du brut, du même ordre que la suppression des cotisations salariales vieillesse (≈ 11 % du brut) : la lecture par baisse de taux vaut pour tous les salariés (ordre de 60-100 Md€), une lecture ciblée est possible. Masse 740 Md€ (URSSAF, quatre trimestres 2025 relus par l'API) et salaire moyen 3 602 € (site Raisin, reprise INSEE) vérifiés. Correction du bas seulement : les agents publics (5,8 M) étaient exclus alors que « tous les salariés » les inclut : bas -77,6 → -103,9. Central (-46,6) laissé en l'état mais non fondé : l'écart d'affichage reste la principale incertitude de ce programme."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Les sources ne définissent pas le périmètre : elles disent « hausse ciblée de 250 € nets par mois pour les salariés au salaire médian (2 200 €) », « classes moyennes qui travaillent », « suppression des cotisations », « scénario de réduction directe des cotisations salariales » (Échos, 17 juin 2026) ; aucune part de salariés. Le paramètre part = 0,75 est donc une convention sans source (règle 5), non défendable comme telle ; les 250 € valent 11,4 % du net, soit ≈ 8,8 % du brut, du même ordre que la suppression des cotisations salariales vieillesse (≈ 11 % du brut) : la lecture par baisse de taux vaut pour tous les salariés (ordre de 60-100 Md€), une lecture ciblée est possible. Masse 740 Md€ (URSSAF, quatre trimestres 2025 relus par l'API) et salaire moyen 3 602 € (site Raisin, reprise INSEE) vérifiés. Correction du bas seulement : les agents publics (5,8 M) étaient exclus alors que « tous les salariés » les inclut : bas -77,6 → -103,9. Central (-46,6) laissé en l'état mais non fondé : l'écart d'affichage reste la principale incertitude de ce programme. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032 (valeur inchangée)."
 - id: cout-travail-hausses-2024
   libelle: Revenir sur les hausses du coût du travail intervenues depuis 2024
   domaine: prélèvements sociaux / entreprises
@@ -510,8 +516,8 @@ mesures:
           dans la dérivation du barème allegements_generaux_cout
       f:
         valeur: 1.1842
+        bareme: facteur_pib_2026_2032
         unite: facteur 2026→2032
-        source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP.A
         note: 1,2106 / 1,0223 (croissance nominale 2026 = 0,858 % de volume et 1,358 % de déflateur, plan/hypotheses.yaml)
     explication: 'Seule hausse identifiée et chiffrée : le rabot de 1,6 Md€ sur les allègements généraux en 2026, porté en
       euros 2032. Les autres hausses (aides à l''apprentissage, JEI…) ne sont pas chiffrées ici faute de barème (sous-estimation).'
@@ -520,7 +526,7 @@ mesures:
     statut: ok
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Rabot de 1,6 Md€ (allègements généraux 2026) repris ; le reste des hausses depuis 2024 (apprentissage, JEI, cotisations employeur) non inventorié : sous-estimation signalée par le chiffrage, pas d'erreur de calcul."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Rabot de 1,6 Md€ (allègements généraux 2026) repris ; le reste des hausses depuis 2024 (apprentissage, JEI, cotisations employeur) non inventorié : sous-estimation signalée par le chiffrage, pas d'erreur de calcul. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032 (valeur inchangée)."
 - id: cvae-suppression
   libelle: Mener à terme la suppression de la CVAE et poursuivre la baisse des impôts de production
   domaine: fiscalité des entreprises
@@ -567,7 +573,7 @@ mesures:
     statut: ok
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Effet nul en 2032 exact : suppression de la CVAE déjà votée pour 2030 (REFERENCE.md). Aucun coût 2028-2029 non représenté n'est compté (choix explicite, règle du 2032)."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Effet nul en 2032 exact : suppression de la CVAE déjà votée pour 2030 (REFERENCE.md). Aucun coût 2028-2029 non représenté n'est compté (choix explicite, règle du 2032). Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032 (valeur inchangée)."
 - id: taxes-dissolution-surtaxe-is
   libelle: Revenir sur les taxes créées depuis la dissolution (dont surtaxe d'IS)
   domaine: fiscalité des entreprises
@@ -607,9 +613,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -2.06
-    bas: -3.0
-    haut: -1.88
+    central: -1.71
+    bas: -2.88
+    haut: -1.62
     montee_en_charge:
       '2027': 0.3
       '2028': 1
@@ -618,27 +624,39 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: -cout_brut * (1 - retour)
+    formule: -effectifs * hausse_nette * 12 / ratio_net_brut * (1 - retour) / 1e9
     parametres:
-      cout_brut:
-        valeur: 2.75
-        unite: Md€/an
-        source: https://www.capital.fr/economie-politique/salaire-des-professeurs-ce-que-proposent-gabriel-attal-raphael-glucksmann-edouard-philippe-et-les-autres-candidats-1529731
-        note: milieu de la fourchette « entre 2,5 et 3 milliards d’euros » donnée par le candidat (Le Monde)
+      effectifs:
+        valeur: 793863
+        unite: ETPT
+        source: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
+        note: enseignants du public, programmes 140 (341 897) et 141 (451 966), PLF 2026 ; privé sous contrat exclu
+      hausse_nette:
+        valeur: 200
+        unite: € nets par mois
+        source: https://attalpresident.fr/actualites/france-2-gabriel-attal-fait-de-l-ecole-une-priorite-pour-preparer-l-avenir-du-pays
+        note: « 200 euros nets par mois pour tous les enseignants, pouvant atteindre 500 euros nets » en milieu de carrière
+      ratio_net_brut:
+        valeur: 0.8
+        unite: net/brut
+        source: https://www.fonction-publique.gouv.fr/files/files/publications/rapport-annuel/cc-2025-web.pdf
+        note: cotisations salariales d'un fonctionnaire ≈ 20 % du traitement (pension civile, CSG-CRDS, RAFP)
       retour:
-        valeur: 0.25
-        unite: part revenant aux APU
-        source: https://www.senat.fr/rap/a25-145-5/a25-145-5.html
-        note: "hypothèse de retour de prélèvements d'environ un quart, avancée dans les limites du barème point_indice_1pct ; la page du Sénat citée ne contient pas cette mention (vérifié le 2026-09-29) : ordre de grandeur non sourcé"
-    explication: 'Coût brut annoncé par le candidat (2,5 à 3 Md€, cohérent avec 0,79 M d''enseignants du public × 200 € nets
-      × 12 mois, charges comprises), net du retour de prélèvements. Montant nominal (hausse en euros nets). Montée : rentrée
+        valeur: 0.28
+        unite: part de la rémunération brute revenant aux APU
+        bareme: retour_prelevements_salaires_publics
+    explication: 'Convention commune 1 : hausse nette convertie en brut hors cotisations employeurs (0,79 M d''enseignants
+      du public × 200 € nets × 12 / 0,8 ≈ 2,38 Md€), nette des prélèvements qui reviennent aux APU (× (1 − 0,28)). Le
+      candidat annonce 2,5 à 3 Md€ (coût chargé, consigné en chiffrage tiers). Bas : +300 € en moyenne (200 € en début
+      et fin de carrière, 500 € en milieu), retour 0,25, plus ≈ 0,2 Md€ de pensions induites en 2032 (convention 2).
+      Haut : retour 0,32. Montant nominal (hausse en euros nets, point d''indice gelé). Montée : rentrée
       2027 par loi de finances rectificative, puis année pleine.'
   confiance: moyenne
   verification:
-    statut: ok
+    statut: corrige
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Coût du candidat (2,5 à 3 Md€) cohérent avec un contrôle indépendant : 0,79 M ETPT × 200 € × 12 × ≈ 1,45 (charges hors CAS) ≈ 2,7 Md€ avant retour ; la mention « jusqu'à 500 € en milieu de carrière » pourrait pousser vers le haut (bas -3,0). Le retour de 25 % n'est pas sourcé (voir fonctionnaires-moins-100000)."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Coût du candidat (2,5 à 3 Md€) cohérent avec un contrôle indépendant : 0,79 M ETPT × 200 € × 12 × ≈ 1,45 (charges hors CAS) ≈ 2,7 Md€ avant retour ; la mention « jusqu'à 500 € en milieu de carrière » pourrait pousser vers le haut (bas -3,0). Le retour de 25 % n'est pas sourcé (voir fonctionnaires-moins-100000). Recalé sur les conventions communes du 29/09 : coût recalculé en brut hors cotisations employeurs × (1 − 0,28) (convention 1) au lieu du coût chargé du candidat × (1 − un quart non sourcé) ; central −2,06 → −1,71, bas −3,0 → −2,88, haut −1,88 → −1,62."
 - id: aesh-revalorisation-corps
   libelle: Revaloriser les AESH et en faire un corps professionnel
   domaine: éducation
@@ -934,38 +952,42 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -0.22
-    bas: -0.42
-    haut: -0.11
+    central: -0.09
+    bas: -0.13
+    haut: -0.09
     montee_en_charge: *id001
   calcul:
-    formule: -etp * cout_hors_cas / 1e9 * (1 - retour)
+    formule: -(magistrats * cout_magistrat + (etp - magistrats) * cout_greffier) / 1e9
     parametres:
       etp:
         valeur: 3000
         unite: ETP
         source: https://attalpresident.fr/actualites/gabriel-attal-dans-le-figaro-appelle-a-une-nouvelle-justice
-      cout_hors_cas:
-        valeur: 96768
-        unite: € par ETPT hors CAS (magistrat, 2025)
-        source: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2025
-        note: coût global hors CAS d'un magistrat, dérivation du barème cout_magistrat_charge ; appliqué aussi aux greffiers
-          (majorant)
-      retour:
-        valeur: 0.25
-        unite: part revenant aux APU
-        source: https://www.senat.fr/rap/a25-145-5/a25-145-5.html
-        note: "hypothèse de retour de prélèvements d'environ un quart, avancée dans les limites du barème point_indice_1pct ; la page du Sénat citée ne contient pas cette mention (vérifié le 2026-09-29) : ordre de grandeur non sourcé"
-    explication: '3 000 ETP au coût hors CAS d''un magistrat (majorant pour les greffiers), nets du retour. Convention de
-      droit constant (REFERENCE.md) : point d''indice gelé en référence, la hausse s''applique au niveau de rémunération actuel
-      sans projection au PIB. Haut : seuls 1 500 magistrats comptés à ce coût (greffiers moins coûteux). Places de prison
+      magistrats:
+        valeur: 1500
+        unite: ETP
+        source: https://attalpresident.fr/actualites/gabriel-attal-dans-le-figaro-appelle-a-une-nouvelle-justice
+        note: 'répartition magistrats / greffiers non précisée : moitié-moitié (hypothèse)'
+      cout_magistrat:
+        valeur: 37000
+        unite: € par ETP et par an
+        bareme: cout_magistrat_apu
+      cout_greffier:
+        valeur: 23300
+        unite: € par ETP et par an
+        bareme: cout_greffier_apu
+    explication: 'Convention commune 1 (postes créés) : 3 000 ETP, moitié magistrats, moitié greffiers, au coût d''un
+      entrant pour le solde des APU (cout_magistrat_apu 37 000 €, cout_greffier_apu 23 300 € : brut hors cotisations
+      employeurs, net des retours). Point d''indice gelé en référence : pas de projection au PIB. Bas : agents moyens (haut
+      des barèmes : 62 200 € et 26 700 €).
+      Haut : greffiers au bas du barème (22 100 €). Places de prison
       non chiffrées (nombre non précisé).'
   confiance: moyenne
   verification:
-    statut: ok
+    statut: corrige
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Effectif (3 000 magistrats et greffiers « supplémentaires ») exact. Peut recouper la LOPJ 2023-2027 déjà en référence (« effort continu ») : haut plausible. Places de prison non chiffrées (aucun nombre)."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Effectif (3 000 magistrats et greffiers « supplémentaires ») exact. Peut recouper la LOPJ 2023-2027 déjà en référence (« effort continu ») : haut plausible. Places de prison non chiffrées (aucun nombre). Recalé sur les conventions communes du 29/09 : barèmes cout_magistrat_apu et cout_greffier_apu (coût d'un entrant pour le solde des APU, convention 1) au lieu du coût moyen hors CAS d'un magistrat × (1 − un quart non sourcé) ; central −0,22 → −0,09, bas −0,42 → −0,13 (agents moyens), haut −0,11 → −0,09."
 - id: geoenergie-fonds-chaleur
   libelle: Doubler les aides à la géoénergie (80 → 160 M€) à enveloppe constante
   domaine: énergie
