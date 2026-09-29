@@ -136,9 +136,9 @@ mesures:
   chiffrable: true
   nature: economie
   effet_solde_primaire:
-    central: 6.47
-    bas: 5.57
-    haut: 9.09
+    central: 6.36
+    bas: 5.48
+    haut: 8.93
     montee_en_charge:
       '2027': 0
       '2028': 0.8
@@ -177,14 +177,14 @@ mesures:
         note: 'DREES EIR 2020 (tableau 5) : 36,1 % des retraités ont une pension totale < 1 200 € bruts, soit environ 15,4
           % de la masse (calcul par milieux de tranche) ; bas 23,0 % (< 1 400 €), haut 9,6 % (< 1 000 €)'
       retour_pensions:
-        valeur: 0.14
+        valeur: 0.16
         unite: part de la revalorisation brute des pensions qui revient aux APU (CSG, CRDS, CASA, IR)
         bareme: retour_prelevements_pensions
-        note: 'convention commune 3 ; bas 0,18 (petites pensions épargnées : pensions gelées plus imposées), haut 0,14 ;
-          prestations hors retraites sans retour (minima et prestations non imposables)'
+        note: 'convention commune 3 ; bas 0,20 (haut du barème : petites pensions épargnées, pensions gelées plus imposées),
+          haut 0,16 ; prestations hors retraites sans retour (minima et prestations non imposables)'
     explication: 'Gel en 2028 de la revalorisation légale (inflation 2027 ≈ 1,72 %) : prestations hors retraites (1 Md€ par point,
       × 1,2106) et pensions des régimes de base (3,5 Md€ par point en 2032) hors « petites retraites », nettes des
-      prélèvements qui reviennent aux APU (convention commune 3 : × (1 − 0,14) ; bas 0,18). Effet de niveau permanent
+      prélèvements qui reviennent aux APU (convention commune 3 : × (1 − 0,16) ; bas 0,20). Effet de niveau permanent
       (pas de rattrapage annoncé). Haut : pensions complémentaires gelées aussi (5,0 Md€ par point) et seuil de petite retraite
       bas ; bas : seuil à 1 400 € et masse de prestations basse. Convention de droit constant : l''indexation est la référence,
       la sous-indexation une économie.'
@@ -193,7 +193,7 @@ mesures:
     statut: corrige
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Source : « gèlera temporairement » (effet de niveau conservé). Correction : la revalorisation légale de 2028 suit l'inflation de 2027 (prix à la consommation 1,72 % selon le FMI, série PCPIPCH présente dans data/normalise), et non le déflateur du PIB de 2028 (1,862 %). Central 7,77 → 7,18 Md€ (bas 6,41, haut 10,18). Part des petites retraites (15,4 % pour < 1 200 €) recalculée à partir du tableau 5 de la DREES : exacte, mais la table porte sur la pension de base seule (les seuils en pension totale protègent moins de monde : bas 23 %, haut 9,6 % couvrent la fourchette). Barème retraites_revalo_1pct brut de CSG et d'IR (retour non déduit, environ 0,5 Md€). Recalé sur les conventions communes du 29/09 : économie sur les pensions nette de retour_prelevements_pensions (0,14 au central et au haut, 0,18 au bas, les pensions gelées étant les plus élevées ; prestations hors retraites sans retour) ; central 7,18 → 6,47, bas 6,41 → 5,57, haut 10,18 → 9,09. Facteur de projection renvoyé au barème facteur_pib_2025_2032 (valeur inchangée)."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Source : « gèlera temporairement » (effet de niveau conservé). Correction : la revalorisation légale de 2028 suit l'inflation de 2027 (prix à la consommation 1,72 % selon le FMI, série PCPIPCH présente dans data/normalise), et non le déflateur du PIB de 2028 (1,862 %). Central 7,77 → 7,18 Md€ (bas 6,41, haut 10,18). Part des petites retraites (15,4 % pour < 1 200 €) recalculée à partir du tableau 5 de la DREES : exacte, mais la table porte sur la pension de base seule (les seuils en pension totale protègent moins de monde : bas 23 %, haut 9,6 % couvrent la fourchette). Barème retraites_revalo_1pct brut de CSG et d'IR (retour non déduit, environ 0,5 Md€). Recalé sur les conventions communes du 29/09 : économie sur les pensions nette de retour_prelevements_pensions (0,14 au central et au haut, 0,18 au bas, les pensions gelées étant les plus élevées ; prestations hors retraites sans retour) ; central 7,18 → 6,47, bas 6,41 → 5,57, haut 10,18 → 9,09. Facteur de projection renvoyé au barème facteur_pib_2025_2032 (valeur inchangée). Recalé sur les barèmes sourcés du 29/09 : retour_prelevements_pensions 0,14 → 0,16 (bas 0,18 → 0,20, haut du barème) ; central 6,47 → 6,36, bas 5,57 → 5,48, haut 9,09 → 8,93."
 - id: assurance-chomage-5md
   libelle: Reprendre la réforme de l'assurance chômage (5 Md€ d'économies)
   domaine: assurance chômage
@@ -472,9 +472,9 @@ mesures:
   chiffrable: true
   nature: baisse_recette
   effet_solde_primaire:
-    central: -42.61
-    bas: -93.51
-    haut: -41.16
+    central: -40.68
+    bas: -89.35
+    haut: -39.47
     montee_en_charge: *id002
   calcul:
     formule: -cout_2025 * f * (1 - retour_ir)
@@ -491,17 +491,17 @@ mesures:
           candidat est le bas de cette plage'
       f: *id003
       retour_ir:
-        valeur: 0.12
+        valeur: 0.16
         unite: part du gain net qui revient en impôt sur le revenu
-        source: chiffrage/REFERENCE.md (conventions communes 5 et 12, CSG déductible)
-        note: 'convention : la cotisation salariale vieillesse est, comme la CSG déductible, déduite du revenu imposable ; sa
-          suppression accroît l''IR dans la même proportion (0,12 au central, 0,15 au haut, 0,10 au bas). Baisse induite de
-          la prime d''activité non comptée (minorant du retour)'
+        bareme: retour_ir_cotisation_salariale
+        note: 'la cotisation salariale vieillesse est, comme la CSG déductible, déduite du revenu imposable (CGI, art. 83) ;
+          sa suppression accroît l''IR dans la même proportion (barème : 0,16 au central, 0,185 au haut, 0,14 au bas). Baisse
+          induite de la prime d''activité non comptée (minorant du retour)'
     explication: 'Part salariale de la cotisation vieillesse du régime général (40 Md€ en 2025, chiffre du candidat) portée en
-      euros 2032 (× 1,2106), nette du retour d''impôt sur le revenu (× 0,88) : 40 × 1,2106 × 0,88 = 42,6 Md€. Haut : même
-      assiette, retour de 0,15 (41,2). Bas : lecture « 250 € nets pour tous » (11,4 % du net) appliquée à toute la masse
+      euros 2032 (× 1,2106), nette du retour d''impôt sur le revenu (× 0,84) : 40 × 1,2106 × 0,84 = 40,7 Md€. Haut : même
+      assiette, retour de 0,185 (39,5). Bas : lecture « 250 € nets pour tous » (11,4 % du net) appliquée à toute la masse
       salariale privée (740 × 0,759 × 11,4 % × 1,2106 ≈ 77,6 Md€) et étendue aux agents publics (× (1 + 5,8 / 17,1) = 103,9),
-      retour de 0,10 : 93,5. Les salariés dont la pension de base ne relève pas du régime général (fonctionnaires : retenue
+      retour de 0,14 : 89,4. Les salariés dont la pension de base ne relève pas du régime général (fonctionnaires : retenue
       pour pension de 11,10 %) ne sont couverts que dans le bas.'
   effets_retour: Hausse du pouvoir d'achat et de l'offre de travail invoquée ; non comptée. Les droits à pension restant acquis
     sans cotisation salariale, le déficit du régime de retraite se creuse d'autant, sauf compensation (non chiffrée ici).
@@ -521,7 +521,7 @@ mesures:
     statut: corrige
     par: passe-sources
     date: '2026-09-29'
-    commentaire: "Passe sources : contestation tranchée. Le dispositif est défini par le candidat (suppression de la part salariale de la cotisation vieillesse : Les Échos / franceinfo-AFP 29 juin 2025, 40 Md€ ; France 2 31 août 2026, « cotisations vieillesse ») et s'applique à tous (« pour que chacun ait l'équivalent d'un 13ᵉ mois », site, Bretagne, juillet 2026). La convention part = 0,75 (non sourcée) et le salaire moyen tiré d'un site commercial (Raisin) sont abandonnés ; formule refaite sur le montant du candidat projeté en 2032 et net du retour d'IR (convention CSG déductible). Central −46,63 → −42,61 ; bas −103,9 → −93,51 (retour d'IR 0,10) ; haut −31,09 → −41,16 (la lecture « ciblée sur la moitié des salariés » n'a plus de support). Écart résiduel : 7,3 % du brut donne ≈ 206 € au médian contre 250 € promis. Vérification précédente (verificateur-sonnet, 29/09, conteste) : périmètre non défini, part 0,75 non défendable, masse 740 Md€ et salaire moyen vérifiés, bas corrigé de −77,6 à −103,9 (agents publics)."
+    commentaire: "Passe sources : contestation tranchée. Le dispositif est défini par le candidat (suppression de la part salariale de la cotisation vieillesse : Les Échos / franceinfo-AFP 29 juin 2025, 40 Md€ ; France 2 31 août 2026, « cotisations vieillesse ») et s'applique à tous (« pour que chacun ait l'équivalent d'un 13ᵉ mois », site, Bretagne, juillet 2026). La convention part = 0,75 (non sourcée) et le salaire moyen tiré d'un site commercial (Raisin) sont abandonnés ; formule refaite sur le montant du candidat projeté en 2032 et net du retour d'IR (convention CSG déductible). Central −46,63 → −42,61 ; bas −103,9 → −93,51 (retour d'IR 0,10) ; haut −31,09 → −41,16 (la lecture « ciblée sur la moitié des salariés » n'a plus de support). Écart résiduel : 7,3 % du brut donne ≈ 206 € au médian contre 250 € promis. Vérification précédente (verificateur-sonnet, 29/09, conteste) : périmètre non défini, part 0,75 non défendable, masse 740 Md€ et salaire moyen vérifiés, bas corrigé de −77,6 à −103,9 (agents publics). Recalé sur les barèmes sourcés du 29/09 : retour d'IR renvoyé au barème retour_ir_cotisation_salariale, 0,12 (0,10-0,15, convention non sourcée) → 0,16 (0,14-0,185) ; central −42,61 → −40,68, bas −93,51 → −89,35, haut −41,16 → −39,47."
 - id: cout-travail-hausses-2024
   libelle: Revenir sur les hausses du coût du travail intervenues depuis 2024
   domaine: prélèvements sociaux / entreprises
@@ -774,7 +774,7 @@ mesures:
     bas: -0.4
     haut: -0.05
     lecture: 'Groupes de niveau rétablis au collège (≈ 2 300 postes, comme à la rentrée 2024) et année passerelle pour une partie
-      des élèves, au coût d''un enseignant entrant (24 100 € net pour le solde) et à la marge d''une année de scolarité. Bas
+      des élèves, au coût d''un enseignant entrant (24 850 € net pour le solde, barème du 29/09) et à la marge d''une année de scolarité. Bas
       : groupes dans toutes les matières et année passerelle large ; haut : moyens pris sur la baisse démographique.'
     sources:
     - https://attalpresident.fr/programme/education
@@ -1118,22 +1118,22 @@ mesures:
         unite: € par ETP et par an
         bareme: cout_magistrat_apu
       cout_greffier:
-        valeur: 23300
+        valeur: 24790
         unite: € par ETP et par an
         bareme: cout_greffier_apu
     explication: 'Convention commune 1 (postes créés) : 3 000 ETP, répartis comme la LOPJ 2023-2027 (1 364 magistrats, 1 636
       greffiers), au coût d''un
-      entrant pour le solde des APU (cout_magistrat_apu 37 000 €, cout_greffier_apu 23 300 € : brut hors cotisations
+      entrant pour le solde des APU (cout_magistrat_apu 37 000 €, cout_greffier_apu 24 790 € : brut hors cotisations
       employeurs, net des retours). Point d''indice gelé en référence : pas de projection au PIB. Bas : agents moyens (haut
-      des barèmes : 62 200 € et 26 700 €).
-      Haut : greffiers au bas du barème (22 100 €). Places de prison
+      des barèmes : 62 200 € et 28 770 €).
+      Haut : greffiers au bas du barème (23 410 €). Places de prison
       non chiffrées (nombre non précisé).'
   confiance: moyenne
   verification:
     statut: corrige
     par: passe-sources
     date: '2026-09-29'
-    commentaire: "Passe sources : répartition moitié-moitié (hypothèse) remplacée par la proportion de la LOPJ 2023-2027 (1 500 magistrats pour 1 800 greffiers, justice.gouv.fr) ; effet < 0,01 Md€, montants inchangés à l'arrondi (−0,09 ; bas −0,13 ; haut −0,09). Vérification précédente (verificateur-sonnet, 29/09, corrige) : Citation retrouvée dans la source (récupérée le 2026-09-29). Effectif (3 000 magistrats et greffiers « supplémentaires ») exact. Peut recouper la LOPJ 2023-2027 déjà en référence (« effort continu ») : haut plausible. Places de prison non chiffrées (aucun nombre). Recalé sur les conventions communes du 29/09 : barèmes cout_magistrat_apu et cout_greffier_apu (coût d'un entrant pour le solde des APU, convention 1) au lieu du coût moyen hors CAS d'un magistrat × (1 − un quart non sourcé) ; central −0,22 → −0,09, bas −0,42 → −0,13 (agents moyens), haut −0,11 → −0,09."
+    commentaire: "Passe sources : répartition moitié-moitié (hypothèse) remplacée par la proportion de la LOPJ 2023-2027 (1 500 magistrats pour 1 800 greffiers, justice.gouv.fr) ; effet < 0,01 Md€, montants inchangés à l'arrondi (−0,09 ; bas −0,13 ; haut −0,09). Vérification précédente (verificateur-sonnet, 29/09, corrige) : Citation retrouvée dans la source (récupérée le 2026-09-29). Effectif (3 000 magistrats et greffiers « supplémentaires ») exact. Peut recouper la LOPJ 2023-2027 déjà en référence (« effort continu ») : haut plausible. Places de prison non chiffrées (aucun nombre). Recalé sur les conventions communes du 29/09 : barèmes cout_magistrat_apu et cout_greffier_apu (coût d'un entrant pour le solde des APU, convention 1) au lieu du coût moyen hors CAS d'un magistrat × (1 − un quart non sourcé) ; central −0,22 → −0,09, bas −0,42 → −0,13 (agents moyens), haut −0,11 → −0,09. Recalé sur les barèmes sourcés du 29/09 : cout_greffier_apu 23 300 → 24 790 € (haut 26 700 → 28 770, bas 22 100 → 23 410) ; montants inchangés à l'arrondi (−0,091 ; bas −0,132 ; haut −0,089)."
 - id: geoenergie-fonds-chaleur
   libelle: Doubler les aides à la géoénergie (80 → 160 M€) à enveloppe constante
   domaine: énergie

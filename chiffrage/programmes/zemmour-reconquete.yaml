@@ -107,9 +107,9 @@ mesures:
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -116.26
-      bas: -124.08
-      haut: -113.43
+      central: -112.49
+      bas: -120.12
+      haut: -110.13
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -133,15 +133,15 @@ mesures:
           unite: points
           note: part déductible de l'IR de la CSG d'activité (6,8 points sur 9,2 ; barème csg_point, dérivation)
         retour_ir:
-          valeur: 0.12
-          source: chiffrage/REFERENCE.md, conventions communes n° 5 (barème csg_point, dérivation)
+          valeur: 0.16
+          bareme: retour_ir_csg_deductible
           unite: part du rendement de la CSG déductible supprimée qui revient en impôt sur le revenu
           note: >-
-            convention 10 à 15 % ; 0,12 au central (11,71 × 0,88 ≈ 10,3 Md€ net par point), 0,10 au bas, 0,15 au haut.
-            Recoupement : Fondation IFRAP (mai 2023, https://www.ifrap.org/budget-et-fiscalite/pourquoi-il-faut-rendre-la-csg-totalement-deductible-de-lir-sur-les-revenus-dactivite)
+            barème (3,9 Md€ d'IR pour 22,5 Md€ de CSG rendue déductible en 2018, ajusté du barème de l'IR de 2020) :
+            0,16 au central (11,71 × 0,84 ≈ 9,8 Md€ net par point), 0,14 au bas, 0,185 au haut. Recoupement plus bas : Fondation IFRAP (mai 2023, https://www.ifrap.org/budget-et-fiscalite/pourquoi-il-faut-rendre-la-csg-totalement-deductible-de-lir-sur-les-revenus-dactivite)
             : « la CSG non déductible sur les revenus d’activité représente en 2021 18,64 milliards d’euros […] conduisant
             probablement à un coût sur l’IR de 2,05 milliards d’euros », soit un retour d'IR de 11 % du rendement rendu
-            déductible, dans la fourchette de la convention
+            déductible, sous le bas du barème (lecture prudente de l'IFRAP)
         point:
           valeur: 11.71
           bareme: csg_point_activite
@@ -157,14 +157,14 @@ mesures:
       explication: >-
         Rendement de la CSG d'activité = taux × valeur du point 2026 (11,71 Md€, après la réforme de l'assiette des
         indépendants déjà votée), projeté 2026→2032, net du retour d'impôt sur le revenu : la CSG déductible (6,8 points)
-        disparaît, l'assiette de l'IR augmente ; convention commune 5 : 12 % du rendement de la part déductible au
-        central (10 % au bas, 15 % au haut). Bas : point 2025 (12,03), facteur 2025→2032 et retour 10 %
-        ((9,2 − 0,68) × 12,03 × 1,2106 = 124,1). Haut : point 2026 et retour 15 % (113,4).
+        disparaît, l'assiette de l'IR augmente ; barème retour_ir_csg_deductible : 16 % du rendement de la part
+        déductible au central (14 % au bas, 18,5 % au haut). Bas : point 2025 (12,03), facteur 2025→2032 et retour 14 %
+        ((9,2 − 0,95) × 12,03 × 1,2106 = 120,1). Haut : point 2026 et retour 18,5 % (110,1).
     effets_retour: >-
       Hausse de 10 % du salaire net invoquée comme soutien à la consommation et à l'offre de travail : non comptée.
     confiance: moyenne
     verification:
-      statut: ok
+      statut: corrige
       par: passe-sources
       date: '2026-09-29'
       commentaire: >-
@@ -180,6 +180,8 @@ mesures:
         du 29/09 : point de CSG d'activité renvoyé au barème csg_point_activite (11,71) et retour d'IR sur la
         part déductible (6,8 points) compté selon la convention 5 (12 % au central, 10 à 15 % en fourchette) ;
         central −127,6 → −116,3, bas −134,0 → −124,1, haut −127,6 → −113,4.
+        Recalé sur les barèmes sourcés du 29/09 : retour d'IR renvoyé au barème retour_ir_csg_deductible, 0,12
+        (0,10-0,15) → 0,16 (0,14-0,185) ; central −116,26 → −112,49, bas −124,08 → −120,12, haut −113,43 → −110,13.
   - id: suppression-droits-succession
     libelle: Suppression des droits de succession
     domaine: fiscalite

@@ -116,9 +116,9 @@ mesures:
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -17.0
-      bas: -20.45
-      haut: -13.0
+      central: -12.0
+      bas: -12.8
+      haut: -9.0
       montee_en_charge:
         '2027': 0.4
         '2028': 1.0
@@ -127,28 +127,22 @@ mesures:
         '2031': 1.0
         '2032': 1.0
     calcul:
-      formule: -(elec + gaz + carburants + fioul)
+      formule: -total
       parametres:
-        elec:
-          valeur: 5.0
-          bareme: tva_energie_electricite_5_5
+        total:
+          valeur: 12.0
+          bareme: tva_energie_total_5_5
           unite: Md€/an de recettes perdues (APU)
-        gaz:
-          valeur: 2.0
-          bareme: tva_energie_gaz_5_5
-          unite: Md€/an de recettes perdues (APU)
-        carburants:
-          valeur: 9.4
-          bareme: tva_energie_carburants_5_5
-          unite: Md€/an de recettes perdues (APU)
-        fioul:
-          valeur: 0.6
-          bareme: tva_energie_fioul_5_5
-          unite: Md€/an de recettes perdues (APU)
+          note: >-
+            chiffrage du Gouvernement devant l'Assemblée (novembre 2025) pour les quatre énergies ; bas 9,0 (Institut
+            Montaigne), haut 12,8 (borne mécanique : 17,6 Md€ de TVA sur l'énergie en 2024 × (1 − 5,5/20), CPO)
       explication: >-
-        Somme des barèmes par énergie (électricité et gaz des ménages, carburants routiers hors fioul, fioul) ; bas = bornes
-        hautes des barèmes, haut = bornes basses. Le barème carburants (9,4) exclut le fioul, compté une seule fois. Bois de chauffage omis (déjà en partie à taux réduit, montant faible). Montants énergétiques
-        non projetés au PIB (volumes et prix).
+        La promesse vise les quatre énergies : barème tva_energie_total_5_5 (12,0 Md€), comme le prévoit sa dérivation.
+        La somme des barèmes par énergie (électricité 5,0 + gaz 2,0 + carburants 6,4 + fioul 0,6 = 14,0) dépasse la perte
+        maximale possible (12,8 Md€ si toute la TVA sur l'énergie passait à 5,5 %, CPO) parce qu'elle mélange des
+        millésimes de prix : elle n'est pas retenue. Bas = 12,8 (borne mécanique, prix 2024 ; plus aux prix de 2026),
+        haut = 9,0 (Institut Montaigne, réaction de la consommation). Bois de chauffage omis (déjà en partie à taux réduit,
+        montant faible). Montants énergétiques non projetés au PIB (volumes et prix).
     chiffrages_tiers:
       - auteur: Institut Montaigne (législatives 2024)
         montant_md: -11.3
@@ -182,6 +176,11 @@ mesures:
         conventions communes du 29/09 : barème carburants ramené à 9,4 Md€ (carburants routiers hors fioul), ce qui
         supprime le double compte avec la ligne fioul ; central −17,6 → −17,0, haut −14,8 → −13,0 (bornes basses : 4,5
         + 1,7 + 6,4 + 0,4).
+        Recalé sur les barèmes sourcés du 29/09 : le barème carburants passe de 9,4 à 6,4 Md€ (TVA non déductible sur
+        les produits pétroliers, SDES 2024), et la somme par énergie (14,0) dépasse la borne mécanique du CPO (12,8) :
+        la mesure, qui vise les quatre énergies, est chiffrée sur tva_energie_total_5_5 ; central −17,0 → −12,0, bas
+        −20,45 → −12,8, haut −13,0 → −9,0. Le chiffre de Bercy 2024 (16,8) excède la borne mécanique ; Montaigne (11,3)
+        et le contre-budget RN (10,96) sont dans la fourchette.
   - id: tva-100-produits-premiere-necessite
     libelle: Suppression de la TVA sur une centaine de produits de première nécessité
     domaine: fiscalite
@@ -515,8 +514,8 @@ mesures:
     nature: depense
     effet_solde_primaire:
       central: -26.58
-      bas: -44.4
-      haut: -17.65
+      bas: -43.7
+      haut: -20.2
       montee_en_charge:
         '2027': 0.0
         '2028': 0.4
@@ -575,8 +574,9 @@ mesures:
         des mesures d'âge de 2023 nette de la suspension (13,9) ; durée ramenée de 171 à 168 trimestres pour tous (0,75 ×
         4,4) ; pour les bénéficiaires du barème progressif, le passage de 62 à 60 ans et de 42 à 40 annuités, au prorata
         de leur poids (0,35 × (18 + 2 × 4,4)). Le RN coûte ainsi moins que « 60 ans et 40 annuités pour tous » (LFI, 42,9
-        Md€), dont il est un sous-ensemble. Bas = hauts des barèmes (20 ; 8,8 par an de durée) et part 0,5 ; haut = bas
-        des barèmes (8,9 ; 13) avec la durée au central (4,4) et part 0,25. L'ancien chiffrage (Institut Montaigne 2024,
+        Md€), dont il est un sous-ensemble. Bas = hauts des barèmes (15,8 ; 25 ; 8,8 par an de durée) et part 0,5 : 15,8 +
+        0,75 × 8,8 + 0,5 × (25 + 2 × 8,8) = 43,7 ; haut = bas des barèmes (11,4 ; 13,2) avec la durée au central (4,4) et
+        part 0,25 : 11,4 + 3,3 + 0,25 × (13,2 + 8,8) = 20,2. L'ancien chiffrage (Institut Montaigne 2024,
         −44,6 Md€) est abandonné : Montaigne applique à presque toute la génération le retour complet aux règles d'avant
         2003 (« en revenant totalement sur les mesures d'âges et de durée de cotisation de 2003, 2010, 2014 pour ceux qui
         ont commencé à travailler avant 20 ans, et partiellement pour ceux qui ont commencé à travailler après 20 ans, le
@@ -637,6 +637,9 @@ mesures:
         conservée. Trace antérieure (verificateur-sonnet, conteste) : central Montaigne cohérent avec sa formule, bas
         contesté puis recalé sur le barème (IFRAP 2025), écart inexpliqué avec les 9 Md€ de la candidate, désormais
         rapproché du chiffrage IFRAP 2022.
+        Recalé sur les barèmes sourcés du 29/09 : bornes des barèmes retraites_retour_62_ans_2032 (11,4 ; 15,8 au lieu
+        de 8,9 ; 20) et retraites_age_60_depuis_62 (13,2 ; 25) ; central inchangé (−26,58), bas −44,4 → −43,7, haut
+        −17,65 → −20,2.
   - id: cumul-emploi-retraite-sans-cotisations
     libelle: >-
       Suppression des cotisations retraite et chômage des actifs ayant l'âge et les trimestres qui continuent à travailler
