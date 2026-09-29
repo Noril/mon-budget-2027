@@ -599,6 +599,20 @@ mesures:
       est en outre réformé au 1er janvier 2027 par la LFSS 2026 (art. 102), ce qui change l'assiette. La candidate chiffre
       « ce volet » à 9 Md€ en année pleine (Epoch Times), chiffre ambigu (peut-être toute la réforme des retraites) :
       non retenu faute de pouvoir le rejouer.
+    sens_probable: cout
+    estimation_indicative:
+      central: -3.6
+      bas: -10.7
+      haut: -1.3
+      lecture: 'Exonération des cotisations vieillesse et chômage (salariales et patronales, ≈ 30 %) sur les revenus d''activité
+        des personnes ayant l''âge et les trimestres (cumulants et prolongateurs, masse d''environ 10 Md€ en 2025), projetée au
+        PIB (× 1,21). Bas : les 9 Md€ « en année pleine » de la candidate rapportés à ce seul volet et projetés (× 1,18) ; haut
+        : part salariale seulement (≈ 11 %). Pas d''effet d''activité compté (règle 3).'
+      sources:
+      - https://www.epochtimes.fr/marine-le-pen-promet-125-milliards-deuros-deconomies-et-defend-une-retraite-a-60-ou-62-ans-3335415.html
+      - retraites_cotisation_vieillesse_1_point
+      - masse_salariale_privee
+      - facteur_pib_2025_2032
   - id: hausse-salaires-10-exoneree
     libelle: Exonération de cotisations patronales des hausses de salaire de 10 % (jusqu'à 3 SMIC, 3 à 5 ans)
     domaine: travail
@@ -803,6 +817,7 @@ mesures:
     raison_non_chiffrable: >-
       Réallocation des logements sociaux sans effet budgétaire direct ; le volet APL est compris dans la mesure prestations-solidarite-5-ans-travail
       (pas de double compte).
+    sens_probable: neutre
   - id: chomeurs-etrangers-renvoi
     libelle: Renvoi des étrangers restés un an sans emploi et sans ressources
     domaine: immigration
@@ -818,6 +833,20 @@ mesures:
       Nombre d'étrangers au chômage depuis plus d'un an et allocations versées non publiés (l'Unédic ne ventile pas par
       nationalité) ; le coût des éloignements (4 414 € en moyenne selon la Cour des comptes) et le taux d'exécution sont
       inconnus. Recoupe en partie la priorité nationale.
+    sens_probable: economie
+    estimation_indicative:
+      central: 0.3
+      bas: -0.1
+      haut: 1.31
+      lecture: 'Quelques dizaines de milliers d''éloignements effectifs par an d''étrangers au chômage depuis un an : allocations
+        d''assurance chômage non versées (les prestations de solidarité sont déjà retirées par prestations-solidarite-5-ans-travail,
+        non recomptées) moins le coût des éloignements forcés (4 414 € l''unité, Cour des comptes). Bas : coût des éloignements
+        supérieur aux allocations épargnées ; haut : chiffre du RN (1,11 Md€) projeté (× 1,18).'
+      sources:
+      - https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+      - https://www.ccomptes.fr/fr/publications/la-politique-de-lutte-contre-limmigration-irreguliere
+      - assurance_chomage_depenses
+      - facteur_pib_2026_2032
   - id: ame-en-amu
     libelle: Remplacement de l'aide médicale d'État par une aide médicale d'urgence
     domaine: immigration
@@ -886,6 +915,7 @@ mesures:
     interpretation: 'Le montant RN (1 Md€) paraît élevé au regard du volume de visas pour soins : à vérifier.'
     chiffrable: false
     raison_non_chiffrable: Nombre de visas pour soins et coûts associés non publiés.
+    sens_probable: economie
   - id: fin-accord-franco-algerien-1968
     libelle: Dénonciation de l'accord franco-algérien de 1968
     domaine: immigration
@@ -901,6 +931,7 @@ mesures:
       Mécanisme d'économie non précisé : les ressortissants algériens relèveraient du droit commun des étrangers, dont
       les restrictions de prestations (priorité nationale, conditions de séjour) sont déjà chiffrées dans prestations-solidarite-5-ans-travail
       ; chiffrer à part ferait double compte.
+    sens_probable: neutre
   - id: frais-scolarite-etudiants-etrangers
     libelle: Hausse des frais de scolarité des étudiants étrangers hors conventions
     domaine: education
@@ -971,6 +1002,18 @@ mesures:
     chiffrable: false
     raison_non_chiffrable: >-
       Montant du timbre non précisé ; les droits de visa de court séjour (90 €) sont fixés par le code des visas de l'UE.
+    sens_probable: economie
+    estimation_indicative:
+      central: 0.1
+      bas: 0.0
+      haut: 0.95
+      lecture: 'Timbre national d''environ 35 € sur 2,5 à 3 millions de visas de court séjour délivrés par an. Bas : 0, droits
+        de visa harmonisés par le code des visas de l''UE (90 €) ; haut : chiffre du RN (0,8 Md€) projeté (× 1,18), qui suppose
+        un timbre de l''ordre de 300 € par visa.'
+      sources:
+      - https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+      - https://eur-lex.europa.eu/eli/reg/2009/810/oj
+      - facteur_pib_2026_2032
   - id: suppression-cfe
     libelle: Suppression de la cotisation foncière des entreprises (CFE)
     domaine: fiscalite
@@ -1216,6 +1259,19 @@ mesures:
     raison_non_chiffrable: >-
       Barème, seuil et assiette de l'IFF non publiés ; le rendement net dépend aussi du sort de la taxe sur les holdings.
       Montant du RN (4 Md€) non vérifiable.
+    sens_probable: economie
+    estimation_indicative:
+      central: 0.5
+      bas: -1.0
+      haut: 4.74
+      lecture: 'ISF rétabli sur les seuls actifs financiers (résidence principale et immobilier exonérés) : environ 60 % du produit
+        d''un ISF rétabli (6,5 Md€ en 2032, barème isf_retabli_gain_net) soit ≈ 3,9 Md€, moins l''IFI supprimé (3,4 Md€ en 2032).
+        Bas : seuil élevé et perte de l''IFI et de la taxe sur les holdings ; haut : chiffre du RN (4 Md€ net) projeté (× 1,18).'
+      sources:
+      - https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+      - isf_retabli_gain_net
+      - isf_2017_rendement
+      - ifi_rendement
   - id: taxe-rachats-actions
     libelle: Taxe sur les rachats d'actions
     domaine: fiscalite
@@ -1231,6 +1287,19 @@ mesures:
     raison_non_chiffrable: >-
       Taux et assiette non publiés : le rendement annoncé (8,4 Md€) ne peut être rapproché d'aucun paramètre ; la réaction
       d'assiette (substitution des rachats par des dividendes) serait forte.
+    sens_probable: economie
+    estimation_indicative:
+      central: 1.5
+      bas: 0.5
+      haut: 4.0
+      lecture: 'Taxe de l''ordre de 10 % sur des rachats d''actions d''environ 30 Md€ par an (CAC 40), dont l''assiette serait
+        divisée par deux par substitution vers les dividendes, projetée en 2032. Bas : taux faible ou fuite d''assiette plus forte
+        ; haut : taux de 15 % et faible réaction. Les 8,4 Md€ du RN supposent un taux proche de 30 % sans aucune réaction de l''assiette
+        : écartés.'
+      sources:
+      - https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+      - is_rendement_net
+      - facteur_pib_2025_2032
   - id: taxe-transactions-intrajournalieres
     libelle: Taxe sur les transactions financières intra-journalières
     domaine: fiscalite
@@ -1243,6 +1312,18 @@ mesures:
     raison_non_chiffrable: >-
       Taux non publié ; les opérations intrajournalières sont aujourd'hui hors du champ de la TTF (barème ttf_rendement)
       et leur volume taxable après réaction est inconnu.
+    sens_probable: economie
+    estimation_indicative:
+      central: 0.5
+      bas: 0.0
+      haut: 3.55
+      lecture: 'Extension de la TTF (0,4 %) aux achats dénoués dans la journée sur les grandes capitalisations françaises : le
+        trading à haute fréquence, qui fait l''essentiel de ce volume, disparaîtrait ou se délocaliserait ; rendement résiduel
+        de l''ordre de 20 % de la TTF actuelle. Haut : chiffre du RN (3 Md€) projeté (× 1,18).'
+      sources:
+      - https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+      - ttf_rendement
+      - facteur_pib_2026_2032
   - id: taxe-superdividendes
     libelle: Taxe sur les « superdividendes »
     domaine: fiscalite
@@ -1253,6 +1334,17 @@ mesures:
     precision: vague
     chiffrable: false
     raison_non_chiffrable: Définition des « superdividendes » et taux non publiés.
+    sens_probable: economie
+    estimation_indicative:
+      central: 0.44
+      bas: 0.0
+      haut: 0.89
+      lecture: 'Surtaxe sur les dividendes « exceptionnels » (au-delà de la moyenne des années précédentes), définition non publiée
+        : moitié du chiffre du RN projeté (convention du fichier pour un chiffre du seul candidat), bas 0 (définition restrictive,
+        lissage des distributions), haut = chiffre du RN (0,75 Md€ × 1,18).'
+      sources:
+      - https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+      - facteur_pib_2026_2032
   - id: rebudgetisation-cee
     libelle: Rebudgétisation des certificats d'économie d'énergie
     domaine: energie
@@ -1308,6 +1400,17 @@ mesures:
     precision: vague
     chiffrable: false
     raison_non_chiffrable: Assiette, redevables et taux de la redevance non publiés.
+    sens_probable: economie
+    estimation_indicative:
+      central: 0.44
+      bas: 0.0
+      haut: 0.88
+      lecture: 'Redevance prélevée sur les fournisseurs accédant à l''électricité et au gaz « historiques » après la fin de l''Arenh
+        : moitié du chiffre du RN projeté (convention), bas 0 (compatibilité avec le droit européen du marché intérieur incertaine),
+        haut = chiffre du RN (0,745 Md€ × 1,18).'
+      sources:
+      - https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+      - facteur_pib_2026_2032
   - id: taxe-reseau-geants-numeriques
     libelle: Taxe sur l'utilisation du réseau par les géants du numérique
     domaine: fiscalite
@@ -1320,6 +1423,17 @@ mesures:
     raison_non_chiffrable: >-
       Assiette et taux non publiés ; une taxe sur l'usage des réseaux par les plateformes relève en partie du droit de
       l'UE.
+    sens_probable: economie
+    estimation_indicative:
+      central: 0.33
+      bas: 0.0
+      haut: 0.65
+      lecture: 'Taxe nationale sur l''usage des réseaux par les grandes plateformes, d''un rendement comparable à une fraction
+        de la taxe sur les services numériques : moitié du chiffre du RN projeté (convention), bas 0 (droit de l''UE, redevance
+        versée aux opérateurs plutôt qu''à l''État), haut = chiffre du RN (0,55 Md€ × 1,18).'
+      sources:
+      - https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+      - facteur_pib_2026_2032
   - id: lutte-contre-fraudes
     libelle: Plan de lutte contre les fraudes fiscale et sociale
     domaine: etat
@@ -1389,6 +1503,7 @@ mesures:
     raison_non_chiffrable: >-
       Effet inférieur au seuil de 0,1 Md€ pour la niche ; la réaffectation de la CVEC est un transfert interne aux administrations
       publiques, sans effet sur le solde APU.
+    sens_probable: neutre
   - id: retours-fiscaux-revendiques
     libelle: Retours d'IS et de TVA revendiqués (baisse des impôts de production et des « dépenses contraintes »)
     domaine: fiscalite
@@ -1402,6 +1517,7 @@ mesures:
       Effets de second tour (comportements de consommation, croissance) non comptés par la méthode (règle 3) ; le retour
       d'IS mécanique lié à la suppression d'impôts déductibles est intégré aux mesures d'impôts de production. Montants
       RN : 2,92 Md€, à citer dans effets_retour.
+    sens_probable: neutre
   - id: plan-125-md-economies
     libelle: Plan de « rétablissement des finances publiques » de 125 Md€ d'économies d'ici 2032
     domaine: etat
@@ -1474,6 +1590,7 @@ mesures:
     precision: vague
     chiffrable: false
     raison_non_chiffrable: Réforme institutionnelle sans effet budgétaire direct.
+    sens_probable: neutre
   - id: baisse-contribution-ue
     libelle: Baisse de la contribution française au budget de l'Union européenne
     domaine: europe
@@ -2046,6 +2163,7 @@ mesures:
     raison_non_chiffrable: >-
       Charge d'intérêts : hors solde primaire (le moindre besoin d'emprunt est un effet de la trajectoire, calculé par
       plan/trajectoire.py ; la « réforme des BTF » relève de la comptabilisation des intérêts précomptés).
+    sens_probable: neutre
   - id: hausses-credits-ciblees
     libelle: Hausses de crédits (outre-mer, agriculture, protection sociale complémentaire des hospitaliers)
     domaine: etat
@@ -2124,6 +2242,7 @@ mesures:
     raison_non_chiffrable: >-
       Opération financière ponctuelle (acquisition d'actifs) sans effet sur le solde public en comptabilité nationale
       ; effet sur la dette seulement (0,5 Md€).
+    sens_probable: neutre
   - id: plus-values-immobilieres-15-ans
     libelle: Exonération des plus-values immobilières après 15 ans de détention (au lieu de 22/30 ans)
     domaine: logement
@@ -2139,6 +2258,17 @@ mesures:
       Aucune donnée publique ne ventile les plus-values immobilières imposées par durée de détention (le produit de l'imposition
       des revenus et plus-values immobiliers, 6,5 Md€ selon FIPECO, mêle revenus fonciers et plus-values) ; le coût dépend
       aussi de l'effet d'anticipation des ventes.
+    sens_probable: cout
+    estimation_indicative:
+      central: -0.6
+      bas: -1.5
+      haut: -0.3
+      lecture: 'Exonération totale (IR 19 % et prélèvements sociaux 17,2 %) des plus-values immobilières après 15 ans au lieu
+        de 22 et 30 ans : environ un tiers d''un produit de l''ordre de 1,5 Md€ porte sur des biens détenus 15 à 30 ans, projeté
+        en 2032. Bas : part plus large et effet d''aubaine ; haut : ventes surtout après 22 ans (déjà exonérées d''IR).'
+      sources:
+      - https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Recettes-fiscales.pdf
+      - facteur_pib_2025_2032
   - id: abrogation-loi-sru
     libelle: Abrogation de la loi SRU (quotas de logements sociaux et prélèvements sur les communes)
     domaine: logement
@@ -2152,6 +2282,7 @@ mesures:
     raison_non_chiffrable: >-
       Prélèvements SRU (≈ 0,1 Md€/an, redistribués aux EPF et au FNAP) : transfert interne aux APU, effet net sur le
       solde négligeable.
+    sens_probable: neutre
   - id: suppression-zan-normes-logement
     libelle: >-
       Suppression du ZAN, simplification des normes, libération du foncier public, assouplissement DPE, portabilité des
@@ -2166,6 +2297,7 @@ mesures:
     precision: partielle
     chiffrable: false
     raison_non_chiffrable: Mesures réglementaires sans effet budgétaire direct.
+    sens_probable: neutre
   - id: prix-national-electricite
     libelle: Sortie des règles européennes de fixation du prix de l'électricité (prix national)
     domaine: energie
@@ -2182,6 +2314,7 @@ mesures:
     raison_non_chiffrable: >-
       Effet budgétaire indirect (dividendes et impôts d'EDF, charges de service public) non déterminable sans mécanisme
       précisé.
+    sens_probable: incertain
   - id: abandon-ets2-accises-carburants
     libelle: Abandon de l'ETS2 et baisse de la fiscalité des carburants au niveau européen
     domaine: energie
@@ -2197,6 +2330,7 @@ mesures:
     chiffrable: false
     raison_non_chiffrable: >-
       Demande adressée à l'UE, sans engagement national précis ; effet dépendant d'une décision européenne.
+    sens_probable: incertain
   - id: defense-lpm
     libelle: Sanctuariser la trajectoire de la loi de programmation militaire
     domaine: defense
@@ -2207,6 +2341,7 @@ mesures:
     precision: partielle
     chiffrable: false
     raison_non_chiffrable: 'Conforme à la législation en vigueur (LPM) : pas d''écart à la référence.'
+    sens_probable: neutre
   - id: referendum-immigration-droit-du-sol
     libelle: Référendum sur l'immigration, suppression du droit du sol, priorité nationale constitutionnelle
     domaine: immigration
@@ -2220,6 +2355,7 @@ mesures:
       migratoire »).
     chiffrable: false
     raison_non_chiffrable: Réforme institutionnelle et du droit de la nationalité sans effet budgétaire direct.
+    sens_probable: neutre
   - id: securite-justice-penale
     libelle: >-
       Peines planchers, présomption de légitime défense des policiers, majorité pénale à 16 ans, places de prison
@@ -2233,6 +2369,17 @@ mesures:
     raison_non_chiffrable: >-
       Mesures pénales sans chiffrage ; le programme de places de prison (« Lancer enfin la construction effective des
       places de prison ») n'a ni volume ni calendrier 2027.
+    sens_probable: cout
+    estimation_indicative:
+      central: -0.5
+      bas: -1.5
+      haut: -0.1
+      lecture: 'Peines planchers et majorité pénale à 16 ans : environ 7 500 détenus de plus, à 100-150 € par jour de détention
+        et environ 400 000 € par place construite (amortis sur 30 ans), soit ≈ 0,45 Md€ par an, projeté. Bas : 20 000 détenus
+        de plus ; haut : effet limité par la surpopulation déjà atteinte.'
+      sources:
+      - https://www.ccomptes.fr/fr/publications/le-plan-15000-places-de-prison-une-ambition-forte-une-concretisation-laborieuse
+      - facteur_pib_2025_2032
   - id: referendum-revision-constitution
     libelle: Toute révision de la Constitution soumise à référendum
     domaine: institutions
@@ -2247,3 +2394,4 @@ mesures:
     precision: precise
     chiffrable: false
     raison_non_chiffrable: Réforme institutionnelle sans effet budgétaire.
+    sens_probable: neutre
