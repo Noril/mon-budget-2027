@@ -1,0 +1,30 @@
+name: Erreur factuelle ou droit de réponse
+description: Citation inexacte, attribution erronée, lien mort, erreur de calcul, ou demande de correction
+labels: [erreur-factuelle]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci. Une erreur démontrée est corrigée dans les meilleurs délais ; l'historique des corrections est public.
+  - type: input
+    id: fichier
+    attributes:
+      label: Fichier ou mesure concernée
+      description: Par exemple `chiffrage/programmes/xxx.yaml`, identifiant de la mesure, ou lien vers la page du site
+    validations: {required: true}
+  - type: textarea
+    id: probleme
+    attributes:
+      label: Ce qui est inexact
+    validations: {required: true}
+  - type: textarea
+    id: source
+    attributes:
+      label: Source qui le démontre
+      description: Lien, texte exact, date. Un programme officiel ou une déclaration publique de préférence.
+    validations: {required: true}
+  - type: input
+    id: qualite
+    attributes:
+      label: Qui êtes-vous ? (facultatif)
+      description: Par exemple « équipe de campagne de… ». Cela ne change pas la méthode : seules les sources comptent.

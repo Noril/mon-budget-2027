@@ -10,14 +10,13 @@ trajectoire de dette et la proximité avec les candidats sont ceux du simulateur
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 
 import yaml
 
 from pipelines.commun import RACINE
 
-from .simulateur import COMMUN_CSS, COMMUN_JS, donnees, lire_leviers
+from .simulateur import COMMUN_CSS, COMMUN_JS, donnees, json_pour_script, lire_leviers, remplir
 
 CARTES = RACINE / "chiffrage" / "cartes.yaml"
 SORTIE = RACINE / "build" / "jeu.html"
@@ -64,9 +63,9 @@ def valider(doc: dict | None = None) -> list[str]:
 
 
 PAGE = r"""<!doctype html><html lang="fr"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Élysée 2027 : le jeu du budget</title><style>
-:root{--bg:#f4f1ea;--fg:#1d1d1b;--muted:#77756f;--line:#dcd8cd;--card:#fffdf8;--neg:#b03a2e;--pos:#1e7a4a;--acc:#2451a6}
+:root{--bg:#f4f1ea;--fg:#1d1d1b;--muted:#66645e;--line:#dcd8cd;--card:#fffdf8;--neg:#b03a2e;--pos:#1e7a4a;--acc:#2451a6}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141412;--fg:#ecebe6;--muted:#9a978f;--line:#34332f;--card:#1f1f1c;--neg:#e0796e;--pos:#6fcf97;--acc:#8fb0ff}}
 *{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font:16px/1.45 system-ui,-apple-system,Segoe UI,sans-serif;overscroll-behavior:none}
 #app{max-width:440px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;padding:14px 16px 20px}
@@ -98,10 +97,10 @@ __COMMUN_CSS__
 .fin ul{padding-left:18px;margin:.3em 0}.fin li{margin:3px 0}.neg{color:var(--neg)}.pos{color:var(--pos)}
 .fin button,.fin a.bt{display:inline-block;font:inherit;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--fg);text-decoration:none;cursor:pointer;margin:4px 6px 4px 0}
 .accueil{text-align:center}.accueil h1{font-size:1.7rem;margin:.6em 0 .2em}.accueil p{color:var(--muted)}
-.accueil button{font:inherit;font-size:1.05rem;padding:12px 22px;border-radius:12px;border:0;background:var(--acc);color:#fff;cursor:pointer;margin-top:10px}
+.accueil button{font:inherit;font-size:1.05rem;padding:12px 22px;border-radius:12px;border:0;background:var(--acc);color:var(--bg);cursor:pointer;margin-top:10px}
 svg{width:100%;height:auto;display:block}.grille{stroke:var(--line)}.axe{fill:var(--muted);font-size:10px}
 .barre-acc{height:6px;border-radius:3px;background:var(--acc);display:inline-block;vertical-align:middle;margin:0 6px}
-</style></head><body><div id="app"></div>
+</style></head><body><main id="app"></main>
 <script>
 const D = __DONNEES__;
 const C = __CARTES__;
@@ -109,7 +108,7 @@ const fmt = (x, s = true) => (s && x > 0 ? "+" : "") + x.toFixed(1).replace(".",
 const levier = id => D.leviers.find(l => l.id === id);
 const perso = id => C.personnages.find(p => p.id === id);
 const defaut = l => l.type === "choix" ? l.options.find(o => o.defaut).id : 0;
-const court = c => c.nom.split(" ").slice(1).join(" ");
+const court = c => esc(c.nom.split(" ").slice(1).join(" "));  // déjà échappé : uniquement pour du HTML
 function placer(occupees, x, y) {  // décale verticalement une étiquette qui en chevauche une autre
   let yy = y;
   while (occupees.some(o => Math.abs(o.x - x) < 70 && Math.abs(o.y - yy) < 11)) yy += 11;
@@ -154,7 +153,7 @@ let choix = {}, file = [], vues = 0, total = 0, historique = [];
 const app = document.getElementById("app");
 
 function htmlJauges() {
-  return `<div class="jauges">${JAUGES.map(j => `<div class="jauge"><span class="ic">${j.ic}</span>${j.nom}
+  return `<div class="jauges">${JAUGES.map(j => `<div class="jauge"><span class="ic" aria-hidden="true">${j.ic}</span>${j.nom}
     <div class="piste"><b style="left:${pos(j, j.ref)}%"></b><i id="bar-${j.id}"></i></div>
     <div class="val" id="val-${j.id}"></div><div class="apercu" id="ap-${j.id}"></div></div>`).join("")}</div>`;
 }
@@ -214,11 +213,11 @@ function suivante() {
   const carte = C.cartes.find(c => c.id === file[0]), p = perso(carte.personnage);
   document.getElementById("compteur").textContent = `Décision ${vues + 1} / ${total}`;
   const t = document.getElementById("table");
-  t.innerHTML = `<div class="carte" id="carte" style="border-top:6px solid ${p.couleur}">
-    <div class="choix-haut"><span class="g">← ${carte.gauche.libelle}</span><span class="d">${carte.droite.libelle} →</span></div>
-    <div class="perso">${p.emoji}</div><div class="nom" style="color:${p.couleur}">${p.nom}</div>
+  t.innerHTML = `<div class="carte" id="carte" style="border-top:6px solid ${esc(p.couleur)}">
+    <div class="choix-haut"><span class="g">← ${esc(carte.gauche.libelle)}</span><span class="d">${esc(carte.droite.libelle)} →</span></div>
+    <div class="perso" aria-hidden="true">${esc(p.emoji)}</div><div class="nom" style="color:${esc(p.couleur)}">${esc(p.nom)}</div>
     <div class="texte">${annoter(carte.texte)}</div>
-    <div class="boutons"><button id="bg">← ${carte.gauche.libelle}</button><button id="bd">${carte.droite.libelle} →</button></div>
+    <div class="boutons"><button id="bg">← ${esc(carte.gauche.libelle)}</button><button id="bd">${esc(carte.droite.libelle)} →</button></div>
     <div class="impacts"><div>${impact(carte, "gauche")}</div><div>${impact(carte, "droite")}</div></div></div>`;
   const el = document.getElementById("carte"), g = el.querySelector(".g"), d = el.querySelector(".d");
   let x0 = null, dx = 0;
@@ -263,15 +262,15 @@ function carte(b) {
   for (const p of [...pts].sort((a, b) => (b.moi ? 1 : 0) - (a.moi ? 1 : 0))) {
     const X = x(p.dep), Y = y(p.prel), fin = X > W - 90, ly = placer(occ, X, Y);
     s += p.moi ? `<circle cx="${X}" cy="${Y}" r="8" fill="var(--acc)" stroke="var(--card)" stroke-width="2"/><text x="${X + 11}" y="${ly + 4}" font-size="11" font-weight="700" fill="var(--acc)">Vous</text>`
-      : `<circle cx="${X}" cy="${Y}" r="5" fill="${p.c.couleur}"/><text x="${X + (fin ? -7 : 7)}" y="${ly + 3}" text-anchor="${fin ? "end" : "start"}" font-size="10" fill="${p.c.couleur}">${court(p.c)}</text>`;
+      : `<circle cx="${X}" cy="${Y}" r="5" fill="${esc(p.c.couleur)}"/><text x="${X + (fin ? -7 : 7)}" y="${ly + 3}" text-anchor="${fin ? "end" : "start"}" font-size="10" fill="${esc(p.c.couleur)}">${court(p.c)}</text>`;
   }
-  return `<svg viewBox="0 0 ${W} ${H}">${s}</svg>`;
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Carte des dépenses et des impôts : vous et les candidats">${s}</svg>`;
 }
 function fin() {
   const b = bilan(choix), ref = D.reference.at(-1).dette;
   const faits = D.leviers.filter(l => (choix[l.id] ?? defaut(l)) !== defaut(l)).map(l => {
     const v = choix[l.id], e = effet(l, v).central;
-    const lib = l.type === "choix" ? l.options.find(o => o.id === v).libelle : `${l.question.replace(/ \?$/, "")} : ${v > 0 ? "+" : ""}${v} ${l.curseur.unite}`;
+    const lib = l.type === "choix" ? esc(l.options.find(o => o.id === v).libelle) : esc(`${l.question.replace(/ \?$/, "")} : ${v > 0 ? "+" : ""}${v} ${l.curseur.unite}`);
     return {lib, e};
   }).sort((a, b) => a.e - b.e);
   const proches = D.candidats.map(c => ({c, ...accord(c, choix)})).filter(r => r.n).sort((a, b) => b.pct - a.pct);
@@ -281,11 +280,11 @@ function fin() {
       <div class="petit">fourchette ${fmt(b.bas)} à ${fmt(b.haut)}</div></div>
       <div><div class="petit">Dette publique en 2032</div><div class="gros">${fmt(b.dette, false)} %</div><div class="petit">droit actuel : ${fmt(ref, false)} %</div></div></div>
     <h3>Vos mesures</h3>${faits.length ? `<ul>${faits.map(f => `<li>${f.lib} <b class="${f.e < 0 ? "neg" : f.e > 0 ? "pos" : ""}">${fmt(f.e)} Md€</b></li>`).join("")}</ul>` : `<p class="petit">Aucun changement : vous gardez le droit actuel.</p>`}
-    <h3>Les candidats les plus proches</h3><ol>${proches.slice(0, 5).map(r => `<li><b style="color:${r.c.couleur}">${r.c.nom}</b><span class="barre-acc" style="width:${r.pct * .6}px"></span><span class="petit">${Math.round(r.pct)} % d'accord (${r.n} décisions)</span></li>`).join("")}</ol>
+    <h3>Les candidats les plus proches</h3><ol>${proches.slice(0, 5).map(r => `<li><b style="color:${esc(r.c.couleur)}">${esc(r.c.nom)}</b><span class="barre-acc" style="width:${r.pct * .6}px"></span><span class="petit">${Math.round(r.pct)} % d'accord (${r.n} décisions)</span></li>`).join("")}</ol>
     <h3>Vos positions par thème</h3>${htmlAxes(choix)}
     <h3>Dépenses et impôts</h3>${carte(b)}
     <p><button id="retour">↶ Revenir à la dernière carte</button><button id="rejouer">Rejouer</button><a class="bt" href="${lien}">Ajuster dans le simulateur détaillé</a><button id="partager">Copier le lien</button></p>
-    <p class="petit">Chiffrage : effet sur le solde public en 2032 par rapport au droit en vigueur, sans effet de second tour ; trajectoire : hypothèses du FMI. Données du ${D.genere}.</p></div>`;
+    <p class="petit">Chiffrage : effet sur le solde public en 2032 par rapport au droit en vigueur, sans effet de second tour ; trajectoire : hypothèses du FMI. Données du ${esc(D.genere)}.</p></div>`;
   document.getElementById("rejouer").onclick = demarrer;
   document.getElementById("retour").onclick = annuler;
   document.getElementById("partager").onclick = () => navigator.clipboard?.writeText(new URL(lien, location.href).href);
@@ -308,8 +307,7 @@ def main(argv: list[str] | None = None) -> int:
     if erreurs or args.valider:
         print(f"{len(erreurs)} erreur(s).")
         return 1 if erreurs else 0
-    page = PAGE.replace("__COMMUN_JS__", COMMUN_JS).replace("__COMMUN_CSS__", COMMUN_CSS).replace("__DONNEES__", json.dumps(donnees(), ensure_ascii=False)).replace(
-        "__CARTES__", json.dumps(lire_cartes(), ensure_ascii=False))
+    page = remplir(PAGE, COMMUN_JS=COMMUN_JS, COMMUN_CSS=COMMUN_CSS, DONNEES=json_pour_script(donnees()), CARTES=json_pour_script(lire_cartes()))
     SORTIE.parent.mkdir(exist_ok=True)
     SORTIE.write_text(page, encoding="utf-8")
     print(f"-> {SORTIE.relative_to(RACINE)} ({len(lire_cartes()['cartes'])} cartes)")

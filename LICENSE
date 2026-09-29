@@ -1,4 +1,6 @@
-Code (pipelines/, outils/, tests/, schemas/) : licence MIT
+MIT License
+
+Copyright (c) 2026 Les contributeurs du projet « Chiffrer les programmes 2027 »
 
 Copyright (c) 2026 Les contributeurs du programme
 
@@ -19,10 +21,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-Textes (VISION.md, axes/, domaines/, europe/, sources/, decisions/) : Creative Commons
-Attribution 4.0 International (CC BY 4.0), https://creativecommons.org/licenses/by/4.0/
-
-Données : licence d'origine de chaque source, indiquée dans catalogue/.

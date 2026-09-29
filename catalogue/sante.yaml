@@ -86,7 +86,7 @@
     mode: sdmx
     url: https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/hlth_rs_prs2
     auth: aucune
-  licence: Réutilisation libre Eurostat
+  licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [france]
   millesime: annuel
   domaines: [sante]
