@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Leviers du simulateur budgétaire",
+  "type": "object",
+  "required": [
+    "leviers"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "montee_par_defaut": {
+      "type": "object",
+      "description": "part du régime de croisière atteinte chaque année, pour les options sans montée propre",
+      "propertyNames": {
+        "pattern": "^20(2[7-9]|3[0-2])$"
+      },
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "leviers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "theme",
+          "question",
+          "type",
+          "axe"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+          },
+          "theme": {
+            "type": "string"
+          },
+          "question": {
+            "type": "string"
+          },
+          "aide": {
+            "type": "string",
+            "description": "une phrase de contexte neutre, avec un ordre de grandeur sourcé"
+          },
+          "type": {
+            "enum": [
+              "choix",
+              "curseur"
+            ]
+          },
+          "axe": {
+            "enum": [
+              "depenses",
+              "prelevements"
+            ],
+            "description": "axe de positionnement : une dépense en plus ou un prélèvement en moins"
+          },
+          "options": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "libelle",
+                "effet"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+                },
+                "libelle": {
+                  "type": "string"
+                },
+                "defaut": {
+                  "type": "boolean",
+                  "description": "droit constant ; une seule option par levier"
+                },
+                "effet": {
+                  "type": "object",
+                  "required": [
+                    "central",
+                    "bas",
+                    "haut"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Md€ courants 2032 sur le solde primaire, négatif = coût ; bas = défavorable au solde",
+                  "properties": {
+                    "central": {
+                      "type": "number"
+                    },
+                    "bas": {
+                      "type": "number"
+                    },
+                    "haut": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "montee": {
+                  "type": "object",
+                  "propertyNames": {
+                    "pattern": "^20(2[7-9]|3[0-2])$"
+                  },
+                  "additionalProperties": {
+                    "type": "number"
+                  }
+                },
+                "reprend": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9-]+/[a-z0-9-]+$"
+                  },
+                  "description": "mesures chiffrées programme/mesure dont l'option reprend le chiffrage"
+                },
+                "calcul": {
+                  "type": "string",
+                  "description": "d'où vient le montant (barèmes, mesure reprise, ajustement)"
+                },
+                "candidats": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "programmes qui proposent cette option"
+                }
+              }
+            }
+          },
+          "curseur": {
+            "type": "object",
+            "required": [
+              "min",
+              "max",
+              "pas",
+              "unite"
+            ],
+            "additionalProperties": false,
+            "description": "enveloppe libre : la valeur v du curseur est un Δ de dépenses (axe depenses, effet sur le solde = −v × md_par_unite) ou un Δ de prélèvements (axe prelevements, effet = +v × md_par_unite)",
+            "properties": {
+              "min": {
+                "type": "number"
+              },
+              "max": {
+                "type": "number"
+              },
+              "pas": {
+                "type": "number"
+              },
+              "unite": {
+                "type": "string"
+              },
+              "md_par_unite": {
+                "type": "number",
+                "description": "Md€ par unité du curseur (1 si l'unité est le Md€)"
+              },
+              "positions": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "number"
+                },
+                "description": "valeur du curseur retenue pour chaque programme qui s'y engage"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
