@@ -111,10 +111,13 @@
   millesime: mensuel (données consolidées du mois M publiées en M+1, définitives au printemps de l'année suivante)
   domaines: [energie]
   controles:
-    lignes_min: 170
+    lignes_min: 150
     colonnes: [annee, mois, nature, consommation, nucleaire, eolien, solaire, hydraulique, ech_physiques, pas]
   statut: actif
   notes: >
+    Seuil de contrôle (lignes_min) : une ligne par (année, mois, nature) ; quand RTE publie les données définitives d'un
+    mois, elles remplacent ses lignes consolidées et le total baisse de quelques lignes (166 le 29 septembre 2026). Le
+    minimum protège d'une réponse tronquée, pas de cette variation normale.
     Le jeu brut (pas de 15 minutes depuis 2012, 500 000 lignes) est agrégé côté serveur en moyennes mensuelles de
     puissance (MW) par filière, en heure de Paris ; pas = nombre de pas renseignés pour le nucléaire (demi-heures
     jusqu'ici). Énergie du mois (MWh) = puissance moyenne × heures du mois. ech_physiques : solde des échanges
