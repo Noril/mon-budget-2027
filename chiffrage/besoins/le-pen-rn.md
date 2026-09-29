@@ -1,9 +1,8 @@
-# Besoins de barèmes : Marine Le Pen (RN)
+# Barèmes complémentaires : Marine Le Pen (RN)
 
-Coûts unitaires à inscrire dans `chiffrage/baremes.yaml` pour chiffrer `programmes/le-pen-rn.yaml` (phase 2).
-Montants en Md€ par an, régime 2032 sauf mention. Entre parenthèses : mesures concernées.
+Ce fichier recense les coûts unitaires et les paramètres dont le chiffrage du programme (`chiffrage/programmes/le-pen-rn.yaml`) avait besoin, et indique lesquels figurent désormais dans les barèmes communs (`chiffrage/baremes.yaml`). **Statut (état au 29 septembre 2026) : toutes les mesures du programme sont chiffrées ou classées non chiffrables ; aucune n'est en attente.** Les listes par domaine sont les recherches menées, avec des pistes de sources (ce ne sont pas des sources citées : chaque paramètre retenu porte sa propre source dans la mesure qui l'utilise) ; l'identifiant entre parenthèses ou après la flèche est celui de la mesure concernée. Un paramètre « non inscrit » est sourcé directement dans la mesure : il pourrait devenir un barème commun. Montants en Md€ courants, régime de croisière 2032, référence : législation au 1er janvier 2027 (`chiffrage/REFERENCE.md`). Entre parenthèses : mesures concernées.
 
-## Référence législative (à fixer avant tout chiffrage)
+## Référence législative (fixée dans `chiffrage/REFERENCE.md`)
 
 - Contenu adopté de la LFI 2026 et de la LFSS 2026 : barème de l'IR indexé ou gelé, « année blanche » des pensions et
   prestations, abattement retraités, taxe petits colis, taxe sur les mutuelles, taxe sur les avantages sociaux, LODEOM,
@@ -78,23 +77,19 @@ Montants en Md€ par an, régime 2032 sauf mention. Entre parenthèses : mesure
 - Volume annuel des CEE (Md€) et dépenses qu'ils financent (rebudgetisation-cee).
 - Rendement documenté des plans antifraude (lutte-contre-fraudes).
 
-## Barèmes à ajouter (phase 2 : paramètres sourcés utilisés faute de barème)
+## Paramètres hors barèmes communs
 
-- `cfe_rendement` : CFE 7,7 Md€ (2024, FIPECO « Les impôts sur la production ») ; `impots_production_entreprises` :
-  86,8 Md€ (2024, même source).
-- `is_retour_impots_production` : retour d'IS au taux moyen effectif de 20 % (Institut Montaigne, législatives 2024).
-- `retraites_40_annuites_avant_20_ans` : coût du départ à 60 ans avec 40 annuités pour les carrières commencées avant 20
-  ans (Institut Montaigne 2024 : 26,5 Md€ en 2027, hors abrogation 2023).
-- `exoneration_hausse_salaires_10pct` : Institut Montaigne 2024 (0,8 / 4,8 / 12 Md€ les années 1, 3, 5 ; 15 Md€ bruts à terme).
-- `quotient_familial_part_2e_enfant` : 3,4 Md€ (2024, LexImpact via Institut Montaigne).
-- `tva_produits_premiere_necessite_0` : 4,7 à 8,8 Md€ (2023, Institut Montaigne).
-- `preference_nationale_prestations` : Montaigne 2,5 (5 ans de travail) + 3,3 (prestations familiales) ; IFRAP 6 à 7 Md€.
-- `cspe_enr_croissance_annuelle` : CRE, délibération 2026-149 (éolien + PV 6,25 → 7,29 Md€ de 2026 à 2027 ; soutien
-  engagé jusqu'en 2029).
-- Crédits PLF 2026 (Sénat) : Anah 1,5 ; mission APD 3,67 ; fonds vert 1,085 ; aide à l'embauche d'apprentis 2,37 ; mission
-  Agriculture LFI 2026 4,126 (CP).
-- Mesures votées en LFI/LFSS 2026 et leurs rendements : taxe petits colis 0,40 ; hausse TSBA 2025 ≈ 0,8 ; ACRE 0,184 ;
-  ruptures conventionnelles 0,26 ; taxe holdings (≈ 0,9 au PLF, non chiffrée en LFI).
-- Manquants (mesures laissées non chiffrables) : nombre et revenus des retraités en cumul emploi-retraite ; plus-values
-  immobilières par durée de détention ; volume des rachats d'actions ; allocations chômage versées aux étrangers ; visas
-  pour soins.
+| Paramètre | Valeur utilisée | Statut dans `baremes.yaml` |
+|---|---|---|
+| `cfe_rendement`, `impots_production_entreprises` | CFE : 7,7 Md€ ; ensemble des impôts de production : 86,8 Md€ (2024, FIPECO, « Les impôts sur la production ») | Non inscrit (`c3s_rendement` : 5,2 Md€ et `cvae_restante` : 3,7 Md€ sont inscrits, pas la CFE ni le total) |
+| `is_retour_impots_production` | Retour d'impôt sur les sociétés au taux moyen effectif de 20 % (Institut Montaigne, législatives 2024) | Non inscrit |
+| `retraites_40_annuites_avant_20_ans` | Départ à 60 ans avec 40 annuités pour les carrières commencées avant 20 ans : 26,5 Md€ en 2027 (Institut Montaigne 2024, hors abrogation de la réforme de 2023) | Non inscrit (barème voisin : `retraites_age_60_depuis_62`) |
+| `exoneration_hausse_salaires_10pct` | 0,8 / 4,8 / 12 Md€ aux années 1, 3 et 5 ; 15 Md€ bruts à terme (Institut Montaigne 2024) | Non inscrit |
+| `quotient_familial_part_2e_enfant` | 3,4 Md€ (2024, LexImpact via l'Institut Montaigne) | Non inscrit |
+| `tva_produits_premiere_necessite_0` | 4,7 à 8,8 Md€ (2023, Institut Montaigne) | Non inscrit (la dérivation de `tva_point_tous_taux` donne 2,0 Md€ par point au taux de 5,5 %) |
+| `preference_nationale_prestations` | Institut Montaigne : 2,5 (cinq ans de travail) + 3,3 (prestations familiales) ; IFRAP : 6 à 7 Md€ | Non inscrit |
+| `cspe_enr_croissance_annuelle` | CRE, délibération 2026-149 : éolien et photovoltaïque de 6,25 à 7,29 Md€ de 2026 à 2027 ; soutien engagé jusqu'en 2029 | Non inscrit |
+| Crédits du PLF 2026 (Sénat) | Anah 1,5 ; mission APD 3,67 ; fonds vert 1,085 ; aide à l'embauche d'apprentis 2,37 ; mission Agriculture 4,126 (LFI 2026, crédits de paiement), en Md€ | **Inscrit en partie** : la mission APD (3,67 Md€) est citée dans les limites de `apd_part_rnb` ; non inscrit pour les autres |
+| Mesures votées en LFI et LFSS 2026 | Taxe petits colis 0,40 ; hausse de la taxe sur les boissons sucrées et alcoolisées (TSBA) 2025 ≈ 0,8 ; ACRE 0,184 ; ruptures conventionnelles 0,26 ; taxe sur les holdings ≈ 0,9 au PLF (non chiffrée en LFI), en Md€ | Non inscrit (`chiffrage/REFERENCE.md` ne décrit que les retraites, la CVAE et la contribution exceptionnelle) |
+
+Mesures laissées non chiffrables faute de données : nombre et revenus des retraités en cumul emploi-retraite ; plus-values immobilières par durée de détention ; volume des rachats d'actions ; allocations chômage versées aux étrangers ; visas pour soins.

@@ -149,8 +149,8 @@
   derivation: >
     Périmètre : carburants routiers seuls. Le chiffrage de Bercy (juin 2024) couvre quatre énergies avec trois
     montants (4,5 + 2,3 + 10 = 16,8 Md€) : ses « carburants » incluent donc le fioul domestique. Central :
-    10 − 0,6 (tva_energie_fioul_5_5) = 9,4 Md€ ; ainsi électricité + gaz + carburants + fioul = 17,0 Md€, égal au
-    total de Bercy (16,8). Bas : recalcul SDES sur la TVA non déductible des produits pétroliers en 2024
+    10 − 0,6 (tva_energie_fioul_5_5) = 9,4 Md€ ; ainsi électricité + gaz + carburants + fioul = 5,0 + 2,0 + 9,4 + 0,6 = 17,0 Md€,
+    proche du total de Bercy (16,8 : 4,5 + 2,3 + 10), l'écart de 0,2 Md€ venant des valeurs centrales retenues. Bas : recalcul SDES sur la TVA non déductible des produits pétroliers en 2024
     (9,7 Md€) : perte statique 9,7 × (1 − 5,5/20) = 7,0 Md€, moins la part du fioul et du GPL de chauffage
     (0,65), soit 6,4 Md€. Haut : borne haute de l'Institut Montaigne (12,4 Md€, prix de mars 2026). Seule la
     TVA non déductible compte (ménages, entreprises non assujetties, part non déductible des véhicules de
@@ -202,8 +202,8 @@
       extrait: "Début mars, Maud Bregeon, la ministre déléguée chargée de l’Energie, avait estimé qu’une telle baisse coûterait « plus de 17 milliards d’euros »"
   derivation: >
     Valeur centrale : Bercy 16,8 Md€ (4,5 électricité + 2,3 gaz + 10 carburants et fioul). Institut Montaigne :
-    11,3 Md€ (9 à 13,6), sur la base des recettes de TVA énergie 2022 (16,8 Md€ : 10,4 produits pétroliers, 4,6
-    électricité, 1,6 gaz). Bas = borne basse Montaigne (9), haut = « plus de 17 milliards » (ministre chargée de
+    11,3 Md€ (9 à 13,6), sur la base des recettes de TVA énergie 2022 (16,8 Md€ selon la source ; les trois postes cités, 10,4
+    produits pétroliers, 4,6 électricité et 1,6 gaz, ne font que 16,6 Md€ : écart non expliqué par la source). Bas = borne basse Montaigne (9), haut = « plus de 17 milliards » (ministre chargée de
     l'énergie, mars 2026, citée par Public Sénat). L'écart tient au périmètre et aux hypothèses de consommation.
   limites: "Utiliser les barèmes par énergie quand la promesse ne vise pas les quatre. Sensible aux prix de l'énergie."
 
@@ -262,8 +262,9 @@
       extrait: "les taux de l’accise en 2026 sont de 59,40 centimes par litre pour le gazole et 68,29 centimes pour l’essence sans plomb SP95-E5."
   derivation: >
     Volumes 2024 (SDES) : gazole routier 29,3 Mtep, supercarburants 11,7 Mtep. Conversion (≈ 1 tep par tonne ;
-    masse volumique 0,845 kg/l pour le gazole, 0,755 kg/l pour l'essence) : gazole ≈ 34,7 milliards de litres,
-    essence ≈ 14,8 milliards ; total ≈ 49,5 Gl, soit ≈ 0,495 Md€ par c€/l. Contrôle : 30,5 Md€ d'accise / 49,5 Gl
+    masse volumique 0,845 kg/l pour le gazole, 0,755 kg/l pour l'essence ; 1 tep par tonne de gazole, environ
+    1,05 tep par tonne d'essence, pouvoir calorifique plus élevé) : gazole ≈ 34,7 milliards de litres, essence
+    ≈ 14,8 milliards (15,5 avec 1 tep par tonne, soit ≈ 0,502 Md€ par c€/l au total) ; total ≈ 49,5 Gl, soit ≈ 0,495 Md€ par c€/l. Contrôle : 30,5 Md€ d'accise / 49,5 Gl
     = 0,62 €/l, cohérent avec les taux (59,4 et 68,3 c€/l) nets des remboursements (transporteurs, taxis,
     agriculteurs). Valeur centrale arrondie à 0,48 (volumes 2025-2027 en légère baisse) : accise seule, SANS la
     TVA induite. TVA induite : la TVA non déductible sur les produits pétroliers vaut 9,7 Md€ en 2024 (SDES,
@@ -334,7 +335,10 @@
     exceptionnelle des grandes entreprises) ; 66,9 Md€ en comptabilité nationale y compris la majoration
     exceptionnelle (7,5 Md€ en 2025, selon FIPECO). Projection 2032 : × 1,2106 (PIB nominal 2025→2032,
     plan/hypotheses.yaml, FMI) ≈ 73 Md€ hors majoration.
-  limites: "Recette très cyclique (bénéfices) ; la majoration exceptionnelle est temporaire en droit."
+  limites: >
+    Recette très cyclique (bénéfices) ; la majoration exceptionnelle est temporaire en droit. Écart non expliqué
+    par les sources consultées : 66,9 − 59,9 = 7,0 Md€ alors que FIPECO chiffre la majoration à 7,5 Md€ (champs
+    comptables différents).
 
 - id: is_point
   libelle: "Rendement d'un point de taux normal d'IS (25 % → 26 %)"
@@ -370,7 +374,8 @@
       date: "2026-07-07"
       extrait: "En 2025, la CVAE prélevée sur les entreprises s’est élevée à 3,7 Md€."
   derivation: >
-    Lecture directe. La loi de finances 2025 a majoré la CVAE en 2026 et 2027 et reporté sa suppression à 2030 :
+    Lecture directe. La loi de finances 2025 (14 février 2025) a maintenu le taux de 2024 (0,28 %) en 2026 et 2027, reporté les baisses à
+    2028-2029 et la suppression à 2030 :
     en législation 2027, la suppression est déjà votée pour 2030 ; une promesse de suppression n'a donc un coût
     qu'en 2027-2029 (≈ 3,7 à 4 Md€/an), nul en 2032. Inversement, maintenir la CVAE après 2030 rapporterait
     ≈ 3,7 × 1,2106 ≈ 4,5 Md€ en 2032.
@@ -483,8 +488,8 @@
     Le gel du barème (absence d'indexation sur l'inflation 2025, estimée à 1,1 %) rapporte 1,9 Md€ selon le chiffrage
     des mesures nouvelles du PLF 2026. Un point d'indexation vaut donc 1,9 / 1,1 ≈ 1,7 Md€ (année 2026). `bas` et
     `haut` : même calcul avec une inflation de référence de 1,3 % (1,5 Md€) et 0,9 % (2,1 Md€), l'indice exact retenu
-    (IPC hors tabac) n'étant pas cité dans la source. Pour 2032, multiplier par le facteur PIB nominal 1,2106
-    (≈ 2,1 Md€).
+    (IPC hors tabac) n'étant pas cité dans la source. Pour 2032, multiplier par le facteur PIB nominal 2026→2032
+    (facteur_pib_2026_2032 = 1,1842, le montant étant de 2026) : ≈ 2,0 Md€.
   limites: >
     Relation supposée linéaire. Chiffre ex ante sans effet de comportement. Un relèvement ciblé sur certaines tranches
     coûte moins (ou plus) qu'un relèvement uniforme.
@@ -571,8 +576,8 @@
     Gain net = ISF rétabli (paramètres 2017) − IFI supprimé. Central : ISF 2017 (4,1 Md€) revalorisé comme le PIB
     nominal 2017 → 2032 (2 291,7 Md€ → 3 620,9 Md€, facteur 1,580 ; finances.pib_nominal@1.0.0 et
     plan/hypotheses.yaml) = 6,48 Md€, moins l'IFI 2025 projeté en 2032 (2,8 × 1,2106 = 3,39 Md€) = 3,1 Md€.
-    Haut : base ISF croissant comme de 2011 à 2017 (761 → 1 017 Md€, + 4,95 %/an), soit × 2,066 sur 15 ans :
-    4,1 × 2,066 = 8,47 Md€ − 3,39 = 5,1 Md€. Bas : rendement nominal 2017 non revalorisé (4,1 Md€), ce qui figure
+    Haut : base ISF croissant comme de 2011 à 2017 (761 → 1 017 Md€, + 4,95 %/an), soit × 2,065 sur 15 ans :
+    4,1 × 2,065 = 8,47 Md€ − 3,39 = 5,1 Md€. Bas : rendement nominal 2017 non revalorisé (4,1 Md€), ce qui figure
     une érosion de l'assiette par départs et optimisation, moins l'IFI 2025 non projeté (2,8 Md€) = 1,3 Md€.
   limites: >
     Aucun chiffrage public récent d'un ISF rétabli n'a été trouvé ; les montants avancés dans le débat public
@@ -667,7 +672,7 @@
     Chiffrages statiques : une suppression réduirait le recours aux heures supplémentaires et donc le gain. La part
     salariale n'est pas compensée à la sécurité sociale, la déduction patronale l'est par l'État : le coût APU est la
     somme. Volume (DARES, 2023) : 8,8 millions de salariés × 104 heures ≈ 0,9 milliard d'heures supplémentaires
-    rémunérées, ≈ 16,8 Md€ brut (1 900 € par salarié) ; 1,6 million de salariés à temps partiel font en outre
+    rémunérées, ≈ 16,7 Md€ brut (1 900 € par salarié) ; 1,6 million de salariés à temps partiel font en outre
     33 heures complémentaires en moyenne. Aucune source ouverte ne ventile les heures par tranche de majoration
     (25 % pour les huit premières heures hebdomadaires, 50 % au-delà) : une mesure ciblée sur une tranche reste à
     chiffrer au prorata, en convention. Le Sénat (rapport PLFSS 2026) chiffre la part salariale à 2,5 Md€, contre
@@ -1638,8 +1643,8 @@
       extrait: "Il s’agit du coût hors prise en compte des cotisations sociales des employeurs. Il serait proche de 3,0 Md€ si ces cotisations étaient incluses, mais elles sont versées à des régimes de sécurité sociale qui sont des administrations publiques et elles n’ont donc aucun effet sur le déficit public."
   derivation: >
     Central : FIPECO 2026, 2,5 Md€ par point de % hors cotisations employeurs (État 1,0 ; opérateurs 0,2 ; APUL
-    0,7 ; ASSO 0,7). Bas : revalorisation de 2022 (Sénat, 7,6 / 3,5 = 2,17 Md€). Haut : 2,5 × 1,005² ≈ 2,6
-    (base 2026-2027, GVT solde). Les cotisations employeurs, versées à d'autres APU, sont exclues (FIPECO) : c'est
+    0,7 ; ASSO 0,7). Bas : revalorisation de 2022 (Sénat, 7,6 / 3,5 = 2,17 Md€). Haut : 2,6 Md€, somme des postes détaillés par
+    FIPECO (1,0 + 0,2 + 0,7 + 0,7), que la fiche arrondit à 2,5 (base 2026-2027). Les cotisations employeurs, versées à d'autres APU, sont exclues (FIPECO) : c'est
     l'assiette de la convention retour_prelevements_salaires_publics. POUR 2032 : utiliser point_indice_1pct_2032
     (2,59 Md€, point gelé, sans facteur PIB) ; l'ancienne règle « × PIB 2032 / PIB 2023 = 1,28 » est abandonnée
     (elle comptait l'inflation dans une masse à point gelé).
@@ -1999,16 +2004,6 @@
 # (cotisations employeurs hors pensions de l'État : maladie 9,70 %, famille 5,25 %, FNAL 0,10 à 0,50 %, CSA 0,30 %,
 # versement mobilité, RAFP ≈ 18 % du brut).
 
-# --- Coût d'un poste pour le solde des APU (convention commune) ---------------------------------------
-# Coût APU d'un poste créé ou supprimé = rémunération brute (hors toute cotisation employeur, CAS compris)
-# × (1 − retour_prelevements_salaires_publics). Central : coût d'un ENTRANT (méthode FIPECO : un poste créé est
-# pourvu par un recrutement, un non-remplacement économise un entrant) ; haut : rémunération moyenne du corps.
-# Pour une hausse de rémunération des agents en place, partir de la rémunération moyenne (haut).
-# Les barèmes cout_*_charge (coût budgétaire complet, CAS compris) restent la référence pour les crédits de
-# l'État, pas pour le solde des APU. Brut ≈ coût hors CAS / 1,18 quand seul le coût hors CAS est publié
-# (cotisations employeurs hors pensions de l'État : maladie 9,70 %, famille 5,25 %, FNAL 0,10 à 0,50 %, CSA 0,30 %,
-# versement mobilité, RAFP ≈ 18 % du brut).
-
 - id: cout_enseignant_apu
   libelle: Coût pour le solde des APU d'un poste d'enseignant de l'État (net des cotisations employeurs et des retours)
   valeur: 24100
@@ -2095,7 +2090,7 @@
 - id: cout_greffier_apu
   libelle: Coût pour le solde des APU d'un poste de greffier (net des cotisations employeurs et des retours)
   valeur: 23300
-  bas: 22100
+  bas: 22000
   haut: 26700
   unite: € par ETP et par an
   annee: "2024 (PAP PLF 2024)"
@@ -2106,7 +2101,7 @@
       extrait: "B métiers du greffe et du commandement 36 853 40 641 41 371 32 424 35 534 36 108"
   derivation: >
     Rémunérations d'activité à l'entrée 32 424 € × (1 − 0,28) ≈ 23 300 € (central). Bas : 32 424 × 0,68 ≈
-    22 100 €. Haut (agent moyen) : 35 534 × 0,75 ≈ 26 700 €.
+    22 000 €. Haut (agent moyen) : 35 534 × 0,75 ≈ 26 700 €.
   limites: Voir cout_greffier_charge.
 
 - id: cout_soignant_hospitalier_apu
@@ -2170,6 +2165,8 @@
     hors CAS 38 000-40 000 € + CAS) ≈ 1,5-1,6 Md€. Bas : moitié de l'économie rétrocédée aux agents en mesures
     catégorielles, principe de la RGPP (0,45 Md€). Au bout de cinq ans : environ 5 fois la valeur annuelle.
   limites: >
+    Montant en coût budgétaire de l'État (CAS Pensions compris), pas en effet sur le solde des APU : avec la
+    convention des barèmes cout_*_apu (entrant ≈ 24 100 €), 25 300 postes représentent plutôt ≈ 0,6 Md€ par an.
     Ministères seulement (FPT et FPH hors de la main de l'État). Suppose que les postes non remplacés ne sont pas
     compensés par des contractuels, des heures supplémentaires ou de la sous-traitance (la Cour note la hausse des
     heures supplémentaires après 2008). Le nombre de départs baisse avec le recul de l'âge de départ.
@@ -2562,8 +2559,7 @@
     pour toutes les APU selon l'OID (41 Md€), borne signalée, non validée : l'OID (think tank engagé) impute aux
     étrangers des dépenses générales (santé, retraites, chômage) et en retranche leurs prélèvements. Le CEPII, sur
     1979-2011, trouve à l'inverse une contribution nette comprise entre -0,5 et +0,5 point de PIB (-18 à +18 Md€
-    en 2032). Hors dépenses de l'État, l'AME (ministère de la santé) est comptée à part (voir le barème AME du
-    cluster social).
+    en 2032). Hors dépenses de l'État, l'AME (ministère de la santé) est comptée à part (voir le barème ame_depense).
   limites: >
     Les trois chiffres ne mesurent pas la même chose (dépense ciblée de l'État, dépense budgétaire d'une mission,
     solde net des APU pour toute la population étrangère). La Cour des comptes et le CEC de l'Assemblée ont
@@ -2578,7 +2574,7 @@
   bas: 13
   haut: 17.5
   unite: Md€ par an (fraude estimée)
-  annee: "2024 (note HCFiPS publiée en décembre 2025)"
+  annee: "2024 (note HCFiPS adoptée le 4 décembre 2025, publiée le 13 janvier 2026)"
   sources:
     - titre: "HCFiPS, Note annuelle de suivi et d'évaluation des fraudes sociales, synthèse (décembre 2025)"
       url: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/HCFIPS/2026/HCFIPS%20-%20Synth%c3%a8se%20Fraude%20sociale%202025%20-%20Version%20finalis%c3%a9e.pdf
@@ -2685,7 +2681,7 @@
     le PLUS est au taux de 10 %, avantage (20 − 10) / 110 ≈ 9 %). Central : 19,5 + 13,7 ≈ 33 % ; bas :
     10 + 13,7 ≈ 24 % ; haut : 29 + 13,7 ≈ 43 %. Le coût public d'un logement social supplémentaire =
     part × prix de revient moyen ; le prix de revient moyen (bilan annuel des logements aidés, DHUP) n'a pas pu
-    être récupéré cette nuit : à renseigner dans la mesure avec sa source.
+    être récupéré à la date de rédaction : à renseigner dans la mesure avec sa source.
   limites: >
     Hors exonération de TFPB pendant 25 ans (à la charge des collectivités, faiblement compensée) et hors
     avantage des prêts de la Caisse des dépôts sur fonds d'épargne réglementée (non chiffré), qui augmentent le

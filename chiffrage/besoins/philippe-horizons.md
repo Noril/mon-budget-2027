@@ -1,8 +1,6 @@
-# Besoins de barèmes : Édouard Philippe (Horizons)
+# Barèmes complémentaires : Édouard Philippe (Horizons)
 
-Coûts unitaires nécessaires pour chiffrer les mesures marquées `A_CHIFFRER` dans
-`chiffrage/programmes/philippe-horizons.yaml`. Les identifiants proposés sont indicatifs ; reprendre ceux de
-`baremes.yaml` quand ils existent. Montants en Md€ courants, régime de croisière 2032, référence législation au 1er janvier 2027.
+Ce fichier recense les coûts unitaires et les paramètres dont le chiffrage du programme (`chiffrage/programmes/philippe-horizons.yaml`) avait besoin, et indique lesquels figurent désormais dans les barèmes communs (`chiffrage/baremes.yaml`). **Statut (état au 29 septembre 2026) : toutes les mesures du programme sont chiffrées ou classées non chiffrables ; aucune n'est en attente.** Les listes par domaine sont les recherches menées, avec des pistes de sources (ce ne sont pas des sources citées : chaque paramètre retenu porte sa propre source dans la mesure qui l'utilise) ; l'identifiant entre parenthèses ou après la flèche est celui de la mesure concernée. Un paramètre « non inscrit » est sourcé directement dans la mesure : il pourrait devenir un barème commun. Montants en Md€ courants, régime de croisière 2032, référence : législation au 1er janvier 2027 (`chiffrage/REFERENCE.md`).
 
 ## Fiscalité des entreprises
 - Rendement 2027-2032 de chaque impôt de production : CVAE (et calendrier de suppression en vigueur), CFE, C3S, taxe foncière sur les propriétés bâties des entreprises, versement mobilité (PLF/Voies et moyens, DGFiP, Conseil des prélèvements obligatoires). → `impots-production-moins-50md`
@@ -43,13 +41,16 @@ Coûts unitaires nécessaires pour chiffrer les mesures marquées `A_CHIFFRER` d
 ## Cadre
 - PIB nominal 2027-2032 et solde public de référence (pour l'enveloppe `deficit-2pct-2032`).
 
-## Barèmes à ajouter (phase 2 : paramètres sourcés dans le programme, faute de barème commun)
-- `chomage_reduction_duree_6_mois` : 4,5 Md€/an, économie Unédic de la baisse de 24 à 18 mois (réforme 2023, horizon 2027). https://www.unedic.org/publications/reforme-2023-premiers-effets-de-la-reforme-de-contracyclicite
-- `qf_part_entiere_deuxieme_enfant` : 3,4 Md€ (2024), LexImpact via Institut Montaigne. https://web.archive.org/web/2024id_/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/instituer-une-part-fiscale-complete-des-le-deuxieme-enfant/
-- `fonds_vert_credits` : 1,07 Md€ de CP, 0,837 Md€ d'AE (LFI 2026). https://www.banquedesterritoires.fr/budget-2026-les-derniers-arbitrages-du-gouvernement-sur-les-finances-locales-dont-le-dilico
-- `cout_reserviste` : ≈ 6 135 €/an (319 M€ pour 52 000 réservistes, PLF 2026). https://www.senat.fr/rap/a25-141-7/a25-141-7_mono.html
-- `cout_volontaire_smv` : ≈ 38 000 €/an (2022). https://www.senat.fr/rap/r23-034/r23-034_mono.html
-- `cout_etudiant_superieur` : 12 460 € (université) à 19 070 € (CPGE), 2024. https://publication.enseignementsup-recherche.gouv.fr/eesr/FR/T496/la_depense_d_education_pour_l_enseignement_superieur/
-- `jour_carence_fonction_publique` : ≈ 108 M€ par jour (2018). https://www.publicsenat.fr/actualites/economie/arrets-maladie-les-senateurs-augmentent-a-trois-jours-le-delai-de-carence-dans-la-fonction-publique
-- `ij_maladie_depense` : 12,1 Md€ (2024). https://drees.solidarites-sante.gouv.fr/sites/default/files/2025-09/CNS%20-%20Fiche%2025%20-%20Les%20indemnit%C3%A9s%20journali%C3%A8res_0.pdf
-- `facteur_pib_2027_2032` (1,157) et `facteur_pib_2026_2032` (1,1842) : aujourd'hui seuls 2025→2032 et 2024→2032 figurent dans les barèmes.
+## Paramètres hors barèmes communs
+
+| Paramètre | Valeur utilisée | Statut dans `baremes.yaml` et source |
+|---|---|---|
+| `chomage_reduction_duree_6_mois` | 4,5 Md€ par an : économie Unédic de la baisse de 24 à 18 mois (réforme 2023, horizon 2027) | Non inscrit ; [Unédic](https://www.unedic.org/publications/reforme-2023-premiers-effets-de-la-reforme-de-contracyclicite) |
+| `qf_part_entiere_deuxieme_enfant` | 3,4 Md€ (2024), LexImpact via l'Institut Montaigne | Non inscrit ; [Institut Montaigne (archive)](https://web.archive.org/web/2024id_/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/instituer-une-part-fiscale-complete-des-le-deuxieme-enfant/) |
+| `fonds_vert_credits` | 1,07 Md€ de crédits de paiement, 0,837 Md€ d'autorisations d'engagement (LFI 2026) | Non inscrit ; [Banque des territoires](https://www.banquedesterritoires.fr/budget-2026-les-derniers-arbitrages-du-gouvernement-sur-les-finances-locales-dont-le-dilico) |
+| `cout_reserviste` | ≈ 6 135 € par an (319 M€ pour 52 000 réservistes, PLF 2026) | Non inscrit ; [Sénat](https://www.senat.fr/rap/a25-141-7/a25-141-7_mono.html) |
+| `cout_volontaire_smv` | ≈ 38 000 € par an (2022) | Non inscrit ; [Sénat](https://www.senat.fr/rap/r23-034/r23-034_mono.html) |
+| `cout_etudiant_superieur` | 12 460 € (université) à 19 070 € (classes préparatoires), 2024 | Non inscrit ; [MESR](https://publication.enseignementsup-recherche.gouv.fr/eesr/FR/T496/la_depense_d_education_pour_l_enseignement_superieur/) |
+| `jour_carence_fonction_publique` | ≈ 108 M€ par jour de carence (2018) | Non inscrit ; [Public Sénat](https://www.publicsenat.fr/actualites/economie/arrets-maladie-les-senateurs-augmentent-a-trois-jours-le-delai-de-carence-dans-la-fonction-publique) |
+| `ij_maladie_depense` | 12,1 Md€ (2024) | Non inscrit ; [DREES](https://drees.solidarites-sante.gouv.fr/sites/default/files/2025-09/CNS%20-%20Fiche%2025%20-%20Les%20indemnit%C3%A9s%20journali%C3%A8res_0.pdf) |
+| `facteur_pib_2027_2032` (1,157) et `facteur_pib_2026_2032` (1,1842) | Facteurs de passage du PIB nominal 2027 et 2026 à 2032 | **Inscrit** : `facteur_pib_2027_2032`, `facteur_pib_2026_2032` (et `facteur_pib_2023_2032`, `facteur_pib_2024_2032`, `facteur_pib_2025_2032`) |
