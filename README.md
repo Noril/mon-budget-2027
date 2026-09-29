@@ -4,8 +4,8 @@ Chiffrage indépendant et rejouable des programmes des candidats à l'élection 
 est citée verbatim avec son lien, son coût se recalcule à partir de barèmes publics communs, un second agent vérifie
 le chiffrage, et l'effet cumulé est projeté sur la dette publique jusqu'en 2032.
 
-**Le site** (rapport, simulateur budgétaire, jeu du budget) est publié par GitHub Pages à chaque mise à jour de
-`main` : voir l'adresse dans la description du dépôt. Le site se génère entièrement depuis ce dépôt.
+**Le site** (rapport, simulateur budgétaire, jeu du budget) est déployé sur Vercel à chaque mise à jour de `main` : voir
+l'adresse dans la description du dépôt. Le site se génère entièrement depuis ce dépôt.
 
 **Périmètre.** Huit candidats ou candidats pressentis (voir `chiffrage/programmes/`), droit de référence voté au
 29 septembre 2026. Les programmes ne sont pas tous arrêtés : chaque fichier dit d'où viennent les mesures et
@@ -21,7 +21,7 @@ uv run python -m pipelines.indicateurs   # indicateurs, dont les finances publiq
 uv run python -m outils.chiffrage        # build/chiffrage.html (rapport autonome), build/chiffrage.md, data/chiffrage.json
 uv run python -m outils.simulateur       # build/simulateur.html : composer son propre budget et se situer
 uv run python -m outils.jeu               # build/jeu.html : le jeu du budget
-uv run python -m outils.site --brouillon  # build/site/ : le site complet (aperçu)
+uv run python -m outils.site                # build/site/ : le site complet
 uv run python -m outils.valider && uv run pytest
 ```
 

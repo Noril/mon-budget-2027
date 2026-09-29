@@ -1,11 +1,11 @@
 """Assemble le site public : page d'accueil, mentions légales, et les pages générées.
 
-    uv run python -m outils.site               # écrit build/site/ ; échoue si site/site.yaml est incomplet
-    uv run python -m outils.site --brouillon   # idem, avec des mentions provisoires (aperçu, CI)
+    uv run python -m outils.site               # écrit build/site/
 
 Les pages produites par outils.chiffrage, outils.simulateur et outils.jeu doivent déjà exister dans build/.
 """
 import html
+import json
 import shutil
 import sys
 from datetime import date
@@ -19,6 +19,19 @@ SORTIE = BUILD / "site"
 PAGES = {"chiffrage.html": "rapport.html", "simulateur.html": "simulateur.html", "jeu.html": "jeu.html"}
 FICHIERS = ["chiffrage.md", "tableau-de-bord.md"]
 DONNEES = [RACINE / "data" / "chiffrage.json"]
+
+# Pages autonomes : scripts et styles en ligne, aucune ressource externe.
+CSP = "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+VERCEL = {
+    "cleanUrls": True,
+    "trailingSlash": False,
+    "headers": [{"source": "/(.*)", "headers": [
+        {"key": "Content-Security-Policy", "value": CSP},
+        {"key": "X-Content-Type-Options", "value": "nosniff"},
+        {"key": "Referrer-Policy", "value": "no-referrer"},
+        {"key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()"},
+    ]}],
+}
 
 CSS = """
 :root{--bg:#fbfaf7;--fg:#1c1b19;--mut:#5e5a52;--card:#fff;--line:#e2ded4;--acc:#1f4e9c}
@@ -43,21 +56,26 @@ def page(titre, corps, description=""):
 """
 
 
-def charger_config(brouillon):
+def charger_config():
+    """Lit site/site.yaml ; les champs d'édition sont facultatifs, le contact par défaut est le suivi d'issues."""
     cfg = yaml.safe_load((RACINE / "site" / "site.yaml").read_text(encoding="utf-8"))
-    manquants = [k for k, v in {
-        "url_site": cfg.get("url_site"), "editeur.nom": cfg["editeur"].get("nom"),
-        "editeur.qualite": cfg["editeur"].get("qualite"),
-        "editeur.directeur_publication": cfg["editeur"].get("directeur_publication"),
-        "contact": cfg.get("contact"),
-    }.items() if not v]
-    if manquants and not brouillon:
-        sys.exit("site/site.yaml incomplet : " + ", ".join(manquants) + " (ou --brouillon pour un aperçu)")
-    if manquants:
-        cfg["url_site"] = cfg.get("url_site") or ""
-        cfg["editeur"] = {k: v or "(à compléter)" for k, v in cfg["editeur"].items()}
-        cfg["contact"] = cfg.get("contact") or "(à compléter)"
+    cfg["editeur"] = cfg.get("editeur") or {}
     return cfg
+
+
+def lien_contact(cfg):
+    """Adresse de contact si elle est renseignée, sinon le formulaire d'issues du dépôt."""
+    if cfg.get("contact"):
+        c = html.escape(cfg["contact"])
+        return f'<a href="mailto:{c}">{c}</a>'
+    return f'<a href="{html.escape(cfg["depot"])}/issues/new/choose">le formulaire d\'issues du dépôt</a>'
+
+
+def ou_ecrivez(cfg):
+    if not cfg.get("contact"):
+        return ""
+    c = html.escape(cfg["contact"])
+    return f' ou écrivez à <a href="mailto:{c}">{c}</a>'
 
 
 def accueil(cfg):
@@ -82,8 +100,7 @@ au droit voté au 29 septembre 2026, sans effet de second tour (croissance, empl
 <h2>Vérifier et contribuer</h2>
 <p>Tout est public : le code (licence MIT), les textes et chiffrages (CC BY 4.0) et les données (licence d'origine)
 sont sur <a href="{html.escape(depot)}">GitHub</a>. Une erreur, une citation inexacte, un barème contestable :
-<a href="{html.escape(depot)}/issues/new/choose">ouvrez une issue</a> ou écrivez à
-<a href="mailto:{html.escape(cfg['contact'])}">{html.escape(cfg['contact'])}</a>. Les candidats et leurs équipes
+<a href="{html.escape(depot)}/issues/new/choose">ouvrez une issue</a>{ou_ecrivez(cfg)}. Les candidats et leurs équipes
 disposent d'un droit de réponse : voir les <a href="mentions-legales.html">mentions légales</a>.</p>
 <p class="mut">Généré le {date.today().isoformat()}. Téléchargements :
 <a href="chiffrage.md">rapport (Markdown)</a> · <a href="tableau-de-bord.md">tableau de bord</a> ·
@@ -128,18 +145,22 @@ chiffrée selon sa lecture la plus probable, qui est écrite.</li>
 
 def mentions(cfg):
     e, h = cfg["editeur"], cfg["hebergeur"]
-    c = html.escape(cfg["contact"])
     d = html.escape(cfg["depot"])
+    if e.get("nom"):
+        qualite = f", {html.escape(e['qualite'])}" if e.get("qualite") else ""
+        directeur = f" Directeur de la publication : {html.escape(e['directeur_publication'])}." if e.get("directeur_publication") else ""
+        editeur = f"{html.escape(e['nom'])}{qualite}.{directeur}"
+    else:
+        editeur = f"Site publié à titre non professionnel par les contributeurs du <a href=\"{d}\">dépôt public</a>."
     return page("Mentions légales", f"""
 <h1>Mentions légales</h1>
 <h2>Éditeur</h2>
-<p>{html.escape(e['nom'])}, {html.escape(e['qualite'])}. Directeur de la publication :
-{html.escape(e['directeur_publication'])}. Contact : <a href="mailto:{c}">{c}</a>.</p>
+<p>{editeur} Contact : {lien_contact(cfg)}.</p>
 <h2>Hébergeur</h2>
 <p>{html.escape(h['nom'])}, {html.escape(h['adresse'])}.</p>
 <h2>Droit de réponse et corrections</h2>
 <p>Toute personne nommée sur ce site peut demander une correction ou exercer son droit de réponse (article 6 IV de
-la loi n° 2004-575 du 21 juin 2004) en écrivant à l'adresse ci-dessus ou en ouvrant une
+la loi n° 2004-575 du 21 juin 2004) en écrivant au contact ci-dessus ou en ouvrant une
 <a href="{d}/issues/new/choose">issue publique</a>. Une erreur factuelle démontrée (citation inexacte, attribution
 erronée, lien mort, erreur de calcul) est corrigée dans les meilleurs délais ; l'historique des corrections est
 public dans le dépôt.</p>
@@ -154,8 +175,7 @@ d'analyse et d'information.</p>""", "Éditeur, hébergeur, droit de réponse.")
 
 
 def main():
-    brouillon = "--brouillon" in sys.argv
-    cfg = charger_config(brouillon)
+    cfg = charger_config()
     absents = [f for f in PAGES if not (BUILD / f).exists()]
     if absents:
         sys.exit("pages manquantes dans build/ : " + ", ".join(absents) + " (lancer outils.chiffrage, simulateur, jeu)")
@@ -173,9 +193,9 @@ def main():
     (SORTIE / "index.html").write_text(accueil(cfg), encoding="utf-8")
     (SORTIE / "methode.html").write_text(methode(cfg), encoding="utf-8")
     (SORTIE / "mentions-legales.html").write_text(mentions(cfg), encoding="utf-8")
-    (SORTIE / ".nojekyll").write_text("", encoding="utf-8")
+    (SORTIE / "vercel.json").write_text(json.dumps(VERCEL, indent=2) + "\n", encoding="utf-8")
     (SORTIE / "robots.txt").write_text("User-agent: *\nAllow: /\n", encoding="utf-8")
-    print(f"-> {SORTIE.relative_to(RACINE)}/" + (" (brouillon)" if brouillon else ""))
+    print(f"-> {SORTIE.relative_to(RACINE)}/")
 
 
 if __name__ == "__main__":

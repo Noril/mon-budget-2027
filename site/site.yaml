@@ -1,12 +1,12 @@
-# Informations d'édition du site public (obligatoires : loi n° 2004-575 du 21 juin 2004, art. 6 III).
-# Le déploiement échoue tant que ces champs sont vides : `uv run python -m outils.site` (sans --brouillon).
+# Informations d'édition du site public : facultatives.
+# Vides, les mentions légales renvoient au dépôt et au formulaire d'issues.
 depot: https://github.com/Noril/open-politics
-url_site: ""            # adresse publique du site, ex. https://noril.github.io/open-politics/
+url_site: ""
 editeur:
-  nom: ""               # nom de la personne physique, ou raison sociale et forme juridique
-  qualite: ""           # ex. « personne physique, à titre non professionnel »
+  nom: ""
+  qualite: ""
   directeur_publication: ""
-contact: ""             # adresse électronique de contact et de droit de réponse
+contact: ""
 hebergeur:
-  nom: GitHub, Inc. (GitHub Pages)
-  adresse: 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis
+  nom: Vercel Inc.
+  adresse: 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis
