@@ -88,6 +88,7 @@ PAGE = """<!doctype html><html lang="fr"><head><meta charset="utf-8">
 .texte{font-size:1.1rem;text-align:center;min-height:5.5em}
 .boutons{display:flex;justify-content:space-between;gap:10px;margin-top:14px}
 .boutons button{flex:1;font:inherit;font-size:.85rem;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}
+.impact{display:block;font-size:.78rem;margin-top:4px;color:var(--muted);font-variant-numeric:tabular-nums}
 .bas{display:flex;justify-content:space-between;color:var(--muted);font-size:.8rem;margin-top:10px}
 .bas a{color:var(--acc)}
 .fin h1{font-size:1.5rem;margin:.4em 0 .2em}.fin .kpi{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
@@ -170,6 +171,13 @@ function majJauges(apres) {
     } else ap.textContent = "";
   }
 }
+function impact(carte, cote) {
+  // effet du choix par rapport à la situation actuelle : solde 2032 et dette 2032
+  const avant = bilan(choix), apres = bilan(avec(carte, cote)), ds = apres.solde - avant.solde, dd = apres.dette - avant.dette;
+  const cls = x => x < -0.05 ? "neg" : x > 0.05 ? "pos" : "";
+  const solde = Math.abs(ds) < 0.05 ? "sans effet" : `${fmt(ds)} Md€/an`;
+  return `<span class="impact"><b class="${cls(ds)}">${solde}</b>${Math.abs(dd) < 0.05 ? "" : ` · dette <b class="${cls(-dd)}">${dd > 0 ? "+" : "−"}${fmt(Math.abs(dd), false)} pt</b>`}</span>`;
+}
 function valeur(carte, cote) { const c = carte[cote]; return "option" in c ? c.option : c.valeur; }
 function avec(carte, cote) { return {...choix, [carte.levier]: valeur(carte, cote)}; }
 
@@ -203,7 +211,7 @@ function suivante() {
     <div class="choix-haut"><span class="g">← ${carte.gauche.libelle}</span><span class="d">${carte.droite.libelle} →</span></div>
     <div class="perso">${p.emoji}</div><div class="nom" style="color:${p.couleur}">${p.nom}</div>
     <div class="texte">${carte.texte}</div>
-    <div class="boutons"><button id="bg">← ${carte.gauche.libelle}</button><button id="bd">${carte.droite.libelle} →</button></div></div>`;
+    <div class="boutons"><button id="bg">← ${carte.gauche.libelle}${impact(carte, "gauche")}</button><button id="bd">${carte.droite.libelle} →${impact(carte, "droite")}</button></div></div>`;
   const el = document.getElementById("carte"), g = el.querySelector(".g"), d = el.querySelector(".d");
   let x0 = null, dx = 0;
   const montrer = () => {
