@@ -207,7 +207,7 @@ def noter(p: dict) -> dict:
     statuts = [m.get("verification", {}).get("statut") for m in chiffrees]
     confiance = {
         "confiance_mesures": (_moyenne_ponderee([(POIDS_CONFIANCE.get(m.get("confiance"), 0.25), w) for w, m in poids]) or 0.0, 35,
-                              f"{statuts and sum(m.get('confiance') == 'haute' for m in chiffrees)} hautes, "
+                              f"{sum(m.get('confiance') == 'haute' for m in chiffrees)} hautes, "
                               f"{sum(m.get('confiance') == 'moyenne' for m in chiffrees)} moyennes, "
                               f"{sum(m.get('confiance') == 'faible' for m in chiffrees)} faibles (pondérées par le montant)"),
         "verification": (_moyenne_ponderee([(POIDS_VERIFICATION.get(m.get("verification", {}).get("statut"), 0.5), w) for w, m in poids]) or 0.0, 25,
@@ -295,6 +295,12 @@ LIBELLES_NOTES = {
     "confiance_mesures": "Confiance par mesure", "verification": "Vérification indépendante",
     "etroitesse_fourchette": "Étroitesse des fourchettes", "baremes_communs": "Barèmes communs",
 }
+
+
+def _url_sure(url: str | None) -> str:
+    """URL de lien échappée pour un attribut ; seuls http(s) sont acceptés (pas de javascript:, data:…)."""
+    url = str(url or "")
+    return html.escape(url if url.lower().startswith(("http://", "https://")) else "#", quote=True)
 
 
 def _badge(n: dict) -> str:
@@ -392,7 +398,7 @@ def rapport_html(agregats: list[dict], traj: dict) -> str:
     for a in sorted(agregats, key=lambda a: a["croisiere"]["central"], reverse=True):
         dg = traj["gel"]["programmes"][a["id"]]
         lignes.append(
-            f"<tr><td><a href='#{a['id']}'>{e(a['candidat'])}</a><br><small>{e(a['parti'])}</small></td>"
+            f"<tr><td><a href='#{e(a['id'])}'>{e(a['candidat'])}</a><br><small>{e(a['parti'])}</small></td>"
             f"<td>{_badge(a['notes']['precision'])}</td><td>{_badge(a['notes']['confiance'])}</td>"
             f"<td class='n'><b>{_md(a['croisiere']['central'])}</b><br><small>[{_md(a['croisiere']['bas'])} ; {_md(a['croisiere']['haut'])}]</small></td>"
             f"<td class='n'>{_md(a['indicatif']['central']) if a['nb_indicatives'] else '—'}<br><small>{a['sens_non_chiffrees']['cout']} coûts, "
@@ -403,7 +409,7 @@ def rapport_html(agregats: list[dict], traj: dict) -> str:
     for a in agregats:
         rows = []
         for m in sorted(a["mesures"], key=lambda m: (m["central"] is None, m["central"] or 0)):
-            lien = f"<a href='{e(m['url'])}'>{e(m['libelle'])}</a>" + _detail(m)
+            lien = f"<a href='{_url_sure(m['url'])}'>{e(m['libelle'])}</a>" + _detail(m)
             if m["chiffrable"]:
                 tiers = "<br>".join(f"{e(t)} : {_md(v)}" for t, v in m["tiers"]) or "—"
                 cls = "neg" if (m["central"] or 0) < 0 else "pos"
@@ -416,18 +422,18 @@ def rapport_html(agregats: list[dict], traj: dict) -> str:
                             f"{' — ordre de grandeur indicatif : ' + _md(m['indicative']['central']) + ' [' + _md(m['indicative']['bas']) + ' ; ' + _md(m['indicative']['haut']) + '] (' + e(m['indicative']['lecture']) + ')' if m.get('indicative') else ''}"
                             "</small></td></tr>")
         sections.append(
-            f"<section id='{a['id']}'><h2>{e(a['candidat'])} <small>{e(a['parti'])}</small></h2>"
+            f"<section id='{e(a['id'])}'><h2>{e(a['candidat'])} <small>{e(a['parti'])}</small></h2>"
             f"<p class='m'>{a['nb_chiffrees']} mesures chiffrées sur {a['nb_mesures']} ({a['nb_verifiees']} vérifiées) : coûts "
             f"{_md(a['couts'])} Md€, économies et recettes {_md(a['gains'])} Md€ par an en 2032.</p>"
             f"<div class='notes'>{_detail_note('precision', a['notes']['precision'])}{_detail_note('confiance', a['notes']['confiance'])}</div>"
             f"<p class='m'><b>Ce que dit le candidat.</b> {e((a.get('annonce') or {}).get('texte', 'Aucun chiffrage global publié.'))}</p>"
-            "<div class='scroll'><table><thead><tr><th>Mesure</th><th>Domaine</th><th>Effet central</th><th>Fourchette</th>"
+            "<div class='scroll' tabindex='0' role='region' aria-label='Mesures du programme'><table><thead><tr><th>Mesure</th><th>Domaine</th><th>Effet central</th><th>Fourchette</th>"
             "<th>Confiance</th><th>Chiffrages tiers</th><th>Vérif.</th></tr></thead><tbody>"
             + "".join(rows) + "</tbody></table></div></section>"
         )
     return f"""<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chiffrage des programmes 2027</title><style>
-:root{{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#77756f;--line:#e2dfd7;--neg:#b03a2e;--pos:#1e7a4a;--card:#fff}}
+:root{{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#66645e;--line:#e2dfd7;--neg:#b03a2e;--pos:#1e7a4a;--card:#fff}}
 @media (prefers-color-scheme:dark){{:root{{--bg:#161614;--fg:#ecebe6;--muted:#9a978f;--line:#34332f;--neg:#e0796e;--pos:#6fcf97;--card:#1f1f1c}}}}
 body{{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}}
 main{{max-width:1100px;margin:0 auto;padding:24px 16px 64px}}h1{{font-size:1.7rem;margin:.2em 0}}h2{{margin-top:2.2em}}
@@ -439,7 +445,7 @@ th{{font-size:.8rem;color:var(--muted);font-weight:600}}.n{{text-align:right;whi
 details p,blockquote{{font-size:.85rem;max-width:70ch;margin:.4em 0}}blockquote{{border-left:3px solid var(--line);padding-left:8px;color:var(--muted)}}
 code{{font-size:.8rem;word-break:break-all}}
 .note{{display:inline-block;min-width:2.6em;text-align:center;font-weight:700;border-radius:4px;padding:1px 5px;font-size:.85rem}}
-.note.a{{background:#1e7a4a22;color:var(--pos)}}.note.b{{background:#c9a22722;color:#a07a00}}.note.c{{background:#b03a2e22;color:var(--neg)}}
+.note.a{{background:#1e7a4a22;color:var(--pos)}}.note.b{{background:#c9a22722;color:#7a5c00}}.note.c{{background:#b03a2e22;color:var(--neg)}}
 .notes details{{margin:.3em 0}}.notes summary{{font-size:.95rem;color:var(--fg)}}table.comp{{max-width:760px;margin:.4em 0 .8em}}svg{{width:100%;height:auto;background:var(--card)}}.grille{{stroke:var(--line)}}.axe{{fill:var(--muted);font-size:11px}}.leg{{font-size:11px}}
 </style></head><body><main>
 <h1>Chiffrage des programmes présidentiels 2027</h1>
@@ -461,7 +467,7 @@ dépôt des candidatures : chaque fiche porte sa date de collecte. La colonne «
 ordre de grandeur des promesses trop vagues pour être chiffrées (lecture la plus plausible) : il n'entre pas dans le
 solde, n'a pas encore été vérifié de façon indépendante, et sert à voir dans quel sens la couverture biaise la
 comparaison (négatif = le programme coûte probablement plus que le solde affiché).</p>
-<div class="scroll"><table><thead><tr><th>Programme</th><th>Précision</th><th>Confiance</th><th>Solde net / an</th><th>Mesures non chiffrées : ordre de grandeur</th><th>Dette 2032, % PIB (réf. {_md(traj['gel']['reference'][-1]['dette'], False)})</th></tr></thead>
+<div class="scroll" tabindex="0" role="region" aria-label="Comparaison des programmes"><table><thead><tr><th>Programme</th><th>Précision</th><th>Confiance</th><th>Solde net / an</th><th>Mesures non chiffrées : ordre de grandeur</th><th>Dette 2032, % PIB (réf. {_md(traj['gel']['reference'][-1]['dette'], False)})</th></tr></thead>
 <tbody>{''.join(lignes)}</tbody></table></div>
 <h2>Dette publique projetée, scénario central (% du PIB)</h2>{_svg_dette(traj['gel'], agregats)}
 {''.join(sections)}

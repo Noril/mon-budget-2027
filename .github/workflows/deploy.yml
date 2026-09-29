@@ -1,0 +1,64 @@
+name: Déploiement du site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync
+      # Dernières données valides : une source injoignable garde sa dernière version, le site n'est jamais publié vide
+      - uses: actions/cache/restore@v4
+        with:
+          path: |
+            data/brut
+            data/normalise
+          key: donnees-${{ github.run_id }}
+          restore-keys: donnees-
+      - run: uv run python -m outils.valider
+      - run: uv run pytest -q
+      - run: uv run python -m pipelines.ingest
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: |
+            data/brut
+            data/normalise
+          key: donnees-${{ github.run_id }}
+      - run: uv run python -m pipelines.indicateurs
+      - run: uv run python -m outils.recalcul --tous
+      - run: uv run python -m plan.trajectoire
+      - run: uv run python -m outils.tableau_de_bord
+      - run: uv run python -m outils.chiffrage
+      - run: uv run python -m outils.simulateur
+      - run: uv run python -m outils.jeu
+      # Échoue tant que site/site.yaml (éditeur, contact) est incomplet
+      - run: uv run python -m outils.site
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
