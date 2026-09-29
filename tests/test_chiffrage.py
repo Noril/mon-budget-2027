@@ -25,3 +25,9 @@ def test_profil_annuel_explicite_et_bornes_decalees():
 
 def test_depot_valide():
     assert chiffrage.valider() == []
+
+
+def test_simulateur_valide():
+    from outils import simulateur
+
+    assert simulateur.valider() == []

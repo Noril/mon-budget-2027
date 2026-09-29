@@ -125,7 +125,9 @@ PAGE = """<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name=
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
 header{max-width:1200px;margin:0 auto;padding:24px 16px 8px}h1{font-size:1.6rem;margin:0 0 .3em}p.m{color:var(--muted);max-width:80ch;margin:.3em 0}
 main{max-width:1200px;margin:0 auto;padding:8px 16px 64px;display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:24px;align-items:start}
-@media (max-width:900px){main{grid-template-columns:1fr}aside{position:static!important}}
+@media (max-width:900px){main{grid-template-columns:1fr}aside{position:static!important}#mini{display:flex!important}body{padding-bottom:56px}}
+#mini{display:none;position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:8px 16px;gap:16px;justify-content:space-between;align-items:center;font-variant-numeric:tabular-nums;z-index:5}
+#mini b{font-size:1.1rem}#mini a{color:var(--acc)}
 .barre{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 16px}button,select{font:inherit;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:6px;padding:6px 10px;cursor:pointer}
 details.theme{background:var(--card);border:1px solid var(--line);border-radius:8px;margin:0 0 10px}
 details.theme>summary{padding:10px 14px;font-weight:650;cursor:pointer;display:flex;justify-content:space-between;gap:8px}
@@ -152,13 +154,15 @@ de second tour. Votre dette 2032 et les candidats dont vous êtes le plus proche
 <select id="depart"><option value="">Partir du programme de…</option></select>
 <button id="partager">Copier le lien de mon budget</button></div></header>
 <main><div id="leviers"></div>
-<aside><div class="kpis"><div><div class="petit">Solde en 2032, par an</div><div class="gros" id="solde">0</div><div class="petit" id="fourchette"></div></div>
+<aside id="resultats"><div class="kpis"><div><div class="petit">Solde en 2032, par an</div><div class="gros" id="solde">0</div><div class="petit" id="fourchette"></div></div>
 <div><div class="petit">Dette publique en 2032</div><div class="gros" id="dette"></div><div class="petit" id="dette-ref"></div></div></div>
 <svg id="courbe" viewBox="0 0 380 170"></svg>
 <h3>Où vous situez-vous ?</h3><svg id="carte" viewBox="0 0 380 300"></svg>
 <div class="petit">Axe horizontal : dépenses publiques en plus ou en moins ; axe vertical : impôts et cotisations en plus ou en
 moins, en Md€ par an en 2032, d'après les leviers de cette page.</div>
-<h3>Candidats les plus proches de vos choix</h3><ol class="proches" id="proches"></ol></aside></main>
+<h3>Candidats les plus proches de vos choix</h3><ol class="proches" id="proches"></ol>
+<div class="petit">Part des leviers où votre choix est celui du candidat, sur les seuls leviers où son programme prend position.</div></aside></main>
+<div id="mini"><span>Solde 2032 <b id="mini-solde"></b></span><span>Dette <b id="mini-dette"></b></span><a href="#resultats">Résultats ↓</a></div>
 <footer>Données du __GENERE__. Montée en charge des mesures : convention commune ; trajectoire : hypothèses du FMI, solde
 primaire de référence gelé. Méthode, sources et chiffrage détaillé des programmes : rapport de chiffrage du même dépôt.</footer>
 <script>
@@ -269,7 +273,7 @@ function svgCarte(moi) {
     <text x="${W / 2 + 5}" y="${m / 2 + 8}" class="axe">↑ plus d'impôts</text><text x="${W / 2 + 5}" y="${H - m / 2}" class="axe">↓ moins d'impôts</text>`;
   for (const p of pts) {
     if (p.moi) s += `<circle cx="${x(p.dep)}" cy="${y(p.prel)}" r="8" fill="var(--acc)" stroke="var(--card)" stroke-width="2"><title>Vous</title></circle><text x="${x(p.dep) + 10}" y="${y(p.prel) + 4}" font-size="11" font-weight="700" fill="var(--acc)">Vous</text>`;
-    else s += `<circle cx="${x(p.dep)}" cy="${y(p.prel)}" r="5" fill="${p.c.couleur}"><title>${p.c.nom} : dépenses ${fmt(p.dep)}, prélèvements ${fmt(p.prel)} Md€</title></circle><text x="${x(p.dep) + 7}" y="${y(p.prel) + 3}" font-size="10" fill="${p.c.couleur}">${court(p.c)}</text>`;
+    else s += `<circle cx="${x(p.dep)}" cy="${y(p.prel)}" r="5" fill="${p.c.couleur}"><title>${p.c.nom} : dépenses ${fmt(p.dep)}, prélèvements ${fmt(p.prel)} Md€</title></circle><text x="${x(p.dep) + (x(p.dep) > W - 90 ? -7 : 7)}" y="${y(p.prel) + 3}" text-anchor="${x(p.dep) > W - 90 ? "end" : "start"}" font-size="10" fill="${p.c.couleur}">${court(p.c)}</text>`;
   }
   return s;
 }
@@ -279,6 +283,8 @@ function majResultats() {
   document.getElementById("fourchette").textContent = `fourchette ${fmt(tot.bas)} à ${fmt(tot.haut)} Md€`;
   const d = serie.at(-1).dette, ref = D.reference.at(-1).dette;
   document.getElementById("dette").textContent = fmt(d, false) + " %";
+  document.getElementById("mini-solde").textContent = fmt(tot.central) + " Md€"; document.getElementById("mini-solde").className = tot.central < 0 ? "neg" : tot.central > 0 ? "pos" : "";
+  document.getElementById("mini-dette").textContent = fmt(d, false) + " %";
   document.getElementById("dette-ref").textContent = `droit actuel : ${fmt(ref, false)} % du PIB`;
   document.getElementById("courbe").innerHTML = svgCourbe(serie);
   document.getElementById("carte").innerHTML = svgCarte(mouvements(etat));
@@ -293,7 +299,7 @@ function majResultats() {
     const v = etat[l.id], e = effet(l, v).central; const s = document.getElementById("v-" + l.id);
     if (s) { s.textContent = `${v > 0 ? "+" : ""}${v} ${l.curseur.unite}`; s.className = "eff " + (e < 0 ? "neg" : e > 0 ? "pos" : ""); }
   }
-  try { history.replaceState(null, "", "#" + encodeURIComponent(JSON.stringify(etat))); } catch (e) {}
+  try { history.replaceState(null, "", "#b=" + encodeURIComponent(JSON.stringify(etat))); } catch (e) {}
 }
 function charger(choix) {
   for (const l of D.leviers) etat[l.id] = choix && l.id in choix ? choix[l.id] : defaut(l);
@@ -304,7 +310,7 @@ for (const c of D.candidats) sel.insertAdjacentHTML("beforeend", `<option value=
 sel.onchange = () => { if (sel.value) charger(candidat(sel.value).choix); sel.value = ""; };
 document.getElementById("raz").onclick = () => charger(null);
 document.getElementById("partager").onclick = () => { navigator.clipboard?.writeText(location.href); };
-let initial = null; try { initial = JSON.parse(decodeURIComponent(location.hash.slice(1))); } catch (e) {}
+let initial = null; try { if (location.hash.startsWith("#b=")) initial = JSON.parse(decodeURIComponent(location.hash.slice(3))); } catch (e) {}
 charger(initial);
 </script></body></html>"""
 
