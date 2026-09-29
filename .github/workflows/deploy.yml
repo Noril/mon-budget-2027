@@ -47,7 +47,6 @@ jobs:
       - run: uv run python -m outils.chiffrage
       - run: uv run python -m outils.simulateur
       - run: uv run python -m outils.jeu
-      # Échoue tant que site/site.yaml (éditeur, contact) est incomplet
       - run: uv run python -m outils.site
       - uses: actions/upload-pages-artifact@v3
         with:

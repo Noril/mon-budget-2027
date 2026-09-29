@@ -21,7 +21,7 @@ uv run python -m pipelines.indicateurs   # indicateurs, dont les finances publiq
 uv run python -m outils.chiffrage        # build/chiffrage.html (rapport autonome), build/chiffrage.md, data/chiffrage.json
 uv run python -m outils.simulateur       # build/simulateur.html : composer son propre budget et se situer
 uv run python -m outils.jeu               # build/jeu.html : le jeu du budget
-uv run python -m outils.site --brouillon  # build/site/ : le site complet (aperçu)
+uv run python -m outils.site                # build/site/ : le site complet
 uv run python -m outils.valider && uv run pytest
 ```
 
