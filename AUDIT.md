@@ -13,12 +13,16 @@ n'a pas pu être rejoué en ligne. Les points marqués « non vérifié » sont 
 - Pages générées : échappement du contenu, autonomie (aucune ressource externe), accessibilité de base.
 - Quelques chiffres recoupés par recherche (TVA, IS, COR, FMI avril 2026, PFU…), sans lecture des pages sources.
 
-## Non vérifié : à faire avec un accès réseau
-1. **Liens et citations** des 8 programmes : aucun lien n'a été ouvert, aucune citation verbatim n'a été comparée à sa
-   source. À faire avant de promouvoir le site.
-2. **Catalogue** : 109 sources, 215 URL non testées ; licences à confirmer sur les fiches des producteurs.
-3. **Ingestion et indicateurs** : `pipelines.ingest` n'a pas tourné (403 partout), donc indicateurs, recalcul,
-   trajectoire et pages générées n'ont pas été reconstruits.
+## Vérifié en ligne le 30 septembre 2026
+1. **Citations** (`uv run python -m outils.liens`) : les 453 citations écrites des 8 programmes sont retrouvées mot pour
+   mot dans leur source (HTML ou PDF, après normalisation des espaces, apostrophes, césures et puces) ; 2 citations
+   orales (vidéos) restent à vérifier à l'écoute : `zemmour-reconquete/ia-nucleaire-priorite` et une seconde listée
+   dans `build/liens.md`.
+2. **Liens** (`--catalogue`) : 313 URL de barèmes et du catalogue testées ; 5 échecs, tous des 403 aux robots de liens
+   valides (voir plus bas).
+3. **Chaîne de données** : ingestion complète (une seule source injoignable depuis un robot, dernière version conservée),
+   151 indicateurs calculés et recalculés indépendamment sans écart, trajectoire de référence, rapport, simulateur, jeu
+   et site régénérés.
 
 ## Réglé le 30 septembre 2026 (en ligne)
 - **2026 contre 2032** : `ir_baisse_1pct` (le `haut` 1,26 mêlait une projection 2032, avec le facteur 2025→2032, à des
@@ -58,6 +62,13 @@ n'a pas pu être rejoué en ligne. Les points marqués « non vérifié » sont 
   `defense_0_1_point_pib_2032`, chacun doublé d'une source accessible : BOFiP, CNRACL, Assemblée nationale) et
   imf.org (`fmi-weo`, page d'accueil du WEO, archivée en 200 le 6 juillet 2026 ; les données passent par api.imf.org).
 
+- **Curseurs du simulateur** : chaque position de candidat est désormais la somme de mesures nommées
+  (`curseur.reprend`), recalculée par `--synchroniser` et contrôlée par la validation (LFI : santé 38,8, défense 22,8,
+  éducation 33,8, transition 40,4) ; cartes du jeu ajustées pour que chaque programme reste rejouable à 1 Md€ près.
+- **Attributions sans source primaire** retirées du simulateur (Attal, baisse d'impôt « classes moyennes » ; Retailleau,
+  baisse de l'aide au développement) ; la validation refuse désormais d'attribuer une option à un candidat sur la foi
+  d'une mesure non chiffrée.
+
 ## Points ouverts
 - Licences non ouvertes : `otan-depenses-defense` (non commercial), `top500-listes`, `fmi-weo`,
   `pe-participation-europeennes` (conditions propres au producteur).
@@ -65,10 +76,5 @@ n'a pas pu être rejoué en ligne. Les points marqués « non vérifié » sont 
   `finances.depenses_publiques` est à adapter.
 - Dates de source : certaines portent la date de collecte, pas de publication.
 - Environ 60 paramètres hors barèmes communs listés dans `chiffrage/besoins/`.
-- Positions des curseurs du simulateur (santé, défense, éducation, transition, recherche) : non recalculées par
-  `--synchroniser` et en partie antérieures aux chiffrages actuels (LFI : santé 36,5, défense 27,3, éducation 35,8,
-  transition 41,2) ; à reconstituer par un outil.
-- `aide-developpement/reduction` associe encore Retailleau (mesure devenue non chiffrable) : option et candidats à
-  revoir avec la synchronisation.
 - Recette de la CVAE : 3,7 Md€ prélevés (FIPECO, 2025) contre 4,0 à 4,3 Md€ de recette budgétaire ; le rythme de
   recouvrement 2028-2029 et le PLF 2027 (non déposé) peuvent déplacer les coûts d'avance.

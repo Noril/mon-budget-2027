@@ -69,6 +69,18 @@ def groupes_repris(option: dict, programmes: dict[str, dict]) -> dict[str, dict[
     return g
 
 
+def positions_reprises(levier: dict, programmes: dict[str, dict]) -> dict[str, float]:
+    """Position de chaque programme sur un curseur : somme des mesures reprises, en Δ de dépenses (ou de prélèvements)."""
+    signe = -1 if levier["axe"] == "depenses" else 1
+    pos = {}
+    for prog, mesures in levier["curseur"].get("reprend", {}).items():
+        effets = [programmes.get(prog, {}).get(m, {}).get("effet_solde_primaire") for m in mesures]
+        total = sum(e["central"] for e in effets if e)
+        if any(effets):
+            pos[prog] = round(signe * total / levier["curseur"].get("md_par_unite", 1), 2)
+    return pos
+
+
 def valider(doc: dict | None = None) -> list[str]:
     if not LEVIERS.exists():
         return []
@@ -101,6 +113,10 @@ def valider(doc: dict | None = None) -> list[str]:
                     prog, _, mes = r.partition("/")
                     if mes not in programmes.get(prog, {}):
                         erreurs.append(f"{ou}/{o['id']} : mesure reprise introuvable « {r} »")
+                for c in o.get("candidats", []):
+                    siennes = [r.split("/")[1] for r in o.get("reprend", []) if r.startswith(c + "/")]
+                    if siennes and not any(programmes.get(c, {}).get(m, {}).get("chiffrable") for m in siennes):
+                        erreurs.append(f"{ou}/{o['id']} : « {c} » attribué sur la foi d'une mesure non chiffrée ({', '.join(siennes)})")
                 groupes = groupes_repris(o, programmes)
                 if groupes and not any(abs(s["central"] - e["central"]) <= TOLERANCE_REPRISE for s in groupes.values()):
                     repris = ", ".join(f"{p} {s['central']:.2f}" for p, s in groupes.items())
@@ -116,6 +132,11 @@ def valider(doc: dict | None = None) -> list[str]:
                 continue
             if not cur["min"] <= 0 <= cur["max"]:
                 erreurs.append(f"{ou} : le curseur doit contenir 0 (droit constant)")
+            if cur.get("reprend"):
+                attendu = positions_reprises(l, programmes)
+                if any(abs(attendu.get(c, 0) - v) > TOLERANCE_REPRISE for c, v in cur.get("positions", {}).items()) or set(attendu) != set(cur.get("positions", {})):
+                    erreurs.append(f"{ou} : positions désynchronisées des mesures reprises ({attendu}) : "
+                                   "`uv run python -m outils.simulateur --synchroniser`")
             for c, v in cur.get("positions", {}).items():
                 if c not in programmes:
                     erreurs.append(f"{ou} : programme inconnu « {c} »")
@@ -138,11 +159,17 @@ def synchroniser() -> None:
             groupes = groupes_repris(o, programmes)
             if not groupes or any(abs(s["central"] - o["effet"]["central"]) <= TOLERANCE_REPRISE for s in groupes.values()):
                 continue
-            ref = next((c for c in o.get("candidats", []) if c in groupes), next(iter(groupes)))
+            ref = next((c for c in o.get("candidats", []) if c in groupes), next(iter(groupes)))  # noqa: E501
             s = {k: round(v, 2) for k, v in groupes[ref].items()}
             print(f"  ~ {l['id']}/{o['id']} : {o['effet']['central']} -> {s['central']} (d'après {ref})")
             o["effet"] = s
             o["calcul"] = (o.get("calcul", "") + f" [Recalé le {date.today().isoformat()} sur le chiffrage de {ref}.]").strip()
+    for l in doc["leviers"]:
+        if l["type"] == "curseur" and (rep := l["curseur"].get("reprend")):
+            positions = positions_reprises(l, programmes)
+            if positions != l["curseur"].get("positions"):
+                print(f"  ~ {l['id']} : positions {l['curseur'].get('positions')} -> {positions}")
+                l["curseur"]["positions"] = positions
     LEVIERS.write_text(entete + yaml.safe_dump(doc, allow_unicode=True, sort_keys=False, width=120), encoding="utf-8")
 
 

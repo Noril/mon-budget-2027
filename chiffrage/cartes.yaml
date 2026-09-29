@@ -159,9 +159,9 @@ cartes:
     suite_seulement: true
     personnage: retraitee
     levier: sante
-    texte: "Et rembourser intégralement les soins prescrits, en intégrant les complémentaires ? Environ 33 Md€ par an."
+    texte: "Et rembourser intégralement les soins prescrits, en intégrant les complémentaires, et recruter des soignants ? Environ 39 Md€ par an au total."
     gauche: {libelle: "+3 Md€", valeur: 3}
-    droite: {libelle: "Remboursement intégral", valeur: 33.5}
+    droite: {libelle: "Remboursement intégral", valeur: 39}
 
   # 6. Carburants
   - id: carburants
@@ -467,9 +467,9 @@ cartes:
     suite_seulement: true
     personnage: agriculteur
     levier: transition-ecologique
-    texte: "Selon la Commission de régulation de l'énergie, le soutien public à l'éolien et au solaire dépasse 6 Md€ en 2026. On y met fin ?"
+    texte: "Le soutien public à l'éolien et au solaire dépasse 6 Md€ en 2026 (CRE). On arrête d'en signer de nouveaux, soit environ 3,5 Md€ d'économie en 2032 ?"
     gauche: {libelle: "Budget actuel", valeur: 0}
-    droite: {libelle: "Fin du soutien : −3 Md€", valeur: -3}
+    droite: {libelle: "Plus de nouveaux contrats", valeur: -3.5}
   - id: transition-plus
     suite_seulement: true
     personnage: economiste
@@ -569,9 +569,9 @@ cartes:
   - id: education
     personnage: maire-rural
     levier: education
-    texte: "Cantine, transports et fournitures gratuits, classes de 19 élèves, 500 000 places en crèche : environ 27,5 Md€ par an."
+    texte: "Cantine, transports et fournitures gratuits, classes de 19 élèves, 500 000 places en crèche, université gratuite : environ 34 Md€ par an."
     gauche: {libelle: "Budget actuel", valeur: 0, suite: education-economies}
-    droite: {libelle: "+27,5 Md€ école et crèches", valeur: 27.5}
+    droite: {libelle: "+34 Md€ école et crèches", valeur: 34}
   - id: education-economies
     suite_seulement: true
     personnage: directeur-budget

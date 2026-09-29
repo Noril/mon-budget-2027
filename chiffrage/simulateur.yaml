@@ -630,12 +630,10 @@ leviers:
       central: -2.0
       bas: -2.0
       haut: 0.0
-    reprend:
-    - attal-renaissance/impots-classes-moyennes-2md
-    calcul: Montant annoncé par Attal (2 Md€) ; mesure non chiffrable dans son programme faute de dispositif publié (estimation
-      indicative, hors solde).
-    candidats:
-    - attal-renaissance
+    reprend: []
+    calcul: 'Ordre de grandeur de 2 Md€ relevé par le comparateur de l''IFRAP pour Gabriel Attal, sans source primaire du
+      candidat : option proposée sans attribution.'
+    candidats: []
     montee:
       '2027': 0.0
       '2028': 1.0
@@ -1913,12 +1911,10 @@ leviers:
       haut: 2.72
     reprend:
     - le-pen-rn/aide-publique-developpement
-    - retailleau-lr/aide-publique-developpement-baisse
-    calcul: 'Chiffrage RN repris (2,72). Retailleau : baisse de 10 % relevée par le comparateur de l''IFRAP, sans source primaire
-      du candidat ; non chiffrée (estimation indicative 1,2, hors solde).'
+    calcul: 'Chiffrage RN repris (2,72). La baisse de 10 % prêtée à Bruno Retailleau par le comparateur de l''IFRAP n''a pas
+      de source primaire du candidat : non attribuée.'
     candidats:
     - le-pen-rn
-    - retailleau-lr
     montee:
       '2027': 0.0
       '2028': 1.0
@@ -2077,10 +2073,24 @@ leviers:
     unite: Md€
     md_par_unite: 1
     positions:
-      melenchon-lfi: 36.5
+      melenchon-lfi: 38.78
       tondelier-ecologistes: 3.21
       le-pen-rn: -1.18
       zemmour-reconquete: -0.74
+    reprend:
+      melenchon-lfi:
+      - cent-pour-cent-secu
+      - protections-periodiques-gratuites
+      - recrutement-soignants
+      - franchises-medicales
+      - centres-sante-deserts
+      tondelier-ecologistes:
+      - sante-remboursement-100pct-franchises
+      - sante-scolaire-plan-urgence
+      le-pen-rn:
+      - sante-medicaments-unite-ald
+      zemmour-reconquete:
+      - suppression-ars
 - id: defense
   theme: Défense
   question: Combien de dépenses de défense et de service national en plus de la loi de programmation militaire ?
@@ -2098,10 +2108,16 @@ leviers:
     unite: Md€
     md_par_unite: 1
     positions:
-      melenchon-lfi: 27.32
-      retailleau-lr: 7.2
+      melenchon-lfi: 22.83
       philippe-horizons: 3.69
       glucksmann-place-publique: 4.49
+    reprend:
+      melenchon-lfi:
+      - conscription-citoyenne
+      philippe-horizons:
+      - reservistes-smv
+      glucksmann-place-publique:
+      - service-civique-obligatoire
 - id: education
   theme: Éducation
   question: Combien de dépenses d'éducation et de petite enfance en plus, hors salaires des enseignants ?
@@ -2118,11 +2134,29 @@ leviers:
     unite: Md€
     md_par_unite: 1
     positions:
-      melenchon-lfi: 35.75
-      tondelier-ecologistes: -2.02
-      retailleau-lr: -0.85
+      melenchon-lfi: 33.75
+      tondelier-ecologistes: -2.23
+      retailleau-lr: -0.88
       le-pen-rn: -0.12
       zemmour-reconquete: -0.12
+    reprend:
+      melenchon-lfi:
+      - petite-enfance-500000-places
+      - gratuite-ecole-cantine
+      - cantine-100-bio
+      - classes-19-eleves
+      - aesh-fonctionnaires
+      - gratuite-enseignement-superieur
+      tondelier-ecologistes:
+      - classes-19-eleves
+      - bati-scolaire-renovation
+      - enseignement-prive-financement-50pct
+      retailleau-lr:
+      - postes-enseignants-demographie
+      le-pen-rn:
+      - frais-scolarite-etudiants-etrangers
+      zemmour-reconquete:
+      - etudes-payantes-etudiants-etrangers
 - id: transition-ecologique
   theme: Écologie
   question: Combien de dépenses de transition écologique en plus (investissements, adaptation, transports, énergies renouvelables),
@@ -2141,12 +2175,30 @@ leviers:
     unite: Md€
     md_par_unite: 1
     positions:
-      melenchon-lfi: 41.18
+      melenchon-lfi: 40.38
       tondelier-ecologistes: 8.4
-      philippe-horizons: 3.07
+      philippe-horizons: 0.7
       le-pen-rn: -3.66
       zemmour-reconquete: -4.38
       retailleau-lr: -3.12
+    reprend:
+      melenchon-lfi:
+      - plan-investissement-200-md
+      - tva-transports-5-5
+      tondelier-ecologistes:
+      - plan-adaptation-7md
+      - leasing-social-million
+      philippe-horizons:
+      - fonds-adaptation-2md
+      - fonds-vert-doublement
+      le-pen-rn:
+      - fonds-vert
+      - fin-soutien-enr-intermittentes
+      zemmour-reconquete:
+      - fin-soutien-enr-intermittentes
+      - suppression-ademe
+      retailleau-lr:
+      - fin-soutien-nouvelles-enr
 - id: recherche-innovation
   theme: Recherche
   question: Combien de dépenses de recherche, d'enseignement supérieur et d'innovation en plus ?
@@ -2166,3 +2218,13 @@ leviers:
       melenchon-lfi: 2.72
       philippe-horizons: 3.39
       retailleau-lr: 1.6
+    reprend:
+      attal-renaissance:
+      - plan-ia-france-2040
+      melenchon-lfi:
+      - recherche-investissement
+      philippe-horizons:
+      - ingenieurs-100000
+      retailleau-lr:
+      - programme-ia-cout
+      - fonds-france-production
