@@ -276,7 +276,7 @@ mesures:
   effet_solde_primaire:
     central: 1.48
     bas: 0.0
-    haut: 4.44
+    haut: 4.43
     montee_en_charge:
       '2027': 0
       '2028': 0
@@ -295,12 +295,12 @@ mesures:
           immédiat après 43 ans (1 trimestre par génération, 1 à 2 trimestres en moyenne sur les départs de
           2032 : environ 0,4 an) ou après l''atteinte de 64 ans en 2033 (0). Bas 0 ; haut 0,75 an (3 trimestres, génération 1968)'
       gain_duree:
-        valeur: 5.92
+        valeur: 5.9
         unite: Md€ 2032 par année de durée requise en plus
-        source: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+        bareme: retraites_duree_assurance_hausse_1_an
         note: '« son allongement (44 ans au lieu de 43) rapporterait 5,2 Md€ en 2035 » (Cour des comptes, euros constants
-          2024) × 1,1386 (déflateur 2024→2032, comme le barème retraites_duree_assurance_1_an, dont la valeur centrale de
-          4,4 porte sur une baisse de durée)'
+          2024) × 1,1386 (déflateur 2024→2032) ≈ 5,9 ; le barème retraites_duree_assurance_1_an (4,4) ne vaut que pour une
+          baisse de durée'
       annees_age:
         valeur: 0
         unite: année d'âge légal en plus de la référence en 2032
@@ -311,9 +311,9 @@ mesures:
         valeur: 6.6
         unite: Md€ 2032 par année d'âge
         bareme: retraites_age_legal_1_an
-    explication: 'Seul l''allongement de la durée joue en 2032 : 0,25 an (convention) × 5,92 Md€ = 1,48 Md€ sur le solde du
-      système de retraite. Bas 0 : allongement commencé après 2032. Haut : 0,75 an de durée en plus (3 trimestres) × 5,92
-      = 4,44 Md€ ; l''âge n''ajoute rien même dans le haut. À long terme (65 ans et 45 ans pleinement appliqués, vers 2040),
+    explication: 'Seul l''allongement de la durée joue en 2032 : 0,25 an (convention) × 5,9 Md€ (barème
+      retraites_duree_assurance_hausse_1_an) = 1,48 Md€ sur le solde du système de retraite. Bas 0 : allongement commencé
+      après 2032. Haut : 0,75 an de durée en plus (3 trimestres) × 5,9 = 4,43 Md€ ; l''âge n''ajoute rien même dans le haut. À long terme (65 ans et 45 ans pleinement appliqués, vers 2040),
       l''effet est bien supérieur : un an d''âge (6,6 Md€) plus deux ans de durée (≈ 11,8 Md€), avant exceptions (« un
       Français sur trois » avant 65 ans).'
   effets_retour: 'Effet sur l''emploi des seniors et les recettes hors système de retraite (DG Trésor : 7,2 Md€ en 2035 pour
@@ -325,7 +325,7 @@ mesures:
     statut: corrige
     par: passe-sources
     date: '2026-09-29'
-    commentaire: "Passe sources : le candidat a publié sa réforme le 29 septembre 2026 (65 ans et 45 annuités en moins de dix ans, après reprise de la réforme 2023) ; citation remplacée (franceinfo/AFP, verbatim de la vidéo ; page du site relue, sans chiffres). Le chiffrage précédent (accélération de l'âge à 6 mois par génération dès 2028, 0,5 an × 6,6 = 3,3 Md€) ne correspond plus à l'annonce : l'âge au-delà de 64 ans ne joue pas en 2032. Remplacé par l'allongement de durée (extrait de la Cour des comptes relu) avec une convention de calendrier : central 3,3 → 1,48, bas 0, haut 7,9 → 4,44. Trace précédente (verificateur-sonnet, 29/09) : statut conteste, calendrier d'accélération non sourcé."
+    commentaire: "Passe sources : le candidat a publié sa réforme le 29 septembre 2026 (65 ans et 45 annuités en moins de dix ans, après reprise de la réforme 2023) ; citation remplacée (franceinfo/AFP, verbatim de la vidéo ; page du site relue, sans chiffres). Le chiffrage précédent (accélération de l'âge à 6 mois par génération dès 2028, 0,5 an × 6,6 = 3,3 Md€) ne correspond plus à l'annonce : l'âge au-delà de 64 ans ne joue pas en 2032. Remplacé par l'allongement de durée (extrait de la Cour des comptes relu) avec une convention de calendrier : central 3,3 → 1,48, bas 0, haut 7,9 → 4,44. Trace précédente (verificateur-sonnet, 29/09) : statut conteste, calendrier d'accélération non sourcé. Recalé sur les barèmes sourcés du 29/09 : gain de durée renvoyé au nouveau barème retraites_duree_assurance_hausse_1_an (5,92 recopié → 5,9) ; central 1,48 inchangé à l'arrondi (1,475), haut 4,44 → 4,43."
 - id: retraites-capitalisation-10-15pct
   libelle: Créer un pilier de capitalisation représentant 10 à 15 % des pensions d'ici 15 ans
   domaine: retraites
@@ -399,7 +399,7 @@ mesures:
   effet_solde_primaire:
     central: 0.0
     bas: 0.0
-    haut: 4.3
+    haut: 4.2
     montee_en_charge: *id001
   calcul:
     formule: points * revalo_point * (1 - retour)
@@ -418,19 +418,19 @@ mesures:
         unite: Md€ 2032 par point
         bareme: retraites_revalo_1pct
       retour:
-        valeur: 0.14
+        valeur: 0.16
         unite: part de la baisse brute des pensions qui ne revient plus aux APU (CSG, CRDS, CASA, IR)
         bareme: retour_prelevements_pensions
     explication: 'Aucun levier précisé et aucun montant annoncé : central 0 (première rédaction : 5,0 Md€ par une hypothèse
       d''un point de revalorisation, sans base dans les sources, corrigée à la vérification du 2026-09-29). Haut : un point
       de revalorisation des pensions (5,0 Md€ brut en 2032, effet permanent), net des prélèvements sur les pensions
-      (convention commune 3 : × (1 − 0,14), soit 4,3 Md€), du même ordre que les pistes de la presse. Bas 0.'
+      (convention commune 3 : × (1 − 0,16), soit 4,2 Md€), du même ordre que les pistes de la presse. Bas 0.'
   confiance: faible
   verification:
-    statut: ok
+    statut: corrige
     par: passe-sources
     date: '2026-09-29'
-    commentaire: "Passe sources (29/09) : citation primaire (transcription du meeting sur le site du candidat) conservée ; aucun levier ni montant publié depuis. Vidéo du 29 septembre 2026 : le candidat « refuse expressément toute baisse générale des pensions des retraités actuels » (Planet, 29 sept. 2026, https://www.planet.fr/depart-a-65-ans-et-45-annuites-de-cotisation-la-copie-revue-et-corrigee-dedouard-philippe-sur-les-retraites.2999535.817022.html) : la borne haute (un point de revalorisation, 4,3 Md€) se lit désormais comme l'équivalent d'un effort ciblé (CSG ou abattement des retraités aisés), pas comme une sous-indexation générale. Convention : central 0 parce qu'aucun levier n'est nommé. Valeurs inchangées. Trace précédente : Citation retrouvée dans la source (récupérée le 2026-09-29). Aucun levier ni montant dans la source (« contribuer davantage ») : le central de 5 Md€ (un point de sous-indexation) était une hypothèse sans appui, alors que la règle 6 ne compte que ce qui est annoncé ou documenté. Corrigé : central 0, bas 0, haut 5,0 (un point, du même ordre que les pistes de presse : Planet, « jusqu'à 6 milliards » pour une non-revalorisation totale selon la commission des finances). Ancien haut 10 ramené à 5. Recalé sur les conventions communes du 29/09 : pensions nettes de retour_prelevements_pensions (0,14, convention 3) ; haut 5,0 → 4,3, central et bas inchangés (0)."
+    commentaire: "Passe sources (29/09) : citation primaire (transcription du meeting sur le site du candidat) conservée ; aucun levier ni montant publié depuis. Vidéo du 29 septembre 2026 : le candidat « refuse expressément toute baisse générale des pensions des retraités actuels » (Planet, 29 sept. 2026, https://www.planet.fr/depart-a-65-ans-et-45-annuites-de-cotisation-la-copie-revue-et-corrigee-dedouard-philippe-sur-les-retraites.2999535.817022.html) : la borne haute (un point de revalorisation, 4,3 Md€) se lit désormais comme l'équivalent d'un effort ciblé (CSG ou abattement des retraités aisés), pas comme une sous-indexation générale. Convention : central 0 parce qu'aucun levier n'est nommé. Valeurs inchangées. Trace précédente : Citation retrouvée dans la source (récupérée le 2026-09-29). Aucun levier ni montant dans la source (« contribuer davantage ») : le central de 5 Md€ (un point de sous-indexation) était une hypothèse sans appui, alors que la règle 6 ne compte que ce qui est annoncé ou documenté. Corrigé : central 0, bas 0, haut 5,0 (un point, du même ordre que les pistes de presse : Planet, « jusqu'à 6 milliards » pour une non-revalorisation totale selon la commission des finances). Ancien haut 10 ramené à 5. Recalé sur les conventions communes du 29/09 : pensions nettes de retour_prelevements_pensions (0,14, convention 3) ; haut 5,0 → 4,3, central et bas inchangés (0). Recalé sur les barèmes sourcés du 29/09 : retour_prelevements_pensions 0,14 → 0,16 ; haut 4,3 → 4,2, central et bas inchangés (0)."
 - id: chomage-12-mois-moins-50-ans
   libelle: Limiter à 12 mois la durée d'indemnisation chômage pour les moins de 50 ans
   domaine: assurance chômage
@@ -554,9 +554,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -5.43
-    bas: -6.69
-    haut: -4.93
+    central: -5.21
+    bas: -6.43
+    haut: -4.72
     montee_en_charge: *id003
   calcul:
     formule: -taux * etpt * cout_apu_moyen / 1000
@@ -571,16 +571,16 @@ mesures:
         source: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
         note: 341 897 + 451 966 ETPT, lus dans la dérivation du barème cout_enseignant_charge
       cout_apu_moyen:
-        valeur: 34200
+        valeur: 32800
         unite: € par ETP et par an (enseignant moyen, net des cotisations employeurs et des retours)
         bareme: cout_enseignant_apu
-        note: 'borne haute du barème (agent moyen, pour une revalorisation, convention commune 1) : rémunération brute
-          moyenne hors cotisations employeurs ≈ 45 640 € × (1 − 0,25)'
+        note: 'borne haute du barème (agent moyen, pour une revalorisation, convention commune 1) : rémunération d''activité
+          moyenne pondérée des programmes 140 et 141 (PAP 2026) 43 703 € × (1 − 0,25)'
     explication: 'Convention commune 1 (revalorisation des agents en place) : 20 % du coût moyen d''un enseignant pour le
-      solde des APU (haut du barème cout_enseignant_apu, 34 200 € : brut moyen hors cotisations employeurs net des
+      solde des APU (haut du barème cout_enseignant_apu, 32 800 € : brut moyen hors cotisations employeurs net des
       prélèvements qui reviennent aux APU ; le CAS Pensions, transfert interne, ne compte pas) × 0,794 M ETPT. Bas :
-      + enseignants du privé sous contrat (≈ 140 000, ≈ 1,0 Md€) et pensions induites en 2032 (≈ 0,3 Md€, convention 2).
-      Haut : retour de prélèvements 0,32 (45 640 € × 0,68 ≈ 31 000 €). Convention de droit constant (REFERENCE.md) : point d''indice gelé en référence,
+      + enseignants du privé sous contrat (≈ 140 000, ≈ 0,9 Md€) et pensions induites en 2032 (≈ 0,3 Md€, convention 2).
+      Haut : retour de prélèvements 0,32 (43 703 € × 0,68 ≈ 29 720 €). Convention de droit constant (REFERENCE.md) : point d''indice gelé en référence,
       la hausse s''applique au niveau de rémunération actuel sans projection au PIB. Montée linéaire sur le quinquennat. Enseignants
       du privé sous contrat non inclus (sous-estimation). La baisse démographique invoquée n''est pas comptée en économie
       faute de suppression de postes annoncée.'
@@ -589,7 +589,7 @@ mesures:
     statut: corrige
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Calcul rejoué (0,2 × 0,793863 M × 85 000 € × 0,65 × 0,75 = 6,58 Md€), effectifs et coût par ETPT conformes au barème. Réserves : (1) le retour de prélèvements de 25 % est attribué au rapport du Sénat (a25-145-5) qui ne le contient pas : note du paramètre corrigée, ordre de grandeur plausible (CSG, retenue pension, cotisations employeur hors CAS, IR ≈ 30 % du coût hors CAS) mais non sourcé ; (2) enseignants du privé sous contrat (payés par l'État) non inclus, environ +1 Md€ si le candidat les inclut. Recalé sur les conventions communes du 29/09 : coût par agent pris au haut du barème cout_enseignant_apu (agent moyen, brut hors cotisations employeurs, net des retours) au lieu du coût chargé × 0,65 × (1 − un quart non sourcé) ; central −6,58 → −5,43, bas −9,05 → −6,69 (privé sous contrat et pensions induites), haut −6,31 → −4,93 (retour 0,32)."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Calcul rejoué (0,2 × 0,793863 M × 85 000 € × 0,65 × 0,75 = 6,58 Md€), effectifs et coût par ETPT conformes au barème. Réserves : (1) le retour de prélèvements de 25 % est attribué au rapport du Sénat (a25-145-5) qui ne le contient pas : note du paramètre corrigée, ordre de grandeur plausible (CSG, retenue pension, cotisations employeur hors CAS, IR ≈ 30 % du coût hors CAS) mais non sourcé ; (2) enseignants du privé sous contrat (payés par l'État) non inclus, environ +1 Md€ si le candidat les inclut. Recalé sur les conventions communes du 29/09 : coût par agent pris au haut du barème cout_enseignant_apu (agent moyen, brut hors cotisations employeurs, net des retours) au lieu du coût chargé × 0,65 × (1 − un quart non sourcé) ; central −6,58 → −5,43, bas −9,05 → −6,69 (privé sous contrat et pensions induites), haut −6,31 → −4,93 (retour 0,32). Recalé sur les barèmes sourcés du 29/09 : haut de cout_enseignant_apu 34 200 → 32 800 € (rémunération d'activité moyenne lue dans les PAP 2026, 43 703 €, au lieu de 45 640 €) ; central −5,43 → −5,21, bas −6,69 → −6,43, haut −4,93 → −4,72."
 - id: soutien-scolaire-universel
   libelle: Créer un service public universel du soutien scolaire (assistant IA et brigades)
   domaine: éducation
@@ -1207,9 +1207,9 @@ mesures:
   estimation_indicative:
     central: 0.17
     bas: 0.0
-    haut: 0.24
-    lecture: '7 000 départs non remplacés en 2027, pérennisés : 7 000 × coût d''un entrant (24 100 €) ; haut : agent moyen (34
-      200 €) ; bas : simple suggestion pour 2027.'
+    haut: 0.23
+    lecture: '7 000 départs non remplacés en 2027, pérennisés : 7 000 × coût d''un entrant (24 850 €) ; haut : agent moyen (32
+      800 €) ; bas : simple suggestion pour 2027.'
     sources:
     - cout_enseignant_apu
     - https://www.bfmtv.com/economie/economie-social/trouver-450-millions-dans-le-budget-de-l-etat-c-est-possible-edouard-philippe-suggere-de-supprimer-7-000-postes-de-fonctionnaires-en-2027-pour-financer-les-nouvelles-aides-carburant_AV-202609240327.html
@@ -1217,7 +1217,7 @@ mesures:
     statut: ok
     par: passe-sources
     date: '2026-09-29'
-    commentaire: "Passe sources : citation relue dans BFM (propos sur RTL, 24 sept. 2026) ; source primaire introuvable. Non chiffrable maintenu (suggestion pour le budget 2027 du gouvernement en place) ; estimation indicative inchangée (7 000 × coût d'un entrant, barème cout_enseignant_apu)."
+    commentaire: "Passe sources : citation relue dans BFM (propos sur RTL, 24 sept. 2026) ; source primaire introuvable. Non chiffrable maintenu (suggestion pour le budget 2027 du gouvernement en place) ; estimation indicative inchangée (7 000 × coût d'un entrant, barème cout_enseignant_apu). Recalé sur les barèmes sourcés du 29/09 : cout_enseignant_apu 24 100 → 24 850 € (haut 34 200 → 32 800) ; estimation indicative 0,17 inchangée, haut 0,24 → 0,23."
 - id: amendes-prestations-sociales
   libelle: Recouvrement forcé des amendes non payées sur les prestations sociales
   domaine: justice / recettes
