@@ -106,6 +106,9 @@ mesures:
       support: entretien écrit (réponses à l'IREF publiées par Contrepoints)
     precision: vague
     interpretation: >-
+      Support : entretien écrit publié par Contrepoints (publication d'origine des réponses du candidat) ; source
+      primaire sur un support du candidat introuvable (ni republicains.fr ni avecretailleau.fr ne reprennent le
+      chiffre de 120 Md€ au 29 septembre 2026).
       Enveloppe non détaillée : règle 6 (central = part documentée par les mesures identifiables ci-dessous, sans
       double compte ; haut = 120 ; bas = 0). L'IFRAP la résume « uniquement par la baisse des dépenses et sans
       hausses d'impôts autres que celles annoncées en juillet 2025 ». ÉlyséeScope cite 80 Md€ (Figaro, mars 2026).
@@ -150,10 +153,13 @@ mesures:
           « Redresser les finances publiques de 120 Md€ d'ici 2032 uniquement par la baisse des dépenses »
     confiance: faible
     verification:
-      statut: corrige
-      par: verificateur-sonnet
+      statut: ok
+      par: passe-sources
       date: "2026-09-29"
       commentaire: >-
+        Passe sources (29/09/2026) : citation relue sur Contrepoints ; aucune source primaire du candidat ne reprend
+        les 120 Md€ ; paramètre deja_compte recalculé sur les centraux du fichier. Vérification précédente
+        (verificateur-sonnet, corrige) :
         Citation vérifiée (Contrepoints). Règle 6 (enveloppe globale) : central 0 correct. Valeurs
         corrigées : la somme des économies déjà comptées passe de 35,01 à 41,67 Md€ (ia-achats-publics et
         ia-lutte-fraude, désormais chiffrées selon la règle 6 ciblée), donc haut 84,99 -> 78,33 Md€.
@@ -256,15 +262,18 @@ mesures:
     domaine: fiscalite
     citation:
       texte: >-
-        Concrètement : 15 milliards d'euros rendus par une réforme du financement de la protection sociale — en
-        faisant des économies sur l'assistanat grâce au compte social unique et à la réforme de l'indemnisation
-        chômage, et en abaissant les cotisations patronales qui financent des dépenses universelles n'ayant rien à
-        faire sur la feuille de paie
-      url: https://contrepoints.org/flat-tax-aides-aux-entreprises-assurances-sociales-calendrier-des-reformes-bruno-retailleau-repond-a-nos-questions/
-      date: 2026-04-15
-      support: entretien écrit
+        Baisser les cotisations de 30 milliards d'euros par an. La moitié revient directement aux salariés, soit
+        environ 500 euros nets par an au salaire médian, sans qu'ils aient rien à changer à leur organisation.
+        L'autre moitié revient aux entreprises, en baisse durable du coût du travail dès la première heure
+        travaillée, pour restaurer leur compétitivité.
+      url: https://www.avecretailleau.fr/projet/mesure/rendre-30-milliards-d-euros-aux-salaries-et-aux-entreprises
+      date: 2026-09-24
+      support: site de campagne (mesure n° 24, mise à jour le 24 septembre 2026)
     precision: partielle
-    interpretation: 'Le livret « Produire plus » (p. 20) indique « Plus de 25 milliards d''euros d''allègements porteront
+    interpretation: 'Source primaire : site de campagne, qui remplace l''entretien Contrepoints (15 avril 2026 : « 15 milliards
+      d''euros rendus [...] en abaissant les cotisations patronales qui financent des dépenses universelles »). La mesure
+      n° 34 du même site confirme : « Engager plus de 25 milliards d''euros d''allègements sur le coût du travail, en combinant
+      le seuil « zéro cotisation » et une baisse directe des cotisations patronales non contributives ». Le livret « Produire plus » (p. 20) indique « Plus de 25 milliards d''euros d''allègements porteront
       sur le coût du travail, en combinant la mise en place du seuil « zéro cotisation » […] et une baisse directe des
       cotisations patronales non contributives ». Lecture retenue : 15 Md€ de baisse directe, distincts des 10 Md€ du
       seuil zéro cotisation. Cotisations visées non précisées (famille, maladie, FNAL, versement mobilité). Deux mesures
@@ -291,9 +300,9 @@ mesures:
       parametres:
         montant_annonce:
           valeur: 15
-          source: https://contrepoints.org/flat-tax-aides-aux-entreprises-assurances-sociales-calendrier-des-reformes-bruno-retailleau-repond-a-nos-questions/
+          source: https://www.avecretailleau.fr/projet/mesure/rendre-30-milliards-d-euros-aux-salaries-et-aux-entreprises
           unite: Md€/an (2026)
-          note: « 15 milliards d'euros rendus par une réforme du financement de la protection sociale »
+          note: moitié « entreprises » de « Baisser les cotisations de 30 milliards d'euros par an » (site de campagne, 24 septembre 2026)
         facteur:
           valeur: 1.1842
           bareme: facteur_pib_2026_2032
@@ -307,10 +316,13 @@ mesures:
       second tour, non compté.'
     confiance: moyenne
     verification:
-      statut: corrige
-      par: verificateur-sonnet
+      statut: ok
+      par: passe-sources
       date: "2026-09-29"
       commentaire: >-
+        Passe sources (29/09/2026) : citation et montant remplacés par la source primaire (site de campagne, mesure
+        n° 24 du 24 septembre 2026 : 30 Md€ de baisse de cotisations, moitié entreprises) ; valeurs inchangées.
+        Vérification précédente (verificateur-sonnet, corrige) :
         Citation vérifiée (Contrepoints). Le paquet de 40 Md€ = 15 (cette ligne) + 10 (seuil zéro) + 15
         (impôts de production) : chaque composante n'est comptée qu'une fois. Le bilan p. 38 du livret
         Travail gagnant (25 Md€ = 15 sur les 1 623 heures + 10 au-delà) confirme que la moitié «
@@ -330,8 +342,10 @@ mesures:
       url: https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf
       date: 2026-01-07
       support: programme (livret « Le travail gagnant », p. 16)
-    precision: vague
-    interpretation: 'Instrument non précisé (baisse de cotisations salariales, de CSG ?). Coût brut 15 Md€ ; la moitié
+    precision: partielle
+    interpretation: 'Le site de campagne (mesure n° 24, 24 septembre 2026, https://www.avecretailleau.fr/projet/mesure/rendre-30-milliards-d-euros-aux-salaries-et-aux-entreprises)
+      précise l''instrument : « Baisser les cotisations de 30 milliards d''euros par an. La moitié revient directement aux
+      salariés, soit environ 500 euros nets par an au salaire médian » ; cotisations salariales visées non précisées. Coût brut 15 Md€ ; la moitié
       « entreprises » est la baisse de cotisations patronales ci-dessus (ne pas la compter deux fois). Mesure distincte
       de la baisse de cotisations patronales : c''est la moitié « salariés » des 30 Md€ (« pour moitié aux salariés,
       sous forme de gains de pouvoir d''achat […] pour moitié aux entreprises »), soit environ 500 € par an au salaire
@@ -362,14 +376,16 @@ mesures:
           valeur: 1.1842
           bareme: facteur_pib_2026_2032
           unite: facteur PIB nominal 2026→2032
-      explication: 'Restitution de 15 Md€ aux salariés (instrument non précisé : baisse de cotisations salariales ou
-        de CSG), projetée en 2032 au PIB nominal ; montée au rythme des économies annoncées. Haut : montant nominal.'
-    confiance: faible
+      explication: 'Restitution de 15 Md€ aux salariés par une baisse de cotisations (site de campagne, mesure n° 24), projetée en 2032 au PIB nominal ; montée au rythme des économies annoncées. Haut : montant nominal.'
+    confiance: moyenne
     verification:
-      statut: corrige
-      par: verificateur-sonnet
+      statut: ok
+      par: passe-sources
       date: "2026-09-29"
       commentaire: >-
+        Passe sources (29/09/2026) : instrument précisé par le site de campagne (baisse de cotisations, 15 Md€ pour
+        les salariés, mesure n° 24 du 24 septembre 2026) ; précision vague → partielle, confiance faible → moyenne ;
+        montant inchangé. Vérification précédente (verificateur-sonnet, corrige) :
         Citation vérifiée (livret p. 16 et 38). Moitié salariés (15 Md€) distincte de la moitié entreprises
         (15 Md€ = ligne précédente) : pas de double compte. Instrument non précisé, promesse vague, effet
         en euros courants 2032 par convention (haut = non indexé). Les 30 Md€ de « gains » finançant ces
@@ -438,14 +454,19 @@ mesures:
     domaine: protection-sociale
     citation:
       texte: >-
-        Une fois ce recensement en place, un plafond national pourrait s'appliquer, hors handicap, dépendance et
-        vieillesse. Le total des aides ne pourrait pas dépasser 70 % du SMIC net par adulte.
-      url: https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf
-      date: 2026-01-07
-      support: programme (livret « Le travail gagnant », p. 29)
+        Créer un Compte social unique, sur le modèle du compte fiscal : chaque adulte disposera d'un compte retraçant
+        toutes les aides non contributives qu'il perçoit, quelle qu'en soit l'origine. Un plafond national
+        s'appliquera ensuite : le total ne pourra pas dépasser 70 % du SMIC net par adulte, hors handicap, dépendance
+        et vieillesse. Ni la retraite ni le chômage n'entrent dans ce calcul. [...] Un gain annuel estimé à 10
+        milliards d'euros. Il vient d'abord du recensement lui-même, car on ne contrôle pas ce que l'on ne mesure pas,
+        ensuite du plafonnement.
+      url: https://www.avecretailleau.fr/projet/mesure/plafonner-les-aides-sociales-a-70-du-smic
+      date: 2026-09-11
+      support: site de campagne (mesure n° 28, mise à jour le 11 septembre 2026)
     precision: partielle
     interpretation: >-
-      Gain revendiqué : « Compte social unique (CSU) et lutte contre la fraude 10,0 Md€ » (tableau p. 35), sans
+      Le site de campagne rend le plafond ferme (« s'appliquera ») là où le livret « Le travail gagnant » (p. 29)
+      disait « un plafond national pourrait s'appliquer ». Gain revendiqué : « Compte social unique (CSU) et lutte contre la fraude 10,0 Md€ » (tableau p. 35), sans
       décomposition. Le plafond porte aussi sur des aides locales et en nature ; l'ajustement se fait par minoration
       du RSA/RIA. Chiffrer séparément le plafonnement (nombre de ménages au-dessus du plafond) et la fraude évitée.
     chiffrable: true
@@ -468,7 +489,9 @@ mesures:
           valeur: 0.68
           source: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/HCFIPS/2026/HCFIPS%20-%20Synth%c3%a8se%20Fraude%20sociale%202025%20-%20Version%20finalis%c3%a9e.pdf
           unite: Md€ (2024)
-          note: 'fraude sociale recouvrée en 2024 (HCFiPS) ; hypothèse : doublement par le registre national des versements'
+          note: 'fraude sociale recouvrée en 2024 (HCFiPS, note de décembre 2025 : « 680 M€ recouvrés : le recouvrement
+            est toujours limité ») ; convention : doublement par le registre national des versements, faute de toute
+            évaluation publique du CSU'
         annonce:
           valeur: 10.0
           source: https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf
@@ -492,18 +515,22 @@ mesures:
     confiance: faible
     verification:
       statut: conteste
-      par: verificateur-sonnet
+      par: passe-sources
       date: "2026-09-29"
       commentaire: >-
-        Citation vérifiée (livret p. 29). Désaccord de fond non tranchable : le tableau p. 35 affiche 10
-        Md€ (CSU + fraude) alors que le livret dit « un plafond national pourrait s'appliquer »
-        (conditionnel) et que la fraude évaluée par le HCFiPS est de 13 Md€ ; 10 Md€ supposeraient
-        d'éliminer 77 % de la fraude. Le central (0,84 Md€ = doublement du recouvrement de fraude sociale)
-        est prudent mais arbitraire ; l'annonce (12,1 Md€ en 2032) est en haut. Une application stricte de
-        la règle 6 (périmètre nommé, plafonné par le budget visé) ne permet pas non plus de retenir 10 Md€
-        sans hypothèse de détection. Valeurs inchangées.
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
-        (valeur inchangée).
+        Passe sources (29/09/2026). Citation remplacée par le site de campagne (mesure n° 28 : plafond ferme, « gain
+        annuel estimé à 10 milliards d'euros », venant « d'abord du recensement lui-même [...] ensuite du
+        plafonnement »). Recouvrement 2024 revérifié dans la note HCFiPS de décembre 2025 (« 680 M€ recouvrés »).
+        Contestation documentée, indécidable sans distribution publique des cumuls d'aides : (a) lecture retenue au
+        central, 0,84 Md€ en 2032 = convention de doublement du recouvrement de la fraude sociale (0,68 Md€ × 1,2336),
+        seul effet documentable ; (b) lecture du candidat, 10 Md€ (12,1 Md€ en 2032, borne haute). Ordre de grandeur
+        de (b) : la même note HCFiPS évalue la fraude sociale à 14 Md€, dont 36 % par les assurés (≈ 5 Md€, toutes
+        branches, retraite et maladie comprises) ; même en supprimant toute cette fraude, 10 Md€ exigent au moins
+        5 Md€ de plafonnement, soit, au cas-type du site (2 375 → 1 865 € par mois, −6 100 € par an), environ
+        800 000 foyers plafonnés, alors qu'aucune source publique ne dit combien de foyers dépassent 70 % du SMIC par
+        adulte (les aides en nature et locales qui font dépasser le plafond ne sont recensées nulle part). Statut
+        conteste maintenu. Vérification précédente (verificateur-sonnet, conteste) : central prudent mais arbitraire,
+        annonce en haut ; facteur renvoyé au barème facteur_pib_2024_2032.
   - id: chomage-regles-juin-2024
     libelle: Mise en œuvre des règles d'assurance chômage de juin 2024 (durée maximale 18 à 15 mois, contracyclicité) et fin d'indemnisation au troisième refus d'offre raisonnable
     domaine: travail
@@ -796,14 +823,23 @@ mesures:
       central: -0.5
       bas: -3.0
       haut: 2.0
-      lecture: 'Trois effets de sens contraire sur environ 10 Md€ de revenus d''activité des cumulants : cotisations hors CSG-CRDS
-        perdues (≈ 35 %, ≈ −3,5 Md€), minoration des pensions de 30 % de ces revenus (≈ +3 Md€, moins la sortie du dispositif
-        de ceux qui y perdent), suppression de la surcote (économie progressive, faible en 2032). Bas : exonération sans minoration
-        effective ; haut : minoration pleine et fin de la surcote pour les nouvelles générations. Ordre de grandeur non sourcé.'
+      lecture: 'Trois effets de sens contraire sur les revenus d''activité des cumulants : environ 710 000 retraités en cumul
+        emploi-retraite et 9 000 € de revenus d''activité en moyenne (Cour des comptes, RALFSS 2025), soit ≈ 6,4 Md€ en 2020
+        et ≈ 8 Md€ en 2032 à part de PIB constante. Cotisations hors CSG-CRDS perdues (≈ 35 %, ≈ −2,8 Md€), minoration des
+        pensions de 30 % de ces revenus (≈ +2,4 Md€, moins la sortie du dispositif de ceux qui y perdent), suppression de la
+        surcote (économie progressive, faible en 2032). Bas : exonération sans minoration effective ; haut : minoration pleine
+        et fin de la surcote pour les nouvelles générations. Convention : taux de cotisation de 35 % hors CSG-CRDS (salarié
+        et employeur, vieillesse, maladie, famille, chômage), à part de PIB constante.'
       sources:
-      - https://republicains.fr/actualites/2026/05/02/priorite-travail-france-35h-salaires-retraites/
-      - retraites_cotisation_vieillesse_1_point
-      - facteur_pib_2025_2032
+      - https://www.ccomptes.fr/sites/default/files/2025-05/20250526-RALFSS-2025-Cumul-emploi-retraite.pdf
+      - https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf
+      - facteur_pib_2023_2032
+    verification:
+      statut: ok
+      par: passe-sources
+      date: "2026-09-29"
+      commentaire: >-
+        Passe sources (29/09/2026) : assiette sourcée (Cour des comptes, RALFSS 2025, chapitre VII : « environ 710 000 retraités en cumul emploi-retraite », revenus d'activité « en moyenne à 9 000 € par an ») ; ≈ 8 Md€ en 2032 au lieu de 10 Md€ non sourcés ; estimation inchangée (−0,5 Md€, hors solde).
   - id: temps-partiel-suppression-24h
     libelle: Suppression du minimum légal de 24 heures hebdomadaires pour le temps partiel, sauf accord collectif
     domaine: travail
@@ -835,6 +871,11 @@ mesures:
       support: presse (franceinfo, rapportant un entretien sur LCI)
     precision: partielle
     interpretation: >-
+      Source primaire : entretien vidéo sur LCI du 22 septembre 2026 (extrait publié par LCI,
+      https://x.com/LCI/status/2102585177323254057), sans transcription publiée ; le texte cité est celui de
+      franceinfo, recoupé par LCP et le JDD (« 40 milliards d'économies en cumulé sur cinq ans », « 7 % par an »,
+      capitalisation « 25 à 30 % » des retraites des nouveaux entrants). Aucun document écrit du candidat ou de LR
+      sur les retraites au 29 septembre 2026 (ni livret, ni page du site de campagne).
       Référentiel au 1er janvier 2027 : réforme de 2023 suspendue (LFSS 2026). Le taux plein automatique à 65 ans
       (au lieu de 67 ans) sans condition de durée est un coût ; l'âge minimal 63 ans et la décote de 7 %/an sont des
       économies. Exceptions pénibilité à négocier. Paramètres (génération, calendrier, durée d'assurance) non
@@ -874,7 +915,12 @@ mesures:
         retraites_age_legal_1_an:
           valeur: 6.6
           bareme: retraites_age_legal_1_an
-      explication: 'Effets opposés, sans simulation COR/Cnav : l''âge minimal de 63 ans est plus bas que l''âge de référence
+      explication: 'Convention (faute de simulation publique : ni COR, ni Cnav, ni DG Trésor, ni chiffrage détaillé de LR
+        au 29 septembre 2026) : central = milieu entre les deux bornes documentées, parce que la mesure combine un effet
+        d''âge minimal chiffrable au barème (coût) et un recul de l''âge effectif du taux plein à 65 ans, avec décote de
+        7 % par an même à durée complète (économie), dont l''ampleur dépend du comportement de départ non documenté.
+        Repère : un recul effectif de l''âge du taux plein de 63 ans 9 mois à 65 ans pour tous vaudrait au plus 1,25 an
+        × 6,6 Md€ ≈ 8,3 Md€ en 2032, avant le coût du taux plein automatique à 65 ans au lieu de 67. Effets opposés : l''âge minimal de 63 ans est plus bas que l''âge de référence
         en 2032 (coût de 0,75 an × 6,6 Md€, borne basse si la décote de 7 %/an ne dissuade pas les départs) ; le taux
         plein repoussé à 65 ans pour tous avec une décote de 7 %/an (au lieu de 5 %) produit des économies, mais le
         taux plein automatique à 65 ans sans condition de durée (au lieu de 67 ans) coûte. Haut : l''annonce du candidat
@@ -888,20 +934,17 @@ mesures:
     confiance: faible
     verification:
       statut: conteste
-      par: verificateur-sonnet
+      par: passe-sources
       date: "2026-09-29"
       commentaire: >-
-        Citation vérifiée (franceinfo, 22 septembre 2026 ; extraits assemblés avec des coupes). Désaccord
-        de fond : le central (4,19 Md€) est le milieu arbitraire entre le coût de l'âge minimal (-4,95 Md€
-        = 0,75 an × 6,6 Md€) et l'annonce du candidat (40 Md€ cumulés sur 5 ans, soit 13,3 Md€ en 2032 au
-        profil linéaire). Or une décote de 7 %/an jusqu'à 65 ans pour tous, y compris carrières complètes,
-        relève l'âge effectif de départ : le bas (âge minimal traité comme un pur coût) est peu plausible.
-        Sans simulation COR/Cnav on ne peut trancher entre un gain de l'ordre de 13 Md€ et un solde
-        faiblement positif. Le barème retraites_age_legal_1_an est en outre calé sur le solde du système
-        (5,8 Md€) alors que la Cour donne 13 Md€ pour l'ensemble des APU. Valeurs inchangées.
-        Recalé sur les conventions communes du 29/09 : le périmètre du système de retraite est désormais la convention
-        commune (convention 4), ce qui lève l'objection sur le barème retraites_age_legal_1_an ; coût toutes APU
-        décrit dans effets_retour. Valeurs inchangées ; statut conteste maintenu (central sans simulation).
+        Passe sources (29/09/2026) : aucune simulation COR/Cnav ni chiffrage LR détaillé trouvé ; seule source du
+        candidat, l'entretien LCI (vidéo) rapporté par franceinfo, LCP, JDD ; calendrier, génération et durée
+        d'assurance non précisés. Contestation documentée : (a) bas −4,95 Md€ = âge minimal de 63 ans contre 63 ans
+        9 mois de référence en 2032 (0,75 an × 6,6 Md€), décote sans effet sur les départs ; (b) haut +13,3 Md€ =
+        annonce du candidat (40 Md€ cumulés sur 2028-2032 au profil linéaire) ; repère intermédiaire +8,3 Md€ pour un
+        recul effectif du taux plein à 65 ans. Central 4,19 Md€ maintenu comme convention écrite (milieu de
+        fourchette). Vérification précédente (verificateur-sonnet, conteste) : central arbitraire sans simulation ;
+        périmètre du système de retraite (convention commune 4).
   - id: retraite-capitalisation
     libelle: Étage de retraite par capitalisation, compte d'épargne retraite pour chaque actif (25 à 30 % des retraites des jeunes)
     domaine: retraites
@@ -1222,15 +1265,24 @@ mesures:
       central: -1.5
       bas: -4.0
       haut: -0.5
-      lecture: 'Sur-amortissement de 40 % (référence 2015-2017) sur l''investissement en équipements industriels (≈ 25 Md€ par
-        an) : 40 % × 25 Md€ × IS à 25 % ≈ 2,5 Md€ si tout est éligible ; central sur un champ restreint (industrie, biens neufs,
-        PME et ETI surtout), étalé sur la durée d''amortissement. Bas : champ large et 2032 à pleine charge ; haut : taux ou
-        champ réduits. Ordre de grandeur non sourcé. Investissement industriel de 25 Md€ par an et coût constaté du dispositif
-        2015-2017 non retrouvés.'
+      lecture: 'Convention : sur-amortissement de 40 % (référence 2015-2017) réservé à l''industrie. Repère sourcé : la seule
+        prolongation d''un an du dispositif 2015-2017, ouvert à tous les secteurs, réduisait l''IS de 350 M€ la première
+        année (Sénat, rapport sur le PLFR 2016 : « prolongation d''un an de la mesure de suramortissement [...] soit une
+        baisse de 350 millions d''euros des recettes d''IS ») ; le coût d''un dispositif permanent cumule les déductions
+        étalées sur la durée d''amortissement et atteint, après cinq ans (2028-2032), plusieurs fois l''effet de première
+        année. Central : ≈ 1,5 Md€ (quatre générations d''investissement en cours d''amortissement, champ industriel). Bas :
+        champ large (tous secteurs, comme en 2015-2017) ; haut : taux ou champ réduits (PME industrielles, cf. suramortissement
+        numérique 2019-2025 : 30 M€ au total, DGE 2026).'
       sources:
+      - https://www.senat.fr/rap/l16-214-1/l16-214-1_mono.html
+      - https://www.entreprises.gouv.fr/files/files/Publications/2026/themas/thema-40-suramortissement.pdf
       - https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf
-      - is_rendement_net
-      - is_point
+    verification:
+      statut: ok
+      par: passe-sources
+      date: "2026-09-29"
+      commentaire: >-
+        Passe sources (29/09/2026) : repères sourcés (Sénat, PLFR 2016 : 350 M€ d'IS pour un an de prolongation du dispositif 2015-2017 ; DGE, Théma n° 40, avril 2026 : 30 M€ pour le suramortissement numérique) ; l'hypothèse non sourcée de 25 Md€ d'investissement industriel est retirée ; estimation inchangée, écrite comme convention (hors solde).
   - id: apprentissage-reorientation
     libelle: Réorientation des aides à l'apprentissage vers bac+2 et infra, aide de 6 000 € au pré-apprentissage des NEET
     domaine: travail
@@ -1724,16 +1776,23 @@ mesures:
       central: -1.5
       bas: -3.5
       haut: -0.4
-      lecture: 'Réduction d''impôt ouverte aux nouveaux emprunts à partir de 2028 : environ 300 000 acquéreurs avec enfants
-        mineurs par an, qui s''accumulent jusqu''en 2032, à environ 1 000 € de réduction moyenne (plafonds de 800 à 1 600 €
-        selon les enfants). Bas : stock des emprunts en cours (≈ 3,5 millions de foyers) ; haut : première année seulement,
-        sur le modèle du crédit d''impôt TEPA limité à cinq annuités. Ordre de grandeur non sourcé. Nombre de 300 000 acquéreurs
-        avec enfants et réduction moyenne de 1 000 € non sourcés.'
+      lecture: 'Repère sourcé : le crédit d''impôt TEPA sur les intérêts d''emprunt de la résidence principale (40 % puis 20 %
+        des intérêts sur cinq annuités, tous acquéreurs) a coûté 1,6 Md€ en 2010 et 2 Md€ en 2011, à pleine charge (rapporteur
+        général, commission des finances de l''Assemblée nationale). Le dispositif LR vise les seuls foyers avec enfants
+        mineurs et plafonne la réduction à 800-1 600 € ; ouvert aux nouveaux emprunts en 2028, il atteint en 2032 une
+        maturité comparable (cinq générations d''emprunts). Convention : central ≈ 2 Md€ (2011) × 1,6 (PIB nominal 2011→2032)
+        × environ 0,5 (part des acquéreurs avec enfants mineurs et effet des plafonds) ≈ 1,5 Md€. Bas : stock des emprunts en
+        cours ; haut : première année seulement.'
       sources:
-      - https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf
+      - https://www.assemblee-nationale.fr/13/cr-cfiab/10-11/c1011032.asp
+      - https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf
       - ir_rendement
-
-  # --- Logement (mai 2026) --------------------------------------------------------------------------
+    verification:
+      statut: ok
+      par: passe-sources
+      date: "2026-09-29"
+      commentaire: >-
+        Passe sources (29/09/2026) : ordre de grandeur rattaché au coût constaté du crédit d'impôt TEPA (1,6 Md€ en 2010, 2 Md€ en 2011, commission des finances de l'Assemblée nationale, compte rendu n° 32 de 2010-2011) ; les hypothèses non sourcées (300 000 acquéreurs, 1 000 € moyens) sont remplacées par une convention explicite ; estimation inchangée (hors solde).
   - id: statut-bailleur-prive
     libelle: Statut du bailleur privé, amortissement de 4 % par an de la valeur du bâti (nu comme meublé), option PFU à 30 %
     domaine: logement
@@ -1762,14 +1821,22 @@ mesures:
       central: -1.5
       bas: -6.0
       haut: -0.5
-      lecture: 'Amortissement de 4 % du bâti ouvert aux acquisitions nouvelles (lecture du rapport Daubresse-Cosson), en sus
-        du dispositif Jeanbrun déjà dans la référence : ≈ 1,5 Md€ d''IR et de prélèvements sociaux en moins à l''horizon 2032.
-        Bas : ouverture au stock des bailleurs de logements nus et option PFU ; haut : acquisitions dans le neuf seulement.
-        Le gain de 1,9 Md€ revendiqué (recettes induites) n''est pas compté (règle 3). Ordre de grandeur non sourcé. Chiffre
-        du rapport Daubresse-Cosson non revérifié.'
+      lecture: 'Amortissement de 4 % du bâti ouvert aux acquisitions nouvelles, nu comme meublé, en sus du dispositif Jeanbrun
+        déjà dans la référence (LFI 2026). Repères publics sur la proposition Daubresse-Cosson (5 % dans le neuf, 4 % dans
+        l''ancien rénové) : 457 M€ par an selon le rapport (chiffre repris par la presse spécialisée, rapport non consulté) ; 4,7 Md€ selon la ministre des comptes publics pour le seul
+        logement neuf, contre 1,2 Md€ d''ici 2028 pour la version gouvernementale (Banque des territoires). Central : ≈ 1,5
+        Md€, entre le chiffrage du rapport et celui du gouvernement ; bas : lecture gouvernementale projetée et ouverture au
+        stock et à l''option PFU ; haut : acquisitions dans le neuf seulement. Le gain de 1,9 Md€ revendiqué (recettes
+        induites) n''est pas compté (règle 3).'
       sources:
       - https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf
-      - https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Depenses-fiscales.pdf
+      - https://www.banquedesterritoires.fr/statut-du-bailleur-prive-coup-de-theatre-fiscal-lassemblee
+    verification:
+      statut: ok
+      par: passe-sources
+      date: "2026-09-29"
+      commentaire: >-
+        Passe sources (29/09/2026) : fourchette rattachée aux chiffrages publics de la proposition Daubresse-Cosson (rapport : 457 M€ par an, d'après la presse spécialisée ; gouvernement : 4,7 Md€ pour le neuf, cité par la Banque des territoires ; source officielle du chiffre ministériel non retrouvée) ; estimation inchangée (hors solde).
   - id: tva-communes-logement-neuf
     libelle: Versement automatique aux communes d'une fraction de TVA de 9 000 € par logement neuf
     domaine: logement
@@ -1783,9 +1850,12 @@ mesures:
       support: programme (livret Logement, p. 17)
     precision: precise
     interpretation: >-
-      Transfert État vers communes : neutre sur le solde APU si les communes dépensent autant qu'avant ; coût pour
-      l'État = 9 000 € × logements neufs (environ 250 000 à 450 000). Lecture retenue en phase 2 à arbitrer (effet sur
-      le solde APU consolidé si les communes dépensent la recette).
+      Repris sur le site de campagne (mesure n° 60, 11 septembre 2026,
+      https://www.avecretailleau.fr/projet/mesure/verser-9-000-euros-aux-communes-par-logement-neuf-construit) :
+      « Verser automatiquement à la commune une fraction forfaitaire de TVA de 9 000 euros pour chaque logement neuf,
+      afin de financer les équipements publics nécessaires : écoles, voirie, réseaux. » Transfert État → communes
+      fléché vers une dépense nommée (équipements publics) : règle 6 bis du chiffrage, il compte comme cette dépense
+      au central, haut = 0 si la dépense n'est pas certaine.
     chiffrable: true
     nature: depense
     effet_solde_primaire:
@@ -1819,17 +1889,16 @@ mesures:
     effets_retour: 'Le candidat invoque les recettes de TVA de la reprise de la construction : second tour, non compté.'
     confiance: moyenne
     verification:
-      statut: conteste
-      par: verificateur-sonnet
+      statut: ok
+      par: passe-sources
       date: "2026-09-29"
       commentaire: >-
-        Citation vérifiée (livret logement p. 17). Désaccord de fond : une fraction de TVA versée aux
-        communes est un transfert interne aux APU, neutre sur le solde consolidé (règle du chiffrage), sauf
-        dépense nouvelle. Le livret dit vouloir « compenser le financement des équipements » déjà
-        nécessaires, ce qui plaide pour un effet nul ; le central (-3,41 Md€ = 9 000 € × 379 222 logements,
-        100 % dépensé en plus) est le cas extrême, le haut 0 l'autre. Les deux lectures sont défendables ;
-        valeurs inchangées, à trancher au niveau de la méthode (traitement des transferts fléchés vers les
-        collectivités).
+        Passe sources (29/09/2026) : contestation tranchée par la règle 6 bis du README (« Un transfert fléché vers
+        une dépense promise (« une fraction de TVA aux communes qui construisent ») compte comme cette dépense ; haut
+        = 0 si la dépense n'est pas certaine »), qui vise exactement ce cas ; le site de campagne confirme la finalité
+        (« afin de financer les équipements publics nécessaires »). 379 222 logements autorisés en 2025 revérifiés
+        (SDES). Valeurs inchangées. Vérification précédente (verificateur-sonnet, conteste) : transfert interne aux
+        APU, les deux lectures (0 et −3,41 Md€) défendables.
   - id: ptz-refonde-cdc
     libelle: PTZ recentré sur les primo-accédants, sans zonage, neuf et ancien, intérêts pris en charge par la Caisse des dépôts au lieu d'un crédit d'impôt
     domaine: logement
@@ -2144,11 +2213,12 @@ mesures:
         relève des réseaux (hors APU). Bas : 0 (règle 6, économie non réalisée si les prix de marché remontent).'
     confiance: faible
     verification:
-      statut: corrige
-      par: recalage-couverture
-      date: '2026-09-29'
-      commentaire: 'Classée non chiffrable à tort : la lecture est sans ambiguïté (fin du soutien aux seuls projets futurs) et
-        le barème CRE utilisé pour le RN et Reconquête s''applique tel quel ; même montant (3,12 Md€ en 2032).'
+      statut: ok
+      par: passe-sources
+      date: "2026-09-29"
+      commentaire: >-
+        Passe sources (29/09/2026) : délibération CRE n° 2026-149 relue : tableau 3, charges 2026 → 2027 éolien terrestre 1 157,1 → 1 404,6 M€, éolien en mer 965,6 → 1 306,7 M€, photovoltaïque 4 125,5 → 4 579,2 M€ (6,25 → 7,29 Md€) ; « environ +10 GWe estimés par la CRE entre 2026 et 2029 » (soutien déjà engagé). Le site de campagne (mesure n° 86) confirme « Les situations juridiques constituées ne seront pas remises en cause ». Valeurs inchangées. Vérification précédente (recalage-couverture, corrige) :
+        Classée non chiffrable à tort : la lecture est sans ambiguïté (fin du soutien aux seuls projets futurs) et le barème CRE utilisé pour le RN et Reconquête s'applique tel quel ; même montant (3,12 Md€ en 2032).
   - id: electricite-hors-cee-contrat-nucleaire
     libelle: Sortie de l'électricité des CEE, contrat de long terme EDF-fournisseurs (30 TWh), réacteurs à 80 ans, 8 EPR2 supplémentaires
     domaine: energie
@@ -2228,10 +2298,11 @@ mesures:
         d''enseignants.'
     confiance: moyenne
     verification:
-      statut: corrige
-      par: verificateur-sonnet
+      statut: ok
+      par: passe-sources
       date: "2026-09-29"
       commentaire: >-
+        Passe sources (29/09/2026) : FIPECO relu (« Le coût moyen des entrants (salaire brut des agents de moins de 30 ans en pratique) est d'environ 31 000 € pour l'Etat ») ; le site de campagne (mesure n° 102) confirme 125 000 départs non remplacés et « environ 7,5 milliards d'euros de masse salariale ». Valeurs inchangées. Vérification précédente (verificateur-sonnet, corrige) :
         Citation vérifiée (livret IA p. 27 : 7,5 Md€ = 125 000 × 60 000 €). Pas de double compte avec les
         enseignants (Éducation nationale exclue) ni avec les 250 000 postes de l'entretien (mêmes agents
         comptés une fois). Réserve de barème : le coût d'entrée de 60 000 € inclut le CAS Pensions (82,28 %
@@ -2329,10 +2400,11 @@ mesures:
         faible.'
     confiance: faible
     verification:
-      statut: corrige
-      par: verificateur-sonnet
+      statut: ok
+      par: passe-sources
       date: "2026-09-29"
       commentaire: >-
+        Passe sources (29/09/2026) : annonce confirmée par le site de campagne (mesure n° 102 : « 3 à 4 milliards sur la fraude ») ; paramètre fraude_deja_comptee_csu = central de la ligne compte-social-unique (0,84 Md€), inchangé. Valeurs inchangées. Vérification précédente (verificateur-sonnet, corrige) :
         Citation vérifiée (livret IA p. 28). Corrigé selon la règle 6 révisée (économie ciblée, périmètre :
         fraude, gisement de l'ordre de 30 Md€) : central 1,0 -> 2,66 Md€ (milieu de 3-4 Md€ moins 0,84 Md€
         de fraude sociale déjà comptée dans le Compte social unique), bas 0, haut = central. Le livret ne
@@ -2603,9 +2675,9 @@ mesures:
     chiffrable: true
     nature: economie
     effet_solde_primaire:
-      central: 0.85
+      central: 0.88
       bas: 0.0
-      haut: 0.85
+      haut: 0.88
       montee_en_charge:
         '2027': 0
         '2028': 0.2
@@ -2627,14 +2699,14 @@ mesures:
           unite: € par ETPT et par an
           note: coût budgétaire complet (CAS Pensions compris), sert seulement à convertir l'annonce en postes (≈ 35 000)
         cout_apu:
-          valeur: 24100
+          valeur: 24850
           bareme: cout_enseignant_apu
           unite: € par ETP et par an
       explication: >-
         Règle 6 (économie ciblée sur un périmètre nommé) : bas = 0 (les postes ne sont pas supprimés) ; haut = central.
         Convention commune 1 (postes supprimés) : l'annonce (3 Md€ budgétaires, coût chargé) est convertie en postes
         (3 Md€ / 85 000 € ≈ 35 300) puis valorisée au coût d'un entrant pour le solde des APU (cout_enseignant_apu,
-        24 100 €) : les cotisations employeurs vont à d'autres APU.
+        24 850 €) : les cotisations employeurs vont à d'autres APU.
         Montant du candidat (baisse de 1,7 million d'élèves en dix ans à taux d'encadrement constant) ; par rapport au
         référentiel (droit voté, effectifs non réduits automatiquement), c'est une économie. Pas de double compte avec
         les départs non remplacés (Éducation nationale exclue du livret IA).
@@ -2650,10 +2722,12 @@ mesures:
         remplacés.
         Recalé sur les conventions communes du 29/09 : annonce convertie en postes au coût chargé puis valorisée au coût
         d'un entrant pour le solde des APU (cout_enseignant_apu, convention 1) ; central et haut 3,0 → 0,85 Md€.
+        Recalé sur les barèmes sourcés du 29/09 : cout_enseignant_apu 24 100 → 24 850 € (entrant titulaire, rémunération
+        d'activité des PAP 2026) ; central et haut 0,85 → 0,88 Md€.
 
   # --- Défense, justice -----------------------------------------------------------------------------
   - id: lpm-rallonge-50md
-    libelle: Porter l'effort supplémentaire de la LPM 2024-2030 à 50 Md€ (contre 36 Md€ proposés par le gouvernement)
+    libelle: Porter l'effort supplémentaire de la LPM 2024-2030 à 50 Md€ (position de la majorité sénatoriale LR, contre 36 Md€ votés)
     domaine: defense
     citation:
       texte: >-
@@ -2662,61 +2736,55 @@ mesures:
         C'est comme ça, que nous ferons », avance Bruno Retailleau.
       url: https://www.publicsenat.fr/actualites/parlementaire/loi-de-programmation-militaire-coup-de-theatre-au-senat-qui-rejette-la-rallonge-de-36-milliards-deuros-pour-les-armees
       date: 2026-06-03
-      support: presse (Public Sénat, débat au Sénat sur l'actualisation de la LPM)
+      support: presse (Public Sénat, débat au Sénat sur l'actualisation de la LPM) ; source primaire introuvable (compte rendu intégral non consulté)
     precision: vague
     interpretation: >-
-      Position de la majorité sénatoriale LR (commission : +50 Md€, soit 14 Md€ de plus que le gouvernement, dont
-      30 Rafale et 3 frégates). Pas d'engagement présidentiel chiffré retrouvé. Le référentiel est la LPM actualisée
-      adoptée (+36 Md€ si adoptée ainsi) ; l'écart cumulé de 14 Md€ sur 2026-2030 serait à répartir par année.
-    chiffrable: true
-    nature: depense
-    effet_solde_primaire:
+      Les 50 Md€ sont la position de la commission des affaires étrangères et de la défense du Sénat, présidée par
+      Cédric Perrin (LR), « qui ferraillait [...] pour défendre un effort de + 50 milliards d'euros » ; Retailleau,
+      sénateur et candidat, s'est seulement « déplacé pour lui parler » et a promis de « financer la nouvelle LPM »,
+      sans montant. Aucun engagement présidentiel chiffré retrouvé (site de campagne sans page défense au 29 septembre
+      2026 ; l'IFRAP résume : « Lancer un livre blanc sur la défense », « au moins 100 000 réservistes », sans montant).
+      Référence : la LPM actualisée a été promulguée avec +36 Md€ sur 2026-2030 (loi n° 2026-791 du 16 août 2026).
+    chiffrable: false
+    raison_non_chiffrable: >-
+      Aucun montant promis par le candidat : les 50 Md€ sont la position du groupe LR au Sénat, pas un engagement
+      présidentiel ; « financer la nouvelle LPM » est trop vague pour être lu au-delà de la loi promulguée.
+    sens_probable: cout
+    estimation_indicative:
       central: -7.2
       bas: -7.2
       haut: 0.0
-      montee_en_charge:
-        '2027': 0.4
-        '2028': 0.6
-        '2029': 0.8
-        '2030': 1
-        '2031': 1
-        '2032': 1
-    calcul:
-      formule: -dixiemes_de_point*defense_0_1_point_pib_2032
-      parametres:
-        dixiemes_de_point:
-          valeur: 2
-          source: https://www.publicsenat.fr/actualites/parlementaire/loi-de-programmation-militaire-coup-de-theatre-au-senat-qui-rejette-la-rallonge-de-36-milliards-deuros-pour-les-armees
-          unite: dixièmes de point de PIB
-          note: « Ces 14 milliards de plus porteraient aussi de 2,5 à 2,7 % du PIB la part de la défense »
-        defense_0_1_point_pib_2032:
-          valeur: 3.6
-          bareme: defense_0_1_point_pib_2032
-      explication: 'Écart entre la version du Sénat (+50 Md€ sur 2026-2030) et la LPM de référence (+36 Md€) : +0,2
-        point de PIB en 2030, maintenu en 2032. Haut : 0, aucun engagement présidentiel chiffré.'
-    confiance: faible
+      lecture: 'Si le candidat reprend la position de son groupe au Sénat (+50 Md€ sur 2026-2030 au lieu des +36 Md€ de
+        la loi du 16 août 2026) : 14 Md€ de plus, soit « de 2,5 à 2,7 % du PIB la part de la défense » (Public Sénat),
+        +0,2 point de PIB maintenu en 2032 × 3,6 Md€ (barème defense_0_1_point_pib_2032) = −7,2 Md€. Haut : 0, loi
+        promulguée seulement.'
+      sources:
+      - https://www.publicsenat.fr/actualites/parlementaire/loi-de-programmation-militaire-coup-de-theatre-au-senat-qui-rejette-la-rallonge-de-36-milliards-deuros-pour-les-armees
+      - https://www.senat.fr/dossier-legislatif/pjl25-635.html
+      - defense_0_1_point_pib_2032
     verification:
-      statut: conteste
-      par: verificateur-sonnet
+      statut: corrige
+      par: passe-sources
       date: "2026-09-29"
       commentaire: >-
-        Citation vérifiée (Public Sénat, 3 juin 2026), mais elle ne contient aucun engagement chiffré de
-        Retailleau : il dit seulement « nous financerons la nouvelle LPM ». Les 50 Md€ (14 Md€ de plus que
-        les 36 Md€ du gouvernement) sont la position de la majorité sénatoriale, que le vote du Sénat a
-        d'ailleurs fait tomber. Le central -7,2 Md€ (= bas) traite une position de groupe comme une
-        promesse présidentielle ; un central proche de 0 ou intermédiaire serait aussi défendable. Le
-        référentiel (LPM actualisée à +36 Md€, adoption définitive à confirmer) est plausible. Valeurs
-        inchangées.
+        Passe sources (29/09/2026) : les 50 Md€ sont un engagement du groupe LR au Sénat (commission Perrin), pas du
+        candidat, qui ne promet que de « financer la nouvelle LPM » ; aucun montant sur le site de campagne ni dans
+        l'IFRAP. Mesure repassée en non chiffrable (règle 2 b de la passe) avec l'ancienne valeur en estimation
+        indicative : central −7,2 Md€ → hors solde principal. LPM actualisée promulguée à +36 Md€ (loi n° 2026-791 du
+        16 août 2026, dossier législatif du Sénat), qui est la référence. Vérification précédente
+        (verificateur-sonnet, conteste) : position de groupe traitée comme une promesse présidentielle.
   - id: etablissements-mineurs-violents
     libelle: Établissements spécifiques en internat pour mineurs violents dans chaque département
     domaine: justice
     citation:
       texte: >-
-        Création, dans chaque département, d'établissements spécifiques pour les mineurs violents, fonctionnant en
-        internat, pour les couper de l'influence des bandes.
-      url: https://votons-2027.fr/candidats/retailleau/programme
-      date: 2026-09-29
-      support: agrégateur (Votons-2027, citation attribuée à republicains.fr) ; source primaire non retrouvée
+        C'est pourquoi je propose la création, dans chaque département, d'établissements spécifiques pour les mineurs
+        violents. Ils fonctionneraient selon des règles strictes, avec une pédagogie adaptée. [...] Ces jeunes seraient
+        scolarisés à part, en internat, pour les couper de l'influence des bandes, des quartiers, des groupes qui les
+        abîment.
+      url: https://republicains.fr/actualites/2025/06/16/bruno-retailleau-mai-68-a-fabrique-des-barbares/
+      date: 2025-06-16
+      support: entretien (JDD du 15 juin 2025, repris sur republicains.fr)
     precision: partielle
     interpretation: Environ 100 établissements ; capacité et coût à la place (référence CEF, EPM) à documenter.
     chiffrable: false
@@ -2726,21 +2794,35 @@ mesures:
       central: -0.35
       bas: -0.8
       haut: -0.15
-      lecture: 'Un internat par département, soit environ 100 établissements de 12 places (format des centres éducatifs fermés),
-        à environ 250 000 € par place et par an de fonctionnement plus la construction amortie, projeté. Bas : 20 places par établissement
-        ; haut : reconversion de structures existantes.'
+      lecture: 'Un internat par département, soit environ 100 établissements de 12 places (format des centres éducatifs
+        fermés), au coût de journée d''un CEF du secteur associatif habilité, investissement compris : 643 € en 2021
+        (Cour des comptes, 2023, tableau n° 5 : « Centres éducatifs fermés 66,2 643 »), soit 1 200 places × 643 € × 365 ≈
+        0,28 Md€ (euros 2021), ≈ 0,35 Md€ en 2032. Bas : 20 places par établissement et coût réalisé des CEF publics (705 €
+        en 2019) ; haut : internats scolaires ou reconversion de structures existantes, moins coûteux qu''un CEF.
+        Convention : format CEF, parce que le candidat décrit un placement en internat avec « discipline quasi-militaire ».'
       sources:
-      - https://www.ccomptes.fr/fr/publications/le-plan-15000-places-de-prison-une-ambition-forte-une-concretisation-laborieuse
-      - facteur_pib_2025_2032
+      - https://www.ccomptes.fr/sites/default/files/2023-10/20231016-S2023-0733-Centres-educatifs-fermes-etablissements-penitentiaires-pour-mineurs.pdf
+      - https://republicains.fr/actualites/2025/06/16/bruno-retailleau-mai-68-a-fabrique-des-barbares/
+    verification:
+      statut: corrige
+      par: passe-sources
+      date: "2026-09-29"
+      commentaire: >-
+        Passe sources (29/09/2026) : citation remplacée par la source primaire (entretien au JDD repris sur
+        republicains.fr) au lieu de l'agrégateur Votons-2027 ; coût à la place sourcé (Cour des comptes, CEF et EPM,
+        octobre 2023 : 643 € par journée en CEF associatif, 2021) au lieu du rapport sur les 15 000 places de prison ;
+        estimation inchangée.
   - id: peines-courtes-abrogation-belloubet
     libelle: Courtes peines de prison dès le premier délit grave, abrogation de la loi Belloubet, peines planchers
     domaine: justice
     citation:
       texte: >-
-        Il faut commencer par abroger la loi Belloubet de 2019, qui empêche ces peines courtes.
-      url: https://votons-2027.fr/candidats/retailleau/programme
-      date: 2026-09-29
-      support: agrégateur (Votons-2027, citation attribuée à republicains.fr) ; source primaire non retrouvée
+        Dès le premier délit grave, des peines courtes – une ou deux semaines de prison, comme aux Pays-Bas – peuvent
+        avoir un effet dissuasif. Mais pour cela, il faut commencer par abroger la loi Belloubet de 2019, qui empêche
+        ces peines courtes. C'est une urgence.
+      url: https://republicains.fr/actualites/2025/06/16/bruno-retailleau-mai-68-a-fabrique-des-barbares/
+      date: 2025-06-16
+      support: entretien (JDD du 15 juin 2025, repris sur republicains.fr)
     precision: vague
     interpretation: Hausse de la population carcérale (places, surveillants). Pas de programme immobilier pénitentiaire chiffré retrouvé ; à chiffrer seulement si un nombre de places est annoncé.
     chiffrable: false
@@ -2756,6 +2838,13 @@ mesures:
       sources:
       - https://www.ccomptes.fr/fr/publications/le-plan-15000-places-de-prison-une-ambition-forte-une-concretisation-laborieuse
       - facteur_pib_2025_2032
+    verification:
+      statut: corrige
+      par: passe-sources
+      date: "2026-09-29"
+      commentaire: >-
+        Passe sources (29/09/2026) : citation remplacée par la source primaire (entretien au JDD repris sur
+        republicains.fr) au lieu de l'agrégateur Votons-2027 ; estimation indicative inchangée (hors solde).
 
   # --- Institutions et normes (non budgétaires) -----------------------------------------------------
   - id: referendum-pacte-constitutionnel

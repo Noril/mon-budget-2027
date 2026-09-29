@@ -126,7 +126,7 @@ mesures:
   effet_solde_primaire:
     central: 10.0
     bas: 5.0
-    haut: 25.0
+    haut: 20.0
     montee_en_charge:
       '2027': 0
       '2028': 1
@@ -140,13 +140,17 @@ mesures:
       rendement:
         valeur: 10.0
         unite: Md€/an
-        source: https://fr.wikipedia.org/wiki/Taxe_Zucman
+        source: https://www.senat.fr/rap/r25-760/r25-76033.html
         note: >-
-          central = moyenne des estimations basses des promoteurs (15 Md€) et des détracteurs (5 Md€, règle CAE de 0,25
-          € effectif par euro mécanique)
+          Sénat, rapport d'information n° 760 (2025-2026) « Imposition des hauts patrimoines » (17 juin 2026) : « si 20
+          milliards d'euros annuels étaient attendus de la « taxe Zucman » par son initiateur, il semble que le rendement
+          aurait plutôt été de 5 milliards d'euros […] une fois pris en compte les effets comportementaux, selon plusieurs
+          économistes dont Xavier Jaravel, président du Conseil d'analyse économique ». Convention : central = moyenne
+          géométrique des deux bornes publiques (√(5 × 20) = 10), faute d'estimation indépendante qui les départage.
     explication: >-
-      Fourchette publique 5 à 25 Md€ (Zucman 15-25 ; Aghion et al., d'après le CAE, environ 5). Montants non projetés
-      en 2032 (patrimoines volatils, évitement croissant avec le temps).
+      Fourchette publique 5 Md€ (après comportements, économistes cités par le Sénat) à 20 Md€ (initiateur, d'après le
+      même rapport) ; central 10 par convention. Montants non projetés en 2032 (patrimoines volatils, évitement
+      croissant avec le temps).
   chiffrages_tiers:
   - auteur: Groupe Écologiste et Social (Assemblée), d'après G. Zucman
     montant_md: 15
@@ -154,18 +158,22 @@ mesures:
     date: 2025-10-23
     commentaire: >-
       « 15 Milliards d'euros c'est ce que la taxe Zucman pourrait rapporter » ; Public Sénat cite 15 à 25 Md€ selon Zucman.
-      Rendement contesté (CAE, Banque de France, exil fiscal, constitutionnalité) : sources à rassembler en phase 2.
+      Rendement contesté : 5 Md€ après effets comportementaux selon les économistes cités par le rapport du Sénat n° 760
+      (2025-2026), 20 Md€ selon l'initiateur (même source).
   effets_retour: >-
     Exil fiscal, optimisation (holdings, démembrement), risque constitutionnel : intégrés seulement via la borne basse.
   confiance: faible
   verification:
-    statut: ok
-    par: verificateur-sonnet
+    statut: corrige
+    par: passe-sources
     date: "2026-09-29"
     commentaire: >-
-      Citation vérifiée (programme, archive Wayback). Fourchette 5-25 Md€ couvrant les estimations
-      publiques ; central 10 = moyenne des estimations basses des promoteurs et des détracteurs
-      (convention). Recouvrement avec l'ISF climatique non déduit (voir cette ligne).
+      Passe-sources : source Wikipédia remplacée par le rapport du Sénat n° 760 (2025-2026), qui donne les deux bornes
+      (20 Md€ attendus par l'initiateur, ≈ 5 Md€ après comportements). Haut ramené de 25 à 20 Md€ (le 25 venait d'une
+      citation de presse de G. Zucman) ; central 10 conservé, désormais justifié comme moyenne géométrique des bornes
+      (convention). Recouvrement avec l'ISF climatique : l'impôt plancher s'impute sur l'ISF payé par les mêmes
+      foyers ; non déduit ici, documenté sur la ligne isf-climatique. Trace précédente (verificateur-sonnet, ok) :
+      citation vérifiée, fourchette 5-25.
 - id: isf-climatique
   libelle: Rétablissement de l'ISF avec une composante climatique
   domaine: fiscalite
@@ -207,10 +215,19 @@ mesures:
   confiance: moyenne
   verification:
     statut: conteste
-    par: verificateur-sonnet
+    par: passe-sources
     date: "2026-09-29"
     commentaire: >-
-      Citation vérifiée. Double compte à l'intérieur du programme, non quantifiable ici : l'impôt plancher
+      Passe-sources : barème isf_retabli_gain_net relu (France Stratégie 2021 : « 4,1 milliards d'ISF nets perçus
+      en 2017 » ; Cour des comptes NEB 2025 : IFI 2,8 Md€). Le recouvrement avec la taxe Zucman reste indécidable
+      sur sources publiques, mais il est borné à la baisse : l'ISF 2017 exonérait les biens professionnels, qui
+      représentent « 30 % au seuil des 0,01 % et plus de 60 % pour les 0,001 % les plus fortunés » (CAE, note n° 69,
+      p. 7, https://www.cae-eco.fr/staticfiles/pdf/cae-note069.pdf), et le plafonnement réduisait l'ISF des plus
+      grandes fortunes ; l'ISF payé par les ≈ 1 800 foyers au-delà de 100 M€ (seule part imputable sur l'impôt
+      plancher) est donc une petite fraction des 3,1 Md€. Deux lectures : sans recouvrement 3,1 + 10 = 13,1 Md€ pour
+      les deux impôts ; avec recouvrement maximal (convention : 1 Md€, fraction la plus haute de l'ISF que ces foyers
+      pourraient acquitter) 12,1 Md€. Valeurs inchangées. Trace précédente (verificateur-sonnet, conteste) : Citation
+      vérifiée. Double compte à l'intérieur du programme, non quantifiable ici : l'impôt plancher
       de 2 % sur les patrimoines de plus de 100 M€ (taxe Zucman) s'impute sur les impôts déjà payés, dont
       l'ISF rétabli ; l'ISF 2017 (taux jusqu'à 1,5 %) sur ces mêmes contribuables est donc en partie compté
       deux fois. Le barème isf_retabli_gain_net (3,1 Md€ net d'IFI) n'est pas ventilé par tranche ; l'écart
@@ -243,9 +260,9 @@ mesures:
   chiffrable: true
   nature: recette
   effet_solde_primaire:
-    central: 10.0
-    bas: 1.5
-    haut: 15.0
+    central: 10.98
+    bas: 4.25
+    haut: 15.42
     montee_en_charge:
       '2027': 0
       '2028': 1
@@ -254,18 +271,62 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: rendement
+    formule: (dutreil + demembrement + assurance_vie + surtaxe) * facteur
     parametres:
-      rendement:
-        valeur: 10.0
+      dutreil:
+        valeur: 1.5
+        unite: Md€/an (2023-2024)
+        source: https://www.ccomptes.fr/sites/default/files/2025-11/20251118-Pacte-Dutreil.pdf
+        note: >-
+          Cour des comptes, « Le Pacte Dutreil » (novembre 2025), p. 56 : « Elle est de l'ordre de 3,3 Md€ en 2023 et de
+          5,5 Md€ en 2024 ». Ramener l'exonération de 75 % à 50 % de l'actif rend imposable un tiers de l'assiette exonérée :
+          ≈ 1/3 de la dépense fiscale, soit 1,1 (2023) à 1,8 Md€ (2024) ; central = moyenne 2023-2024 (4,4 / 3 ≈ 1,5).
+          L'aménagement du Dutreil par la LFI 2026 (actifs non professionnels exclus) réduit un peu ce gain : non chiffré.
+      demembrement:
+        valeur: 2.0
         unite: Md€/an
         source: >-
-          https://reporterre.net/Marine-Tondelier-Nous-menons-une-double-campagne-pour-l-ecologie-et-pour-l-union
-        note: 'annonce de la candidate : 10 Md€ dès 2027, 15 Md€ ensuite ; aucun chiffrage indépendant'
+          https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf
+        note: >-
+          Conseil des prélèvements obligatoires, « Corriger les principales distorsions de l'imposition du patrimoine »
+          (décembre 2025), p. 186 : coût du démembrement de propriété immobilière « entre 2013 et 2020 en moyenne de 0,9
+          à 3,2 Md€, en fonction des hypothèses contrefactuelles » (immobilier seul, le coût total « est certainement
+          supérieur ») ; CAE, note n° 69 : « de l'ordre de 2 à 3 milliards d'euros ». Central 2,0 (convention : milieu
+          de la fourchette du CPO), bas 0,9, haut 3,2.
+      assurance_vie:
+        valeur: 4.0
+        unite: Md€/an
+        source: https://www.cae-eco.fr/staticfiles/pdf/cae-note069.pdf
+        note: >-
+          CAE, note n° 69 « Repenser l'héritage » (décembre 2021), p. 7 : coût de l'assurance-vie, en se limitant aux
+          bénéficiaires recevant au moins 152 500 €, « de l'ordre de 4 à 5 milliards d'euros » ; CPO (décembre 2025),
+          p. 151 : « le coût statique du régime de l'assurance-vie est estimé à environ 5 Md€ en 2024 » (haut). Convention
+          : central 4,0 (bas de la fourchette du CAE), bas 1,25 (réforme limitée aux gros contrats chiffrée par le CPO,
+          même page : « rendement théorique à terme […] estimé à 1,25 Md€ »), faute de chiffrage public de la seule
+          suppression de l'abattement de 152 500 €.
+      surtaxe:
+        valeur: 1.4
+        unite: Md€/an
+        source: >-
+          https://www.ifrap.org/budget-et-fiscalite/droits-de-succession-44-milliards-dimpots-en-moins-ou-14-milliards-de-taxes-en-plus
+        note: >-
+          Convention (aucune distribution publique des héritages au-delà de 4 M€) : l'IFRAP (janvier 2022, d'après le CAE)
+          chiffre à 2,8 Md€ la confiscation des héritages au-delà de 12 M€ (216 successions par an), soit ≈ 5 Md€ taxés
+          à 45 % au-delà de 12 M€ ; loi de Pareto de coefficient 1,5 (queue des héritages) : ≈ 9 Md€ au-delà de 4 M€ et
+          ≈ 4,8 Md€ au-delà de 13 M€. +10 points × 9 + 10 points × 4,8 ≈ 1,4 Md€ ; fourchette 1,0 à 2,5 (coefficient
+          de Pareto 1,3 à 2).
+      facteur:
+        valeur: 1.2336
+        unite: facteur
+        bareme: facteur_pib_2024_2032
     explication: >-
-      Central = 10 Md€ (annonce 2027 de la candidate) ; haut = 15 Md€ (annonce en régime) ; bas = seul abaissement du
-      Dutreil de 75 % à 50 % : coût du Dutreil 4,5 Md€ (dérivation du barème dmtg_rendement) × (1 − 50/75) = 1,5 Md€,
-      faute de distribution publique des successions au-delà de 4 M€.
+      Somme des quatre volets chiffrés sur des sources publiques (euros 2023-2024), projetée en 2032 au PIB nominal :
+      (1,5 + 2,0 + 4,0 + 1,4) × 1,2336 = 10,98 Md€. Bas = bornes basses (1,1 + 0,9 + 1,25 + 1,0 = 4,25) non projetées,
+      figurant l'évitement (anticipation des donations, départs) ; haut = bornes hautes (1,8 + 3,2 + 5,0 + 2,5 = 12,5)
+      projetées = 15,42. Le CAE (note n° 69, p. 11) trouve un ordre de grandeur comparable pour une réforme voisine
+      (Dutreil à 50 %, assurance-vie au barème, taxation de l'usufruit, barème inchangé) : « les droits supplémentaires
+      seraient de l'ordre de 9 milliards d'euros », quand les DMTG rapportaient 15 Md€ (21,4 Md€ en 2026, barème
+      dmtg_rendement). L'annonce de la candidate (10 Md€ dès 2027, 15 Md€ ensuite) est donc dans la fourchette.
   chiffrages_tiers:
   - auteur: Les Écologistes (chiffrage du parti)
     montant_md: 15
@@ -280,16 +341,20 @@ mesures:
     comptés.
   confiance: faible
   verification:
-    statut: conteste
-    par: verificateur-sonnet
+    statut: corrige
+    par: passe-sources
     date: "2026-09-29"
     commentaire: >-
-      Citation vérifiée. Le central (10 Md€) reprend le chiffre annoncé par la candidate pour 2027 (15 Md€
-      ensuite), sans chiffrage indépendant. Le rendement actuel des DMTG est de l'ordre de 20 Md€ : 10 à 15
-      Md€ supplémentaires sur le seul 1 % supérieur représenteraient +50 à +75 % de ce rendement, ce qui
-      paraît élevé avant évitement (départs, donations préalables, assurance-vie). Le bas (1,5 Md€, seul
-      Dutreil) est très pessimiste ; désaccord non tranchable sans distribution des successions au-delà de
-      4 M€. Valeurs inchangées.
+      Passe-sources : le central ne reprend plus l'annonce de la candidate mais une somme de volets sourcés (Cour des
+      comptes pour le Dutreil, CPO et CAE pour le démembrement et l'assurance-vie, convention explicite pour les deux
+      tranches supplémentaires) : 10,0 → 10,98 Md€, bas 1,5 → 4,25, haut 15 → 15,42. L'essentiel du rendement vient
+      de la suppression des niches (Dutreil, démembrement, assurance-vie), pas des deux tranches (≈ 1,4 Md€) : le
+      doute du vérificateur précédent (« 10 à 15 Md€ sur le seul 1 % supérieur ») tient pour les tranches, pas pour
+      le paquet complet. Le volet assurance-vie (4 Md€) reste une convention ; si la suppression de l'abattement ne
+      visait que les gros contrats, il tomberait à 1,25 Md€ (bas). Dossier de presse du 26 août 2026
+      (dossierpresse-budget2027.pdf) non consultable (Cloudflare, pas d'archive) : détail du chiffrage du parti
+      inconnu. Trace précédente (verificateur-sonnet, conteste) : central = annonce non vérifiée, bas 1,5 = seul
+      Dutreil.
 - id: impot-minimal-grandes-entreprises
   libelle: >-
     Impôt minimal sur les bénéfices des sociétés de plus de 1 Md€ de chiffre d'affaires au prorata de l'activité en France,
@@ -317,15 +382,26 @@ mesures:
   estimation_indicative:
     central: 2.7
     bas: 0.0
-    haut: 10.0
-    lecture: 'Impôt minimal sur la part française des bénéfices des groupes de plus de 1 Md€ de chiffre d''affaires : même
-      ordre de grandeur que l''impôt sur les multinationales chiffré chez Mélenchon (Institut Montaigne, scénario bas intermédiaire,
-      2,7 Md€ en 2032) ; bas : conventions fiscales ; haut : taux élevé négocié. Non revérifié : la page Institut Montaigne
-      citée renvoie une erreur 403 lors de la vérification ; ordre de grandeur non sourcé au-delà de cette référence.'
+    haut: 7.3
+    lecture: 'Convention (aucun chiffrage public trouvé d''un impôt minimal à la française au prorata de l''activité) : le
+      rendement est exprimé en part de l''IS net de 2032 (60 Md€ en 2025, barème is_rendement_net, × 1,2106 = 72,6 Md€).
+      Central : 3,7 % de l''IS (2,7 Md€), ordre de grandeur conservé de la version précédente (analogie avec l''impôt sur
+      les multinationales de 2022, page Institut Montaigne inaccessible, 403) ; haut : 10 % de l''IS (7,3 Md€), si le taux
+      minimal est nettement supérieur à 15 % ; bas : 0, parce que l''impôt minimum mondial à 15 % (pilier 2) s''applique
+      déjà aux groupes de plus de 750 M€ de chiffre d''affaires depuis les exercices ouverts au 31 décembre 2023 (impots.gouv.fr)
+      et qu''un impôt de niveau comparable n''ajouterait rien, ou que les conventions fiscales bloquent l''assiette au prorata.'
     sources:
-    - https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/instaurer-un-impot-universel-sur-les-entreprises-et-sur-les-revenus-des-particuliers-faire-face-a-levasion-fiscale/
     - is_rendement_net
+    - facteur_pib_2025_2032
+    - https://www.impots.gouv.fr/impot-complementaire-impot-minimum-mondial-15-regles-globe-pilier-2
     - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
+  verification:
+    statut: corrige
+    par: passe-sources
+    date: '2026-09-29'
+    commentaire: 'Passe-sources : la référence Institut Montaigne (403) est retirée ; aucune source publique ne chiffre
+      cette mesure. L''estimation est réécrite comme convention en part de l''IS (barème), avec le pilier 2 comme borne
+      basse. Central inchangé (2,7), haut 10,0 → 7,3 (10 % de l''IS 2032). Trace précédente : ordre de grandeur non revérifié.'
 - id: taxe-services-numeriques-5pct
   libelle: >-
     Taxe sur les services numériques portée de 3 à 5 %, seuil abaissé, extension au e-commerce et aux data centers
@@ -372,19 +448,16 @@ mesures:
     support: programme (chap. 17, mesure 11)
   precision: precise
   interpretation: >-
-    Ambigu : la hausse de 3 points de CSG capital est-elle incluse dans les 3 points de PFU (le PFU comprend les prélèvements
-    sociaux) ? Le groupe parlementaire (PLF 2026) visait la part IR (12,8 % à 15,8 %). Lecture haute : deux hausses cumulées
-    ; lecture basse : une seule. Vérifier la hausse de CSG capital déjà votée en LFSS 2026 pour le référentiel. À découper
-    en phase 2 (TTF, PFU, CSG). Lecture : la hausse de 3 points du « PFU » est celle de sa composante sociale (CSG),
-    non cumulée avec 3 points d'IR (lecture haute non chiffrée, faute de rendement public de la part IR du PFU). Référentiel
-    : la hausse de CSG sur le capital votée en LFSS 2026 est déjà dans la loi ; le point de CSG 2025 est pris avant cette
-    hausse.
+    Deux hausses cumulées : CSG sur les revenus du capital +3 points et part impôt sur le revenu du PFU +3 points (12,8 %
+    → 15,8 %). Lecture tranchée par la synthèse PLF 2026 du groupe Écologiste et Social : « Hausse de 3 points de la flat
+    tax (de 12,8% à 15,8%) ». Référentiel : la hausse de CSG sur le capital votée en LFSS 2026 est déjà dans la loi ; le
+    point de CSG 2025 est pris avant cette hausse.
   chiffrable: true
   nature: recette
   effet_solde_primaire:
-    central: 7.84
-    bas: 6.63
-    haut: 8.81
+    central: 11.36
+    bas: 7.37
+    haut: 11.63
     montee_en_charge:
       '2027': 0
       '2028': 1
@@ -393,7 +466,7 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: 3 * csg_capital * facteur + 3 * ttf_dixieme
+    formule: 3 * csg_capital * facteur + 3 * (ttf - ttf_03) * facteur + 3 * pfu_point * facteur
     parametres:
       csg_capital:
         valeur: 1.91
@@ -406,22 +479,44 @@ mesures:
         valeur: 1.2106
         unite: facteur
         bareme: facteur_pib_2025_2032
-      ttf_dixieme:
-        valeur: 0.3
-        unite: Md€ par dixième de point
-        source: >-
-          chiffrage/baremes.yaml, dérivation du barème ttf_rendement (passage de 0,3 % à 0,4 % : 2,5 − 2,2 Md€)
+      ttf:
+        valeur: 2.5
+        unite: Md€/an (rendement de la TTF à 0,4 %)
+        bareme: ttf_rendement
+      ttf_03:
+        valeur: 1.9
+        unite: Md€/an (produit 2024 au taux de 0,3 %)
+        bareme: ttf_rendement
+        note: >-
+          bas du barème ; 2,5 − 1,9 = 0,6 Md€, rendement marginal observé du dernier dixième (0,3 → 0,4 % en 2025), même
+          lecture que la TTF de LFI (méthode commune)
+      pfu_point:
+        valeur: 0.6172
+        unite: Md€ par point de la part IR du PFU (2025)
+        source: https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Recettes-fiscales.pdf
+        note: >-
+          Cour des comptes, NEB 2025 Recettes fiscales, tableau n° 3 (p. 15) : « Prélèvement forfaitaire unique 7,5 7,9 »
+          (Md€, 2024 et 2025) ; 7,9 / 12,8 points = 0,617 Md€ par point, rendement statique.
     explication: >-
-      CSG sur les revenus du capital +3 points (1,91 Md€ par point en 2025, projeté en 2032) et TTF de 0,4 % à 0,7 %
-      (3 dixièmes à 0,3 Md€, haut 2,5/4 = 0,625 Md€). Bas : rendement 2025 non projeté.
+      CSG sur les revenus du capital +3 points (1,91 Md€ par point en 2025, projeté en 2032), TTF de 0,4 % à 0,7 % (3
+      dixièmes au rendement marginal observé du dernier relèvement, 2,5 − 1,9 = 0,6 Md€ par dixième selon le barème
+      ttf_rendement, projeté : 2,18, même méthode que la TTF de LFI) et part IR du PFU de 12,8 % à 15,8 % (3 × 0,617
+      Md€, projeté) : 6,94 + 2,18 + 2,24 = 11,36. Bas : rendements 2025 non projetés, TTF au bas du barème (1,9 Md€, soit 3 × 1,9 / 4 × 0,5 = 0,71) et moitié
+      de la recette de PFU perdue par la baisse des distributions (convention, la réforme de 2018 ayant fortement accru
+      les dividendes selon France Stratégie, barème pfu_passage_bareme) : 5,73 + 0,71 + 0,93 = 7,37. Haut : TTF statique
+      au haut du barème (2,7 Md€ en année pleine à 0,4 %, 3 × 2,7 / 4 × 1,2106 = 2,45) : 6,94 + 2,45 + 2,24 = 11,63.
   effets_retour: Baisse des distributions de dividendes et des transactions (non comptée au-delà de la borne TTF).
   confiance: moyenne
   verification:
-    statut: conteste
-    par: verificateur-sonnet
+    statut: corrige
+    par: passe-sources
     date: "2026-09-29"
     commentaire: >-
-      Citation vérifiée (PDF, extraits assemblés). Le programme liste séparément « augmenter le taux de CSG
+      Passe-sources : contestation tranchée par la synthèse PLF 2026 du groupe parlementaire
+      (https://ecologisteetsocial.fr/wp-content/uploads/2025/10/Synthese-PLF2026-2-1.pdf : « Hausse de 3 points de la
+      flat tax (de 12,8% à 15,8%) ») : la hausse du PFU porte sur la part IR et s'ajoute à celle de la CSG. Rendement d'un
+      point de PFU lu à la Cour des comptes (NEB 2025 : PFU 7,9 Md€ en 2025). 7,84 → 10,08 (bas 6,63 → 7,56 ; haut 8,81
+      → 11,05). Trace précédente (verificateur-sonnet, conteste) : Citation vérifiée (PDF, extraits assemblés). Le programme liste séparément « augmenter le taux de CSG
       sur les revenus du capital de 3 points » et « augmenter la flat tax (PFU) de 3 points ». Le chiffrage
       lit la seconde comme incluse dans la première ; la lecture naturelle d'une liste de deux actions est
       cumulative (la hausse de PFU portant alors sur la part IR de 12,8 %), ce qui ajouterait environ 2 à 3
@@ -429,6 +524,13 @@ mesures:
       pas. Paramètres relus : CSG capital 1,91 Md€ par point (CCSS mai 2026) ; TTF 0,3 Md€ par dixième. La
       LFSS 2026 (CSG capital à 10,6 %) ne change pas le rendement du point additionnel. Valeurs inchangées.
       Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2025_2032 ; valeur inchangée.
+      Recalé sur les barèmes sourcés du 29/09 : rendement TTF recopié (0,3 Md€ par dixième, « 2,5 − 2,2 ») relié au
+      barème ttf_rendement (2,5 ; 1,9 à 2,7) avec une réaction des volumes de moitié au central et au bas ; central
+      10,08 → 10,12 ; bas 7,56 → 7,37 ; haut 11,05 → 11,2. Le rendement du point de PFU (Cour des comptes) ne dépend
+      pas du barème pfu_passage_bareme (inchangé). Harmonisation avec la TTF de LFI (même barème, même méthode) : rendement
+      marginal observé 2,5 − 1,9 = 0,6 Md€ par dixième, projeté en 2032, au central (au lieu de la moitié du rendement
+      statique non projetée) ; bas inchangé (moitié du statique sur le bas du barème) ; haut statique projeté. Central
+      10,12 → 11,36 ; haut 11,2 → 11,63.
 - id: impot-revenu-reforme
   libelle: >-
     Baisse de l'IR sur les premières tranches, tranche à 60 % au-delà de 250 000 €, plafonnement global des niches par
@@ -488,9 +590,9 @@ mesures:
   chiffrable: true
   nature: recette
   effet_solde_primaire:
-    central: 19.11
-    bas: 11.79
-    haut: 19.55
+    central: 18.24
+    bas: 11.3
+    haut: 18.68
     montee_en_charge:
       '2027': 0
       '2028': 1
@@ -510,31 +612,41 @@ mesures:
         unite: facteur
         bareme: facteur_pib_2025_2032
       retour_ir:
-        valeur: 0.12
+        valeur: 0.16
         unite: part du rendement du point de CSG perdue en impôt sur le revenu
-        source: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS%20mai%202026_assembl%c3%a9_V2.pdf
+        bareme: retour_ir_csg_deductible
         note: >-
-          convention commune n° 5 (REFERENCE.md ; limites du barème csg_point) : un point de CSG déductible modifie le revenu
-          imposable et l'IR de 10 à 15 % de son rendement, en sens inverse ; point médian 0,12
+          ratio de 2018 (3,9 Md€ d'IR pour 22,5 Md€ de CSG déductible, tous revenus), ajusté pour le barème d'IR de 2020 :
+          0,16 (0,14 à 0,185) ; une hausse de CSG déductible réduit l'IR d'autant
     explication: >-
       Un point de CSG toutes assiettes (17,94 Md€ en 2025, barème csg_point) projeté en 2032, net de la baisse d'IR induite
-      par la part déductible (convention commune n° 5 : 10 à 15 %, 12 % au centre). Bas : point sur les seuls revenus d'activité
-      (barème csg_point_activite, 11,71 Md€ en 2026 × facteur_pib_2026_2032), si la progressivité exonère de fait les petits
-      revenus de remplacement, retour de 15 %. Haut : toutes assiettes, retour de 10 %.
+      par la part déductible (barème retour_ir_csg_deductible : 16 %, 14 à 18,5 %) : 17,94 × 1,2106 × 0,84 = 18,24. Bas :
+      point sur les seuls revenus d'activité (barème csg_point_activite, 11,71 Md€ en 2026 × facteur_pib_2026_2032), si la
+      progressivité exonère de fait les petits revenus de remplacement, retour de 18,5 % : 11,30. Haut : toutes assiettes,
+      retour de 14 % : 18,68.
   effets_retour: 'Baisse du revenu disponible, effet sur la consommation : non compté.'
   confiance: moyenne
   verification:
     statut: corrige
-    par: verificateur-sonnet
+    par: passe-sources
     date: "2026-09-29"
     commentaire: >-
-      Citation vérifiée. Point de CSG 17,94 Md€ relu dans le tableau CCSS 2026 (activité 12,03,
+      Passe-sources : valeur de point relue dans le rapport CCSS de mai 2026 (p. 55, tableau des valeurs de point : «
+      CSG totale 17 550 17 940 17 770 », M€ 2024, 2025, 2026 p ; « Activité 11 760 12 030 11 710 ») ; arithmétique
+      rejouée (17,94 × 1,2106 × 0,88 = 19,11). Le retour d'IR de 12 % reste une convention commune (aucune source
+      administrative). La progressivité est supposée neutre en moyenne : un barème progressif qui exonère le bas de
+      l'échelle rapporte moins si le taux du haut n'est pas relevé d'autant, ce que couvre le bas (point d'activité
+      seul). Le programme vise l'équilibre de la CNAM, pas un montant. Valeurs inchangées. Trace précédente
+      (verificateur-sonnet, corrige) : Citation vérifiée. Point de CSG 17,94 Md€ relu dans le tableau CCSS 2026 (activité 12,03,
       remplacement 3,9, capital 1,91). Réserves : la déductibilité partielle de la CSG de l'IR n'est pas
       retranchée (-1 à -2 Md€) et les revenus de remplacement sont en partie exonérés ou à taux réduit,
       donc 3,9 Md€ par point est un majorant ; le bas (activité seule, 14,56) couvre ces deux réserves.
       Progressivité supposée neutre en moyenne. Recalé sur les conventions communes du 29/09 : retour d'IR de
       la CSG déductible retranché (12 %, fourchette 10-15 %), bas sur le point d'activité 2026 (11,71) projeté
-      par facteur_pib_2026_2032 ; 21,72 → 19,11 (bas 14,56 → 11,79 ; haut 21,72 → 19,55).
+      par facteur_pib_2026_2032 ; 21,72 → 19,11 (bas 14,56 → 11,79 ; haut 21,72 → 19,55). Recalé sur les barèmes
+      sourcés du 29/09 : retour d'IR 0,12 (0,10-0,15) remplacé par le barème retour_ir_csg_deductible 0,16
+      (0,14-0,185 ; hausse = recette, borne défavorable à 0,185) ; central 19,11 → 18,24 ; bas 11,79 → 11,3 ;
+      haut 19,55 → 18,68.
 - id: exonerations-cotisations-rationalisation
   libelle: >-
     Suppression des allègements de cotisations au-delà de 1,6 SMIC et sur les heures supplémentaires, montants nominalisés
@@ -558,9 +670,9 @@ mesures:
   chiffrable: true
   nature: recette
   effet_solde_primaire:
-    central: 7.86
-    bas: 6.46
-    haut: 9.26
+    central: 19.51
+    bas: 15.81
+    haut: 19.9
     montee_en_charge:
       '2027': 0
       '2028': 1
@@ -569,7 +681,7 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: (hs_salariale + hs_patronale) * facteur26 + au_dela_1_6_smic
+    formule: (hs_salariale + hs_patronale) * facteur26 + part_au_dela_1_6_smic * allegements * f25
     parametres:
       hs_salariale:
         valeur: 2.306
@@ -586,31 +698,72 @@ mesures:
         unite: facteur
         bareme: facteur_pib_2026_2032
         note: PIB nominal 2026→2032
-      au_dela_1_6_smic:
-        valeur: 4.1
-        unite: Md€/an
-        source: >-
-          https://www.strategie-plan.gouv.fr/publications/mission-bozio-wasmer-politiques-dexonerations-de-cotisations-sociales-une-inflexion
+      part_au_dela_1_6_smic:
+        valeur: 0.172
+        unite: part du coût des allègements généraux (RGDU 2026) portée par les salaires supérieurs à 1,6 Smic
+        source: https://www.strategie-plan.gouv.fr/files/files/Publications/2024/SMIC/FS-2025-SMIC-RAPPORT-2024-12f%C3%A9v25.pdf
         note: >-
-          milieu de la fourchette 2,7 à 5,5 Md€ de gain du scénario central Bozio-Wasmer (suppression des taux réduits
-          maladie et famille au-delà de 1,6 Smic) ; proxy
+          Groupe d'experts sur le Smic, rapport 2024, p. 80, graphique I.27 (DSS, données Urssaf, 2023) : coût des
+          allègements par tranche de 0,1 Smic (réduction générale, taux réduit maladie de 6 points jusqu'à 2,5 Smic,
+          taux réduit famille de 1,8 point jusqu'à 3,5 Smic ; par exemple 1,8 et 0,5 Md€ pour [1,6-1,7[, 0,8 et 0,2
+          Md€ pour [2,4-2,5[). La masse salariale de chaque tranche s'en déduit (taux réduit maladie / 0,06, ou famille
+          / 0,018 au-delà de 2,5 Smic) ; on lui applique le barème de la réduction générale dégressive unique de 2026
+          (coefficient = 0,02 + 0,3821 × [(1/2) × (3 Smic / rémunération − 1)]^1,75 jusqu'à 3 Smic, service-public.fr,
+          fiche F24542). Coût RGDU reconstitué : 73,3 Md€ sur les masses de 2023, dont 12,6 au-dessus de 1,6 Smic (part
+          0,172) et 4,5 au-dessus de 2 Smic (part 0,061). Recoupement : 1,2 Md€ au-dessus de 2,5 Smic, contre « 1
+          milliard d'euros pour une sortie du dispositif à 2,5 Smic » (Cour des comptes, RALFSS mai 2025, repris par le
+          Sénat, rapport n° 901)
+      allegements:
+        valeur: 75.6
+        unite: Md€/an (2025)
+        bareme: allegements_generaux_cout
+      f25:
+        valeur: 1.2106
+        unite: facteur PIB nominal 2025→2032
+        bareme: facteur_pib_2025_2032
     explication: >-
       Suppression des exonérations de cotisations sur les heures supplémentaires (salariale et patronale, pas l'IR) et
-      des allègements au-delà de 1,6 Smic (proxy Bozio-Wasmer, dont le scénario modifiait aussi le bas de l'échelle).
+      des allègements généraux sur les salaires supérieurs à 1,6 Smic. Méthode commune aux promesses de suppression
+      des allègements au-dessus d'un seuil (même méthode pour LFI au-dessus de 2 Smic) : part du coût de la RGDU de
+      2026 portée par les salaires au-dessus du seuil (0,172, reconstituée sur la distribution des allègements par
+      tranche de Smic publiée par le Groupe d'experts sur le Smic), appliquée au coût des allègements généraux
+      (barème allegements_generaux_cout, 75,6 Md€ en 2025, stable en 2026 après le gel du Smic de référence) et
+      projetée en 2032 : (2,306 + 0,872) × 1,1842 + 0,172 × 75,6 × 1,2106 = 3,76 + 15,74 = 19,51. Lecture littérale
+      (exonérations nulles au-dessus de 1,6 Smic, barème inchangé en dessous). Bas : coût bas des allègements (72,3)
+      et moindre IS sur les allègements supprimés (retour de 20 % : 0,4 Md€ d'IS pour 2 Md€ d'allègements en moins
+      en 2025, Sénat, rapport n° 901), 3,76 + 0,172 × 72,3 × 1,2106 × 0,8 = 15,81. Haut : coût haut des allègements
+      (77,5) : 19,90. Le rapport Bozio-Wasmer (12,2 Md€, p. 203) n'est plus utilisé : il chiffre, sur le barème de
+      2024, la suppression des bandeaux maladie et famille avec extension de la réduction générale jusqu'à 1,88 Smic,
+      soit une réforme qui touche aussi les salaires inférieurs au seuil et un barème qui n'existe plus. Lecture non
+      retenue : un barème lissé qui s'éteindrait à 1,6 Smic (comme la réduction générale d'avant 2024) rapporterait
+      ≈ 35 Md€ sur les masses de 2023, mais réduirait aussi les exonérations sous 1,6 Smic, contraire à la promesse.
+      La hausse du Smic promise par ailleurs (2 000 € brut) relève le seuil en euros et réduit un peu l'assiette : non
+      déduit.
   effets_retour: >-
     Effet emploi faible au-delà de 1,6 Smic selon Bozio-Wasmer ; hausse du coût du travail, possible baisse d'IS : non
     comptés.
   confiance: faible
   verification:
-    statut: ok
-    par: verificateur-sonnet
+    statut: corrige
+    par: passe-sources
     date: "2026-09-29"
     commentaire: >-
-      Citation vérifiée. Barème hs_exoneration_cout relu (salariale 2,306 ; déduction patronale 0,872 Md€,
+      Passe-sources : erreur de lecture corrigée. Les « 2,7 à 5,5 Md€ » du rapport Bozio-Wasmer (p. 11 et 29) sont un
+      gain de masse salariale d'un scénario à budget constant, pas une économie budgétaire. Le même rapport chiffre la
+      suppression des bandeaux au-delà de ≈ 1,9 Smic à 12,2 Md€ ex ante (p. 203) ; ramenée au coût 2026 des allègements
+      (RGDU, PLFSS 2026 annexe 4) et projetée : 7,86 → 16,53 Md€ (bas 6,46 → 8,73 ; haut 9,26 → 18,21). Effet emploi
+      (−61 870 ETP selon Bozio-Wasmer) non compté (règle 3). Trace précédente (verificateur-sonnet, ok) : Citation
+      vérifiée. Barème hs_exoneration_cout relu (salariale 2,306 ; déduction patronale 0,872 Md€,
       PLFSS 2026 annexe 4). Le proxy Bozio-Wasmer (2,7 à 5,5 Md€ pour les taux réduits au-delà de 1,6 Smic)
       est ancien et antérieur à la RGDU de 2026 : incertitude à ce niveau, portée par la fourchette.
       Désindexation et conditionnalité non comptées (prudent).
       Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2026_2032 ; valeur inchangée.
+      Recalé sur les barèmes sourcés du 29/09 : méthode commune aux suppressions d'allègements au-dessus d'un seuil
+      (Tondelier 1,6 Smic, LFI 2 Smic). Le proxy Bozio-Wasmer (12,2 Md€, barème 2024, suppression des bandeaux et
+      extension de la réduction générale à 1,88 Smic, relu p. 203) est remplacé par la part du coût de la RGDU de
+      2026 portée par les salaires au-dessus de 1,6 Smic (0,172, graphique I.27 du Groupe d'experts Smic et barème
+      RGDU de service-public.fr), appliquée au barème allegements_generaux_cout projeté ; moindre IS (20 %) dans le
+      bas. Central 16,53 → 19,51, bas 8,73 → 15,81, haut 18,21 → 19,90.
 - id: tva-verte
   libelle: >-
     TVA différenciée selon l'impact environnemental et sanitaire (baisse sur première nécessité, bio, réparation, transports
@@ -665,16 +818,29 @@ mesures:
   estimation_indicative:
     central: 1.5
     bas: 0.3
-    haut: 4.0
-    lecture: Taux réduits fossiles (gazole routier des transporteurs, kérosène intérieur…) convertis en aides forfaitaires
-      plus faibles, malus au poids abaissé, taxe sur les bouteilles plastiques ; la taxe sur les superprofits est temporaire
-      et le fonds France Verte 2040 non doté. Sans double compte avec depenses-inutiles-fossiles (abattement des retraités).
-      Ordre de grandeur non sourcé. Le chiffre de 15 Md€ de subventions à la pollution est celui du groupe parlementaire,
-      non relu.
+    haut: 4.5
+    lecture: 'Assiette : taux réduits d''accise sur les produits fossiles recensés par le budget vert du PLF 2026 (rapport
+      sur l''impact environnemental du budget de l''État, octobre 2025) : « tarifs réduits d''accise en faveur du transport
+      routier de marchandises (1,2 Md€) », « tarif réduit des gazoles non routiers autres que celui utilisé pour les usages
+      agricoles (0,5 Md€ […]) », « tarifs réduits pour les gaz naturels utilisés dans les installations grandes consommatrices
+      d''énergie (0,6 Md€ en PLF 2026) » et, pour l''agriculture, remboursement « pour les gazoles, les fiouls lourds et les
+      gaz de pétrole liquéfiés utilisés pour les travaux agricoles et forestiers représentant 1,7 Md€ », soit 4,0 Md€. Convention
+      : la transformation en « aides forfaitaires » rend 30 % de ces niches (1,2 Md€), parce que la promesse maintient une
+      aide ; malus au poids abaissé et taxe sur les bouteilles plastiques : 0,3 Md€ (convention). Central 1,5. Bas : 5 %
+      des niches, aides forfaitaires presque équivalentes (0,3). Haut : suppression sans compensation (4,0) plus 0,5 pour
+      le malus et les bouteilles. La taxe sur les superprofits est temporaire et le fonds France Verte 2040 non doté ;
+      pas de double compte avec depenses-inutiles-fossiles (abattement des retraités seul).'
     sources:
-    - depenses_fiscales_total
-    - ticpe_centime_litre
+    - https://www.assemblee-nationale.fr/dyn/dyn/contenu/visualisation/1089981/file/4-BV_PLF%202026%20VF2-1.pdf
     - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
+  verification:
+    statut: corrige
+    par: passe-sources
+    date: '2026-09-29'
+    commentaire: 'Passe-sources : assiette des niches fossiles relue dans le budget vert du PLF 2026 (4,0 Md€ de taux réduits
+      d''accise), qui remplace les renvois génériques aux barèmes ; la part rendue par la transformation en aides forfaitaires
+      reste une convention. Central inchangé (1,5), bas inchangé (0,3), haut 4,0 → 4,5. Le chiffre de 15 Md€ du groupe parlementaire
+      n''est pas utilisé. Trace précédente : ordre de grandeur non sourcé.'
 - id: fiscalite-aerien
   libelle: Hausse de la taxe sur les billets d'avion et de la TVA sur les billets, interdiction des jets privés
   domaine: fiscalite
@@ -721,15 +887,33 @@ mesures:
     Trop vague pour être chiffré.
   sens_probable: cout
   estimation_indicative:
-    central: -1.5
-    bas: -5.0
-    haut: -0.3
-    lecture: 'Accise électricité ramenée vers celle du gaz (quelques €/MWh, 0,3 Md€ par €/MWh) et TVA de l''abonnement revenue
-      à 5,5 % ; bas : baisse forte de l''accise ; haut : unification par hausse du gaz. Ordre de grandeur non sourcé.'
+    central: -4.9
+    bas: -5.7
+    haut: -0.8
+    lecture: 'Écart des socles d''accise (ministère de la Transition écologique, « Guide 2026 sur la fiscalité des énergies
+      ») : électricité, ménages et assimilés, « Dont socle inflaté 25,09 25,19 24,69 » €/MWh (dernier tarif : 1er août 2026
+      – 31 janvier 2027), puis −0,4 €/MWh au 1er février 2027 (LFI 2026, art. 71, même guide) : 24,29 ; gaz naturel combustible,
+      socle 10,73 €/MWh (16,66 − brique ZNI 5,93, même guide). Lecture retenue (« Diminuer la fiscalité sur l''électricité
+      en unifiant le socle ») : socle électrique abaissé au niveau du gaz, −13,56 €/MWh × 0,30 Md€ par €/MWh (barème accise_electricite_1_euro_mwh)
+      = 4,1 Md€. TVA de l''abonnement : la Cour des comptes (NEB 2025, recettes fiscales) attribue « + 0,5 Md€ » en 2025 à
+      « la fin du taux réduit sur les abonnements à l''électricité et au gaz », sur cinq mois (1er août 2025) ; convention
+      : ≈ 0,8 Md€ en année pleine pour la seule électricité (0,5 à 1,2). Central −(4,1 + 0,8) = −4,9. Bas : haut du barème
+      d''accise (0,33, TVA induite comprise) et 1,2 Md€ pour l''abonnement, −5,7. Haut (convention) : convergence à mi-chemin,
+      la hausse du socle gaz compensant l''essentiel de la baisse électrique, et TVA de l''abonnement seule, −0,8. Les baisses
+      d''accise de 2025 compensaient déjà la hausse de TVA de l''abonnement (même guide).'
     sources:
+    - https://www.ecologie.gouv.fr/sites/default/files/documents/Guide%202026%20sur%20fiscalit%C3%A9%20des%20%C3%A9nergies%202026.pdf
+    - https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Recettes-fiscales.pdf
     - accise_electricite_1_euro_mwh
-    - tva_energie_electricite_5_5
     - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
+  verification:
+    statut: corrige
+    par: passe-sources
+    date: '2026-09-29'
+    commentaire: 'Passe-sources : l''écart entre socles (13,56 €/MWh) relu dans le guide 2026 de la fiscalité des énergies
+      ; l''hypothèse précédente (« quelques €/MWh ») le sous-estimait. Central −1,5 → −4,9, bas −5,0 → −5,7, haut −0,3 → −0,8.
+      Le sens de l''unification (baisse de l''électricité, hausse du gaz, ou les deux) reste ambigu : c''est ce que couvre
+      la fourchette. Trace précédente : ordre de grandeur non sourcé.'
 - id: depenses-inutiles-fossiles
   libelle: >-
     Économies annoncées (baisse des subventions à l'enseignement privé, CIR recentré sur PME/ETI, suppression de l'abattement
@@ -854,9 +1038,15 @@ mesures:
   confiance: faible
   verification:
     statut: ok
-    par: verificateur-sonnet
+    par: passe-sources
     date: "2026-09-29"
     commentaire: >-
+      Passe-sources : chiffres de la note statistique du ministère de l'Enseignement supérieur et de la Recherche « Le
+      crédit d'impôt recherche en 2023 (provisoire) » (créance 7,8 Md€, grandes entreprises « 41 % de la créance »),
+      recoupés par la dépêche AEF (https://www.aefinfo.fr/depeche/742717-en-2023-le-montant-du-credit-dimpot-recherche-seleve-a-78-md-donnees-provisoires-du-mesre)
+      ; la page du ministère renvoie une erreur 403 aux outils automatiques, le relais financeinnovation.fr est donc
+      conservé. La LFI 2025 a déjà resserré l'assiette du CIR (quelques centaines de M€) : le gain 2032 est un peu
+      surestimé, dans la fourchette (bas 0). Valeurs inchangées. Trace précédente (verificateur-sonnet, ok) :
       Citation vérifiée. 41 % de la créance CIR de 7,8 Md€ (2023) vont aux grandes entreprises : source
       relue. Économie brute avant le cofinancement à 50 % et les 1 000 chaires non chiffrés, d'où bas = 0.
       Confiance faible ; pas de double compte avec la ligne dépenses inutiles (qui n'inclut pas le CIR).
@@ -976,9 +1166,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -2.09
-    bas: -7.43
-    haut: -1.62
+    central: -6.08
+    bas: -11.49
+    haut: -2.09
     montee_en_charge:
       '2027': 0.5
       '2028': 1
@@ -1006,7 +1196,7 @@ mesures:
           plan/hypotheses.yaml, déflateur du PIB 2027 (FMI WEO) https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
         note: revalorisation légale supposée du Smic au 1er janvier 2027
       cout_1pct:
-        valeur: 0.31
+        valeur: 0.9
         unite: Md€/an de moindre solde par point de % de hausse du Smic
         bareme: smic_1pct_cout_apu
       facteur:
@@ -1014,12 +1204,18 @@ mesures:
         unite: facteur
         bareme: facteur_pib_2025_2032
     explication: >-
-      Hausse de 5,6 % par rapport au Smic revalorisé de l'inflation en 2027, × coût APU d'un point de Smic (allègements,
-      masse salariale publique, prestations, nets des recettes induites ; DG Trésor), projeté en 2032.
+      Hausse de 5,6 % par rapport au Smic revalorisé de l'inflation en 2027, × coût APU d'un point de Smic (barème
+      smic_1pct_cout_apu, 0,9 Md€ : allègements au barème RGDU, masse salariale publique, prestations, nets des recettes
+      induites), projeté en 2032 : 5,58 × 0,9 × 1,2106 = 6,08. Bas : sensibilité haute (1,7, effet barème RGDU entier) :
+      11,49. Haut : sensibilité basse (0,31, DG Trésor 2017 avant la RGDU) : 2,09. Hausse inférieure à 10 % : pas de
+      majoration (convention 7). Masse salariale publique : le relèvement du minimum de traitement au-delà de l'inflation
+      n'est pas couvert par l'indexation du point (point-indice-fonctionnaires) : pas de double compte ; les +10 % des
+      catégories B et C peuvent en absorber une partie (recouvrement ≤ 0,25 Md€ par point de Smic,
+      soit ≤ 1,7 Md€ en 2032, non retranché).
   effets_retour: 'Effet sur l''emploi peu qualifié (négatif) et sur la consommation (positif) : non comptés.'
   confiance: moyenne
   verification:
-    statut: ok
+    statut: corrige
     par: verificateur-sonnet
     date: "2026-09-29"
     commentaire: >-
@@ -1029,6 +1225,8 @@ mesures:
       est lue comme un relèvement de niveau ensuite indexé (écart constant), ce qui est écrit dans
       l'interprétation. Baisse du taux réduit d'IS et de la taxe sur les salaires non comptée.
       Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2025_2032 ; valeur inchangée.
+      Recalé sur les barèmes sourcés du 29/09 : smic_1pct_cout_apu 0,31 → 0,9 Md€ par point (bornes 0,31-1,7) ;
+      central −2,09 → −6,08 ; bas −7,43 → −11,49 ; haut −1,62 → −2,09.
 - id: point-indice-fonctionnaires
   libelle: >-
     Point d'indice indexé sur l'inflation, +10 % pour les catégories C, B et A ayant perdu du pouvoir d'achat
@@ -1054,14 +1252,14 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -33.22
-    bas: -37.77
-    haut: -27.4
+    central: -23.91
+    bas: -27.5
+    haut: -19.73
     montee_en_charge:
       '2027': 0.081
       '2028': 0.257
       '2029': 0.442
-      '2030': 0.629
+      '2030': 0.63
       '2031': 0.813
       '2032': 1.0
   calcul:
@@ -1072,11 +1270,11 @@ mesures:
         unite: '%'
         source: https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
       point_1pct_2032:
-        valeur: 2.59
+        valeur: 1.86
         unite: Md€ courants 2032 par an pour 1 % de hausse, brut hors cotisations employeurs
         bareme: point_indice_1pct_2032
       indexation:
-        valeur: 28.6
+        valeur: 20.6
         unite: Md€ courants 2032 par an, rémunérations brutes hors cotisations employeurs
         bareme: indexation_point_indice_2027_2032
       retours:
@@ -1087,23 +1285,32 @@ mesures:
         valeur: 0.61
         unite: part des agents
         source: https://www.fonction-publique.gouv.fr/files/files/publications/vue-rapport-annuel/ra_2025_vue_emploi_caracteristiques_postes.pdf
-        note: 39 % de catégorie A, 22 % de B, 39 % de C en 2023 (DGAFP)
+        note: >-
+          DGAFP, rapport annuel 2025 : « En 2023, la fonction publique est composée de 39 % d'agents de catégorie A, de 22
+          % d'agents de catégorie B et de 39 % d'agents de catégorie C » (part d'effectifs, majorant de la part de masse
+          salariale)
     explication: 'Convention commune (REFERENCE.md, point 2), sans projection par le PIB (point gelé à droit constant),
-      montants bruts hors cotisations employeurs : (1) +10 % pour les catégories B et C (61 % des agents) : 10 × 2,59 Md€
-      (point_indice_1pct_2032) × 0,61 = 15,8 Md€ ; (2) indexation du point sur l''inflation 2027-2032 (barème
-      indexation_point_indice_2027_2032) : 28,6 Md€ ; (3) effet croisé (la hausse de 10 % s''applique à une masse indexée)
-      : 0,10 × 0,61 × 28,6 = 1,7 Md€. Total brut 46,1 Md€, net des prélèvements en retour (× 0,72) : 33,2 Md€. Bas : haut
-      des barèmes (2,68 ; 30,8, indexation sur les prix à la consommation), retour 0,25 et pensions induites (≈ 1 Md€) :
-      −(49,0 × 0,75 + 1,0) = −37,8. Haut : bas des barèmes (2,5 ; 23,6), retour 0,32 : −40,3 × 0,68 = −27,4. Montée en
+      montants bruts hors cotisations employeurs : (1) +10 % pour les catégories B et C (61 % des agents) : 10 × 1,86 Md€
+      (point_indice_1pct_2032) × 0,61 = 11,3 Md€ ; (2) indexation du point sur l''inflation 2027-2032 (barème
+      indexation_point_indice_2027_2032) : 20,6 Md€ ; (3) effet croisé (la hausse de 10 % s''applique à une masse indexée)
+      : 0,10 × 0,61 × 20,6 = 1,3 Md€. Total brut 33,2 Md€, net des prélèvements en retour (× 0,72) : 23,9 Md€. Bas : haut
+      des barèmes (1,93 ; 22,2, indexation sur les prix à la consommation), retour 0,25 et pensions induites (≈ 1 Md€) :
+      −(35,3 × 0,75 + 1,0) = −27,5. Haut : bas des barèmes (1,80 ; 17,0), retour 0,32 : −29,0 × 0,68 = −19,7. Montée en
       charge : +10 % en cinq ans (0 / 0,2 / 0,4 / 0,6 / 0,8 / 1), indexation au profil imposé par le barème (0,13 / 0,30
       / 0,48 / 0,66 / 0,83 / 1), pondérées par leur poids brut.'
   confiance: faible
   verification:
     statut: corrige
-    par: verificateur-sonnet
+    par: passe-sources
     date: "2026-09-29"
     commentaire: >-
-      Citation vérifiée. Indexation du point sur l'inflation coûtant 11,03 % × 2,5 Md€ (point gelé en
+      Passe-sources : part B + C (61 %) relue verbatim dans le rapport annuel DGAFP 2025 ; barèmes point_indice_1pct_2032
+      (FIPECO 2026 : « soit un total de 2,5 Md€ ») et indexation_point_indice_2027_2032 relus, arithmétique rejouée
+      (−33,22). Deux biais de sens opposé, non tranchables faute de masse salariale publique par catégorie publiée
+      : la part d'effectifs surestime la part de masse salariale de B et C (coût surestimé de 10 à 20 % sur le volet
+      +10 %, 1,1 à 2,3 Md€ net) ; les catégories A « qui ont perdu en pouvoir d'achat » sont exclues (coût sous-estimé).
+      Les deux sont dans la fourchette. Valeurs inchangées. Trace précédente (verificateur-sonnet, corrige) : Citation
+      vérifiée. Indexation du point sur l'inflation coûtant 11,03 % × 2,5 Md€ (point gelé en
       référence, REFERENCE.md, à droit constant) : cohérent. Pas de double compte avec les enseignants +15
       % (hausse réelle hors inflation, additive) ni avec les chercheurs (non comptés). Réserve : la part de
       61 % pour les catégories B et C est une part d'effectifs (DGAFP) ; en masse salariale la catégorie A
@@ -1113,6 +1320,9 @@ mesures:
       indexation_point_indice_2027_2032 (bruts hors cotisations employeurs, sans projection PIB), retour
       0,28 (aucun retour n'était déduit), effet croisé 10 % × indexation compté, pensions induites en bas,
       profil d'indexation imposé ; −44,73 → −33,22 (bas −50,49 → −37,77 ; haut −41,42 → −27,4).
+      Recalé sur les barèmes sourcés du 29/09 : point_indice_1pct_2032 2,59 → 1,86 Md€ (bornes 1,80-1,93),
+      indexation_point_indice_2027_2032 28,6 → 20,6 Md€ (bornes 17,0-22,2), effet croisé 0,10 × 0,61 × 20,6 ;
+      central −33,22 → −23,91 ; bas −37,77 → −27,5 ; haut −27,4 → −19,73 (convention 12).
 - id: securite-sociale-professionnelle
   libelle: >-
     Sécurité sociale professionnelle, salaire garanti deux ans en cas de perte d'emploi dans les secteurs exposés à la
@@ -1166,17 +1376,31 @@ mesures:
     du congé climatique par la Sécurité sociale sans paramètre de recours.
   sens_probable: cout
   estimation_indicative:
-    central: -2.0
-    bas: -5.0
-    haut: -0.5
-    lecture: 32 h sans perte de salaire pour les agents publics de nuit ou pénibles (≈ 55 000 recrutements au coût d'un entrant,
-      comme chez Mélenchon, 1,5 Md€) et part Sécurité sociale du congé climatique de 5 jours (≈ 0,5 Md€). Cohérent avec melenchon-lfi/temps-travail-35h-32h
-      (même 55 000 recrutements, 1,5 Md€) ; s'y ajoute la part Sécurité sociale du congé climatique. Effectif de métiers pénibles
-      ou de nuit non sourcé.
+    central: -1.4
+    bas: -2.7
+    haut: -0.6
+    lecture: 'Convention (aucune source publique accessible ne donne l''effectif des agents publics de nuit ou en métier pénible
+      ; la DREES, panorama 2014, indique qu''environ la moitié des infirmiers et aides-soignants hospitaliers travaillent
+      de nuit, page non accessible lors de la vérification) : passer de 35 h à 32 h sans perte de salaire impose de recruter
+      35/32 − 1 = 9,4 % d''effectifs sur les postes concernés. Central : 40 % des 1,24 million d''agents de la FPH (barème
+      fp_effectifs_fph), soit 46 500 recrutements au coût d''un entrant (23 700 €, cout_soignant_hospitalier_apu) = 1,10 Md€,
+      plus 0,3 Md€ pour la part Sécurité sociale du « congé climatique » de 5 jours au plus (recours inconnu, convention
+      0,1 à 0,5). Bas : 60 % de la FPH au coût de l''agent moyen (30 700 €), 2,14 Md€, plus 0,5 (sans compter police et
+      pompiers). Haut : 20 % de la FPH au bas du barème (22 400 €), 0,52 Md€, plus 0,1. Dans le privé, la mesure passe par
+      la conditionnalité des aides : pas de coût public direct compté.'
     sources:
     - fp_effectifs_fph
     - cout_soignant_hospitalier_apu
     - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
+  verification:
+    statut: corrige
+    par: passe-sources
+    date: '2026-09-29'
+    commentaire: 'Passe-sources : l''analogie avec les 55 000 recrutements du chiffrage Mélenchon est remplacée par une
+      convention explicite sur les effectifs de la FPH (barème) et le ratio d''heures 35/32 ; l''effectif concerné reste
+      non sourcé. Central −2,0 → −1,5, bas −5,0 → −2,7, haut −0,5 → −0,6. Trace précédente : effectif de métiers pénibles
+      ou de nuit non sourcé. Recalé sur les barèmes sourcés du 29/09 : cout_soignant_hospitalier_apu 24 500 →
+      23 700 € (bas 23 100 → 22 400 €) ; central −1,5 → −1,4 (1,10 + 0,3) ; bas −2,7 et haut −0,6 inchangés.'
 - id: assurance-chomage-abrogation-reformes
   libelle: >-
     Abrogation des réformes de l'assurance chômage depuis 2017 (dont calcul du SJR), allocations indexées sur l'inflation
@@ -1193,17 +1417,17 @@ mesures:
   precision: partielle
   interpretation: 'Coût = économies Unédic des réformes 2019, 2021, 2023, 2025 (chiffrages Unédic). Recettes compensatoires
     : bonus-malus renforcé sur les contrats courts (mesure 11), à chiffrer séparément. La réforme de février 2023
-    (contracyclicité, −25 % de durée) et celles de 2024-2025 ne sont pas chiffrées publiquement dans les sources récupérées
-    : non comptées, ce qui minore le coût. Indexation des allocations sur l''inflation : la revalorisation de l''ARE
+    (contracyclicité, −25 % de durée) est comptée (chiffrage Unédic) ; la convention de 2024 et l''avenant de 2026 ne le
+    sont pas, ce qui minore le coût. Indexation des allocations sur l''inflation : la revalorisation de l''ARE
     relève d''une délibération annuelle de l''Unédic, pas de la loi ; à droit constant (REFERENCE.md), elle est gelée
     en référence et l''indexation promise coûte les allocations × l''inflation cumulée 2027-2032. Bonus-malus renforcé
     non chiffré.'
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -6.4
-    bas: -7.05
-    haut: -1.0
+    central: -10.6
+    bas: -12.14
+    haut: -6.5
     montee_en_charge:
       '2027': 0.085
       '2028': 0.374
@@ -1212,7 +1436,7 @@ mesures:
       '2031': 0.889
       '2032': 1.0
   calcul:
-    formule: -(economies_2019_2021*facteur + allocations_2025*inflation_cumulee/100)
+    formule: -(economies_2019_2021*facteur + reforme_2023 + allocations_2025*inflation_cumulee/100)
     parametres:
       economies_2019_2021:
         valeur: 2.3
@@ -1224,6 +1448,16 @@ mesures:
         unite: facteur
         source: https://www.unedic.org/publications/evaluation-de-la-reforme-d-assurance-chomage-2019-2021
         note: montant non projeté en central
+      reforme_2023:
+        valeur: 4.2
+        unite: Md€/an (régime de croisière, 2027)
+        source: >-
+          https://www.unedic.org/storage/uploads/2023/07/19/Effets-de-ladaptation-des-rgles-dassurance-chmage--la-conjoncture---actualis_0_uid_64b7e3c56dd92.pdf
+        note: >-
+          Unédic, « Effets de l'adaptation des règles d'assurance chômage à la conjoncture » (actualisé le 17 avril 2023) :
+          « En régime de croisière, à horizon 2027, les moindres dépenses d'allocation atteindraient 4,2 Md€ auxquelles
+          s'ajoutent les moindres versements aux caisses de retraite complémentaire de 0,3 Md€ » ; ces 0,3 Md€ vont à
+          d'autres administrations publiques (Agirc-Arrco) et sont neutres pour le solde.
       allocations_2025:
         valeur: 37.2
         unite: Md€ (2025)
@@ -1234,16 +1468,23 @@ mesures:
         unite: '% cumulés 2027-2032'
         bareme: inflation_cumulee_2027_2032
         note: 'REFERENCE.md, « Indexations : droit constant »'
-    explication: 'Coût = économies Unédic de la réforme 2019-2021 (2,3 Md€/an) + indexation des allocations sur l''inflation
-      à droit constant (37,2 Md€ × 11,03 % = 4,1 Md€). Haut : seul le calcul de l''allocation (1,0 Md€), cité explicitement,
-      sans coût d''indexation (lecture « usage constant » : l''ARE est revalorisée chaque année de fait, comme le barème de l''IR). Bas : réforme projetée en 2032 (× 1,2106) + indexation sur les allocations 2027 (38,7 Md€).'
+    explication: 'Coût = économies Unédic de la réforme 2019-2021 (2,3 Md€/an) + réforme 2023 de contracyclicité (4,2 Md€/an
+      en régime de croisière, Unédic) + indexation des allocations sur l''inflation à droit constant (37,2 Md€ × 11,03 %
+      = 4,1 Md€) = 10,6. Haut : abrogation des réformes sans coût d''indexation (lecture « usage constant » : l''ARE est
+      revalorisée chaque année de fait, comme le barème de l''IR), 6,5. Bas : réformes projetées en 2032 (× 1,2106) +
+      indexation sur les allocations 2027 (38,7 Md€), 12,14. Convention 2024 (≈ 0,4 Md€ par an selon l''Unédic) et avenant
+      de février 2026 non comptés, faute de chiffrage primaire relu.'
   confiance: faible
   verification:
     statut: corrige
-    par: verificateur-sonnet
+    par: passe-sources
     date: "2026-09-29"
     commentaire: >-
-      Citation vérifiée. Point examiné : traiter l'indexation des allocations sur l'inflation comme un
+      Passe-sources : la réforme de 2023 (durée −25 %), comprise dans les « réformes régressives adoptées lors des deux
+      derniers quinquennats », n'était pas comptée ; l'Unédic la chiffre à 4,2 Md€ par an d'allocations en régime de
+      croisière (document du 17 avril 2023, relu). −6,4 → −10,6 (bas −7,05 → −12,14 ; haut −1,0 → −6,5, la lecture « seul
+      le calcul du SJR » étant écartée : le programme vise toutes les réformes, « notamment » celle du SJR). Trace
+      précédente (verificateur-sonnet, corrige) : Citation vérifiée. Point examiné : traiter l'indexation des allocations sur l'inflation comme un
       coût. REFERENCE.md met à zéro l'indexation prévue par la loi (pensions, prestations du CSS) mais
       compte comme coût ce que la loi n'indexe pas (point d'indice). La revalorisation de l'ARE n'est pas
       dans la loi : l'Unédic (prévisions de juin 2026, encadré 2) la décrit comme « potentielle » et «
@@ -1359,8 +1600,8 @@ mesures:
   nature: depense
   effet_solde_primaire:
     central: -13.9
-    bas: -20.0
-    haut: -8.9
+    bas: -15.8
+    haut: -11.4
     montee_en_charge:
       '2027': 0
       '2028': 0.2
@@ -1375,14 +1616,15 @@ mesures:
         valeur: 13.9
         unite: Md€ courants par an (solde du système de retraite), en 2032
         bareme: retraites_retour_62_ans_2032
-    explication: 'Barème : annulation des mesures d''âge de 2023 nette du gel déjà voté jusqu''au 1er janvier 2028.'
+    explication: 'Barème : annulation des mesures d''âge de 2023 nette du gel déjà voté jusqu''au 1er janvier 2028. Bornes
+      du barème : bas −15,8 (profil Cnav porté au périmètre tous régimes), haut −11,4 (effet de l''âge seul).'
   effets_retour: 'Convention commune n° 4 : le central porte sur le solde du système de retraite. Coût pour l''ensemble
     des APU, effets d''emploi des seniors compris (non comptés, règle 3) : la DG Trésor chiffre le gain total de la réforme
     2023 à 24,2 Md€ constants 2024 en 2030 (contre 9,7 Md€ pour le seul système ; Cour des comptes, tableau n° 5), soit un
     coût complet de l''abrogation de l''ordre de 25 Md€ en 2032.'
   confiance: moyenne
   verification:
-    statut: ok
+    statut: corrige
     par: verificateur-sonnet
     date: "2026-09-29"
     commentaire: >-
@@ -1390,7 +1632,9 @@ mesures:
       suspension déjà votée = 13,9 Md€) relu ; le gel voté est bien déduit du coût. Réserve de barème : il
       s'agit du solde du système de retraite, pas de l'ensemble des APU (la Cour donne 13 Md€ contre 5,8
       Md€ pour un an d'âge en 2035), donc le coût APU est probablement sous-estimé ; la retraite à 60 ans
-      pour carrières longues n'est pas comptée. Fourchette 8,9-20.
+      pour carrières longues n'est pas comptée. Fourchette 8,9-20. Recalé sur les barèmes sourcés du 29/09 :
+      bornes ad hoc remplacées par celles du barème retraites_retour_62_ans_2032 ; central −13,9 inchangé ;
+      bas −20,0 → −15,8 ; haut −8,9 → −11,4.
 - id: retraites-petites-pensions
   libelle: Hausse du minimum contributif et de l'ASPA jusqu'au seuil de pauvreté, pensions agricoles
   domaine: retraites
@@ -1478,7 +1722,7 @@ mesures:
   effet_solde_primaire:
     central: 7.51
     bas: 5.81
-    haut: 8.1
+    haut: 7.91
     montee_en_charge:
       '2027': 0
       '2028': 0.2
@@ -1504,7 +1748,7 @@ mesures:
       commune n° 9), projeté en 2032 (facteur_pib_2025_2032, la masse salariale suit l'activité). Bas : part patronale sous
       plafond (4,8 Md€ le point, réduit par les allègements ; couvre aussi la part des employeurs publics, transfert interne
       aux APU) : 4,8 × 1,2106 = 5,81. Haut : salariale déplafonnée (7,6), nette du retour négatif sur l'IR d'une cotisation
-      salariale (× (1 − 0,12), même convention que la CSG déductible) : 7,6 × 0,88 × 1,2106 = 8,10.
+      salariale (barème retour_ir_cotisation_salariale, 0,14 pour la borne favorable) : 7,6 × 0,86 × 1,2106 = 7,91.
   effets_retour: 'Hausse du coût du travail et baisse du salaire net : non comptées.'
   confiance: moyenne
   verification:
@@ -1518,7 +1762,9 @@ mesures:
       haut ; le point déplafonné au-delà du PSS et l'épargne salariale ne sont pas comptés (recettes
       omises). Les deux écarts vont en sens contraire et restent dans 5,8-9,2. Recalé sur les conventions
       communes du 29/09 : type de cotisation non précisé lu au central du barème (convention n° 9, central
-      inchangé) ; le haut (salariale déplafonnée) est net du retour négatif sur l'IR (× 0,88) ; haut 9,2 → 8,1.
+      inchangé) ; le haut (salariale déplafonnée) est net du retour négatif sur l'IR (× 0,88) ; haut 9,2 → 8,1. Recalé sur les barèmes
+      sourcés du 29/09 : convention 0,12 remplacée par le barème retour_ir_cotisation_salariale (0,16 ; 0,14 en
+      borne favorable) ; central 7,51 et bas 5,81 inchangés ; haut 8,1 → 7,91.
 - id: garantie-autonomie-rsa
   libelle: >-
     Garantie d'autonomie remplaçant le RSA, à 50 % du SMIC net, sans contrepartie de 15 heures, ouverte dès 18 ans aux
@@ -1710,22 +1956,42 @@ mesures:
   precision: partielle
   interpretation: >-
     « Même montant » par enfant : lecture haute = montant du 2e enfant (environ 150 €) versé pour chaque enfant ; lecture
-    basse = redistribution à enveloppe constante. Majoration à 14 ans (au lieu de 18 depuis la LFSS 2026 ?) à vérifier.
+    basse = redistribution à enveloppe constante. Majoration pour âge : la LFSS 2026 et le décret n° 2026-138 du 27 février
+    2026 l'ont reportée de 14 à 18 ans pour les enfants nés à partir du 1er mars 2012 ; « revenir » à 14 ans annule cette
+    économie.
   chiffrable: false
   raison_non_chiffrable: >-
-    Lecture ambiguë (« un même montant dès le premier enfant » peut être une redistribution à enveloppe constante) et
-    nombre de familles d'un enfant ouvrant droit non récupéré.
+    Lecture ambiguë (« un même montant dès le premier enfant » peut être une redistribution à enveloppe constante ou le
+    montant par enfant des familles de deux enfants) ; la modulation selon les revenus et l'articulation avec les autres
+    prestations ne sont pas précisées.
   sens_probable: cout
   estimation_indicative:
-    central: -3.0
-    bas: -6.0
-    haut: 0.0
-    lecture: 'Allocation d''environ 75 € par mois dès le premier enfant pour ≈ 3,5 millions de familles d''un enfant, majoration
-      à 14 ans ; haut : redistribution à enveloppe constante. Ordre de grandeur non sourcé. Le nombre de familles d''un enfant
-      et le montant de 75 € ne viennent d''aucune source relue.'
+    central: -4.9
+    bas: -8.6
+    haut: -1.3
+    lecture: 'Deux volets. (1) Retour de la majoration à 14 ans : HCFEA, avril 2026, « une économie d''environ 1,28 Md€
+      après montée en charge complète » du report de 14 à 18 ans (DSS, 2030) : coût 1,28 Md€. (2) Allocation dès le premier
+      enfant : 3 578 300 familles avec un seul enfant mineur en 2023 (Insee, « Familles selon le nombre d''enfants mineurs
+      ») ; convention : « même montant » = montant par enfant d''une famille de deux enfants, 32 % / 2 = 16 % de la BMAF
+      (478,16 € au 1er avril 2026, instruction DSS/2B/2026/46), soit 76,5 € par mois ; 3,578 M × 76,5 € × 12 = 3,29 Md€,
+      revalorisé comme les prix jusqu''en 2032 (× 1,1103, inflation_cumulee_2027_2032) : 3,65 Md€. Central −(3,65 + 1,28)
+      = −4,9. Bas : 32 % de la BMAF (153 €) dès le premier enfant, −(7,29 + 1,28) = −8,6. Haut : redistribution à enveloppe
+      constante, seule la majoration coûte (−1,3). Non déduits : modulation selon les revenus, familles d''un mineur ayant
+      déjà un aîné à charge (surestimation du central).'
     sources:
-    - allocations_familiales_depense
+    - https://www.strategie-plan.gouv.fr/files/files/Publications/2026/2026-04-02%20-%20HCFEA%2014-18%20ans/HCFEA_Retour%20sur%20le%20d%C3%A9calage%20de%20la%20majoration%20pour%20%C3%A2ge%20des%20AF.pdf
+    - https://www.insee.fr/fr/statistiques/2381506
+    - https://bulletins-officiels.social.gouv.fr/instruction-interministerielle-ndeg-dss2b202646-du-20-mars-2026-relative-la-revalorisation-au-1er-avril-2026-des-prestations-familiales-servies-en-metropole-en-guadeloupe-en-guyane-en-martinique-la-reunion-saint-barthelemy-saint-martin-et
+    - inflation_cumulee_2027_2032
     - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
+  verification:
+    statut: corrige
+    par: passe-sources
+    date: '2026-09-29'
+    commentaire: 'Passe-sources : effectif (Insee), BMAF 2026 (instruction interministérielle) et coût du report de la majoration
+      (HCFEA, chiffrage DSS) relus ; le montant de 16 % de la BMAF reste une convention de lecture. Central −3,0 → −4,9,
+      bas −6,0 → −8,6, haut 0 → −1,3 (la majoration à 14 ans coûte dans toutes les lectures). Trace précédente : aucune
+      vérification (ordre de grandeur non sourcé).'
 - id: conges-parentalite-egaux
   libelle: >-
     Congé d'accueil de l'enfant de 16 semaines à 100 % pour chaque parent, congé de naissance indemnisé à 80 % et étendu
@@ -1813,17 +2079,34 @@ mesures:
     0,2 Md€) est sous le seuil de la règle 7.
   sens_probable: cout
   estimation_indicative:
-    central: -1.6
-    bas: -3.5
-    haut: -0.7
-    lecture: Suppression de la CVEC (0,21 Md€ en 2032), bourses revalorisées de ≈ 15 %, 150 000 logements en cinq ans au coût
-      public de ≈ 33 % de 80 000 € par logement (1 Md€ par an). Ordre de grandeur non sourcé. Revalorisation de 15 % des bourses
-      supposée.
+    central: -1.4
+    bas: -2.1
+    haut: -0.8
+    lecture: 'Trois volets. (1) CVEC : Sénat, rapport spécial PLF 2026 (vie étudiante) : « Au titre de l''année universitaire
+      2024-2025, 177 millions d''euros ont été collectés au titre de la CVEC » ; indexée sur l''inflation (art. L. 841-5 du
+      code de l''éducation) : 0,177 × 1,1103 = 0,20 Md€ en 2032, dépense maintenue « par la solidarité nationale ». (2) Bourses
+      : même rapport, « Les crédits dédiés aux bourses s''élèvent en 2026 à 2,320 milliards d''euros » ; convention : revalorisation
+      de 15 % (0,35 Md€), fourchette 5 à 30 % (0,12 à 0,70), le programme ne donnant pas de taux. (3) 150 000 places en cinq
+      ans, soit 30 000 par an : Cour des comptes (juillet 2025), extension de 69 300 logements étudiants à vocation sociale
+      entre 2012 et 2023 pour « un coût de construction estimé à 4,9 Md€ », soit 70 700 € par place, porté en 2032 par
+      facteur_pib_2023_2032 (90 300 €) ; aides publiques = 33 % du prix de revient (barème logement_social_aides_part_prix_revient,
+      24 à 43 %) : 0,89 Md€ par an (bas 1,17 ; haut 0,51 en euros 2012-2023 à 24 %). Central 0,20 + 0,35 + 0,89 = 1,4 ; bas
+      0,20 + 0,70 + 1,17 = 2,1 ; haut 0,20 + 0,12 + 0,51 = 0,8. Repas à 1 € élargi (libellé) non chiffré.'
     sources:
-    - droits_inscription_superieur
+    - https://www.senat.fr/rap/l25-139-323/l25-139-323_mono.html
+    - https://www.ccomptes.fr/sites/default/files/2025-07/20250703-synthese-Soutien-public-logement-etudiants.pdf
     - logement_social_aides_part_prix_revient
-    - https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/construire-15-000-logements-universitaires-supplementaires-par-an/
+    - facteur_pib_2023_2032
+    - inflation_cumulee_2027_2032
     - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
+  verification:
+    statut: corrige
+    par: passe-sources
+    date: '2026-09-29'
+    commentaire: 'Passe-sources : CVEC et crédits de bourses relus au rapport du Sénat (PLF 2026), coût par place à la
+      Cour des comptes (2025), qui remplacent la référence Institut Montaigne 2022 et le coût supposé de 80 000 €. Le taux
+      de revalorisation des bourses reste une convention. Central −1,6 → −1,4, bas −3,5 → −2,1, haut −0,7 → −0,8. Trace
+      précédente : aucune vérification (ordre de grandeur non sourcé).'
 - id: aah-plus-250
   libelle: AAH augmentée de 250 € par mois
   domaine: protection-sociale
@@ -1899,17 +2182,31 @@ mesures:
   raison_non_chiffrable: Aucune cible chiffrée (places, taux d'encadrement, revalorisations) dans le programme.
   sens_probable: cout
   estimation_indicative:
-    central: -3.0
-    bas: -9.0
-    haut: -1.0
-    lecture: 'Hausse du taux d''encadrement en Ehpad et revalorisations : ordre de grandeur des rapports Libault (≈ 9 Md€
-      à l''horizon 2030, bas) ; central d''après les 210 000 recrutements chiffrés chez Mélenchon, ramenés au tiers. Contrôle
-      : le rapport Libault (mars 2019) chiffre l''ensemble de ses mesures à près de 10 Md€ par an à l''horizon 2030 (Les Echos,
-      Ouest-France) ; la borne basse de 9 Md€ est donc cohérente, le central (un tiers) reste une hypothèse.'
+    central: -3.1
+    bas: -4.5
+    haut: -1.8
+    lecture: 'Référence : rapport Libault, « Concertation Grand âge et autonomie » (mars 2019), annexe 4, tableau des dépenses
+      publiques en « Mds € équivalent point PIB 2018 », cibles 2030 : « Taux d''encadrement en établissement 1,2 1,7 », « Rénovation
+      bâti en établissement 0,3 0,3 », « dont offre en établissement 2,3 2,9 » (objectif : « une hausse de 25 % » des effectifs
+      d''encadrement). Conversion en euros 2032 par le PIB nominal (2 355,4 Md€ en 2018, Eurostat ; 3 620,9 Md€ en 2032,
+      pib_nominal_2032) : × 1,537. Central (convention : la promesse vise encadrement et bâti, pas le reste à charge ni le
+      domicile) : (1,7 + 0,3) × 1,537 = 3,1. Bas : tout le volet établissement du rapport (2,9 × 1,537 = 4,5), qui couvre
+      aussi les revalorisations. Haut : cible d''encadrement de 2024 seulement (1,2 × 1,537 = 1,8), une partie des revalorisations
+      ayant été financée depuis (Ségur de la santé). Places nouvelles non chiffrées (aucune cible).'
     sources:
-    - cout_soignant_hospitalier_apu
+    - https://solidarites.gouv.fr/sites/solidarite/files/2022-10/rapport_grand_age_autonomie.pdf
+    - https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?geo=FR&unit=CP_MEUR&na_item=B1GQ&time=2018
+    - pib_nominal_2032
     - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
-    - https://solidarites-sante.gouv.fr/IMG/pdf/rapport_libault_mars_2019.pdf
+  verification:
+    statut: corrige
+    par: passe-sources
+    date: '2026-09-29'
+    commentaire: 'Passe-sources : rapport Libault relu sur le PDF (lien solidarites.gouv.fr ; l''ancien lien solidarites-sante.gouv.fr
+      est rejeté par le serveur). Les ≈ 9 Md€ du bas précédent (9,2 Md€) sont le besoin total du rapport, domicile et reste
+      à charge compris, hors du champ de la promesse ; le central « tiers de 210 000 recrutements » n''avait pas de source.
+      Central −3,0 → −3,1, bas −9,0 → −4,5, haut −1,0 → −1,8. Trace précédente : aucune vérification formelle (contrôle par
+      la presse, Les Echos, Ouest-France).'
 - id: loi-integrale-vss-3md
   libelle: Loi intégrale contre les violences sexistes et sexuelles dotée de 3 Md€
   domaine: justice
@@ -1996,9 +2293,10 @@ mesures:
         valeur: 2.5
         unite: Md€/an
         source: >-
-          https://www.caducee.net/actualite-medicale/16965/franchises-medicales-a-140-euros-cumules-la-hausse-se-concentre-sur-les-plus-gros-consommateurs-de-soins.html
+          https://www.ccomptes.fr/sites/default/files/2026-05/20260527-RALFSS-2026-5-Franchises-et-participations-forfaitaires-de-l-assurance-maladie.pdf
         note: >-
-          moindres dépenses générées par les franchises et participations forfaitaires en 2025 (Cour des comptes)
+          Cour des comptes, RALFSS 2026, chapitre V (mai 2026) : « Leur rendement s'est élevé à 2,5 Md€ en 2025 » (tous
+          régimes de base, dont 2,29 Md€ pour le régime général).
       facteur:
         valeur: 1.2106
         unite: facteur
@@ -2006,11 +2304,16 @@ mesures:
     explication: Suppression des franchises et participations forfaitaires (2,5 Md€ en 2025), projetée en 2032.
   confiance: faible
   verification:
-    statut: conteste
-    par: verificateur-sonnet
+    statut: ok
+    par: passe-sources
     date: "2026-09-29"
     commentaire: >-
-      Citation vérifiée. Le chiffrage ne compte que la suppression des franchises (2,5 Md€ Cour des
+      Passe-sources : rendement des franchises relu à la source primaire (Cour des comptes, RALFSS 2026, ch. V : 2,5
+      Md€ en 2025), qui remplace l'article de presse ; valeur inchangée (−3,03). La contestation ci-dessous est levée
+      par le découpage : cette ligne ne chiffre que la suppression des franchises (la fourchette porte sur ce seul
+      paramètre) ; la prise en charge à 100 % des soins essentiels est chiffrée à part en estimation indicative
+      (sante-100pct-soins-essentiels, scénario 3 du HCAAM, ≈ −33 Md€ en 2032, hors solde principal), sans double compte
+      des franchises. Trace précédente (verificateur-sonnet, conteste) : Citation vérifiée. Le chiffrage ne compte que la suppression des franchises (2,5 Md€ Cour des
       comptes). La promesse « prise en charge à 100 % des soins essentiels par l'Assurance maladie »,
       mutuelles limitées aux soins optionnels, transfère à l'Assurance maladie une part des dépenses
       aujourd'hui payées par les complémentaires (jusqu'à plus de 20 Md€ dans les scénarios Grande Sécu du
@@ -2038,15 +2341,30 @@ mesures:
     2 000 centres de santé sans coût unitaire public ; recrutements et revalorisations hospitaliers sans cible.
   sens_probable: cout
   estimation_indicative:
-    central: -1.5
-    bas: -4.0
-    haut: -0.5
-    lecture: 2 000 centres de santé (0,6 Md€ pour le plan comparable chiffré chez Mélenchon) plus recrutements et revalorisations
-      hospitalières sans cible (≈ 1 Md€). Ordre de grandeur non sourcé.
+    central: -1.3
+    bas: -3.6
+    haut: -0.4
+    lecture: 'Centres de santé : IGAS, rapport n° 2023-034R (février 2025), « Le déficit médian d''exploitation qui s''établit
+      à près de 10 % des dépenses en 2022 » ; « L''effectif médian s''établit à 21 salariés par centre, dont 6 médecins » ; les
+      centres « poly-médicaux » étudiés ont un chiffre d''affaires « compris entre 230 K€ et 2,8 M€ ». Les soins dispensés
+      sont financés par l''Assurance maladie et se substituent pour l''essentiel à des soins libéraux (non comptés). Coût
+      public retenu = déficit couvert par les collectivités ou l''ARS : convention 1,5 M€ de dépenses par centre (milieu
+      de la plage) × 10 % × 2 000 = 0,3 Md€ (0,1 à 0,6). Recrutements et revalorisations à l''hôpital sans cible : convention
+      1 Md€ (≈ 42 000 postes au coût d''entrant du barème cout_soignant_hospitalier_apu, 23 700 €), fourchette 0,3 à 3 Md€.
+      Central 0,3 + 1,0 = 1,3 ; bas 0,6 + 3,0 = 3,6 ; haut 0,1 + 0,3 = 0,4.'
     sources:
+    - https://igas.gouv.fr/sites/igas/files/2025-02/Rapport%20Igas%20%20-%20Centres%20de%20sant%C3%A9%20pluriprofessionnels_0.pdf
     - cout_soignant_hospitalier_apu
-    - https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
     - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
+  verification:
+    statut: corrige
+    par: passe-sources
+    date: '2026-09-29'
+    commentaire: 'Passe-sources : coût d''un centre de santé fondé sur le rapport de l''IGAS (déficit médian de 10 % des
+      dépenses), qui remplace l''analogie avec le contre-budget LFI ; le volet hospitalier, sans cible dans le programme,
+      reste une convention explicite. Central −1,5 → −1,3, bas −4,0 → −3,6, haut −0,5 → −0,4. Trace précédente : aucune
+      vérification (ordre de grandeur non sourcé). Recalé sur les barèmes sourcés du 29/09 : coût d''entrant cité mis à jour (cout_soignant_hospitalier_apu
+      24 500 → 23 700 €, ≈ 42 000 postes pour 1 Md€) ; estimation indicative inchangée.'
 - id: sante-scolaire-plan-urgence
   libelle: >-
     Santé scolaire, 800 médecins et 1 000 psychologues (postes vacants), 7 500 infirmières scolaires, +500 € en début
@@ -2087,14 +2405,15 @@ mesures:
         source: >-
           https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
       cout:
-        valeur: 24500
+        valeur: 23700
         unite: € par ETP et par an (entrant, brut hors cotisations employeurs net des retours)
         bareme: cout_soignant_hospitalier_apu
         note: proxy pour une infirmière scolaire
     explication: >-
       Convention commune n° 1 : 7 500 infirmières scolaires supplémentaires au coût pour le solde d'un soignant entrant
-      (barème cout_soignant_hospitalier_apu, proxy : 34 000 € brut hors cotisations employeurs × 0,72), sans projection
-      par le PIB (point gelé). Bas : agent moyen (30 700 €) ; haut : bas du barème (23 100 €). Les 800 postes de médecins
+      (barème cout_soignant_hospitalier_apu, proxy : 32 900 € brut hors cotisations employeurs × 0,72 = 23 700 €), sans
+      projection par le PIB (point gelé) : 7 500 × 23 700 = 0,18 Md€. Bas : agent moyen (30 700 €) : 0,23 ; haut : bas du
+      barème (22 400 €) : 0,17. Les 800 postes de médecins
       et 1 000 de psychologues vacants sont déjà budgétés.
   confiance: moyenne
   verification:
@@ -2106,7 +2425,8 @@ mesures:
       budgétés, hausse de 500 € non comptée (petit minorant). Recalé sur les conventions communes du 29/09 :
       coût chargé (56 000 €, cotisations employeurs comprises) projeté au PIB remplacé par le barème
       cout_soignant_hospitalier_apu (24 500 €), sans projection ; −0,5 → −0,18 (bas −0,55 → −0,23 ; haut −0,44
-      → −0,17).
+      → −0,17). Recalé sur les barèmes sourcés du 29/09 : cout_soignant_hospitalier_apu
+      24 500 → 23 700 € (bas du barème 23 100 → 22 400 €) ; central −0,18, bas −0,23 et haut −0,17 inchangés à l'arrondi.
 - id: classes-19-eleves
   libelle: Classes de primaire à 19 élèves en 2032 et à 12 en REP/REP+
   domaine: education
@@ -2126,8 +2446,8 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -0.43
-    bas: -1.23
+    central: -0.22
+    bas: -1.18
     haut: 0.0
     montee_en_charge:
       '2027': 0
@@ -2149,31 +2469,43 @@ mesures:
         source: https://www.cafepedagogique.net/2026/01/14/premier-degre-baisse-demographique-consequente-en-10-ans/
         note: moyenne simple maternelle 21,3 et élémentaire 20,7 (DEPP, rentrée 2025, public)
       cout:
-        valeur: 24100
+        valeur: 24850
         unite: € par ETP et par an (entrant, brut hors cotisations employeurs net des retours)
         bareme: cout_enseignant_apu
       part_non_absorbee:
-        valeur: 0.5
+        valeur: 0.25
         unite: part
-        source: https://www.cafepedagogique.net/2026/01/14/premier-degre-baisse-demographique-consequente-en-10-ans/
-        note: 'hypothèse de lecture : la moitié de l''écart est comblée par la baisse démographique d''ici 2032'
+        source: https://www.education.gouv.fr/sites/default/files/document/education-nationale-depp-ni-2026-09-pdf-508061.pdf
+        note: >-
+          DEPP, note d'information n° 26.09 : les effectifs du premier degré « passeraient de 6,15 millions d'élèves à
+          la rentrée 2025 à 5,22 millions en 2035, soit une baisse de 933 000 élèves (- 15,2 %) », dont « - 373 400 élèves
+          au cours des trois prochaines rentrées » ; interpolée, la baisse atteint ≈ 11 % en 2032, plus que les 9,5 % qui
+          séparent 21 de 19 élèves par classe à postes constants. Convention : un quart de l'écart reste à combler, la
+          baisse étant très inégale selon les territoires (« Paris (- 29,3 %) » mais moins de 5 % ailleurs, même note).
     explication: >-
       Postes nécessaires pour passer de 21 à 19 élèves en moyenne (≈ 36 000), au coût pour le solde d'un enseignant
-      entrant (convention commune n° 1, barème cout_enseignant_apu : 24 100 €), sans projection par le PIB (point gelé)
-      ; central : moitié de l'écart absorbée par la démographie ; bas : aucune, au coût d'un enseignant moyen (34 200 €,
+      entrant (convention commune n° 1, barème cout_enseignant_apu : 24 850 €), sans projection par le PIB (point gelé)
+      ; central : trois quarts de l'écart absorbés par la démographie (DEPP) ; bas : aucune absorption, au coût d'un enseignant moyen (32 800 €,
       haut du barème) ; haut : totalité.
   confiance: faible
   verification:
     statut: corrige
-    par: verificateur-sonnet
+    par: passe-sources
     date: "2026-09-29"
     commentaire: >-
-      Citation vérifiée. Moyenne de 21 élèves (DEPP 2025) vers 19 sur 341 897 ETPT du premier degré, coût
+      Passe-sources : la part absorbée par la démographie n'est plus une hypothèse appuyée sur la presse mais sur la
+      projection de la DEPP (note n° 26.09 : − 15,2 % d'élèves du premier degré entre 2025 et 2035, ≈ − 11 % en 2032),
+      qui suffit en moyenne à passer de 21 à 19 élèves à postes constants ; un quart de l'écart est conservé par
+      convention (inégalités territoriales). −0,43 → −0,22 ; bas et haut inchangés. Classes à 12 en REP/REP+ toujours
+      non chiffrées séparément (dans le bas). Trace précédente (verificateur-sonnet, corrige) : Citation vérifiée.
+      Moyenne de 21 élèves (DEPP 2025) vers 19 sur 341 897 ETPT du premier degré, coût
       85 000 €, moitié de l'écart absorbée par la démographie (hypothèse cohérente avec le référentiel à
       effectifs constants). Réserve de barème : le coût par enseignant inclut le CAS Pensions. Classes à 12
       en REP/REP+ non chiffrées séparément. Recalé sur les conventions communes du 29/09 : coût chargé (85 000
       €, CAS Pensions compris) projeté au PIB remplacé par le barème cout_enseignant_apu (entrant 24 100 € ;
       bas au coût moyen 34 200 €), sans projection ; −1,81 → −0,43 (bas −3,62 → −1,23 ; haut 0).
+      Recalé sur les barèmes sourcés du 29/09 : cout_enseignant_apu entrant 24 100 → 24 850 €,
+      agent moyen 34 200 → 32 800 € ; central −0,22 inchangé à l'arrondi (−0,224) ; bas −1,23 → −1,18 ; haut 0.
 - id: enseignants-plus-15pct
   libelle: >-
     Salaires des enseignants +15 % en cinq ans, hausse des effectifs et salaires des AESH, AED, CPE, infirmières
@@ -2194,9 +2526,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -4.07
-    bas: -4.32
-    haut: -3.69
+    central: -3.91
+    bas: -4.14
+    haut: -3.54
     montee_en_charge:
       '2027': 0
       '2028': 0.2
@@ -2216,16 +2548,16 @@ mesures:
         unite: ETPT
         source: chiffrage/baremes.yaml, dérivation du barème cout_enseignant_charge (programme 141)
       cout:
-        valeur: 34200
+        valeur: 32800
         unite: € par ETP et par an (enseignant moyen, brut hors cotisations employeurs net des retours)
         bareme: cout_enseignant_apu
         note: haut du barème (agent en place), à utiliser pour une revalorisation (convention commune n° 1)
     explication: >-
       Convention commune n° 1 : 15 % de la rémunération brute hors cotisations employeurs des enseignants du public (premier
-      et second degrés), nette des prélèvements en retour (salaire moyen du barème cout_enseignant_apu : 45 640 € brut ×
-      0,75 = 34 200 €), en cinq ans, sans projection par le PIB (point gelé à droit constant). Bas : GVT et effectifs à 1
+      et second degrés), nette des prélèvements en retour (salaire moyen du barème cout_enseignant_apu : rémunération d'activité
+      moyenne 43 703 € × 0,75 = 32 800 €), en cinq ans, sans projection par le PIB (point gelé à droit constant). Bas : GVT et effectifs à 1
       % par an 2026-2032 (× 1,06). Haut : retour haut (0,32) : × 0,68 / 0,75. Effet croisé avec l'indexation du point
-      (point-indice-fonctionnaires, ≈ 0,45 Md€) non compté.
+      (point-indice-fonctionnaires, ≈ 0,4 Md€) non compté.
   confiance: moyenne
   verification:
     statut: corrige
@@ -2240,6 +2572,8 @@ mesures:
       cout_enseignant_apu (34 200 €, brut hors cotisations employeurs net des retours), sans projection
       (point gelé) ; effet croisé avec l'indexation du point (≈ 0,45 Md€) non compté ; −11,99 → −4,07 (bas
       −12,37 → −4,32 ; haut −11,5 → −3,69).
+      Recalé sur les barèmes sourcés du 29/09 : haut du barème cout_enseignant_apu (agent moyen)
+      34 200 → 32 800 € ; central −4,07 → −3,91 ; bas −4,32 → −4,14 ; haut −3,69 → −3,54.
 - id: enseignement-prive-financement-50pct
   libelle: >-
     Financement public de l'enseignement privé sous contrat ramené à 50 %, contre frais de scolarité et mixité sociale
@@ -2464,8 +2798,8 @@ mesures:
   nature: depense
   effet_solde_primaire:
     central: -18.28
-    bas: -20.97
-    haut: -18.28
+    bas: -25.2
+    haut: -16.59
     montee_en_charge:
       '2027': 0
       '2028': 0.2
@@ -2491,7 +2825,9 @@ mesures:
         unite: € par rénovation
         source: >-
           https://www.anah.gouv.fr/presse/bilan-2024-de-l-anah-un-effort-massif-pour-mieux-renover-les-logements
-        note: aide moyenne de l'État par rénovation d'ampleur, 2024
+        note: >-
+          aide moyenne de l'État par rénovation d'ampleur, 2024 : « en moyenne, une rénovation d'ampleur coûte 55 065€ et
+          bénéficie d'une aide de l'Etat de 36 271€ »
       facteur24:
         valeur: 1.2336
         unite: facteur
@@ -2499,20 +2835,24 @@ mesures:
         note: PIB nominal 2024→2032
     explication: >-
       Rénovations d'ampleur supplémentaires (500 000 contre 91 374 en 2024) × aide moyenne 2024, projetée en 2032. Bas
-      : aide moyenne des ménages modestes et très modestes (41 608 €, même source), pour la prise en charge intégrale
-      promise.
+      (convention) : prise en charge intégrale promise aux ménages modestes, lue comme une aide égale au coût moyen
+      (55 065 €) pour 73 % des rénovations (part des bénéficiaires modestes et très modestes, même source) et 36 271 €
+      pour les autres, soit 408 626 × 49 990 € × 1,2336 = 25,2 Md€. Haut : les 37 791 logements rénovés en copropriété
+      en 2024 (même source) comptés dans le volume déjà atteint, (500 000 − 91 374 − 37 791) × 36 271 € × 1,2336 =
+      16,59 Md€.
   effets_retour: 'Recettes de TVA sur les travaux et baisse des dépenses d''énergie : non comptées.'
   confiance: faible
   verification:
-    statut: ok
-    par: verificateur-sonnet
+    statut: corrige
+    par: passe-sources
     date: "2026-09-29"
     commentaire: >-
-      Citation vérifiée. (500 000 - 91 374) × 36 271 € (bilan Anah 2024, relu) × 1,2336 = 18,3 Md€ ; bas
-      avec l'aide moyenne des ménages modestes (41 608 €). Réserves : la part financée par les CEE (hors
-      APU) n'est pas déduite et le volume 2024 de référence est supérieur à celui de 2025-2026 (coût sous-
-      estimé).
-      Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2024_2032 ; valeur inchangée.
+      Passe-sources : central relu sur le bilan Anah 2024 (91 374 rénovations d'ampleur, aide moyenne 36 271 €,
+      verbatim) et inchangé (−18,28). Le montant de 41 608 € du bas précédent ne figure pas sur la page citée : bas
+      recalculé par convention explicite sur les données de la page (coût moyen 55 065 €, 73 % de ménages modestes),
+      −20,97 → −25,2 ; haut −18,28 → −16,59 (copropriétés comptées dans le volume de référence). Le volume de 2025-2026
+      (suspension du guichet en 2025) est inférieur à celui de 2024 : le central est plutôt un minorant du coût. Trace
+      précédente (verificateur-sonnet, ok) : arithmétique rejouée, CEE non déduits (hors APU, à juste titre).
 - id: sortie-fioul-gaz-chauffage
   libelle: Fin du chauffage au fioul en 2032, 300 000 changements de système par an, fonds chaleur renforcé
   domaine: energie
@@ -2664,13 +3004,28 @@ mesures:
     central: -2.5
     bas: -5.0
     haut: -1.0
-    lecture: 'Ticket climat national sur le modèle du Deutschlandticket (3 Md€ par an de compensation publique) et gratuités
-      ciblées ; haut : tarif élevé. Contrôle : Bund et Länder compensent 3 Md€ par an aux transporteurs allemands (1,5 Md€
-      chacun, Wikipédia allemand) ; le manque à gagner des transporteurs est estimé à 5 Md€ en 2025 (même source) et le billet
-      est passé à 63 € en 2026 ; bas relevé de -4,5 à -5,0.'
+    lecture: 'Référence : Deutschlandticket. Ministère bavarois des transports : « Für die Jahre 2023 bis 2025 wird vom Bund
+      jährlich eine Summe von 1,5 Milliarden Euro zur Verfügung gestellt, um den Ausgleich der Mindereinnahmen durch das Deutschlandticket
+      zu tragen. Die Länder beteiligen sich ebenfalls mit 1,5 Milliarden Euro » (3 Md€ par an, prolongés jusqu''en 2030 par
+      la loi votée par le Bundestag le 7 novembre 2025). Central (convention : même compensation par habitant) : 3 Md€ ×
+      68,88 / 83,58 millions d''habitants (Eurostat, 1er janvier 2025) = 2,5 Md€. Bas (convention : ×2 pour les gratuités
+      ciblées sur les jeunes et les ménages précaires, que le Deutschlandticket n''inclut pas, et un tarif plus bas) : −5,0.
+      Haut (convention : tarif proche du prix moyen actuel des abonnements) : −1,0. Montants non projetés (la compensation
+      allemande est fixée en euros courants jusqu''en 2030).'
     sources:
-    - https://de.wikipedia.org/wiki/Deutschlandticket
+    - https://www.stmb.bayern.de/vum/handlungsfelder/deutschlandticket/index.php
+    - https://www.bundestag.de/dokumente/textarchiv/2025/kw45-de-regionalisierungsgesetz-1118560
+    - https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_gind?geo=FR&geo=DE&indic_de=JAN&time=2025
     - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
+  verification:
+    statut: ok
+    par: passe-sources
+    date: '2026-09-29'
+    commentaire: 'Passe-sources : compensation publique de 3 Md€ relue sur une source officielle (ministère bavarois), qui
+      remplace Wikipédia ; mise à l''échelle par la population (Eurostat). Valeurs inchangées (−2,5 ; −5,0 ; −1,0), bornes
+      désormais écrites comme conventions. Le manque à gagner de 5 Md€ cité auparavant (Wikipédia) n''a pas été retrouvé sur
+      une source officielle et n''est plus utilisé. Trace précédente : contrôle sur Wikipédia allemand, bas relevé de −4,5
+      à −5,0.'
 - id: ferroviaire-programmation-velo
   libelle: >-
     Loi de programmation ferroviaire à 10 ans (régénération, petites lignes, SERM, trains de nuit), doublement des voies
@@ -2692,14 +3047,29 @@ mesures:
   raison_non_chiffrable: Montants de la loi de programmation ferroviaire et du crédit d'impôt vélo non précisés.
   sens_probable: cout
   estimation_indicative:
-    central: -1.5
+    central: -1.7
     bas: -3.0
     haut: -0.5
-    lecture: 'Loi de programmation : ≈ 1,5 Md€ par an de régénération supplémentaire (besoin chiffré en 2025), plus un crédit
-      d''impôt vélo électrique de quelques dizaines de M€. Cohérent avec glucksmann-place-publique/plan-rail (même 1,5 Md€
-      par an). Besoin de 1,5 Md€ par an non retrouvé dans une source ouverte : ordre de grandeur non sourcé.'
+    lecture: 'Rapport de la conférence Ambition France Transports (juillet 2025) : « Le besoin en investissement pour la régénération
+      et la modernisation du réseau structurant est aujourd''hui estimé par SNCF Réseau à 1,5 Md€ (en euros constants) supplémentaires
+      par an, par rapport au contrat de performance (2,9 Md€ courants) actuel » (à partir de 2028). Central : 1,5 Md€ porté
+      en euros 2032 par l''inflation (× 1,1103, inflation_cumulee_2027_2032) = 1,7 Md€ ; le crédit d''impôt vélo (quelques
+      dizaines de M€, convention) est négligé. Bas (convention) : + 0,3 Md€ pour le fret ferroviaire (même rapport : « 300
+      M€/an pour le fret ferroviaire ») et ≈ 1 Md€ pour les petites lignes, SERM et trains de nuit que vise aussi la loi de
+      programmation. Haut (convention) : si une partie des 1,5 Md€ est déjà engagée par l''État d''ici 2027 (le rapport
+      en fait un objectif de politique publique), −0,5.'
     sources:
+    - https://www.ecologie.gouv.fr/sites/default/files/documents/20250709_Rapport_AFT.pdf
+    - inflation_cumulee_2027_2032
     - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
+  verification:
+    statut: corrige
+    par: passe-sources
+    date: '2026-09-29'
+    commentaire: 'Passe-sources : besoin de 1,5 Md€ par an retrouvé et relu dans le rapport Ambition France Transports
+      (en euros constants, à compter de 2028), converti en euros 2032 : central −1,5 → −1,7 ; bornes inchangées, écrites
+      comme conventions. Même source utilisable pour glucksmann-place-publique/plan-rail. Trace précédente : aucune vérification
+      (besoin « non retrouvé dans une source ouverte »).'
 - id: renationalisation-autoroutes
   libelle: Renationalisation progressive des autoroutes, recettes fléchées vers l'AFIT
   domaine: transports
@@ -2784,9 +3154,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -0.36
-    bas: -0.51
-    haut: -0.35
+    central: -0.38
+    bas: -0.52
+    haut: -0.37
     montee_en_charge:
       '2027': 0
       '2028': 0.2
@@ -2820,15 +3190,15 @@ mesures:
         unite: € par ETP et par an (entrant, brut hors cotisations employeurs net des retours)
         bareme: cout_magistrat_apu
       cout_b:
-        valeur: 23300
+        valeur: 24790
         unite: € par ETP et par an (entrant, brut hors cotisations employeurs net des retours)
         bareme: cout_greffier_apu
         note: greffier ; proxy pour les attachés de justice
     explication: >-
       Moitié de l'objectif décennal atteinte en 2032, au coût pour le solde d'un magistrat et d'un greffier entrants (convention
       commune n° 1, barèmes cout_magistrat_apu et cout_greffier_apu, le greffier servant de proxy pour les attachés), sans
-      projection par le PIB (point gelé). Bas : agents moyens (62 200 € et 26 700 €) ; haut : bas des barèmes (37 000 € et
-      22 100 €).
+      projection par le PIB (point gelé). Central : 4 500 × 37 000 + 8 500 × 24 790 = 0,38 Md€. Bas : agents moyens (62 200 € et
+      28 770 €) ; haut : bas des barèmes (37 000 € et 23 410 €).
   confiance: moyenne
   verification:
     statut: corrige
@@ -2842,6 +3212,8 @@ mesures:
       coûts chargés (138 700 € et proxy soignant 56 000 €) projetés au PIB remplacés par les barèmes
       cout_magistrat_apu (37 000 €) et cout_greffier_apu (23 300 €), sans projection ; −1,3 → −0,36 (bas −1,5
       → −0,51 ; haut −1,16 → −0,35).
+      Recalé sur les barèmes sourcés du 29/09 : cout_greffier_apu 23 300 → 24 790 € (bornes
+      23 410-28 770) ; central −0,36 → −0,38 ; bas −0,51 → −0,52 ; haut −0,35 → −0,37.
 - id: prisons-numerus-clausus
   libelle: >-
     Numerus clausus carcéral, moratoire sur les nouvelles places de prison, développement de la probation
@@ -2960,16 +3332,31 @@ mesures:
     entre contributions nationales et ressources propres non précisés.
   sens_probable: cout
   estimation_indicative:
-    central: -3.0
-    bas: -12.0
+    central: -7.7
+    bas: -17.4
     haut: 0.0
-    lecture: 'Budget européen porté vers 2 % du PIB de l''UE en 2035, en partie par des ressources propres : hausse de la
-      contribution française (28,8 Md€) de l''ordre de 10 % en 2032 ; bas : trajectoire linéaire financée par les contributions
-      nationales ; haut : pas d''accord à 27. Ordre de grandeur non sourcé. Trajectoire et part française de la hausse non
-      sourcées.'
+    lecture: 'Référence (convention, le CFP 2028-2034 n''étant pas adopté) : proposition de la Commission du 16 juillet 2025,
+      « près de 2 000 milliards d''euros (soit 1,26 % du revenu national brut de l''UE en moyenne entre 2028 et 2034) ».
+      Trajectoire linéaire de 1,26 % en 2028 à 2 % en 2035 : 1,68 % en 2032, soit +0,42 point. PIB de l''UE 2025 : 18 856
+      Md€ (Eurostat, nama_10_gdp), projeté en 2032 comme le PIB français (× 1,2106) : 22 827 Md€ ; hausse du budget ≈
+      96,5 Md€. Part de la France : 15,86 % (PIB 2025, 2 991 / 18 856 Md€, même source). Financement entièrement par
+      contributions nationales : 15,3 Md€. Central (convention) : moitié par contributions nationales, moitié par de
+      nouvelles ressources propres ou l''emprunt commun que le programme évoque (−7,7) ; bas : tout par contributions et part
+      française portée à 18 % (corrections et rabais financés par les autres États) (−17,4) ; haut : pas d''accord unanime
+      (0).'
     sources:
     - psr_ue
+    - https://ec.europa.eu/commission/presscorner/detail/fr/ip_25_1847
+    - https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?geo=EU27_2020&geo=FR&unit=CP_MEUR&na_item=B1GQ&sinceTimePeriod=2023
     - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
+  verification:
+    statut: corrige
+    par: passe-sources
+    date: '2026-09-29'
+    commentaire: 'Passe-sources : ordre de grandeur non sourcé (10 % de la contribution) remplacé par une trajectoire
+      sourcée (proposition de CFP de la Commission, PIB Eurostat) : central −3,0 → −7,7, bas −12,0 → −17,4, haut 0 inchangé.
+      Le partage contributions / ressources propres reste une convention. Trace précédente : aucune vérification (estimation
+      indicative non sourcée).'
 - id: defense-haute-intensite
   libelle: >-
     Préparer l'armée à une guerre de haute intensité (artillerie, blindés, drones, division de réservistes, marine)
@@ -3200,25 +3587,34 @@ mesures:
     complet (HCAAM, chiffré chez Mélenchon à 30,7 Md€ en 2032) transférée n''est pas lisible.'
   sens_probable: cout
   estimation_indicative:
-    central: -12.0
-    bas: -25.0
-    haut: -4.0
-    lecture: 'Transfert d''environ 40 % du scénario 100 % Sécu du HCAAM (22,5 Md€ en euros 2022 × 1,3643), les soins « optionnels
-      » (dépassements, optique et dentaire hors panier) restant aux mutuelles ; bas : 100 % Sécu quasi complet ; haut : panier
-      restreint aux affections lourdes. Contrôle (vérification 2026-09-29) : prestations des complémentaires santé de 36,8
-      Md€ en 2024 (DREES, reprises par Wikipédia) ; 12 Md€ en représente un tiers, cohérent avec un transfert des seuls soins
-      essentiels (ticket modérateur, forfait hospitalier, panier de base). Base HCAAM de 22,5 Md€ non revérifiée (page Institut
-      Montaigne inaccessible).'
+    central: -33.3
+    bas: -36.7
+    haut: -25.1
+    lecture: 'La promesse (Sécurité sociale à 100 % sur les soins « essentiels », mutuelles cantonnées aux soins « optionnels
+      ») correspond au scénario 3 du HCAAM (janvier 2022), « Augmentation des taux de remboursement de la Sécurité sociale
+      » : ticket modérateur, forfait journalier et participations supprimés sur la dépense opposable, médicaments remboursables
+      et 100 % santé pris en charge à 100 %. Rapport, annexe A.4 : « une hausse des remboursements pour la Sécurité sociale
+      de 18,8 milliards d''euros (en incluant le remboursement des participations forfaitaires et franchises médicales), mais
+      un coût total pour les finances publiques de 22,5 milliards d''euros, dont 3,6 milliards d''euros de perte de rendement
+      de TSA » (base Ines-Omar 2017). Central : (22,5 − 1,4 de franchises et participations, déjà chiffrées dans sante-remboursement-100pct-franchises)
+      × 1,580 (PIB nominal 2017 → 2032, 2 291,7 → 3 620,9 Md€, barème isf_retabli_gain_net) = 33,3 Md€. Haut (convention
+      : médicaments à 15 % et 30 % hors « soins essentiels », TSA maintenue) : (18,8 − 1,4 − 1,5) × 1,580 = 25,1. Bas (convention
+      : +10 % de recours induit, parce que le HCAAM qualifie son estimation, à comportements inchangés, d''« estimation basse
+      ») : 36,7.'
     sources:
-    - https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/instaurer-le-100-secu-en-remboursant-100-les-soins-de-sante-prescrits-et-en-integrant-les-mutuelles-dans-la-securite-sociale/
+    - https://www.securite-sociale.fr/files/live/sites/SSFR/files/HCAAM/2022/Rapport%20HCAAM-%20Quatre%20scenarios%20articulation%20AMO-AMC%20-%20janvier%202022.pdf
     - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
-    - https://fr.wikipedia.org/wiki/Compl%C3%A9mentaire_sant%C3%A9_en_France
+    - isf_retabli_gain_net
   verification:
     statut: corrige
-    par: recalage-couverture
+    par: passe-sources
     date: '2026-09-29'
-    commentaire: Volet séparé de sante-remboursement-100pct-franchises (contesté par le vérificateur pour ce motif) ; non
-      compté dans le solde principal.
+    commentaire: 'Passe-sources : base relue dans le rapport du HCAAM (22,5 Md€ de coût public du scénario 3 ; tableau 10
+      pour la décomposition des 18,8 Md€), qui remplace Institut Montaigne et Wikipédia. La lecture « 40 % du 100 % Sécu
+      » n''avait pas de source ; le scénario 3 décrit exactement le partage soins essentiels / optionnels promis : central
+      −12 → −33,3, bas −25 → −36,7, haut −4 → −25,1. Franchises retirées pour éviter le double compte. Trace précédente
+      (recalage-couverture, corrige) : volet séparé de sante-remboursement-100pct-franchises ; non compté dans le solde
+      principal.'
 - id: conges-parentalite-indemnisation
   libelle: Congés d'accueil à 100 % du salaire et congé de naissance à 80 % sur trois mois par parent
   domaine: famille
@@ -3234,22 +3630,31 @@ mesures:
     : indemnisation à 100 % du salaire au-delà du plafond des indemnités journalières, congé supplémentaire de naissance (LFSS
     2026) porté à 80 % du revenu et à trois mois par parent.'
   chiffrable: false
-  raison_non_chiffrable: Coût du congé de naissance créé par la LFSS 2026 et taux de recours non relus dans une source ouverte
-    ; part des salaires au-delà du plafond des IJ non documentée.
+  raison_non_chiffrable: Taux de recours à un congé de naissance mieux indemnisé et plus long inconnus (le chiffrage officiel
+    du congé de 2026 est lui-même « illustratif ») ; part des salaires au-delà du plafond des IJ non documentée.
   sens_probable: cout
   estimation_indicative:
-    central: -2.0
-    bas: -4.0
-    haut: -0.8
-    lecture: ≈ 660 000 naissances, recours d'un parent sur deux au congé de naissance porté à trois mois à 80 % d'un salaire
-      de ≈ 2 500 € (≈ 1,8 Md€ de plus que le droit 2026), plus le déplafonnement des IJ (≈ 0,2 Md€). Ordre de grandeur non
-      sourcé.
+    central: -0.6
+    bas: -1.4
+    haut: -0.3
+    lecture: 'Base : PLFSS 2026, annexe 9, article 42 (congé supplémentaire de naissance de deux mois, 70 % puis 60 % du salaire
+      net dans la limite du PASS) : « le coût de la mesure en année pleine serait de l''ordre de 0,3Md€ en année N (2027),
+      0,4Md€ en N+1, 0,5Md€ en N+2 et 0,6Md€ en N+3 », avec des taux de recours en N+3 de 55 % puis 40 % pour les mères,
+      20 % puis 10 % pour les pères. En mois-taux indemnisés, le droit 2026 vaut 0,55 × 0,7 + 0,40 × 0,6 + 0,20 × 0,7 + 0,10
+      × 0,6 = 0,825. Promesse (trois mois à 80 %), convention de recours du 3e mois égal à celui du 2e : (0,55 + 0,40 + 0,40
+      + 0,20 + 0,10 + 0,10) × 0,8 = 1,40, soit 0,6 × (1,40 / 0,825 − 1) = 0,42 Md€ de plus. Bas (convention : recours du
+      1er mois tenu trois mois, pères à 40 % comme incités par une meilleure indemnisation) : (0,55 × 3 + 0,40 × 3) × 0,8 = 2,28,
+      soit +1,06 Md€. Plus l''indemnisation à 100 % au-delà du plafond des IJ (convention : 0,2 Md€, fourchette 0,1-0,3, aucune
+      donnée publique sur les salaires au-dessus du PASS parmi les parents). Montants de 2030 non projetés.'
     sources:
-    - salaire_brut_moyen_prive
-    - https://www.senat.fr/rap/l20-107-2/l20-107-28.html
+    - https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2026/PLFSS2026-Annexe09-GenerationXBOOK_avec%20couverture.pdf
     - https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
   verification:
     statut: corrige
-    par: recalage-couverture
+    par: passe-sources
     date: '2026-09-29'
-    commentaire: Volet séparé de conges-parentalite-egaux ; non compté dans le solde principal.
+    commentaire: 'Passe-sources : coût et taux de recours du congé de naissance relus dans l''annexe 9 du PLFSS 2026 (0,6 Md€
+      en N+3). L''hypothèse précédente (un parent sur deux, trois mois à 80 % d''un salaire de 2 500 €, 1,8 Md€ de plus)
+      surestimait le recours (25 % des mères, moins de 5 % des pères à la PREPARE selon la même annexe) : central −2,0 →
+      −0,6, bas −4,0 → −1,4, haut −0,8 → −0,3. Trace précédente (recalage-couverture, corrige) : volet séparé de conges-parentalite-egaux
+      ; non compté dans le solde principal.'

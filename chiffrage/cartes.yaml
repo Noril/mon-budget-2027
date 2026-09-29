@@ -57,14 +57,14 @@ cartes:
   - id: taxes-energie
     personnage: retraitee
     levier: taxes-energie
-    texte: "Ma facture d'électricité a bondi depuis la hausse de l'accise en 2024. On annule cette hausse ?"
+    texte: "Ma facture d'électricité a grimpé à la fin du bouclier tarifaire, quand l'accise a été relevée en 2024. On annule cette hausse ?"
     gauche: {libelle: "Taxes inchangées", option: inchangees}
     droite: {libelle: "Annuler la hausse de 2024", option: accise-electricite, suite: taxes-energie-tva}
   - id: taxes-energie-tva
     suite_seulement: true
     personnage: agriculteur
     levier: taxes-energie
-    texte: "Et la TVA à 5,5 % sur toutes les énergies, carburants compris ? Environ 17 Md€ par an."
+    texte: "Et la TVA à 5,5 % sur toutes les énergies, carburants compris ? Environ 12 Md€ par an selon le Gouvernement."
     gauche: {libelle: "Accise seulement", option: accise-electricite}
     droite: {libelle: "TVA à 5,5 % partout", option: tva-toutes-energies}
 
@@ -72,14 +72,14 @@ cartes:
   - id: retraites-age
     personnage: syndicaliste
     levier: retraites-age
-    texte: "La montée vers 64 ans reprend en 2028. Les salariés usés n'en peuvent plus. On revient à 62 ans ?"
+    texte: "La montée vers 64 ans reprend en 2028. Beaucoup de mes collègues arrivent usés en fin de carrière. On revient à 62 ans ?"
     gauche: {libelle: "Calendrier vers 64 ans", option: 64-ans, suite: retraites-au-dela}
     droite: {libelle: "Retour à 62 ans", option: 62-ans, suite: retraites-carrieres-longues}
   - id: retraites-au-dela
     suite_seulement: true
     personnage: economiste
     levier: retraites-age
-    texte: "On vit plus longtemps et le système reste en déficit. On va au-delà de 64 ans à terme ?"
+    texte: "L'espérance de vie progresse et, selon le Conseil d'orientation des retraites, le système reste en déficit. On va au-delà de 64 ans à terme ?"
     gauche: {libelle: "S'en tenir à 64 ans", option: 64-ans}
     droite: {libelle: "Au-delà de 64 ans", option: plus-de-64-ans}
   - id: retraites-carrieres-longues
@@ -130,7 +130,7 @@ cartes:
     suite_seulement: true
     personnage: maire-rural
     levier: effectifs-publics
-    texte: "Chez nous, la poste, l'école et la gendarmerie manquent de bras. On crée des postes de proximité ?"
+    texte: "Chez nous, l'école, les services de l'État et la gendarmerie manquent de bras. On crée des postes de proximité ?"
     gauche: {libelle: "Effectifs stables", option: stables}
     droite: {libelle: "Créer des postes", option: creations}
   - id: effectifs-800000
@@ -182,7 +182,7 @@ cartes:
   - id: defense
     personnage: general
     levier: defense
-    texte: "Au-delà de la loi de programmation militaire, il manque des munitions et des stocks. +4 Md€ par an ?"
+    texte: "Même avec la loi de programmation militaire, je juge nos stocks de munitions trop faibles. +4 Md€ par an ?"
     gauche: {libelle: "Programmation actuelle", valeur: 0}
     droite: {libelle: "+4 Md€ pour la défense", valeur: 4, suite: defense-plus}
   - id: defense-plus
@@ -204,7 +204,7 @@ cartes:
   - id: pensions
     personnage: retraitee
     levier: pensions
-    texte: "J'ai une bonne pension et mes petits-enfants paient pour moi. Une année sans revalorisation en 2028, petites retraites protégées ?"
+    texte: "J'ai une bonne pension, payée par les cotisations des actifs d'aujourd'hui. Une année sans revalorisation en 2028, petites retraites protégées ?"
     gauche: {libelle: "Indexation sur l'inflation", option: inflation, suite: pensions-petites}
     droite: {libelle: "Année blanche en 2028", option: gel-2028}
   - id: pensions-petites
@@ -226,14 +226,14 @@ cartes:
   - id: successions
     personnage: agriculteur
     levier: successions
-    texte: "Transmettre la ferme à mon fils coûte une fortune en droits. On supprime les droits de succession et de donation ?"
+    texte: "Je crains que les droits à payer m'empêchent de transmettre la ferme à mon fils. On supprime les droits de succession et de donation ?"
     gauche: {libelle: "Droits inchangés", option: inchanges, suite: successions-hausse}
     droite: {libelle: "Supprimer les droits", option: suppression}
   - id: successions-hausse
     suite_seulement: true
     personnage: economiste
     levier: successions
-    texte: "Les héritages pèsent de plus en plus dans les patrimoines. On relève le taux marginal et on recentre le pacte Dutreil ?"
+    texte: "Selon le Conseil d'analyse économique, l'héritage représente 60 % du patrimoine, contre 35 % au début des années 1970. On relève le taux marginal et on recentre le pacte Dutreil ?"
     gauche: {libelle: "Droits inchangés", option: inchanges}
     droite: {libelle: "Hausse modérée", option: hausse-moderee, suite: successions-grands-heritages}
   - id: successions-grands-heritages
@@ -255,14 +255,14 @@ cartes:
     suite_seulement: true
     personnage: syndicaliste
     levier: salaires-enseignants
-    texte: "Les enseignants français sont moins payés que leurs voisins européens. Plutôt +10 %, davantage en milieu de carrière ?"
+    texte: "Selon l'OCDE, en milieu de carrière, les enseignants français sont moins payés que la moyenne de l'Union européenne. Plutôt +10 %, davantage en milieu de carrière ?"
     gauche: {libelle: "+150 à 200 € par mois", option: 150-200-euros}
     droite: {libelle: "Environ +10 %", option: 10-pct, suite: enseignants-15}
   - id: enseignants-15
     suite_seulement: true
     personnage: maire-rural
     levier: salaires-enseignants
-    texte: "Nos écoles n'arrivent plus à recruter. +15 % en cinq ans ?"
+    texte: "Nos écoles peinent à recruter des enseignants. +15 % en cinq ans ?"
     gauche: {libelle: "Environ +10 %", option: 10-pct}
     droite: {libelle: "+15 % en cinq ans", option: 15-pct, suite: enseignants-20}
   - id: enseignants-20
@@ -306,14 +306,14 @@ cartes:
   - id: renovation-logements
     personnage: militante-ecologiste
     levier: renovation-logements
-    texte: "Des millions de passoires thermiques ruinent leurs occupants. 500 000 rénovations performantes par an, gratuites pour les ménages modestes ?"
+    texte: "Selon l'observatoire public de la rénovation, 3,9 millions de résidences principales sont des passoires thermiques. 500 000 rénovations performantes par an, gratuites pour les ménages modestes ?"
     gauche: {libelle: "Dispositifs actuels", option: inchange, suite: renovation-pret}
     droite: {libelle: "500 000 rénovations par an", option: 500000-renovations}
   - id: renovation-pret
     suite_seulement: true
     personnage: directeur-budget
     levier: renovation-logements
-    texte: "MaPrimeRénov' coûte cher pour des résultats discutés. On remplace les subventions par un prêt à taux zéro ?"
+    texte: "Selon la Cour des comptes, les gains énergétiques de MaPrimeRénov' sont mal mesurés et les rénovations globales restent rares. On remplace les subventions par un prêt à taux zéro ?"
     gauche: {libelle: "Garder les subventions", option: inchange}
     droite: {libelle: "Prêt à taux zéro", option: aides-supprimees}
 
@@ -321,7 +321,7 @@ cartes:
   - id: impot-revenu
     personnage: economiste
     levier: impot-revenu
-    texte: "Un barème à 14 tranches rendrait l'impôt sur le revenu plus progressif et rapporterait environ 6 Md€."
+    texte: "Un barème à 14 tranches rendrait l'impôt sur le revenu plus progressif. Ses partisans en attendent environ 6 Md€ de recettes."
     gauche: {libelle: "Barème actuel", option: inchange, suite: impot-revenu-classes-moyennes}
     droite: {libelle: "Barème à 14 tranches", option: plus-progressif}
   - id: impot-revenu-classes-moyennes
@@ -350,7 +350,7 @@ cartes:
     suite_seulement: true
     personnage: general
     levier: aide-developpement
-    texte: "L'aide ne sert pas toujours nos intérêts. On la réduit de 10 à 20 % ?"
+    texte: "Certains estiment que l'aide au développement sert trop peu les intérêts de la France. On la réduit de 10 à 20 % ?"
     gauche: {libelle: "Niveau actuel", option: inchangee}
     droite: {libelle: "Réduire de 10 à 20 %", option: reduction, suite: aide-developpement-suppression}
   - id: aide-developpement-suppression
@@ -372,7 +372,7 @@ cartes:
     suite_seulement: true
     personnage: economiste
     levier: heures-supplementaires
-    texte: "Les exonérations d'heures sup coûtent 5,4 Md€ et peuvent freiner l'embauche. On les impose comme les autres heures ?"
+    texte: "Les exonérations d'heures sup coûtent 5,4 Md€ par an ; certains économistes estiment qu'elles freinent l'embauche. On les impose comme les autres heures ?"
     gauche: {libelle: "Exonération actuelle", option: exoneration-actuelle}
     droite: {libelle: "Imposer comme les autres", option: fiscalisation}
 
@@ -380,14 +380,14 @@ cartes:
   - id: point-indice
     personnage: medecin-hospitaliere
     levier: point-indice
-    texte: "Le point d'indice ne suit pas les prix : à l'hôpital, les salaires décrochent. On l'indexe sur l'inflation ?"
+    texte: "Le point d'indice est gelé depuis juillet 2023 alors que les prix montent : à l'hôpital, nos salaires décrochent. On l'indexe sur l'inflation ?"
     gauche: {libelle: "Point gelé", option: gel, suite: point-indice-hausse-3}
     droite: {libelle: "Indexer sur l'inflation", option: indexation, suite: point-indice-rattrapage}
   - id: point-indice-hausse-3
     suite_seulement: true
     personnage: directeur-budget
     levier: point-indice
-    texte: "Indexer coûterait plus de 20 Md€. Un geste ponctuel de 3 %, sans indexation, en coûterait environ 5,6."
+    texte: "Indexer coûterait environ 21 Md€ bruts par an en 2032. Une hausse ponctuelle de 3 %, sans indexation, environ 5,6 Md€ bruts."
     gauche: {libelle: "Point gelé", option: gel}
     droite: {libelle: "+3 % une fois", option: hausse-3-pct}
   - id: point-indice-rattrapage
@@ -416,7 +416,7 @@ cartes:
     suite_seulement: true
     personnage: economiste
     levier: agences-dotations
-    texte: "En mutualisant les achats publics et en s'aidant de l'IA, l'État pourrait économiser environ 4 Md€."
+    texte: "Certains estiment qu'en mutualisant les achats publics et en s'aidant de l'IA, l'État pourrait économiser environ 4 Md€."
     gauche: {libelle: "Rien de changé", option: inchangees}
     droite: {libelle: "Économies sur les achats", option: achats-publics, suite: etat-audiovisuel}
   - id: etat-audiovisuel
@@ -445,7 +445,7 @@ cartes:
     suite_seulement: true
     personnage: directeur-budget
     levier: csg
-    texte: "Une CSG progressive, relevée d'un point, rapporterait environ 19 Md€."
+    texte: "Un point de CSG sur tous les revenus rapporte environ 18 Md€. On la rend progressive et on la relève d'un point ?"
     gauche: {libelle: "CSG inchangée", option: inchangee}
     droite: {libelle: "Progressive, +1 point", option: hausse-progressive}
   - id: csg-suppression
@@ -467,14 +467,14 @@ cartes:
     suite_seulement: true
     personnage: agriculteur
     levier: transition-ecologique
-    texte: "Le soutien aux éoliennes et au solaire pèse sur le budget de l'État. Ne plus signer de nouveaux contrats économiserait environ 3 Md€ par an en 2032. On y met fin ?"
+    texte: "Selon la Commission de régulation de l'énergie, le soutien public à l'éolien et au solaire dépasse 6 Md€ en 2026. On y met fin ?"
     gauche: {libelle: "Budget actuel", valeur: 0}
     droite: {libelle: "Fin du soutien : −3,5 Md€", valeur: -3.5}
   - id: transition-plus
     suite_seulement: true
     personnage: economiste
     levier: transition-ecologique
-    texte: "Les investissements d'adaptation évitent des dégâts plus coûteux. On porte l'effort à +8,5 Md€ ?"
+    texte: "Beaucoup d'études estiment que l'adaptation coûte moins cher que les dégâts qu'elle évite. On porte l'effort à +8,5 Md€ ?"
     gauche: {libelle: "+3 Md€", valeur: 3}
     droite: {libelle: "+8,5 Md€", valeur: 8.5, suite: transition-plan}
   - id: transition-plan
@@ -503,7 +503,7 @@ cartes:
     suite_seulement: true
     personnage: etudiante
     levier: minima-sociaux
-    texte: "Avant 25 ans, pas de RSA. On ouvre un revenu minimum dès 18 ans et on relève l'AAH de 250 € par mois ?"
+    texte: "Avant 25 ans, sauf exceptions, pas de RSA. On ouvre un revenu minimum dès 18 ans et on relève l'AAH de 250 € par mois ?"
     gauche: {libelle: "Minima inchangés", option: inchanges}
     droite: {libelle: "AAH +250 €, dès 18 ans", option: hausse-ciblee, suite: minima-seuil-pauvrete}
   - id: minima-seuil-pauvrete
@@ -525,7 +525,7 @@ cartes:
     suite_seulement: true
     personnage: militante-ecologiste
     levier: grands-patrimoines
-    texte: "Les milliardaires paient souvent moins que les autres en proportion. On ajoute un impôt plancher de 2 % sur leur patrimoine ?"
+    texte: "Selon l'Institut des politiques publiques, les milliardaires paient en proportion moins d'impôts que les autres très hauts revenus. On ajoute un impôt plancher de 2 % sur leur patrimoine ?"
     gauche: {libelle: "ISF seul", option: isf}
     droite: {libelle: "ISF + 2 % milliardaires", option: isf-plancher-milliardaires, suite: grands-patrimoines-100m}
   - id: grands-patrimoines-100m
@@ -540,7 +540,7 @@ cartes:
   - id: conditions-prestations
     personnage: eurodeputee
     levier: conditions-prestations
-    texte: "Plusieurs pays européens conditionnent leurs aides à la durée de séjour. On exige cinq ans de résidence régulière ?"
+    texte: "Le RSA exige déjà cinq ans de séjour régulier des étrangers hors Union européenne. On étend cette condition aux autres aides ?"
     gauche: {libelle: "Conditions actuelles", option: inchangees, suite: prestations-ame}
     droite: {libelle: "Cinq ans de résidence", option: cinq-ans-residence, suite: prestations-travail}
   - id: prestations-ame
@@ -576,7 +576,7 @@ cartes:
     suite_seulement: true
     personnage: directeur-budget
     levier: education
-    texte: "Le nombre d'élèves baisse chaque année. On ajuste les moyens : 1 Md€ d'économies ?"
+    texte: "Selon le ministère, le nombre d'élèves baisse chaque année. On ajuste les moyens : 1 Md€ d'économies ?"
     gauche: {libelle: "Budget actuel", valeur: 0}
     droite: {libelle: "1 Md€ d'économies", valeur: -1, suite: education-economies-2}
   - id: education-economies-2
@@ -634,15 +634,15 @@ cartes:
     suite_seulement: true
     personnage: etudiante
     levier: cotisations-salaries
-    texte: "Aller jusqu'à 250 € nets de plus par mois au salaire médian ? Environ 47 Md€."
+    texte: "Aller jusqu'à 250 € nets de plus par mois au salaire médian, comme certains le proposent ? Plus de 40 Md€ par an."
     gauche: {libelle: "Baisse d'environ 15 Md€", option: baisse-15-md}
-    droite: {libelle: "Baisse forte (47 Md€)", option: baisse-forte}
+    droite: {libelle: "Baisse forte (plus de 40 Md€)", option: baisse-forte}
 
   # 26. Revenus du capital
   - id: revenus-capital
     personnage: etudiante
     levier: revenus-capital
-    texte: "Les dividendes sont taxés à 31,4 % au plus, moins que bien des salaires. On relève ce prélèvement de 3 points ?"
+    texte: "Les dividendes sont imposés à 31,4 %, prélèvements sociaux compris. Est-ce assez, face aux hauts salaires ? On relève ce prélèvement de 3 points ?"
     gauche: {libelle: "Prélèvement à 31,4 %", option: pfu, suite: revenus-capital-bareme}
     droite: {libelle: "+3 points et taxe renforcée", option: pfu-plus-3, suite: revenus-capital-taxes}
   - id: revenus-capital-bareme
@@ -685,7 +685,7 @@ cartes:
     suite_seulement: true
     personnage: economiste
     levier: impots-production
-    texte: "Les impôts de production pèsent plus en France que chez ses voisins. Les baisser de 50 Md€ ?"
+    texte: "Selon le Conseil d'analyse économique, les impôts de production pèsent plus en France que chez ses voisins. Les baisser de 50 Md€ ?"
     gauche: {libelle: "Supprimer C3S et CFE", option: suppression-c3s-cfe}
     droite: {libelle: "Baisse de 50 Md€", option: baisse-50-md}
 
@@ -693,14 +693,14 @@ cartes:
   - id: aides-entreprises
     personnage: directeur-budget
     levier: aides-entreprises
-    texte: "Les aides publiques aux entreprises dépassent 200 Md€ par an. On en supprime 50 Md€ jugées improductives ?"
+    texte: "Selon une commission d'enquête du Sénat, les aides publiques aux entreprises atteignent 211 Md€ par an, allègements compris. On en supprime 50 Md€ jugées improductives ?"
     gauche: {libelle: "Aides inchangées", option: inchangees, suite: aides-cir}
     droite: {libelle: "−50 Md€ d'aides", option: moins-50-md}
   - id: aides-cir
     suite_seulement: true
     personnage: patronne-pme
     levier: aides-entreprises
-    texte: "Le crédit d'impôt recherche profite surtout aux grands groupes. On le recentre sur les PME et ETI ?"
+    texte: "Environ 40 % du crédit d'impôt recherche va aux grandes entreprises. On le recentre sur les PME et ETI ?"
     gauche: {libelle: "Aides inchangées", option: inchangees}
     droite: {libelle: "CIR recentré PME-ETI", option: cir-recentre, suite: aides-cir-supprime}
   - id: aides-cir-supprime
@@ -722,14 +722,14 @@ cartes:
     suite_seulement: true
     personnage: economiste
     levier: cotisations-patronales
-    texte: "Les allègements de cotisations coûtent 72 Md€ par an. On les supprime au-dessus de 1,6 à 2 Smic ?"
+    texte: "Les allègements de cotisations coûtent environ 76 Md€ par an. On les supprime au-dessus de 1,6 à 2 Smic ?"
     gauche: {libelle: "Allègements actuels", option: inchangees, suite: patronales-2024}
     droite: {libelle: "Supprimer au-delà de 1,6 Smic", option: reduire-allegements}
   - id: patronales-2024
     suite_seulement: true
     personnage: patronne-pme
     levier: cotisations-patronales
-    texte: "Le coût du travail a augmenté depuis 2024. On annule ces hausses ?"
+    texte: "Plusieurs mesures votées depuis 2024 ont alourdi le coût du travail. On les annule ?"
     gauche: {libelle: "Cotisations inchangées", option: inchangees}
     droite: {libelle: "Annuler les hausses", option: annuler-hausses-recentes, suite: patronales-15}
   - id: patronales-15

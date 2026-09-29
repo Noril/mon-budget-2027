@@ -38,6 +38,15 @@ sources:
 - titre: BFM — 7 000 recrutements de fonctionnaires en moins en 2027 (RTL)
   url: https://www.bfmtv.com/economie/economie-social/trouver-450-millions-dans-le-budget-de-l-etat-c-est-possible-edouard-philippe-suggere-de-supprimer-7-000-postes-de-fonctionnaires-en-2027-pour-financer-les-nouvelles-aides-carburant_AV-202609240327.html
   date: '2026-09-24'
+- titre: Avec Édouard 2027 — Retraites, la réforme que je propose aux Français (vidéo YouTube tZuZwWpT4ak)
+  url: https://www.edouardphilippe.fr/actualites/retraites-la-reforme-que-je-propose-aux-francais
+  date: '2026-09-29'
+- titre: franceinfo (AFP) — Âge de départ à 65 ans, 45 annuités de cotisation
+  url: https://www.franceinfo.fr/elections/presidentielle/age-de-depart-a-65-ans-45-annuites-de-cotisation-edouard-philippe-candidat-horizons-a-la-presidentielle-devoile-son-projet-de-reforme-des-retraites_8214737.html
+  date: '2026-09-29'
+- titre: France 24 (AFP) — Le plan d'Édouard Philippe pour une politique de sécurité climatique
+  url: https://www.france24.com/fr/info-en-continu/20260917-entre-le-d%C3%A9ni-du-rn-et-le-dogme-de-lfi-le-plan-d-%C3%A9douard-philippe-pour-une-politique-de-s%C3%A9curit%C3%A9-climatique
+  date: '2026-09-17'
 - titre: Fondation IFRAP — Comparateur des programmes présidentielle 2027
   url: https://www.ifrap.org/comparateurs/presidentielles-2027
   date: consulté le 2026-09-29
@@ -50,11 +59,11 @@ annonce_candidat:
     dégrader les finances publiques ».'
   url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
 notes: 'Programme non publié en entier au 29 septembre 2026 : quatre pages « priorités » du site de campagne, discours du
-  5 juillet, entretiens (Échos, Figaro, AFP, RTL). La réforme des retraites (âge, paramètres) est annoncée mais pas détaillée
-  ; c''est la principale source d''incertitude. Les pages « priorités » ne sont pas datées. Le programme européen d''Horizons
+  5 juillet, entretiens (Échos, Figaro, AFP, RTL). La réforme des retraites a été précisée le 29 septembre 2026 (65 ans et 45 annuités
+  en moins de dix ans, calendrier non publié) ; son effet en 2032 reste la principale source d''incertitude. Les pages « priorités » ne sont pas datées. Le programme européen d''Horizons
   (2024) repris par certains agrégateurs n''est pas retenu. Phase 2 (29 septembre 2026) : chiffrage à droit constant (chiffrage/REFERENCE.md)
   avec les barèmes communs ; mesures non budgétaires préfixées NON_BUDGETAIRE. Le « deal fiscal » est chiffré en deux lignes
-  : la baisse d''impôts de production (coût) et la baisse d''aides, enveloppe non détaillée (règle 6 : 0 en central). L''objectif
+  : la baisse d''impôts de production (coût) et la baisse d''aides, économie ciblée sur un périmètre nommé (règle 6 : montant annoncé plafonné, net d''IS). L''objectif
   de déficit à 2 % n''est pas une mesure.'
 mesures:
 - id: impots-production-moins-50md
@@ -135,64 +144,74 @@ mesures:
   libelle: Supprimer 50 Md€ d'aides publiques « improductives » aux entreprises
   domaine: aides aux entreprises
   citation:
-    texte: En parallèle, le maire du Havre veut réduire de 50 milliards d’euros le montant annuel des aides versées aux entreprises,
-      des aides qu’il estime être « saupoudrées, complexes, incompréhensibles ».
-    url: https://www.publicsenat.fr/actualites/economie/entreprises-un-deal-a-250-milliards-deuros-sur-un-quinquennat-que-represente-la-proposition-dedouard-philippe
-    date: '2025-11-06'
-    support: presse (publication LinkedIn du candidat)
+    texte: 'Conclure un pacte fiscal inédit avec les entreprises : 50 Md€ de baisses d''impôts de production contre 50 Md€
+      d''aides publiques improductives en moins, le plus grand choc de compétitivité jamais réalisé.'
+    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
+    date: consulté le 2026-09-29
+    support: site du candidat
   precision: partielle
-  interpretation: 'Aides visées non listées ; l''entourage exclut les allègements généraux de cotisations (« sans réduire les allègements
-    généraux »), soit environ 80 Md€ sur ~150 Md€ d''aides (ministre Lombard, cité par le rapport du Sénat). Règle 6 révisée
-    : économie ciblée sur un périmètre nommé (« aides aux entreprises » hors allègements généraux), chiffrée comme si elle
-    était appliquée : central = montant annoncé, plafonné par le budget réel du périmètre (dépenses fiscales et dépenses budgétaires
-    : 40 + 30 = 70 Md€ en 2025) ; bas = 0 (économie non réalisée) ; haut = central.'
+  interpretation: 'Montant annuel (Public Sénat, 6 nov. 2025, d''après la publication LinkedIn du candidat : « réduire de
+    50 milliards d''euros le montant annuel des aides versées aux entreprises », « dès le premier projet de loi de finances
+    »). Aides visées non listées ; l''équipe exclut les allègements généraux (« C''est ce qu''on pouvait faire de plus massif
+    sans réduire les allègements généraux, ou d''autres choses qu''on ne voulait pas toucher », un conseiller, même article).
+    Périmètre retenu : aides aux entreprises hors allègements de cotisations et hors interventions de Bpifrance (prêts,
+    garanties et prises de participation, remboursés ou rémunérés : les réduire n''améliore pas le solde primaire). Règle
+    6 (économie ciblée sur un périmètre nommé) : central = montant annoncé, plafonné par ce périmètre ; bas = 0 ; haut
+    = central.'
   chiffrable: true
   nature: economie
   effet_solde_primaire:
-    central: 60.53
+    central: 55.34
     bas: 0.0
-    haut: 60.53
+    haut: 55.34
     montee_en_charge: *id001
   calcul:
-    formule: min(montant * f, (aides - allegements) * f23)
+    formule: min(montant * f, perimetre_2025 * f) * (1 - retour_is * part_subventions)
     parametres:
       montant:
         valeur: 50
         unite: Md€/an (euros 2025)
         source: https://www.publicsenat.fr/actualites/economie/entreprises-un-deal-a-250-milliards-deuros-sur-un-quinquennat-que-represente-la-proposition-dedouard-philippe
-        note: « réduire de 50 milliards d'euros le montant annuel des aides versées aux entreprises »
-      aides:
-        valeur: 211
-        unite: Md€/an (2023)
-        bareme: aides_publiques_entreprises
-        note: 'périmètre large du Sénat (bas du barème : 108, périmètre strict)'
-      allegements:
-        valeur: 75
-        unite: Md€/an (2023)
+        note: « le maire du Havre veut réduire de 50 milliards d'euros le montant annuel des aides versées aux entreprises
+          »
+      perimetre_2025:
+        valeur: 70
+        unite: Md€/an (2025), aides hors allègements de cotisations
         source: https://www.senat.fr/rap/r24-808-1/r24-808-1_mono.html
-        note: 'allègements généraux compris dans les 211 Md€ du Sénat (75 Md€ en 2023), exclus par l''entourage (« sans
-          réduire les allègements généraux ») ; le ministre Lombard, cité par le même rapport, retient 150 Md€ dont 80
-          d''allègements, soit 70 Md€ hors allègements en 2025'
+        note: '« une estimation globale du coût des aides publiques aux entreprises de 150 milliards d''euros, ventilée sommairement
+          entre les dépenses fiscales (40 milliards d''euros), les dépenses budgétaires (30 milliards d''euros) et les allègements
+          de cotisations sociales (80 milliards d''euros) » (ministre Lombard, 15 mai 2025, cité par la commission d''enquête).
+          Recoupement Sénat 2023 (graphiques du rapport, relus) : sens large 211 = 41 Bpifrance + 88 dépenses fiscales + 75
+          allègements + 7 subventions, soit 95 Md€ hors Bpifrance et hors allègements ; sens strict 108 = 26 dépenses fiscales
+          (hors TVA et dépenses « déclassées ») + 75 allègements + 7 subventions, soit 33 Md€ hors allègements'
       f: *id002
-      f23:
-        valeur: 1.2777
-        unite: facteur 2023→2032
-        bareme: facteur_pib_2023_2032
-    explication: 'Enveloppe ciblée sur un périmètre nommé (règle 6 révisée) : 50 Md€ annoncés, inférieurs au plafond du périmètre
-      (barème aides_publiques_entreprises, 211 Md€ en 2023, moins 75 Md€ d''allègements généraux exclus par l''entourage, soit
-      136 Md€ et 174 Md€ en euros 2032 ; 70 Md€ en 2025 selon le ministre), donc non plafonnés ; portés en euros 2032
-      avec le même facteur PIB que la baisse d''impôts de production (60,5 Md€), pour que le « deal » soit symétrique. Bas 0
-      : économie non réalisée (aides non identifiées, confiance faible). Sensibilité au périmètre : le Sénat évalue à 211 Md€
-      (2023) les aides « au sens large » (dont 41 Md€ de Bpifrance, prêts et garanties, 88 Md€ de dépenses fiscales, 75 Md€
-      d''allègements, 7 Md€ de subventions) et à 108 Md€ « au sens strict » ; hors allègements généraux, le périmètre strict
-      ne représente que 33 Md€ (26 Md€ de dépenses fiscales + 7 Md€ de subventions) : sur ce périmètre le plafond ramènerait
-      le central à 40 Md€ en 2032. Retour d''IS sur la suppression d''aides non compté (aides pour partie non imposables).'
+      retour_is:
+        valeur: 0.2
+        unite: part du montant rendue par l'IS
+        source: https://www.fipeco.fr/fiche/Limp%C3%B4t-sur-les-soci%C3%A9t%C3%A9s
+        note: même taux de retour que la ligne impots-production-moins-50md (symétrie du « deal »)
+      part_subventions:
+        valeur: 0.4286
+        unite: part des aides supprimées qui sont des subventions imposables
+        source: https://www.senat.fr/rap/r24-808-1/r24-808-1_mono.html
+        note: 'convention : suppression proportionnelle à la ventilation du ministre (30 Md€ de dépenses budgétaires sur 70)
+          ; les subventions d''exploitation et d''investissement entrent dans le résultat imposable (art. 38 du CGI), leur
+          suppression réduit l''IS ; les crédits et réductions d''impôt (dépenses fiscales) ne sont pas imposables'
+    explication: '50 Md€ (euros 2025) portés en euros 2032 avec le même facteur PIB que la baisse d''impôts de production
+      (60,53 Md€), inférieurs au plafond du périmètre hors allègements (70 Md€ en 2025 selon le ministre, 84,7 Md€ en 2032)
+      : le plafond ne joue pas. Net de l''IS perdu sur la part « subventions » (30/70 × 0,20 = 8,6 %) : 55,34 Md€. Première
+      rédaction du 29/09 : 60,53 sans retour d''IS, alors que la ligne symétrique (baisse d''impôts de production) en compte
+      un. Lecture contestable du plafond : sur le périmètre « au sens strict » du Sénat (33 Md€ en 2023 hors allègements,
+      42,2 Md€ en 2032 avec facteur_pib_2023_2032), le central tomberait à 38,6 Md€ ; ce périmètre exclut les dépenses fiscales
+      de TVA et « déclassées » (intégration fiscale), dont la suppression est juridiquement possible et que le candidat
+      n''exclut pas : le périmètre du ministre (70 Md€) est retenu, celui du Sénat au sens strict est une sensibilité. Bas
+      0 : économie non réalisée (aides non identifiées).'
   confiance: faible
   verification:
     statut: corrige
-    par: verificateur-sonnet
+    par: passe-sources
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Règle 6 révisée : économie ciblée sur un périmètre nommé, donc central = 50 Md€ plafonnés par le budget des aides hors allègements généraux (70 Md€ en 2025 : 40 dépenses fiscales + 30 budgétaires, ministre Lombard, rapport du Sénat r24-808 ; le plafond ne joue pas), soit 60,53 Md€ en 2032 (même facteur PIB que la baisse d'impôts, pour la symétrie) ; bas 0, haut = central. Première rédaction : central 0. Sensibilité : au sens strict du Sénat, hors allègements, le périmètre ne fait que 33 Md€ (plafond à 40 Md€ en 2032). Confiance faible. Recalé sur les conventions communes du 29/09 : plafond de la règle 6 calculé sur le barème aides_publiques_entreprises (211 Md€ en 2023, hors 75 Md€ d'allègements généraux, projeté par facteur_pib_2023_2032) ; non contraignant, valeur inchangée (60,53). Sur le périmètre strict (bas du barème, 108 − 75 = 33 Md€, soit 42 Md€ en 2032) le plafond jouerait. Facteur de projection renvoyé au barème facteur_pib_2025_2032 (valeur inchangée)."
+    commentaire: "Passe sources : citation remplacée par la source primaire (site du candidat, « 50 Md€ d'aides publiques improductives en moins ») ; montant annuel et exclusion des allègements généraux relus dans Public Sénat (6 nov. 2025). Rapport du Sénat r24-808 relu (texte et graphiques 140 et 141) : 211 Md€ au sens large (41 Bpifrance, 88 dépenses fiscales, 75 allègements, 7 subventions), 108 Md€ au sens strict (26 dépenses fiscales, 75 allègements, 7 subventions) ; le sens strict INCLUT les allègements (le barème aides_publiques_entreprises le décrit à tort comme « hors allègements généraux »). Plafond tranché : aides hors allègements et hors Bpifrance, 70 Md€ (ministre, 2025) à 95 Md€ (Sénat, 2023) ; le sens strict (33 Md€) est une sensibilité. Correction : retour d'IS sur la part subventions (8,6 %), par symétrie avec la baisse d'impôts de production : central 60,53 → 55,34. Trace précédente (verificateur-sonnet, 29/09) : règle 6 révisée, central 0 → 60,53, plafond non contraignant."
 - id: deficit-2pct-2032
   libelle: Ramener le déficit public à 2 % du PIB en 2032 (enveloppe d'économies non détaillée)
   domaine: finances publiques
@@ -228,7 +247,87 @@ mesures:
     détaillées (pas de double compte).'
   sens_probable: economie
 - id: retraites-travailler-plus-longtemps
-  libelle: 'Réforme des retraites : travailler plus longtemps, âge légal relevé selon les métiers'
+  libelle: 'Réforme des retraites : âge légal à 65 ans et 45 annuités en moins de dix ans, après la reprise de la réforme de 2023'
+  domaine: retraites
+  citation:
+    texte: '"Pour retrouver l''équilibre de notre système par répartition, je propose de porter progressivement la durée
+      de cotisation à quarante-cinq ans et l''âge de départ à 65 ans pour les Français qui le peuvent", explique-t-il. "On
+      va reprendre la réforme de 2023 [qui avait été suspendue en 2025] qui plaçait l''âge légal de départ et la retraite à
+      64 ans au lieu des 62 et 9 mois aujourd''hui et qui plaçait la durée de cotisation à quarante-trois ans au lieu de
+      quarante-deux et demi aujourd''hui. Ensuite, on va poursuivre pour qu''en moins de dix ans, nous soyons passés à 65
+      ans pour l''âge légal de départ, et quarante-cinq annuités", détaille le maire du Havre.'
+    url: https://www.franceinfo.fr/elections/presidentielle/age-de-depart-a-65-ans-45-annuites-de-cotisation-edouard-philippe-candidat-horizons-a-la-presidentielle-devoile-son-projet-de-reforme-des-retraites_8214737.html
+    date: '2026-09-29'
+    support: presse (franceinfo avec AFP), transcription de la vidéo du candidat
+  precision: partielle
+  interpretation: 'Annonce du 29 septembre 2026 (vidéo YouTube https://www.youtube.com/watch?v=tZuZwWpT4ak, relayée par
+    https://www.edouardphilippe.fr/actualites/retraites-la-reforme-que-je-propose-aux-francais ; la page du site ne reprend
+    pas les chiffres et la vidéo n''a pas pu être transcrite ici : verbatim de l''AFP). Reprise de la réforme de 2023 (64
+    ans, 43 ans de durée) : déjà dans la référence (reprise au 1er janvier 2028), coût nul. Au-delà : 65 ans et 45 annuités
+    (180 trimestres) « en moins de dix ans » ; « un Français sur trois pourra partir avant 65 ans, entre 60 et 64 ans »
+    (carrières longues, invalidité, handicap inchangés). Le calendrier du passage de 64 à 65 ans et de 43 à 45 ans n''est
+    pas donné. Âge : à droit constant, 64 ans n''est atteint que par la génération 1969 (en 2033) ; la hausse au-delà ne
+    joue donc pas en 2032. Durée : 43 ans sont atteints dès la génération 1965 ou 1966 (calendrier décalé par la suspension) ; si l''allongement suit immédiatement (1
+    trimestre par génération : 8 trimestres en huit générations, soit « moins de dix ans »), les générations 1966-1968,
+    qui partent vers 2029-2032, cotisent 1 à 3 trimestres de plus ; s''il ne commence qu''après 64 ans (« ensuite »), rien
+    en 2032. Le candidat écarte la hausse des cotisations et une baisse générale des pensions (Planet, 29 sept. 2026).'
+  chiffrable: true
+  nature: economie
+  effet_solde_primaire:
+    central: 1.48
+    bas: 0.0
+    haut: 4.43
+    montee_en_charge:
+      '2027': 0
+      '2028': 0
+      '2029': 0.2
+      '2030': 0.4
+      '2031': 0.7
+      '2032': 1
+  calcul:
+    formule: annees_duree * gain_duree + annees_age * gain_age
+    parametres:
+      annees_duree:
+        valeur: 0.25
+        unite: année de durée d'assurance requise en plus de la référence, en moyenne sur les départs de 2032
+        source: https://www.franceinfo.fr/elections/presidentielle/age-de-depart-a-65-ans-45-annuites-de-cotisation-edouard-philippe-candidat-horizons-a-la-presidentielle-devoile-son-projet-de-reforme-des-retraites_8214737.html
+        note: 'convention, parce que le calendrier n''est pas publié : milieu entre les deux lectures de « ensuite » ; allongement
+          immédiat après 43 ans (1 trimestre par génération, 1 à 2 trimestres en moyenne sur les départs de
+          2032 : environ 0,4 an) ou après l''atteinte de 64 ans en 2033 (0). Bas 0 ; haut 0,75 an (3 trimestres, génération 1968)'
+      gain_duree:
+        valeur: 5.9
+        unite: Md€ 2032 par année de durée requise en plus
+        bareme: retraites_duree_assurance_hausse_1_an
+        note: '« son allongement (44 ans au lieu de 43) rapporterait 5,2 Md€ en 2035 » (Cour des comptes, euros constants
+          2024) × 1,1386 (déflateur 2024→2032) ≈ 5,9 ; le barème retraites_duree_assurance_1_an (4,4) ne vaut que pour une
+          baisse de durée'
+      annees_age:
+        valeur: 0
+        unite: année d'âge légal en plus de la référence en 2032
+        source: https://www.cor-retraites.fr/sites/default/files/2026-07/RA_2026_def_1.pdf
+        note: 'la référence (réforme 2023 reprise en 2028) atteint 64 ans pour la génération 1969 en 2033 ; le relèvement
+          à 65 ans, annoncé « ensuite », ne touche pas les départs de 2032'
+      gain_age:
+        valeur: 6.6
+        unite: Md€ 2032 par année d'âge
+        bareme: retraites_age_legal_1_an
+    explication: 'Seul l''allongement de la durée joue en 2032 : 0,25 an (convention) × 5,9 Md€ (barème
+      retraites_duree_assurance_hausse_1_an) = 1,48 Md€ sur le solde du système de retraite. Bas 0 : allongement commencé
+      après 2032. Haut : 0,75 an de durée en plus (3 trimestres) × 5,9 = 4,43 Md€ ; l''âge n''ajoute rien même dans le haut. À long terme (65 ans et 45 ans pleinement appliqués, vers 2040),
+      l''effet est bien supérieur : un an d''âge (6,6 Md€) plus deux ans de durée (≈ 11,8 Md€), avant exceptions (« un
+      Français sur trois » avant 65 ans).'
+  effets_retour: 'Effet sur l''emploi des seniors et les recettes hors système de retraite (DG Trésor : 7,2 Md€ en 2035 pour
+    un an d''âge) : non compté. Convention commune 4 : le montant porte sur le solde du système de retraite ; pour
+    l''ensemble des administrations publiques, la Cour des comptes (février 2025) chiffre un recul d''un an de l''âge
+    d''ouverture des droits jusqu''à 17,7 Md€ en 2035, contre 5,8 Md€ pour le seul système.'
+  confiance: faible
+  verification:
+    statut: corrige
+    par: passe-sources
+    date: '2026-09-29'
+    commentaire: "Passe sources : le candidat a publié sa réforme le 29 septembre 2026 (65 ans et 45 annuités en moins de dix ans, après reprise de la réforme 2023) ; citation remplacée (franceinfo/AFP, verbatim de la vidéo ; page du site relue, sans chiffres). Le chiffrage précédent (accélération de l'âge à 6 mois par génération dès 2028, 0,5 an × 6,6 = 3,3 Md€) ne correspond plus à l'annonce : l'âge au-delà de 64 ans ne joue pas en 2032. Remplacé par l'allongement de durée (extrait de la Cour des comptes relu) avec une convention de calendrier : central 3,3 → 1,48, bas 0, haut 7,9 → 4,44. Trace précédente (verificateur-sonnet, 29/09) : statut conteste, calendrier d'accélération non sourcé. Recalé sur les barèmes sourcés du 29/09 : gain de durée renvoyé au nouveau barème retraites_duree_assurance_hausse_1_an (5,92 recopié → 5,9) ; central 1,48 inchangé à l'arrondi (1,475), haut 4,44 → 4,43."
+- id: retraites-capitalisation-10-15pct
+  libelle: Créer un pilier de capitalisation représentant 10 à 15 % des pensions d'ici 15 ans
   domaine: retraites
   citation:
     texte: 'Garantir l''équilibre de notre système de retraites pour protéger les générations futures : travailler plus tout
@@ -237,68 +336,12 @@ mesures:
     url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
     date: consulté le 2026-09-29
     support: site du candidat
-  precision: vague
-  interpretation: 'Âge cible non annoncé au 29 sept. 2026 (le candidat refuse « tout chiffre totémique », Figaro 30 juin 2026
-    ; LCP 23 sept. : paramètres « dans les prochains jours ou semaines »). Hypothèses pour la phase 2 : âge légal porté à
-    65 (bas), 66 (central), 67 ans (haut), au rythme de 3 mois par génération, par rapport à la législation au 1er janvier
-    2027 (réforme 2023 suspendue jusqu''en 2028). Référendum sur les retraites annoncé (IFRAP). Phase 2 : effet en 2032 limité
-    par le calendrier de la référence ; l''effet de long terme d''un âge à 66-67 ans est bien supérieur (après 2034).'
-  chiffrable: true
-  nature: economie
-  effet_solde_primaire:
-    central: 3.3
-    bas: 0.0
-    haut: 7.9
-    montee_en_charge:
-      '2027': 0
-      '2028': 0.1
-      '2029': 0.3
-      '2030': 0.5
-      '2031': 0.75
-      '2032': 1
-  calcul:
-    formule: annees * gain_par_an
-    parametres:
-      annees:
-        valeur: 0.5
-        unite: année d'âge effectif supplémentaire en 2032 par rapport à la référence
-        source: https://solidarites.gouv.fr/loi-de-financement-de-la-securite-sociale-2026-les-mesures-phares
-        note: 'hypothèse de lecture : la référence reprend en 2028 la montée vers 64 ans (génération 1969) ; un âge cible
-          de 65-67 ans au rythme habituel (3 mois par génération) ne touche que les générations 1970 et suivantes, qui atteignent
-          64 ans en 2034. Un effet en 2032 suppose une accélération du calendrier dès 2028 : 6 mois par génération au lieu
-          de 3 donnent environ un demi-an d''âge supplémentaire en 2032 sur les générations 1966-1968.'
-      gain_par_an:
-        valeur: 6.6
-        unite: Md€ 2032 par année d'âge
-        bareme: retraites_age_legal_1_an
-    explication: 'Gain d''une année d''âge légal (barème retraites_age_legal_1_an, 6,6 Md€ en 2032) × supplément d''âge effectif
-      atteint en 2032. Bas : aucune accélération (le relèvement au-delà de 64 ans ne joue qu''après 2033) → 0 en 2032. Haut
-      : un an d''âge effectif en plus, borne haute du barème (7,9).'
-  effets_retour: 'Effet sur l''emploi des seniors et les recettes hors système de retraite (DG Trésor : 7,2 Md€ en 2035 pour
-    un an d''âge) : non compté. Convention commune 4 : le montant porte sur le solde du système de retraite ; pour
-    l''ensemble des administrations publiques, la Cour des comptes (février 2025) chiffre un recul d''un an de l''âge
-    d''ouverture des droits jusqu''à 17,7 Md€ en 2035, contre 5,8 Md€ pour le seul système.'
-  confiance: faible
-  verification:
-    statut: conteste
-    par: verificateur-sonnet
-    date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Âge cible inconnu (le candidat refuse tout chiffre). Le central 3,3 Md€ repose sur une accélération à 6 mois par génération dès 2028, qui ne figure dans aucune source et contredit l'interprétation écrite (3 mois par génération, âge 65/66/67, avec bas = 65) : à 3 mois par génération, un âge au-delà de 64 ans ne joue qu'après 2033 (générations 1970 et suivantes), donc effet 2032 proche de 0. Chiffre laissé en l'état, à ne lire que comme un ordre de grandeur (fourchette 0 à 7,9). Barème retraites_age_legal_1_an : 2035 converti en 2032 (voir notes du vérificateur). Recalé sur les conventions communes du 29/09 : valeur inchangée, déjà sur le solde du système de retraite (convention 4) ; effet toutes APU précisé dans effets_retour. Statut conteste maintenu (calendrier d'accélération non sourcé)."
-- id: retraites-capitalisation-10-15pct
-  libelle: Créer un pilier de capitalisation représentant 10 à 15 % des pensions d'ici 15 ans
-  domaine: retraites
-  citation:
-    texte: S’agissant du projet d’une plus forte capitalisation des retraites, le Normand plaide pour une montée en puissance
-      progressive. «Si on arrive à faire en sorte qu’elle représente 10% à 15% des pensions versées dans quinze ans, on aura
-      rendu un fier service au financement de l’économie française. Mais cela n’évitera pas le fait de devoir travailler plus
-      longtemps» ,
-    url: https://www.lefigaro.fr/elections/presidentielles/presidentielle-2027-edouard-philippe-refute-promettre-aux-francais-du-sang-et-des-larmes-20260630
-    date: '2026-06-30'
-    support: presse (entretien aux Échos)
   precision: partielle
-  interpretation: Financement non précisé (capitalisation « collective », Capital 24 sept. 2026). Si alimentée par une part
-    des cotisations aujourd'hui affectées à la répartition, coût de transition pour les régimes publics ; si par de l'épargne
-    nouvelle (livret capital France, PER), effet nul ou dépense fiscale. Hypothèse centrale à arrêter en phase 2.
+  interpretation: 'Citation de presse (Le Figaro/Les Échos, 30 juin 2026) remplacée par le site du candidat. Financement
+    non précisé. Vidéo du 29 septembre 2026 (CNews, franceinfo) : le volet capitalisation ne sera enclenché « que lorsque
+    « le système actuel sera rééquilibré » », et « tous les Français » doivent pouvoir « disposer d''un plan d''épargne-retraite
+    », rendu « un des placements les plus attractifs du marché ». Lecture centrale : épargne nouvelle (PER, livret capital
+    France), sans détournement de cotisations avant 2032 ; une incitation fiscale nouvelle sur le PER n''est pas paramétrée.'
   chiffrable: true
   nature: mixte
   effet_solde_primaire:
@@ -318,9 +361,10 @@ mesures:
       points:
         valeur: 0.0
         unite: points de cotisation vieillesse détournés vers la capitalisation
-        source: https://www.lefigaro.fr/elections/presidentielles/presidentielle-2027-edouard-philippe-refute-promettre-aux-francais-du-sang-et-des-larmes-20260630
-        note: 'financement non précisé ; central : épargne nouvelle (livret capital France, épargne salariale), sans effet
-          sur les régimes publics'
+        source: https://www.cnews.fr/france/2026-09-29/capitalisation-depart-65-ans-duree-de-cotisation-edouard-philippe-devoile-sa
+        note: 'central 0 : « cette part de capitalisation ne pourra être enclenchée « uniquement » que lorsque « le système
+          actuel sera rééquilibré » » (CNews, 29 sept. 2026, vidéo du candidat) : pas de cotisation détournée de la répartition
+          avant 2032 ; pilier alimenté par de l''épargne nouvelle (PER, livret capital France)'
       rendement_point:
         valeur: 6.2
         unite: Md€ par point (2025)
@@ -334,9 +378,9 @@ mesures:
   confiance: faible
   verification:
     statut: corrige
-    par: verificateur-sonnet
+    par: passe-sources
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Central 0 (épargne nouvelle) défendable ; bas = un point de cotisation détourné (7,6 Md€ × 1,2106 = 9,2, borne haute du barème retraites_cotisation_vieillesse_1_point, extrait Cour des comptes relu). Le paramètre 'points' à 0 rend la formule triviale : le coût de transition d'un pilier de 10-15 % des pensions pourrait dépasser un point (non chiffrable sans financement précisé). Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032 (valeur inchangée). Bas recalé (convention 9, cotisation de type non précisé : central du barème retraites_cotisation_vieillesse_1_point, sans retour) : −9,2 → −7,51."
+    commentaire: "Passe sources (passe-sources, 29/09) : citation de presse remplacée par le site du candidat ; central 0 conforté par la vidéo du 29 septembre 2026 (capitalisation enclenchée seulement une fois le système rééquilibré, CNews) ; bas conservé comme borne de transition. Trace précédente : Citation retrouvée dans la source (récupérée le 2026-09-29). Central 0 (épargne nouvelle) défendable ; bas = un point de cotisation détourné (7,6 Md€ × 1,2106 = 9,2, borne haute du barème retraites_cotisation_vieillesse_1_point, extrait Cour des comptes relu). Le paramètre 'points' à 0 rend la formule triviale : le coût de transition d'un pilier de 10-15 % des pensions pourrait dépasser un point (non chiffrable sans financement précisé). Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032 (valeur inchangée). Bas recalé (convention 9, cotisation de type non précisé : central du barème retraites_cotisation_vieillesse_1_point, sans retour) : −9,2 → −7,51."
 - id: retraites-contribution-retraites
   libelle: Demander aux retraités de contribuer davantage au financement du système social
   domaine: retraites
@@ -355,7 +399,7 @@ mesures:
   effet_solde_primaire:
     central: 0.0
     bas: 0.0
-    haut: 4.3
+    haut: 4.2
     montee_en_charge: *id001
   calcul:
     formule: points * revalo_point * (1 - retour)
@@ -374,19 +418,19 @@ mesures:
         unite: Md€ 2032 par point
         bareme: retraites_revalo_1pct
       retour:
-        valeur: 0.14
+        valeur: 0.16
         unite: part de la baisse brute des pensions qui ne revient plus aux APU (CSG, CRDS, CASA, IR)
         bareme: retour_prelevements_pensions
     explication: 'Aucun levier précisé et aucun montant annoncé : central 0 (première rédaction : 5,0 Md€ par une hypothèse
       d''un point de revalorisation, sans base dans les sources, corrigée à la vérification du 2026-09-29). Haut : un point
       de revalorisation des pensions (5,0 Md€ brut en 2032, effet permanent), net des prélèvements sur les pensions
-      (convention commune 3 : × (1 − 0,14), soit 4,3 Md€), du même ordre que les pistes de la presse. Bas 0.'
+      (convention commune 3 : × (1 − 0,16), soit 4,2 Md€), du même ordre que les pistes de la presse. Bas 0.'
   confiance: faible
   verification:
     statut: corrige
-    par: verificateur-sonnet
+    par: passe-sources
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Aucun levier ni montant dans la source (« contribuer davantage ») : le central de 5 Md€ (un point de sous-indexation) était une hypothèse sans appui, alors que la règle 6 ne compte que ce qui est annoncé ou documenté. Corrigé : central 0, bas 0, haut 5,0 (un point, du même ordre que les pistes de presse : Planet, « jusqu'à 6 milliards » pour une non-revalorisation totale selon la commission des finances). Ancien haut 10 ramené à 5. Recalé sur les conventions communes du 29/09 : pensions nettes de retour_prelevements_pensions (0,14, convention 3) ; haut 5,0 → 4,3, central et bas inchangés (0)."
+    commentaire: "Passe sources (29/09) : citation primaire (transcription du meeting sur le site du candidat) conservée ; aucun levier ni montant publié depuis. Vidéo du 29 septembre 2026 : le candidat « refuse expressément toute baisse générale des pensions des retraités actuels » (Planet, 29 sept. 2026, https://www.planet.fr/depart-a-65-ans-et-45-annuites-de-cotisation-la-copie-revue-et-corrigee-dedouard-philippe-sur-les-retraites.2999535.817022.html) : la borne haute (un point de revalorisation, 4,3 Md€) se lit désormais comme l'équivalent d'un effort ciblé (CSG ou abattement des retraités aisés), pas comme une sous-indexation générale. Convention : central 0 parce qu'aucun levier n'est nommé. Valeurs inchangées. Trace précédente : Citation retrouvée dans la source (récupérée le 2026-09-29). Aucun levier ni montant dans la source (« contribuer davantage ») : le central de 5 Md€ (un point de sous-indexation) était une hypothèse sans appui, alors que la règle 6 ne compte que ce qui est annoncé ou documenté. Corrigé : central 0, bas 0, haut 5,0 (un point, du même ordre que les pistes de presse : Planet, « jusqu'à 6 milliards » pour une non-revalorisation totale selon la commission des finances). Ancien haut 10 ramené à 5. Recalé sur les conventions communes du 29/09 : pensions nettes de retour_prelevements_pensions (0,14, convention 3) ; haut 5,0 → 4,3, central et bas inchangés (0). Recalé sur les barèmes sourcés du 29/09 : retour_prelevements_pensions 0,14 → 0,16 ; haut 4,3 → 4,2, central et bas inchangés (0)."
 - id: chomage-12-mois-moins-50-ans
   libelle: Limiter à 12 mois la durée d'indemnisation chômage pour les moins de 50 ans
   domaine: assurance chômage
@@ -397,7 +441,7 @@ mesures:
     date: '2026-08-27'
     support: presse (propos à l'AFP)
   precision: precise
-  interpretation: 'Durée maximale actuelle : 18 mois pour les moins de 55 ans (15 mois en cas de rupture conventionnelle à
+  interpretation: 'Source primaire introuvable (propos à l''AFP relayés par LCP). Durée maximale actuelle : 18 mois pour les moins de 55 ans (15 mois en cas de rupture conventionnelle à
     partir du 1er sept. 2026). La borne d''âge passerait de 55 à 50 ans pour les durées longues (à préciser : les 50-54 ans
     gardent-ils 18 ou 22,5 mois ?).'
   chiffrable: true
@@ -426,7 +470,8 @@ mesures:
         valeur: 1.0
         unite: économie de la baisse 18 → 12 mois rapportée à celle de 24 → 18 mois
         source: https://www.unedic.org/publications/reforme-2023-premiers-effets-de-la-reforme-de-contracyclicite
-        note: 'hypothèse de lecture : même amputation de six mois de durée maximale, sur les moins de 50 ans au lieu des moins
+        note: 'convention (aucune donnée publique ne ventile les dépenses au-delà du 12e mois par âge), parce que les deux
+          effets se compensent à peu près : même amputation de six mois de durée maximale, sur les moins de 50 ans au lieu des moins
           de 53 ans ; davantage d''allocataires atteignent 12 mois que 18 mois (effet à la hausse), le champ est un peu plus
           étroit (effet à la baisse)'
       f:
@@ -447,9 +492,9 @@ mesures:
   confiance: faible
   verification:
     statut: ok
-    par: verificateur-sonnet
+    par: passe-sources
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Extrait Unédic relu (4,5 Md€ à l'horizon 2027 pour la réforme de contracyclicité : durée réduite de 25 %, tous âges). Ratio 1,0 défendable (baisse de 33 % de la durée mais champ limité aux moins de 50 ans). Facteur 1,157 = 1,2106 / 1,0463 exact. Réserve : l'économie Unédic est celle du régime ; une partie des allocataires en fin de droit bascule sur RSA/ASS (coût APU non déduit), ce qui pourrait retirer jusqu'à 10-20 % du chiffre. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2027_2032 (valeur inchangée)."
+    commentaire: "Passe sources (29/09) : source primaire introuvable (propos à l'AFP, repris par LCP ; rien sur le site du candidat) ; extrait Unédic relu ; ratio 1,0 écrit comme convention, fourchette 0,5-1,5 inchangée. Trace précédente : Citation retrouvée dans la source (récupérée le 2026-09-29). Extrait Unédic relu (4,5 Md€ à l'horizon 2027 pour la réforme de contracyclicité : durée réduite de 25 %, tous âges). Ratio 1,0 défendable (baisse de 33 % de la durée mais champ limité aux moins de 50 ans). Facteur 1,157 = 1,2106 / 1,0463 exact. Réserve : l'économie Unédic est celle du régime ; une partie des allocataires en fin de droit bascule sur RSA/ASS (coût APU non déduit), ce qui pourrait retirer jusqu'à 10-20 % du chiffre. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2027_2032 (valeur inchangée)."
 - id: arrets-maladie-carence
   libelle: Renforcer les jours de carence d'ordre public sur les arrêts maladie courts
   domaine: santé / indemnités journalières
@@ -509,9 +554,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -5.43
-    bas: -6.69
-    haut: -4.93
+    central: -5.21
+    bas: -6.43
+    haut: -4.72
     montee_en_charge: *id003
   calcul:
     formule: -taux * etpt * cout_apu_moyen / 1000
@@ -526,16 +571,16 @@ mesures:
         source: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
         note: 341 897 + 451 966 ETPT, lus dans la dérivation du barème cout_enseignant_charge
       cout_apu_moyen:
-        valeur: 34200
+        valeur: 32800
         unite: € par ETP et par an (enseignant moyen, net des cotisations employeurs et des retours)
         bareme: cout_enseignant_apu
-        note: 'borne haute du barème (agent moyen, pour une revalorisation, convention commune 1) : rémunération brute
-          moyenne hors cotisations employeurs ≈ 45 640 € × (1 − 0,25)'
+        note: 'borne haute du barème (agent moyen, pour une revalorisation, convention commune 1) : rémunération d''activité
+          moyenne pondérée des programmes 140 et 141 (PAP 2026) 43 703 € × (1 − 0,25)'
     explication: 'Convention commune 1 (revalorisation des agents en place) : 20 % du coût moyen d''un enseignant pour le
-      solde des APU (haut du barème cout_enseignant_apu, 34 200 € : brut moyen hors cotisations employeurs net des
+      solde des APU (haut du barème cout_enseignant_apu, 32 800 € : brut moyen hors cotisations employeurs net des
       prélèvements qui reviennent aux APU ; le CAS Pensions, transfert interne, ne compte pas) × 0,794 M ETPT. Bas :
-      + enseignants du privé sous contrat (≈ 140 000, ≈ 1,0 Md€) et pensions induites en 2032 (≈ 0,3 Md€, convention 2).
-      Haut : retour de prélèvements 0,32 (45 640 € × 0,68 ≈ 31 000 €). Convention de droit constant (REFERENCE.md) : point d''indice gelé en référence,
+      + enseignants du privé sous contrat (≈ 140 000, ≈ 0,9 Md€) et pensions induites en 2032 (≈ 0,3 Md€, convention 2).
+      Haut : retour de prélèvements 0,32 (43 703 € × 0,68 ≈ 29 720 €). Convention de droit constant (REFERENCE.md) : point d''indice gelé en référence,
       la hausse s''applique au niveau de rémunération actuel sans projection au PIB. Montée linéaire sur le quinquennat. Enseignants
       du privé sous contrat non inclus (sous-estimation). La baisse démographique invoquée n''est pas comptée en économie
       faute de suppression de postes annoncée.'
@@ -544,7 +589,7 @@ mesures:
     statut: corrige
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Calcul rejoué (0,2 × 0,793863 M × 85 000 € × 0,65 × 0,75 = 6,58 Md€), effectifs et coût par ETPT conformes au barème. Réserves : (1) le retour de prélèvements de 25 % est attribué au rapport du Sénat (a25-145-5) qui ne le contient pas : note du paramètre corrigée, ordre de grandeur plausible (CSG, retenue pension, cotisations employeur hors CAS, IR ≈ 30 % du coût hors CAS) mais non sourcé ; (2) enseignants du privé sous contrat (payés par l'État) non inclus, environ +1 Md€ si le candidat les inclut. Recalé sur les conventions communes du 29/09 : coût par agent pris au haut du barème cout_enseignant_apu (agent moyen, brut hors cotisations employeurs, net des retours) au lieu du coût chargé × 0,65 × (1 − un quart non sourcé) ; central −6,58 → −5,43, bas −9,05 → −6,69 (privé sous contrat et pensions induites), haut −6,31 → −4,93 (retour 0,32)."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Calcul rejoué (0,2 × 0,793863 M × 85 000 € × 0,65 × 0,75 = 6,58 Md€), effectifs et coût par ETPT conformes au barème. Réserves : (1) le retour de prélèvements de 25 % est attribué au rapport du Sénat (a25-145-5) qui ne le contient pas : note du paramètre corrigée, ordre de grandeur plausible (CSG, retenue pension, cotisations employeur hors CAS, IR ≈ 30 % du coût hors CAS) mais non sourcé ; (2) enseignants du privé sous contrat (payés par l'État) non inclus, environ +1 Md€ si le candidat les inclut. Recalé sur les conventions communes du 29/09 : coût par agent pris au haut du barème cout_enseignant_apu (agent moyen, brut hors cotisations employeurs, net des retours) au lieu du coût chargé × 0,65 × (1 − un quart non sourcé) ; central −6,58 → −5,43, bas −9,05 → −6,69 (privé sous contrat et pensions induites), haut −6,31 → −4,93 (retour 0,32). Recalé sur les barèmes sourcés du 29/09 : haut de cout_enseignant_apu 34 200 → 32 800 € (rémunération d'activité moyenne lue dans les PAP 2026, 43 703 €, au lieu de 45 640 €) ; central −5,43 → −5,21, bas −6,69 → −6,43, haut −4,93 → −4,72."
 - id: soutien-scolaire-universel
   libelle: Créer un service public universel du soutien scolaire (assistant IA et brigades)
   domaine: éducation
@@ -732,7 +777,7 @@ mesures:
     les autres mesures.'
   sens_probable: neutre
 - id: fonds-adaptation-2md
-  libelle: Fonds unique d'adaptation au changement climatique de 2 Md€ par an
+  libelle: Fonds unique d'adaptation au changement climatique de 2 Md€ par an (Fonds vert doublé et fonds Barnier réunis)
   domaine: écologie / adaptation
   citation:
     texte: Édouard Philippe a expliqué, jeudi 17 septembre, lors d'un discours aux Ponts-de-Cé (Maine-et-Loire), vouloir "doter
@@ -742,36 +787,51 @@ mesures:
     date: '2026-09-17'
     support: presse (discours des Ponts-de-Cé)
   precision: precise
-  interpretation: 'Fonds « unique » : une partie pourrait regrouper des crédits existants (fonds Barnier, Fonds vert…) ; le
-    net nouveau est à établir.'
+  interpretation: 'Source primaire introuvable (discours des Ponts-de-Cé absent du site du candidat au 29 septembre 2026 ;
+    presse seulement). Selon l''AFP (France 24, 17 sept. 2026), le fonds « réunirait le Fonds Barnier et le Fonds vert existants,
+    doté de 2 milliards d''euros annuels » ; le candidat : « Deux milliards, c''est une somme importante. Mais rapportée aux
+    5 milliards d''euros que coûtent chaque année les catastrophes naturelles, c''est de l''argent bien investi ». Le doublement
+    du Fonds vert (site du candidat) se lit donc à l''intérieur de ce fonds : en autorisations d''engagement, 2 × 0,837 +
+    0,300 (Barnier) ≈ 1,97 Md€, soit les 2 Md€ annoncés. Coût = 2 Md€ moins les crédits existants des deux fonds.'
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -2.0
-    bas: -2.37
-    haut: -1.0
+    central: -0.7
+    bas: -3.64
+    haut: -0.7
     montee_en_charge: *id001
   calcul:
-    formule: -montant * part_nouvelle
+    formule: -(montant - fonds_vert_cp - barnier_cp)
     parametres:
       montant:
         valeur: 2.0
         unite: Md€/an
-        source: https://www.franceinfo.fr/elections/presidentielle/edouard-philippe-souhaite-doter-la-france-d-une-veritable-politique-de-securite-climatique_8197976.html
-      part_nouvelle:
-        valeur: 1.0
-        unite: part de crédits nouveaux
-        source: https://www.franceinfo.fr/elections/presidentielle/edouard-philippe-souhaite-doter-la-france-d-une-veritable-politique-de-securite-climatique_8197976.html
-        note: '« fonds unique » : le regroupement de crédits existants n''est pas précisé'
-    explication: '2 Md€ par an de crédits nouveaux (montant nominal). Bas : montant indexé sur le PIB (2 × 1,1842). Haut :
-      la moitié provient de fonds existants regroupés. Le Canadair et les trois plans (baignade, infrastructures, montagne)
-      sont supposés financés par ce fonds.'
+        source: https://www.france24.com/fr/info-en-continu/20260917-entre-le-d%C3%A9ni-du-rn-et-le-dogme-de-lfi-le-plan-d-%C3%A9douard-philippe-pour-une-politique-de-s%C3%A9curit%C3%A9-climatique
+        note: '« fonds unique d''adaptation au changement climatique » qui « réunirait le Fonds Barnier et le Fonds vert existants,
+          doté de 2 milliards d''euros annuels » (AFP)'
+      fonds_vert_cp:
+        valeur: 1.07
+        unite: Md€ de crédits de paiement du Fonds vert (2026)
+        source: https://www.banquedesterritoires.fr/budget-2026-les-derniers-arbitrages-du-gouvernement-sur-les-finances-locales-dont-le-dilico
+        note: « 837 millions d'euros en autorisation d'engagement (AE) et 1,070 milliard en crédits de paiement (CP) sont
+          inscrits pour 2026 »
+      barnier_cp:
+        valeur: 0.229
+        unite: Md€ de crédits de paiement du fonds Barnier (PLF 2026)
+        source: https://www.assemblee-nationale.fr/dyn/17/amendements/1906C/CION_FIN/CF2660
+        note: '« Le projet de loi de finances prévoit d''allouer au Fonds Barnier, porté par l''action 14 [...] du programme
+          181 Prévention des risques, 300 millions d''euros en AE et 228,8 millions d''euros en CP » (montant du PLF ; la LFI
+          2026 peut différer de quelques dizaines de millions)'
+    explication: 'Fonds de 2 Md€ par an (montant nominal) regroupant le Fonds vert (1,07 Md€ de CP en 2026) et le fonds Barnier
+      (0,229 Md€ de CP) : crédits nouveaux 0,70 Md€. Couvre aussi le doublement du Fonds vert (fonds-vert-doublement, non
+      compté à part). Bas : lecture de la première rédaction, fonds de 2 Md€ entièrement nouveau et doublement du Fonds vert
+      en sus, indexés sur le PIB ((2 + 1,07) × 1,1842 = 3,64 Md€). Haut = central.'
   confiance: moyenne
   verification:
-    statut: ok
-    par: verificateur-sonnet
+    statut: corrige
+    par: passe-sources
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). 2 Md€/an de crédits nouveaux : borne haute du coût (le « fonds unique » peut regrouper des fonds existants). Recoupement possible avec fonds-vert-doublement (voir cette mesure)."
+    commentaire: "Passe sources : source primaire introuvable (discours non publié sur le site du candidat) ; dépêche AFP relue (France 24) : le fonds réunit le Fonds vert et le fonds Barnier. Correction : seuls les crédits nouveaux sont comptés (2 − 1,07 − 0,229), et le doublement du Fonds vert est inclus dans ce fonds au lieu d'être ajouté : fonds-adaptation-2md −2,0 → −0,70 et fonds-vert-doublement −1,07 → non chiffrable (inclus), soit −3,07 → −0,70 Md€ au total. Trace précédente (verificateur-sonnet, 29/09) : ok, recoupement avec le Fonds vert signalé mais non retranché."
 - id: fonds-vert-doublement
   libelle: Doubler le Fonds vert, recentré sur l'adaptation et la climatisation des bâtiments publics
   domaine: écologie / adaptation
@@ -781,33 +841,18 @@ mesures:
     date: consulté le 2026-09-29
     support: site du candidat
   precision: precise
-  interpretation: Doublement par rapport au montant voté pour 2027 ; recoupement possible avec fonds-adaptation-2md (à traiter
-    sans double compte).
-  chiffrable: true
-  nature: depense
-  effet_solde_primaire:
-    central: -1.07
-    bas: -1.27
-    haut: -0.84
-    montee_en_charge: *id001
-  calcul:
-    formule: -cp_2026
-    parametres:
-      cp_2026:
-        valeur: 1.07
-        unite: Md€ de crédits de paiement (LFI 2026)
-        source: https://www.banquedesterritoires.fr/budget-2026-les-derniers-arbitrages-du-gouvernement-sur-les-finances-locales-dont-le-dilico
-        note: « 837 millions d'euros en autorisation d'engagement (AE) et 1,070 milliard en crédits de paiement (CP) sont
-          inscrits pour 2026 »
-    explication: 'Doubler le Fonds vert = ajouter l''équivalent des crédits 2026 (1,07 Md€ de CP). Bas : montant indexé sur
-      le PIB (× 1,1842). Haut : base des AE (0,837 Md€). Recoupement possible avec le fonds d''adaptation de 2 Md€ (même objet)
-      : compté séparément, le candidat présentant les deux.'
-  confiance: moyenne
+  interpretation: 'Le 17 septembre 2026, le candidat a présenté un « fonds unique d''adaptation » de 2 Md€ par an qui réunirait
+    le Fonds vert et le fonds Barnier (AFP) : le doublement du Fonds vert (0,837 Md€ d''AE en 2026, soit 1,67 Md€ doublé,
+    plus 0,3 Md€ de Barnier ≈ 2 Md€) est lu comme la dotation de ce fonds.'
+  chiffrable: false
+  raison_non_chiffrable: 'Compté dans fonds-adaptation-2md (le fonds unique de 2 Md€ réunit le Fonds vert doublé et le fonds
+    Barnier) : pas de double compte.'
+  sens_probable: cout
   verification:
-    statut: ok
-    par: verificateur-sonnet
+    statut: corrige
+    par: passe-sources
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Extrait Banque des Territoires relu (837 M€ AE, 1,070 Md€ CP en 2026). Risque de double compte de l'ordre de 1 Md€ avec le « fonds unique d'adaptation » de 2 Md€ (même objet : adaptation, climatisation des bâtiments publics) ; il est signalé et non retranché, le candidat présentant les deux mesures séparément."
+    commentaire: "Passe sources : dépêche AFP du 17 septembre 2026 (France 24) relue : le fonds unique de 2 Md€ « réunirait le Fonds Barnier et le Fonds vert existants ». Mesure repassée en non chiffrable, incluse dans fonds-adaptation-2md (−1,07 Md€ retirés). Trace précédente (verificateur-sonnet, 29/09) : ok, extrait Banque des Territoires relu (837 M€ AE, 1,070 Md€ CP) ; risque de double compte signalé."
 - id: climatisation-lieux-fragiles
   libelle: Climatiser massivement les lieux accueillant des personnes fragiles
   domaine: écologie / adaptation
@@ -832,19 +877,31 @@ mesures:
     date: '2026-09-17'
     support: presse (discours des Ponts-de-Cé)
   precision: vague
-  interpretation: Probablement financés par le fonds d'adaptation de 2 Md€ ; le Canadair (programme industriel) est une dépense
-    d'investissement distincte à documenter.
+  interpretation: 'Source primaire introuvable (discours non publié sur le site du candidat ; le plan baignade figure sur
+    la page « Pour une France plus conquérante »). Les trois plans sont supposés financés par le fonds d''adaptation de
+    2 Md€. Le « Canadair français » (objectif : « ne plus attendre, quand la France brûle, qu''un autre pays veuille bien
+    nous vendre des avions pour l''éteindre », AFP) est un programme industriel distinct.'
   chiffrable: false
-  raison_non_chiffrable: Supposés financés par le fonds d'adaptation de 2 Md€ (compté dans fonds-adaptation-2md) ; le coût
-    propre du programme d'avion bombardier d'eau n'est pas documenté.
+  raison_non_chiffrable: 'Plans supposés financés par le fonds d''adaptation (compté dans fonds-adaptation-2md) ; ni montant
+    ni part publique annoncés pour le programme d''avion bombardier d''eau.'
   sens_probable: cout
   estimation_indicative:
     central: -0.2
     bas: -0.5
     haut: 0.0
-    lecture: Développement d'un bombardier d'eau français (≈ 1 à 2 Md€ sur dix ans, en partie hors fonds d'adaptation).
+    lecture: 'Convention : développement d''un bombardier d''eau d''environ 1 Md€ (le Sénat rapporte que lancer une chaîne
+      de production « implique nécessairement l''engagement de plusieurs centaines de millions voire milliards d''euros d''investissement
+      » et que De Havilland chiffre à « plus d''un milliard d''euros » la relance de la chaîne du Canadair), étalé sur cinq
+      à huit ans avec une part publique majoritaire : ≈ 0,2 Md€ par an ; bas 0,5 Md€ (financement public intégral et achat
+      des premiers appareils, 60 à 64 M€ l''unité pour un Canadair neuf) ; haut 0 (financement privé ou européen).'
     sources:
-    - https://www.franceinfo.fr/elections/presidentielle/edouard-philippe-souhaite-doter-la-france-d-une-veritable-politique-de-securite-climatique_8197976.html
+    - https://www.senat.fr/rap/r22-838/r22-838_mono.html
+    - https://www.france24.com/fr/info-en-continu/20260917-entre-le-d%C3%A9ni-du-rn-et-le-dogme-de-lfi-le-plan-d-%C3%A9douard-philippe-pour-une-politique-de-s%C3%A9curit%C3%A9-climatique
+  verification:
+    statut: ok
+    par: passe-sources
+    date: '2026-09-29'
+    commentaire: "Passe sources : source primaire introuvable (presse seulement). Estimation indicative sourcée sur le rapport du Sénat r22-838 (coût de relance d'une chaîne, coût unitaire d'un Canadair neuf 60-64 M€) ; valeurs inchangées, hors solde principal."
 - id: plan-baignade-piscines
   libelle: 'Plan baignade national : rivières baignables et rénovation des piscines'
   domaine: écologie
@@ -1063,34 +1120,35 @@ mesures:
     date: consulté le 2026-09-29
     support: site du candidat
   precision: vague
-  interpretation: 'Au-delà de la LPM actualisée (436 Md€ 2024-2030). Montant non annoncé : fourchette à construire (ex. 0
-    à +0,5 pt de PIB) ou non chiffrable.'
+  interpretation: 'Au-delà de la LPM actualisée (référence), qui consacre déjà 26,3 Md€ aux munitions sur 2024-2030 (+8,5
+    Md€ par l''actualisation). Cibles de volume sans montant ni calendrier : « dépasser » 100 000 obus par an « et atteindre
+    l''échelle » de 700 000 (production allemande, pas nécessairement achat français) ; drones « sur le modèle » d''un programme
+    américain de 300 000 ; doublement des navires aux Antilles.'
   chiffrable: false
-  raison_non_chiffrable: 'Ni montant ni cible en points de PIB au-delà de la LPM actualisée (référence) : trop vague pour
-    être chiffré.'
+  raison_non_chiffrable: 'Ni montant, ni calendrier, ni cible d''achat français (700 000 obus est l''échelle de la production
+    allemande, 300 000 drones un programme américain) ; aucun coût unitaire public officiel d''un obus de 155 mm ou d''un
+    drone tactique en France : chiffrage seulement indicatif.'
   sens_probable: cout
   estimation_indicative:
     central: -2.5
-    bas: -6.0
-    haut: -1.5
-    lecture: 'Cibles chiffrées au-delà de la LPM : munitions de 100 000 à plusieurs centaines de milliers d''obus de 155 mm
-      par an (≈ 300 000 de plus, valorisés ci-dessous), drones tactiques de masse (≈ 100 000 par an à quelques milliers d''euros
-      : 0,5 Md€), doublement des navires aux Antilles ; Ordre de grandeur ≈ 0,1 point de PIB. Correction
-      (vérification 2026-09-29) : un obus de 155 mm de série coûte de 800 $ à 6 000 € selon Wikipédia, 4 000 € pièce pour
-      un million d''obus (Lignes de défense) ; prix retenu 5 000 € au lieu de 8 000 €. Central : 300 000 obus × 5 000 € =
-      1,5 Md€, drones 0,5 Md€, navires et autres 0,5 Md€ ; bas : 700 000 obus × 6 000 € (4,2 Md€) et 300 000 drones. Munitions
-      et drones sont déjà programmés dans la LPM (16 et 5 Md€ sur 2024-2030, Wikipédia).'
+    bas: -6.6
+    haut: -1.0
+    lecture: 'Convention (aucun prix unitaire officiel publié) : obus de 155 mm à 5 000 € (bas 8 000 €), drone tactique à
+      5 000 €. Central : 300 000 obus de plus par an (1,5 Md€), 100 000 drones (0,5 Md€), navires aux Antilles et soutien
+      (0,5 Md€). Bas : 600 000 obus de plus à 8 000 € (4,8 Md€), 300 000 drones (1,5 Md€), navires 0,3 Md€. Haut : 1 Md€,
+      une partie étant déjà couverte par les 8,5 Md€ supplémentaires de munitions de la LPM actualisée (référence). Ordre
+      de grandeur : 0,1 point de PIB (barème defense_0_1_point_pib_2032).'
     sources:
     - defense_0_1_point_pib_2032
     - defense_credits_mission
     - https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
-    - https://fr.wikipedia.org/wiki/Obus
-    - https://fr.wikipedia.org/wiki/Loi_de_programmation_militaire_2024-2030
+    - https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B2695-tII.raw
+    - https://www.senat.fr/rap/a25-141-8/a25-141-81.html
   verification:
     statut: conteste
-    par: verificateur-sonnet
+    par: passe-sources
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Raison de non-chiffrabilité faible : le programme donne des cibles quantifiées (munitions : dépasser 100 000 obus par an pour atteindre 700 000, soit ≈ 600 000 de plus ; drones à l'échelle américaine de 300 000 ; doublement des navires aux Antilles). Un chiffrage par coût unitaire (obus d'artillerie, ordre de 2 Md€/an) est possible et dépasse le seuil de 0,1 Md€. À chiffrer avec sources de coûts unitaires (Cour des comptes, Sénat). Non modifié faute de source de coût vérifiée."
+    commentaire: "Passe sources : sources Wikipédia retirées. Relus : rapport AN n° 2695 (LPM actualisée : « Au total, sur la période 2024‑2030, ce sont 26,3 milliards d'euros qui seront dédiés à l'acquisition de munitions », dont 8,5 Md€ ajoutés) et avis du Sénat n° 141 (2025-2026) (KNDS « significativement au-delà de 100.000 » obus de 155 mm par an). Aucun coût unitaire officiel d'obus ou de drone trouvé (Sénat, AN, Cour des comptes) : le chiffrage reste une convention explicite, hors solde principal. Estimation indicative recalculée : bas −6,0 → −6,6, haut −1,5 → −1,0, central inchangé (−2,5). Statut conteste maintenu : cibles de volume lisibles, mais sans prix unitaire public. Trace précédente (verificateur-sonnet, 29/09) : chiffrable par coût unitaire (≈ 2 Md€/an), non modifié faute de source de coût vérifiée."
 - id: sante-stabiliser-depenses
   libelle: Stabiliser les dépenses de santé (prévention, technologies)
   domaine: santé
@@ -1140,7 +1198,7 @@ mesures:
     date: '2026-09-24'
     support: presse (entretien RTL)
   precision: partielle
-  interpretation: 'Piste citée pour financer les aides carburant de 2027 ; pérennité au-delà de 2027 non dite. Hypothèse :
+  interpretation: 'Source primaire introuvable (entretien RTL du 24 septembre 2026 : ni transcription ni vidéo retrouvées sur rtl.fr ou le site du candidat ; verbatim de BFM). Piste citée pour financer les aides carburant de 2027 ; pérennité au-delà de 2027 non dite. Hypothèse :
     réduction de 7 000 ETP pérenne.'
   chiffrable: false
   raison_non_chiffrable: Suggestion adressée au gouvernement actuel pour le budget 2027 (financer les aides carburant), pas
@@ -1149,12 +1207,17 @@ mesures:
   estimation_indicative:
     central: 0.17
     bas: 0.0
-    haut: 0.24
-    lecture: '7 000 départs non remplacés en 2027, pérennisés : 7 000 × coût d''un entrant (24 100 €) ; haut : agent moyen (34
-      200 €) ; bas : simple suggestion pour 2027.'
+    haut: 0.23
+    lecture: '7 000 départs non remplacés en 2027, pérennisés : 7 000 × coût d''un entrant (24 850 €) ; haut : agent moyen (32
+      800 €) ; bas : simple suggestion pour 2027.'
     sources:
     - cout_enseignant_apu
     - https://www.bfmtv.com/economie/economie-social/trouver-450-millions-dans-le-budget-de-l-etat-c-est-possible-edouard-philippe-suggere-de-supprimer-7-000-postes-de-fonctionnaires-en-2027-pour-financer-les-nouvelles-aides-carburant_AV-202609240327.html
+  verification:
+    statut: ok
+    par: passe-sources
+    date: '2026-09-29'
+    commentaire: "Passe sources : citation relue dans BFM (propos sur RTL, 24 sept. 2026) ; source primaire introuvable. Non chiffrable maintenu (suggestion pour le budget 2027 du gouvernement en place) ; estimation indicative inchangée (7 000 × coût d'un entrant, barème cout_enseignant_apu). Recalé sur les barèmes sourcés du 29/09 : cout_enseignant_apu 24 100 → 24 850 € (haut 34 200 → 32 800) ; estimation indicative 0,17 inchangée, haut 0,24 → 0,23."
 - id: amendes-prestations-sociales
   libelle: Recouvrement forcé des amendes non payées sur les prestations sociales
   domaine: justice / recettes

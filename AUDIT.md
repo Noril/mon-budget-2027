@@ -1,7 +1,8 @@
 # Audit avant publication (29 septembre 2026)
 
-Cet audit a été fait hors ligne : l'environnement n'avait aucun accès réseau sortant. Ce qui a été contrôlé, et ce qui
-reste à faire, est écrit ici sans détour.
+La partie « passe sources » (citations, barèmes, glossaire, recalage des programmes) est dans l'historique de `main`
+(commits « Passe sources »). L'audit ci-dessous a été fait hors ligne, sans accès réseau sortant : il ne couvre que ce qui
+n'a pas pu être rejoué en ligne. Les points marqués « non vérifié » sont à confirmer à la lumière de la passe sources.
 
 ## Contrôlé
 - Arithmétique des 113 barèmes, des hypothèses et du modèle de dette recalculée ; une douzaine d'écarts corrigés
