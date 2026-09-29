@@ -160,7 +160,7 @@ def mentions(cfg):
 <p>{html.escape(h['nom'])}, {html.escape(h['adresse'])}.</p>
 <h2>Droit de réponse et corrections</h2>
 <p>Toute personne nommée sur ce site peut demander une correction ou exercer son droit de réponse (article 6 IV de
-la loi n° 2004-575 du 21 juin 2004) en écrivant à le contact ci-dessus ou en ouvrant une
+la loi n° 2004-575 du 21 juin 2004) en écrivant au contact ci-dessus ou en ouvrant une
 <a href="{d}/issues/new/choose">issue publique</a>. Une erreur factuelle démontrée (citation inexacte, attribution
 erronée, lien mort, erreur de calcul) est corrigée dans les meilleurs délais ; l'historique des corrections est
 public dans le dépôt.</p>
