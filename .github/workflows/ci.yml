@@ -61,7 +61,7 @@ jobs:
         run: uv run python -m outils.jeu
       - name: Site public (aperçu)
         run: uv run python -m outils.site --brouillon
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: chiffrage-et-lignage
           path: |

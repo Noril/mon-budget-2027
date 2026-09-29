@@ -35,7 +35,7 @@ jobs:
           key: donnees-${{ github.run_id }}
       - run: uv run python -m pipelines.indicateurs
       # Les données brutes et calculées restent des artefacts de CI (90 jours) ; elles se rejouent depuis le catalogue
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: donnees
           path: data/
