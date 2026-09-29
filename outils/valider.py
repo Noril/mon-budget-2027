@@ -54,6 +54,9 @@ def valider() -> list[str]:
     from .chiffrage import valider as valider_chiffrage  # import tardif : chiffrage importe plan
 
     erreurs += valider_chiffrage()
+    from .simulateur import valider as valider_simulateur
+
+    erreurs += valider_simulateur()
     return erreurs
 
 
