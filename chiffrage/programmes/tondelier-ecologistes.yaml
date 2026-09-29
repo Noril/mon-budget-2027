@@ -383,9 +383,7 @@ mesures:
       facteur:
         valeur: 1.2106
         unite: facteur
-        source: >-
-          chiffrage/baremes.yaml (en-tête) : facteur PIB nominal 2025→2032, plan/hypotheses.yaml, FMI WEO avril 2026
-          https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        bareme: facteur_pib_2025_2032
       ttf_dixieme:
         valeur: 0.3
         unite: Md€ par dixième de point
@@ -408,6 +406,7 @@ mesures:
       Md€ (ordre de grandeur, aucun barème du rendement d'un point de PFU) et que le haut (8,81) ne couvre
       pas. Paramètres relus : CSG capital 1,91 Md€ par point (CCSS mai 2026) ; TTF 0,3 Md€ par dixième. La
       LFSS 2026 (CSG capital à 10,6 %) ne change pas le rendement du point additionnel. Valeurs inchangées.
+      Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2025_2032 ; valeur inchangée.
 - id: impot-revenu-reforme
   libelle: >-
     Baisse de l'IR sur les premières tranches, tranche à 60 % au-delà de 250 000 €, plafonnement global des niches par
@@ -456,9 +455,9 @@ mesures:
   chiffrable: true
   nature: recette
   effet_solde_primaire:
-    central: 21.72
-    bas: 14.56
-    haut: 21.72
+    central: 19.11
+    bas: 11.79
+    haut: 19.55
     montee_en_charge:
       '2027': 0
       '2028': 1
@@ -467,7 +466,7 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: csg_pt * facteur
+    formule: csg_pt * facteur * (1 - retour_ir)
     parametres:
       csg_pt:
         valeur: 17.94
@@ -476,16 +475,23 @@ mesures:
       facteur:
         valeur: 1.2106
         unite: facteur
-        source: >-
-          chiffrage/baremes.yaml (en-tête) : facteur PIB nominal 2025→2032, plan/hypotheses.yaml, FMI WEO avril 2026
-          https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        bareme: facteur_pib_2025_2032
+      retour_ir:
+        valeur: 0.12
+        unite: part du rendement du point de CSG perdue en impôt sur le revenu
+        source: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS%20mai%202026_assembl%c3%a9_V2.pdf
+        note: >-
+          convention commune n° 5 (REFERENCE.md ; limites du barème csg_point) : un point de CSG déductible modifie le revenu
+          imposable et l'IR de 10 à 15 % de son rendement, en sens inverse ; point médian 0,12
     explication: >-
-      Un point de CSG toutes assiettes (17,94 Md€ en 2025, barème csg_point) projeté en 2032. Bas : point sur les seuls
-      revenus d'activité (barème csg_point_activite), si la progressivité exonère de fait les petits revenus de remplacement.
+      Un point de CSG toutes assiettes (17,94 Md€ en 2025, barème csg_point) projeté en 2032, net de la baisse d'IR induite
+      par la part déductible (convention commune n° 5 : 10 à 15 %, 12 % au centre). Bas : point sur les seuls revenus d'activité
+      (barème csg_point_activite, 11,71 Md€ en 2026 × facteur_pib_2026_2032), si la progressivité exonère de fait les petits
+      revenus de remplacement, retour de 15 %. Haut : toutes assiettes, retour de 10 %.
   effets_retour: 'Baisse du revenu disponible, effet sur la consommation : non compté.'
   confiance: moyenne
   verification:
-    statut: ok
+    statut: corrige
     par: verificateur-sonnet
     date: "2026-09-29"
     commentaire: >-
@@ -493,7 +499,9 @@ mesures:
       remplacement 3,9, capital 1,91). Réserves : la déductibilité partielle de la CSG de l'IR n'est pas
       retranchée (-1 à -2 Md€) et les revenus de remplacement sont en partie exonérés ou à taux réduit,
       donc 3,9 Md€ par point est un majorant ; le bas (activité seule, 14,56) couvre ces deux réserves.
-      Progressivité supposée neutre en moyenne.
+      Progressivité supposée neutre en moyenne. Recalé sur les conventions communes du 29/09 : retour d'IR de
+      la CSG déductible retranché (12 %, fourchette 10-15 %), bas sur le point d'activité 2026 (11,71) projeté
+      par facteur_pib_2026_2032 ; 21,72 → 19,11 (bas 14,56 → 11,79 ; haut 21,72 → 19,55).
 - id: exonerations-cotisations-rationalisation
   libelle: >-
     Suppression des allègements de cotisations au-delà de 1,6 SMIC et sur les heures supplémentaires, montants nominalisés
@@ -541,10 +549,9 @@ mesures:
         source: >-
           chiffrage/baremes.yaml, dérivation du barème hs_exoneration_cout (déduction forfaitaire patronale 2026)
       facteur26:
-        valeur: 1.1845
+        valeur: 1.1842
         unite: facteur
-        source: >-
-          chiffrage/baremes.yaml : 1,2106 / 1,022 (croissance nominale 2026 ≈ 2,2 %, dérivation du barème dmtg_rendement)
+        bareme: facteur_pib_2026_2032
         note: PIB nominal 2026→2032
       au_dela_1_6_smic:
         valeur: 4.1
@@ -570,6 +577,7 @@ mesures:
       PLFSS 2026 annexe 4). Le proxy Bozio-Wasmer (2,7 à 5,5 Md€ pour les taux réduits au-delà de 1,6 Smic)
       est ancien et antérieur à la RGDU de 2026 : incertitude à ce niveau, portée par la fourchette.
       Désindexation et conditionnalité non comptées (prudent).
+      Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2026_2032 ; valeur inchangée.
 - id: tva-verte
   libelle: >-
     TVA différenciée selon l'impact environnemental et sanitaire (baisse sur première nécessité, bio, réparation, transports
@@ -703,9 +711,7 @@ mesures:
       facteur:
         valeur: 1.2106
         unite: facteur
-        source: >-
-          chiffrage/baremes.yaml (en-tête) : facteur PIB nominal 2025→2032, plan/hypotheses.yaml, FMI WEO avril 2026
-          https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        bareme: facteur_pib_2025_2032
     explication: >-
       Seule la suppression de l'abattement de 10 % des retraités est chiffrée : 5,3 Md€ (bas 4,5 Md€ Cour des comptes,
       haut 5,7 Md€ documents budgétaires 2025, source https://www.aladom.fr/actualites/secteur-service/11316/labattement-de-10-sur-les-pensions-histoire-dun-avantage-fiscal-que-personne-narrive-a-supprimer/),
@@ -720,6 +726,7 @@ mesures:
       LCP, fourchette 4,5-5,7 Md€) ; enseignement privé et CIR sont dans leurs lignes dédiées (pas de
       double compte) ; niches fossiles, voitures de fonction et achats non comptés (prudent, aucun montant
       annoncé, règle 6 ciblée non applicable).
+      Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2025_2032 ; valeur inchangée.
 - id: cir-recentrage
   libelle: >-
     Recentrage du crédit d'impôt recherche sur les PME et ETI, logique de subvention à 50 % des projets avec un laboratoire,
@@ -769,7 +776,7 @@ mesures:
       facteur23:
         valeur: 1.2777
         unite: facteur
-        source: chiffrage/baremes.yaml, dérivation du barème point_indice_1pct (PIB 2032 / PIB 2023 = 3 621 / 2 834)
+        bareme: facteur_pib_2023_2032
         note: PIB nominal 2023→2032
     explication: >-
       Recentrage sur PME et ETI : économie de la part des grandes entreprises (41 % de 7,8 Md€ en 2023), projetée en
@@ -785,6 +792,7 @@ mesures:
       Citation vérifiée. 41 % de la créance CIR de 7,8 Md€ (2023) vont aux grandes entreprises : source
       relue. Économie brute avant le cofinancement à 50 % et les 1 000 chaires non chiffrés, d'où bas = 0.
       Confiance faible ; pas de double compte avec la ligne dépenses inutiles (qui n'inclut pas le CIR).
+      Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2023_2032 ; valeur inchangée.
 - id: collectivites-cvae-dilico
   libelle: Rétablissement de la CVAE pour les collectivités, suppression du DILICO, RSA renationalisé
   domaine: collectivites
@@ -826,9 +834,7 @@ mesures:
       facteur:
         valeur: 1.2106
         unite: facteur
-        source: >-
-          chiffrage/baremes.yaml (en-tête) : facteur PIB nominal 2025→2032, plan/hypotheses.yaml, FMI WEO avril 2026
-          https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        bareme: facteur_pib_2025_2032
       taux_is:
         valeur: 0.25
         unite: taux
@@ -848,6 +854,7 @@ mesures:
       4,48 Md€ bruts en 2032 mais 3,36 Md€ nets, la CVAE étant déductible de l'IS (25 %) ; convention
       identique à celle appliquée aux impôts de production dans les autres chiffrages. Central 4,48 -> 3,36
       (-1,12 Md€), bas 3,36, haut 4,48. DILICO et RSA : transferts internes, neutres.
+      Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2025_2032 ; valeur inchangée.
 - id: lutte-fraude-evasion
   libelle: Renforcement des moyens contre la fraude et l'évasion fiscales
   domaine: fiscalite
@@ -926,9 +933,7 @@ mesures:
       facteur:
         valeur: 1.2106
         unite: facteur
-        source: >-
-          chiffrage/baremes.yaml (en-tête) : facteur PIB nominal 2025→2032, plan/hypotheses.yaml, FMI WEO avril 2026
-          https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        bareme: facteur_pib_2025_2032
     explication: >-
       Hausse de 5,6 % par rapport au Smic revalorisé de l'inflation en 2027, × coût APU d'un point de Smic (allègements,
       masse salariale publique, prestations, nets des recettes induites ; DG Trésor), projeté en 2032.
@@ -944,6 +949,7 @@ mesures:
       fourchette 0,24-1,1. Le Smic légal dépasserait 2 000 € vers 2029-2030 avec l'inflation : la promesse
       est lue comme un relèvement de niveau ensuite indexé (écart constant), ce qui est écrit dans
       l'interprétation. Baisse du taux réduit d'IS et de la taxe sur les salaires non comptée.
+      Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2025_2032 ; valeur inchangée.
 - id: point-indice-fonctionnaires
   libelle: >-
     Point d'indice indexé sur l'inflation, +10 % pour les catégories C, B et A ayant perdu du pouvoir d'achat
@@ -964,61 +970,57 @@ mesures:
     : C et B seulement). Indexation du point sur l''inflation : à droit constant (REFERENCE.md), le point est gelé
     en référence, l''indexation coûte donc la masse indiciaire × l''inflation cumulée 2027-2032 (déflateur FMI, 11,03
     %), pour tous les agents, enseignants et chercheurs compris (leurs mesures dédiées ne portent que sur les hausses
-    au-delà). Les +10 % des catégories B et C s''ajoutent sans double compte (effet croisé 10 % × 11 % négligé). La
+    au-delà). Les +10 % des catégories B et C s''ajoutent sans double compte (effet croisé 10 % × indexation compté depuis le 29/09). La
     part des effectifs surestime la part de la masse salariale (catégorie C moins payée).'
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -44.73
-    bas: -50.49
-    haut: -41.42
+    central: -33.22
+    bas: -37.77
+    haut: -27.4
     montee_en_charge:
       '2027': 0.081
-      '2028': 0.264
-      '2029': 0.448
-      '2030': 0.634
-      '2031': 0.816
+      '2028': 0.257
+      '2029': 0.442
+      '2030': 0.629
+      '2031': 0.813
       '2032': 1.0
   calcul:
-    formule: -(hausse_pct*point_1pct*facteur23*part_b_c + inflation_cumulee*100*point_1pct_2027)
+    formule: -(hausse_pct * point_1pct_2032 * part_b_c + indexation + hausse_pct / 100 * part_b_c * indexation) * (1 - retours)
     parametres:
       hausse_pct:
         valeur: 10
         unite: '%'
         source: https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
-      point_1pct:
-        valeur: 2.2
-        unite: Md€ par an pour 1 % de hausse, toutes APU
-        bareme: point_indice_1pct
-      facteur23:
-        valeur: 1.2777
-        unite: facteur
-        source: chiffrage/baremes.yaml, dérivation du barème point_indice_1pct (PIB 2032 / PIB 2023 = 3 621 / 2 834)
-        note: PIB nominal 2023→2032
+      point_1pct_2032:
+        valeur: 2.59
+        unite: Md€ courants 2032 par an pour 1 % de hausse, brut hors cotisations employeurs
+        bareme: point_indice_1pct_2032
+      indexation:
+        valeur: 28.6
+        unite: Md€ courants 2032 par an, rémunérations brutes hors cotisations employeurs
+        bareme: indexation_point_indice_2027_2032
+      retours:
+        valeur: 0.28
+        unite: part de la rémunération brute supplémentaire
+        bareme: retour_prelevements_salaires_publics
       part_b_c:
         valeur: 0.61
         unite: part des agents
         source: https://www.fonction-publique.gouv.fr/files/files/publications/vue-rapport-annuel/ra_2025_vue_emploi_caracteristiques_postes.pdf
         note: 39 % de catégorie A, 22 % de B, 39 % de C en 2023 (DGAFP)
-      inflation_cumulee:
-        valeur: 0.1103
-        unite: inflation cumulée 2027-2032
-        source: 'plan/hypotheses.yaml, déflateur du PIB FMI WEO avril 2026 (2027 : 1,460 ; 2028 : 1,862 ; 2029 : 1,863
-          ; 2030 : 1,860 ; 2031 et 2032 : 1,757 %) ; produit des (1 + taux) − 1'
-        note: 'REFERENCE.md, « Indexations : droit constant »'
-      point_1pct_2027:
-        valeur: 2.5
-        bareme: point_indice_1pct
-        note: 'borne haute du barème : coût d''un point en 2027 ; à point gelé, la masse indiciaire ne croît ensuite
-          que par les effectifs et le GVT'
-    explication: '(1) +10 % pour les catégories B et C (61 % des agents) : 10 × coût d''un point (2,2 Md€ en 2023,
-      projeté en 2032) × 0,61 = 17,2 Md€. (2) Indexation du point sur l''inflation, à droit constant : 11,03 points
-      × 2,5 Md€ (coût d''un point en 2027) = 27,6 Md€. Bas : indexation sur une masse projetée au PIB (2,2 × 1,2777
-      × 11,03 = 31,0) et bas des +10 %. Haut : masse 2023 non projetée pour l''indexation (24,3). Montée : +10 % en
-      cinq ans, indexation au rythme de l''inflation cumulée.'
+    explication: 'Convention commune (REFERENCE.md, point 2), sans projection par le PIB (point gelé à droit constant),
+      montants bruts hors cotisations employeurs : (1) +10 % pour les catégories B et C (61 % des agents) : 10 × 2,59 Md€
+      (point_indice_1pct_2032) × 0,61 = 15,8 Md€ ; (2) indexation du point sur l''inflation 2027-2032 (barème
+      indexation_point_indice_2027_2032) : 28,6 Md€ ; (3) effet croisé (la hausse de 10 % s''applique à une masse indexée)
+      : 0,10 × 0,61 × 28,6 = 1,7 Md€. Total brut 46,1 Md€, net des prélèvements en retour (× 0,72) : 33,2 Md€. Bas : haut
+      des barèmes (2,68 ; 30,8, indexation sur les prix à la consommation), retour 0,25 et pensions induites (≈ 1 Md€) :
+      −(49,0 × 0,75 + 1,0) = −37,8. Haut : bas des barèmes (2,5 ; 23,6), retour 0,32 : −40,3 × 0,68 = −27,4. Montée en
+      charge : +10 % en cinq ans (0 / 0,2 / 0,4 / 0,6 / 0,8 / 1), indexation au profil imposé par le barème (0,13 / 0,30
+      / 0,48 / 0,66 / 0,83 / 1), pondérées par leur poids brut.'
   confiance: faible
   verification:
-    statut: ok
+    statut: corrige
     par: verificateur-sonnet
     date: "2026-09-29"
     commentaire: >-
@@ -1028,7 +1030,10 @@ mesures:
       61 % pour les catégories B et C est une part d'effectifs (DGAFP) ; en masse salariale la catégorie A
       pèse davantage, donc la hausse de 10 % sur B et C coûte sans doute 10 à 20 % de moins (2 à 3 Md€), et
       le +10 % aux A « qui ont perdu » est écarté (lecture basse). Ces écarts sont dans la fourchette
-      (-41,4 à -50,5).
+      (-41,4 à -50,5). Recalé sur les conventions communes du 29/09 : barèmes point_indice_1pct_2032 et
+      indexation_point_indice_2027_2032 (bruts hors cotisations employeurs, sans projection PIB), retour
+      0,28 (aucun retour n'était déduit), effet croisé 10 % × indexation compté, pensions induites en bas,
+      profil d'indexation imposé ; −44,73 → −33,22 (bas −50,49 → −37,77 ; haut −41,42 → −27,4).
 - id: securite-sociale-professionnelle
   libelle: >-
     Sécurité sociale professionnelle, salaire garanti deux ans en cas de perte d'emploi dans les secteurs exposés à la
@@ -1105,7 +1110,7 @@ mesures:
       '2031': 0.889
       '2032': 1.0
   calcul:
-    formule: -(economies_2019_2021*facteur + allocations_2025*inflation_cumulee)
+    formule: -(economies_2019_2021*facteur + allocations_2025*inflation_cumulee/100)
     parametres:
       economies_2019_2021:
         valeur: 2.3
@@ -1123,10 +1128,9 @@ mesures:
         source: https://s3.eusc-de-east-1.amazonaws.eu/unedic-eks-prod-cms/2026/06/17/situation-financiere-assurance-chomage-a-horizon-2028-juin-2026_uid_6a32884bd3186.pdf
         note: allocations et aides versées en 2025 (dérivation du barème assurance_chomage_depenses)
       inflation_cumulee:
-        valeur: 0.1103
-        unite: inflation cumulée 2027-2032
-        source: 'plan/hypotheses.yaml, déflateur du PIB FMI WEO avril 2026 (2027 : 1,460 ; 2028 : 1,862 ; 2029 : 1,863
-          ; 2030 : 1,860 ; 2031 et 2032 : 1,757 %) ; produit des (1 + taux) − 1'
+        valeur: 11.03
+        unite: '% cumulés 2027-2032'
+        bareme: inflation_cumulee_2027_2032
         note: 'REFERENCE.md, « Indexations : droit constant »'
     explication: 'Coût = économies Unédic de la réforme 2019-2021 (2,3 Md€/an) + indexation des allocations sur l''inflation
       à droit constant (37,2 Md€ × 11,03 % = 4,1 Md€). Haut : seul le calcul de l''allocation (1,0 Md€), cité explicitement,
@@ -1147,6 +1151,7 @@ mesures:
       ouvert et pèse 4,1 des 6,4 Md€. Corrigé : haut -5,1 -> -1,0 Md€ pour porter cette lecture dans la
       fourchette ; central et bas inchangés. Le coût des réformes de 2023 et 2025 reste non compté
       (minorant).
+      Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème inflation_cumulee_2027_2032 ; valeur inchangée.
 - id: garantie-emploi-55-ans-tzcld
   libelle: >-
     Garantie d'emploi à 55 ans par l'extension de Territoires zéro chômeur de longue durée, soutien à l'IAE
@@ -1242,6 +1247,10 @@ mesures:
         unite: Md€ courants par an (solde du système de retraite), en 2032
         bareme: retraites_retour_62_ans_2032
     explication: 'Barème : annulation des mesures d''âge de 2023 nette du gel déjà voté jusqu''au 1er janvier 2028.'
+  effets_retour: 'Convention commune n° 4 : le central porte sur le solde du système de retraite. Coût pour l''ensemble
+    des APU, effets d''emploi des seniors compris (non comptés, règle 3) : la DG Trésor chiffre le gain total de la réforme
+    2023 à 24,2 Md€ constants 2024 en 2030 (contre 9,7 Md€ pour le seul système ; Cour des comptes, tableau n° 5), soit un
+    coût complet de l''abrogation de l''ordre de 25 Md€ en 2032.'
   confiance: moyenne
   verification:
     statut: ok
@@ -1340,7 +1349,7 @@ mesures:
   effet_solde_primaire:
     central: 7.51
     bas: 5.81
-    haut: 9.2
+    haut: 8.1
     montee_en_charge:
       '2027': 0
       '2028': 0.2
@@ -1355,19 +1364,22 @@ mesures:
         valeur: 6.2
         unite: Md€ par an par point de cotisation
         bareme: retraites_cotisation_vieillesse_1_point
+        note: 'type non précisé (répartition salarié/employeur inconnue) : lu au central du barème (salariale sous plafond
+          ou patronale déplafonnée), convention commune n° 9'
       facteur:
         valeur: 1.2106
         unite: facteur
-        source: >-
-          chiffrage/baremes.yaml (en-tête) : facteur PIB nominal 2025→2032, plan/hypotheses.yaml, FMI WEO avril 2026
-          https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        bareme: facteur_pib_2025_2032
     explication: >-
-      +0,2 point par an pendant cinq ans = +1 point de cotisation vieillesse, projeté en 2032 (bas : part patronale sous
-      plafond ; haut : salariale déplafonnée).
+      +0,2 point par an pendant cinq ans = +1 point de cotisation vieillesse (type non précisé : central du barème, convention
+      commune n° 9), projeté en 2032 (facteur_pib_2025_2032, la masse salariale suit l'activité). Bas : part patronale sous
+      plafond (4,8 Md€ le point, réduit par les allègements ; couvre aussi la part des employeurs publics, transfert interne
+      aux APU) : 4,8 × 1,2106 = 5,81. Haut : salariale déplafonnée (7,6), nette du retour négatif sur l'IR d'une cotisation
+      salariale (× (1 − 0,12), même convention que la CSG déductible) : 7,6 × 0,88 × 1,2106 = 8,10.
   effets_retour: 'Hausse du coût du travail et baisse du salaire net : non comptées.'
   confiance: moyenne
   verification:
-    statut: ok
+    statut: corrige
     par: verificateur-sonnet
     date: "2026-09-29"
     commentaire: >-
@@ -1375,7 +1387,9 @@ mesures:
       comptes, 4,8-7,6). Réserves : le rendement brut n'est pas net de la déductibilité à l'IR et à l'IS
       (-15 % environ) ni de la part des employeurs publics (transfert interne), donc le central est un peu
       haut ; le point déplafonné au-delà du PSS et l'épargne salariale ne sont pas comptés (recettes
-      omises). Les deux écarts vont en sens contraire et restent dans 5,8-9,2.
+      omises). Les deux écarts vont en sens contraire et restent dans 5,8-9,2. Recalé sur les conventions
+      communes du 29/09 : type de cotisation non précisé lu au central du barème (convention n° 9, central
+      inchangé) ; le haut (salariale déplafonnée) est net du retour négatif sur l'IR (× 0,88) ; haut 9,2 → 8,1.
 - id: garantie-autonomie-rsa
   libelle: >-
     Garantie d'autonomie remplaçant le RSA, à 50 % du SMIC net, sans contrepartie de 15 heures, ouverte dès 18 ans aux
@@ -1434,7 +1448,7 @@ mesures:
       facteur23:
         valeur: 1.2777
         unite: facteur
-        source: chiffrage/baremes.yaml, dérivation du barème point_indice_1pct (PIB 2032 / PIB 2023 = 3 621 / 2 834)
+        bareme: facteur_pib_2023_2032
         note: PIB nominal 2023→2032
     explication: >-
       Garantie à 50 % du Smic net : +21,5 % sur le RSA si le Smic passe à 2 000 € brut (+13,4 % au Smic actuel, borne
@@ -1449,6 +1463,7 @@ mesures:
       Citation vérifiée. RSA 651,69 € et Smic net relus (service-public.gouv.fr) ; +21,5 % sur 11,7 Md€
       (allocations CAF 2023) projetés au PIB : cohérent. Extension aux 18-24 ans non chiffrée (minorant) ;
       interaction avec le Smic à 2 000 € signalée.
+      Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2023_2032 ; valeur inchangée.
 - id: apl-revalorisation-10pct
   libelle: APL revalorisées de 10 %, abrogation de l'exclusion des étudiants extracommunautaires
   domaine: logement
@@ -1485,10 +1500,9 @@ mesures:
         unite: Md€/an
         bareme: aides_logement_depense
       facteur26:
-        valeur: 1.1845
+        valeur: 1.1842
         unite: facteur
-        source: >-
-          chiffrage/baremes.yaml : 1,2106 / 1,022 (croissance nominale 2026 ≈ 2,2 %, dérivation du barème dmtg_rendement)
+        bareme: facteur_pib_2026_2032
         note: PIB nominal 2026→2032
     explication: 10 % de la dépense d'aides personnelles au logement 2026, projetée en 2032.
   confiance: moyenne
@@ -1499,6 +1513,7 @@ mesures:
     commentaire: >-
       Citation vérifiée. 10 % de 16,1 Md€ (programme 109, PLF 2026) projetés : 1,91 Md€. Abrogation de la
       mesure LFI 2026 sur les étudiants extra-européens non comptée (0,2 Md€ selon LR) ; minorant faible.
+      Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2026_2032 ; valeur inchangée.
 - id: hebergement-logement-d-abord
   libelle: Logement d'abord, places d'hébergement inconditionnel (besoin estimé à 200 000 places)
   domaine: logement
@@ -1602,7 +1617,7 @@ mesures:
       facteur23:
         valeur: 1.2777
         unite: facteur
-        source: chiffrage/baremes.yaml, dérivation du barème point_indice_1pct (PIB 2032 / PIB 2023 = 3 621 / 2 834)
+        bareme: facteur_pib_2023_2032
         note: PIB nominal 2023→2032
     explication: >-
       Alignement du congé du second parent sur 16 semaines : coût par jour de l'allongement de 2021 × 84 jours, projeté
@@ -1616,6 +1631,7 @@ mesures:
       Citation vérifiée. Coût par jour tiré de l'allongement du congé de paternité (522 M€ pour 14 jours,
       PLFSS 2021) × 84 jours, projeté ; le passage à 100 % du salaire au-delà du plafond des IJ et le congé
       de naissance à 80 % sur trois mois ne sont pas comptés (minorant, signalé).
+      Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2023_2032 ; valeur inchangée.
 - id: etudiants-bourses-cvec-logement
   libelle: >-
     Bourses revalorisées et refondues, suppression de la CVEC, 150 000 logements étudiants et FJT, repas à 1 €
@@ -1678,10 +1694,9 @@ mesures:
         unite: Md€/an
         bareme: aah_depense
       facteur26:
-        valeur: 1.1845
+        valeur: 1.1842
         unite: facteur
-        source: >-
-          chiffrage/baremes.yaml : 1,2106 / 1,022 (croissance nominale 2026 ≈ 2,2 %, dérivation du barème dmtg_rendement)
+        bareme: facteur_pib_2026_2032
         note: PIB nominal 2026→2032
     explication: >-
       +250 € par mois rapportés au montant maximal (+24 %) appliqués à la dépense d'AAH 2026, projetée en 2032.
@@ -1693,6 +1708,7 @@ mesures:
     commentaire: >-
       Citation vérifiée. AAH taux plein 1 041,59 € relue ; +250 € rapportés au maximum (+24 %) appliqués à
       14,6 Md€ (2026) projetés : 4,15 Md€. Nouveaux entrants dus au plafond relevé non comptés.
+      Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2026_2032 ; valeur inchangée.
 - id: autonomie-ehpad-service-public
   libelle: >-
     Service public de la dépendance, hausse des places et du taux d'encadrement en Ehpad, revalorisations
@@ -1802,9 +1818,7 @@ mesures:
       facteur:
         valeur: 1.2106
         unite: facteur
-        source: >-
-          chiffrage/baremes.yaml (en-tête) : facteur PIB nominal 2025→2032, plan/hypotheses.yaml, FMI WEO avril 2026
-          https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+        bareme: facteur_pib_2025_2032
     explication: Suppression des franchises et participations forfaitaires (2,5 Md€ en 2025), projetée en 2032.
   confiance: faible
   verification:
@@ -1819,6 +1833,7 @@ mesures:
       HCAAM 2022 selon l'interprétation, non rouvert ici). La fourchette (-2,5 à -3,03) ne contient donc
       pas le cas défavorable, en contradiction avec la règle sur le bas. Périmètre des « soins essentiels »
       inconnu : je ne peux pas chiffrer ; valeurs inchangées.
+      Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2025_2032 ; valeur inchangée.
 - id: sante-centres-sante-hopital-recrutements
   libelle: >-
     2 000 centres de santé d'ici 2030, recrutements et revalorisations à l'hôpital et dans le médico-social
@@ -1858,9 +1873,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -0.5
-    bas: -0.55
-    haut: -0.44
+    central: -0.18
+    bas: -0.23
+    haut: -0.17
     montee_en_charge:
       '2027': 0
       '2028': 0.3
@@ -1869,7 +1884,7 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: -infirmieres * cout / 1e9 * facteur26
+    formule: -infirmieres * cout / 1e9
     parametres:
       infirmieres:
         valeur: 7500
@@ -1877,27 +1892,26 @@ mesures:
         source: >-
           https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
       cout:
-        valeur: 56000
-        unite: € par EQTP et par an
-        bareme: cout_soignant_hospitalier_charge
+        valeur: 24500
+        unite: € par ETP et par an (entrant, brut hors cotisations employeurs net des retours)
+        bareme: cout_soignant_hospitalier_apu
         note: proxy pour une infirmière scolaire
-      facteur26:
-        valeur: 1.1845
-        unite: facteur
-        source: >-
-          chiffrage/baremes.yaml : 1,2106 / 1,022 (croissance nominale 2026 ≈ 2,2 %, dérivation du barème dmtg_rendement)
-        note: PIB nominal 2026→2032
     explication: >-
-      7 500 infirmières scolaires supplémentaires au coût chargé d'un soignant hospitalier (proxy). Les 800 postes de
-      médecins et 1 000 de psychologues vacants sont déjà budgétés.
+      Convention commune n° 1 : 7 500 infirmières scolaires supplémentaires au coût pour le solde d'un soignant entrant
+      (barème cout_soignant_hospitalier_apu, proxy : 34 000 € brut hors cotisations employeurs × 0,72), sans projection
+      par le PIB (point gelé). Bas : agent moyen (30 700 €) ; haut : bas du barème (23 100 €). Les 800 postes de médecins
+      et 1 000 de psychologues vacants sont déjà budgétés.
   confiance: moyenne
   verification:
-    statut: ok
+    statut: corrige
     par: verificateur-sonnet
     date: "2026-09-29"
     commentaire: >-
       Citation vérifiée. 7 500 infirmières × 56 000 € (proxy hospitalier) projetées ; postes vacants déjà
-      budgétés, hausse de 500 € non comptée (petit minorant).
+      budgétés, hausse de 500 € non comptée (petit minorant). Recalé sur les conventions communes du 29/09 :
+      coût chargé (56 000 €, cotisations employeurs comprises) projeté au PIB remplacé par le barème
+      cout_soignant_hospitalier_apu (24 500 €), sans projection ; −0,5 → −0,18 (bas −0,55 → −0,23 ; haut −0,44
+      → −0,17).
 - id: classes-19-eleves
   libelle: Classes de primaire à 19 élèves en 2032 et à 12 en REP/REP+
   domaine: education
@@ -1917,8 +1931,8 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -1.81
-    bas: -3.62
+    central: -0.43
+    bas: -1.23
     haut: 0.0
     montee_en_charge:
       '2027': 0
@@ -1928,7 +1942,7 @@ mesures:
       '2031': 0.8
       '2032': 1.0
   calcul:
-    formule: -etpt * (taille_moyenne / 19 - 1) * cout / 1e9 * facteur26 * part_non_absorbee
+    formule: -etpt * (taille_moyenne / 19 - 1) * cout / 1e9 * part_non_absorbee
     parametres:
       etpt:
         valeur: 341897
@@ -1940,33 +1954,31 @@ mesures:
         source: https://www.cafepedagogique.net/2026/01/14/premier-degre-baisse-demographique-consequente-en-10-ans/
         note: moyenne simple maternelle 21,3 et élémentaire 20,7 (DEPP, rentrée 2025, public)
       cout:
-        valeur: 85000
-        unite: € par ETPT et par an
-        bareme: cout_enseignant_charge
-      facteur26:
-        valeur: 1.1845
-        unite: facteur
-        source: >-
-          chiffrage/baremes.yaml : 1,2106 / 1,022 (croissance nominale 2026 ≈ 2,2 %, dérivation du barème dmtg_rendement)
-        note: PIB nominal 2026→2032
+        valeur: 24100
+        unite: € par ETP et par an (entrant, brut hors cotisations employeurs net des retours)
+        bareme: cout_enseignant_apu
       part_non_absorbee:
         valeur: 0.5
         unite: part
         source: https://www.cafepedagogique.net/2026/01/14/premier-degre-baisse-demographique-consequente-en-10-ans/
         note: 'hypothèse de lecture : la moitié de l''écart est comblée par la baisse démographique d''ici 2032'
     explication: >-
-      Postes nécessaires pour passer de 21 à 19 élèves en moyenne, à coût moyen d'un enseignant ; central : moitié de
-      l'écart absorbée par la démographie ; bas : aucune ; haut : totalité.
+      Postes nécessaires pour passer de 21 à 19 élèves en moyenne (≈ 36 000), au coût pour le solde d'un enseignant
+      entrant (convention commune n° 1, barème cout_enseignant_apu : 24 100 €), sans projection par le PIB (point gelé)
+      ; central : moitié de l'écart absorbée par la démographie ; bas : aucune, au coût d'un enseignant moyen (34 200 €,
+      haut du barème) ; haut : totalité.
   confiance: faible
   verification:
-    statut: ok
+    statut: corrige
     par: verificateur-sonnet
     date: "2026-09-29"
     commentaire: >-
       Citation vérifiée. Moyenne de 21 élèves (DEPP 2025) vers 19 sur 341 897 ETPT du premier degré, coût
       85 000 €, moitié de l'écart absorbée par la démographie (hypothèse cohérente avec le référentiel à
       effectifs constants). Réserve de barème : le coût par enseignant inclut le CAS Pensions. Classes à 12
-      en REP/REP+ non chiffrées séparément.
+      en REP/REP+ non chiffrées séparément. Recalé sur les conventions communes du 29/09 : coût chargé (85 000
+      €, CAS Pensions compris) projeté au PIB remplacé par le barème cout_enseignant_apu (entrant 24 100 € ;
+      bas au coût moyen 34 200 €), sans projection ; −1,81 → −0,43 (bas −3,62 → −1,23 ; haut 0).
 - id: enseignants-plus-15pct
   libelle: >-
     Salaires des enseignants +15 % en cinq ans, hausse des effectifs et salaires des AESH, AED, CPE, infirmières
@@ -1987,9 +1999,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -11.99
-    bas: -12.37
-    haut: -11.5
+    central: -4.07
+    bas: -4.32
+    haut: -3.69
     montee_en_charge:
       '2027': 0
       '2028': 0.2
@@ -1998,7 +2010,7 @@ mesures:
       '2031': 0.8
       '2032': 1.0
   calcul:
-    formule: -0.15 * (etpt_1d + etpt_2d) * cout / 1e9 * facteur26
+    formule: -0.15 * (etpt_1d + etpt_2d) * cout / 1e9
     parametres:
       etpt_1d:
         valeur: 341897
@@ -2009,28 +2021,30 @@ mesures:
         unite: ETPT
         source: chiffrage/baremes.yaml, dérivation du barème cout_enseignant_charge (programme 141)
       cout:
-        valeur: 85000
-        unite: € par ETPT et par an
-        bareme: cout_enseignant_charge
-      facteur26:
-        valeur: 1.1845
-        unite: facteur
-        source: >-
-          chiffrage/baremes.yaml : 1,2106 / 1,022 (croissance nominale 2026 ≈ 2,2 %, dérivation du barème dmtg_rendement)
-        note: PIB nominal 2026→2032
+        valeur: 34200
+        unite: € par ETP et par an (enseignant moyen, brut hors cotisations employeurs net des retours)
+        bareme: cout_enseignant_apu
+        note: haut du barème (agent en place), à utiliser pour une revalorisation (convention commune n° 1)
     explication: >-
-      15 % de la masse salariale chargée des enseignants du public (premier et second degrés), projetée en 2032, en cinq
-      ans.
+      Convention commune n° 1 : 15 % de la rémunération brute hors cotisations employeurs des enseignants du public (premier
+      et second degrés), nette des prélèvements en retour (salaire moyen du barème cout_enseignant_apu : 45 640 € brut ×
+      0,75 = 34 200 €), en cinq ans, sans projection par le PIB (point gelé à droit constant). Bas : GVT et effectifs à 1
+      % par an 2026-2032 (× 1,06). Haut : retour haut (0,32) : × 0,68 / 0,75. Effet croisé avec l'indexation du point
+      (point-indice-fonctionnaires, ≈ 0,45 Md€) non compté.
   confiance: moyenne
   verification:
-    statut: ok
+    statut: corrige
     par: verificateur-sonnet
     date: "2026-09-29"
     commentaire: >-
       Citation vérifiée. 15 % × 793 863 ETPT × 85 000 € × 1,1845 = 11,99 Md€ ; lecture « hausse réelle hors
       inflation », additive à l'indexation du point (pas de double compte : les deux hausses portent sur
       des composantes différentes). Réserve de barème : CAS Pensions (82,28 %) dans le coût unitaire,
-      transfert interne aux APU ; privé sous contrat, AESH, AED non comptés.
+      transfert interne aux APU ; privé sous contrat, AESH, AED non comptés. Recalé sur les conventions
+      communes du 29/09 : coût chargé (85 000 €) projeté au PIB remplacé par le salaire moyen du barème
+      cout_enseignant_apu (34 200 €, brut hors cotisations employeurs net des retours), sans projection
+      (point gelé) ; effet croisé avec l'indexation du point (≈ 0,45 Md€) non compté ; −11,99 → −4,07 (bas
+      −12,37 → −4,32 ; haut −11,5 → −3,69).
 - id: enseignement-prive-financement-50pct
   libelle: >-
     Financement public de l'enseignement privé sous contrat ramené à 50 %, contre frais de scolarité et mixité sociale
@@ -2079,7 +2093,7 @@ mesures:
       facteur23:
         valeur: 1.2777
         unite: facteur
-        source: chiffrage/baremes.yaml, dérivation du barème point_indice_1pct (PIB 2032 / PIB 2023 = 3 621 / 2 834)
+        bareme: facteur_pib_2023_2032
         note: PIB nominal 2023→2032
     explication: >-
       Financement public ramené de 75 % à 50 % du coût total (2022), projeté en 2032 avec le facteur 2023→2032 (minorant).
@@ -2094,6 +2108,7 @@ mesures:
       Citation vérifiée. Financement public 10,4 Md€ sur 13,83 Md€ de coût total (Depp 2022) ramené à 50 %
       : (10,4 - 6,9) × 1,28 = 4,45 Md€ ; bas 0 pour le retour d'élèves vers le public. Pas de double compte
       avec la ligne dépenses inutiles.
+      Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2023_2032 ; valeur inchangée.
 - id: bati-scolaire-renovation
   libelle: >-
     Fonds vert pour l'école de 2 Md€ par an (rénovation du bâti scolaire, 4 Md€ par an avec les collectivités sur 10
@@ -2275,7 +2290,7 @@ mesures:
       facteur24:
         valeur: 1.2336
         unite: facteur
-        source: chiffrage/baremes.yaml, dérivation du barème masse_salariale_apu (PIB 2032 / PIB 2024)
+        bareme: facteur_pib_2024_2032
         note: PIB nominal 2024→2032
     explication: >-
       Rénovations d'ampleur supplémentaires (500 000 contre 91 374 en 2024) × aide moyenne 2024, projetée en 2032. Bas
@@ -2292,6 +2307,7 @@ mesures:
       avec l'aide moyenne des ménages modestes (41 608 €). Réserves : la part financée par les CEE (hors
       APU) n'est pas déduite et le volume 2024 de référence est supérieur à celui de 2025-2026 (coût sous-
       estimé).
+      Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2024_2032 ; valeur inchangée.
 - id: sortie-fioul-gaz-chauffage
   libelle: Fin du chauffage au fioul en 2032, 300 000 changements de système par an, fonds chaleur renforcé
   domaine: energie
@@ -2537,9 +2553,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -1.3
-    bas: -1.5
-    haut: -1.16
+    central: -0.36
+    bas: -0.51
+    haut: -0.35
     montee_en_charge:
       '2027': 0
       '2028': 0.2
@@ -2548,7 +2564,7 @@ mesures:
       '2031': 0.8
       '2032': 1.0
   calcul:
-    formule: -(magistrats * cout_magistrat + (greffiers + attaches) * cout_b) / 1e9 * facteur26
+    formule: -(magistrats * cout_magistrat + (greffiers + attaches) * cout_b) / 1e9
     parametres:
       magistrats:
         valeur: 4500
@@ -2569,32 +2585,32 @@ mesures:
           https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
         note: 7 000 sur dix ans
       cout_magistrat:
-        valeur: 138700
-        unite: € par ETPT et par an
-        bareme: cout_magistrat_charge
+        valeur: 37000
+        unite: € par ETP et par an (entrant, brut hors cotisations employeurs net des retours)
+        bareme: cout_magistrat_apu
       cout_b:
-        valeur: 56000
-        unite: € par EQTP et par an
-        bareme: cout_soignant_hospitalier_charge
-        note: proxy du coût chargé d'un agent de catégorie B (greffier, attaché)
-      facteur26:
-        valeur: 1.1845
-        unite: facteur
-        source: >-
-          chiffrage/baremes.yaml : 1,2106 / 1,022 (croissance nominale 2026 ≈ 2,2 %, dérivation du barème dmtg_rendement)
-        note: PIB nominal 2026→2032
+        valeur: 23300
+        unite: € par ETP et par an (entrant, brut hors cotisations employeurs net des retours)
+        bareme: cout_greffier_apu
+        note: greffier ; proxy pour les attachés de justice
     explication: >-
-      Moitié de l'objectif décennal atteinte en 2032, aux coûts chargés d'un magistrat et d'un agent de catégorie B (proxy).
+      Moitié de l'objectif décennal atteinte en 2032, au coût pour le solde d'un magistrat et d'un greffier entrants (convention
+      commune n° 1, barèmes cout_magistrat_apu et cout_greffier_apu, le greffier servant de proxy pour les attachés), sans
+      projection par le PIB (point gelé). Bas : agents moyens (62 200 € et 26 700 €) ; haut : bas des barèmes (37 000 € et
+      22 100 €).
   confiance: moyenne
   verification:
-    statut: ok
+    statut: corrige
     par: verificateur-sonnet
     date: "2026-09-29"
     commentaire: >-
       Citation vérifiée. 9 000 magistrats, 10 000 greffiers et 7 000 attachés sur dix ans, moitié en 2032
       (recrutement 2028-2032) aux coûts chargés de 138 700 € et 56 000 € (proxy) : 1,3 Md€.
       L'interprétation parle de 6/10 de la cible, la formule de 5/10 ; écart de 0,2 Md€, négligeable.
-      Revalorisations et aide juridictionnelle non comptées.
+      Revalorisations et aide juridictionnelle non comptées. Recalé sur les conventions communes du 29/09 :
+      coûts chargés (138 700 € et proxy soignant 56 000 €) projetés au PIB remplacés par les barèmes
+      cout_magistrat_apu (37 000 €) et cout_greffier_apu (23 300 €), sans projection ; −1,3 → −0,36 (bas −1,5
+      → −0,51 ; haut −1,16 → −0,35).
 - id: prisons-numerus-clausus
   libelle: >-
     Numerus clausus carcéral, moratoire sur les nouvelles places de prison, développement de la probation
@@ -2755,9 +2771,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -9.05
-    bas: -9.05
-    haut: -3.62
+    central: -10.32
+    bas: -11.79
+    haut: -4.79
     montee_en_charge:
       '2027': 0
       '2028': 0.2
@@ -2766,27 +2782,34 @@ mesures:
       '2031': 0.8
       '2032': 1.0
   calcul:
-    formule: -(cible - niveau_2025) * point_pib
+    formule: -(cible - niveau) / 100 * rnb_2032
     parametres:
       cible:
         valeur: 0.7
         unite: '% du RNB'
         source: >-
           https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
-      niveau_2025:
-        valeur: 0.45
+      niveau:
+        valeur: 0.42
         unite: '% du RNB'
-        source: https://www.senat.fr/rap/l24-144-34/l24-144-340.html
-        note: APD attendue à 0,45 % du RNB en 2025 (Sénat)
-      point_pib:
-        valeur: 36.2
-        unite: Md€ courants 2032 par point de PIB
-        bareme: point_pib_2032
-        note: RNB assimilé au PIB
-    explication: 'Retour à 0,7 % du RNB en 2032 ; haut : 0,55 %, cible de la loi de programmation du 4 août 2021.'
+        bareme: apd_part_rnb
+        note: >-
+          niveau 2025 (données préliminaires) ; la prévision de 0,45 % pour 2025 (Sénat,
+          https://www.senat.fr/rap/l24-144-34/l24-144-340.html) n'a pas été atteinte ; bas : 0,38 % après le budget 2026
+          (Alternatives Économiques, https://www.alternatives-economiques.fr/aide-au-developpement-la-france-s-eloigne-de-son-objectif-au-detriment-des-pays-les-plus-pauvres_04)
+      rnb_2032:
+        valeur: 3685
+        unite: Md€ courants
+        bareme: rnb_nominal_2032
+    explication: >-
+      Convention commune n° 10 : retour à 0,7 % du RNB en 2032 depuis le niveau de référence (barème apd_part_rnb, 0,42 %),
+      appliqué au RNB 2032 (barème rnb_nominal_2032). C'est un majorant : l'APD au sens du CAD comprend des prêts, des annulations
+      de dette et des frais d'accueil qui ne sont pas des dépenses budgétaires. Bas : depuis 0,38 % (niveau 2026 annoncé
+      après le budget 2026) : −0,32 % × 3 685. Haut : 0,55 %, cible de la loi de programmation du 4 août 2021 : −0,13 %
+      × 3 685.
   confiance: moyenne
   verification:
-    statut: ok
+    statut: corrige
     par: verificateur-sonnet
     date: "2026-09-29"
     commentaire: >-
@@ -2794,7 +2817,10 @@ mesures:
       9,05 Md€) ; haut 0,55 %. C'est la lecture haute du coût pour une « trajectoire » sans date, et l'APD
       au sens CAD inclut des prêts et l'accueil des réfugiés qui ne pèsent pas tous sur le solde ; le
       niveau de 2025 (0,45 %) est probablement supérieur au niveau voté pour 2026-2027 (coût sous-estimé de
-      ce côté).
+      ce côté). Recalé sur les conventions communes du 29/09 : assiette RNB 2032 (barème rnb_nominal_2032,
+      3 685 Md€) au lieu du PIB, niveau de départ harmonisé sur le barème apd_part_rnb (0,42 % au lieu de la
+      prévision 0,45 %), bas depuis le niveau 2026 (0,38 %), chiffre présenté comme majorant ; −9,05 → −10,32
+      (bas −9,05 → −11,79 ; haut −3,62 → −4,79).
 - id: pacte-fiscal-vert-trajectoire
   libelle: >-
     « Pacte fiscal vert » 2027-2032 (loi de programmation des finances publiques), renégociation de la trajectoire de
