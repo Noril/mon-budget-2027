@@ -1156,9 +1156,10 @@ mesures:
     central: -1.8
     bas: -7.2
     haut: 0.0
-    lecture: 'La référence du chiffrage prolonge déjà la LPM actualisée vers 3,5 % du PIB en 2035 (≈ 2,9 % en 2032, barème defense_0_1_point_pib_2032)
-      ; « continuer à augmenter » au-delà ne vaut qu''un dépassement modéré, 0,05 point de PIB au central. Bas : 0,2 point ;
-      haut : trajectoire de référence.'
+    lecture: 'La référence du chiffrage prolonge déjà la LPM actualisée vers 3,5 % du PIB en 2035 (≈ 2,9 % en 2032, barème
+      defense_0_1_point_pib_2032) ; « continuer à augmenter » au-delà ne vaut qu''un dépassement modéré, 0,05 point de PIB
+      au central. Bas : 0,2 point ; haut : trajectoire de référence. Écart à la référence LPM (barème defense_0_1_point_pib_2032)
+      ; part de dépassement supposée, ordre de grandeur non sourcé.'
     sources:
     - defense_0_1_point_pib_2032
 - id: regle-or-referendum

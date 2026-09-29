@@ -605,9 +605,11 @@ mesures:
       bas: -10.7
       haut: -1.3
       lecture: 'Exonération des cotisations vieillesse et chômage (salariales et patronales, ≈ 30 %) sur les revenus d''activité
-        des personnes ayant l''âge et les trimestres (cumulants et prolongateurs, masse d''environ 10 Md€ en 2025), projetée au
-        PIB (× 1,21). Bas : les 9 Md€ « en année pleine » de la candidate rapportés à ce seul volet et projetés (× 1,18) ; haut
-        : part salariale seulement (≈ 11 %). Pas d''effet d''activité compté (règle 3).'
+        des personnes ayant l''âge et les trimestres (cumulants et prolongateurs, masse d''environ 10 Md€ en 2025), projetée
+        au PIB (× 1,21). Bas : les 9 Md€ « en année pleine » de la candidate rapportés à ce seul volet et projetés (× 1,18)
+        ; haut : part salariale seulement (≈ 11 %). Pas d''effet d''activité compté (règle 3). Ordre de grandeur non sourcé.
+        Masse d''activité de 10 Md€ des cumulants et prolongateurs non retrouvée (pages DREES introuvables) ; le chiffre de
+        9 Md€ vient d''un article d''Epoch Times.'
       sources:
       - https://www.epochtimes.fr/marine-le-pen-promet-125-milliards-deuros-deconomies-et-defend-une-retraite-a-60-ou-62-ans-3335415.html
       - retraites_cotisation_vieillesse_1_point
@@ -1293,9 +1295,10 @@ mesures:
       bas: 0.5
       haut: 4.0
       lecture: 'Taxe de l''ordre de 10 % sur des rachats d''actions d''environ 30 Md€ par an (CAC 40), dont l''assiette serait
-        divisée par deux par substitution vers les dividendes, projetée en 2032. Bas : taux faible ou fuite d''assiette plus forte
-        ; haut : taux de 15 % et faible réaction. Les 8,4 Md€ du RN supposent un taux proche de 30 % sans aucune réaction de l''assiette
-        : écartés.'
+        divisée par deux par substitution vers les dividendes, projetée en 2032. Bas : taux faible ou fuite d''assiette plus
+        forte ; haut : taux de 15 % et faible réaction. Les 8,4 Md€ du RN supposent un taux proche de 30 % sans aucune réaction
+        de l''assiette : écartés. Ordre de grandeur non sourcé. Le montant de 30 Md€ de rachats annuels du CAC 40 n''a pas été
+        retrouvé (le CAC 40 a versé 107,5 Md€ en dividendes et rachats en 2025, La Tribune, sans ventilation lue).'
       sources:
       - https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
       - is_rendement_net

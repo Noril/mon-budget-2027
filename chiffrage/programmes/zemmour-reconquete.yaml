@@ -485,8 +485,9 @@ mesures:
       bas: -15.0
       haut: 0.0
       lecture: 'Étage par capitalisation financé par des incitations fiscales ou par le basculement d''environ un quart de point
-        de cotisation vieillesse (6,2 Md€ par point en 2025, × 1,21), les pensions en cours restant dues. Bas : bascule de 2 points
-        (coût de transition de la répartition) ; haut : étage volontaire sans incitation nouvelle.'
+        de cotisation vieillesse (6,2 Md€ par point en 2025, × 1,21), les pensions en cours restant dues. Bas : bascule de 2
+        points (coût de transition de la répartition) ; haut : étage volontaire sans incitation nouvelle. Cohérence avec retailleau-lr/retraite-capitalisation
+        (lectures différentes justifiées, voir cette mesure). Ordre de grandeur non sourcé pour la bascule d''un quart de point.'
       sources:
       - retraites_cotisation_vieillesse_1_point
       - facteur_pib_2025_2032
