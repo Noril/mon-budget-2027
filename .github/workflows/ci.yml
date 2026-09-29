@@ -54,6 +54,8 @@ jobs:
         run: uv run python -m outils.chiffrage
       - name: Simulateur
         run: uv run python -m outils.simulateur
+      - name: Jeu de cartes
+        run: uv run python -m outils.jeu
       - uses: actions/upload-artifact@v4
         with:
           name: chiffrage-et-lignage
@@ -62,5 +64,6 @@ jobs:
             build/chiffrage.html
             build/chiffrage.md
             build/simulateur.html
+            build/jeu.html
             data/indicateurs/*.lignage.json
             data/brut/**/manifeste.json
