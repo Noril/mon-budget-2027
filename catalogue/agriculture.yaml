@@ -14,6 +14,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (estimation de l'année N en décembre N, révisée en mai N+1 ; drapeau « e » sur la dernière année)
+  fraicheur_max_jours: 400
   domaines: [agriculture]
   controles:
     lignes_min: 500
@@ -38,6 +39,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (année N publiée à l'été N+2)
+  fraicheur_max_jours: 400
   domaines: [agriculture]
   controles:
     lignes_min: 400
@@ -61,6 +63,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: triennal ou décennal (recensement 2020, enquête 2023 ; prochaine enquête 2026)
+  fraicheur_max_jours: 1200
   domaines: [agriculture]
   controles:
     lignes_min: 500
@@ -83,6 +86,7 @@
   licence: Licence Ouverte 2.0
   maille: [departement]
   millesime: annuel (année N publiée en septembre N+1)
+  fraicheur_max_jours: 400
   domaines: [agriculture]
   controles:
     lignes_min: 1700
@@ -107,6 +111,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (année N publiée au printemps N+1)
+  fraicheur_max_jours: 400
   domaines: [agriculture]
   controles:
     lignes_min: 2000

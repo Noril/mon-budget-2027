@@ -3024,7 +3024,7 @@ mesures:
         valeur: 0.42
         unite: '% du RNB'
         bareme: apd_part_rnb
-        note: niveau 2025 (données préliminaires OCDE) ; le niveau 2026 (0,38 %, https://www.alternatives-economiques.fr/aide-au-developpement-la-france-s-eloigne-de-son-objectif-au-detriment)
+        note: niveau 2025 (données préliminaires OCDE) ; la projection 2026 de Focus 2030 (0,38 %, bas du barème, non officielle)
           sert au bas
       rnb_2032:
         valeur: 3685
@@ -3033,7 +3033,7 @@ mesures:
     explication: 'Promesse : 0,7 % du RNB (régime de croisière 2032). Écart entre 0,7 % et le niveau 2025 (0,42 %, apd_part_rnb)
       × RNB 2032 (3 685 Md€, rnb_nominal_2032) = 10,3 Md€, même lecture que les autres programmes (convention commune n° 10).
       C''est un majorant : l''APD au sens de l''OCDE comprend des prêts, des annulations de dette et des frais d''écolage
-      qui ne pèsent pas tous sur le solde. Bas : depuis le niveau 2026 annoncé après le budget 2026 (0,38 %) : 11,8 Md€ ;
+      qui ne pèsent pas tous sur le solde. Bas : depuis 0,38 % (bas du barème : projection 2026 de Focus 2030, non officielle) : 11,8 Md€ ;
       haut : première marche du contre-budget 2026 (3 Md€ × 1,1842).'
   confiance: faible
   verification:
@@ -4099,7 +4099,7 @@ mesures:
   nature: recette
   effet_solde_primaire:
     central: 6.39
-    bas: 5.2
+    bas: 5.94
     haut: 6.39
     montee_en_charge: *id004
   calcul:
@@ -4116,7 +4116,8 @@ mesures:
         bareme: facteur_pib_2026_2032
     explication: Suppression de l'exonération d'IR, de l'exonération de cotisations salariales et de la déduction forfaitaire
       patronale sur les heures supplémentaires (barème hs_exoneration_cout, 5,4 Md€ en 2026) × PIB 2026→2032. Chiffrage statique,
-      retenu comme haut ; bas = coût 2024 non projeté (5,2 Md€), pour couvrir la baisse du recours aux heures supplémentaires.
+      retenu comme haut ; bas = baisse de 7,1 % du volume d'heures supplémentaires attendue par l'OFCE après la
+      suppression de 2012 (https://www.ofce.sciences-po.fr/pdf/revue/2012/6-2012-1.pdf), soit 6,39 × 0,929 = 5,94.
   confiance: moyenne
   verification:
     statut: corrige
@@ -4129,7 +4130,8 @@ mesures:
       0,15 Md€). Barème hs_exoneration_cout sourcé (Cour des comptes NEB, PLFSS annexe 4). Statique, sans réaction (haut
       = central) : la baisse du recours aux heures supplémentaires est dans le bas (5,2). Recalé sur les conventions
       communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2025_2032 ; valeur
-      inchangée.'
+      inchangée. Audit du 30/09/2026 : le bas (5,2, coût 2024 non projeté, en euros 2024) mêlait deux millésimes ;
+      remplacé par la réaction documentée par l''OFCE (−7,1 % d''heures supplémentaires) : 5,2 → 5,94.'
 - id: cvae-cfe-retablies
   libelle: Rétablissement de la CVAE et retour sur la baisse de la CFE
   domaine: fiscalite
@@ -4162,7 +4164,7 @@ mesures:
         valeur: 3.7
         unite: Md€/an
         bareme: cvae_restante
-        note: rendement de la CVAE subsistante, supprimée en 2030 par la LFI 2026
+        note: rendement de la CVAE subsistante, supprimée en 2030 par la LFI 2025 (calendrier inchangé par la LFI 2026)
       f25:
         valeur: 1.2106
         unite: facteur PIB nominal 2025→2032

@@ -1,4 +1,4 @@
-"""Commission européenne, « EU spending and revenue » : un onglet par année (2000 … 2024), montants en M€.
+"""Commission européenne, « EU spending and revenue » : un onglet par année (2000 … 2025), montants en M€.
 
 Chaque onglet contient plusieurs tableaux (dépenses par rubrique, NextGenerationEU à partir de 2021, recettes,
 RNB), chacun sous une ligne d'en-tête qui porte les codes pays (BE, BG … FR … ; EL pour la Grèce, UK jusqu'en

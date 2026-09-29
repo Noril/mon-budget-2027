@@ -14,6 +14,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (année N-2 publiée à l'été N)
+  fraicheur_max_jours: 400
   domaines: [transports]
   controles:
     lignes_min: 2000
@@ -37,6 +38,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel
+  fraicheur_max_jours: 400
   domaines: [transports]
   controles:
     lignes_min: 2000
@@ -58,6 +60,7 @@
   licence: ODbL
   maille: [region]
   millesime: mensuel (mois M publié vers le 10 du mois M+1)
+  fraicheur_max_jours: 45
   domaines: [transports]
   controles:
     lignes_min: 2000
@@ -81,6 +84,7 @@
   licence: ODbL
   maille: [france]
   millesime: mensuel (publication avec deux à trois mois de décalage)
+  fraicheur_max_jours: 45
   domaines: [transports]
   controles:
     lignes_min: 130

@@ -36,6 +36,7 @@
   licence: Licence Ouverte 2.0
   maille: [france]
   millesime: mensuel (situation au 1er du mois, publiée vers la fin du mois)
+  fraicheur_max_jours: 45
   domaines: [justice]
   normalisation: justice_ecroues
   controles:
@@ -63,6 +64,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (situation au 31 décembre, ou date de référence nationale)
+  fraicheur_max_jours: 400
   domaines: [justice]
   controles:
     lignes_min: 400

@@ -1099,7 +1099,7 @@ mesures:
         source: https://www.fipeco.fr/fiche/Limp%C3%B4t-sur-les-soci%C3%A9t%C3%A9s
         note: 'déductibilité de l''impôt de l''assiette de l''IS : retour mécanique (même convention que C3S, CFE, forfait social chez Retailleau)'
     explication: >-
-      Maintien de la CVAE au-delà de 2030 au lieu de sa suppression votée (LFI 2026) : 3,7 Md€ × 1,2106 ≈ 4,5 Md€ en
+      Maintien de la CVAE au-delà de 2030 au lieu de sa suppression votée (LFI 2025, inchangée par la LFI 2026) : 3,7 Md€ × 1,2106 ≈ 4,5 Md€ en
       2032 (dérivation du barème), net du manque à gagner d'IS de 25 % (la CVAE est déductible du résultat imposable) :
       3,36 Md€. Haut : sans retour d'IS. Montée : la baisse votée commence en 2028.
   confiance: moyenne
@@ -3437,8 +3437,8 @@ mesures:
         bareme: apd_part_rnb
         note: >-
           niveau 2025 (données préliminaires) ; la prévision de 0,45 % pour 2025 (Sénat,
-          https://www.senat.fr/rap/l24-144-34/l24-144-340.html) n'a pas été atteinte ; bas : 0,38 % après le budget 2026
-          (Alternatives Économiques, https://www.alternatives-economiques.fr/aide-au-developpement-la-france-s-eloigne-de-son-objectif-au-detriment-des-pays-les-plus-pauvres_04)
+          https://www.senat.fr/rap/l24-144-34/l24-144-340.html) n'a pas été atteinte ; bas : 0,38 % en 2026, bas du barème
+          (projection de Focus 2030 après la LFI 2026, non officielle)
       rnb_2032:
         valeur: 3685
         unite: Md€ courants
@@ -3446,8 +3446,8 @@ mesures:
     explication: >-
       Convention commune n° 10 : retour à 0,7 % du RNB en 2032 depuis le niveau de référence (barème apd_part_rnb, 0,42 %),
       appliqué au RNB 2032 (barème rnb_nominal_2032). C'est un majorant : l'APD au sens du CAD comprend des prêts, des annulations
-      de dette et des frais d'accueil qui ne sont pas des dépenses budgétaires. Bas : depuis 0,38 % (niveau 2026 annoncé
-      après le budget 2026) : −0,32 % × 3 685. Haut : 0,55 %, cible de la loi de programmation du 4 août 2021 : −0,13 %
+      de dette et des frais d'accueil qui ne sont pas des dépenses budgétaires. Bas : depuis 0,38 % (bas du barème, projection
+      2026 non officielle de Focus 2030) : −0,32 % × 3 685. Haut : 0,55 %, cible de la loi de programmation du 4 août 2021 : −0,13 %
       × 3 685.
   confiance: moyenne
   verification:

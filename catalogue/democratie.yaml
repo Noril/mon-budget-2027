@@ -14,6 +14,7 @@
   licence: Licence Ouverte 2.0
   maille: [departement, france]
   millesime: par scrutin (2022)
+  fraicheur_max_jours: 1900
   domaines: [democratie]
   controles:
     lignes_min: 210
@@ -39,6 +40,7 @@
   licence: Licence Ouverte 2.0
   maille: [departement, france]
   millesime: par scrutin (2022, 2024)
+  fraicheur_max_jours: 1900
   domaines: [democratie]
   controles:
     lignes_min: 210
@@ -63,6 +65,7 @@
   licence: Licence Ouverte 2.0
   maille: [departement, france]
   millesime: par scrutin (2019, 2024)
+  fraicheur_max_jours: 1900
   domaines: [democratie]
   controles:
     lignes_min: 210
@@ -73,7 +76,7 @@
 - id: pe-participation-europeennes
   titre: Participation aux élections européennes par État membre et pour l'UE, 1979-2024
   producteur: Parlement européen
-  doc: https://results.elections.europa.eu/fr/tools/download-datasheets/
+  doc: https://results.elections.europa.eu/fr/outils/telechargez-fiches-techniques/
   acces:
     mode: fichier
     urls:
@@ -84,6 +87,7 @@
   licence: Parlement européen, reproduction autorisée avec mention de la source (avis juridique europarl.europa.eu)
   maille: [pays, france]
   millesime: quinquennal (dernier scrutin 2024)
+  fraicheur_max_jours: 1900
   domaines: [democratie]
   controles:
     lignes_min: 200
@@ -114,6 +118,7 @@
   licence: Avis de réutilisation de la Commission européenne (décision 2011/833/UE), équivalent CC BY 4.0
   maille: [pays, france]
   millesime: semestriel (printemps, automne)
+  fraicheur_max_jours: 200
   domaines: [democratie]
   controles:
     lignes_min: 1500
@@ -141,6 +146,7 @@
   licence: Licence Ouverte 2.0
   maille: [france]
   millesime: quotidien pour la législature en cours
+  fraicheur_max_jours: 7
   domaines: [democratie]
   controles:
     lignes_min: 500

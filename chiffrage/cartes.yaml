@@ -26,11 +26,11 @@ personnages:
   - id: retraitee
     nom: La retraitée
     emoji: "👵"
-    couleur: "#b7950b"
+    couleur: "#7d6608"
   - id: etudiante
     nom: L'étudiante
     emoji: "🎓"
-    couleur: "#17a589"
+    couleur: "#117864"
   - id: general
     nom: Le général
     emoji: "🎖️"
@@ -42,11 +42,11 @@ personnages:
   - id: militante-ecologiste
     nom: La militante écologiste
     emoji: "🌱"
-    couleur: "#229954"
+    couleur: "#196f3d"
   - id: agriculteur
     nom: L'agriculteur
     emoji: "🚜"
-    couleur: "#ca6f1e"
+    couleur: "#a04000"
   - id: eurodeputee
     nom: L'eurodéputée
     emoji: "🌍"
@@ -159,9 +159,9 @@ cartes:
     suite_seulement: true
     personnage: retraitee
     levier: sante
-    texte: "Et rembourser intégralement les soins prescrits, en intégrant les complémentaires ? Environ 36,5 Md€ par an."
+    texte: "Et rembourser intégralement les soins prescrits, en intégrant les complémentaires ? Environ 33 Md€ par an."
     gauche: {libelle: "+3 Md€", valeur: 3}
-    droite: {libelle: "Remboursement intégral", valeur: 36.5}
+    droite: {libelle: "Remboursement intégral", valeur: 33.5}
 
   # 6. Carburants
   - id: carburants
@@ -196,9 +196,9 @@ cartes:
     suite_seulement: true
     personnage: general
     levier: defense
-    texte: "Et une conscription citoyenne de neuf mois, payée au Smic, pour les moins de 25 ans ? Environ 27,5 Md€ au total."
+    texte: "Et une conscription citoyenne de neuf mois, payée au Smic, pour les moins de 25 ans ? Environ 23 Md€ par an."
     gauche: {libelle: "+7 Md€ sans conscription", valeur: 7}
-    droite: {libelle: "Conscription : +27,5 Md€", valeur: 27.5}
+    droite: {libelle: "Conscription : +23 Md€", valeur: 23}
 
   # 8. Pensions
   - id: pensions
@@ -279,13 +279,13 @@ cartes:
     levier: assurance-chomage
     texte: "Je n'arrive pas à recruter alors que le chômage reste élevé. On réduit la durée d'indemnisation ?"
     gauche: {libelle: "Règles inchangées", option: inchangees, suite: chomage-abroger}
-    droite: {libelle: "Durcir (5 Md€)", option: durcir, suite: chomage-durcir-fortement}
+    droite: {libelle: "Durcir (4 à 5 Md€)", option: durcir, suite: chomage-durcir-fortement}
   - id: chomage-durcir-fortement
     suite_seulement: true
     personnage: directeur-budget
     levier: assurance-chomage
     texte: "On peut aller plus loin : durée maximale réduite, ruptures conventionnelles, hauts revenus, frontaliers. Environ 12 Md€."
-    gauche: {libelle: "Durcir (5 Md€)", option: durcir}
+    gauche: {libelle: "Durcir (4 à 5 Md€)", option: durcir}
     droite: {libelle: "Durcir fortement (12 Md€)", option: durcir-fortement}
   - id: chomage-abroger
     suite_seulement: true
@@ -321,7 +321,7 @@ cartes:
   - id: impot-revenu
     personnage: economiste
     levier: impot-revenu
-    texte: "Un barème à 14 tranches rendrait l'impôt sur le revenu plus progressif. Ses partisans en attendent environ 6 Md€ de recettes."
+    texte: "Un barème à 14 tranches rendrait l'impôt sur le revenu plus progressif. Selon une estimation de l'Institut Montaigne, environ 6 Md€ de recettes en 2032."
     gauche: {libelle: "Barème actuel", option: inchange, suite: impot-revenu-classes-moyennes}
     droite: {libelle: "Barème à 14 tranches", option: plus-progressif}
   - id: impot-revenu-classes-moyennes
@@ -363,9 +363,9 @@ cartes:
 
   # 15. Heures supplémentaires
   - id: heures-supplementaires
-    personnage: syndicaliste
+    personnage: patronne-pme
     levier: heures-supplementaires
-    texte: "Mes collègues comptent sur leurs heures sup pour finir le mois. Zéro cotisation au-delà de 1 623 heures par an ?"
+    texte: "Mes salariés veulent faire des heures sup pour gagner plus, mais chacune me coûte cher en cotisations. Zéro cotisation au-delà de 1 623 heures par an ?"
     gauche: {libelle: "Exonération actuelle", option: exoneration-actuelle, suite: heures-supplementaires-fiscaliser}
     droite: {libelle: "Zéro cotisation au-delà", option: zero-cotisation}
   - id: heures-supplementaires-fiscaliser
@@ -469,7 +469,7 @@ cartes:
     levier: transition-ecologique
     texte: "Selon la Commission de régulation de l'énergie, le soutien public à l'éolien et au solaire dépasse 6 Md€ en 2026. On y met fin ?"
     gauche: {libelle: "Budget actuel", valeur: 0}
-    droite: {libelle: "Fin du soutien : −3,5 Md€", valeur: -3.5}
+    droite: {libelle: "Fin du soutien : −3 Md€", valeur: -3}
   - id: transition-plus
     suite_seulement: true
     personnage: economiste
@@ -481,9 +481,9 @@ cartes:
     suite_seulement: true
     personnage: militante-ecologiste
     levier: transition-ecologique
-    texte: "Ou un plan massif : rail, fret, RER métropolitains, renouvelables. Environ 41 Md€ par an."
+    texte: "Ou un plan massif : rail, fret, RER métropolitains, renouvelables. Environ 40 Md€ par an."
     gauche: {libelle: "+8,5 Md€", valeur: 8.5}
-    droite: {libelle: "+41 Md€", valeur: 41}
+    droite: {libelle: "+40 Md€", valeur: 40}
 
   # 20. Minima sociaux
   - id: minima-sociaux
@@ -510,7 +510,7 @@ cartes:
     suite_seulement: true
     personnage: medecin-hospitaliere
     levier: minima-sociaux
-    texte: "Aller jusqu'à un revenu garanti au seuil de pauvreté pour tous, et l'AAH au niveau du Smic ? Environ 53 Md€."
+    texte: "Aller jusqu'à un revenu garanti au seuil de pauvreté pour tous, et l'AAH au niveau du Smic ? Environ 54 Md€."
     gauche: {libelle: "Hausse ciblée", option: hausse-ciblee}
     droite: {libelle: "Seuil de pauvreté", option: seuil-pauvrete}
 
@@ -569,9 +569,9 @@ cartes:
   - id: education
     personnage: maire-rural
     levier: education
-    texte: "Cantine, transports et fournitures gratuits, classes de 19 élèves, 500 000 places en crèche : environ 36 Md€ par an."
+    texte: "Cantine, transports et fournitures gratuits, classes de 19 élèves, 500 000 places en crèche : environ 27,5 Md€ par an."
     gauche: {libelle: "Budget actuel", valeur: 0, suite: education-economies}
-    droite: {libelle: "+36 Md€ école et crèches", valeur: 36}
+    droite: {libelle: "+27,5 Md€ école et crèches", valeur: 27.5}
   - id: education-economies
     suite_seulement: true
     personnage: directeur-budget
@@ -734,8 +734,8 @@ cartes:
     droite: {libelle: "Annuler les hausses", option: annuler-hausses-recentes, suite: patronales-15}
   - id: patronales-15
     suite_seulement: true
-    personnage: syndicaliste
+    personnage: economiste
     levier: cotisations-patronales
-    texte: "Et baisser d'environ 15 Md€ les cotisations patronales qui financent famille, santé et logement ?"
+    texte: "Allocations familiales, soins, aides au logement : ces prestations ne dépendent pas des cotisations versées. Certains économistes proposent de les financer par l'impôt plutôt que par le travail. On baisse d'environ 15 Md€ ces cotisations patronales ?"
     gauche: {libelle: "Annuler les hausses", option: annuler-hausses-recentes}
     droite: {libelle: "Baisse d'environ 15 Md€", option: baisse-15-md}

@@ -12,6 +12,7 @@
   licence: Licence Ouverte 2.0
   maille: [commune]
   millesime: annuel (millésime 2011-2025 publié en juillet 2026)
+  fraicheur_max_jours: 400
   domaines: [ecologie]
   controles:
     lignes_min: 34000
@@ -37,6 +38,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (inventaires soumis en avril, publiés en juin ; année N-2)
+  fraicheur_max_jours: 400
   domaines: [ecologie]
   controles:
     lignes_min: 1000
@@ -60,6 +62,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (SHARES, publié en début d'année N+2 ; estimation provisoire de N-1 marquée « p »)
+  fraicheur_max_jours: 400
   domaines: [ecologie]
   controles:
     lignes_min: 600
@@ -81,6 +84,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel
+  fraicheur_max_jours: 400
   domaines: [ecologie]
   controles:
     lignes_min: 1000
@@ -115,6 +119,7 @@
   licence: Licence Ouverte 2.0
   maille: [departement]
   millesime: annuel (année N publiée en octobre N+1)
+  fraicheur_max_jours: 400
   domaines: [ecologie]
   normalisation: onisr_baac
   controles:

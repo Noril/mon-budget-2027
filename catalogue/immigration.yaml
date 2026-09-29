@@ -18,6 +18,7 @@
   licence: Licence Ouverte 2.0
   maille: [france, region, departement]
   millesime: annuel (publié en juillet-août de l'année suivante)
+  fraicheur_max_jours: 400
   domaines: [immigration]
   normalisation: csv_multiples
   controles:
@@ -47,6 +48,7 @@
   licence: Licence Ouverte 2.0
   maille: [france, region, departement]
   millesime: annuel
+  fraicheur_max_jours: 400
   domaines: [immigration]
   normalisation: csv_multiples
   controles:
@@ -80,6 +82,7 @@
   licence: Licence Ouverte 2.0
   maille: [france]
   millesime: annuel (données définitives, republiées en août 2026 pour 2015-2024)
+  fraicheur_max_jours: 400
   domaines: [immigration]
   normalisation: csv_multiples
   controles:
@@ -105,6 +108,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel
+  fraicheur_max_jours: 400
   domaines: [immigration]
   controles:
     lignes_min: 300
@@ -126,6 +130,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel
+  fraicheur_max_jours: 400
   domaines: [immigration]
   controles:
     lignes_min: 300
@@ -146,6 +151,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel
+  fraicheur_max_jours: 400
   domaines: [immigration]
   controles:
     lignes_min: 300
@@ -169,6 +175,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel
+  fraicheur_max_jours: 400
   domaines: [immigration]
   controles:
     lignes_min: 1000

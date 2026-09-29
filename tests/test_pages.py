@@ -235,3 +235,20 @@ def test_annoter_echappe_le_html_et_garde_les_termes():
     html = json.loads(sortie)
     assert "<img" not in html and "&lt;img" in html and "&amp;" in html
     assert '<span class="gl" tabindex="0">TVA<sup>?</sup><span class="def">&lt;b&gt;taxe&lt;/b&gt; &amp; co</span></span>' in html
+
+
+def _contraste_blanc(hexa: str) -> float:
+    """Rapport de contraste WCAG entre le texte blanc et une couleur de fond."""
+    canaux = [int(hexa.lstrip("#")[i:i + 2], 16) / 255 for i in (0, 2, 4)]
+    r, g, b = (c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4 for c in canaux)
+    return 1.05 / (0.2126 * r + 0.7152 * g + 0.0722 * b + 0.05)
+
+
+def test_couleurs_contraste_aa():
+    """Pastilles des candidats (texte blanc) et noms des personnages (sur fond blanc) : WCAG AA, 4,5:1."""
+    import yaml
+    persos = yaml.safe_load((simulateur.RACINE / "chiffrage" / "cartes.yaml").read_text(encoding="utf-8"))["personnages"]
+    couleurs = list(simulateur.COULEURS) + [p["couleur"] for p in persos]
+    faibles = {c: round(_contraste_blanc(c), 2) for c in couleurs if _contraste_blanc(c) < 4.5}
+    assert not faibles
+    assert len(set(simulateur.COULEURS)) == len(simulateur.COULEURS)

@@ -15,6 +15,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (année N-2 publiée en février de l'année N, révisée en septembre)
+  fraicheur_max_jours: 400
   domaines: [etat]
   controles:
     lignes_min: 15000
@@ -38,6 +39,7 @@
   licence: Licence Ouverte 2.0
   maille: [france, region, departement]
   millesime: annuel (effectifs au 31 décembre N publiés vers août N+2)
+  fraicheur_max_jours: 400
   domaines: [etat]
   normalisation: insee_bdm
   controles:
@@ -66,6 +68,7 @@
   licence: OCDE, CC BY 4.0 (https://www.oecd.org/en/about/terms-conditions.html)
   maille: [pays, france]
   millesime: annuel (dernière année N-2)
+  fraicheur_max_jours: 400
   domaines: [etat]
   controles:
     lignes_min: 1000
@@ -91,6 +94,7 @@
   licence: OCDE, CC BY 4.0 (https://www.oecd.org/en/about/terms-conditions.html)
   maille: [pays, france]
   millesime: enquête triennale (éditions 2019, 2022, 2025 ; ce flux porte 2022 et 2025)
+  fraicheur_max_jours: 1200
   domaines: [etat]
   controles:
     lignes_min: 400
@@ -115,6 +119,7 @@
   licence: Licence Ouverte 2.0
   maille: [departement, france]
   millesime: annuel (comptes de gestion N publiés vers juillet N+1)
+  fraicheur_max_jours: 400
   domaines: [etat]
   controles:
     lignes_min: 80000

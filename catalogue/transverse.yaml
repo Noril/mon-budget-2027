@@ -11,6 +11,7 @@
   licence: Licence Ouverte 2.0
   maille: [commune]
   millesime: annuel (situation au 1er janvier)
+  fraicheur_max_jours: 400
   domaines: [transverse]
   controles:
     lignes_min: 34000
@@ -29,6 +30,7 @@
   licence: Licence Ouverte 2.0
   maille: [departement]
   millesime: annuel
+  fraicheur_max_jours: 400
   domaines: [transverse]
   controles:
     lignes_min: 100
@@ -46,6 +48,7 @@
   licence: Licence Ouverte 2.0
   maille: [region]
   millesime: annuel
+  fraicheur_max_jours: 400
   domaines: [transverse]
   controles:
     lignes_min: 18
@@ -64,6 +67,7 @@
   licence: Licence Ouverte 2.0
   maille: [commune, departement, region, france]
   millesime: annuel (population au 1er janvier 2023, limites au 1er janvier 2025)
+  fraicheur_max_jours: 400
   domaines: [transverse]
   controles:
     lignes_min: 100000
@@ -108,6 +112,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel
+  fraicheur_max_jours: 400
   domaines: [ecologie, transverse]
   controles:
     lignes_min: 1500
@@ -129,6 +134,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel
+  fraicheur_max_jours: 400
   domaines: [immigration, transverse]
   controles:
     lignes_min: 1000

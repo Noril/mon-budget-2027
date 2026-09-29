@@ -15,6 +15,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (comptes nationaux, révisions en avril et septembre)
+  fraicheur_max_jours: 400
   domaines: [economie]
   controles:
     lignes_min: 600
@@ -36,6 +37,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel
+  fraicheur_max_jours: 400
   domaines: [economie]
   controles:
     lignes_min: 1200
@@ -60,6 +62,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (publié en janvier-février pour l'année écoulée)
+  fraicheur_max_jours: 400
   domaines: [economie]
   controles:
     lignes_min: 600
@@ -83,6 +86,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel
+  fraicheur_max_jours: 400
   domaines: [economie]
   controles:
     lignes_min: 1800

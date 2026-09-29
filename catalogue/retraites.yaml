@@ -60,6 +60,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (année d'enquête N, revenus N-1)
+  fraicheur_max_jours: 400
   domaines: [retraites]
   controles:
     lignes_min: 450
@@ -83,6 +84,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel (année d'enquête N, revenus N-1)
+  fraicheur_max_jours: 400
   domaines: [retraites]
   controles:
     lignes_min: 650
@@ -105,6 +107,7 @@
   licence: Réutilisation libre Eurostat (CC BY 4.0)
   maille: [pays, france]
   millesime: annuel
+  fraicheur_max_jours: 400
   domaines: [retraites]
   controles:
     lignes_min: 800
