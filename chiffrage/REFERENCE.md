@@ -11,6 +11,7 @@ mesure prévue par la loi coûte ce que rapporte cette mesure.
 | CVAE | Taux 2024 maintenu jusqu'en 2027, puis baisse et suppression en 2030 (LFI 2026, promulguée le 19 février 2026). Promettre la suppression de la CVAE ne coûte que l'avance sur ce calendrier. | [economie.gouv.fr](https://www.economie.gouv.fr/entreprises/gerer-sa-fiscalite-et-ses-impots/loi-de-finances-2026-ce-qui-change-pour-les-entreprises) |
 | Contribution exceptionnelle sur les bénéfices des grandes entreprises | Prolongée pour l'exercice 2026 seulement (payée en 2027) ; éteinte ensuite. La pérenniser est une recette nouvelle à partir de 2028. | [LégiFiscal](https://www.legifiscal.fr/actualites-fiscales/4402-plf-2026-49-3-maintien-contribution-exceptionnelle-benefices-grandes-entreprises.html) |
 | Autres mesures des LFI et LFSS 2026 | En vigueur telles que votées, y compris les censures du Conseil constitutionnel. Un contre-budget 2026 qui annule une ligne du PLF 2026 n'a d'effet que si cette ligne a été votée : à vérifier au cas par cas dans les textes promulgués. | [Lextenso](https://www.labase-lextenso.fr/breves/loi-de-financement-de-la-securite-sociale-pour-2026-BREVEBO193) |
+| Défense | Loi de programmation militaire actualisée promulguée (loi n° 2026-791 du 16 août 2026) : crédits de paiement de la mission Défense hors pensions de 63,3 Md€ en 2027, 69,5 en 2028, 72,6 en 2029 et 75,7 en 2030 ; objectif de 2,5 % du PIB au minimum en 2030 et de 3,5 % à l'horizon 2035 (rapport annexé, non programmé en crédits). Une promesse de défense ne coûte que l'écart avec cette trajectoire ; au-delà de 2030, la convention d'interpolation vers 3,5 % en 2035 (≈ 2,9 % en 2032) est explicitée dans la mesure (barèmes `defense_credits_mission`, `defense_0_1_point_pib_2032`). | [Légifrance](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054694832) |
 | Dépenses | Pas de « tendanciel » propre au chiffrage : les coûts s'ajoutent à la trajectoire de référence de `plan/` (solde primaire gelé, ou FMI). | `plan/README.md` |
 
 ## Indexations : droit constant
@@ -46,16 +47,21 @@ Elles s'appliquent à tous les programmes ; le détail et les sources sont dans 
    place, le salaire moyen (haut des barèmes `_apu`). Les barèmes `cout_*_charge` sont des coûts budgétaires de
    l'État, à ne plus utiliser pour le solde.
 2. **Point d'indice.** Gelé à droit constant ; aucune projection par le PIB. Hausse ponctuelle de x % :
-   x × `point_indice_1pct_2032` brut, × 0,72 en net. Indexation 2027-2032 : `indexation_point_indice_2027_2032`
-   (28,6 brut, 20,6 net), montée en charge 0,13 / 0,30 / 0,48 / 0,66 / 0,83 / 1. Hausse de x % plus indexation :
-   les deux, plus l'effet croisé x × 28,6. Les pensions induites vont dans le bas.
-3. **Pensions.** Effet net = brut × (1 − `retour_prelevements_pensions`, 0,14) ; petites pensions 0,08 ; minima
-   (ASPA, AAH, RSA) sans retour.
-4. **Retraites (âge, durée).** Le central porte sur le solde du système de retraite. Le coût pour l'ensemble des
+   x × `point_indice_1pct_2032` (1,86 Md€) brut, × 0,72 en net. Indexation 2027-2032 :
+   `indexation_point_indice_2027_2032` (20,6 brut, 14,8 net), montée en charge 0,13 / 0,30 / 0,48 / 0,66 / 0,83 / 1.
+   Hausse de x % plus indexation : les deux, plus l'effet croisé (x / 100) × 20,6 (pour +10 % : 18,6 + 20,6 + 2,1
+   = 41,3 brut, 29,7 net). Les pensions induites vont dans le bas.
+3. **Pensions.** Effet net = brut × (1 − `retour_prelevements_pensions`, 0,16) ; petites pensions 0,08 ; pensions
+   élevées ou hausse proportionnelle avec IR plus fort 0,20 ; minima (ASPA, AAH, RSA) sans retour.
+4. **Retraites (âge, durée).** Le central porte sur le solde du système de retraite. Hausse de durée d'assurance :
+   `retraites_duree_assurance_hausse_1_an` (5,9 Md€ par an de durée) ; baisse : `retraites_duree_assurance_1_an`
+   (4,4), les deux n'étant pas symétriques. Le coût pour l'ensemble des
    administrations (Cour des comptes, DG Trésor), qui ajoute surtout les prélèvements sur l'emploi des seniors,
    relève d'un effet d'activité exclu par la règle 3 : il va dans `effets_retour` ou `chiffrages_tiers`.
-5. **CSG.** Une baisse d'un point de CSG déductible rend 10 à 15 % en impôt sur le revenu (convention) : net
-   ≈ 10,3 Md€ par point d'activité en 2026.
+5. **CSG et cotisations salariales.** Une baisse d'un point de CSG déductible rend 16 % en impôt sur le revenu
+   (`retour_ir_csg_deductible`, 0,14 à 0,185 : 3,9 Md€ d'IR pour 22,5 Md€ de CSG rendue déductible en 2018, ajusté du
+   barème de l'IR de 2020) : net ≈ 11,71 × 0,84 ≈ 9,8 Md€ par point d'activité en 2026. Même ratio pour une
+   cotisation salariale, déductible elle aussi (`retour_ir_cotisation_salariale`).
 6. **Accise carburants.** 0,54 Md€ par centime et par litre avec la TVA induite (chiffre pour le solde).
 7. **Smic.** Pour une hausse de 10 % ou plus, le produit linéaire de `smic_1pct_cout_apu` est un minorant.
 8. **Minimum contributif.** Linéaire seulement jusqu'à 100-150 € de hausse.
@@ -68,10 +74,20 @@ Elles s'appliquent à tous les programmes ; le détail et les sources sont dans 
     - Postes créés ou supprimés : entrant (`cout_*_apu`) au central, agent moyen (haut du barème) dans la borne
       défavorable au solde.
     - Revalorisation ciblée d'agents en place : taux × effectifs × haut du barème `cout_*_apu`, sans facteur PIB.
-    - Hausse de x % du point : borne défavorable = barème haut avec retour 0,25 ; borne favorable = barème bas avec
-      retour 0,32. L'effet croisé avec une indexation promise va dans la ligne de la hausse.
-    - CSG déductible : retour d'impôt sur le revenu de 0,12 au central (0,10 à 0,15) ; aucun sur la CSG du capital.
+    - Hausse de x % du point : borne défavorable = barème haut (x × 1,93) avec retour 0,25 ; borne favorable =
+      barème bas (x × 1,80) avec retour 0,32. Indexation : borne défavorable 22,2 × 0,75 (plus les pensions induites),
+      borne favorable 17,0 × 0,68. L'effet croisé avec une indexation promise va dans la ligne de la hausse.
+    - CSG déductible et cotisation salariale : retour d'impôt sur le revenu de 0,16 au central (0,14 à 0,185 : 0,14
+      dans la borne défavorable d'une baisse, 0,185 dans celle d'une hausse) ; aucun sur la CSG non déductible ni sur
+      la CSG du capital.
     - Cotisation vieillesse de type non précisé : central du barème, sans retour.
     - APD : départ à `apd_part_rnb` sur `rnb_nominal_2032`, borne défavorable depuis 0,38 %.
     - Retraites (âge) : les bornes n'incluent pas le coût toutes administrations.
     - Smic au-delà de 10 % : le produit linéaire est la borne favorable.
+13. **Allègements généraux supprimés au-dessus d'un seuil.** Part du coût de la réduction générale dégressive unique
+    (RGDU, barème 2026) portée par les salaires au-dessus du seuil, reconstituée sur la distribution des allègements
+    par tranche de 0,1 Smic en 2023 (Groupe d'experts sur le Smic, rapport 2024, graphique I.27) : 0,172 au-dessus de
+    1,6 Smic, 0,061 au-dessus de 2 Smic (recoupement : ≈ 1 Md€ au-dessus de 2,5 Smic, comme la Cour des comptes).
+    Montant = part × `allegements_generaux_cout` × `facteur_pib_2025_2032`. Lecture littérale (barème inchangé sous le
+    seuil) ; borne défavorable avec le bas du barème et 20 % d'IS en moins (Sénat, rapport n° 901), borne favorable
+    avec son haut. Les chiffrages sur le barème d'avant 2026 (Bozio-Wasmer, Groupe d'experts) ne s'appliquent plus.
