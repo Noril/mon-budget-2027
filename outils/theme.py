@@ -26,6 +26,9 @@ FACES = [
     ("Luciole", 400, "italic", "Luciole-Italic.woff2"),
 ]
 
+# Couleurs des candidats (ordre des fichiers de programme), contraste ≥ 4,5:1 sur le blanc.
+COULEURS_CANDIDATS = ["#c0392b", "#8e44ad", "#2471a3", "#117864", "#7d6608", "#a04000", "#566573", "#943126", "#1e8449", "#1f618d"]
+
 # Directive CSP : les polices sont en data URI.
 CSP_POLICES = "font-src data:"
 

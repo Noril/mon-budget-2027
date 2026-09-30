@@ -132,7 +132,7 @@ def urne() -> str:
         signe = "neg" if c < -0.05 else "pos" if c > 0.05 else ""
         r = ((i * 37) % 7 - 3) * 0.55
         items.append(
-            f'<li class="bulletin" style="--i:{i};--r:{r:.2f}deg"><a href="rapport.html#{html.escape(a["id"])}">'
+            f'<li class="bulletin" style="--i:{i};--r:{r:.2f}deg"><a href="programme-{html.escape(a["id"])}.html">'
             f'<span class="nom">{html.escape(a["candidat"])}</span><span class="parti">{html.escape(a["parti"])}</span>'
             f'<span class="solde {signe}">{_md(c)}</span><span class="unite">Md€ par an en 2032</span></a></li>')
     return f'<div class="urne"><ul class="bulletins">{"".join(items)}</ul></div>'
@@ -246,6 +246,8 @@ def main():
     SORTIE.mkdir(parents=True)
     for source, cible in PAGES.items():
         shutil.copy(BUILD / source, SORTIE / cible)
+    for f in sorted(BUILD.glob("programme-*.html")):  # une page par programme (outils.chiffrage)
+        shutil.copy(f, SORTIE / f.name)
     for f in FICHIERS:
         if (BUILD / f).exists():
             shutil.copy(BUILD / f, SORTIE / f)

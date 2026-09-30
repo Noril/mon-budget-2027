@@ -204,7 +204,7 @@ def _rapport(**mesure):
     a = _agregat(**mesure)
     serie = [{"annee": an, "dette": 100.0 + i, "solde": -3.0} for i, an in enumerate(range(2025, 2033))]
     traj = {"gel": {"reference": serie, "depart": 2025, "programmes": {a["id"]: {h: serie for h in ("central", "bas", "haut")}}}}
-    return chiffrage.rapport_html([a], traj)
+    return chiffrage.rapport_html([a], traj) + chiffrage.programme_html(a, [a], traj)
 
 
 def test_rapport_echappe_le_contenu_des_donnees():
