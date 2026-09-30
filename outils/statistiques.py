@@ -1,6 +1,8 @@
 """Statistiques privées des parties du jeu enregistrées avec consentement (base Postgres Neon, jamais publiée).
 
-    npx vercel@latest env pull .env.local                     # récupère DATABASE_URL (fichier ignoré par git)
+    # .env.local (ignoré par git) : DATABASE_URL="postgres://…", chaîne de connexion copiée depuis la console Neon
+    # (Vercel → Storage → la base → Open in Neon → Connect). Vercel marque la variable comme sensible : `vercel env pull`
+    # ne la renvoie pas.
     uv run python -m outils.statistiques                      # répartition des choix, décision par décision
     uv run python -m outils.statistiques --croiser retraites-age taxes-energie
 
@@ -30,8 +32,9 @@ def url_base() -> str:
         for ligne in fichier.read_text(encoding="utf-8").splitlines():
             if ligne.startswith("DATABASE_URL="):
                 url = ligne.split("=", 1)[1].strip().strip('"')
-    if not url:
-        sys.exit("DATABASE_URL absent : `npx vercel@latest env pull .env.local` puis relancer")
+    if not url or not url.startswith("postgres"):
+        sys.exit("DATABASE_URL absent ou masqué : copiez la chaîne de connexion depuis la console Neon dans .env.local "
+                 '(DATABASE_URL="postgres://…"), voir l\'en-tête de outils/statistiques.py')
     return url
 
 
