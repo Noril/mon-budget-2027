@@ -3703,8 +3703,7 @@ mesures:
         bareme: pacte_dutreil_cout
         unite: Md€ (2025)
         source: https://www.ccomptes.fr/sites/default/files/2026-04/20260422-RBDE-2025_0.pdf
-        note: 'Cour des comptes, budget de l''État 2025, tableau 22 : dépenses fiscales associées aux DMTG, 4,5 Md€ (majorant
-          du coût du pacte Dutreil)'
+        note: 'barème pacte_dutreil_cout (3,6 Md€) ; le tableau 22 de la Cour des comptes (4,5 Md€) couvre toutes les dépenses fiscales des DMTG'
       part_supprimee:
         valeur: 0.5
         unite: part de l'avantage supprimée

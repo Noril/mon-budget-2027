@@ -1226,8 +1226,8 @@ mesures:
         '2032': 1.0
       annuel:
         '2027': 0.0
-        '2028': -3.7
-        '2029': -3.7
+        '2028': -2.96
+        '2029': -2.96
         '2030': 0.0
         '2031': 0.0
         '2032': 0.0
@@ -1672,7 +1672,7 @@ mesures:
     effet_solde_primaire:
       central: 0.0
       bas: 0.0
-      haut: 85.72
+      haut: 85.68
       montee_en_charge:
         '2027': 0.0
         '2028': 0.2
@@ -1689,7 +1689,7 @@ mesures:
           unite: Md€
           note: « 125 milliards d'euros d'économies » (Medef, 27 août 2026), horizon 2032
         documente:
-          valeur: 39.28
+          valeur: 39.32
           source: somme des mesures d'économie de ce fichier
           unite: Md€ (2032)
           note: >-
@@ -1699,7 +1699,7 @@ mesures:
             sante-medicaments-unite-ald
       explication: >-
         Règle 6. Les économies identifiables du programme sont chiffrées dans leurs propres mesures (somme des centraux :
-        39,28 Md€) : central = 0 pour ne pas les compter deux fois. Haut = écart d'affichage entre l'annonce (125 Md€,
+        39,32 Md€) : central = 0 pour ne pas les compter deux fois. Haut = écart d'affichage entre l'annonce (125 Md€,
         lue comme un niveau annuel en 2032) et cette somme. Bas = 0.
     confiance: faible
     verification:

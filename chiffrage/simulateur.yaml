@@ -1546,8 +1546,8 @@ leviers:
     reprend:
     - attal-renaissance/assurance-chomage-5md
     - philippe-horizons/chomage-12-mois-moins-50-ans
-    calcul: Chiffrage Attal repris (5,44, même barème que Retailleau) ; Philippe (12 mois pour les moins de 50 ans) est chiffré à 5,21. [Recalé le 2026-09-30
-      sur le chiffrage de attal-renaissance.]
+    calcul: Chiffrage Attal repris (5,44, même barème que Retailleau) ; Philippe (12 mois pour les moins de 50 ans) est chiffré
+      à 5,21. [Recalé le 2026-09-30 sur le chiffrage de attal-renaissance.]
     candidats:
     - attal-renaissance
     - philippe-horizons

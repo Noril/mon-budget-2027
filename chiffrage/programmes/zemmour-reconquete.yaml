@@ -280,8 +280,8 @@ mesures:
         '2032': 1.0
       annuel:
         '2027': 0.0
-        '2028': -16.76
-        '2029': -16.76
+        '2028': -16.02
+        '2029': -16.02
         '2030': -13.06
         '2031': -13.06
         '2032': -13.06
@@ -319,7 +319,7 @@ mesures:
         Périmètre nommé (CVAE, C3S, CFE). 2032 : CFE (barème cfe_rendement, 8,031 Md€, produit DGFiP 2024) et C3S
         (barème c3s_rendement, 5,2 Md€), projetées au PIB, nettes du retour d'IS (barème retour_is_impots_production,
         20 %) : (8,031 + 5,2) × 1,2336 × 0,8 = 13,06 Md€. La CVAE, supprimée en 2030 par la loi, ne coûte que son avance
-        en 2028 et 2029 (3,7 Md€, barème cvae_restante, sans retour d'IS comme pour le RN) : −16,76 ces deux années
+        en 2028 et 2029 (3,7 Md€, barème cvae_restante, nette du retour d'IS de 20 % comme le reste du périmètre, soit 2,96 Md€) : −16,02 ces deux années
         (annuel). Haut = central. Bas : sans retour d'IS, (8,031 + 5,2) × 1,2336 = 16,32. Les autres impôts de
         production au sens de l'Insee sont hors du périmètre nommé.
     confiance: faible
@@ -605,7 +605,7 @@ mesures:
     effet_solde_primaire:
       central: 0.0
       bas: 0.0
-      haut: 84.09
+      haut: 84.05
       montee_en_charge:
         '2027': 0.0
         '2028': 0.2
@@ -622,7 +622,7 @@ mesures:
           unite: Md€
           note: « 140 milliards d'économies par an. Au minimum. »
         documente:
-          valeur: 55.91
+          valeur: 55.95
           source: somme des mesures d'économie de ce fichier
           unite: Md€ (2032)
           note: >-
@@ -632,7 +632,7 @@ mesures:
             contribution-ue-pre-covid, fin-ame, hebergement-urgence-irreguliers, aide-juridictionnelle-francais, privatisation-audiovisuel-public,
             subventions-associations-presse-syndicats
       explication: >-
-        Règle 6. Les 24 mesures du plan sont chiffrées une à une (somme des centraux d'économie : 55,91 Md€) : central
+        Règle 6. Les 24 mesures du plan sont chiffrées une à une (somme des centraux d'économie : 55,95 Md€) : central
         = 0 pour éviter le double compte ; haut = écart d'affichage avec les 140 Md€ ; bas = 0.
     confiance: faible
     verification:

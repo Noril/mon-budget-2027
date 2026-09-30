@@ -579,7 +579,7 @@ mesures:
           bareme: assurance_chomage_regles_2024_economie
           source: https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf
           unite: Md€/an
-          note: « 4,0 à 5,0 Md€ », tableau p. 35 ; milieu de fourchette
+          note: barème commun (Unédic, fourchette 4,0 à 5,4 Md€) ; le livret LR affichait « 4,0 à 5,0 Md€ » (tableau p. 35)
         facteur:
           valeur: 1.157
           bareme: facteur_pib_2027_2032
@@ -1090,8 +1090,8 @@ mesures:
         '2032': 1
       annuel:
         '2027': 0.0
-        '2028': -2.78
-        '2029': -2.78
+        '2028': -2.96
+        '2029': -2.96
         '2030': 0.0
         '2031': 0.0
         '2032': 0.0
@@ -1103,7 +1103,7 @@ mesures:
           bareme: cvae_restante
       explication: 'La suppression de la CVAE en 2030 est déjà votée (LFI 2025, calendrier inchangé par la LFI 2026, REFERENCE.md) : effet nul en régime
         de croisière 2032. L''avance de calendrier (loi de finances votée fin 2027) coûte la CVAE restante en 2028 et
-        2029, portée dans `annuel` à 2,78 Md€ par an (barème cvae_restante, 2025, net du surcroît d''IS de 25 % car la CVAE
+        2029, portée dans `annuel` à 2,96 Md€ par an (barème cvae_restante, 2025, net du retour d''IS de 20 %, barème retour_is_impots_production, car la CVAE
         est déductible, comme pour la C3S ; majorant, les taux légaux baissant avant 2030).'
     confiance: haute
     verification:

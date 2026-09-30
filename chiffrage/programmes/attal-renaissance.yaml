@@ -78,13 +78,13 @@ mesures:
     150 Md€ en 2037), pas comme des cumuls (voir verification). Le 25 août (LCI) : « 120 milliards d’euros d’économies durant les cinq
     premières années » ; le 23 septembre : « 150 milliards d’euros d’économies, dont les deux tiers sur les dépenses sociales
     ». Les mesures identifiées sont chiffrées ligne à ligne ; cette ligne ne porte que l''écart d''affichage entre les
-    120 Md€ et ces mesures : central et bas nuls, haut = écart entier (106,86 Md€). Pas de double compte.'
+    120 Md€ et ces mesures : central et bas nuls, haut = écart entier (105,97 Md€). Pas de double compte.'
   chiffrable: true
   nature: economie
   effet_solde_primaire:
     central: 0.0
     bas: 0.0
-    haut: 106.86
+    haut: 105.97
     montee_en_charge: &id001
       '2027': 0
       '2028': 0.2
@@ -101,18 +101,18 @@ mesures:
         source: https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays
         note: « 120 milliards d’euros d’économies durant les cinq premières années » (150 Md€ jusqu'en 2037)
       documente:
-        valeur: 13.14
+        valeur: 14.03
         unite: Md€ 2032
         source: https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037
-        note: 'somme des économies centrales déjà chiffrées dans ce programme : annee-blanche-2028 (6,47), assurance-chomage-5md (4,44),
+        note: 'somme des économies centrales déjà chiffrées dans ce programme : annee-blanche-2028 (6,36), assurance-chomage-5md (5,44),
           fonctionnaires-moins-100000 (2,23)'
       part:
         valeur: 0.0
         unite: part de l'écart d'affichage réputée documentée
         source: https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037
         note: 'règle 6 : aucune autre économie identifiée'
-    explication: 'Règle 6 : les économies identifiées (paramètre documente, 13,14 Md€ en 2032) sont déjà comptées ligne à
-      ligne ; cette ligne ne porte que l''écart d''affichage, nul en central et en bas, entier en haut (120 − 13,14 = 106,86
+    explication: 'Règle 6 : les économies identifiées (paramètre documente, 14,03 Md€ en 2032) sont déjà comptées ligne à
+      ligne ; cette ligne ne porte que l''écart d''affichage, nul en central et en bas, entier en haut (120 − 14,03 = 105,97
       Md€). Les 120 Md€ du candidat
       se mesurent par rapport à une évolution tendancielle de la dépense ; notre référence est le droit voté sans tendanciel
       : l''écart d''affichage est donc un majorant.'
@@ -245,16 +245,13 @@ mesures:
       economie_2024:
         valeur: 4.7
         bareme: assurance_chomage_regles_2024_economie
-        unite: Md€/an (estimation gouvernementale 2024)
-        source: https://www.huffingtonpost.fr/economie/article/reforme-de-l-assurance-chomage-les-syndicats-et-le-patronat-parviennent-a-un-accord_242266.html
-        note: « Pour espérer dégager 3,6 milliards d’euros d’économies [...] Gabriel Attal souhaitait passer de 6 mois de
-          travail sur 24 mois [...] à 8 mois travaillés sur 20 mois »
+        unite: Md€/an (économie en régime de croisière, Unédic)
+        note: barème commun (Unédic) ; le gouvernement affichait 3,6 Md€ en 2024 (HuffPost), chiffre sans source primaire publiée
       f:
         valeur: 1.157
         bareme: facteur_pib_2027_2032
-        unite: facteur 2024→2032
-        note: facteur PIB nominal (FMI WEO avril 2026, plan/hypotheses.yaml), indiqué en tête de chiffrage/baremes.yaml (valeur
-          2024→2032 citée dans les barèmes c3s_rendement et masse_salariale_apu)
+        unite: facteur PIB nominal 2027→2032
+        note: barème facteur_pib_2027_2032 (FMI WEO avril 2026, plan/hypotheses.yaml)
     explication: >-
       Économie en régime de croisière des règles de juin 2024 selon l'Unédic (barème
       assurance_chomage_regles_2024_economie : 4,7 Md€ au centre d'une fourchette de 4,0 à 5,4 Md€), projetée de

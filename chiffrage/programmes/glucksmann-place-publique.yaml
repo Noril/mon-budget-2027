@@ -904,7 +904,7 @@ mesures:
         unite: Md€ par €/MWh et par an
         source: https://www.connaissancedesenergies.org/tribune-actualite-energies/du-sel-lelectricite-le-maniement-risque-des-taxes-de-rendement
         note: '« La remontée de 20 €/MWh de l''accise sur l''électricité en février 2024 va probablement rapporter de l''ordre
-          de 4 milliards d''euros sur l''année 2024 » : 4 / 20'
+          de 4 milliards d''euros sur l''année 2024 », soit 0,2 Md€ par €/MWh ; valeur retenue : barème commun (0,3), contesté, voir baremes.yaml'
     explication: >-
       Baisse de l'accise de 20 €/MWh (l'incrément de février 2024, barème accise_electricite_hausse_2024) par rapport
       au tarif en vigueur (30,85 €/MWh pour les ménages en 2026), à 0,3 Md€ par €/MWh (barème
