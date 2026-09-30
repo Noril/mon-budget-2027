@@ -77,8 +77,8 @@ a:hover{text-decoration-thickness:2px}
 @media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 """
 
-LIENS = [("index.html", "Accueil"), ("rapport.html", "Le rapport"), ("simulateur.html", "Le simulateur"),
-         ("jeu.html", "Le jeu"), ("methode.html", "Méthode et limites")]
+LIENS = [("index.html", "Accueil"), ("jeu.html", "Le jeu"), ("simulateur.html", "Le simulateur"),
+         ("rapport.html", "Le rapport"), ("methode.html", "Méthode et limites")]
 
 
 AVIS_IA = ("Site produit avec des modèles d'intelligence artificielle (Claude, d'Anthropic) : collecte des programmes, "
