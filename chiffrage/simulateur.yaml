@@ -291,7 +291,7 @@ leviers:
   theme: Fonction publique
   question: Combien d'agents publics ?
   aide: La fonction publique compte 5,8 millions d'agents et 136 700 départs à la retraite par an. Un poste d'enseignant pèse
-    environ 25 000 € par an sur le solde (cout_enseignant_apu).
+    environ 25 000 € par an sur le solde.
   type: choix
   axe: depenses
   options:
@@ -854,7 +854,7 @@ leviers:
   question: Comment imposer les revenus du capital (dividendes, intérêts, plus-values) ?
   aide: Le prélèvement forfaitaire unique est de 31,4 % depuis 2026. Le supprimer et imposer ces revenus au barème rapporterait
     de 0 à 3,1 Md€ selon la réaction des dividendes, environ 1,5 Md€ au central. La taxe sur les transactions financières
-    rapporte environ 2,5 Md€ (ttf_rendement).
+    rapporte environ 2,5 Md€.
   type: choix
   axe: prelevements
   options:
