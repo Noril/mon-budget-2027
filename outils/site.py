@@ -91,6 +91,9 @@ main{max-width:72rem;margin:0 auto;padding:0 16px}
 @media (max-width:760px){.portes{grid-template-columns:1fr}}
 .porte{padding:1.2rem 0 1.4rem;border-bottom:1px solid var(--line)}
 .porte h2{margin:0 0 .35rem;font-size:2rem}.porte p{margin:0 0 1rem;color:var(--muted)}
+.tableau{overflow-x:auto}.tableau table{border-collapse:collapse;width:100%;background:var(--card)}
+.tableau th,.tableau td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top;font-size:.94rem}
+.tableau .n{text-align:right;white-space:nowrap}section h2 small{font-family:var(--texte);font-weight:400;font-size:.5em;color:var(--muted)}
 .bandeau{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem 3rem;margin-top:3rem}
 @media (max-width:760px){.bandeau{grid-template-columns:1fr}}
 .bandeau h2{margin-top:0}
@@ -245,6 +248,7 @@ publiquement.</li>
 <li><a href="{d}/blob/main/chiffrage/baremes.yaml">Barèmes communs et leurs sources</a></li>
 <li><a href="{d}/tree/main/chiffrage/programmes">Un fichier par programme, avec les citations</a></li>
 <li><a href="{d}/blob/main/plan/README.md">Trajectoire de la dette</a></li>
+<li><a href="comparaison.html">Comparaison avec les autres chiffrages</a></li>
 </ul></div>""", "Principes, conventions et limites du chiffrage.", "methode.html")
 
 
@@ -335,6 +339,44 @@ def apercus(cfg) -> None:
             page.write_text(texte.replace("</head>", balises + "</head>", 1), encoding="utf-8")
 
 
+def _url(u: str) -> str:
+    return html.escape(u) if str(u).startswith(("https://", "http://")) else "#"
+
+
+def comparaison(cfg) -> str | None:
+    """Page « Comparaison avec les autres chiffrages » (chiffrage/comparaison.yaml)."""
+    fichier = RACINE / "chiffrage" / "comparaison.yaml"
+    donnees = RACINE / "data" / "chiffrage.json"
+    if not fichier.exists() or not donnees.exists():
+        return None
+    comp = yaml.safe_load(fichier.read_text(encoding="utf-8"))
+    progs = {a["id"]: a for a in json.loads(donnees.read_text(encoding="utf-8"))["programmes"]}
+    e = html.escape
+    sections = []
+    for c in sorted(comp.get("candidats", []), key=lambda c: progs.get(c["programme"], {}).get("candidat", "").split(" ", 1)[-1]):
+        a = progs.get(c["programme"])
+        if not a:
+            continue
+        refs = "".join(
+            f"<tr><td>{e(r['auteur'])}</td><td>{e(r.get('objet', ''))}</td>"
+            f"<td class='n'>{_md(r['montant_md']) if r.get('montant_md') is not None else 'n.d.'}</td>"
+            f"<td>{e(str(r.get('annee_euros', '')))}</td><td><a href='{_url(r.get('source', ''))}'>source</a></td></tr>"
+            for r in c.get("references") or [])
+        annonce = c.get("annonce") or {}
+        sections.append(f"""<section id="{e(a['id'])}"><h2>{e(a['candidat'])} <small>{e(a['parti'])}</small></h2>
+<p><b>Notre chiffrage :</b> {_md(a['croisiere']['central'])} Md€ par an en 2032 (fourchette {_md(a['croisiere']['bas'])} à
+{_md(a['croisiere']['haut'])} ; lecture prudente {_md(a['prudent'])}). <a href="programme-{e(a['id'])}.html">Le détail</a></p>
+{f'<p><b>Ce que dit le candidat :</b> {e(annonce.get("texte", ""))} <a href="{_url(annonce.get("source", ""))}">source</a></p>' if annonce.get("texte") else ""}
+{f'<div class="tableau"><table><thead><tr><th>Auteur</th><th>Ce qui a été chiffré</th><th>Effet sur le solde, Md€ par an</th><th>Euros de</th><th></th></tr></thead><tbody>{refs}</tbody></table></div>' if refs else '<p class="mut">Aucun chiffrage global indépendant publié à ce jour.</p>'}
+<p>{e(c.get('ecarts', ''))}</p></section>""")
+    return page("Comparaison avec les autres chiffrages", f"""<div class="prose">
+<h1>Comparaison avec les autres chiffrages</h1>
+<p>{e(comp.get('note', ''))}</p>
+<p class="mut">Négatif : le programme creuse le déficit. Les montants des autres chiffrages sont repris tels que publiés, dans les
+euros de leur année ; ils portent souvent sur un programme antérieur (2022 ou 2024).</p></div>
+{''.join(sections)}""", "Notre chiffrage face à ceux de l'Institut Montaigne, de l'IFRAP, de l'OFCE et aux annonces des candidats.")
+
+
 def fonctions() -> None:
     """Fonction serveur des statistiques (site/api/) et liste des valeurs autorisées, tirée des leviers du simulateur."""
     from outils.simulateur import lire_leviers
@@ -374,6 +416,8 @@ def main():
     (SORTIE / "index.html").write_text(accueil(cfg), encoding="utf-8")
     (SORTIE / "methode.html").write_text(methode(cfg), encoding="utf-8")
     (SORTIE / "mentions-legales.html").write_text(mentions(cfg), encoding="utf-8")
+    if (comp := comparaison(cfg)) is not None:
+        (SORTIE / "comparaison.html").write_text(comp, encoding="utf-8")
     apercus(cfg)
     fonctions()
     (SORTIE / "vercel.json").write_text(json.dumps(VERCEL, indent=2) + "\n", encoding="utf-8")

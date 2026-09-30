@@ -463,6 +463,7 @@ def rapport_html(agregats: list[dict], traj: dict) -> str:
             f"<tr><td><a href='{e(page_programme(a['id']))}'>{e(a['candidat'])}</a><br><small>{e(a['parti'])}</small></td>"
             f"<td>{_badge(a['notes']['precision'])}</td><td>{_badge(a['notes']['confiance'])}</td>"
             f"<td class='n'><b>{_md(a['croisiere']['central'])}</b><br><small>[{_md(a['croisiere']['bas'])} ; {_md(a['croisiere']['haut'])}]</small></td>"
+            f"<td class='n'>{_md(a['prudent'])}<br><small>{_md(a['economies_non_detaillees']) if a['economies_non_detaillees'] else 'aucune'} d'économies non détaillées</small></td>"
             f"<td class='n'>{_md(a['indicatif']['central']) if a['nb_indicatives'] else 'aucune'}<br><small>{a['sens_non_chiffrees']['cout']} coûts, "
             f"{a['sens_non_chiffrees']['economie']} économies probables</small></td>"
             f"<td class='n'><b>{_md(dg['central'][-1]['dette'], False)}</b><br><small>[{_md(dg['bas'][-1]['dette'], False)} ; {_md(dg['haut'][-1]['dette'], False)}]</small></td></tr>"
@@ -480,14 +481,16 @@ est gelé au dernier niveau observé ({traj['gel']['depart']}).</p>
 <h2>Un programme par page</h2>
 <ul class="programmes">{liste}</ul>
 <h2>Solde net par an en 2032 (Md€, point central et fourchette)</h2>{_svg_soldes(agregats)}
+<p class="m"><a href="comparaison.html">Comparer avec les autres chiffrages</a> (Institut Montaigne, IFRAP, OFCE, annonces des candidats).</p>
 <h2>Comparer</h2>
 <p class="m">Deux notes, à la manière d'une agence de notation (AAA à CCC). <b>Précision du programme</b> : ce que le
 candidat rend chiffrable. <b>Confiance du chiffrage</b> : ce que vaut notre estimation. Leurs composantes sont détaillées
 sur la page de chaque programme. Les programmes ne sont pas publiés au même degré de détail : une enveloppe d'économies
-sans mesure identifiée compte zéro au central. La colonne « Mesures non chiffrées » donne l'ordre de grandeur des
+sans mesure identifiée compte zéro au central. La « lecture prudente » ne compte que pour moitié les économies qui visent
+un périmètre précis sans détailler comment les obtenir. La colonne « Mesures non chiffrées » donne l'ordre de grandeur des
 promesses trop vagues pour être chiffrées. Il n'entre pas dans le solde. S'il est négatif, le programme coûte probablement
 plus que le solde affiché.</p>
-<div class="scroll" tabindex="0" role="region" aria-label="Comparaison des programmes"><table><thead><tr><th>Programme</th><th>Précision</th><th>Confiance</th><th>Solde net / an</th><th>Mesures non chiffrées : ordre de grandeur</th><th>Dette 2032, % PIB (réf. {_md(traj['gel']['reference'][-1]['dette'], False)})</th></tr></thead>
+<div class="scroll" tabindex="0" role="region" aria-label="Comparaison des programmes"><table><thead><tr><th>Programme</th><th>Précision</th><th>Confiance</th><th>Solde net / an</th><th>Lecture prudente</th><th>Mesures non chiffrées : ordre de grandeur</th><th>Dette 2032, % PIB (réf. {_md(traj['gel']['reference'][-1]['dette'], False)})</th></tr></thead>
 <tbody>{''.join(lignes)}</tbody></table></div>
 <h2>Dette publique projetée, scénario central (% du PIB)</h2>{_svg_dette(traj['gel'], agregats)}""")
 
@@ -524,7 +527,7 @@ def programme_html(a: dict, agregats: list[dict], traj: dict) -> str:
 <div><span class="gros">{_md(dg['central'][-1]['dette'], False)} %</span><span class="lib">dette publique en 2032 (droit actuel : {_md(traj['gel']['reference'][-1]['dette'], False)} %)</span></div>
 <div><span class="gros">{a['nb_chiffrees']} / {a['nb_mesures']}</span><span class="lib">mesures chiffrées, dont {a['nb_verifiees']} vérifiées</span></div>
 </div>
-<p class="m">Coûts {_md(a['couts'])} Md€, économies et recettes {_md(a['gains'])} Md€ par an en 2032.</p>
+<p class="m">Coûts {_md(a['couts'])} Md€, économies et recettes {_md(a['gains'])} Md€ par an en 2032.{f" En lecture prudente, qui ne compte que pour moitié les {_md(a['economies_non_detaillees'], False)} Md€ d'économies annoncées sans détail, le solde serait de {_md(a['prudent'])} Md€." if a['economies_non_detaillees'] else ""} <a href="comparaison.html#{e(a['id'])}">Comparer avec les autres chiffrages</a>.</p>
 <div class="notes">{_detail_note('precision', a['notes']['precision'])}{_detail_note('confiance', a['notes']['confiance'])}</div>
 <h2>Ce que dit le candidat</h2>
 <p class="m">{e((a.get('annonce') or {}).get('texte', 'Aucun chiffrage global publié.'))}</p>

@@ -196,7 +196,7 @@ def _agregat(**mesure):
             ("confiance_mesures", "verification", "etroitesse_fourchette", "baremes_communs")}}
     return {"id": 'p"><script>', "candidat": "<script>x</script>", "parti": "<b>p</b>", "sens_non_chiffrees": {"cout": 0, "economie": 0},
             "couverture": 1.0, "indicatif": croisiere, "nb_indicatives": 0, "nb_mesures": 1, "nb_chiffrees": 1, "nb_verifiees": 1,
-            "croisiere": croisiere, "couts": -1.0, "gains": 0.0, "par_annee": {"central": an, "bas": an, "haut": an},
+            "croisiere": croisiere, "couts": -1.0, "gains": 0.0, "prudent": -1.0, "economies_non_detaillees": 0.0, "par_annee": {"central": an, "bas": an, "haut": an},
             "annonce": {"texte": "<script>a</script>"}, "mesures": [m], "notes": {"precision": note, "confiance": conf}}
 
 
