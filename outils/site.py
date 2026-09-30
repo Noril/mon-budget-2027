@@ -24,7 +24,7 @@ FICHIERS = ["chiffrage.md", "tableau-de-bord.md"]
 DONNEES = [RACINE / "data" / "chiffrage.json"]
 
 # Pages autonomes : scripts et styles en ligne, aucune ressource externe.
-CSP = ("default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; "
+CSP = ("default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'self'; "
        "base-uri 'none'; form-action 'none'; frame-ancestors 'none'")
 VERCEL = {
     # site statique déjà construit : pas de framework ni de compilation côté Vercel (le projet détecte sinon du Python)
@@ -32,6 +32,7 @@ VERCEL = {
     "buildCommand": "",
     "installCommand": "",
     "outputDirectory": ".",
+    "regions": ["cdg1"],  # fonction des statistiques exécutée à Paris, près de la base (UE)
     "cleanUrls": True,
     "trailingSlash": False,
     "headers": [{"source": "/(.*)", "headers": [
@@ -268,10 +269,17 @@ la loi n° 2004-575 du 21 juin 2004) en écrivant au contact ci-dessus ou en ouv
 <a href="{d}/issues/new/choose">issue publique</a>. Une erreur factuelle démontrée (citation inexacte, attribution
 erronée, lien mort, erreur de calcul) est corrigée dans les meilleurs délais. L'historique des corrections est
 public dans le dépôt.</p>
-<h2>Données personnelles</h2>
-<p>Ce site est statique : il ne dépose aucun cookie, n'utilise aucun traceur, aucun service d'analyse et aucune
-ressource externe. Les choix saisis dans le simulateur et le jeu restent dans votre navigateur. L'hébergeur peut
-journaliser les adresses IP des visites dans le cadre de son service.</p>
+<h2 id="donnees">Données personnelles</h2>
+<p>Ce site ne dépose aucun cookie, n'utilise aucun traceur, aucun service d'analyse et aucune ressource externe. Les
+choix faits dans le simulateur restent dans votre navigateur.</p>
+<p>À la fin du jeu, vous pouvez accepter, en cochant une case décochée par défaut, que vos choix soient enregistrés
+pour établir des statistiques sur chaque décision. Sont enregistrés uniquement : vos réponses aux décisions du jeu et
+le jour de la partie. Ne sont enregistrés ni votre adresse IP, ni l'heure, ni aucun cookie ou identifiant : une partie
+enregistrée ne peut pas être reliée à une personne. Ces données ne sont pas publiées et ne sont ni vendues ni cédées.
+Elles sont hébergées dans l'Union européenne (base Postgres Neon). Les résultats des joueurs ne constituent pas un
+sondage et ne sont pas représentatifs de l'opinion.</p>
+<p>L'hébergeur du site peut journaliser les adresses IP des visites dans le cadre de son service ; le site ne les
+conserve pas.</p>
 <h2>Licences</h2>
 <p>Code : MIT. Textes, chiffrages et pages : CC BY 4.0. Données : licence d'origine, indiquée dans le catalogue.
 Les citations de programmes et d'articles sont reproduites à titre de courtes citations, avec leur source, à des fins
@@ -327,6 +335,24 @@ def apercus(cfg) -> None:
             page.write_text(texte.replace("</head>", balises + "</head>", 1), encoding="utf-8")
 
 
+def fonctions() -> None:
+    """Fonction serveur des statistiques (site/api/) et liste des valeurs autorisées, tirée des leviers du simulateur."""
+    from outils.simulateur import lire_leviers
+
+    api = SORTIE / "api"
+    api.mkdir(exist_ok=True)
+    for f in (RACINE / "site" / "api").glob("*.js"):
+        shutil.copy(f, api / f.name)
+    leviers = {}
+    for l in lire_leviers()["leviers"]:
+        leviers[l["id"]] = ({"options": [o["id"] for o in l["options"]]} if l["type"] == "choix"
+                            else {"min": l["curseur"]["min"], "max": l["curseur"]["max"]})
+    version = date.today().isoformat()
+    (api / "_leviers.js").write_text(f"export const VERSION = {json.dumps(version)};\nexport const LEVIERS = "
+                                     f"{json.dumps(leviers, ensure_ascii=False)};\n", encoding="utf-8")
+    (SORTIE / "package.json").write_text('{"private": true, "type": "module"}\n', encoding="utf-8")
+
+
 def main():
     cfg = charger_config()
     absents = [f for f in PAGES if not (BUILD / f).exists()]
@@ -349,8 +375,9 @@ def main():
     (SORTIE / "methode.html").write_text(methode(cfg), encoding="utf-8")
     (SORTIE / "mentions-legales.html").write_text(mentions(cfg), encoding="utf-8")
     apercus(cfg)
+    fonctions()
     (SORTIE / "vercel.json").write_text(json.dumps(VERCEL, indent=2) + "\n", encoding="utf-8")
-    (SORTIE / "robots.txt").write_text("User-agent: *\nAllow: /\n", encoding="utf-8")
+    (SORTIE / "robots.txt").write_text("User-agent: *\nAllow: /\nDisallow: /api/\n", encoding="utf-8")
     print(f"-> {SORTIE.relative_to(RACINE)}/")
 
 

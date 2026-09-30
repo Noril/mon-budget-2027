@@ -95,6 +95,7 @@ __COMMUN_CSS__
 .fin h1{font-size:clamp(2.4rem,9vw,3.4rem);margin:.5em 0 .1em;display:inline-block}.fin .kpi{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
 .fin .gros{font-family:var(--titre);font-size:2.4rem;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}.petit{color:var(--muted);font-size:.8rem}
 .fin ul{padding-left:18px;margin:.3em 0}.fin li{margin:3px 0}.neg{color:var(--neg)}.pos{color:var(--pos)}
+.contrib{display:block;margin:16px 0 0;font-size:.9rem;color:var(--muted)}.contrib input{margin-right:6px;transform:scale(1.2)}
 .partager{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0 4px}
 .fin button.principal{background:var(--acc);color:#fff;border-color:var(--acc)}
 .partage-recu{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--acc);padding:10px 12px;margin:14px 0 0}
@@ -161,7 +162,7 @@ const JAUGES = [
   {id: "dep", ic: "🏛️", nom: "Dépenses", min: -120, max: 120, ref: 0, f: b => b.dep, u: " Md€"},
   {id: "prel", ic: "🧾", nom: "Impôts", min: -120, max: 120, ref: 0, f: b => b.prel, u: " Md€"},
 ];
-let choix = {}, file = [], vues = 0, total = 0, historique = [];
+let envoye = false, choix = {}, file = [], vues = 0, total = 0, historique = [];
 const app = document.getElementById("app");
 
 function htmlJauges() {
@@ -204,7 +205,7 @@ function accueil() {
   document.getElementById("go").onclick = demarrer;
 }
 function demarrer() {
-  choix = {}; historique = []; vues = 0;
+  choix = {}; historique = []; vues = 0; envoye = false;
   file = C.cartes.filter(c => !c.suite_seulement).map(c => c.id);
   total = file.length;
   app.innerHTML = htmlJauges() + `<div id="table"></div><div class="bas"><span id="compteur"></span><a href="#" id="annuler">↶ Carte précédente</a></div>`;
@@ -324,6 +325,8 @@ function fin(partage = false) {
     <h1>${partage ? "Son programme" : "Votre programme"}</h1> <span class="tampon" aria-hidden="true">A voté</span>
     <div class="kpi"><div><div class="gros">${n}</div><div class="petit">${lib}<br>fourchette du solde : ${fmt(b.bas)} à ${fmt(b.haut)} Md€</div></div>
       <div><div class="gros">${fmt(b.dette, false)} %</div><div class="petit">dette publique en 2032<br>droit actuel : ${fmt(ref, false)} %</div></div></div>
+    ${partage ? "" : `<label class="contrib"><input type="checkbox" id="contrib"> Ajouter anonymement mes choix aux statistiques du jeu
+      (ni adresse IP, ni cookie, ni identifiant ; <a href="mentions-legales.html#donnees">détails</a>)</label><span class="petit" id="msg-contrib" role="status"></span>`}
     ${partage ? "" : `<div class="partager"><button class="principal" id="partager">Partager mon résultat</button><button id="copier">Copier le lien</button><button id="image">Télécharger l'image</button><span class="petit" id="msg-partage" role="status"></span></div>`}
     <h3>${partage ? "Ses mesures" : "Vos mesures"}</h3>${faits.length ? `<ul>${faits.map(f => `<li>${f.lib} <b class="${f.e < 0 ? "neg" : f.e > 0 ? "pos" : ""}">${fmt(f.e)} Md€</b></li>`).join("")}</ul>` : `<p class="petit">Aucun changement : le droit actuel est conservé.</p>`}
     <h3>Les candidats les plus proches</h3><ol>${proches.slice(0, 5).map(r => `<li><b style="color:${esc(r.c.couleur)}">${esc(r.c.nom)}</b><span class="barre-acc" style="width:${r.pct * .6}px"></span><span class="petit">${Math.round(r.pct)} % d'accord (${r.n} décisions)</span></li>`).join("")}</ol>
@@ -334,6 +337,17 @@ function fin(partage = false) {
   document.getElementById("rejouer").onclick = demarrer;
   if (partage) { document.getElementById("mien").onclick = demarrer; window.scrollTo(0, 0); return; }
   document.getElementById("retour").onclick = annuler;
+  document.getElementById("contrib").onchange = async ev => {
+    const zone = document.getElementById("msg-contrib");
+    if (!ev.target.checked || envoye) return;
+    ev.target.disabled = true;
+    try {
+      const r = await fetch("/api/resultat", {method: "POST", headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({consentement: true, choix})});
+      envoye = r.ok;
+      zone.textContent = r.ok ? " Merci, vos choix sont comptés." : " L'envoi n'a pas abouti.";
+    } catch (e) { zone.textContent = " L'envoi n'a pas abouti."; ev.target.disabled = false; }
+  };
   const msg = t => { document.getElementById("msg-partage").textContent = t; };
   const telecharger = blob => { const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "mon-budget-2027.png"; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); };
   const texte = `Mon programme 2027 : ${n} ${lib.replace(" (2032)", " en 2032")}. Et vous ?`;
