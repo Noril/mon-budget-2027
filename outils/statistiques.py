@@ -46,18 +46,25 @@ def sql(requete: str, params: list | None = None) -> list[dict]:
     return r.json().get("rows", [])
 
 
+def parties() -> list[dict]:
+    # la table est créée par la fonction du site à la première partie enregistrée ; on la crée ici si besoin
+    sql("""CREATE TABLE IF NOT EXISTS parties (id BIGSERIAL PRIMARY KEY, jour DATE NOT NULL DEFAULT CURRENT_DATE,
+        version TEXT NOT NULL, choix JSONB NOT NULL)""")
+    return sql("SELECT choix FROM parties")
+
+
 def libelles() -> dict[str, tuple[str, dict[str, str]]]:
     return {l["id"]: (l["question"], {o["id"]: o["libelle"] for o in l.get("options", [])}) for l in lire_leviers()["leviers"]}
 
 
 def repartition() -> None:
-    parties = sql("SELECT choix FROM parties")
-    n = len(parties)
+    lignes = parties()
+    n = len(lignes)
     print(f"{n} parties enregistrées (échantillon de joueurs volontaires, non représentatif)\n")
     if not n:
         return
     for id_levier, (question, options) in libelles().items():
-        valeurs = Counter(str(p["choix"].get(id_levier, "non vue")) for p in parties)
+        valeurs = Counter(str(p["choix"].get(id_levier, "non vue")) for p in lignes)
         print(question)
         for v, k in valeurs.most_common():
             print(f"  {100 * k / n:5.1f} %  {options.get(v, v)}")
@@ -65,9 +72,8 @@ def repartition() -> None:
 
 
 def croiser(a: str, b: str) -> None:
-    parties = sql("SELECT choix FROM parties")
     lib = libelles()
-    table = Counter((str(p["choix"].get(a, "non vue")), str(p["choix"].get(b, "non vue"))) for p in parties)
+    table = Counter((str(p["choix"].get(a, "non vue")), str(p["choix"].get(b, "non vue"))) for p in parties())
     totaux = Counter(x for x, _ in table.elements())
     print(f"{lib[a][0]}  ×  {lib[b][0]}\n")
     for (x, y), k in sorted(table.items(), key=lambda e: (-totaux[e[0][0]], -e[1])):
