@@ -1,4 +1,6 @@
-# Chiffrer les programmes 2027, en open data
+# Votre budget 2027
+
+Les programmes de la présidentielle 2027 chiffrés en open data, et un jeu pour composer le vôtre.
 
 Chiffrage indépendant et rejouable des programmes des candidats à l'élection présidentielle de 2027 : chaque mesure
 est citée verbatim avec son lien, son coût se recalcule à partir de barèmes publics communs, un second modèle d'IA vérifie
@@ -61,7 +63,7 @@ schemas/               JSON Schema des sources, indicateurs, programmes et barè
 ## Contribuer et corriger
 
 Une erreur, une citation inexacte, un lien mort, un barème contestable : ouvrez une
-[issue](https://github.com/Noril/open-politics/issues/new/choose) (gabarit « Erreur factuelle »). Les candidats et leurs
+[issue](https://github.com/Noril/votre-budget-2027/issues/new/choose) (gabarit « Erreur factuelle »). Les candidats et leurs
 équipes peuvent demander une correction de la même façon. Voir `CONTRIBUTING.md` et `CODE_OF_CONDUCT.md`.
 
 ## Licences

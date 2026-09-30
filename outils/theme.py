@@ -89,7 +89,7 @@ AVIS_IA = ("Site produit avec des modèles d'intelligence artificielle (Claude, 
 def entete(actif: str, avis: bool = True) -> str:
     liens = "".join(f'<a href="{h}"{" aria-current=page" if h == actif else ""}>{t}</a>' for h, t in LIENS[1:])
     bandeau = f'<p class="avis">{AVIS_IA} <a href="methode.html#production">Comment ce site est produit</a></p>' if avis else ""
-    return f'<nav class="nav" aria-label="Sections du site"><a class="marque" href="index.html">Chiffrer 2027</a>{liens}</nav>{bandeau}'
+    return f'<nav class="nav" aria-label="Sections du site"><a class="marque" href="index.html">Votre budget 2027</a>{liens}</nav>{bandeau}'
 
 
 
