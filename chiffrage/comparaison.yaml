@@ -1,7 +1,9 @@
 # Comparaison avec les autres chiffrages globaux (page publique).
 # montant_md : effet sur le solde public, négatif = déficit en plus, Md€ par an.
 # annee_euros : euros (et horizon) du chiffrage cité.
-# Notre solde central cité dans « ecarts » : régime de croisière 2032, euros courants 2032, calcul du 30 septembre 2026.
+# « ecarts » ne cite pas notre solde (la page l'affiche à côté ; il change à chaque recalcul) : il explique l'écart avec les références.
+# Notre chiffrage : régime de croisière 2032, euros courants 2032, retraites au périmètre de l'ensemble des administrations publiques,
+# économies non détaillées signalées (lecture prudente).
 # Conversion indicative d'un montant en euros 2032 à part de PIB constante : ×1,36 depuis 2022, ×1,23 depuis 2024,
 # ×1,16 depuis 2027 (PIB nominal 2032 de 3 621 Md€, barèmes facteur_pib_*).
 note: >-
@@ -44,13 +46,14 @@ candidats:
         annee_euros: 2022
         source: https://web.archive.org/web/2022/https://www.institutmontaigne.org/presidentielle-2022/synthese-des-chiffrages/
     ecarts: >-
-      Notre solde central est de −305,4 Md€ en 2032, sur L'Avenir en commun 2025 et les annonces de campagne 2026. Porté
-      en euros 2032, le −218,9 Md€ de l'Institut Montaigne (2022) représente environ −298 Md€ et le −179 Md€ du NFP
-      (2024) environ −221 Md€ ; le programme chiffré diffère : SMIC à 1 700 € net au lieu de 1 400 €, échelle mobile des
-      salaires, plan d'investissement de 200 Md€ (−40 Md€ par an chez nous), garantie d'autonomie (−43,3 Md€ chez nous,
-      −12,3 Md€ chez Montaigne en 2022). Les chiffrages de l'IFRAP (−66 Md€ en 2022, −160 Md€ en 2024) portent sur le
-      solde de 2027, mesures en cours de montée en charge ; en 2022, l'IFRAP retenait +208 Md€ d'impôts et cotisations
-      nouveaux ; nous comptons en outre la réaction de l'assiette des impôts nouveaux.
+      Notre chiffrage porte sur L'Avenir en commun 2025 et les annonces de campagne 2026, en euros 2032. Porté en
+      euros 2032, le −218,9 Md€ de l'Institut Montaigne (2022) représente environ −298 Md€ et le −179 Md€ du NFP
+      (2024) environ −221 Md€. Le programme chiffré diffère : SMIC à 1 700 € net au lieu de 1 400 €, échelle mobile
+      des salaires, plan d'investissement de 200 Md€ (−40 Md€ par an chez nous), garantie d'autonomie (−43,3 Md€ chez
+      nous, −12,3 Md€ chez Montaigne en 2022). Nos retraites sont au même périmètre que les chiffrages globaux
+      (ensemble des administrations publiques) : la retraite à 60 ans pèse environ 85 Md€ par an. Les chiffrages de
+      l'IFRAP (−66 Md€ en 2022, −160 Md€ en 2024) portent sur le solde de 2027, mesures en cours de montée en charge ;
+      nous comptons en outre la réaction de l'assiette des impôts nouveaux.
   - programme: le-pen-rn
     annonce:
       texte: >-
@@ -81,15 +84,16 @@ candidats:
         annee_euros: 2022
         source: https://web.archive.org/web/2022/https://www.institutmontaigne.org/presidentielle-2022/synthese-des-chiffrages/
     ecarts: >-
-      Notre solde central est de −39,9 Md€ en 2032. Le −71 Md€ de l'Institut Montaigne (2024, environ −88 Md€ en euros
-      2032) retient des économies de 14 Md€ ; nous comptons en plus des économies ciblées du programme 2026 appliquées
-      comme annoncées dans la limite du budget visé (agences −20 %, prestations réservées après cinq ans de travail,
-      dotations aux régions), mais aussi des baisses d'impôts absentes en 2024 (CFE, C3S), et nous chiffrons le volet
-      retraites avec nos barèmes communs, moins cher que la lecture de Montaigne (retour complet aux règles d'avant 2003
-      pour les carrières longues). L'IFRAP (−14,5 Md€) mesure le solde de 2027, avant l'essentiel de la montée en charge
-      des retraites. Le plan de « 125 milliards d'euros d'économies », sans mesure publiée, compte pour zéro dans notre
-      solde central. Le programme 2022 (−101,8 Md€ chez Montaigne) comportait des mesures abandonnées depuis, dont
-      l'exonération d'impôt sur le revenu des moins de 30 ans et la nationalisation des autoroutes.
+      Le −71 Md€ de l'Institut Montaigne (2024, environ −88 Md€ en euros 2032) retient des économies de 14 Md€. Nous
+      comptons en plus des économies ciblées du programme 2026 (agences −20 %, prestations réservées après cinq ans de
+      travail, dotations aux régions) et des baisses d'impôts absentes en 2024 (CFE, C3S). Les retraites sont
+      chiffrées au même périmètre que les chiffrages globaux (ensemble des administrations publiques) : le retour à 62
+      ans avec départ à 60 ans pour les carrières longues pèse environ 53 Md€ par an. Le plan de « 125 milliards
+      d'euros d'économies » n'est pas compté ; les économies ciblées sans mesure détaillée sont comptées en totalité
+      au central et pour moitié dans la lecture prudente. L'IFRAP (−14,5 Md€) mesure le solde de 2027, avant
+      l'essentiel de la montée en charge des retraites. Le programme 2022 (−101,8 Md€ chez Montaigne) comportait des
+      mesures abandonnées depuis, dont l'exonération d'impôt sur le revenu des moins de 30 ans et la nationalisation
+      des autoroutes.
   - programme: attal-renaissance
     annonce:
       texte: >-
@@ -119,12 +123,13 @@ candidats:
         annee_euros: 2022
         source: https://web.archive.org/web/2022/https://www.institutmontaigne.org/presidentielle-2022/synthese-des-chiffrages/
     ecarts: >-
-      Notre solde central est de −41,4 Md€ en 2032. Les références portent sur d'autres programmes et un autre candidat
-      (Emmanuel Macron en 2022, la coalition Ensemble en 2024). L'essentiel de notre montant vient d'une mesure de 2026
-      absente de ces programmes : la suppression de la part salariale de la cotisation vieillesse (« équivalent d'un 13ᵉ
-      mois », −40,7 Md€). L'enveloppe de 120 à 150 Md€ d'économies, sans mesures détaillées, compte pour zéro dans notre
-      solde central. Les soldes positifs de l'IFRAP (+27 Md€ en 2022, +4 Md€ en 2024) incluent des recettes et économies
-      liées à la reprise de l'activité (2022), effets que nous ne comptons pas.
+      Les références portent sur d'autres programmes et un autre candidat (Emmanuel Macron en 2022, la coalition
+      Ensemble en 2024). L'essentiel de notre montant vient d'une mesure de 2026 absente de ces programmes : la
+      suppression de la part salariale de la cotisation vieillesse (« équivalent d'un 13ᵉ mois », environ 41 Md€ par
+      an). L'enveloppe de 120 à 150 Md€ d'économies, sans mesures détaillées, n'est pas comptée, faute de mesure à
+      chiffrer. Les soldes positifs de l'IFRAP (+27 Md€ en 2022, +4 Md€ en 2024) incluent des recettes et économies
+      liées à la reprise de l'activité (2022), effets que nous ne comptons pas. Ces références sont en euros de 2022
+      ou 2024 ou à l'horizon 2027, le nôtre en euros 2032.
   - programme: philippe-horizons
     annonce:
       texte: >-
@@ -144,12 +149,13 @@ candidats:
         annee_euros: 2027
         source: https://www.ifrap.org/budget-et-fiscalite/nouveau-front-populaire-rassemblement-national-et-ensemble-pour-la-republique-le-chiffrage-des-programmes
     ecarts: >-
-      Aucun chiffrage indépendant d'un programme propre à Horizons ou à Édouard Philippe ; les seules références portent
-      sur le programme commun d'Ensemble en 2024, dont Horizons était partie, et non sur le programme 2027. Notre solde
-      central (0,0 Md€ en 2032) résulte surtout du « deal fiscal » : la baisse de 50 Md€ d'impôts de production (−44,8 Md€
-      nets) et la réduction de 50 Md€ des aides aux entreprises, comptée comme annoncée (+55,3 Md€) car ciblée sur un
-      périmètre nommé mais sans liste d'aides ; si cette économie n'est pas réalisée, le solde tombe vers −87,6 Md€ (borne
-      basse).
+      Aucun chiffrage indépendant d'un programme propre à Horizons ou à Édouard Philippe ; les seules références
+      portent sur le programme commun d'Ensemble en 2024, dont Horizons était partie, et non sur le programme 2027.
+      Notre solde central résulte surtout du « deal fiscal » : la baisse de 50 Md€ d'impôts de production (environ −45
+      Md€ nets) et la réduction de 50 Md€ des aides aux entreprises, comptée comme annoncée (environ +55 Md€) car
+      ciblée sur un périmètre nommé mais sans liste d'aides. Cette économie est marquée comme non détaillée : la
+      lecture prudente la compte pour moitié, ce qui rend le solde nettement négatif. Si elle n'est pas réalisée du
+      tout, le solde tombe vers −88 Md€ (borne basse).
   - programme: retailleau-lr
     annonce:
       texte: >-
@@ -171,10 +177,12 @@ candidats:
     ecarts: >-
       Aucun chiffrage indépendant d'un programme de Bruno Retailleau ; les références portent sur le programme 2022 de
       Valérie Pécresse pour le même parti, qui comportait la retraite à 65 ans et une réduction des effectifs publics.
-      Notre solde central est de −18,7 Md€ en 2032 : les baisses de cotisations et la restitution de pouvoir d'achat aux
-      salariés sont comptées, tandis que l'enveloppe de 120 Md€ d'économies, sans mesures détaillées, compte pour zéro.
-      Le solde positif de l'IFRAP (+30 Md€ en 2027) compte comme recette la lutte contre la fraude annoncée par la
-      candidate de 2022.
+      Les retraites sont chiffrées au périmètre de l'ensemble des administrations publiques, comme les chiffrages
+      globaux : le report à 63 ans avec taux plein à 65 ans rapporte environ 9 Md€ par an dans notre chiffrage. Les
+      baisses de cotisations (environ 18 Md€) et la restitution de pouvoir d'achat aux salariés (environ 15 Md€) sont
+      comptées, tandis que l'enveloppe de 120 Md€ d'économies n'est pas comptée ; les économies ciblées sans mesure
+      détaillée sont comptées pour moitié dans la lecture prudente. Le solde positif de l'IFRAP (+30 Md€ en 2027)
+      compte comme recette la lutte contre la fraude annoncée par la candidate de 2022.
   - programme: tondelier-ecologistes
     annonce:
       texte: >-
@@ -199,12 +207,14 @@ candidats:
         annee_euros: 2027
         source: https://www.ifrap.org/budget-et-fiscalite/macron-le-pen-zemmour-melenchon-le-cout-de-leur-programme-pour-les-finances-publiques
     ecarts: >-
-      Notre solde central est de −25,1 Md€ en 2032, sur le programme écologiste de 2026. Les références NFP portent sur
-      un programme de coalition comprenant des mesures absentes du programme 2026 (retraite à 60 ans, SMIC à 1 600 €,
-      blocage des prix), alors que ce dernier prévoit le retour à 62 ans et de nombreuses recettes chiffrées (rationalisation des
-      exonérations de cotisations, CSG progressive, successions). L'IFRAP (Jadot 2022) porte sur un autre programme et
-      sur le solde de 2027. Une partie des mesures 2026 trop vagues pour être chiffrées reçoit une estimation indicative
-      (−59,8 Md€) affichée à part et non incluse dans notre solde.
+      Notre chiffrage porte sur le programme écologiste de 2026, en euros 2032. Les références NFP portent sur un
+      programme de coalition comprenant des mesures absentes du programme 2026 (retraite à 60 ans, SMIC à 1 600 €,
+      blocage des prix), alors que ce dernier prévoit le retour à 62 ans (environ 29 Md€ par an, au périmètre de
+      l'ensemble des administrations publiques) et de nombreuses recettes chiffrées (rationalisation des exonérations
+      de cotisations, CSG progressive, successions). Nous comptons la réaction de l'assiette des impôts nouveaux.
+      L'IFRAP (Jadot 2022) porte sur un autre programme et sur le solde de 2027. Une partie des mesures 2026 trop
+      vagues pour être chiffrées reçoit une estimation indicative (environ −60 Md€) affichée à part et non incluse
+      dans notre solde.
   - programme: glucksmann-place-publique
     annonce:
       texte: >-
@@ -224,11 +234,14 @@ candidats:
         annee_euros: 2027
         source: https://www.ifrap.org/budget-et-fiscalite/nouveau-front-populaire-rassemblement-national-et-ensemble-pour-la-republique-le-chiffrage-des-programmes
     ecarts: >-
-      Aucun chiffrage indépendant d'un programme de Raphaël Glucksmann ou de Place publique (non candidat en 2022) ; les
-      seules références portent sur le programme de coalition du NFP en 2024, que Place publique a signé. Notre solde
-      central (−70,8 Md€ en 2032) porte sur 14 mesures chiffrées sur 48 recensées, faute de programme publié : baisse de
-      CSG, indexation du point d'indice, abrogation de la réforme des retraites de 2023, aide au développement à 0,7 %.
-      Les mesures du NFP absentes des annonces de 2026 (retraite à 60 ans, blocage des prix) n'y figurent pas.
+      Aucun chiffrage indépendant d'un programme de Raphaël Glucksmann ou de Place publique (non candidat en 2022) ;
+      les seules références portent sur le programme de coalition du NFP en 2024, que Place publique a signé. Notre
+      chiffrage porte sur 14 mesures chiffrées sur 48 recensées, faute de programme publié : baisse de CSG, indexation
+      du point d'indice, abrogation de la réforme des retraites de 2023, aide au développement à 0,7 %. L'abrogation
+      de la réforme des retraites pèse environ 29 Md€ par an, au périmètre de l'ensemble des administrations
+      publiques, identique à celui des chiffrages globaux. Les mesures du NFP absentes des annonces de 2026 (retraite
+      à 60 ans, blocage des prix) n'y figurent pas. Les références sont en euros 2024 ou à l'horizon 2027, le nôtre en
+      euros 2032.
   - programme: zemmour-reconquete
     annonce:
       texte: >-
@@ -249,9 +262,10 @@ candidats:
         annee_euros: 2022
         source: https://web.archive.org/web/2022/https://www.institutmontaigne.org/presidentielle-2022/synthese-des-chiffrages/
     ecarts: >-
-      Notre solde central est de −100,1 Md€ en 2032. Les références portent sur le programme de 2022, qui ne comportait
-      pas la suppression de la CSG sur les revenus d'activité (−112,5 Md€ chez nous). Les économies ciblées de 2026 sont
-      comptées comme annoncées dans la limite du budget visé (non-remplacement de 800 000 départs, prestations réservées
-      aux Français…) ; l'enveloppe de 140 Md€, au-delà de ces mesures, compte pour zéro. Le −5 Md€ de l'IFRAP (2027)
-      inclut 41 Md€ de recettes liées à la reprise de l'activité, effet que nous ne comptons pas, et l'économie du report
-      de l'âge de la retraite à 64 ans, déjà inscrit dans la législation de référence de 2027.
+      Les références portent sur le programme de 2022, qui ne comportait pas la suppression de la CSG sur les revenus
+      d'activité (environ −112 Md€ par an chez nous). Les économies ciblées de 2026 sont comptées comme annoncées dans
+      la limite du budget visé (non-remplacement de 800 000 départs, prestations réservées aux Français…) ; celles qui
+      n'ont pas de mesure détaillée sont comptées pour moitié dans la lecture prudente, et l'enveloppe de 140 Md€, au-
+      delà de ces mesures, n'est pas comptée. Le −5 Md€ de l'IFRAP (2027) inclut 41 Md€ de recettes liées à la reprise
+      de l'activité, effet que nous ne comptons pas, et l'économie du report de l'âge de la retraite à 64 ans, déjà
+      inscrit dans la législation de référence de 2027. Nous comptons la réaction de l'assiette des impôts.
