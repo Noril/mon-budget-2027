@@ -122,12 +122,14 @@ mesures:
       parametres:
         taux:
           valeur: 9.2
+          bareme: csg_taux_activite
           source: >-
             https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS%20mai%202026_assembl%c3%a9_V2.pdf
           unite: points
           note: taux facial de la CSG sur les revenus d'activité
         deductible:
           valeur: 6.8
+          bareme: csg_taux_activite_deductible
           source: >-
             https://web.archive.org/web/20240812043624/https://www.urssaf.fr/accueil/outils-documentation/taux-baremes/taux-cotisations-secteur-public.html
           unite: points
@@ -215,6 +217,7 @@ mesures:
       parametres:
         successions_2026:
           valeur: 16.995
+          bareme: droits_succession_rendement
           source: https://www.senat.fr/rap/l25-139-1/l25-139-1_mono.html
           unite: Md€ (PLF 2026)
           note: >-
@@ -265,9 +268,9 @@ mesures:
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -12.73
-      bas: -15.91
-      haut: -12.73
+      central: -13.06
+      bas: -16.32
+      haut: -13.06
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -277,16 +280,17 @@ mesures:
         '2032': 1.0
       annuel:
         '2027': 0.0
-        '2028': -16.43
-        '2029': -16.43
-        '2030': -12.73
-        '2031': -12.73
-        '2032': -12.73
+        '2028': -16.76
+        '2029': -16.76
+        '2030': -13.06
+        '2031': -13.06
+        '2032': -13.06
     calcul:
       formule: -((cfe + c3s) * f * (1 - retour_is)) + 0 * cvae
       parametres:
         cfe:
-          valeur: 7.7
+          valeur: 8.031
+          bareme: cfe_rendement
           source: https://www.fipeco.fr/fiche/Les-imp%C3%B4ts-sur-la-production
           unite: Md€ (2024)
           note: cotisation foncière des entreprises
@@ -301,6 +305,7 @@ mesures:
           note: PIB nominal 2032 / 2024
         retour_is:
           valeur: 0.2
+          bareme: retour_is_impots_production
           source: >-
             https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/baisse-des-impots-de-production-cvae-et-c3s
           unite: part
@@ -317,6 +322,7 @@ mesures:
         (3,7 Md€, barème cvae_restante, sans retour d'IS comme pour le RN) : −16,43 ces deux années (annuel). Bas : sans
         retour d'IS, (7,7 + 5,2) × 1,2336 = 15,91. L'ancien bas (99,7 Md€, tous les impôts de production au sens de
         l'Insee) est abandonné : le périmètre de la promesse est désormais connu.
+        Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : CFE alignée sur le barème cfe_rendement (7,7 → 8,031 Md€, DGFiP 2024) ; retour d'IS sur retour_is_impots_production ; central −12,73 → −13,06, bas −15,91 → −16,32, annuel 2028-2029 −16,43 → −16,76.
     confiance: faible
     verification:
       statut: corrige
@@ -335,6 +341,7 @@ mesures:
         basse d'une promesse vague : plausible mais la définition usuelle (Insee) est bien plus large. Recalé
         sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
         (valeur inchangée).
+        Harmonisation des paramètres (30/09/2026) : CFE alignée sur le barème cfe_rendement (7,7 → 8,031 Md€, DGFiP 2024) ; retour d'IS sur retour_is_impots_production ; central −12,73 → −13,06, bas −15,91 → −16,32, annuel 2028-2029 −16,43 → −16,76.
   - id: accise-carburants-moins-un-tiers
     libelle: Baisse d'un tiers de l'accise sur les carburants (ex-TICPE)
     domaine: fiscalite
@@ -350,9 +357,9 @@ mesures:
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -11.17
-      bas: -11.38
-      haut: -10.55
+      central: -11.38
+      bas: -11.59
+      haut: -10.75
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -372,6 +379,7 @@ mesures:
           note: accise seule
         tva_induite:
           valeur: 0.06
+          bareme: tva_induite_accise_carburants_centime
           source: >-
             chiffrage/REFERENCE.md, conventions communes n° 6 ; baremes.yaml ticpe_centime_litre (dérivation : TVA non
             déductible ≈ 0,495 × 0,65 × 0,20 ≈ 0,06 Md€ par c€/l, SDES § 4.2.6)
@@ -379,20 +387,24 @@ mesures:
           note: accise + TVA induite = 0,54 Md€ par c€/l, chiffre à retenir pour le solde (convention 6)
         vol_gazole:
           valeur: 34.7
+          bareme: carburants_volume_gazole_routier
           source: https://www.statistiques.developpement-durable.gouv.fr/media/9087/download?inline
           unite: milliards de litres (2024)
           note: gazole routier 29,3 Mtep converti (0,845 kg/l), dérivation du barème ticpe_centime_litre
         vol_essence:
           valeur: 14.8
+          bareme: carburants_volume_essence
           source: https://www.statistiques.developpement-durable.gouv.fr/media/9087/download?inline
           unite: milliards de litres (2024)
           note: supercarburants 11,7 Mtep convertis (0,755 kg/l)
         taux_gazole:
-          valeur: 59.4
+          valeur: 60.75
+          bareme: accise_gazole_taux
           source: https://www.fipeco.fr/fiche/Les-taxes-sur-les-carburants
           unite: c€/l (2026)
         taux_essence:
-          valeur: 68.29
+          valeur: 69.02
+          bareme: accise_essence_taux
           source: https://www.fipeco.fr/fiche/Les-taxes-sur-les-carburants
           unite: c€/l (2026, SP95-E5)
       explication: >-
@@ -400,6 +412,7 @@ mesures:
         convention commune 6). Bas : borne haute du barème (0,55, TVA induite comprise), haut : borne basse de l'accise
         (0,45, volumes en baisse) + TVA induite, soit 0,51. Les taux restent au-dessus des minima européens (33,0 et
         35,9 c€/l).
+        Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : tarifs d'accise alignés sur les barèmes accise_gazole_taux (59,4 → 60,75 c€/l) et accise_essence_taux (68,29 → 69,02 c€/l), en vigueur depuis le 1er août 2025 ; volumes et TVA induite sur les barèmes des carburants ; central −11,17 → −11,38, bas −11,38 → −11,59, haut −10,55 → −10,75.
     chiffrages_tiers:
       - auteur: Sarah Knafo (simulateur combienjegagne.fr)
         montant_md: -12
@@ -430,6 +443,7 @@ mesures:
         tranche la contestation sur la TVA induite ; central −9,9 → −11,2, haut −9,3 → −10,6 (0,51 Md€ par
         c€/l), bas inchangé (0,55). Statut conteste conservé (règle de recalage) : l'objection est levée, à
         clore par le vérificateur.
+        Harmonisation des paramètres (30/09/2026) : tarifs d'accise alignés sur les barèmes accise_gazole_taux (59,4 → 60,75 c€/l) et accise_essence_taux (68,29 → 69,02 c€/l), en vigueur depuis le 1er août 2025 ; volumes et TVA induite sur les barèmes des carburants ; central −11,17 → −11,38, bas −11,38 → −11,59, haut −10,55 → −10,75.
   - id: suppression-cee
     libelle: Suppression des certificats d'économie d'énergie
     domaine: energie
@@ -479,23 +493,23 @@ mesures:
         '2031': 1.5
         '2032': 1.0
     calcul:
-      formule: ecart_2032 * an
+      formule: (age_cible - age_reference) * an
       parametres:
-        ecart_2032:
-          valeur: 0.25
-          source: https://www.cor-retraites.fr/sites/default/files/2026-07/RA_2026_def_1.pdf
-          unite: année
-          note: >-
-            COR, rapport annuel 2026 : « l’âge d’ouverture des droits atteindra 64 ans pour les assurés de la génération
-            1969 et non plus la génération 1968 » (barème retraites_suspension_reforme_2023 : 62 ans 9 mois pour 1964,
-            puis + 3 mois par génération, 63 ans 9 mois pour 1968). Les assurés qui atteignent l'âge légal en 2032 sont de
-            la génération 1968 (63 ans 9 mois) : écart d'environ un trimestre avec 64 ans immédiats
         an:
           valeur: 6.6
           bareme: retraites_age_legal_1_an
           unite: >-
             Md€ courants 2032 par an et par année d'âge (coût d'une baisse ; ordre de grandeur du gain d'une hausse montée
             en charge)
+        age_cible:
+          valeur: 64
+          source: https://www.cor-retraites.fr/sites/default/files/2026-07/RA_2026_def_1.pdf
+          unite: années
+          note: "lecture centrale de « 64 voire 65 » : 64 ans sans attendre la fin de la suspension"
+        age_reference:
+          valeur: 63.75
+          bareme: retraites_age_legal_reference_2032
+          unite: années
       explication: >-
         Lecture centrale : 64 ans sans attendre la fin de la suspension (gain d'environ un trimestre d'âge en 2032).
         Haut : trajectoire vers 65 ans, dont la moitié atteinte en 2032. Bas : simple maintien du droit (64 ans à terme),
@@ -522,6 +536,7 @@ mesures:
         porte sur 2028-2031. Paramètre du barème relu (Cour des comptes 5,8 Md€ en 2035 par an d'âge). Pas de
         double compte avec les autres mesures. Recalé sur les conventions communes du 29/09 : valeur inchangée
         (déjà sur le solde du système de retraite, convention 4) ; effet toutes APU décrit dans effets_retour.
+        Harmonisation des paramètres (30/09/2026) : écart d'âge écrit comme 64 − barème retraites_age_legal_reference_2032 (63,75) ; valeur inchangée.
   - id: retraite-capitalisation
     libelle: Introduction d'un système de retraite par capitalisation
     domaine: retraites
@@ -670,6 +685,7 @@ mesures:
           unite: postes non remplacés sur le quinquennat
         brut_entrant:
           valeur: 31000
+          bareme: fp_salaire_brut_entrant
           source: https://www.fipeco.fr/fiche/Le-niveau-et-l%C3%A9volution-de-la-masse-salariale-publique
           unite: € brut par an, hors cotisations employeurs
           note: >-
@@ -888,6 +904,7 @@ mesures:
             d’euros » (tableau 1 : 12 218 M€ en 2023)
         part_3ans:
           valeur: 0.5
+          bareme: rsa_part_anciennete_plus_3_ans
           source: >-
             https://drees.solidarites-sante.gouv.fr/sites/default/files/2024-10/MS24%20-%20Fiche%2023%20-%20Le%20revenu%20de%20solidarit%C3%A9%20active%20(RSA).pdf
           unite: part des bénéficiaires
@@ -897,6 +914,7 @@ mesures:
             ≈ 50 % (convention de répartition dans la tranche 2-5 ans ; l'auteure retient 40 %)
         part_etrangers:
           valeur: 0.156
+          bareme: rsa_part_foyers_hors_ue
           source: https://questions.assemblee-nationale.fr/q16/16-5157QE.htm
           unite: part
           note: foyers RSA dont le responsable est hors UE/EEE, déjà exclus par la mesure de préférence nationale
@@ -956,6 +974,7 @@ mesures:
       parametres:
         recouvrement_2024:
           valeur: 0.68
+          bareme: fraude_sociale_recouvree
           source: >-
             https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/HCFIPS/2026/HCFIPS%20-%20Synth%c3%a8se%20Fraude%20sociale%202025%20-%20Version%20finalis%c3%a9e.pdf
           unite: Md€ recouvrés (2024)
@@ -1011,11 +1030,13 @@ mesures:
       parametres:
         croissance_annuelle:
           valeur: 1.04
+          bareme: cspe_eolien_pv_hausse_annuelle
           source: https://www.cre.fr/fileadmin/Documents/Deliberations/2026/260715_2026-149_CSPE_2026-2027.pdf
           unite: Md€ par an
           note: hausse 2026→2027 des charges éolien + photovoltaïque (6,25 → 7,29 Md€, tableau 3)
         annees_non_engagees:
           valeur: 3
+          bareme: enr_soutien_annees_non_engagees_2032
           source: https://www.cre.fr/fileadmin/Documents/Deliberations/2026/260715_2026-149_CSPE_2026-2027.pdf
           unite: années
           note: soutien déjà engagé jusqu'en 2029 (« environ +10 GWe … entre 2026 et 2029 »)
@@ -1127,6 +1148,7 @@ mesures:
       parametres:
         credits_anah:
           valeur: 1.5353
+          bareme: anah_credits_etat
           source: https://www.senat.fr/rap/l25-139-35-1/l25-139-35-1_mono.html
           unite: Md€ (PLF 2026)
           note: >-
@@ -1437,6 +1459,7 @@ mesures:
       parametres:
         mission_apd:
           valeur: 3.67
+          bareme: mission_apd_credits
           source: https://www.senat.fr/rap/l25-139-34/l25-139-34_mono.html
           unite: Md€ de CP (PLF 2026)
           note: mission « Aide publique au développement »
@@ -1546,16 +1569,19 @@ mesures:
       parametres:
         etudiants:
           valeur: 108100
+          bareme: etudiants_droits_differencies_effectif
           source: >-
             https://www.ccomptes.fr/sites/default/files/2025-03/20250310-Attractivite-de-la-France-pour-les-etudiants-etrangers.pdf
           unite: étudiants relevant des droits différenciés (2023-2024)
         part_exoneree:
           valeur: 0.3
+          bareme: etudiants_droits_differencies_part_exoneree
           source: https://www.etudiant.gouv.fr/fr/droits-d-inscription-1489
           unite: part
           note: exonérations plafonnées à 30 % en 2026-2027 (droit en vigueur)
         droits:
-          valeur: 3200
+          valeur: 3208
+          bareme: etudiants_droits_differencies_montant_moyen
           source: https://www.etudiant.gouv.fr/fr/droits-d-inscription-1489
           unite: € par an
           note: moyenne approchée licence 2 895 € / master 3 941 €
@@ -1583,6 +1609,7 @@ mesures:
         exonérations (0,12) ; haut = annonce (4,74), lecture « coût complet » conservée comme borne.
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
         (valeur inchangée).
+        Harmonisation des paramètres (30/09/2026) : droits alignés sur le barème etudiants_droits_differencies_montant_moyen (3 200 → 3 208 €, tarifs 2026-2027) ; écart < 0,01 Md€.
   - id: fin-ame
     libelle: Suppression de l'aide médicale d'État
     domaine: immigration
@@ -1611,6 +1638,7 @@ mesures:
       parametres:
         economie_2024:
           valeur: 0.7
+          bareme: ame_aide_urgence_vitale_economie
           source: >-
             https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/suppression-de-laide-medicale-detat-ame-et-remplacement-par-laide-durgence-vitale
           unite: Md€ (2024)
@@ -1799,6 +1827,7 @@ mesures:
       parametres:
         dotation:
           valeur: 3.878
+          bareme: audiovisuel_public_dotation
           source: https://www.senat.fr/rap/l25-139-318/l25-139-318_mono.html
           unite: Md€ (PLF 2026)
           note: dotation de l'État à l'audiovisuel public

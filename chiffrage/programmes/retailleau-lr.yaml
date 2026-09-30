@@ -220,21 +220,13 @@ mesures:
         '2031': 1
         '2032': 1
     calcul:
-      formule: -(cout_hs_existantes - hs_exoneration_cout*part_salariale*part_heures_16h)*facteur
+      formule: -(cout_hs_existantes - hs_salariale*part_heures_16h)*facteur
       parametres:
         cout_hs_existantes:
           valeur: 4.3
           source: https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf
           unite: Md€/an (2025)
           note: restitution aux entreprises sur les heures supplémentaires déjà réalisées, p. 21
-        hs_exoneration_cout:
-          valeur: 5.4
-          bareme: hs_exoneration_cout
-        part_salariale:
-          valeur: 0.425
-          source: https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Depenses-fiscales.pdf
-          unite: part
-          note: exonération de cotisations salariales 2 306 M€ / 5 428 M€ (Cour des comptes, NEB 2026)
         part_heures_16h:
           valeur: 0.154
           source: https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf
@@ -244,6 +236,10 @@ mesures:
           valeur: 1.2106
           bareme: facteur_pib_2025_2032
           unite: facteur PIB nominal 2025→2032
+        hs_salariale:
+          valeur: 2.306
+          bareme: hs_exoneration_cotisations_salariales
+          unite: Md€/an (2026)
       explication: 'Effet statique : exonération totale des cotisations patronales sur les heures supplémentaires existantes
         au-delà de 1 623 h (4,3 Md€ selon le livret), moins la perte de l''exonération salariale sur les 16 heures entre
         1 607 et 1 623 h qui cessent d''être des heures supplémentaires ; projeté en 2032 au PIB nominal. Bas : 10 Md€
@@ -264,6 +260,7 @@ mesures:
         1 623 heures » et 10 Md€ « au-delà ».
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032
         (valeur inchangée).
+        Harmonisation des paramètres (30/09/2026) : part salariale de l'exonération des heures supplémentaires lue directement dans le barème hs_exoneration_cotisations_salariales (2,306 Md€) au lieu de 5,4 × 0,425 ; écart < 0,01 Md€.
   - id: baisse-cotisations-patronales-non-contributives
     libelle: Baisse de 15 Md€ des cotisations patronales finançant des dépenses universelles (famille, santé, logement, transport)
     domaine: fiscalite
@@ -501,6 +498,7 @@ mesures:
       parametres:
         recouvrement_fraude_2024:
           valeur: 0.68
+          bareme: fraude_sociale_recouvree
           source: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/HCFIPS/2026/HCFIPS%20-%20Synth%c3%a8se%20Fraude%20sociale%202025%20-%20Version%20finalis%c3%a9e.pdf
           unite: Md€ (2024)
           note: 'fraude sociale recouvrée en 2024 (HCFiPS, note de décembre 2025 : « 680 M€ recouvrés : le recouvrement
@@ -563,9 +561,9 @@ mesures:
     chiffrable: true
     nature: economie
     effet_solde_primaire:
-      central: 5.45
-      bas: 4.84
-      haut: 6.05
+      central: 5.44
+      bas: 4.63
+      haut: 6.25
       montee_en_charge:
         '2027': 0
         '2028': 0.6
@@ -577,16 +575,22 @@ mesures:
       formule: gain_annonce*facteur
       parametres:
         gain_annonce:
-          valeur: 4.5
+          valeur: 4.7
+          bareme: assurance_chomage_regles_2024_economie
           source: https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf
           unite: Md€/an
           note: « 4,0 à 5,0 Md€ », tableau p. 35 ; milieu de fourchette
         facteur:
-          valeur: 1.2106
-          bareme: facteur_pib_2025_2032
-          unite: facteur PIB nominal 2025→2032
-      explication: Fourchette du candidat (Unédic, dans le champ des APU), projetée en 2032 au PIB nominal (les allocations
-        suivent les salaires). Aucun chiffrage Unédic récent de ces paramètres n'a été relu.
+          valeur: 1.157
+          bareme: facteur_pib_2027_2032
+          unite: facteur PIB nominal 2027→2032
+      explication: >-
+        Fourchette du candidat (Unédic, dans le champ des APU), projetée en 2032 au PIB nominal (les allocations
+        suivent les salaires). Aucun chiffrage Unédic récent de ces paramètres n'a été relu. Mise à jour du 30/09/2026
+        (barèmes communs), qui remplace les montants ci-dessus : aligné sur le barème
+        assurance_chomage_regles_2024_economie (4,7 Md€, Unédic juin 2024, au lieu de la fourchette du candidat 4 à 5
+        Md€), projeté de 2027 à 2032 (1,157) ; central 5,45 → 5,44, bas 4,84 → 4,63, haut 6,05 → 6,25. Même barème
+        qu'Attal (assurance-chomage-5md).
     confiance: faible
     verification:
       statut: ok
@@ -600,6 +604,7 @@ mesures:
         15.
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032
         (valeur inchangée).
+        Harmonisation des paramètres (30/09/2026) : aligné sur le barème assurance_chomage_regles_2024_economie (4,7 Md€, Unédic juin 2024, au lieu de la fourchette du candidat 4 à 5 Md€), projeté de 2027 à 2032 (1,157) ; central 5,45 → 5,44, bas 4,84 → 4,63, haut 6,05 → 6,25. Même barème qu'Attal (assurance-chomage-5md).
   - id: chomage-ruptures-conventionnelles
     libelle: Indemnisation chômage après rupture conventionnelle limitée à six mois et plafonnée
     domaine: travail
@@ -908,7 +913,7 @@ mesures:
         '2031': 0.8
         '2032': 1
     calcul:
-      formule: (economie_cumulee/somme_profil - ecart_age*retraites_age_legal_1_an)/2
+      formule: (economie_cumulee/somme_profil - (age_reference - age_minimal)*retraites_age_legal_1_an)/2
       parametres:
         economie_cumulee:
           valeur: 40
@@ -920,15 +925,18 @@ mesures:
           source: chiffrage/REFERENCE.md (droit voté au 29 septembre 2026)
           unite: années pleines
           note: somme de la montée en charge 0,2 + 0,4 + 0,6 + 0,8 + 1 sur 2028-2032
-        ecart_age:
-          valeur: 0.75
-          source: chiffrage/REFERENCE.md (droit voté au 29 septembre 2026)
-          unite: année
-          note: âge légal de référence en 2032 ≈ 63 ans 9 mois (gel à 62 ans 9 mois jusqu'en 2028 puis +3 mois par génération)
-            contre âge minimal de 63 ans
         retraites_age_legal_1_an:
           valeur: 6.6
           bareme: retraites_age_legal_1_an
+        age_reference:
+          valeur: 63.75
+          bareme: retraites_age_legal_reference_2032
+          unite: années
+        age_minimal:
+          valeur: 63
+          source: https://www.franceinfo.fr/politique/bruno-retailleau/s-il-est-elu-bruno-retailleau-veut-instaurer-un-age-de-depart-minimal-a-63-ans-et-le-depart-a-taux-plein-a-65-ans_7512853.html
+          unite: années
+          note: "« un âge de départ minimal à 63 ans » (citation de la mesure)"
       explication: 'Convention (faute de simulation publique : ni COR, ni Cnav, ni DG Trésor, ni chiffrage détaillé de LR
         au 29 septembre 2026) : central = milieu entre les deux bornes documentées, parce que la mesure combine un effet
         d''âge minimal chiffrable au barème (coût) et un recul de l''âge effectif du taux plein à 65 ans, avec décote de
@@ -959,6 +967,7 @@ mesures:
         recul effectif du taux plein à 65 ans. Central 4,19 Md€ maintenu comme convention écrite (milieu de
         fourchette). Vérification précédente (verificateur-sonnet, conteste) : central arbitraire sans simulation ;
         périmètre du système de retraite (convention commune 4).
+        Harmonisation des paramètres (30/09/2026) : écart d'âge écrit comme barème retraites_age_legal_reference_2032 (63,75) − âge minimal promis (63) ; valeur inchangée.
   - id: retraite-capitalisation
     libelle: Étage de retraite par capitalisation, compte d'épargne retraite pour chaque actif (25 à 30 % des retraites des jeunes)
     domaine: retraites
@@ -1012,9 +1021,9 @@ mesures:
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -4.81
+      central: -5.13
       bas: -6.41
-      haut: -4.81
+      haut: -5.13
       montee_en_charge:
         '2027': 0
         '2028': 1
@@ -1033,13 +1042,17 @@ mesures:
           bareme: facteur_pib_2024_2032
           unite: facteur PIB nominal 2024→2032
         taux_is:
-          valeur: 0.25
+          valeur: 0.2
+          bareme: retour_is_impots_production
           unite: taux normal d'IS
           source: https://www.fipeco.fr/fiche/Limp%C3%B4t-sur-les-soci%C3%A9t%C3%A9s
           note: 'déductibilité de l''impôt supprimé de l''assiette de l''IS : retour mécanique'
-      explication: 'Rendement de la C3S (2024) projeté en 2032 au PIB nominal, net du surcroît d''IS (la C3S est déductible
-        du résultat). Bas : sans retour d''IS. Première année pleine 2028 (C3S assise sur le chiffre d''affaires N-1,
-        payée en mai).'
+      explication: >-
+        Rendement de la C3S (2024) projeté en 2032 au PIB nominal, net du surcroît d'IS (la C3S est déductible du
+        résultat). Bas : sans retour d'IS. Première année pleine 2028 (C3S assise sur le chiffre d'affaires N-1, payée
+        en mai). Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : retour d'IS aligné
+        sur le barème retour_is_impots_production (0,25 → 0,20, taux effectif moyen, comme les autres programmes) ;
+        central et haut −4,81 → −5,13.
     confiance: haute
     verification:
       statut: ok
@@ -1052,6 +1065,7 @@ mesures:
         textes promulgués.
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
         (valeur inchangée).
+        Harmonisation des paramètres (30/09/2026) : retour d'IS aligné sur le barème retour_is_impots_production (0,25 → 0,20, taux effectif moyen, comme les autres programmes) ; central et haut −4,81 → −5,13.
   - id: suppression-cvae
     libelle: Suppression définitive de la CVAE (4,3 Md€)
     domaine: fiscalite
@@ -1122,9 +1136,9 @@ mesures:
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -2.54
+      central: -2.71
       bas: -3.39
-      haut: -2.1
+      haut: -2.24
       montee_en_charge:
         '2027': 0
         '2028': 1
@@ -1145,13 +1159,17 @@ mesures:
           bareme: facteur_pib_2025_2032
           unite: facteur PIB nominal 2025→2032
         taux_is:
-          valeur: 0.25
+          valeur: 0.2
+          bareme: retour_is_impots_production
           unite: taux normal d'IS
           source: https://www.fipeco.fr/fiche/Limp%C3%B4t-sur-les-soci%C3%A9t%C3%A9s
           note: 'déductibilité de l''impôt supprimé de l''assiette de l''IS : retour mécanique'
-      explication: 'Le livret affecte 2,8 Md€ à la mesure (la part de la participation légale, maintenue à 20 %, n''est
-        pas publiée) ; projeté en 2032, net du retour d''IS (le forfait social est déductible). Bas : sans retour d''IS
-        ; haut : montant non indexé. À affiner avec la ventilation Acoss du forfait social par assiette.'
+      explication: >-
+        Le livret affecte 2,8 Md€ à la mesure (la part de la participation légale, maintenue à 20 %, n'est pas
+        publiée) ; projeté en 2032, net du retour d'IS (le forfait social est déductible). Bas : sans retour d'IS ;
+        haut : montant non indexé. À affiner avec la ventilation Acoss du forfait social par assiette. Mise à jour du
+        30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : retour d'IS aligné sur le barème
+        retour_is_impots_production (0,25 → 0,20) ; central −2,54 → −2,71, haut −2,1 → −2,24.
     confiance: faible
     verification:
       statut: ok
@@ -1164,6 +1182,7 @@ mesures:
         cohérent avec C3S et CFE.
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032
         (valeur inchangée).
+        Harmonisation des paramètres (30/09/2026) : retour d'IS aligné sur le barème retour_is_impots_production (0,25 → 0,20) ; central −2,54 → −2,71, haut −2,1 → −2,24.
   - id: cfe-exoneration-industrielle
     libelle: Exonération de la part industrielle de la CFE (1,9 Md€)
     domaine: fiscalite
@@ -1179,9 +1198,9 @@ mesures:
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -1.72
+      central: -1.84
       bas: -2.3
-      haut: -1.43
+      haut: -1.52
       montee_en_charge:
         '2027': 0
         '2028': 1
@@ -1202,12 +1221,16 @@ mesures:
           bareme: facteur_pib_2025_2032
           unite: facteur PIB nominal 2025→2032
         taux_is:
-          valeur: 0.25
+          valeur: 0.2
+          bareme: retour_is_impots_production
           unite: taux normal d'IS
           source: https://www.fipeco.fr/fiche/Limp%C3%B4t-sur-les-soci%C3%A9t%C3%A9s
           note: 'déductibilité de l''impôt supprimé de l''assiette de l''IS : retour mécanique'
-      explication: 'Montant du livret projeté en 2032, net du retour d''IS (CFE déductible). Recette des collectivités
-        : coût pour les APU qu''elle soit compensée ou non. Bas : sans retour d''IS ; haut : non indexé.'
+      explication: >-
+        Montant du livret projeté en 2032, net du retour d'IS (CFE déductible). Recette des collectivités : coût pour
+        les APU qu'elle soit compensée ou non. Bas : sans retour d'IS ; haut : non indexé. Mise à jour du 30/09/2026
+        (barèmes communs), qui remplace les montants ci-dessus : retour d'IS aligné sur le barème
+        retour_is_impots_production (0,25 → 0,20) ; central −1,72 → −1,84, haut −1,43 → −1,52.
     confiance: faible
     verification:
       statut: ok
@@ -1218,6 +1241,7 @@ mesures:
         ou non ; net d'IS cohérent. Montant du livret non recoupé avec une source fiscale indépendante.
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032
         (valeur inchangée).
+        Harmonisation des paramètres (30/09/2026) : retour d'IS aligné sur le barème retour_is_impots_production (0,25 → 0,20) ; central −1,72 → −1,84, haut −1,43 → −1,52.
   - id: fonds-france-production
     libelle: Fonds France Production de 600 M€ par an pour la modernisation de l'outil industriel, piloté par les régions
     domaine: industrie
@@ -1568,7 +1592,7 @@ mesures:
     chiffrable: true
     nature: economie
     effet_solde_primaire:
-      central: 3.08
+      central: 3.21
       bas: 0.0
       haut: 3.82
       montee_en_charge:
@@ -1582,7 +1606,8 @@ mesures:
       formule: cinq_ans * f
       parametres:
         cinq_ans:
-          valeur: 2.5
+          valeur: 2.6
+          bareme: prestations_residence_5_ans_economie
           source: https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/reserver-le-benefice-du-rsa-et-des-prestations-de-solidarites-aux-etrangers-ayant-au-moins-5-ans-dequivalent-temps-plein-travaille-en-france
           unite: Md€ par an (2024)
           note: économie médiane (fourchette 0,58 à 3,1), même paramètre que la mesure RN prestations-solidarite-5-ans-travail
@@ -1591,12 +1616,15 @@ mesures:
           bareme: facteur_pib_2024_2032
           unite: facteur
           note: PIB nominal 2032 / 2024
-      explication: 'Même lecture et même source que la condition de cinq ans du RN (Institut Montaigne, médiane, projetée) : RSA,
-        prime d''activité, APL et prestations de solidarité réservées aux étrangers justifiant cinq ans d''activité et de résidence
-        légale. Appliquée aux nouveaux venus : l''effet monte en charge sur cinq ans et atteint en 2032 le stock des étrangers
-        de moins de cinq ans de résidence. Le volet revenu familial (enfants de parents récemment arrivés) n''est pas ajouté,
-        faute de donnée. Haut : haut de la fourchette Montaigne (3,1 Md€) projeté. Bas : 0 (censure constitutionnelle possible,
-        comme pour le RN).'
+      explication: >-
+        Même lecture et même source que la condition de cinq ans du RN (Institut Montaigne, médiane, projetée) : RSA,
+        prime d'activité, APL et prestations de solidarité réservées aux étrangers justifiant cinq ans d'activité et
+        de résidence légale. Appliquée aux nouveaux venus : l'effet monte en charge sur cinq ans et atteint en 2032 le
+        stock des étrangers de moins de cinq ans de résidence. Le volet revenu familial (enfants de parents récemment
+        arrivés) n'est pas ajouté, faute de donnée. Haut : haut de la fourchette Montaigne (3,1 Md€) projeté. Bas : 0
+        (censure constitutionnelle possible, comme pour le RN). Mise à jour du 30/09/2026 (barèmes communs), qui
+        remplace les montants ci-dessus : aligné sur le barème prestations_residence_5_ans_economie (2,5 → 2,6 Md€,
+        médiane de l'encadré et de l'analyse détaillée de l'Institut Montaigne, comme Le Pen) ; central 3,08 → 3,21.
     chiffrages_tiers:
     - auteur: Institut Montaigne (législatives 2024, mesure RN équivalente)
       montant_md: 2.5
@@ -1607,9 +1635,12 @@ mesures:
       statut: corrige
       par: recalage-couverture
       date: '2026-09-29'
-      commentaire: 'Classée non chiffrable à tort : la condition de cinq ans d''activité et de résidence est la même que celle
-        du RN (prestations-solidarite-5-ans-travail), chiffrée avec la médiane de l''Institut Montaigne ; même paramètre et même
-        projection ici, sans le volet prestations familiales propre au RN.'
+      commentaire: >-
+        Classée non chiffrable à tort : la condition de cinq ans d'activité et de résidence est la même que celle du
+        RN (prestations-solidarite-5-ans-travail), chiffrée avec la médiane de l'Institut Montaigne ; même paramètre
+        et même projection ici, sans le volet prestations familiales propre au RN. Harmonisation des paramètres
+        (30/09/2026) : aligné sur le barème prestations_residence_5_ans_economie (2,5 → 2,6 Md€, médiane de l'encadré
+        et de l'analyse détaillée de l'Institut Montaigne, comme Le Pen) ; central 3,08 → 3,21.
   - id: revenu-familial-gains-gestion
     libelle: Gestion du revenu familial par la DGFiP, gains de gestion dans les CAF et la MSA
     domaine: famille
@@ -1681,7 +1712,8 @@ mesures:
       formule: -naissances*taux_recours*cout_mensuel*semaines/4.33*facteur/1e9
       parametres:
         naissances:
-          valeur: 650000
+          valeur: 643905
+          bareme: naissances_annuelles
           source: https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf
           unite: naissances/an
         taux_recours:
@@ -1717,6 +1749,7 @@ mesures:
         -0,85.
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032
         (valeur inchangée).
+        Harmonisation des paramètres (30/09/2026) : naissances alignées sur le barème naissances_annuelles (650 000 → 643 905, Insee 2025) ; écart < 0,01 Md€.
   - id: garde-enfants-cif-exoneration
     libelle: Suppression du plafond de 500 000 € du crédit d'impôt famille, plafond d'exonération de l'aide employeur à la garde porté de 2 421 à 7 000 €
     domaine: famille
@@ -1893,6 +1926,7 @@ mesures:
           note: p. 17
         logements:
           valeur: 379222
+          bareme: logements_autorises_annuels
           source: https://www.statistiques.developpement-durable.gouv.fr/construction-de-logements-resultats-fin-decembre-2025-france-entiere
           unite: logements autorisés en 2025
           note: SDES, Sitadel
@@ -2213,11 +2247,13 @@ mesures:
       parametres:
         croissance_annuelle:
           valeur: 1.04
+          bareme: cspe_eolien_pv_hausse_annuelle
           source: https://www.cre.fr/fileadmin/Documents/Deliberations/2026/260715_2026-149_CSPE_2026-2027.pdf
           unite: Md€ par an
           note: hausse 2026→2027 des charges éolien + photovoltaïque (6,25 → 7,29 Md€, tableau 3)
         annees_non_engagees:
           valeur: 3
+          bareme: enr_soutien_annees_non_engagees_2032
           source: https://www.cre.fr/fileadmin/Documents/Deliberations/2026/260715_2026-149_CSPE_2026-2027.pdf
           unite: années
           note: 'soutien déjà engagé jusqu''en 2029 (« environ +10 GWe estimés par la CRE entre 2026 et 2029 ») : 2030-2032'
@@ -2291,6 +2327,7 @@ mesures:
           note: p. 27
         brut_entrant:
           valeur: 31000
+          bareme: fp_salaire_brut_entrant
           source: https://www.fipeco.fr/fiche/Le-niveau-et-l%C3%A9volution-de-la-masse-salariale-publique
           unite: € brut par an, hors cotisations employeurs
           note: >-
@@ -2618,9 +2655,9 @@ mesures:
     chiffrable: true
     nature: depense
     effet_solde_primaire:
-      central: -1.24
-      bas: -2.14
-      haut: -1.09
+      central: -1.23
+      bas: -2.12
+      haut: -1.08
       montee_en_charge:
         '2027': 0
         '2028': 1
@@ -2633,6 +2670,7 @@ mesures:
       parametres:
         effectifs:
           valeur: 793863
+          bareme: enseignants_etpt_public
           source: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
           unite: ETPT
           note: enseignants du public, programmes 140 (341 897) et 141 (451 966), PLF 2026 ; privé sous contrat exclu
@@ -2642,20 +2680,24 @@ mesures:
           unite: € nets/mois
           note: moyenne de +135 € (début), +300 € (milieu) et 0 (fin de carrière), p. 10
         ratio_net_brut:
-          valeur: 0.8
+          valeur: 0.81
+          bareme: fp_ratio_net_brut
           source: https://www.fonction-publique.gouv.fr/files/files/publications/rapport-annuel/cc-2025-web.pdf
           unite: net/brut
-          note: cotisations salariales d'un fonctionnaire ≈ 20 % du traitement (pension civile, CSG-CRDS, RAFP)
+          note: "INSEE Première n° 2100 : salaire net moyen 3 267 € pour 4 025 € brut (fonctionnaires de l'État, 2024), soit 0,81"
         retour:
           valeur: 0.28
           bareme: retour_prelevements_salaires_publics
           unite: part de la rémunération brute
-      explication: 'Hausse nette convertie en brut (hors cotisations employeurs), puis nette des prélèvements qui
-        reviennent aux APU (convention commune 1 : × (1 − 0,28) ; le CAS Pensions, transfert interne aux APU, ne compte
-        plus). Central : moyenne sur trois tiers de carrière (+135, +300, 0 €) ; bas : +217,5 € pour tous (moyenne
-        début-milieu), retour 0,25, plus ≈ 0,2 Md€ de pensions induites en 2032 (convention 2) ; haut : +135 € pour
-        tous, retour 0,32. Montants nominaux (point d''indice gelé, pas de projection). Privé sous contrat (≈ 140 000 enseignants rémunérés par l''État) non inclus : le coût réel
-        serait plus élevé.'
+      explication: >-
+        Hausse nette convertie en brut (hors cotisations employeurs), puis nette des prélèvements qui reviennent aux
+        APU (convention commune 1 : × (1 − 0,28) ; le CAS Pensions, transfert interne aux APU, ne compte plus).
+        Central : moyenne sur trois tiers de carrière (+135, +300, 0 €) ; bas : +217,5 € pour tous (moyenne début-
+        milieu), retour 0,25, plus ≈ 0,2 Md€ de pensions induites en 2032 (convention 2) ; haut : +135 € pour tous,
+        retour 0,32. Montants nominaux (point d'indice gelé, pas de projection). Privé sous contrat (≈ 140 000
+        enseignants rémunérés par l'État) non inclus : le coût réel serait plus élevé. Mise à jour du 30/09/2026
+        (barèmes communs), qui remplace les montants ci-dessus : ratio net/brut aligné sur le barème fp_ratio_net_brut
+        (0,8 → 0,81) ; central −1,24 → −1,23, bas −2,14 → −2,12, haut −1,09 → −1,08.
     confiance: moyenne
     verification:
       statut: corrige
@@ -2670,6 +2712,7 @@ mesures:
         Recalé sur les conventions communes du 29/09 : coût compté en brut hors cotisations employeurs × (1 − 0,28)
         (convention 1) au lieu du coût employeur CAS Pensions compris, ce qui règle la réserve de barème ; central
         −3,15 → −1,24, bas −4,72 → −2,14 (retour 0,25 et pensions induites ≈ 0,2), haut −2,93 → −1,09 (retour 0,32).
+        Harmonisation des paramètres (30/09/2026) : ratio net/brut aligné sur le barème fp_ratio_net_brut (0,8 → 0,81) ; central −1,24 → −1,23, bas −2,14 → −2,12, haut −1,09 → −1,08.
   - id: postes-enseignants-demographie
     libelle: Réduction des moyens d'enseignement suivant la baisse démographique, à taux d'encadrement constant (plus de 3 Md€ libérés)
     domaine: education

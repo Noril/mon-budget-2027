@@ -202,7 +202,8 @@ mesures:
     formule: 5 / 45 * successions * f * part
     parametres:
       successions:
-        valeur: 17.0
+        valeur: 16.995
+        bareme: droits_succession_rendement
         unite: Md€ (droits de succession, PLF 2026)
         source: https://www.senat.fr/rap/l25-139-1/l25-139-1_mono.html
         note: 'dérivation du barème dmtg_rendement : successions 16 995 M€'
@@ -245,7 +246,25 @@ mesures:
     statut: ok
     par: passe-sources
     date: '2026-09-29'
-    commentaire: "Passe sources (29/09/2026) : citation franceinfo relue mot pour mot (« au-delà de 1,8 million d'euros la taxe ne serait plus de 45% mais 50% [...] deux milliards d'euros ») ; source primaire introuvable. Assiette : successions 16 995 M€ au PLF 2026 (barème dmtg_rendement, Sénat l25-139-1 ; DMTG totaux 21,4 Md€ en 2026, 20,8 Md€ en 2025 selon la Cour des comptes). Pas de statistique DGFiP publique des droits par tranche : part = 0,5 reste une convention explicite (fourchette 0 à 1 couvrant l'incertitude). Le CAE (note 69) confirme que le top 0,1 % ne paie « qu'à peine 10 % » : la tranche marginale mord peu. Écart à l'annonce : 2 Md€ revendiqués = 89 % du maximum théorique (2,24). Trace précédente (verificateur-sonnet, ok) : Citation retrouvée (franceinfo). Formule rejouée : 5/45 × 17 × 1,1842 × 0,5 = 1,12. Recoupement indépendant : le CAE (note 69) indique que le top 1 % des héritiers reçoit ≈ 4,2 M€ en moyenne (top 0,1 % : 13 M€) et que le top 0,1 % paie ≈ 10 % effectif : la base au-delà de 1,8 M€ est de l'ordre de 15 à 20 Md€, soit 0,8 à 1 Md€ statique à 5 points, avant évitement : le central 1,12 est déjà dans le haut de ce recoupement et le « 2 Md€ » revendiqué (89 % de tous les droits de succession dans la tranche à 45 %) n'est pas atteignable ; haut 2,24 = maximum théorique. Pas de correction (part = 0,5 reste une convention, bas = 0). Total successions (1,1 + 2,0 + 1,8 = 4,95) contre 15 annoncés : l'écart vient surtout du « 10 Md€ » de plus-values latentes ramené à 1,8 (CAE) ; la fourchette haute des trois (2,2 + 3,1 + 10 = 15,3) restitue l'annonce. Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2026_2032 ; valeur inchangée."
+    commentaire: >-
+      Passe sources (29/09/2026) : citation franceinfo relue mot pour mot (« au-delà de 1,8 million d'euros la taxe
+      ne serait plus de 45% mais 50% [...] deux milliards d'euros ») ; source primaire introuvable. Assiette :
+      successions 16 995 M€ au PLF 2026 (barème dmtg_rendement, Sénat l25-139-1 ; DMTG totaux 21,4 Md€ en 2026, 20,8
+      Md€ en 2025 selon la Cour des comptes). Pas de statistique DGFiP publique des droits par tranche : part = 0,5
+      reste une convention explicite (fourchette 0 à 1 couvrant l'incertitude). Le CAE (note 69) confirme que le top
+      0,1 % ne paie « qu'à peine 10 % » : la tranche marginale mord peu. Écart à l'annonce : 2 Md€ revendiqués = 89
+      % du maximum théorique (2,24). Trace précédente (verificateur-sonnet, ok) : Citation retrouvée (franceinfo).
+      Formule rejouée : 5/45 × 17 × 1,1842 × 0,5 = 1,12. Recoupement indépendant : le CAE (note 69) indique que le
+      top 1 % des héritiers reçoit ≈ 4,2 M€ en moyenne (top 0,1 % : 13 M€) et que le top 0,1 % paie ≈ 10 % effectif
+      : la base au-delà de 1,8 M€ est de l'ordre de 15 à 20 Md€, soit 0,8 à 1 Md€ statique à 5 points, avant
+      évitement : le central 1,12 est déjà dans le haut de ce recoupement et le « 2 Md€ » revendiqué (89 % de tous
+      les droits de succession dans la tranche à 45 %) n'est pas atteignable ; haut 2,24 = maximum théorique. Pas de
+      correction (part = 0,5 reste une convention, bas = 0). Total successions (1,1 + 2,0 + 1,8 = 4,95) contre 15
+      annoncés : l'écart vient surtout du « 10 Md€ » de plus-values latentes ramené à 1,8 (CAE) ; la fourchette
+      haute des trois (2,2 + 3,1 + 10 = 15,3) restitue l'annonce. Recalé sur les conventions communes du 29/09 :
+      paramètres recopiés remplacés par le renvoi au barème facteur_pib_2026_2032 ; valeur inchangée. Harmonisation
+      des paramètres (30/09/2026) : successions alignées sur le barème droits_succession_rendement (17,0 → 16,995
+      Md€) ; écart < 0,01 Md€.
 - id: successions-pacte-dutreil
   libelle: Pacte Dutreil recentré (biens professionnels, reprises durables)
   domaine: fiscalite-patrimoine
@@ -284,6 +303,7 @@ mesures:
           pour les finances publiques'
       depense_recente:
         valeur: 3.6
+        bareme: pacte_dutreil_cout
         unite: Md€ (moyenne 2022-2024)
         source: https://www.ccomptes.fr/sites/default/files/2025-11/20251118-Synthese-Pacte%20Dutreil.pdf
         note: 'Cour des comptes : dépense fiscale Dutreil de 2,0 Md€ (2022), 3,3 Md€ (2023) et 5,5 Md€ (2024) ; moyenne 3,6
@@ -439,11 +459,13 @@ mesures:
         note: « Augmenter le SMIC à 1600 euros net dans les deux ans »
       smic_2026:
         valeur: 1477.93
+        bareme: smic_net_mensuel
         unite: € net par mois (1er juin 2026)
         source: https://www.compta-online.com/smic-horaire-montant-mensuel-brut-net-ao1021
         note: SMIC net mensuel après la revalorisation automatique de 2,41 % au 1er juin 2026
       infl_27_29:
         valeur: 1.0528
+        bareme: deflateur_pib_cumule_2027_2029
         unite: facteur
         source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
         note: revalorisation légale supposée égale au déflateur FMI 2027-2029 (1,0146 × 1,01862 × 1,01863)
@@ -608,6 +630,7 @@ mesures:
     parametres:
       economie_2023:
         valeur: 4.5
+        bareme: assurance_chomage_reforme_2023_economie
         unite: Md€ par an (pleine charge, 2027)
         source: https://www.unedic.org/publications/reforme-2023-premiers-effets-de-la-reforme-de-contracyclicite
         note: 'Unédic : réforme de 2023 (contracyclicité), moindres dépenses « de l''ordre de 4,5 Md€ par an » à l''horizon
@@ -857,9 +880,9 @@ mesures:
   chiffrable: true
   nature: baisse_recette
   effet_solde_primaire:
-    central: -4.0
-    bas: -5.97
-    haut: -4.0
+    central: -6.0
+    bas: -8.96
+    haut: -3.2
     montee_en_charge:
       '2027': 0
       '2028': 1
@@ -872,26 +895,42 @@ mesures:
     parametres:
       hausse:
         valeur: 20
+        bareme: accise_electricite_hausse_2024
         unite: €/MWh
         source: https://www.fournisseurs-electricite.com/contrat-electricite-gaz/taxes/accise-electricite
         note: 'février 2024 : passage de 1 à 21 €/MWh (fin du bouclier)'
       rendement_par_eur:
-        valeur: 0.2
+        valeur: 0.3
+        bareme: accise_electricite_1_euro_mwh
         unite: Md€ par €/MWh et par an
         source: https://www.connaissancedesenergies.org/tribune-actualite-energies/du-sel-lelectricite-le-maniement-risque-des-taxes-de-rendement
         note: '« La remontée de 20 €/MWh de l''accise sur l''électricité en février 2024 va probablement rapporter de l''ordre
           de 4 milliards d''euros sur l''année 2024 » : 4 / 20'
-    explication: 'Baisse de l''accise de 20 €/MWh (l''incrément de février 2024) par rapport au tarif en vigueur (30,85 €/MWh
-      pour les ménages en 2026), à 0,2 Md€ par €/MWh (4 Md€ pour 20 €/MWh, tous consommateurs). Pas de projection au PIB (assiette
-      en volume). Bas : retour à 1 €/MWh pour les ménages (−29,85 €/MWh × 0,2). Haut = central : l''électrification des usages
-      accroîtrait plutôt l''assiette (et donc le coût).'
+    explication: >-
+      Baisse de l'accise de 20 €/MWh (l'incrément de février 2024) par rapport au tarif en vigueur (30,85 €/MWh pour
+      les ménages en 2026), à 0,2 Md€ par €/MWh (4 Md€ pour 20 €/MWh, tous consommateurs). Pas de projection au PIB
+      (assiette en volume). Bas : retour à 1 €/MWh pour les ménages (−29,85 €/MWh × 0,2). Haut = central :
+      l'électrification des usages accroîtrait plutôt l'assiette (et donc le coût). Mise à jour du 30/09/2026
+      (barèmes communs), qui remplace les montants ci-dessus : rendement aligné sur le barème
+      accise_electricite_1_euro_mwh (0,2 → 0,3 Md€ par €/MWh, tarifs normaux, ≈ 300 TWh), comme la même promesse de
+      Mélenchon (abolir-hausse-accise-electricite) ; hausse sur accise_electricite_hausse_2024. Central −4,0 → −6,0
+      ; bas (retour à 1 €/MWh) −5,97 → −8,96 ; haut −4,0 → −3,2 (ménages seuls, bas du barème, 0,16 × 20).
   effets_retour: 'Soutien au pouvoir d''achat et à l''électrification : non compté.'
   confiance: moyenne
   verification:
     statut: ok
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée (PDF Acte I). Rendement 0,2 Md€ par €/MWh (4 Md€ pour 20 €/MWh en 2024, tribune Connaissance des énergies) : le montant est tous consommateurs assujettis au taux normal, alors que l'interprétation parle des ménages : cohérent avec la promesse (baisse du taux normal). Rejoué : 20 × 0,2 = 4,0. Volumes de consommation non projetés (assiette en volume : acceptable). Bas = retour à 1 €/MWh (lecture maximale, −5,97). Pas de double compte avec le chèque énergie."
+    commentaire: >-
+      Citation retrouvée (PDF Acte I). Rendement 0,2 Md€ par €/MWh (4 Md€ pour 20 €/MWh en 2024, tribune
+      Connaissance des énergies) : le montant est tous consommateurs assujettis au taux normal, alors que
+      l'interprétation parle des ménages : cohérent avec la promesse (baisse du taux normal). Rejoué : 20 × 0,2 =
+      4,0. Volumes de consommation non projetés (assiette en volume : acceptable). Bas = retour à 1 €/MWh (lecture
+      maximale, −5,97). Pas de double compte avec le chèque énergie. Harmonisation des paramètres (30/09/2026) :
+      rendement aligné sur le barème accise_electricite_1_euro_mwh (0,2 → 0,3 Md€ par €/MWh, tarifs normaux, ≈ 300
+      TWh), comme la même promesse de Mélenchon (abolir-hausse-accise-electricite) ; hausse sur
+      accise_electricite_hausse_2024. Central −4,0 → −6,0 ; bas (retour à 1 €/MWh) −5,97 → −8,96 ; haut −4,0 → −3,2
+      (ménages seuls, bas du barème, 0,16 × 20).
 - id: maprimerenov-relance
   libelle: Relance et simplification de MaPrimeRénov'
   domaine: logement-energie
@@ -1165,6 +1204,7 @@ mesures:
         note: haut du barème (agent en place), à utiliser pour une revalorisation (convention commune n° 1)
       etpt:
         valeur: 793863
+        bareme: enseignants_etpt_public
         unite: ETPT
         source: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
         note: programmes 140 (341 897) et 141 (451 966), PLF 2026 (dérivation du barème cout_enseignant_charge)
@@ -1282,6 +1322,7 @@ mesures:
     parametres:
       cohorte:
         valeur: 818565
+        bareme: classe_age_18_ans_2032
         unite: jeunes
         source: https://www.insee.fr/fr/statistiques/2381380
         note: naissances vivantes de 2014, cohorte atteignant 18 ans en 2032
@@ -1292,6 +1333,7 @@ mesures:
         note: « service civique obligatoire de dix mois »
       cout_mensuel:
         valeur: 604.98
+        bareme: service_civique_cout_mensuel_etat
         unite: € par volontaire et par mois
         source: https://www.service-civique.gouv.fr/api/media/assets/document/asc-indemnites-et-cotisations-01012026.pdf
         note: indemnité nette versée par l'État (504,98 €) + subvention de tutorat (100 €) ; la CSG et les cotisations sont

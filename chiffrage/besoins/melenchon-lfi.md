@@ -37,7 +37,6 @@ Paramètre transversal : le SMIC net cible est de 1 700 € en campagne 2026 et 
 | Coût d'1 % d'APL ; coût d'une ASF déconjugalisée | apl-10-pct, asf-deconjugalisee | CNAF ; PLF programme 109 |
 | Coût d'une place d'hébergement d'urgence ; coût d'une place d'EHPAD public et d'un ETP soignant | zero-sans-abri, dependance-ehpad-publics | PLF programme 177 ; CNSA ; DREES |
 | Coût du reste à charge public après AMO et du transfert des complémentaires (« 100 % Sécu ») | cent-pour-cent-secu | HCAAM (rapport 2022 sur l'articulation AMO-AMC) ; DREES, comptes de la santé |
-| Rendement des franchises médicales et participations forfaitaires (hausse de 2024) | franchises-medicales | PLFSS 2024, étude d'impact ; CNAM |
 | Coût chargé moyen d'un ETP soignant hospitalier ; coût d'un centre de santé | recrutement-soignants, centres-sante-deserts | DREES ; ATIH ; IGAS |
 | Coût des protections périodiques (marché, remboursement) | protections-periodiques-gratuites | DREES ; rapport parlementaire sur la précarité menstruelle |
 | Coût public d'un logement social neuf (subventions, aides de circulation, TVA réduite) | logements-publics-200000 | Bilan des logements aidés (DHUP) ; CDC ; Institut Montaigne 2022 |
@@ -100,17 +99,10 @@ Paramètre transversal : le SMIC net cible est de 1 700 € en campagne 2026 et 
 
 | Paramètre | Valeur utilisée (mesures) | Statut dans `baremes.yaml` et source |
 |---|---|---|
-| SMIC net mensuel 2026 | 1 477,93 € (smic-1700-net, pension-minimale-smic) | Non inscrit : cité dans la dérivation de `aah_au_smic_cout` ; [service-public.gouv.fr](https://www.service-public.gouv.fr/particuliers/vosdroits/F2300) |
 | Objectif de pension minimale pour une carrière complète au SMIC | 85 % du SMIC net (pension-minimale-smic) | Non inscrit : la disposition légale est citée comme source de `retraites_minimum_contributif_hausse_100e` ; [IPP](https://blog.ipp.eu/2023/02/09/au-dela-des-1200-euros-quelles-perspectives-de-reforme-pour-les-petites-pensions/) |
-| Hypothèse centrale de productivité du COR | 0,7 % par an (indexation-pensions-salaires) | Non inscrit ; [IPP](https://www.ipp.eu/indexation-dans-les-regimes-de-retraite-par-points-comment-lire-les-hypotheses-du-dernier-rapport-du-cor/) |
-| AAH, montant maximal | 1 041,59 € par mois (aah-smic) | Cité dans la dérivation de `aah_au_smic_cout`, sans identifiant propre ; [service-public.gouv.fr](https://www.service-public.gouv.fr/particuliers/vosdroits/F12242) |
-| RSA, personne seule | 651,69 € par mois (garantie-autonomie) | Non inscrit ; [service-public.gouv.fr](https://www.service-public.gouv.fr/particuliers/vosdroits/F19778) |
-| Facteur PIB nominal 2026→2032 | 1,1842 (toutes les mesures reprises du contre-budget 2026) | **Inscrit** : `facteur_pib_2026_2032` |
-| Inflation cumulée 2028-2032 (déflateur) | 9,5 % (echelle-mobile-salaires) | **Inscrit** : borne basse de `inflation_cumulee_2027_2032` (+9,44 % de 2028 à 2032) |
-| Rendement des franchises médicales avant et après le doublement de 2024 | 1,3 et 2,5 Md€ (franchises-medicales) | Non inscrit ; [Capital](https://www.capital.fr/economie-politique/securite-sociale-25-milliards-d-euros-l-an-dernier-la-cour-des-comptes-preconise-un-elargissement-des-franchises-medicales-1527164), reprenant la Cour des comptes (mai 2026) |
 | Dépenses culturelles publiques | 0,9 % du PIB (culture-1-pct-pib) | Non inscrit ; Institut Montaigne 2022 |
 | Coût chargé d'un ETP d'EHPAD public | proxy : barème soignant hospitalier (dependance-ehpad-publics) | **Inscrit** pour le proxy : `cout_soignant_hospitalier_charge` ; pas de barème propre à l'EHPAD (à documenter : CNSA, DREES) |
-| Chiffrages de l'Institut Montaigne 2022 | Montants 2022 (garantie-emploi, sixieme-semaine-conges, garantie-autonomie, gratuite-ecole-cantine, cantine-100-bio, classes-19-eleves, petite-enfance-500000-places, conscription-citoyenne, cent-pour-cent-secu, logements-publics-200000, garantie-universelle-loyers, tarifs-reglementes-gaz, trimestres-rsa) | Non inscrit ; [Institut Montaigne](https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/), à réactualiser en barèmes 2032 |
+| Chiffrages de l'Institut Montaigne 2022 | Montants 2022 (garantie-emploi, sixieme-semaine-conges, garantie-autonomie, gratuite-ecole-cantine, cantine-100-bio, classes-19-eleves, petite-enfance-500000-places, conscription-citoyenne, cent-pour-cent-secu, logements-publics-200000, garantie-universelle-loyers, tarifs-reglementes-gaz, trimestres-rsa) | Non inscrit : chiffrages propres aux mesures (chiffrages tiers) ; leurs facteurs de projection (`facteur_pib_2016_2032` à `facteur_pib_2022_2032`) et les coûts unitaires réutilisables (`creche_cout_fonctionnement_place`, `tzcld_cout_net_emploi`, `remboursement_100pct_cout_hcaam`) sont inscrits ; [Institut Montaigne](https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/) |
 | Montants du contre-budget LFI 2026 (chiffrage du parti) | Voir chaque mesure (20 mesures, confiance faible) | Non inscrit ; [contre-budget](https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf), à remplacer par des barèmes indépendants |
 
 Barèmes désormais inscrits pour des mesures d'abord laissées non chiffrables : produit des droits d'inscription et de la CVEC (`droits_inscription_superieur`, gratuité du supérieur) ; dépense et bénéficiaires de l'ASPA (`aspa_depense`, minimum vieillesse au seuil de pauvreté). Toujours manquants : écart de coût entre contractuel et titulaire ; effectifs publics en horaires de nuit ou pénibles.
@@ -119,19 +111,13 @@ Barèmes désormais inscrits pour des mesures d'abord laissées non chiffrables 
 
 | Paramètre | Valeur utilisée et source | Mesures | Statut dans `baremes.yaml` |
 |---|---|---|---|
-| Part de la recette mécanique conservée après évitement, pour une hausse de la fiscalité du capital du top 1 % | 0,26 (CAE, septembre 2025, via franceinfo : « perte de recette de 74 centimes sur chaque euro ») | taxe-zucman-2-pct, successions-heritage-maximal (bas) | Non inscrit |
-| Rendement statique d'un impôt plancher de 2 % sur les patrimoines de plus de 100 M€ | 20 Md€ (fourchette 15 à 25) ; contre-budget LFI 2026 ; G. Zucman (via Wikipédia) | taxe-zucman-2-pct | Non inscrit |
 | Recette d'un taux minimal d'IS de 25 % (pilier 2 étendu), France | 2,2 / 18,4 / 26,3 Md€ (Institut Montaigne 2022, d'après l'OCDE et l'EU Tax Observatory) | impot-universel-zucman-multinationales | Non inscrit |
-| Rendement d'une contribution sur les montants distribués, par point | 0,66 Md€ par point (9,9 Md€ sur 2013-2017 à 3 %) ; IGF, via vie-publique.fr | taxe-dividendes-rachats | Non inscrit |
-| Gain d'une suppression des allègements au-delà de 2 SMIC | 1,5 à 7 Md€ (Sénat, amendement n° 1029 au PLFSS 2026 ; groupe d'experts sur le Smic) | exonerations-cotisations-2-smic | Non inscrit |
-| Coût de la suppression de la taxe d'habitation pour les 20 % de ménages les plus aisés | 7,8 Md€ (2023, Sénat, rapport PLF 2023) | taxe-habitation-aises | Non inscrit |
-| Coût du crédit d'impôt recherche | 7,7 Md€ (2025, Sénat, rapport PLF 2025) | suppression-cir | Non inscrit |
-| Dépenses fiscales rattachées aux DMTG (majorant du pacte Dutreil) | 4,5 Md€ (2025, Cour des comptes, tableau 22) | pacte-dutreil | Cité dans la dérivation de `dmtg_rendement`, sans identifiant propre |
 | Rendement d'un point du taux de TVA de 5,5 % | 2,0 Md€ (2025, net ; DG Trésor, Trésor-Éco n° 371) | tva-premiere-necessite-luxe | **Inscrit en dérivation** de `tva_point_tous_taux` (5,5 % → 2,0 Md€) |
 | Gain des cotisations sociales sur l'intéressement, la participation et l'épargne salariale | 6,9 à 9 Md€ (2022, Institut Montaigne) | hausse-cotisation-vieillesse | Non inscrit |
 | Gain d'un alourdissement des droits de succession avec réaction de l'assiette | ≤ 5 Md€ (Fondation IFRAP, juin 2024, programme du NFP) | successions-heritage-maximal | Non inscrit |
 | Gain d'un impôt sur le revenu à 14 tranches (barème hypothétique) | 4,7 Md€ (2022, Institut Montaigne) | ir-14-tranches | Non inscrit |
-| Facteurs PIB 2024→2032 (1,2336) et 2017→2032 (1,580), en plus de 2025→2032 | — | plusieurs | **Inscrit** pour 2024→2032 et 2025→2032 (`facteur_pib_2024_2032`, `facteur_pib_2025_2032`) ; 1,580 cité dans la dérivation de `isf_retabli_gain_net`, sans identifiant propre |
+
+Devenus barèmes communs le 30 septembre 2026 (harmonisation des paramètres entre programmes, retirés du tableau) : `smic_net_mensuel`, `rmpt_croissance_reelle_annuelle`, `aah_montant_maximal`, `seuil_pauvrete_mensuel`, `pauvrete_nombre_personnes`, `pauvrete_intensite`, `aspa_allocataires`, `aspa_montant_personne_seule`, `franchises_participations_rendement`, `reponse_patrimoine_part_conservee`, `taxe_zucman_rendement_statique`, `contribution_3pct_dividendes_rendement`, `allegements_part_au_dela_2_smic`, `taxe_habitation_20pct_plus_aises`, `cir_cout`, `pacte_dutreil_cout` (3,6 Md€ ; les 4,5 Md€ de dépenses fiscales rattachées aux DMTG ne sont plus utilisés), `assurance_chomage_reforme_2023_economie`, `assurance_chomage_reforme_2019_2021_economie`, `accise_electricite_hausse_2024`, `classe_age_18_ans_2032`, `creche_cout_fonctionnement_place`, `tzcld_cout_net_emploi`, `tzcld_cout_brut_emploi`, `remboursement_100pct_cout_hcaam`, `facteur_pib_2016_2032`, `facteur_pib_2017_2032`, `facteur_pib_2019_2032`, `facteur_pib_2021_2032`, `facteur_pib_2022_2032`.
 
 Barèmes utiles non trouvés en source ouverte :
 - part des employeurs publics dans l'assiette des cotisations vieillesse du régime général ;

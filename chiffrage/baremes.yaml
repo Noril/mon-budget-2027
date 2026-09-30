@@ -3552,3 +3552,1870 @@
       Extraits du Sénat (rapport n° 808) relus. Erreur corrigée dans la dérivation (signalée par la coordination et
       confirmée sur le texte) : les 108 Md€ excluent Bpifrance, les dépenses fiscales déclassées et celles de TVA,
       mais INCLUENT les allègements généraux (≈ 75 Md€). Valeurs inchangées.
+
+# ====================================================================================================
+# Paramètres communs harmonisés (30 septembre 2026) : grandeurs utilisées par plusieurs programmes, ou pesant
+# plus de 3 Md€ dans une mesure, auparavant sourcées dans chaque mesure. Même grandeur, même valeur.
+# ====================================================================================================
+
+- id: droits_succession_rendement
+  libelle: "Rendement des droits de succession (mutations à titre gratuit par décès), hors donations"
+  valeur: 16.995
+  bas: 16.233
+  unite: "Md€/an"
+  annee: "2026 (PLF) ; bas = 2025 révisé"
+  sources:
+    - titre: "Sénat, rapport général n° 139 (2025-2026) sur le PLF 2026, tome I, tableau des recettes fiscales (ligne 1706)"
+      url: https://www.senat.fr/rap/l25-139-1/l25-139-1_mono.html
+      date: "2025-11"
+      extrait: "1706 Mutations à titre gratuit par décès (successions) 16 233 16 995"
+  derivation: >
+    Lecture directe de la ligne 1706 (M€) : 16 233 en 2025 (révisé), 16 995 au PLF 2026. Les donations (ligne
+    1705, 4 423 M€) sont hors du barème ; successions + donations = dmtg_rendement (21,4 Md€). Projection 2032
+    au PIB nominal : × facteur_pib_2026_2032 dans la mesure.
+  limites: >
+    Prévision de PLF ; tendance historique plus rapide que le PIB (dmtg_rendement).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient. Glucksmann arrondissait
+      à 17,0 : aligné.
+
+- id: pacte_dutreil_cout
+  libelle: "Coût du pacte Dutreil (dépense fiscale sur les droits de mutation à titre gratuit)"
+  valeur: 3.6
+  bas: 2.0
+  haut: 5.5
+  unite: "Md€/an"
+  annee: "moyenne 2022-2024"
+  sources:
+    - titre: "Cour des comptes, « Le pacte Dutreil », synthèse, novembre 2025"
+      url: https://www.ccomptes.fr/sites/default/files/2025-11/20251118-Synthese-Pacte%20Dutreil.pdf
+      date: "2025-11"
+    - titre: "Cour des comptes, « Le pacte Dutreil », rapport, novembre 2025, p. 56"
+      url: https://www.ccomptes.fr/sites/default/files/2025-11/20251118-Pacte-Dutreil.pdf
+      date: "2025-11"
+      extrait: "Elle est de l'ordre de 3,3 Md€ en 2023 et de 5,5 Md€ en 2024"
+  derivation: >
+    Dépense fiscale estimée par la Cour : 2,0 Md€ (2022), 3,3 Md€ (2023), 5,5 Md€ (2024, gonflée par « une très
+    grosse donation ») ; valeur = moyenne 2022-2024 (3,6 Md€), bas = 2022, haut = 2024. Le total des dépenses
+    fiscales rattachées aux DMTG (4,5 Md€ en 2025, Cour des comptes, budget de l'État) comprend d'autres
+    dispositifs : ce n'est pas le coût du Dutreil. Une réforme partielle se chiffre en part de ce coût (ex.
+    exonération de 75 % ramenée à 50 % : un tiers).
+  limites: >
+    Dépense très volatile (grosses transmissions) ; la LFI 2026 a resserré le dispositif (biens somptuaires
+    exclus, conservation portée à six ans), effet non chiffré.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient. Trois programmes
+      chiffraient la même niche avec trois bases (3,6 ; 4,5 majorant DMTG ; 4,4 moyenne 2023-2024) : alignés sur
+      3,6.
+
+- id: taxe_zucman_rendement_statique
+  libelle: "Rendement statique d'un impôt plancher de 2 % sur les patrimoines de plus de 100 M€ (taxe Zucman)"
+  valeur: 20
+  bas: 15
+  haut: 25
+  unite: "Md€/an (statique, avant réactions)"
+  annee: "2025"
+  sources:
+    - titre: "Sénat, rapport n° 689 (2024-2025) sur la proposition de loi instaurant un impôt plancher sur les très hauts patrimoines"
+      url: https://www.senat.fr/rap/l24-689/l24-689_mono.html
+      date: "2025-06"
+      extrait: "l'imposition prévue toucherait entre 1 600 et 1 800 foyers fiscaux. Elle pourrait, par ailleurs, générer entre 15 et 25 milliards d'euros"
+    - titre: "Sénat, rapport d'information n° 760 (2025-2026), « Imposition des hauts patrimoines »"
+      url: https://www.senat.fr/rap/r25-760/r25-76033.html
+      date: "2026-06-17"
+      extrait: "si 20 milliards d'euros annuels étaient attendus de la « taxe Zucman » par son initiateur, il semble que le rendement aurait plutôt été de 5 milliards d'euros"
+  derivation: >
+    Estimation de l'initiateur (G. Zucman) rapportée par le Sénat : 15 à 25 Md€, 20 Md€ au centre, repris par
+    les programmes. Recette mécanique, sans réaction de l'assiette : à multiplier par
+    reponse_patrimoine_part_conservee pour le solde (0,26 × 20 ≈ 5 Md€, l'ordre de grandeur des économistes
+    cités par le Sénat).
+  limites: >
+    La DGFiP n'a pas pu simuler l'impôt (Assemblée nationale, rapport n° 930) ; pas d'estimation administrative.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient. Mélenchon et Tondelier
+      promettent le même impôt ; Tondelier retenait 10 Md€ (moyenne géométrique de 5 et 20) : aligné sur la
+      méthode statique × part conservée.
+
+- id: reponse_patrimoine_part_conservee
+  libelle: "Part de la recette mécanique d'un impôt sur le patrimoine effectivement perçue après réactions (optimisation, départs)"
+  valeur: 0.26
+  unite: "part"
+  annee: "2025 (revue de littérature)"
+  sources:
+    - titre: "CAE, Focus n° 118, « Émigration fiscale », juillet 2025"
+      url: https://cae-eco.fr/static/pdf/Focus_118_emigration_fiscale_250725_v2.pdf
+      date: "2025-07"
+      extrait: "les réponses comportementales (à la fois marge intensive et marge extensive) réduisent les recettes fiscales de l'imposition du patrimoine ou des revenus du capital de 74 % par rapport à l'effet « mécanique »"
+  derivation: >
+    1 − 0,74 = 0,26 euro perçu par euro de recette mécanique (Jakobsen et al. 2024, cités par le CAE).
+    Recoupement : 20 Md€ × 0,26 ≈ 5 Md€, rendement « après effets comportementaux » cité par le Sénat (rapport
+    n° 760).
+  limites: >
+    Élasticités scandinaves ; la clause de maintien de l'impôt après un départ (proposition Zucman) les
+    réduirait : borne favorable des mesures = recette statique.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: cir_cout
+  libelle: "Coût du crédit d'impôt recherche (dépense fiscale 200302)"
+  valeur: 8.041
+  bas: 7.8
+  haut: 8.068
+  unite: "Md€/an"
+  annee: "2026 (PLF) ; bas 2024 ; haut 2025"
+  sources:
+    - titre: "Cour des comptes, note d'exécution budgétaire 2025 « Dépenses fiscales », avril 2026, tableau 11"
+      url: https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Depenses-fiscales.pdf
+      date: "2026-04"
+      extrait: "200302 CIR 7 800 8 068 8 041"
+  derivation: >
+    Lecture directe (M€) : 7 800 en 2024, 8 068 en 2025, 8 041 prévus en 2026. Projection 2032 : ×
+    facteur_pib_2026_2032.
+  limites: >
+    Coût en dépense fiscale (créances imputées ou remboursées) ; une réforme ne produit son plein effet qu'après
+    l'extinction des créances en stock (trois ans).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient. Tondelier utilisait la
+      créance 2023 (7,8 Md€, source secondaire) : aligné sur 8,041 et le facteur 2026→2032.
+
+- id: allegements_part_au_dela_1_6_smic
+  libelle: "Part du coût des allègements généraux (RGDU 2026) portée par les salaires supérieurs à 1,6 Smic"
+  valeur: 0.172
+  unite: "part"
+  annee: "2023 (masses) ; barème RGDU 2026"
+  sources:
+    - titre: "Groupe d'experts sur le Smic, rapport 2024, p. 80, graphique I.27 (DSS, données Urssaf 2023)"
+      url: https://www.strategie-plan.gouv.fr/files/files/Publications/2024/SMIC/FS-2025-SMIC-RAPPORT-2024-12f%C3%A9v25.pdf
+      date: "2025-02"
+    - titre: "Service-public.fr, fiche F24542 (réduction générale dégressive unique, 2026)"
+      url: https://entreprendre.service-public.gouv.fr/vosdroits/F24542
+  derivation: >
+    Masse salariale par tranche de 0,1 Smic déduite du coût des taux réduits (maladie / 0,06, famille / 0,018) ;
+    barème RGDU 2026 appliqué (coefficient 0,02 + 0,3821 × [(1/2) × (3 Smic / rémunération − 1)]^1,75 jusqu'à 3
+    Smic) : 73,3 Md€ reconstitués, dont 12,6 au-dessus de 1,6 Smic (0,172) et 4,5 au-dessus de 2 Smic (0,061).
+    Recoupement : 1,2 Md€ au-dessus de 2,5 Smic contre « 1 milliard d'euros » (Cour des comptes, RALFSS 2025).
+    Convention commune 13 de REFERENCE.md.
+  limites: >
+    Reconstitution sur les masses 2023 ; lecture littérale (barème inchangé sous le seuil).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: allegements_part_au_dela_2_smic
+  libelle: "Part du coût des allègements généraux (RGDU 2026) portée par les salaires supérieurs à 2 Smic"
+  valeur: 0.0612
+  unite: "part"
+  annee: "2023 (masses) ; barème RGDU 2026"
+  sources:
+    - titre: "Groupe d'experts sur le Smic, rapport 2024, p. 80, graphique I.27 (DSS, données Urssaf 2023)"
+      url: https://www.strategie-plan.gouv.fr/files/files/Publications/2024/SMIC/FS-2025-SMIC-RAPPORT-2024-12f%C3%A9v25.pdf
+      date: "2025-02"
+  derivation: >
+    Même reconstitution que allegements_part_au_dela_1_6_smic : 4,5 Md€ au-dessus de 2 Smic sur 73,3 Md€
+    (0,0612).
+  limites: >
+    Voir allegements_part_au_dela_1_6_smic.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: hs_exoneration_cotisations_salariales
+  libelle: "Coût de l'exonération de cotisations salariales sur les heures supplémentaires"
+  valeur: 2.306
+  unite: "Md€/an"
+  annee: "2026 (prévision)"
+  sources:
+    - titre: "Cour des comptes, NEB 2025 « Dépenses fiscales », avril 2026 (sources du barème hs_exoneration_cout)"
+      url: https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Depenses-fiscales.pdf
+      date: "2026-04"
+  derivation: >
+    Composante « cotisations salariales » du barème hs_exoneration_cout (IR 2 250 + salariale 2 306 + déduction
+    patronale 872 = 5 428 M€ en 2026). Part salariale dans le coût total : 2 306 / 5 428 = 0,425.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: hs_deduction_forfaitaire_patronale
+  libelle: "Coût de la déduction forfaitaire de cotisations patronales sur les heures supplémentaires (entreprises de moins de 250 salariés)"
+  valeur: 0.872
+  unite: "Md€/an"
+  annee: "2026 (prévision)"
+  sources:
+    - titre: "Cour des comptes, NEB 2025 « Dépenses fiscales », avril 2026 (sources du barème hs_exoneration_cout)"
+      url: https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Depenses-fiscales.pdf
+      date: "2026-04"
+  derivation: >
+    Composante patronale du barème hs_exoneration_cout (872 M€ en 2026).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: csg_point_capital
+  libelle: "Rendement d'un point de CSG sur les revenus du capital (patrimoine et placements)"
+  valeur: 1.91
+  unite: "Md€ par point"
+  annee: "2025"
+  sources:
+    - titre: "Commission des comptes de la sécurité sociale (sources du barème csg_point)"
+      url: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS%20mai%202026_assembl%c3%a9_V2.pdf
+      date: "2026-05"
+  derivation: >
+    Dérivation du barème csg_point : valeur de point 2025 patrimoine 0,81 + placements 1,10 = 1,91 Md€.
+    Projection 2032 : × facteur_pib_2025_2032.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: pfu_point_ir
+  libelle: "Rendement d'un point de la part impôt sur le revenu du prélèvement forfaitaire unique (12,8 %)"
+  valeur: 0.6172
+  unite: "Md€ par point"
+  annee: "2025"
+  sources:
+    - titre: "Cour des comptes, NEB 2025 « Recettes fiscales », avril 2026, tableau n° 3 (p. 15)"
+      url: https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Recettes-fiscales.pdf
+      date: "2026-04"
+      extrait: "Prélèvement forfaitaire unique 7,5 7,9"
+  derivation: >
+    7,9 Md€ en 2025 / 12,8 points = 0,617 Md€ par point, rendement statique.
+  limites: >
+    Statique ; la hausse du PFU réduit les distributions (non compté).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: csg_taux_activite
+  libelle: "Taux de la CSG sur les revenus d'activité"
+  valeur: 9.2
+  unite: "points"
+  annee: "2026"
+  sources:
+    - titre: "Commission des comptes de la sécurité sociale, mai 2026"
+      url: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS%20mai%202026_assembl%c3%a9_V2.pdf
+      date: "2026-05"
+    - titre: "Urssaf, taux de cotisations (CSG 9,20 %, dont 6,80 % déductible)"
+      url: https://web.archive.org/web/20240812043624/https://www.urssaf.fr/accueil/outils-documentation/taux-baremes/taux-cotisations-secteur-public.html
+  derivation: >
+    Taux légal (CSS, art. L. 136-8) : 9,2 % sur 98,25 % des revenus d'activité, dont 6,8 points déductibles de
+    l'IR (csg_taux_activite_deductible).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: csg_taux_activite_deductible
+  libelle: "Part déductible de l'impôt sur le revenu de la CSG sur les revenus d'activité"
+  valeur: 6.8
+  unite: "points"
+  annee: "2026"
+  sources:
+    - titre: "Urssaf, taux de cotisations (CSG 9,20 %, dont 6,80 % déductible)"
+      url: https://web.archive.org/web/20240812043624/https://www.urssaf.fr/accueil/outils-documentation/taux-baremes/taux-cotisations-secteur-public.html
+  derivation: >
+    6,8 points sur 9,2 (CGI, art. 154 quinquies).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: taxe_habitation_20pct_plus_aises
+  libelle: "Taxe d'habitation sur les résidences principales acquittée par les 20 % de ménages les plus aisés avant sa suppression"
+  valeur: 7.8
+  unite: "Md€/an"
+  annee: "2023"
+  sources:
+    - titre: "Sénat, rapport général sur le PLF 2023, remboursements et dégrèvements"
+      url: https://www.senat.fr/rap/l22-115-327/l22-115-32716.html
+      date: "2022-11"
+      extrait: "10,2 milliards d'euros bénéficient aux 80 % de ménages les moins aisés et 7,8 milliards d'euros aux 20 % de ménages les plus aisés"
+  derivation: >
+    Lecture directe du coût de la suppression pour les 20 % les plus aisés.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: contribution_3pct_dividendes_rendement
+  libelle: "Recette annuelle moyenne de la contribution de 3 % sur les dividendes (2013-2017)"
+  valeur: 1.98
+  unite: "Md€/an"
+  annee: "2013-2017"
+  sources:
+    - titre: "IGF, mission d'enquête sur la contribution de 3 % sur les revenus distribués, 2017"
+      url: https://www.vie-publique.fr/files/rapport/pdf/174000790.pdf
+      date: "2017-11"
+      extrait: "7,9 Md€ étaient contestés sur une recette de 9,9 Md€"
+  derivation: >
+    9,9 Md€ sur cinq exercices ≈ 1,98 Md€ par an (recette avant contentieux).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: accise_electricite_hausse_2024
+  libelle: "Relèvement des tarifs normaux de l'accise sur l'électricité au 1er février 2024"
+  valeur: 20
+  unite: "€/MWh"
+  annee: "2024"
+  sources:
+    - titre: "Sénat, rapport général PLF 2025, article 7"
+      url: https://www.senat.fr/rap/l24-144-21/l24-144-21_mono.html
+      date: "2024-11"
+      extrait: "Au moyen d'un arrêté du 25 janvier 2024, le Gouvernement de l'époque a ainsi décidé de relever de 20 euros par MWh les tarifs normaux d'accise à compter du 1er février 2024"
+  derivation: >
+    Lecture directe. Coût d'une annulation = 20 × accise_electricite_1_euro_mwh (tarifs normaux) ; ménages seuls
+    : bas de ce barème.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: carburants_volume_gazole_routier
+  libelle: "Volume de gazole routier consommé"
+  valeur: 34.7
+  unite: "milliards de litres"
+  annee: "2024"
+  sources:
+    - titre: "SDES, Bilan énergétique de la France pour 2024 (sources du barème ticpe_centime_litre)"
+      url: https://www.statistiques.developpement-durable.gouv.fr/media/9087/download?inline
+      date: "2026-03"
+  derivation: >
+    Gazole routier 29,3 Mtep, ≈ 1 tep par tonne, 0,845 kg/l : 34,7 milliards de litres (dérivation de
+    ticpe_centime_litre).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: carburants_volume_essence
+  libelle: "Volume de supercarburants consommé"
+  valeur: 14.8
+  unite: "milliards de litres"
+  annee: "2024"
+  sources:
+    - titre: "SDES, Bilan énergétique de la France pour 2024 (sources du barème ticpe_centime_litre)"
+      url: https://www.statistiques.developpement-durable.gouv.fr/media/9087/download?inline
+      date: "2026-03"
+  derivation: >
+    Supercarburants 11,7 Mtep, 0,755 kg/l : 14,8 milliards de litres (dérivation de ticpe_centime_litre).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: tva_induite_accise_carburants_centime
+  libelle: "TVA non déductible induite par un centime d'accise sur les carburants"
+  valeur: 0.06
+  unite: "Md€/an par centime d'euro par litre"
+  annee: "2024 (volumes)"
+  sources:
+    - titre: "SDES, Bilan énergétique de la France pour 2024 (sources du barème ticpe_centime_litre)"
+      url: https://www.statistiques.developpement-durable.gouv.fr/media/9087/download?inline
+      date: "2026-03"
+  derivation: >
+    Dérivation du barème ticpe_centime_litre : 0,495 Md€ par c€/l × 0,65 (part non déductible) × 0,20 ≈ 0,06 ;
+    accise + TVA induite ≈ 0,54 Md€ par c€/l (convention commune 6).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: assurance_chomage_reforme_2023_economie
+  libelle: "Économie annuelle de la réforme d'assurance chômage de 2023 (contracyclicité, durée d'indemnisation −25 %)"
+  valeur: 4.5
+  bas: 4.2
+  unite: "Md€/an"
+  annee: "horizon 2027 (régime de croisière)"
+  sources:
+    - titre: "Unédic, « Réforme 2023 : premiers effets de la réforme de contracyclicité »"
+      url: https://www.unedic.org/publications/reforme-2023-premiers-effets-de-la-reforme-de-contracyclicite
+      extrait: "de l'ordre de 4,5 Md€ par an"
+    - titre: "Unédic, situation financière 2025-2027 (22 octobre 2025), encadré 1, tableau A"
+      url: https://www.unedic.org/storage/uploads/2025/10/22/Situation-financire-Assurance-chmage-2025-2027--22-octobre-2025_uid_68f8e16ff2058.pdf
+      date: "2025-10-22"
+      extrait: "les réformes mises en œuvre depuis 2017 devraient faire économiser 9,1 Md€ à l'Assurance chômage"
+    - titre: "Unédic, « Effets de l'adaptation des règles d'assurance chômage à la conjoncture » (actualisé le 17 avril 2023)"
+      url: https://www.unedic.org/storage/uploads/2023/07/19/Effets-de-ladaptation-des-rgles-dassurance-chmage--la-conjoncture---actualis_0_uid_64b7e3c56dd92.pdf
+      date: "2023-04-17"
+      extrait: "En régime de croisière, à horizon 2027, les moindres dépenses d'allocation atteindraient 4,2 Md€ auxquelles s'ajoutent les moindres versements aux caisses de retraite complémentaire de 0,3 Md€"
+  derivation: >
+    Valeur : 4,5 Md€ par an à pleine charge (Unédic, 2025 : réforme 2023 dans le tableau A). Bas : 4,2 Md€,
+    allocations seules dans l'estimation ex ante de 2023 (les 0,3 Md€ versés à l'Agirc-Arrco restent dans les
+    APU). Projection 2032 : × facteur_pib_2027_2032.
+  limites: >
+    Effets sur l'emploi non comptés (règle 3).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient. Quatre programmes
+      (Glucksmann, Mélenchon, Philippe, Tondelier) ; Tondelier retenait 4,2 non projeté : aligné sur 4,5
+      projeté.
+
+- id: assurance_chomage_reforme_2019_2021_economie
+  libelle: "Économie annuelle de la réforme d'assurance chômage 2019-2021 (éligibilité, salaire journalier de référence, dégressivité)"
+  valeur: 2.2
+  bas: 2.0
+  haut: 2.3
+  unite: "Md€/an"
+  annee: "horizon 2027 (régime de croisière)"
+  sources:
+    - titre: "Unédic, situation financière 2025-2027 (22 octobre 2025), encadré 1, tableau A"
+      url: https://www.unedic.org/storage/uploads/2025/10/22/Situation-financire-Assurance-chmage-2025-2027--22-octobre-2025_uid_68f8e16ff2058.pdf
+      date: "2025-10-22"
+      extrait: "les réformes mises en œuvre depuis 2017 devraient faire économiser 9,1 Md€ à l'Assurance chômage"
+    - titre: "Unédic, évaluation de la réforme d'assurance chômage 2019-2021"
+      url: https://www.unedic.org/publications/evaluation-de-la-reforme-d-assurance-chomage-2019-2021
+  derivation: >
+    Valeur : 2,2 Md€ (tableau A de 2025 : convention 2017 0,9 ; réforme 2019-2021 2,2 ; réforme 2023 4,5 ;
+    convention 2024 1,5). Haut : 2,3 Md€, somme des estimations ex ante (conditions d'ouverture 0,8, salaire
+    journalier de référence 1,0, dégressivité 0,5). Bas : 2,0 Md€ (bas de la fourchette « 2 à 2,3 Md€ »).
+    Projection 2032 : × facteur_pib_2027_2032.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient. Tondelier retenait 2,3
+      non projeté : aligné sur 2,2 projeté.
+
+- id: fraude_sociale_recouvree
+  libelle: "Fraude sociale recouvrée"
+  valeur: 0.68
+  unite: "Md€/an"
+  annee: "2024"
+  sources:
+    - titre: "HCFiPS, synthèse « Fraude sociale » (décembre 2025) (source du barème fraude_sociale_estimee)"
+      url: https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/HCFIPS/2026/HCFIPS%20-%20Synth%c3%a8se%20Fraude%20sociale%202025%20-%20Version%20finalis%c3%a9e.pdf
+      date: "2025-12"
+      extrait: "680 M€ recouvrés : le recouvrement est toujours limité"
+  derivation: >
+    Lecture directe. Règle du barème fraude_sociale_estimee : une promesse de lutte contre la fraude sociale
+    sans moyens détaillés vaut au central le doublement du recouvrement (+0,68 Md€), projeté au PIB.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient. Trois programmes (Le
+      Pen, Retailleau, Zemmour), même valeur.
+
+- id: part_fiscale_entiere_deuxieme_enfant_cout
+  libelle: "Coût d'une part entière de quotient familial dès le deuxième enfant"
+  valeur: 3.4
+  unite: "Md€/an"
+  annee: "2024"
+  sources:
+    - titre: "Institut Montaigne, législatives 2024, « Instituer une part fiscale complète dès le deuxième enfant » (simulation LexImpact)"
+      url: https://web.archive.org/web/2024id_/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/instituer-une-part-fiscale-complete-des-le-deuxieme-enfant/
+      date: "2024-06"
+      extrait: "Le chiffrage de cette mesure sur la base du modèle LexImpact [...] aboutit à un coût de 3,4 Md€ en 2024"
+  derivation: >
+    Lecture directe (plafonnement du quotient familial compris). Projection 2032 : × facteur_pib_2024_2032.
+  limites: >
+    Chiffrage tiers (modèle LexImpact de l'Assemblée nationale), pas de chiffrage administratif publié.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient. Le Pen et Philippe
+      promettent la même part : même valeur.
+
+- id: pauvrete_nombre_personnes
+  libelle: "Nombre de personnes sous le seuil de pauvreté monétaire (60 % du niveau de vie médian)"
+  valeur: 9.8
+  unite: "millions de personnes"
+  annee: "2023 (France métropolitaine)"
+  sources:
+    - titre: "INSEE Première n° 2063"
+      url: https://www.insee.fr/fr/statistiques/8600989
+      date: "2025-07"
+      extrait: "En 2023, 9,8 millions de personnes occupant un logement ordinaire en France métropolitaine vivent sous le seuil de pauvreté monétaire"
+  derivation: >
+    Lecture directe.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: seuil_pauvrete_mensuel
+  libelle: "Seuil de pauvreté à 60 % du niveau de vie médian, personne seule"
+  valeur: 1288
+  unite: "€ par mois et par UC"
+  annee: "2023"
+  sources:
+    - titre: "INSEE Première n° 2063"
+      url: https://www.insee.fr/fr/statistiques/8600989
+      date: "2025-07"
+  derivation: >
+    Lecture directe (1 288 € par mois en 2023). Projection : niveau de vie médian, ≈ PIB nominal.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient. Deux programmes
+      (Mélenchon, Tondelier), trois mesures.
+
+- id: pauvrete_intensite
+  libelle: "Intensité de la pauvreté (écart relatif du niveau de vie médian des pauvres au seuil)"
+  valeur: 0.192
+  unite: "part"
+  annee: "2023"
+  sources:
+    - titre: "INSEE Première n° 2063"
+      url: https://www.insee.fr/fr/statistiques/8600989
+      date: "2025-07"
+      extrait: "la moitié des personnes en situation de pauvreté ont un niveau de vie inférieur à 1 041 euros par mois, inférieur de 19,2 % au seuil de pauvreté"
+  derivation: >
+    Lecture directe.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: franchises_participations_rendement
+  libelle: "Rendement des franchises médicales et participations forfaitaires de l'assurance maladie"
+  valeur: 2.5
+  bas: 1.6
+  unite: "Md€/an"
+  annee: "2025 ; bas 2023 (avant doublement)"
+  sources:
+    - titre: "Cour des comptes, RALFSS 2026, chapitre V « Franchises et participations forfaitaires », mai 2026"
+      url: https://www.ccomptes.fr/sites/default/files/2026-05/20260527-RALFSS-2026-5-Franchises-et-participations-forfaitaires-de-l-assurance-maladie.pdf
+      date: "2026-05"
+      extrait: "Leur rendement s'est élevé à 2,5 Md€ en 2025"
+    - titre: "Rapport d'évaluation des politiques de sécurité sociale (Maladie), indicateur 2.12.3"
+      url: https://evaluation.securite-sociale.fr/home/maladie/2-12-3-les-participations-forfai.html
+      extrait: "les montants dû ont augmenté de 57% entre 2023 et 2025, pour atteindre 2,5 Md€"
+  derivation: >
+    Valeur 2025 (tous régimes de base) : 2,5 Md€ ; bas : 1,6 Md€ en 2023, avant le doublement (franchises 0,9 +
+    participations 0,7).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: naissances_annuelles
+  libelle: "Naissances vivantes en France"
+  valeur: 643905
+  unite: "naissances par an"
+  annee: "2025"
+  sources:
+    - titre: "INSEE Focus n° 383"
+      url: https://www.insee.fr/fr/statistiques/9017867
+      date: "2026-07"
+      extrait: "En 2025, 643 905 bébés sont nés en France, soit une baisse de 2,3 % par rapport à 2024"
+  derivation: >
+    Lecture directe.
+  limites: >
+    Baisse continue (−2,3 % en 2025) : les effectifs 2032 seront plus faibles.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient. Retailleau retenait 650
+      000 (arrondi du livret) : aligné.
+
+- id: rmpt_croissance_reelle_annuelle
+  libelle: "Croissance réelle annuelle du revenu moyen par tête (écart salaires − prix) 2025-2037"
+  valeur: 0.63
+  haut: 1.0
+  unite: "point par an"
+  annee: "2025-2037"
+  sources:
+    - titre: "COR, rapport annuel juin 2026"
+      url: https://www.cor-retraites.fr/sites/default/files/2026-07/RA_2026_def_1.pdf
+      date: "2026-06"
+      extrait: "revenu moyen par tête (RMPT) de l'ensemble de l'économie, attendu à + 7,8 %"
+  derivation: >
+    1,078^(1/12) − 1 ≈ 0,63 % par an. Haut : 1,0 % (variante haute de productivité du COR).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: pensions_part_masse_sous_1200
+  libelle: "Part de la masse des pensions versée aux retraités dont la pension totale est inférieure à 1 200 € bruts"
+  valeur: 0.154
+  bas: 0.096
+  haut: 0.23
+  unite: "part"
+  annee: "2020 (EIR)"
+  sources:
+    - titre: "DREES, EIR 2020, distribution des pensions mensuelles (tableau 5)"
+      url: https://data.drees.solidarites-sante.gouv.fr/api/explore/v2.1/catalog/datasets/4178_distribution-des-pensions-mensuelles/attachments/eir2020_distribution_des_pensions_mensuelles_xlsx
+  derivation: >
+    36,1 % des retraités ont une pension totale < 1 200 € bruts, soit ≈ 15,4 % de la masse (calcul par milieux
+    de tranche). Bas : 9,6 % (< 1 000 €) ; haut : 23,0 % (< 1 400 €).
+  limites: >
+    Données 2020, seuils nominaux non revalorisés.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: inflation_ipc_2027
+  libelle: "Inflation des prix à la consommation en 2027 (FMI)"
+  valeur: 1.721
+  unite: "%"
+  annee: "2027 (prévision)"
+  sources:
+    - titre: "FMI, World Economic Outlook avril 2026, prix à la consommation (PCPIPCH), France"
+      url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.PCPIPCH.A
+      date: "2026-04-14"
+      extrait: "TIME_PERIOD=\"2027\" OBS_VALUE=\"1.721117\""
+  derivation: >
+    Lecture directe (série ingérée dans data/normalise/fmi-weo). Sert à la revalorisation légale de 2028 des
+    pensions et prestations (inflation de l'année précédente).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Valeur relue dans data/normalise/fmi-weo.parquet le 30/09/2026.
+
+- id: deflateur_pib_2027
+  libelle: "Évolution du déflateur du PIB en 2027 (FMI)"
+  valeur: 0.0146
+  unite: "taux"
+  annee: "2027 (prévision)"
+  sources:
+    - titre: "FMI, World Economic Outlook avril 2026, déflateur du PIB (NGDP_D), France"
+      url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+      date: "2026-04-14"
+      extrait: "TIME_PERIOD=\"2026\" OBS_VALUE=\"114.61662\" TIME_PERIOD=\"2027\" OBS_VALUE=\"116.289465\""
+  derivation: >
+    116,289465 / 114,61662 − 1 = 1,46 % (plan/hypotheses.yaml, hypothèse deflateur).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Valeur relue dans data/normalise/fmi-weo.parquet et plan/hypotheses.yaml le 30/09/2026.
+
+- id: deflateur_pib_cumule_2027_2029
+  libelle: "Déflateur du PIB cumulé 2027-2029 (facteur)"
+  valeur: 1.0528
+  unite: "facteur"
+  annee: "2027-2029 (prévision)"
+  sources:
+    - titre: "FMI, World Economic Outlook avril 2026, déflateur du PIB (NGDP_D), France"
+      url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+      date: "2026-04-14"
+      extrait: "TIME_PERIOD=\"2026\" OBS_VALUE=\"114.61662\" TIME_PERIOD=\"2027\" OBS_VALUE=\"116.289465\" TIME_PERIOD=\"2028\" OBS_VALUE=\"118.45426\" TIME_PERIOD=\"2029\" OBS_VALUE=\"120.661422\""
+  derivation: >
+    1,0146 × 1,01862 × 1,01863 = 1,0528 (= 120,661422 / 114,61662). Revalorisation légale supposée du Smic de
+    2027 à 2029.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Valeur relue dans data/normalise/fmi-weo.parquet le 30/09/2026.
+
+- id: retraites_age_legal_reference_2032
+  libelle: "Âge légal d'ouverture des droits des assurés partant en 2032, à droit constant"
+  valeur: 63.75
+  unite: "années"
+  annee: "2032"
+  sources:
+    - titre: "COR, rapport annuel juin 2026"
+      url: https://www.cor-retraites.fr/sites/default/files/2026-07/RA_2026_def_1.pdf
+      date: "2026-06"
+      extrait: "l’âge d’ouverture des droits atteindra 64 ans pour les assurés de la génération 1969 et non plus la génération 1968"
+  derivation: >
+    Suspension de la réforme de 2023 jusqu'au 1er janvier 2028 (REFERENCE.md, barème
+    retraites_suspension_reforme_2023) : 62 ans 9 mois pour la génération 1964, puis + 3 mois par génération ;
+    les assurés qui atteignent l'âge légal en 2032 sont de la génération 1968 : 63 ans 9 mois. Un âge minimal
+    promis de a ans coûte (63,75 − a) × retraites_age_legal_1_an ; « 64 ans tout de suite » rapporte (64 −
+    63,75) × le même barème.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient. Retailleau (écart 0,75)
+      et Zemmour (écart 0,25) : même référence.
+
+- id: creche_cout_fonctionnement_place
+  libelle: "Coût annuel de fonctionnement d'une place de crèche (CNAF)"
+  valeur: 15381
+  unite: "€ par place et par an"
+  annee: "vers 2020-2021"
+  sources:
+    - titre: "Institut Montaigne, présidentielle 2022, « Créer un service public de la petite enfance et ouvrir 500 000 places en crèche » (coût CNAF)"
+      url: https://web.archive.org/web/20220404165131/https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/creer-un-service-public-de-la-petite-enfance-et-ouvrir-500-000-places-en-creche/
+      date: "2022-04"
+      extrait: "Si la puissance publique venait à assurer une totale gratuité des places supplémentaires, les coûts de fonctionnement annuels à sa charge s'élèveraient en revanche à 7,7 Md € en fin de période"
+  derivation: >
+    15 381 € par place et par an (coût CNAF cité par l'Institut Montaigne) ; 500 000 places × 15 381 € = 7,7
+    Md€. Projection 2032 : × facteur_pib_2021_2032.
+  limites: >
+    Chiffre CNAF repris par un tiers ; pas de relecture de la publication CNAF d'origine.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: enseignants_etpt_public
+  libelle: "Enseignants du public (programmes 140 et 141), ETPT"
+  valeur: 793863
+  unite: "ETPT"
+  annee: "2026 (PLF)"
+  sources:
+    - titre: "PLF 2026, projets annuels de performances, mission Enseignement scolaire, programmes 140 et 141 (sources du barème cout_enseignant_charge)"
+      url: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
+      date: "2025-10"
+  derivation: >
+    341 897 (premier degré, programme 140) + 451 966 (second degré, programme 141) = 793 863 ETPT. Privé sous
+    contrat exclu (≈ 140 000).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient. Cinq programmes, même
+      valeur.
+
+- id: enseignants_etpt_premier_degre
+  libelle: "Enseignants du premier degré public (programme 140), ETPT"
+  valeur: 341897
+  unite: "ETPT"
+  annee: "2026 (PLF)"
+  sources:
+    - titre: "PLF 2026, PAP mission Enseignement scolaire, programme 140 (sources du barème cout_enseignant_charge)"
+      url: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
+      date: "2025-10"
+  derivation: >
+    Lecture de la dérivation de cout_enseignant_charge.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: enseignants_etpt_second_degre
+  libelle: "Enseignants du second degré public (programme 141), ETPT"
+  valeur: 451966
+  unite: "ETPT"
+  annee: "2026 (PLF)"
+  sources:
+    - titre: "PLF 2026, PAP mission Enseignement scolaire, programme 141 (sources du barème cout_enseignant_charge)"
+      url: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
+      date: "2025-10"
+  derivation: >
+    Lecture de la dérivation de cout_enseignant_charge.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: fp_part_categories_b_c
+  libelle: "Part des agents de catégories B et C dans la fonction publique"
+  valeur: 0.61
+  unite: "part des agents"
+  annee: "2023"
+  sources:
+    - titre: "DGAFP, rapport annuel 2025 sur l'état de la fonction publique"
+      url: https://www.fonction-publique.gouv.fr/files/files/publications/vue-rapport-annuel/ra_2025_vue_emploi_caracteristiques_postes.pdf
+      date: "2025"
+      extrait: "En 2023, la fonction publique est composée de 39 % d'agents de catégorie A, de 22 % d'agents de catégorie B et de 39 % d'agents de catégorie C"
+  derivation: >
+    22 + 39 = 61 % des effectifs (majorant de la part de la masse salariale).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: anah_credits_etat
+  libelle: "Crédits de l'État à l'Anah (programme 135), MaPrimeRénov' comprise"
+  valeur: 1.5353
+  haut: 2.0353
+  unite: "Md€/an"
+  annee: "2026 (PLF) ; haut LFI 2025"
+  sources:
+    - titre: "Sénat, rapport général PLF 2026, mission Cohésion des territoires"
+      url: https://www.senat.fr/rap/l25-139-35-1/l25-139-35-1_mono.html
+      date: "2025-11"
+      extrait: "Les crédits passent ainsi de 2 035,3 millions d'euros en LFI pour 2025 à 1 535,3 millions d'euros dans le PLF pour 2026"
+  derivation: >
+    Lecture directe ; haut : LFI 2025 (2,0353 Md€).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient. Le Pen arrondissait à
+      1,5 : aligné.
+
+- id: anah_renovations_ampleur
+  libelle: "Rénovations d'ampleur financées par MaPrimeRénov'"
+  valeur: 91374
+  unite: "rénovations par an"
+  annee: "2024"
+  sources:
+    - titre: "Anah, bilan 2024"
+      url: https://www.anah.gouv.fr/presse/bilan-2024-de-l-anah-un-effort-massif-pour-mieux-renover-les-logements
+      date: "2025-01"
+  derivation: >
+    Lecture directe du bilan 2024.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: anah_aide_moyenne_renovation_ampleur
+  libelle: "Aide moyenne de l'État par rénovation d'ampleur"
+  valeur: 36271
+  unite: "€ par rénovation"
+  annee: "2024"
+  sources:
+    - titre: "Anah, bilan 2024"
+      url: https://www.anah.gouv.fr/presse/bilan-2024-de-l-anah-un-effort-massif-pour-mieux-renover-les-logements
+      date: "2025-01"
+      extrait: "en moyenne, une rénovation d'ampleur coûte 55 065€ et bénéficie d'une aide de l'Etat de 36 271€"
+  derivation: >
+    Lecture directe.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: cspe_eolien_pv_hausse_annuelle
+  libelle: "Hausse annuelle des charges de service public de soutien à l'éolien et au photovoltaïque"
+  valeur: 1.04
+  unite: "Md€ par an"
+  annee: "2026 → 2027"
+  sources:
+    - titre: "CRE, délibération n° 2026-149 du 15 juillet 2026, charges de service public de l'énergie 2026-2027, tableau 3"
+      url: https://www.cre.fr/fileadmin/Documents/Deliberations/2026/260715_2026-149_CSPE_2026-2027.pdf
+      date: "2026-07-15"
+  derivation: >
+    Charges éolien + photovoltaïque : 6,25 Md€ (2026) → 7,29 Md€ (2027), soit +1,04 Md€ par an de nouveaux
+    contrats. Arrêter tout nouveau soutien économise en 2032 ce montant × enr_soutien_annees_non_engagees_2032.
+  limites: >
+    Dépend du prix de marché de l'électricité (les charges baissent quand il monte).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient. Trois programmes (Le
+      Pen, Retailleau, Zemmour), même valeur.
+
+- id: enr_soutien_annees_non_engagees_2032
+  libelle: "Années de nouveaux contrats de soutien aux EnR intermittentes non encore engagées d'ici 2032"
+  valeur: 3
+  unite: "années"
+  annee: "2030-2032"
+  sources:
+    - titre: "CRE, délibération n° 2026-149 du 15 juillet 2026"
+      url: https://www.cre.fr/fileadmin/Documents/Deliberations/2026/260715_2026-149_CSPE_2026-2027.pdf
+      date: "2026-07-15"
+      extrait: "environ +10 GWe estimés par la CRE entre 2026 et 2029"
+  derivation: >
+    Soutien déjà engagé jusqu'en 2029 (appels d'offres attribués) : seules les années 2030 à 2032 sont
+    évitables.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: facteur_pib_2016_2032
+  libelle: "Facteur de passage d'un montant 2016 en euros courants 2032, à part de PIB constante"
+  valeur: 1.6224
+  unite: "facteur (PIB nominal 2032 / PIB nominal 2016)"
+  annee: "2016 → 2032"
+  sources:
+    - titre: "INSEE, comptes nationaux annuels base 2020, PIB aux prix courants, lu via l'indicateur finances.pib_nominal@1.0.0"
+      url: https://api.insee.fr/melodi/file/DD_CNA_AGREGATS/DD_CNA_AGREGATS_CSV_FR
+      date: "2026-08-31"
+      extrait: "PIB aux prix courants, Md€ (data/indicateurs/finances.pib_nominal@1.0.0.parquet) : 2016 2 231,82"
+  derivation: >
+    pib_nominal_2032 (3 620,9 Md€) / PIB 2016 (2 231,82 Md€) = 1,6224 (voir facteur_pib_2023_2032).
+  indicateur: finances.pib_nominal@1.0.0
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      PIB relu dans data/indicateurs/finances.pib_nominal@1.0.0.parquet le 30/09/2026 et rapport recalculé.
+
+- id: facteur_pib_2017_2032
+  libelle: "Facteur de passage d'un montant 2017 en euros courants 2032, à part de PIB constante"
+  valeur: 1.58
+  unite: "facteur (PIB nominal 2032 / PIB nominal 2017)"
+  annee: "2017 → 2032"
+  sources:
+    - titre: "INSEE, comptes nationaux annuels base 2020, PIB aux prix courants, lu via l'indicateur finances.pib_nominal@1.0.0"
+      url: https://api.insee.fr/melodi/file/DD_CNA_AGREGATS/DD_CNA_AGREGATS_CSV_FR
+      date: "2026-08-31"
+      extrait: "PIB aux prix courants, Md€ (data/indicateurs/finances.pib_nominal@1.0.0.parquet) : 2017 2 291,68"
+  derivation: >
+    pib_nominal_2032 (3 620,9 Md€) / PIB 2017 (2 291,68 Md€) = 1,58 (voir facteur_pib_2023_2032).
+  indicateur: finances.pib_nominal@1.0.0
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      PIB relu dans data/indicateurs/finances.pib_nominal@1.0.0.parquet le 30/09/2026 et rapport recalculé.
+
+- id: facteur_pib_2019_2032
+  libelle: "Facteur de passage d'un montant 2019 en euros courants 2032, à part de PIB constante"
+  valeur: 1.4887
+  unite: "facteur (PIB nominal 2032 / PIB nominal 2019)"
+  annee: "2019 → 2032"
+  sources:
+    - titre: "INSEE, comptes nationaux annuels base 2020, PIB aux prix courants, lu via l'indicateur finances.pib_nominal@1.0.0"
+      url: https://api.insee.fr/melodi/file/DD_CNA_AGREGATS/DD_CNA_AGREGATS_CSV_FR
+      date: "2026-08-31"
+      extrait: "PIB aux prix courants, Md€ (data/indicateurs/finances.pib_nominal@1.0.0.parquet) : 2019 2 432,21"
+  derivation: >
+    pib_nominal_2032 (3 620,9 Md€) / PIB 2019 (2 432,21 Md€) = 1,4887 (voir facteur_pib_2023_2032).
+  indicateur: finances.pib_nominal@1.0.0
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      PIB relu dans data/indicateurs/finances.pib_nominal@1.0.0.parquet le 30/09/2026 et rapport recalculé.
+
+- id: facteur_pib_2021_2032
+  libelle: "Facteur de passage d'un montant 2021 en euros courants 2032, à part de PIB constante"
+  valeur: 1.4437
+  unite: "facteur (PIB nominal 2032 / PIB nominal 2021)"
+  annee: "2021 → 2032"
+  sources:
+    - titre: "INSEE, comptes nationaux annuels base 2020, PIB aux prix courants, lu via l'indicateur finances.pib_nominal@1.0.0"
+      url: https://api.insee.fr/melodi/file/DD_CNA_AGREGATS/DD_CNA_AGREGATS_CSV_FR
+      date: "2026-08-31"
+      extrait: "PIB aux prix courants, Md€ (data/indicateurs/finances.pib_nominal@1.0.0.parquet) : 2021 2 508,10"
+  derivation: >
+    pib_nominal_2032 (3 620,9 Md€) / PIB 2021 (2 508,10 Md€) = 1,4437 (voir facteur_pib_2023_2032).
+  indicateur: finances.pib_nominal@1.0.0
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      PIB relu dans data/indicateurs/finances.pib_nominal@1.0.0.parquet le 30/09/2026 et rapport recalculé.
+
+- id: facteur_pib_2022_2032
+  libelle: "Facteur de passage d'un montant 2022 en euros courants 2032, à part de PIB constante"
+  valeur: 1.3643
+  unite: "facteur (PIB nominal 2032 / PIB nominal 2022)"
+  annee: "2022 → 2032"
+  sources:
+    - titre: "INSEE, comptes nationaux annuels base 2020, PIB aux prix courants, lu via l'indicateur finances.pib_nominal@1.0.0"
+      url: https://api.insee.fr/melodi/file/DD_CNA_AGREGATS/DD_CNA_AGREGATS_CSV_FR
+      date: "2026-08-31"
+      extrait: "PIB aux prix courants, Md€ (data/indicateurs/finances.pib_nominal@1.0.0.parquet) : 2022 2 654,00"
+  derivation: >
+    pib_nominal_2032 (3 620,9 Md€) / PIB 2022 (2 654,00 Md€) = 1,3643 (voir facteur_pib_2023_2032).
+  indicateur: finances.pib_nominal@1.0.0
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      PIB relu dans data/indicateurs/finances.pib_nominal@1.0.0.parquet le 30/09/2026 et rapport recalculé.
+
+- id: facteur_pib_2029_2032
+  libelle: "Facteur de passage d'un montant 2029 en euros courants 2032, à part de PIB constante"
+  valeur: 1.0891
+  unite: "facteur (PIB nominal 2032 / PIB nominal 2029)"
+  annee: "2029 → 2032"
+  sources:
+    - titre: "FMI, World Economic Outlook avril 2026, croissance du PIB en volume (NGDP_RPCH), France (API SDMX)"
+      url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_RPCH.A
+      date: "2026-04-14"
+      extrait: "TIME_PERIOD=\"2030\" OBS_VALUE=\"1.105977\" TIME_PERIOD=\"2031\" OBS_VALUE=\"1.057581\""
+    - titre: "FMI, World Economic Outlook avril 2026, déflateur du PIB (NGDP_D), France (API SDMX)"
+      url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
+      date: "2026-04-14"
+      extrait: "TIME_PERIOD=\"2029\" OBS_VALUE=\"120.661422\" TIME_PERIOD=\"2030\" OBS_VALUE=\"122.905247\" TIME_PERIOD=\"2031\" OBS_VALUE=\"125.064171\""
+  derivation: >
+    Croissances nominales 2030-2032 de plan/hypotheses.yaml (2032 = 2031 reconduit) : 1,02988 × 1,02834 ×
+    1,02834 = 1,0891.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Recalculé depuis plan/hypotheses.yaml le 30/09/2026.
+
+- id: tzcld_cout_net_emploi
+  libelle: "Coût net pour les finances publiques d'un emploi « Territoires zéro chômeur de longue durée »"
+  valeur: 12500
+  bas: 11300
+  haut: 13700
+  unite: "€ par EQTP et par an"
+  annee: "2023"
+  sources:
+    - titre: "Comité scientifique TZCLD (France Stratégie), rapport final d'évaluation, septembre 2025"
+      url: https://www.strategie-plan.gouv.fr/files/files/Publications/2025/2025-09-22%20-%20Rapport%20TZCLD/TZCLD_rapport%20final%20evalulation_sous%20embargo_jsq230925%20%C3%A0%2011h.pdf
+      date: "2025-09-23"
+      extrait: "un coût net pour la puissance publique d'environ 11 300 à 13 700 € par EQTP, auquel il convient d'ajouter la dotation d'amorçage"
+  derivation: >
+    Milieu de la fourchette 11 300 à 13 700 €.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: tzcld_cout_brut_emploi
+  libelle: "Dépense publique brute par emploi « Territoires zéro chômeur de longue durée »"
+  valeur: 26600
+  unite: "€ par EQTP et par an"
+  annee: "2023"
+  sources:
+    - titre: "Comité scientifique TZCLD (France Stratégie), rapport final d'évaluation, septembre 2025"
+      url: https://www.strategie-plan.gouv.fr/files/files/Publications/2025/2025-09-22%20-%20Rapport%20TZCLD/TZCLD_rapport%20final%20evalulation_sous%20embargo_jsq230925%20%C3%A0%2011h.pdf
+      date: "2025-09-23"
+      extrait: "Des dépenses d'un montant de 26 600 € en 2023, auxquelles s'ajoutent 6 200 €"
+  derivation: >
+    Lecture directe (hors dotation d'amorçage de 6 200 €, versée une fois).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: remboursement_100pct_cout_hcaam
+  libelle: "Coût pour les finances publiques d'un remboursement à 100 % par l'assurance maladie (scénario HCAAM, franchises maintenues)"
+  valeur: 21.1
+  haut: 22.5
+  unite: "Md€/an"
+  annee: "2017 (données)"
+  sources:
+    - titre: "HCAAM, « Quatre scénarios polaires d'évolution de l'articulation entre Sécurité sociale et Assurance maladie complémentaire », janvier 2022"
+      url: https://www.securite-sociale.fr/files/live/sites/SSFR/files/HCAAM/2022/Rapport%20HCAAM-%20Quatre%20scenarios%20articulation%20AMO-AMC%20-%20janvier%202022.pdf
+      date: "2022-01"
+      extrait: "la réforme conduirait les finances publiques à prendre en charge 22,5 Mds d'euros de dépenses (ou 21,1 Mds en cas de maintien des franchises et participations forfaitaires en ville)"
+  derivation: >
+    Valeur : 21,1 Md€ (franchises maintenues, pour ne pas compter deux fois leur suppression) ; haut : 22,5 Md€.
+    Projection 2032 : × facteur_pib_2017_2032.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: cout_etudiant_cpge
+  libelle: "Dépense d'éducation par élève de classe préparatoire aux grandes écoles"
+  valeur: 19070
+  unite: "€ par étudiant et par an"
+  annee: "2024"
+  sources:
+    - titre: "MESR, L'état de l'enseignement supérieur et de la recherche, fiche « La dépense d'éducation pour l'enseignement supérieur »"
+      url: https://publication.enseignementsup-recherche.gouv.fr/eesr/FR/T496/la_depense_d_education_pour_l_enseignement_superieur/
+      extrait: "19 070 euros pour un élève en CPGE"
+  derivation: >
+    Lecture directe ; faute de chiffre publié pour les écoles d'ingénieurs, sert de coût d'une année de cycle
+    ingénieur.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: conge_paternite_14_jours_cout
+  libelle: "Coût de 14 jours de congé de paternité supplémentaires (allongement de 2021)"
+  valeur: 0.522
+  unite: "Md€/an"
+  annee: "2022"
+  sources:
+    - titre: "Sénat, rapport sur le PLFSS 2021 (annexe 9 du PLFSS)"
+      url: https://www.senat.fr/rap/l20-107-2/l20-107-28.html
+      date: "2020-11"
+  derivation: >
+    Allongement de 14 à 28 jours : 522 M€ en 2022 (annexe 9 du PLFSS 2021). Coût par jour ≈ 37 M€.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: rsa_part_anciennete_plus_3_ans
+  libelle: "Part des bénéficiaires du RSA présents dans le dispositif depuis plus de trois ans"
+  valeur: 0.5
+  bas: 0.38
+  unite: "part"
+  annee: "fin 2022"
+  sources:
+    - titre: "DREES, Minima sociaux 2024, fiche 23 « Le revenu de solidarité active (RSA) »"
+      url: https://drees.solidarites-sante.gouv.fr/sites/default/files/2024-10/MS24%20-%20Fiche%2023%20-%20Le%20revenu%20de%20solidarit%C3%A9%20active%20(RSA).pdf
+      date: "2024-10"
+  derivation: >
+    Ancienneté fin 2022 : moins de 1 an 26 %, 1 à 2 ans 13 %, 2 à 5 ans 25 %, 5 à 10 ans 20 %, 10 ans ou plus 18
+    % ; au-delà de 3 ans ≈ 38 % + la moitié des 2 à 5 ans ≈ 50 % (répartition uniforme dans la tranche). Bas :
+    38 % (5 ans et plus).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: rsa_part_foyers_hors_ue
+  libelle: "Part des foyers allocataires du RSA dont le responsable est ressortissant d'un pays hors UE/EEE"
+  valeur: 0.156
+  unite: "part"
+  annee: "2023"
+  sources:
+    - titre: "Assemblée nationale, réponse ministérielle à la question écrite n° 5157 (16e législature)"
+      url: https://questions.assemblee-nationale.fr/q16/16-5157QE.htm
+  derivation: >
+    Lecture directe.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait repris des paramètres des programmes, relus lors de la passe sources du 29/09/2026 ; regroupement
+      du 30/09/2026 : même grandeur et même source dans les programmes qui y renvoient.
+
+- id: smic_net_mensuel
+  libelle: "Smic mensuel net (35 heures) au 1er juin 2026"
+  valeur: 1477.93
+  unite: "€ net par mois"
+  annee: "2026 (1er juin)"
+  sources:
+    - titre: "Service-public.fr, fiche F2300 « Smic » (vérifié le 1er juin 2026)"
+      url: https://www.service-public.gouv.fr/particuliers/vosdroits/F2300
+      date: "2026-06-01"
+      extrait: "Smic mensuel 1 867,02 € 1 477,93 €"
+    - titre: "Service-public.fr, actualité A18916 (18 mai 2026)"
+      url: https://www.service-public.gouv.fr/particuliers/actualites/A18916
+      date: "2026-05-18"
+      extrait: "Le Smic augmentera ainsi de 2,41 % le 1er juin 2026."
+  derivation: >
+    Lecture directe (colonne « montant net »), après la revalorisation de 2,41 % du 1er juin 2026 (arrêté du 22
+    mai 2026).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne) ; valeur identique à celle des
+      paramètres qui y renvoient. Trois programmes (Glucksmann, Mélenchon, Tondelier).
+
+- id: smic_brut_mensuel
+  libelle: "Smic mensuel brut (35 heures) au 1er juin 2026"
+  valeur: 1867.02
+  unite: "€ brut par mois"
+  annee: "2026 (1er juin)"
+  sources:
+    - titre: "Service-public.fr, fiche F2300 « Smic » (vérifié le 1er juin 2026)"
+      url: https://www.service-public.gouv.fr/particuliers/vosdroits/F2300
+      date: "2026-06-01"
+      extrait: "Smic mensuel 1 867,02 € 1 477,93 €"
+  derivation: >
+    Lecture directe (colonne « montant brut »). Ratio net / brut : 1 477,93 / 1 867,02 = 0,7916.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne) ; valeur identique à celle des
+      paramètres qui y renvoient.
+
+- id: aah_montant_maximal
+  libelle: "Montant maximal de l'allocation aux adultes handicapés (taux plein)"
+  valeur: 1041.59
+  unite: "€ par mois"
+  annee: "2026"
+  sources:
+    - titre: "Service-public.fr, fiche F12242 « AAH »"
+      url: https://www.service-public.gouv.fr/particuliers/vosdroits/F12242
+      date: "2026-09-14"
+      extrait: "Vous recevez le montant maximal de l'AAH qui est de 1 041,59 €"
+  derivation: >
+    Lecture directe.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne) ; valeur identique à celle des
+      paramètres qui y renvoient. Deux programmes (Mélenchon, Tondelier).
+
+- id: aspa_montant_personne_seule
+  libelle: "Montant maximal de l'Aspa (minimum vieillesse) pour une personne seule"
+  valeur: 1043.59
+  unite: "€ par mois"
+  annee: "2026"
+  sources:
+    - titre: "Service-public.fr, fiche F16871 « Aspa »"
+      url: https://www.service-public.gouv.fr/particuliers/vosdroits/F16871
+      date: "2026-06-23"
+      extrait: "Le montant maximum attribué par mois est de 1 043,59 €, soit 12 523,14 € maximum par an (montants bruts)."
+  derivation: >
+    Lecture directe.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne) ; valeur identique à celle des
+      paramètres qui y renvoient. Deux programmes (Mélenchon, Tondelier).
+
+- id: aspa_allocataires
+  libelle: "Bénéficiaires du minimum vieillesse (ASV ou Aspa)"
+  valeur: 754460
+  unite: "personnes"
+  annee: "fin 2024"
+  sources:
+    - titre: "Rapport d'évaluation des politiques de sécurité sociale (Retraites), indicateur 1.13"
+      url: https://evaluation.securite-sociale.fr/home/retraite/1-13-beneficiaires-du-minimum-vi.html
+      date: "2026"
+      extrait: "Fin 2024, 754 000 personnes bénéficient d'une allocation du minimum vieillesse (ASV ou ASPA)"
+  derivation: >
+    754 460 dans les données de la DREES (arrondi à 754 000 dans le rapport d'évaluation ; +4,3 % sur un an).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Arrondi relu le 30/09/2026 ; valeur détaillée de la DREES reprise des programmes. Deux programmes
+      (Mélenchon, Tondelier).
+
+- id: rsa_montant_personne_seule
+  libelle: "Montant forfaitaire du RSA pour une personne seule"
+  valeur: 651.69
+  unite: "€ par mois"
+  annee: "2026 (1er avril)"
+  sources:
+    - titre: "Service-public.fr, fiche F19778 « RSA »"
+      url: https://www.service-public.gouv.fr/particuliers/vosdroits/F19778
+      date: "2026-04-01"
+      extrait: "Le montant du RSA pour une personne seule est de 651,69 €."
+  derivation: >
+    Lecture directe.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne) ; valeur identique à celle des
+      paramètres qui y renvoient.
+
+- id: classe_age_18_ans_2032
+  libelle: "Taille de la classe d'âge atteignant 18 ans en 2032 (naissances vivantes de 2014)"
+  valeur: 818565
+  unite: "personnes"
+  annee: "2014 (naissances)"
+  sources:
+    - titre: "INSEE, bilan démographique, naissances vivantes en France"
+      url: https://www.insee.fr/fr/statistiques/2381380
+      date: "2026-01-13"
+  derivation: >
+    Naissances vivantes de 2014 en France : 818 565 (mortalité et migrations d'ici 18 ans négligées, de l'ordre
+    du pour cent). Un service ou une conscription obligatoire mobilise cette classe d'âge × taux de
+    participation.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Valeur relue dans le tableau de l'INSEE le 30/09/2026. Glucksmann (service civique) et Mélenchon
+      (conscription, 85 % d'une classe d'âge) : même classe d'âge.
+
+- id: service_civique_cout_mensuel_etat
+  libelle: "Coût mensuel pour l'État d'un volontaire du service civique (indemnité nette et subvention de tutorat)"
+  valeur: 604.98
+  unite: "€ par volontaire et par mois"
+  annee: "2026"
+  sources:
+    - titre: "Service civique, « Réaliser mon service civique » (FAQ jeunes)"
+      url: https://www.service-civique.gouv.fr/agence/aide-et-faq/faq-jeunes/realiser-mon-service-civique
+      extrait: "Le Service Civique ouvre droit à une indemnité financée par l'Etat de 504,98 euros net par mois"
+    - titre: "Agence du service civique, barème des indemnités et cotisations au 1er janvier 2026"
+      url: https://www.service-civique.gouv.fr/api/media/assets/document/asc-indemnites-et-cotisations-01012026.pdf
+      date: "2026-01"
+  derivation: >
+    Indemnité nette versée par l'État 504,98 € + subvention de tutorat versée à l'organisme 100 € = 604,98 € ;
+    la CSG et les cotisations sont des flux internes aux APU. La prestation de l'organisme d'accueil (114,85 €
+    par mois, service-public.fr F13278) n'est publique que pour un organisme public (borne défavorable).
+  limites: >
+    Le barème PDF de l'Agence (subvention de tutorat de 100 €) répondait en erreur 502 le 30/09/2026 : montant
+    non relu dans la source primaire ce jour-là.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Indemnité de 504,98 € relue le 30/09/2026 ; subvention de tutorat reprise du programme (PDF inaccessible).
+
+- id: logements_autorises_annuels
+  libelle: "Logements autorisés à la construction"
+  valeur: 379222
+  unite: "logements par an"
+  annee: "2025"
+  sources:
+    - titre: "SDES, construction de logements, résultats à fin décembre 2025 (France entière)"
+      url: https://www.statistiques.developpement-durable.gouv.fr/construction-de-logements-resultats-fin-decembre-2025-france-entiere
+      date: "2026-01-30"
+      extrait: "379 222 logements ont été autorisés à la construction"
+  derivation: >
+    Lecture directe (+15,0 % sur 2024, 8,8 % sous la moyenne des cinq années précédentes).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne) ; valeur identique à celle des
+      paramètres qui y renvoient.
+
+- id: etudiants_droits_differencies_effectif
+  libelle: "Étudiants internationaux relevant des droits d'inscription différenciés"
+  valeur: 108100
+  unite: "étudiants"
+  annee: "2023-2024"
+  sources:
+    - titre: "Cour des comptes, « L'attractivité de la France pour les étudiants internationaux », mars 2025, p. 94"
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250310-Attractivite-de-la-France-pour-les-etudiants-etrangers.pdf
+      date: "2025-03"
+      extrait: "soit environ 9 600 étudiants sur 108 100 concernés"
+  derivation: >
+    Lecture directe.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne) ; valeur identique à celle des
+      paramètres qui y renvoient. Deux programmes (Le Pen, Zemmour).
+
+- id: etudiants_droits_differencies_part_exoneree
+  libelle: "Part maximale des étudiants relevant des droits différenciés qui peuvent en être exonérés"
+  valeur: 0.3
+  unite: "part"
+  annee: "2026-2027"
+  sources:
+    - titre: "etudiant.gouv.fr, « Droits d'inscription » (26 juin 2026)"
+      url: https://www.etudiant.gouv.fr/fr/droits-d-inscription-1489
+      date: "2026-06-26"
+      extrait: "Elles peuvent concerner au maximum 30 % des étudiants relevant des droits différenciés pour l'année universitaire 2026-2027."
+  derivation: >
+    Lecture directe (plafond d'exonération, droit en vigueur).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne) ; valeur identique à celle des
+      paramètres qui y renvoient.
+
+- id: etudiants_droits_differencies_montant_moyen
+  libelle: "Droit d'inscription différencié moyen (licence et master)"
+  valeur: 3208
+  unite: "€ par étudiant et par an"
+  annee: "2026-2027"
+  sources:
+    - titre: "etudiant.gouv.fr, « Droits d'inscription » (26 juin 2026)"
+      url: https://www.etudiant.gouv.fr/fr/droits-d-inscription-1489
+      date: "2026-06-26"
+      extrait: "Diplôme national de master 3 950 € 2 627 €"
+  derivation: >
+    Tarifs pleins 2026-2027 : licence 2 902 €, master 3 950 € ; moyenne pondérée à 71 % de licence et 29 % de
+    master (même pondération que le montant de 3 200 € calculé sur les tarifs 2025-2026 de 2 895 € et 3 941 €) :
+    2 902 + 0,29 × 1 048 ≈ 3 208 €.
+  limites: >
+    Pondération licence / master approchée ; les tarifs réduits (1 929 € et 2 627 €) ne sont pas pris en compte.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Tarifs relus le 30/09/2026 : les programmes retenaient 3 200 € sur les tarifs 2025-2026 ; aligné sur les
+      tarifs 2026-2027.
+
+- id: audiovisuel_public_dotation
+  libelle: "Dotation de l'État à l'audiovisuel public (fraction de TVA du compte de concours financiers)"
+  valeur: 3.878
+  unite: "Md€/an"
+  annee: "2026 (PLF)"
+  sources:
+    - titre: "Sénat, rapport général PLF 2026, compte de concours financiers « Avances à l'audiovisuel public »"
+      url: https://www.senat.fr/rap/l25-139-318/l25-139-318_mono.html
+      date: "2025-11-24"
+      extrait: "La fraction de taxe sur la valeur ajoutée accordée par le biais du compte de concours financiers « Avances à l'audiovisuel public » devrait s'élever à 3,878 milliards d'euros."
+  derivation: >
+    Lecture directe (−1,8 % sur 2025).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne) ; valeur identique à celle des
+      paramètres qui y renvoient.
+
+- id: mission_apd_credits
+  libelle: "Crédits de paiement de la mission « Aide publique au développement »"
+  valeur: 3.67
+  unite: "Md€/an"
+  annee: "2026 (PLF)"
+  sources:
+    - titre: "Sénat, rapport général PLF 2026, mission Aide publique au développement"
+      url: https://www.senat.fr/rap/l25-139-34/l25-139-34_mono.html
+      date: "2025-11-24"
+      extrait: "3,67 milliards d'euros en crédits de paiement"
+  derivation: >
+    Lecture directe. Ce n'est pas l'APD au sens de l'OCDE (apd_part_rnb), plus large.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne) ; valeur identique à celle des
+      paramètres qui y renvoient.
+
+- id: enseignement_prive_cout_total
+  libelle: "Coût total des établissements privés sous contrat (premier et second degrés)"
+  valeur: 13.83
+  unite: "Md€/an"
+  annee: "2022"
+  sources:
+    - titre: "Assemblée nationale, dossier de presse de la mission d'information sur le financement public de l'enseignement privé sous contrat, avril 2024, p. 3"
+      url: https://www.assemblee-nationale.fr/dyn/content/download/824787/file/Dossier%20de%20presse%20-%20MI%20financement%20public%20enseignement%20priv%C3%A9.pdf
+      date: "2024-04"
+      extrait: "Au total, pour l'année 2022, la Depp estime à 13,83 milliards d'euros le coût total alloué aux établissements privés sous contrat des premier et second degrés, dont 8,5 milliards pris en charge par l'État et 1,9 milliard par les collectivités"
+  derivation: >
+    Lecture directe (Depp).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne) ; valeur identique à celle des
+      paramètres qui y renvoient.
+
+- id: enseignement_prive_financement_public
+  libelle: "Financement public des établissements privés sous contrat (État et collectivités)"
+  valeur: 10.4
+  unite: "Md€/an"
+  annee: "2022"
+  sources:
+    - titre: "Assemblée nationale, dossier de presse de la mission d'information sur le financement public de l'enseignement privé sous contrat, avril 2024, p. 3"
+      url: https://www.assemblee-nationale.fr/dyn/content/download/824787/file/Dossier%20de%20presse%20-%20MI%20financement%20public%20enseignement%20priv%C3%A9.pdf
+      date: "2024-04"
+      extrait: "dont 8,5 milliards pris en charge par l'État et 1,9 milliard par les collectivités"
+  derivation: >
+    8,5 (État) + 1,9 (collectivités) = 10,4 Md€.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne) ; valeur identique à celle des
+      paramètres qui y renvoient.
+
+- id: fp_ratio_net_brut
+  libelle: "Rapport entre salaire net et salaire brut d'un fonctionnaire de l'État"
+  valeur: 0.81
+  bas: 0.8
+  unite: "net / brut"
+  annee: "2024"
+  sources:
+    - titre: "INSEE Première n° 2100, « Les salaires dans la fonction publique de l'État en 2024 », mai 2026"
+      url: https://www.insee.fr/fr/statistiques/8986474
+      date: "2026-05"
+      extrait: "le salaire net moyen des fonctionnaires de la FPE s'établit à 3 267 euros par mois […] Leur salaire brut moyen augmente de 2,9 %, pour atteindre 4 025 euros par mois"
+  derivation: >
+    3 267 / 4 025 = 0,812 pour les fonctionnaires de l'État (0,808 tous agents de l'État, 0,811 toute la
+    fonction publique) ; cotisations salariales, CSG et CRDS : 758 € sur 4 025 € de brut (18,8 %). Passage d'une
+    hausse nette promise au brut : net / 0,81. Bas : 0,80 (convention antérieure, cotisations ≈ 20 %).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu le 30/09/2026. Les programmes retenaient 0,8 (≈ 20 % de cotisations, sans source primaire) :
+      alignés sur 0,81.
+
+- id: fp_salaire_brut_entrant
+  libelle: "Salaire brut annuel moyen d'un agent entrant de l'État (hors cotisations employeurs)"
+  valeur: 31000
+  bas: 28000
+  haut: 34000
+  unite: "€ brut par an"
+  annee: "2026"
+  sources:
+    - titre: "FIPECO, « Le niveau et l'évolution de la masse salariale publique » (fiche du 6 juillet 2026)"
+      url: https://www.fipeco.fr/fiche/Le-niveau-et-l%C3%A9volution-de-la-masse-salariale-publique
+      date: "2026-07-06"
+      extrait: "Le coût moyen des entrants (salaire brut des agents de moins de 30 ans en pratique) est d'environ 31 000 € pour l'Etat, 28 000 € pour les collectivités locales et 34 000 € pour les hôpitaux."
+  derivation: >
+    Lecture directe ; effet d'un poste supprimé ou non remplacé sur le solde : 31 000 × (1 −
+    retour_prelevements_salaires_publics). Même base que les barèmes cout_*_apu (convention commune 1). Non
+    projeté (point d'indice gelé).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne) ; valeur identique à celle des
+      paramètres qui y renvoient. Trois programmes (Attal, Retailleau, Zemmour). Bas et haut : collectivités et
+      hôpitaux.
+
+- id: retour_is_impots_production
+  libelle: "Retour d'impôt sur les sociétés d'une baisse (ou hausse) d'un impôt de production déductible du résultat"
+  valeur: 0.2
+  haut: 0.25
+  unite: "part du montant de l'impôt"
+  annee: "2014-2024"
+  sources:
+    - titre: "Institut Montaigne, législatives 2024, « Baisse des impôts de production (CVAE et C3S) »"
+      url: https://web.archive.org/web/20241219114524/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/baisse-des-impots-de-production-cvae-et-c3s/
+      date: "2024-06"
+      extrait: "un coût qui doit tenir compte à la fois de la suppression du rendement de ces impôts et d'un produit d'impôt sur les sociétés plus important (on parle de \" retour IS \", estimé au taux moyen effectif de 20 %)."
+    - titre: "FIPECO, « L'impôt sur les sociétés » (note 7, d'après le Conseil des prélèvements obligatoires)"
+      url: https://www.fipeco.fr/fiche/Limp%C3%B4t-sur-les-soci%C3%A9t%C3%A9s
+      date: "2026-06-07"
+      extrait: "Le conseil des prélèvements obligatoires estime le taux effectif moyen (impôt avant reports / résultat d'exploitation) en 2014 à 27 % pour les PME et 24 % pour les grandes entreprises (entreprises bénéficiaires)."
+  derivation: >
+    Les impôts de production (CFE, CVAE, C3S, forfait social) sont déductibles du résultat : les supprimer
+    accroît le bénéfice imposable et donc l'IS. Taux de retour : taux effectif moyen de 20 % sur l'ensemble des
+    entreprises (Institut Montaigne), en deçà des 24 à 27 % des seules entreprises bénéficiaires (CPO) parce
+    qu'une partie des redevables est déficitaire. Haut : 0,25, taux normal de l'IS (toutes les entreprises
+    bénéficiaires). Effet sur le solde = montant × (1 − 0,20). Une subvention supprimée réduit symétriquement
+    l'IS sur sa part imposable.
+  limites: >
+    Taux effectifs de 2014 (CPO) ; le taux normal est passé de 33,3 % à 25 % depuis, ce qui plaide pour la
+    valeur de 0,20 plutôt que pour le haut.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne). Neuf mesures de cinq programmes ;
+      Retailleau (C3S, forfait social, CFE) et Tondelier (CVAE) retenaient le taux normal de 25 % : alignés sur
+      0,20.
+
+- id: cfe_rendement
+  libelle: "Produit de la cotisation foncière des entreprises (CFE)"
+  valeur: 8.031
+  bas: 7.7
+  unite: "Md€/an"
+  annee: "2024 ; bas comptabilité nationale"
+  sources:
+    - titre: "DGFiP, « Analyse de l'évolution des produits 2024 de la fiscalité directe locale » (REI 2024), juin 2025"
+      url: https://www.impots.gouv.fr/sites/default/files/media/9_statistiques/data_colloc/rei/2024/note_rei_2024.pdf
+      date: "2025-06"
+      extrait: "Le produit de CFE s'élève ainsi à 8 Md€ en 2024, contre 7,6 Md€ en 2023."
+    - titre: "FIPECO, « Les impôts sur la production »"
+      url: https://www.fipeco.fr/fiche/Les-imp%C3%B4ts-sur-la-production
+      extrait: "la cotisation foncière des entreprises (7,7 Md€)"
+  derivation: >
+    Valeur : produit 2024 toutes collectivités, 8 031 M€ (tableau de la note REI, 7 604 M€ en 2023), hors
+    compensation par l'État de la réduction de moitié des valeurs locatives industrielles (2,0 Md€ en 2024). Bas
+    : 7,7 Md€ (comptabilité nationale, FIPECO). Projection 2032 : × facteur_pib_2024_2032.
+  limites: >
+    La suppression de la CFE éteindrait aussi la compensation des valeurs locatives industrielles (économie pour
+    l'État) mais exigerait une compensation des collectivités : effets non comptés.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne). Le Pen et Zemmour retenaient 7,7
+      (FIPECO) : alignés sur le produit DGFiP 8,031.
+
+- id: abattement_10pct_pensions_cout
+  libelle: "Coût de l'abattement de 10 % sur les pensions et retraites (dépense fiscale 120401)"
+  valeur: 5.322
+  bas: 4.665
+  unite: "Md€/an"
+  annee: "2025 ; bas 2026 (PLF)"
+  sources:
+    - titre: "Cour des comptes, NEB 2025 « Dépenses fiscales », avril 2026"
+      url: https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Depenses-fiscales.pdf
+      date: "2026-04"
+      extrait: "l'abattement de 10 % sur les pensions et retraites augmente de 519 M€ pour s'établir à 5,3 Md€"
+  derivation: >
+    Lecture directe : 4 803 M€ (2024), 5 322 M€ (2025) ; prévision PLF 2026 : 4 665 M€ (bas). 15,1 millions de
+    foyers bénéficiaires. Projection 2032 : × facteur_pib_2025_2032.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne). Tondelier retenait 5,3 (LCP, source
+      secondaire) : aligné sur 5,322.
+
+- id: cir_part_grandes_entreprises
+  libelle: "Part des grandes entreprises dans la créance de crédit d'impôt recherche"
+  valeur: 0.38
+  haut: 0.41
+  unite: "part"
+  annee: "2023 (provisoire)"
+  sources:
+    - titre: "MESRE-DGRI, « Le crédit d'impôt recherche en 2023 (provisoire) », novembre 2025"
+      url: https://www.enseignementsup-recherche.gouv.fr/sites/default/files/2025-12/le-cr-dit-d-imp-t-recherche-en-2023---provisoire-38761.pdf
+      date: "2025-11"
+      extrait: "Elles bénéficient d'une créance de 3,0 Md€ qui représentent 41 % de la créance au titre de la recherche en 2023."
+  derivation: >
+    3,0 Md€ de créance des grandes entreprises sur 7,8 Md€ de créance totale (recherche, innovation, collection)
+    : 0,38 ; haut : 0,41, part dans la seule créance « recherche ». À appliquer à cir_cout (coût total).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne). Tondelier appliquait 0,41 (part de la
+      créance recherche) au coût total : aligné sur 0,38.
+
+- id: accise_gazole_taux
+  libelle: "Tarif d'accise sur le gazole B7 (France continentale)"
+  valeur: 60.75
+  unite: "c€/l"
+  annee: "2026 (depuis le 1er août 2025)"
+  sources:
+    - titre: "Ministère de la Transition écologique, « Guide 2026 sur la fiscalité des énergies » (situation au 1er août 2026)"
+      url: https://www.ecologie.gouv.fr/sites/default/files/documents/Guide%202026%20sur%20fiscalit%C3%A9%20des%20%C3%A9nergies%202026.pdf
+      date: "2026-05-30"
+      extrait: "Gazole B7 3,6 hL 60,75 60,75"
+  derivation: >
+    60,75 €/hl, soit 60,75 c€/l (CIBS, art. L. 312-35), après l'intégration des anciennes majorations régionales
+    au 1er août 2025 ; 59,40 €/MWh en Corse.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne). Zemmour retenait 59,4 (tarif antérieur)
+      : aligné.
+
+- id: accise_essence_taux
+  libelle: "Tarif d'accise sur les supercarburants SP95-E5 et SP98 (France continentale)"
+  valeur: 69.02
+  bas: 67.5
+  unite: "c€/l"
+  annee: "2026 (depuis le 1er août 2025)"
+  sources:
+    - titre: "Ministère de la Transition écologique, « Guide 2026 sur la fiscalité des énergies » (situation au 1er août 2026)"
+      url: https://www.ecologie.gouv.fr/sites/default/files/documents/Guide%202026%20sur%20fiscalit%C3%A9%20des%20%C3%A9nergies%202026.pdf
+      date: "2026-05-30"
+      extrait: "Supercarburants SP95-E5 et SP98 et essence d'aviation 3,2 hL 69,02 77,647 | Supercarburant SP95-E10 3,2 hL 67,50 75,397"
+  derivation: >
+    69,02 €/hl (SP95-E5, SP98) ; 67,50 €/hl pour le SP95-E10 (bas).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne). Zemmour retenait 68,29 (tarif en
+      vigueur jusqu'au 31 juillet 2025) : aligné.
+
+- id: assurance_chomage_regles_2024_economie
+  libelle: "Économie annuelle des règles d'assurance chômage de juin 2024 (décret du 1er juillet 2024, jamais appliqué)"
+  valeur: 4.7
+  bas: 4.0
+  haut: 5.4
+  unite: "Md€/an"
+  annee: "régime de croisière (quatre à cinq ans après l'entrée en vigueur)"
+  sources:
+    - titre: "Unédic, « Prévisions financières de l'Unédic – juin 2024 »"
+      url: https://www.unedic.org/publications/previsions-financieres-de-l-unedic-juin-2024
+      date: "2024-06-11"
+      extrait: "en régime de croisière, quand la pleine montée en charge serait atteinte d'ici 4 à 5 ans, ces mesures représenteraient entre 4,0 Md€ et 5,4 Md€ de moindres dépenses par an."
+  derivation: >
+    Milieu de la fourchette de l'Unédic en régime de croisière (4,0 à 5,4 Md€) ; en 2027, 3,2 à 4,4 Md€. Les 3,6
+    Md€ cités par le gouvernement en 2024 (presse) n'ont pas de document primaire et se situent dans la
+    fourchette 2027. Projection 2032 : × facteur_pib_2027_2032 (même convention que les autres chiffrages de
+    l'Unédic).
+  limites: >
+    Estimation ex ante d'un décret suspendu après la dissolution ; la convention du 15 novembre 2024, en
+    vigueur, en a repris une partie (≈ 1,5 Md€ selon l'Unédic).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne). Attal (3,6, estimation gouvernementale
+      citée par la presse) et Retailleau (4,5, fourchette du candidat) promettent le retour aux mêmes règles :
+      alignés sur 4,7 projeté de 2027 à 2032.
+
+- id: prestations_residence_5_ans_economie
+  libelle: "Économie de la réservation des prestations de solidarité (RSA, prime d'activité, APL…) aux étrangers justifiant cinq ans de travail en France"
+  valeur: 2.6
+  bas: 0.6
+  haut: 3.1
+  unite: "Md€/an"
+  annee: "2024"
+  sources:
+    - titre: "Institut Montaigne, législatives 2024, « Réserver le bénéfice du RSA et des prestations de solidarités aux étrangers ayant au moins 5 ans d'équivalent temps plein travaillé en France »"
+      url: https://web.archive.org/web/20241219114525/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/reserver-le-benefice-du-rsa-et-des-prestations-de-solidarites-aux-etrangers-ayant-au-moins-5-ans-dequivalent-temps-plein-travaille-en-france/
+      date: "2024-06"
+      extrait: "Économie par an Par l'Institut Montaigne 2,6 Md€ 0,6 Md€ estimation basse 3 Md€ estimation haute"
+  derivation: >
+    Économie médiane 2,6 Md€ par an (encadré et analyse détaillée : « l'économie médiane serait donc de 2,6 Md€
+    par an ») ; bas 0,6 (0,58 dans l'analyse détaillée), haut 3,1 (« une estimation haute d'économie de 3,1 Md€
+    par an »). Le résumé de la même page écrit « 2,5 Md€ » : incohérence interne, non retenue. Projection 2032 :
+    × facteur_pib_2024_2032.
+  limites: >
+    Chiffrage tiers ; risque de censure constitutionnelle (borne basse des mesures à 0).
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne). Le Pen (2,6) et Retailleau (2,5, résumé
+      de la page) : alignés sur 2,6.
+
+- id: ame_aide_urgence_vitale_economie
+  libelle: "Économie de la suppression de l'AME remplacée par une aide d'urgence vitale"
+  valeur: 0.7
+  haut: 1.1
+  unite: "Md€/an"
+  annee: "2024"
+  sources:
+    - titre: "Institut Montaigne, législatives 2024, « Suppression de l'aide médicale d'État (AME) et remplacement par l'aide d'urgence vitale »"
+      url: https://web.archive.org/web/20241219114526/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/suppression-de-laide-medicale-detat-ame-et-remplacement-par-laide-durgence-vitale/
+      date: "2024-06"
+      extrait: "L'économie toutes administrations publiques confondues serait alors ramenée à 700 M€."
+  derivation: >
+    Lecture directe (base : AME de la LFI 2024, 1 208 M€, moins les soins maintenus et les reports vers
+    l'hôpital) ; haut : 1,1 Md€ (estimation haute de l'Institut). Projection 2032 : × facteur_pib_2024_2032.
+  verification:
+    statut: ok
+    par: "harmonisation-parametres"
+    date: "2026-09-30"
+    commentaire: >
+      Extrait relu dans la source le 30/09/2026 (vérification en ligne). Le Pen et Zemmour, même valeur.

@@ -733,15 +733,15 @@ leviers:
     axes:
       imposition-hauts-revenus-patrimoine: 2
     effet:
-      central: 10.98
-      bas: 4.25
-      haut: 15.42
+      central: 10.61
+      bas: 3.82
+      haut: 15.46
     reprend:
     - tondelier-ecologistes/successions-grands-heritages
     - melenchon-lfi/successions-heritage-maximal
     - melenchon-lfi/pacte-dutreil
-    calcul: Chiffrage Tondelier repris (10,98) ; LFI (héritage maximal de 12 M€ et pacte Dutreil limité) est chiffré à 8,89.
-      [Recalé le 2026-09-29 sur le chiffrage de tondelier-ecologistes.]
+    calcul: Chiffrage Tondelier repris (10,61) ; LFI (héritage maximal de 12 M€ et pacte Dutreil limité) est chiffré à 8,35.
+      [Recalé le 2026-09-29 sur le chiffrage de tondelier-ecologistes.] [Recalé le 2026-09-30 sur le chiffrage de tondelier-ecologistes.]
     candidats:
     - tondelier-ecologistes
     - melenchon-lfi
@@ -794,12 +794,12 @@ leviers:
     axes:
       imposition-hauts-revenus-patrimoine: 2
     effet:
-      central: 10.0
-      bas: 5.0
-      haut: 25.0
+      central: 6.3
+      bas: 3.9
+      haut: 24.2
     reprend:
     - tondelier-ecologistes/taxe-zucman
-    calcul: Chiffrage Tondelier de la taxe Zucman seule.
+    calcul: Chiffrage Tondelier de la taxe Zucman seule. [Recalé le 2026-09-30 sur le chiffrage de tondelier-ecologistes.]
     candidats: []
     montee:
       '2027': 0.0
@@ -834,13 +834,13 @@ leviers:
     axes:
       imposition-hauts-revenus-patrimoine: 2
     effet:
-      central: 13.1
-      bas: 6.3
-      haut: 30.1
+      central: 9.4
+      bas: 5.2
+      haut: 29.3
     reprend:
     - tondelier-ecologistes/isf-climatique
     - tondelier-ecologistes/taxe-zucman
-    calcul: Somme des deux mesures Tondelier.
+    calcul: Somme des deux mesures Tondelier. [Recalé le 2026-09-30 sur le chiffrage de tondelier-ecologistes.]
     candidats:
     - tondelier-ecologistes
     montee:
@@ -962,14 +962,15 @@ leviers:
     axes:
       soutien-entreprises: 1
     effet:
-      central: -12.73
-      bas: -15.91
-      haut: -12.73
+      central: -13.06
+      bas: -16.32
+      haut: -13.06
     reprend:
     - le-pen-rn/suppression-cfe
     - le-pen-rn/suppression-c3s
     - zemmour-reconquete/suppression-impots-production
-    calcul: Somme des deux mesures RN (12,73), identique au chiffrage central de Zemmour.
+    calcul: Somme des deux mesures RN (13,06), identique au chiffrage central de Zemmour. [Recalé le 2026-09-30 sur le chiffrage
+      de le-pen-rn.]
     candidats:
     - le-pen-rn
     - zemmour-reconquete
@@ -985,13 +986,13 @@ leviers:
     axes:
       soutien-entreprises: 1
     effet:
-      central: -6.53
+      central: -6.97
       bas: -8.71
-      haut: -6.24
+      haut: -6.65
     reprend:
     - retailleau-lr/suppression-c3s
     - retailleau-lr/cfe-exoneration-industrielle
-    calcul: Somme des deux mesures Retailleau.
+    calcul: Somme des deux mesures Retailleau. [Recalé le 2026-09-30 sur le chiffrage de retailleau-lr.]
     candidats:
     - retailleau-lr
     montee:
@@ -1054,12 +1055,12 @@ leviers:
     axes:
       soutien-entreprises: -1
     effet:
-      central: 4.09
+      central: 3.62
       bas: 0.0
-      haut: 4.09
+      haut: 3.62
     reprend:
     - tondelier-ecologistes/cir-recentrage
-    calcul: Chiffrage Tondelier repris.
+    calcul: Chiffrage Tondelier repris. [Recalé le 2026-09-30 sur le chiffrage de tondelier-ecologistes.]
     candidats:
     - tondelier-ecologistes
     montee:
@@ -1249,14 +1250,14 @@ leviers:
   - id: accise-electricite
     libelle: Annuler la hausse de l'accise sur l'électricité de 2024
     effet:
-      central: -4.0
-      bas: -5.97
-      haut: -4.0
+      central: -6.0
+      bas: -8.96
+      haut: -3.2
     reprend:
     - glucksmann-place-publique/annulation-hausse-accise-electricite-2024
     - melenchon-lfi/abolir-hausse-accise-electricite
     calcul: Chiffrage Glucksmann repris (4,0) ; LFI (suppression de la « taxe de 10 % » sur les factures d'énergie) est chiffré
-      à 6,0.
+      à 6,0. [Recalé le 2026-09-30 sur le chiffrage de glucksmann-place-publique.]
     candidats:
     - glucksmann-place-publique
     - melenchon-lfi
@@ -1289,12 +1290,12 @@ leviers:
     axes:
       transition-ecologique: -1
     effet:
-      central: -11.17
-      bas: -11.38
-      haut: -10.55
+      central: -11.38
+      bas: -11.59
+      haut: -10.75
     reprend:
     - zemmour-reconquete/accise-carburants-moins-un-tiers
-    calcul: Chiffrage Zemmour repris.
+    calcul: Chiffrage Zemmour repris. [Recalé le 2026-09-30 sur le chiffrage de zemmour-reconquete.]
     candidats:
     - zemmour-reconquete
     montee:
@@ -1539,13 +1540,14 @@ leviers:
     axes:
       protection-sociale: -1
     effet:
-      central: 4.44
-      bas: 3.6
-      haut: 5.0
+      central: 5.44
+      bas: 4.63
+      haut: 6.25
     reprend:
     - attal-renaissance/assurance-chomage-5md
     - philippe-horizons/chomage-12-mois-moins-50-ans
-    calcul: Chiffrage Attal repris (4,44) ; Philippe (12 mois pour les moins de 50 ans) est chiffré à 5,21.
+    calcul: Chiffrage Attal repris (5,44, même barème que Retailleau) ; Philippe (12 mois pour les moins de 50 ans) est chiffré à 5,21. [Recalé le 2026-09-30
+      sur le chiffrage de attal-renaissance.]
     candidats:
     - attal-renaissance
     - philippe-horizons
@@ -1666,14 +1668,14 @@ leviers:
     axes:
       conditions-etrangers: 1
     effet:
-      central: 4.48
+      central: 4.61
       bas: 0.0
       haut: 6.6
     reprend:
     - retailleau-lr/condition-residence-5-ans-aides
     - retailleau-lr/ame-reduction
     - retailleau-lr/hebergement-urgence-regularite-sejour
-    calcul: Somme des trois mesures Retailleau ; bas = 0.
+    calcul: Somme des trois mesures Retailleau ; bas = 0. [Recalé le 2026-09-30 sur le chiffrage de retailleau-lr.]
     candidats:
     - retailleau-lr
     montee:
@@ -2108,7 +2110,7 @@ leviers:
     unite: Md€
     md_par_unite: 1
     positions:
-      melenchon-lfi: 22.83
+      melenchon-lfi: 23.11
       philippe-horizons: 3.69
       glucksmann-place-publique: 4.49
     reprend:
@@ -2134,7 +2136,7 @@ leviers:
     unite: Md€
     md_par_unite: 1
     positions:
-      melenchon-lfi: 33.75
+      melenchon-lfi: 33.73
       tondelier-ecologistes: -2.23
       retailleau-lr: -0.88
       le-pen-rn: -0.12
