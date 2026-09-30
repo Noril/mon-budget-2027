@@ -121,7 +121,10 @@ def _md(x: float) -> str:
 
 def urne() -> str:
     """Les programmes en bulletins, dans l'ordre alphabétique des noms, comme sur les panneaux électoraux."""
-    donnees = json.loads((RACINE / "data" / "chiffrage.json").read_text(encoding="utf-8"))["programmes"]
+    fichier = RACINE / "data" / "chiffrage.json"
+    if not fichier.exists():  # chiffrage pas encore calculé (tests hors chaîne de données) : urne vide
+        return '<div class="urne"><ul class="bulletins"></ul></div>'
+    donnees = json.loads(fichier.read_text(encoding="utf-8"))["programmes"]
     progs = sorted(donnees, key=lambda a: a["candidat"].split(" ", 1)[-1])
     items = []
     for i, a in enumerate(progs):
