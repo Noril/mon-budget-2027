@@ -93,9 +93,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -42.9
-    bas: -62.8
-    haut: -35.6
+    central: -85.3
+    bas: -91.75
+    haut: -42.9
     montee_en_charge:
       '2027': 0
       '2028': 0.35
@@ -107,30 +107,31 @@ mesures:
     formule: -(retour_62 + age_60 + ecart_duree * duree_1an)
     parametres:
       retour_62:
-        valeur: 13.9
-        unite: Md€ courants par an (solde du système de retraite), en 2032
-        bareme: retraites_retour_62_ans_2032
+        valeur: 29.1
+        unite: Md€ courants par an (solde des APU), en 2032
+        bareme: retraites_retour_62_ans_2032_apu
       age_60:
-        valeur: 18
-        unite: Md€ courants 2032 par an, en régime de croisière
-        bareme: retraites_age_60_depuis_62
+        valeur: 37.7
+        unite: Md€ courants 2032 par an
+        bareme: retraites_age_60_depuis_62_apu
       ecart_duree:
         valeur: 2.5
         unite: années de durée d'assurance
         source: https://solidarites.gouv.fr/loi-de-financement-de-la-securite-sociale-2026-les-mesures-phares
         note: 170 trimestres (génération 1964, droit gelé) ramenés à 160 (40 annuités) ; la hausse vers 172 du calendrier
-          Touraine est déjà annulée dans retraites_retour_62_ans_2032
+          Touraine est déjà annulée dans retraites_retour_62_ans_2032_apu
       duree_1an:
-        valeur: 4.4
+        valeur: 7.4
         unite: Md€ courants 2032 par an et par année de durée
-        bareme: retraites_duree_assurance_1_an
+        bareme: retraites_duree_assurance_1_an_apu
         note: valeur 2035, majorant pour 2032 selon le barème
-    explication: 'Coût par rapport au droit voté (suspension jusqu''au 1/1/2028 puis reprise vers 64 ans), sur le solde du
-      système de retraite (convention commune n° 4) : annulation des mesures d''âge de 2023 (13,9 Md€ en 2032), passage de
-      62 à 60 ans (18 Md€) et durée ramenée à 40 annuités (2,5 ans × 4,4 Md€). Bas = hauts des barèmes sur le même périmètre
-      (15,8 + 25 + 2,5 × 8,8 = 62,8 ; le coût toutes APU avec effets d''activité, 33 Md€ selon FIPECO, est reporté dans
-      effets_retour et chiffrages_tiers) ; haut = bas des barèmes (11,4 + 13,2) + durée au central (11) = 35,6. Montée
-      en charge : deux générations par an environ à partir de 2028.'
+    explication: 'Coût par rapport au droit voté (suspension jusqu''au 1/1/2028 puis reprise vers 64 ans), sur le solde de
+      l''ensemble des administrations publiques (convention commune n° 4 : système de retraite, plus prélèvements des seniors
+      qui cessent de travailler, moins effets de bord sur les autres prestations) : annulation des mesures d''âge de 2023
+      (29,1 Md€ en 2032), passage de 62 à 60 ans (37,7 Md€) et durée ramenée à 40 annuités (2,5 ans × 7,4 Md€) = 85,3.
+      Bas = hauts des barèmes APU (31,2 + 40,3 + 2,5 × 8,1 = 91,75) ; haut = même calcul au périmètre du seul système de
+      retraite (13,9 + 18 + 2,5 × 4,4 = 42,9, ancien central). Montée en charge : deux générations par an environ à partir
+      de 2028.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 85.8
@@ -152,19 +153,18 @@ mesures:
     url: https://www.fipeco.fr/commentaire/Avancer%20ou%20reculer%20l'%C3%A2ge%20de%20d%C3%A9part%20en%20retraite
     date: '2024-06-25'
     commentaire: 'Effet de deux ans d''âge sur l''ensemble des APU, 0,9 point de PIB (× 3 621 Md€ en 2032), contre 0,5 point
-      pour les seuls régimes de retraite : ancien bas de la mesure, sorti de la fourchette (convention commune n° 4).'
-  effets_retour: 'Coût pour l''ensemble des APU, non compté (règle 3 : effets d''emploi des seniors) : FIPECO chiffre l''effet
-    total d''un retour de 64 à 62 ans à 0,9 point de PIB (≈ 33 Md€ en 2032) contre 0,5 point pour les seuls régimes ; la DG
-    Trésor chiffre le gain total de la réforme 2023 à 24,2 Md€ constants 2024 en 2030 contre 9,7 Md€ pour le système (Cour
-    des comptes, février 2025). Moindre emploi des seniors (baisse des cotisations et de l''impôt) non compté. LFI invoque
-    des effets de relance (multiplicateurs FR-BDF, « au bout de cinq ans, on sera en dessous des 3 % de déficit ») : non comptés
-    (règle 3).'
+      pour les seuls régimes de retraite : même périmètre que notre central depuis le 30/09 (convention commune n° 4), notre
+      chiffrage APU de la seule annulation de 2023 (29,1 Md€) en est proche.'
+  effets_retour: 'Périmètre APU compté depuis le 30/09 (convention commune n° 4) : les prélèvements que ne paient plus les
+    seniors qui cessent de travailler et les effets de bord sur les autres prestations sont dans le montant. Restent non
+    comptés les effets de bouclage macroéconomique. LFI invoque des effets de relance (multiplicateurs FR-BDF, « au bout de
+    cinq ans, on sera en dessous des 3 % de déficit ») : non comptés (règle 3).'
   confiance: moyenne
   verification:
     statut: corrige
-    par: passe-sources
-    date: '2026-09-29'
-    commentaire: 'Passe sources : recouvrement des trois composantes examiné. (1) retraites_retour_62_ans_2032 (Cnav, tableau
+    par: perimetre-apu
+    date: '2026-09-30'
+    commentaire: 'Périmètre APU (30/09) : barèmes _apu (retour à 62 ans 29,1 ; 62 → 60 ans 37,7 ; durée 7,4 par an) ; central −42,9 → −85,3 ; bas −62,8 → −91,75 (hauts des barèmes APU) ; haut −35,6 → −42,9 (périmètre du système). Passe sources : recouvrement des trois composantes examiné. (1) retraites_retour_62_ans_2032 (Cnav, tableau
       du rapport AN n° 613) annule les mesures d''âge de 2023 et l''accélération de la durée : on revient à 62 ans et au calendrier
       Touraine ; (2) retraites_age_60_depuis_62 (FIPECO, 0,5 point de PIB pour deux ans d''âge) est mesuré à durée requise inchangée
       ; (3) l''écart de durée (170 → 160 trimestres) est mesuré à âge inchangé (Cour des comptes, 3,9 Md€ en 2035 pour un an).

@@ -513,9 +513,9 @@ mesures:
     chiffrable: true
     nature: depense
     effet_solde_primaire:
-      central: -26.58
-      bas: -43.7
-      haut: -20.2
+      central: -53.03
+      bas: -65.53
+      haut: -26.58
       montee_en_charge:
         '2027': 0.0
         '2028': 0.4
@@ -527,9 +527,9 @@ mesures:
       formule: -(retour_62 + ecart_42 * duree_1an + part_beneficiaires * (age_60 + ecart_40 * duree_1an))
       parametres:
         retour_62:
-          valeur: 13.9
-          bareme: retraites_retour_62_ans_2032
-          unite: Md€ courants par an (solde du système de retraite), en 2032
+          valeur: 29.1
+          bareme: retraites_retour_62_ans_2032_apu
+          unite: Md€ courants par an (solde des APU), en 2032
         ecart_42:
           valeur: 0.75
           source: https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000028494794/2016-12-25
@@ -538,14 +538,14 @@ mesures:
             Calendrier de la loi du 20 janvier 2014 (rétabli par retraites_retour_62_ans_2032) : 171 trimestres pour les
             générations 1970 à 1972, qui ont 60 à 62 ans en 2032 ; ramenés à 168 (42 annuités) : 3 trimestres
         duree_1an:
-          valeur: 4.4
-          bareme: retraites_duree_assurance_1_an
+          valeur: 7.4
+          bareme: retraites_duree_assurance_1_an_apu
           unite: Md€ courants 2032 par an et par année de durée
           note: valeur 2035, majorant pour 2032 selon le barème
         age_60:
-          valeur: 18
-          bareme: retraites_age_60_depuis_62
-          unite: Md€ courants 2032 par an, en régime de croisière
+          valeur: 37.7
+          bareme: retraites_age_60_depuis_62_apu
+          unite: Md€ courants 2032 par an
         ecart_40:
           valeur: 2
           source: https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000028494794/2016-12-25
@@ -568,21 +568,21 @@ mesures:
             anticipé » pour carrière longue. Lecture : environ un quart à un tiers des générations 1966-1972 a commencé avant
             20 ans, dont une part part déjà à 60 ans dans la référence, plus un gain partiel pour les débuts entre 20 et 24
             ans et demi. Recoupement : Fondation IFRAP (2022), 9,6 Md€ en 2027 pour le seul volet « 60 ans avec 40 annuités
-            avant 20 ans », soit ≈ 11 Md€ en 2032, contre 3,3 + 9,4 = 12,7 Md€ ici.
+            avant 20 ans », soit ≈ 11 Md€ en 2032, contre 3,3 + 9,4 = 12,7 Md€ ici au périmètre du système (5,6 + 18,4 = 24 Md€ au périmètre APU).
       explication: >-
-        Reconstruit à partir des barèmes communs, comme les autres promesses de retraite (LFI, Écologistes, PS) : annulation
-        des mesures d'âge de 2023 nette de la suspension (13,9) ; durée ramenée de 171 à 168 trimestres pour tous (0,75 ×
-        4,4) ; pour les bénéficiaires du barème progressif, le passage de 62 à 60 ans et de 42 à 40 annuités, au prorata
-        de leur poids (0,35 × (18 + 2 × 4,4)) : 13,9 + 3,3 + 9,38 = 26,58 Md€. Le RN coûte ainsi moins que « 60 ans et 40
-        annuités pour tous » (LFI, 42,9 Md€), dont il est un sous-ensemble. Bas = hauts des barèmes (15,8 ; 25 ; 8,8 par an de durée) et part 0,5 : 15,8 +
-        0,75 × 8,8 + 0,5 × (25 + 2 × 8,8) = 43,7 ; haut = bas des barèmes (11,4 ; 13,2) avec la durée au central (4,4) et
-        part 0,25 : 11,4 + 3,3 + 0,25 × (13,2 + 8,8) = 20,2. Le chiffrage de l'Institut Montaigne (2024, ≈ 44,6 Md€ en
-        2032) n'est pas retenu : Montaigne applique à presque toute la génération le retour complet aux règles d'avant
-        2003 (« en revenant totalement sur les mesures d'âges et de durée de cotisation de 2003, 2010, 2014 pour ceux qui
-        ont commencé à travailler avant 20 ans, et partiellement pour ceux qui ont commencé à travailler après 20 ans, le
-        coût de la mesure est estimé à 26,5 Md€ », montant identique à son chiffrage 2022 du retour complet à 60 ans), ce
-        qui chiffrerait le RN plus cher que la retraite à 60 ans pour tous. Périmètre (convention commune 4) :
-        solde du système de retraite ; le coût pour l'ensemble des APU est décrit dans effets_retour.
+        Reconstruit à partir des barèmes communs, comme les autres promesses de retraite (LFI, Écologistes, PS), au
+        périmètre de l'ensemble des administrations publiques (convention commune 4) : annulation des mesures d'âge de
+        2023 nette de la suspension (29,1) ; durée ramenée de 171 à 168 trimestres pour tous (0,75 × 7,4 = 5,55) ; pour
+        les bénéficiaires du barème progressif, le passage de 62 à 60 ans et de 42 à 40 annuités, au prorata de leur
+        poids (0,35 × (37,7 + 2 × 7,4) = 18,38) : 53,03 Md€. Le RN coûte ainsi moins que « 60 ans et 40 annuités pour
+        tous » (LFI, 85,3 Md€), dont il est un sous-ensemble. Bas = hauts des barèmes APU (31,2 ; 40,3 ; 8,1 par an de
+        durée) et part 0,5 : 31,2 + 0,75 × 8,1 + 0,5 × (40,3 + 2 × 8,1) = 65,53 ; haut = même calcul au périmètre du seul
+        système de retraite (13,9 + 0,75 × 4,4 + 0,35 × (18 + 2 × 4,4) = 26,58, ancien central). Le chiffrage de
+        l'Institut Montaigne (2024, ≈ 44,6 Md€ en 2032, périmètre des régimes) n'est pas retenu : Montaigne applique à
+        presque toute la génération le retour complet aux règles d'avant 2003 (« en revenant totalement sur les mesures
+        d'âges et de durée de cotisation de 2003, 2010, 2014 pour ceux qui ont commencé à travailler avant 20 ans, et
+        partiellement pour ceux qui ont commencé à travailler après 20 ans, le coût de la mesure est estimé à 26,5 Md€ »,
+        montant identique à son chiffrage 2022 du retour complet à 60 ans).
     chiffrages_tiers:
       - auteur: Fondation IFRAP (présidentielle 2022, même dispositif)
         montant_md: -9.6
@@ -613,20 +613,19 @@ mesures:
         url: https://www.bvoltaire.fr/devant-le-medef-marine-le-pen-defend-son-epineuse-reforme-des-retraites/
         commentaire: >-
           « 9 milliards d'euros » selon la candidate ; proche du chiffrage IFRAP 2022 du seul volet carrières longues,
-          sans l'annulation de la reprise du calendrier de 2023 (13,9 Md€ en 2032).
+          sans l'annulation de la reprise du calendrier de 2023 (29,1 Md€ en 2032 au périmètre APU, 13,9 au périmètre du système).
     effets_retour: >-
-      Moindres dépenses de chômage et d'invalidité des seniors partant plus tôt et effets sur l'emploi : non comptés.
-      Coût pour l'ensemble des administrations publiques (convention commune 4, effets d'activité exclus du montant) :
-      nettement supérieur au coût pour le système de retraite ; la Cour des comptes (février 2025) chiffre une avancée
-      d'un an de l'âge à 5,8 Md€ pour le système mais 13 Md€ pour les finances publiques en 2035, et la DG Trésor le
-      gain de la réforme 2023 à 9,7 Md€ pour le système contre 24,2 Md€ toutes APU en 2030 ; FIPECO chiffre le passage
-      de 62 à 60 ans à 0,9 point de PIB (≈ 33 Md€ en 2032) toutes APU contre 0,5 point pour les seuls régimes.
+      Périmètre APU compté depuis le 30/09 (convention commune 4) : prélèvements que ne paient plus les seniors qui
+      partent plus tôt et moindres dépenses de chômage, d'indemnités journalières, d'invalidité et de minima (effets de
+      bord) sont dans le montant. Effets de bouclage macroéconomique non comptés.
     confiance: faible
     verification:
       statut: corrige
-      par: passe-sources
-      date: '2026-09-29'
+      par: perimetre-apu
+      date: '2026-09-30'
       commentaire: >-
+        Périmètre APU (30/09) : barèmes _apu (29,1 ; 37,7 ; 7,4 par an de durée) ; central −26,58 → −53,03, bas −43,7 →
+        −65,53 (hauts des barèmes APU, part 0,5), haut −20,2 → −26,58 (périmètre du système, part 0,35).
         Rechiffré sur les barèmes communs : central −44,56 → −26,58, bas −62,23 → −44,4, haut −21,9 → −17,65. L'ancien
         chiffrage reprenait l'Institut Montaigne 2024 (34,7 Md€ en 2027), qui applique le retour complet aux règles
         d'avant 2003 à la plupart des assurés et rendait le RN plus cher que la retraite à 60 ans pour tous de LFI
@@ -1572,6 +1571,7 @@ mesures:
       Programme 2024 : ministère dédié, carte Vitale biométrique, accès des organismes sociaux aux fichiers. Rendement
       incertain ; traité comme enveloppe peu documentée (fourchette basse proche de 0).
     chiffrable: true
+    economie_non_detaillee: true
     nature: recette
     effet_solde_primaire:
       central: 0.84
@@ -1791,6 +1791,7 @@ mesures:
       Annexe listant les organismes non publiée avec le PDF ; revoir le fonctionnement des agences cité au Medef 2026 et
       sur LCI le 16 septembre 2026 (« en tapant dans les agences qui ne servent à rien ou qui font doublon »).
     chiffrable: true
+    economie_non_detaillee: true
     nature: economie
     effet_solde_primaire:
       central: 9.12
@@ -1974,6 +1975,7 @@ mesures:
       date: '2025-10-23'
     precision: partielle
     chiffrable: true
+    economie_non_detaillee: true
     nature: economie
     effet_solde_primaire:
       central: 2.72
@@ -2025,6 +2027,7 @@ mesures:
       Transfert État → collectivités : l'effet sur le solde APU dépend de l'ajustement des collectivités (dépenses ou
       impôts locaux, ou déficit d'investissement). Lecture centrale : économie intégrale (montant du RN) ; bas = 0.
     chiffrable: true
+    economie_non_detaillee: true
     nature: economie
     effet_solde_primaire:
       central: 5.92
@@ -2085,6 +2088,7 @@ mesures:
       date: '2025-10-23'
     precision: vague
     chiffrable: true
+    economie_non_detaillee: true
     nature: economie
     effet_solde_primaire:
       central: 3.79
@@ -2144,6 +2148,7 @@ mesures:
       postal) 0,177 », « Suppression des CESER 0,040 », « Suppression du plan vélo 0,031 » (total RN 0,915). Au Medef
       2026 : « Le premier qui doit faire un effort, c'est l'État. Il doit baisser drastiquement son train de vie. »
     chiffrable: true
+    economie_non_detaillee: true
     nature: economie
     effet_solde_primaire:
       central: 1.08

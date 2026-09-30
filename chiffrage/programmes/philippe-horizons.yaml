@@ -160,6 +160,7 @@ mesures:
     6 (économie ciblée sur un périmètre nommé) : central = montant annoncé, plafonné par ce périmètre ; bas = 0 ; haut
     = central.'
   chiffrable: true
+  economie_non_detaillee: true
   nature: economie
   effet_solde_primaire:
     central: 55.34
@@ -275,9 +276,9 @@ mesures:
   chiffrable: true
   nature: economie
   effet_solde_primaire:
-    central: 1.48
+    central: 2.55
     bas: 0.0
-    haut: 4.43
+    haut: 8.25
     montee_en_charge:
       '2027': 0
       '2028': 0
@@ -296,12 +297,12 @@ mesures:
           immédiat après 43 ans (1 trimestre par génération, 1 à 2 trimestres en moyenne sur les départs de
           2032 : environ 0,4 an) ou après l''atteinte de 64 ans en 2033 (0). Bas 0 ; haut 0,75 an (3 trimestres, génération 1968)'
       gain_duree:
-        valeur: 5.9
-        unite: Md€ 2032 par année de durée requise en plus
-        bareme: retraites_duree_assurance_hausse_1_an
-        note: '« son allongement (44 ans au lieu de 43) rapporterait 5,2 Md€ en 2035 » (Cour des comptes, euros constants
-          2024) × 1,1386 (déflateur 2024→2032) ≈ 5,9 ; le barème retraites_duree_assurance_1_an (4,4) ne vaut que pour une
-          baisse de durée'
+        valeur: 10.2
+        unite: Md€ 2032 par année de durée requise en plus (solde des APU)
+        bareme: retraites_duree_assurance_hausse_1_an_apu
+        note: 'Cour des comptes : « le gain total serait de 9,7 Md€ pour l’ensemble des finances publiques en 2035 »
+          (euros constants 2024), moins les effets de bord sur les autres prestations, × 1,1386 ≈ 10,2 ; au périmètre du
+          système seul, 5,9 (retraites_duree_assurance_hausse_1_an)'
       annees_age:
         valeur: 0
         unite: année d'âge légal en plus de la référence en 2032
@@ -309,24 +310,25 @@ mesures:
         note: 'la référence (réforme 2023 reprise en 2028) atteint 64 ans pour la génération 1969 en 2033 ; le relèvement
           à 65 ans, annoncé « ensuite », ne touche pas les départs de 2032'
       gain_age:
-        valeur: 6.6
-        unite: Md€ 2032 par année d'âge
-        bareme: retraites_age_legal_1_an
-    explication: 'Seul l''allongement de la durée joue en 2032 : 0,25 an (convention) × 5,9 Md€ (barème
-      retraites_duree_assurance_hausse_1_an) = 1,48 Md€ sur le solde du système de retraite. Bas 0 : allongement commencé
-      après 2032. Haut : 0,75 an de durée en plus (3 trimestres) × 5,9 = 4,43 Md€ ; l''âge n''ajoute rien même dans le haut. À long terme (65 ans et 45 ans pleinement appliqués, vers 2040),
-      l''effet est bien supérieur : un an d''âge (6,6 Md€) plus deux ans de durée (≈ 11,8 Md€), avant exceptions (« un
-      Français sur trois » avant 65 ans).'
-  effets_retour: 'Effet sur l''emploi des seniors et les recettes hors système de retraite (DG Trésor : 7,2 Md€ en 2035 pour
-    un an d''âge) : non compté. Convention commune 4 : le montant porte sur le solde du système de retraite ; pour
-    l''ensemble des administrations publiques, la Cour des comptes (février 2025) chiffre un recul d''un an de l''âge
-    d''ouverture des droits jusqu''à 17,7 Md€ en 2035, contre 5,8 Md€ pour le seul système.'
+        valeur: 18.8
+        unite: Md€ 2032 par année d'âge (solde des APU)
+        bareme: retraites_age_legal_hausse_1_an_apu
+    explication: 'Seul l''allongement de la durée joue en 2032 : 0,25 an (convention) × 10,2 Md€ (barème
+      retraites_duree_assurance_hausse_1_an_apu) = 2,55 Md€ sur le solde de l''ensemble des APU (convention commune 4 ; 1,48
+      Md€ au périmètre du seul système de retraite). Bas 0 : allongement commencé après 2032 (plus défavorable que le
+      périmètre système). Haut : 0,75 an de durée en plus (3 trimestres) × 11,0 (haut du barème APU) = 8,25 Md€ ; l''âge
+      n''ajoute rien même dans le haut. À long terme (65 ans et 45 ans pleinement appliqués, vers 2040), l''effet est bien
+      supérieur : un an d''âge (18,8 Md€ APU) plus deux ans de durée (≈ 20,4 Md€ APU), avant exceptions (« un Français sur
+      trois » avant 65 ans).'
+  effets_retour: 'Périmètre APU compté depuis le 30/09 (convention commune 4) : prélèvements sur les seniors qui restent en
+    emploi et effets de bord sur les autres prestations sont dans le montant. Effets de bouclage macroéconomique non
+    comptés.'
   confiance: faible
   verification:
     statut: corrige
-    par: passe-sources
-    date: '2026-09-29'
-    commentaire: "Passe sources : le candidat a publié sa réforme le 29 septembre 2026 (65 ans et 45 annuités en moins de dix ans, après reprise de la réforme 2023) ; citation remplacée (franceinfo/AFP, verbatim de la vidéo ; page du site relue, sans chiffres). Le chiffrage précédent (accélération de l'âge à 6 mois par génération dès 2028, 0,5 an × 6,6 = 3,3 Md€) ne correspond plus à l'annonce : l'âge au-delà de 64 ans ne joue pas en 2032. Remplacé par l'allongement de durée (extrait de la Cour des comptes relu) avec une convention de calendrier : central 3,3 → 1,48, bas 0, haut 7,9 → 4,44. Trace précédente (verificateur-sonnet, 29/09) : statut conteste, calendrier d'accélération non sourcé. Recalé sur les barèmes sourcés du 29/09 : gain de durée renvoyé au nouveau barème retraites_duree_assurance_hausse_1_an (5,92 recopié → 5,9) ; central 1,48 inchangé à l'arrondi (1,475), haut 4,44 → 4,43."
+    par: perimetre-apu
+    date: '2026-09-30'
+    commentaire: "Périmètre APU (30/09) : barème retraites_duree_assurance_hausse_1_an_apu (10,2 ; haut 11,0) ; central 1,48 → 2,55 ; bas 0 inchangé (lecture d'un allongement après 2032, plus défavorable que le périmètre système, 1,48) ; haut 4,43 → 8,25. Passe sources : le candidat a publié sa réforme le 29 septembre 2026 (65 ans et 45 annuités en moins de dix ans, après reprise de la réforme 2023) ; citation remplacée (franceinfo/AFP, verbatim de la vidéo ; page du site relue, sans chiffres). Le chiffrage précédent (accélération de l'âge à 6 mois par génération dès 2028, 0,5 an × 6,6 = 3,3 Md€) ne correspond plus à l'annonce : l'âge au-delà de 64 ans ne joue pas en 2032. Remplacé par l'allongement de durée (extrait de la Cour des comptes relu) avec une convention de calendrier : central 3,3 → 1,48, bas 0, haut 7,9 → 4,44. Trace précédente (verificateur-sonnet, 29/09) : statut conteste, calendrier d'accélération non sourcé. Recalé sur les barèmes sourcés du 29/09 : gain de durée renvoyé au nouveau barème retraites_duree_assurance_hausse_1_an (5,92 recopié → 5,9) ; central 1,48 inchangé à l'arrondi (1,475), haut 4,44 → 4,43."
 - id: retraites-capitalisation-10-15pct
   libelle: Créer un pilier de capitalisation représentant 10 à 15 % des pensions d'ici 15 ans
   domaine: retraites

@@ -481,6 +481,7 @@ mesures:
       décomposition. Le plafond porte aussi sur des aides locales et en nature ; l'ajustement se fait par minoration
       du RSA/RIA. Chiffrer séparément le plafonnement (nombre de ménages au-dessus du plafond) et la fraude évitée.
     chiffrable: true
+    economie_non_detaillee: true
     nature: economie
     effet_solde_primaire:
       central: 0.84
@@ -900,9 +901,9 @@ mesures:
     chiffrable: true
     nature: economie
     effet_solde_primaire:
-      central: 4.19
-      bas: -4.95
-      haut: 13.33
+      central: 8.76
+      bas: -11.1
+      haut: 25.25
       montee_en_charge:
         '2027': 0
         '2028': 0.2
@@ -911,7 +912,7 @@ mesures:
         '2031': 0.8
         '2032': 1
     calcul:
-      formule: (economie_cumulee/somme_profil - (age_reference - age_minimal)*retraites_age_legal_1_an)/2
+      formule: (economie_cumulee/somme_profil - (age_reference - age_minimal)*retraites_age_legal_1_an)/2 * age_apu/retraites_age_legal_1_an
       parametres:
         economie_cumulee:
           valeur: 40
@@ -926,6 +927,12 @@ mesures:
         retraites_age_legal_1_an:
           valeur: 6.6
           bareme: retraites_age_legal_1_an
+          note: périmètre du seul système de retraite
+        age_apu:
+          valeur: 13.8
+          bareme: retraites_age_legal_1_an_apu
+          unite: Md€ courants 2032 par an et par année d'âge (solde des APU)
+          note: le rapport age_apu / retraites_age_legal_1_an (2,09) porte au périmètre APU le chiffrage au périmètre du système
         age_reference:
           valeur: 63.75
           bareme: retraites_age_legal_reference_2032
@@ -941,23 +948,27 @@ mesures:
         7 % par an même à durée complète (économie), dont l''ampleur dépend du comportement de départ non documenté.
         Repère : un recul effectif de l''âge du taux plein de 63 ans 9 mois à 65 ans pour tous vaudrait au plus 1,25 an
         × 6,6 Md€ ≈ 8,3 Md€ en 2032, avant le coût du taux plein automatique à 65 ans au lieu de 67. Effets opposés : l''âge minimal de 63 ans est plus bas que l''âge de référence
-        en 2032 (coût de 0,75 an × 6,6 Md€, borne basse si la décote de 7 %/an ne dissuade pas les départs) ; le taux
+        en 2032 (coût de 0,75 an × 6,6 Md€, borne basse au périmètre du système si la décote de 7 %/an ne dissuade pas les départs) ; le taux
         plein repoussé à 65 ans pour tous avec une décote de 7 %/an (au lieu de 5 %) produit des économies, mais le
-        taux plein automatique à 65 ans sans condition de durée (au lieu de 67 ans) coûte. Haut : l''annonce du candidat
+        taux plein automatique à 65 ans sans condition de durée (au lieu de 67 ans) coûte. Haut au périmètre du système : l''annonce du candidat
         (40 Md€ cumulés sur cinq ans, soit 13,3 Md€ en 2032 avec une montée linéaire). Central : milieu de la fourchette,
-        à remplacer par une simulation. Périmètre (convention commune 4) : solde du système de retraite.'
+        à remplacer par une simulation. Périmètre APU (convention commune 4, depuis le 30/09) : le milieu au périmètre
+        du système (4,19) est porté à l''ensemble des administrations publiques par le rapport des barèmes d''un an d''âge
+        (13,8 / 6,6) : 8,76. Bas : coût de l''âge minimal au haut du barème APU (0,75 × 14,8 = 11,1). Haut : recul effectif
+        du taux plein de 63 ans 9 mois à 65 ans pour tous, au haut du barème APU des hausses (1,25 × 20,2 = 25,25), qui
+        plafonne l''annonce du candidat portée au même périmètre (13,3 × 2,09 ≈ 27,9).'
     effets_retour: >-
-      Effet pour l'ensemble des administrations publiques (convention commune 4, effets d'emploi exclus du montant) :
-      la Cour des comptes (février 2025) chiffre une avancée d'un an de l'âge à 13 Md€ pour les finances publiques
-      (5,8 Md€ pour le système de retraite) et un recul jusqu'à 17,7 Md€ en 2035. Le report de l'âge effectif induit par
-      la décote de 7 % par an relèverait surtout les prélèvements sur l'emploi des seniors, non comptés.
+      Périmètre APU compté depuis le 30/09 (convention commune 4) : prélèvements sur l'emploi des seniors et effets de
+      bord sur les autres prestations sont dans le montant. Effets de bouclage macroéconomique non comptés.
     confiance: faible
     verification:
       statut: conteste
-      par: passe-sources
-      date: "2026-09-29"
+      par: perimetre-apu
+      date: "2026-09-30"
       commentaire: >-
-        Passe sources (29/09/2026) : aucune simulation COR/Cnav ni chiffrage LR détaillé trouvé ; seule source du
+        Périmètre APU (30/09) : central 4,19 → 8,76 (milieu au périmètre système × 13,8 / 6,6) ; bas −4,95 → −11,1
+        (0,75 × 14,8, haut du barème APU) ; haut 13,33 → 25,25 (1,25 × 20,2). Statut conteste maintenu : central
+        conventionnel sans simulation. Passe sources (29/09/2026) : aucune simulation COR/Cnav ni chiffrage LR détaillé trouvé ; seule source du
         candidat, l'entretien LCI (vidéo) rapporté par franceinfo, LCP, JDD ; calendrier, génération et durée
         d'assurance non précisés. Contestation documentée : (a) bas −4,95 Md€ = âge minimal de 63 ans contre 63 ans
         9 mois de référence en 2032 (0,75 an × 6,6 Md€), décote sans effet sur les départs ; (b) haut +13,3 Md€ =
@@ -2368,6 +2379,7 @@ mesures:
       support: programme (livret IA, p. 28)
     precision: partielle
     chiffrable: true
+    economie_non_detaillee: true
     nature: economie
     effet_solde_primaire:
       central: 4.0
@@ -2414,6 +2426,7 @@ mesures:
     precision: partielle
     interpretation: Recouvrement possible avec les 10 Md€ « CSU et lutte contre la fraude » du livret Travail gagnant ; à dédoublonner.
     chiffrable: true
+    economie_non_detaillee: true
     nature: recette
     effet_solde_primaire:
       central: 2.66

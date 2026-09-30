@@ -13,7 +13,9 @@
 #   employeurs (transferts internes aux APU), nette de retour_prelevements_salaires_publics (0,28) ; les coûts
 #   « chargés » (cout_*_charge, CAS compris) sont des coûts budgétaires, les coûts pour le solde sont cout_*_apu ;
 # - pensions : effet net de retour_prelevements_pensions (0,14 ; 0,08 pour les petites pensions ; 0 pour les
-#   minima non imposables) ; retraites (âge, durée) : périmètre du système de retraite, effets d'emploi exclus ;
+#   minima non imposables) ; retraites (âge, durée) : barèmes `_apu` (ensemble des administrations publiques,
+#   prélèvements sur l'emploi des seniors et autres prestations compris) au central, barèmes système pour la borne
+#   qui réduit l'effet (haut d'un coût, bas d'une économie ; convention commune 4, 30/09/2026) ;
 # - indexation sur l'inflation à droit constant 2027-2032 : inflation_cumulee_2027_2032 (déflateur, +11,03 %) ;
 # - sources récupérées et extraits relus le 29 septembre 2026 ; budget.gouv.fr bloquait alors les robots : quelques
 #   URL de documents budgétaires pointent vers la page d'index de l'exercice (signalé dans `limites`).
@@ -1860,6 +1862,257 @@
       Md€, bas) et chiffrage 2010 du ministère du travail repris par le Sénat (mesure « 62 ans » : 16,7 Md€ de 2008
       en 2020, ≈ 25 Md€ en 2032, haut ; étude d'impact AN n° 2760 en recoupement). Valeur 18 inchangée (milieu, égal
       à FIPECO) ; bas 13 → 13,2 ; haut 33 → 25 (l'ancien haut était un effet APU, exclu par la règle 3).
+
+# ----------------------------------------------------------------------------------------------------
+# Retraites (âge, durée) au périmètre de l'ensemble des administrations publiques (convention commune 4, 30/09/2026)
+# Méthode commune : effet sur le système de retraite (A pensions + B cotisations) + autres recettes publiques (C,
+# prélèvements sur l'emploi des seniors) − effets de bord sur les autres prestations (chômage, indemnités
+# journalières, invalidité, minima). Cour des comptes 2025, tableaux n° 6 et 7 (Md€ constants 2024, exercice 2035,
+# données DG Trésor et Cnav) ; effets de bord : 20 % des moindres pensions (Drees et Dares, réforme de 2010, cités par
+# la Cour) au central, 50 % dans le bas (DG Trésor, COR janvier 2022 : 0,2 point de PIB pour 0,4 point de pensions),
+# aucun dans le haut. Conversion en euros 2032 : × 1,1386 (déflateur FMI 2032/2024), comme les barèmes système.
+# ----------------------------------------------------------------------------------------------------
+
+- id: retraites_age_legal_1_an_apu
+  libelle: "Effet sur le solde de l'ensemble des administrations publiques d'une BAISSE d'un an de l'âge d'ouverture des droits (64 à 63 ans), en 2032"
+  valeur: 13.8
+  bas: 12.4
+  haut: 14.8
+  unite: Md€ courants 2032 par an et par année d'âge (coût d'une baisse)
+  annee: "2032 (converti depuis 2035 en euros constants 2024)"
+  sources:
+    - titre: "Cour des comptes, Situation financière et perspectives du système de retraites, février 2025, tableau n° 6 (Md€ constants 2024, exercice 2035)"
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "Un arrêt de la progression de l’âge d’ouverture des droits à 63 ans aurait un coût complet de 13 Md€ sur les finances publiques pour l’exercice 2035. Il se composerait d’une dégradation du solde des retraites de 5,8 Md€ et d’une perte de recettes publiques , hors cotisations retraites, de 7,2 Md€."
+    - titre: "Cour des comptes, idem, tableau n° 6 (décomposition, scénario AOD 63 ans génération 1964)"
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "Dépenses de retraites tous régimes (A) - 4,2 [...] Cotisations retraites tous régimes (B) - 1,6 [...] Effet annuel sur le système de retraites (A+B) - 5,8 [...] Autres recettes publiques (C) - 7,2 [...] Effet annuel sur l’ensemble des finances publiques (A + B + C) - 13,0"
+    - titre: "Cour des comptes, idem, chapitre II (effets de bord sur les autres prestations, Drees et Dares)"
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "Leurs travaux concluent que l’augmentation des prestations sociales et d’assurance chômage serait de l’ordre de 20 % des économies brutes attendues pour le système de retraites. 52 % de cette augmentation serait liée aux prestations d’assurance chômage, 36 % aux indemnités journalières et 12 % aux minima sociaux"
+    - titre: "FIPECO (F. Ecalle), Avancer ou reculer l'âge de départ en retraite, 25 juin 2024 (note DG Trésor au COR, janvier 2022)"
+      url: https://www.fipeco.fr/commentaire/Avancer%20ou%20reculer%20l'%C3%A2ge%20de%20d%C3%A9part%20en%20retraite
+      date: "2024-06-25"
+      extrait: "Les autres prestations sociales (maladie, invalidité, chômage, minima sociaux) augmenteraient à hauteur de 0,2 point de PIB, surtout parce que leurs bénéficiaires les percevraient deux années de plus. La hausse des prélèvements obligatoires autres que les cotisations de retraite représenterait 0,6 point de PIB. Le solde des administrations publiques serait donc amélioré de 0,9 point de PIB (environ 25 Md€ de 2023) dont la moitié pour les régimes de retraite."
+    - titre: "Gouvernement, Rapport sur les objectifs et les effets du projet de réforme des retraites (PLFRSS 2023), janvier 2023, note 14"
+      url: https://www.legifrance.gouv.fr/contenu/Media/files/autour-de-la-loi/legislatif-et-reglementaire/actualite-legislative/2023/plfrss_ecox2300575l_rapport_annexe_cm_23.01.2023_0.pdf
+      date: "2023-01-23"
+      extrait: "Par exemple, pour un r elèvement de l’AOD de 2 ans au rythme de 3 mois par génération, la Direction générale du Trésor estime, suivant une approche comptable (supposant une réaction unitaire du PIB à l’emploi), la hausse de recettes hors retraites à 0,6 point de PIB à 10 ans, malgré 0,2 point de PIB d’effets de bord sur les autres prestations"
+  derivation: >
+    Central : 13,0 Md€ (A + B + C, tableau n° 6) moins les effets de bord sur les autres prestations, 20 % des
+    moindres pensions (0,2 × 4,2 = 0,84 : les assurés qui partent plus tôt sortent du chômage, des indemnités
+    journalières, de l'invalidité et des minima) = 12,16 Md€ constants 2024, × 1,1386 ≈ 13,8 Md€ 2032. Bas : effets
+    de bord de la DG Trésor (0,2 point de PIB pour 0,4 point de pensions, soit 50 % : 13,0 − 2,1 = 10,9) × 1,1386 ≈
+    12,4. Haut : 13,0 × 1,1386 ≈ 14,8, sans effet de bord (les « autres recettes » du tableau n° 6 sont des
+    recettes). Rapport au périmètre du système (retraites_age_legal_1_an, 6,6) : 2,10 au central (1,88 à 2,24),
+    utilisé pour porter les barèmes système sans équivalent publié au périmètre APU. Montée en charge à l'horizon
+    2032 : l'effet d'une variation d'âge monte vite et culmine vers 2032 (profil Cnav des mesures d'âge de 2023 :
+    15,7 Md€ en 2032, 14,8 en 2035) ; le point 2035 vaut donc pour 2032, non la maturité (2045 : 4,3 Md€ sur le
+    système seul, autres recettes non chiffrées).
+  limites: >
+    Les autres recettes publiques (C) viennent d'une approche comptable de la DG Trésor (emploi des seniors supposé
+    rester en emploi jusqu'au nouvel âge, élasticité unitaire du PIB à l'emploi) : c'est un effet direct de la mesure
+    sur les prélèvements, retenu depuis le 30/09/2026 (convention commune 4), pas un bouclage macroéconomique (les
+    modèles Mésange et e-mod, qui ajoutent chômage et salaires à dix ans, donnent moins). Les effets de bord sur les
+    prestations ne sont pas publiés pour ce scénario : proportion de la réforme de 2010. Effet brut de l'impôt sur
+    les pensions (retour_prelevements_pensions) : inclus dans C pour la DG Trésor, pas de retour à ajouter.
+  verification:
+    statut: ok
+    par: "perimetre-apu"
+    date: "2026-09-30"
+    commentaire: >
+      Extraits relus dans le PDF de la Cour (tableau n° 6, p. 72-73 ; chapitre II, p. 67), le rapport annexé au
+      PLFRSS 2023 (note 14) et FIPECO. 13,0 − 0,84 = 12,16 ; × 1,1386 = 13,85.
+
+- id: retraites_age_legal_hausse_1_an_apu
+  libelle: "Effet sur le solde de l'ensemble des administrations publiques d'une HAUSSE d'un an de l'âge d'ouverture des droits (64 à 65 ans), en 2032"
+  valeur: 18.8
+  bas: 16.7
+  haut: 20.2
+  unite: Md€ courants 2032 par an et par année d'âge (gain d'une hausse)
+  annee: "2032 (converti depuis 2035 en euros constants 2024)"
+  sources:
+    - titre: "Cour des comptes, Situation financière et perspectives du système de retraites, février 2025, tableau n° 6 (variante symétrique, générations 1964 à 1968)"
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "17,7 Md€ pour l’ensemble des finances publiques sur l’exercice 2035. Il se composerait d’une amélioration du solde du système de retraite de 8,4 Md€ et d’un surcroît de recettes publiques, hors cotisations retraites, de 9,3 Md€."
+    - titre: "Cour des comptes, idem, tableau n° 6 (décomposition)"
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "Dépenses de retraites tous régimes (A) - 4,2 + 3,5 + 6,0 Cotisations retraites tous régimes (B) - 1,6 + 1,2 + 2,4 Effet annuel sur le système de retraites (A+B) - 5,8 + 4,7 + 8,4 Autres recettes publiques (C) - 7,2 + 4,7 + 9,3 Effet annuel sur l’ensemble des finances publiques (A + B + C) - 13,0 + 9,4 + 17,7"
+    - titre: "Cour des comptes, idem, chapitre II (effets de bord, Drees et Dares)"
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "Leurs travaux concluent que l’augmentation des prestations sociales et d’assurance chômage serait de l’ordre de 20 % des économies brutes attendues pour le système de retraites."
+  derivation: >
+    Variante symétrique de la Cour (65 ans atteint par la génération 1968, montée en charge achevée avant 2035) :
+    17,7 Md€ moins les effets de bord (20 % de 6,0 Md€ de moindres pensions = 1,2) = 16,5 Md€ constants 2024 ×
+    1,1386 ≈ 18,8 Md€ 2032. Bas : effets de bord à 50 % (DG Trésor), 17,7 − 3,0 = 14,7 × 1,1386 ≈ 16,7. Haut :
+    17,7 × 1,1386 ≈ 20,2. Même méthode que retraites_age_legal_1_an_apu ; l'asymétrie (hausse 18,8, baisse 13,8)
+    est celle de la Cour.
+  limites: >
+    Le scénario central de la Cour (65 ans pour les générations 1968 à 1972, début en 2032) ne rapporte que 9,4 Md€
+    en 2035 (4,7 pour le système), parce qu'il n'est pas monté en charge : le calendrier se traite dans la mesure
+    (écart d'âge atteint en 2032, montée en charge), pas dans le barème. Au périmètre du système seul, les mesures
+    de hausse utilisent retraites_age_legal_1_an (6,6).
+  verification:
+    statut: ok
+    par: "perimetre-apu"
+    date: "2026-09-30"
+    commentaire: >
+      Tableau n° 6 et p. 73 relus : 17,7 = 8,4 + 9,3 ; A = 6,0. 17,7 − 1,2 = 16,5 ; × 1,1386 = 18,79.
+
+- id: retraites_duree_assurance_1_an_apu
+  libelle: "Coût pour le solde de l'ensemble des administrations publiques d'une BAISSE d'un an (4 trimestres) de la durée d'assurance requise, en 2032"
+  valeur: 7.4
+  bas: 6.3
+  haut: 8.1
+  unite: Md€ courants 2032 par an et par année de durée
+  annee: "2032 (converti depuis 2035 en euros constants 2024)"
+  sources:
+    - titre: "Cour des comptes, Situation financière et perspectives du système de retraites, février 2025, tableau n° 7 (Md€ constants 2024, exercice 2035)"
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "Une diminution d’un an de la durée d’assurance requise aurait un coût complet de 7,1 Md€ pour les finances publiques sur l’exercice 2035. Il se composerait d’une dégradation du solde des retraites de 3,9 Md€ et d’une perte de recettes publiques, hors cotisations retraites, de 3,2 Md€."
+    - titre: "Cour des comptes, idem, tableau n° 7 (décomposition, DAR 168 trimestres génération 1966)"
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "Dépenses de retraites tous régimes (A) - 3,1 + 3,9 Cotisations retraites tous régimes (B) - 0,8 + 1,3 Effet annuel sur le système de retraites (A + B) - 3,9 + 5,2 Autres recettes publiques (C) - 3,2 + 4,5 Effet annuel sur l’ensemble des finances publiques (A + B + C) - 7,1 + 9,7"
+  derivation: >
+    Central : 7,1 Md€ moins les effets de bord (20 % de 3,1 Md€ de pensions = 0,62) = 6,48 Md€ constants 2024 ×
+    1,1386 ≈ 7,4 Md€ 2032. Bas : effets de bord à 50 % (7,1 − 1,55 = 5,55) × 1,1386 ≈ 6,3. Haut : 7,1 × 1,1386 ≈
+    8,1. Horizon 2032 : l'effet d'une variation de durée croît avec le temps (système seul : 3,9 Md€ en 2035, 7,7 en
+    2045) ; le point 2035 est retenu, comme pour le barème système, et c'est plutôt un majorant pour 2032 (pas la
+    maturité).
+  limites: >
+    Les effets de bord sur les prestations sont transposés des mesures d'âge (aucune source pour la durée). Barème
+    linéaire : pour plusieurs années de durée (40 annuités), c'est un ordre de grandeur.
+  verification:
+    statut: ok
+    par: "perimetre-apu"
+    date: "2026-09-30"
+    commentaire: >
+      Tableau n° 7 et p. 75 relus : 7,1 = 3,9 + 3,2 ; A = 3,1. 7,1 − 0,62 = 6,48 ; × 1,1386 = 7,38.
+
+- id: retraites_duree_assurance_hausse_1_an_apu
+  libelle: "Gain pour le solde de l'ensemble des administrations publiques d'une HAUSSE d'un an (4 trimestres) de la durée d'assurance requise, en 2032"
+  valeur: 10.2
+  bas: 8.8
+  haut: 11.0
+  unite: Md€ courants 2032 par an et par année de durée
+  annee: "2032 (converti depuis 2035 en euros constants 2024)"
+  sources:
+    - titre: "Cour des comptes, Situation financière et perspectives du système de retraites, février 2025, tableau n° 7"
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "Dans le cas d’un relèvement à 176 trimestres, le gain total serait de 9,7 Md€ pour l’ensemble des finances publiques en 2035. Il se compose rait d’une amélioration du solde du système de retraite de 5,2 Md€ et d’un surcroît de recettes publiques, hors cotisations retraites, de 4,5 Md€."
+    - titre: "Cour des comptes, idem, tableau n° 7 (décomposition, DAR 176 trimestres générations 1969 à 1973)"
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "Dépenses de retraites tous régimes (A) - 3,1 + 3,9 Cotisations retraites tous régimes (B) - 0,8 + 1,3 Effet annuel sur le système de retraites (A + B) - 3,9 + 5,2 Autres recettes publiques (C) - 3,2 + 4,5 Effet annuel sur l’ensemble des finances publiques (A + B + C) - 7,1 + 9,7"
+  derivation: >
+    Central : 9,7 Md€ moins les effets de bord (20 % de 3,9 Md€ de moindres pensions = 0,78) = 8,92 Md€ constants
+    2024 × 1,1386 ≈ 10,2 Md€ 2032. Bas : effets de bord à 50 % (9,7 − 1,95 = 7,75) × 1,1386 ≈ 8,8. Haut : 9,7 ×
+    1,1386 ≈ 11,0. Point 2035 retenu pour 2032, comme pour le barème système (majorant, l'effet croissant avec le
+    temps : 8 Md€ en 2045 sur le système seul).
+  limites: >
+    Effets de bord transposés des mesures d'âge. Au périmètre du système seul : retraites_duree_assurance_hausse_1_an
+    (5,9).
+  verification:
+    statut: ok
+    par: "perimetre-apu"
+    date: "2026-09-30"
+    commentaire: >
+      Tableau n° 7 et p. 75 relus : 9,7 = 5,2 + 4,5 ; A = 3,9. 9,7 − 0,78 = 8,92 ; × 1,1386 = 10,16.
+
+- id: retraites_retour_62_ans_2032_apu
+  libelle: "Coût en 2032, pour l'ensemble des administrations publiques, de l'annulation des mesures d'âge de la réforme 2023 (retour à 62 ans et au calendrier Touraine), par rapport au droit au 1er janvier 2027"
+  valeur: 29.1
+  bas: 26.1
+  haut: 31.2
+  unite: Md€ courants par an (solde des APU), en 2032
+  annee: "2032"
+  sources:
+    - titre: "Assemblée nationale, rapport n° 613 (Ugo Bernalicis), 20 novembre 2024 (tableau transmis par la Cnav)"
+      url: https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B0613.raw
+      date: "2024-11-20"
+      extrait: "Effet de relèvement des mesures d’âge sur les masses de prestations de droit direct (hors aspa), de cotisations sociales (hors cotisation équilibre employeur) et sur le solde financier en milliards d’euros courants [...] Solde 3,4 6,6 8,6 10,4 11,7 12,6 14,2 15,7 14,8 11,1"
+    - titre: "Cour des comptes, Situation financière et perspectives du système de retraites, février 2025, tableau n° 6"
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "Un arrêt de la progression de l’âge d’ouverture des droits à 63 ans aurait un coût complet de 13 Md€ sur les finances publiques pour l’exercice 2035. Il se composerait d’une dégradation du solde des retraites de 5,8 Md€ et d’une perte de recettes publiques , hors cotisations retraites, de 7,2 Md€."
+    - titre: "Cour des comptes, idem, tableau n° 5 (réforme de 2023, 2030, Md€ constants 2024)"
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "La réforme de 2023 devrait ainsi améliorer la situation financière de l’ensemble des administrations publiques , hors système de retraites , de 14,5  Md€ selon la direction générale du Trésor et de 8,2 Md€ selon Rexecode. Le gain total pour le système de retraites et les autres a dministrations publiques en 2030 est donc estimé à 2 4,2 Md€ par la direction générale du Trésor et à 20 Md€ par Rexecode."
+    - titre: "COR, Rapport annuel juin 2026, Synthèse (coût de la suspension)"
+      url: https://www.cor-retraites.fr/sites/default/files/2026-06/Synth%C3%A8se_RA_2026_0.pdf
+      date: "2026-06"
+      extrait: "ainsi que la suspension de la réforme des retraites de 2023 (coût de 1,8 milliard d’euros en moyenne en année pleine jusqu’en 2032)"
+  derivation: >
+    Barème système retraites_retour_62_ans_2032 (Cnav 15,7 Md€ en 2032 moins la suspension 1,8 = 13,9) porté au
+    périmètre APU par le rapport APU / système des mesures d'âge de retraites_age_legal_1_an_apu : 12,16 / 5,8 = 2,10
+    au central (effets de bord à 20 %), 1,88 dans le bas (effets de bord à 50 %), 2,24 dans le haut (sans effet de
+    bord). 13,9 × 2,10 ≈ 29,1 Md€ ; bas 13,9 × 1,88 ≈ 26,1 ; haut 13,9 × 2,24 ≈ 31,2. La suspension déjà votée est
+    déduite au même rapport. Recoupement : deux ans d'âge au barème APU (2 × 13,8) + ≈ 0,5 an de durée (0,5 × 7,4) −
+    suspension (1,8 × 2,10) ≈ 27,5 Md€ ; DG Trésor (réforme de 2023 complète, mesures d'accompagnement comprises) :
+    24,2 Md€ constants 2024 en 2030 pour 9,7 sur le système (rapport 2,5), Rexecode 20 pour 11,8 (1,7). Horizon
+    2032 : effet de la montée en charge des générations 1965-1968, proche du maximum du profil Cnav, pas la maturité.
+  limites: >
+    Le rapport APU / système est celui d'un an d'âge (Cour, 2035), appliqué aux deux ans de la réforme et à
+    l'accélération de la durée (dont le rapport est plus faible : 7,1 / 3,9 = 1,8) : léger majorant. Les
+    incertitudes du barème système (11,4 à 15,8) restent dans ce barème-là, utilisé pour la borne favorable des
+    mesures de coût (convention commune 4). Fondation IFRAP (octobre 2025) : 18 à 20 Md€ en 2035 pour une suspension
+    prolongée, sans méthode publiée, cohérent avec un chiffrage APU.
+  verification:
+    statut: ok
+    par: "perimetre-apu"
+    date: "2026-09-30"
+    commentaire: >
+      Rejoué : 13,9 × 12,16 / 5,8 = 29,14 ; 13,9 × 10,9 / 5,8 = 26,12 ; 13,9 × 13,0 / 5,8 = 31,16. Extraits relus
+      (Cour, tableaux n° 5 et 6 ; Cnav ; COR).
+
+- id: retraites_age_60_depuis_62_apu
+  libelle: "Coût supplémentaire, pour l'ensemble des administrations publiques, d'un âge légal à 60 ans par rapport à 62 ans (à ajouter à retraites_retour_62_ans_2032_apu), en 2032"
+  valeur: 37.7
+  bas: 32.6
+  haut: 40.3
+  unite: Md€ courants 2032 par an
+  annee: "2032"
+  sources:
+    - titre: "FIPECO (F. Ecalle), Avancer ou reculer l'âge de départ en retraite, 25 juin 2024"
+      url: https://www.fipeco.fr/commentaire/Avancer%20ou%20reculer%20l'%C3%A2ge%20de%20d%C3%A9part%20en%20retraite
+      date: "2024-06-25"
+      extrait: "Abandonner dès 2025 la réforme de 2023 (y compris les mesures sociales compensatoires) accroîtrait le déficit public d’environ 0,6 point de PIB à l’horizon de 2030 (17 Md€ d’aujourd’hui) et ramener l’âge minimal de départ à 60 ans ajouterait un coût supplémentaire pouvant atteindre 0,9 point de PIB (26 Md€) à terme."
+    - titre: "Cour des comptes, Situation financière et perspectives du système de retraites, février 2025, tableau n° 6"
+      url: https://www.ccomptes.fr/sites/default/files/2025-03/20250220-Situation-financiere-et-perspectives-du-systeme-de%20retraites.pdf
+      date: "2025-02-20"
+      extrait: "Un arrêt de la progression de l’âge d’ouverture des droits à 63 ans aurait un coût complet de 13 Md€ sur les finances publiques pour l’exercice 2035. Il se composerait d’une dégradation du solde des retraites de 5,8 Md€ et d’une perte de recettes publiques , hors cotisations retraites, de 7,2 Md€."
+    - titre: "Institut Montaigne, présidentielle 2022, « Rétablir la retraite à 60 ans après 40 années de cotisation » (périmètre des régimes de retraite, recoupement)"
+      url: https://web.archive.org/web/20260718133710/https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/retablir-la-retraite-a-60-ans-apres-40-ans-annees-de-cotisation/
+      date: "2022"
+      extrait: "Le coût de la mesure présenté ici est celui pour les régimes des retraites uniquement, sans chiffrage du report sur les autres régimes (maladie, chômage, invalidité)."
+  derivation: >
+    Barème système retraites_age_60_depuis_62 (18 Md€ 2032) × rapport APU / système des mesures d'âge (2,10 au
+    central, voir retraites_retour_62_ans_2032_apu) ≈ 37,7 Md€. Haut : × 2,24 (sans effet de bord) ≈ 40,3. Bas :
+    FIPECO, « pouvant atteindre 0,9 point de PIB » pour l'ensemble des APU, × PIB 2032 (3 621 Md€, 36,2 Md€ par
+    point) ≈ 32,6 Md€ ; au rapport de 1,88 le bas serait 33,8, au-dessus de FIPECO. Horizon 2032 : le barème système
+    est un régime de croisière atteint vite (l'effet d'âge monte en deux à quatre ans) ; la montée en charge se
+    traite dans la mesure.
+  limites: >
+    Le central hérite de la convention du barème système (milieu de 13,2 et 25 Md€). Les taux d'emploi à 60-61 ans
+    diffèrent de ceux à 63 ans : le rapport APU / système peut s'écarter de celui de la Cour. Institut Montaigne
+    (2022) chiffre le retour à 60 ans et 40 annuités au seul périmètre des régimes (36 Md€ en 2027 pour les mesures
+    d'âge, 85,8 Md€ avec les autres volets) : ce n'est pas un chiffrage APU.
+  verification:
+    statut: ok
+    par: "perimetre-apu"
+    date: "2026-09-30"
+    commentaire: >
+      Rejoué : 18 × 12,16 / 5,8 = 37,74 ; 18 × 13,0 / 5,8 = 40,34 ; 0,9 × 36,2 = 32,6. Extrait FIPECO relu.
 
 - id: retraites_ratio_cotisants_retraites
   libelle: Rapport entre le nombre de cotisants et le nombre de retraités

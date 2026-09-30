@@ -16,8 +16,9 @@ leviers:
 - id: retraites-age
   theme: Retraites
   question: À quel âge ouvrir le droit à la retraite ?
-  aide: Le droit en vigueur reprend en 2028 la montée vers 64 ans. Un an d'âge légal vaut environ 6,6 Md€ par an en 2032 pour
-    le système de retraite.
+  aide: Le droit en vigueur reprend en 2028 la montée vers 64 ans. Un an d'âge légal en moins coûte environ 14 Md€ par an
+    en 2032 à l'ensemble des administrations publiques (6,6 Md€ pour le seul système de retraite, le reste en cotisations
+    et impôts des seniors qui cessent de travailler).
   type: choix
   axe: depenses
   options:
@@ -26,12 +27,14 @@ leviers:
     axes:
       protection-sociale: 2
     effet:
-      central: -42.9
-      bas: -60.0
-      haut: -32.9
+      central: -85.3
+      bas: -91.75
+      haut: -42.9
     reprend:
     - melenchon-lfi/retraite-60-ans
-    calcul: 'Chiffrage LFI repris : retour à 62 ans (13,9 Md€) plus passage de 62 à 60 ans et à 40 annuités.'
+    calcul: 'Chiffrage LFI repris, au périmètre de l''ensemble des administrations publiques : retour à 62 ans (29,1 Md€),
+      passage de 62 à 60 ans (37,7 Md€) et à 40 annuités (18,5 Md€). [Recalé le 2026-09-30 sur le chiffrage de melenchon-lfi,
+      périmètre APU.]'
     candidats:
     - melenchon-lfi
     montee:
@@ -46,14 +49,15 @@ leviers:
     axes:
       protection-sociale: 2
     effet:
-      central: -26.58
-      bas: -44.4
-      haut: -17.65
+      central: -53.03
+      bas: -65.53
+      haut: -26.58
     reprend:
     - le-pen-rn/retraites-60-62-ans
-    calcul: 'Chiffrage RN repris, sur les mêmes barèmes que l''option 60 ans : retour à 62 ans (13,9 Md€), durée ramenée à
-      42 annuités (3,3 Md€) et, pour environ 35 % du coût d''un passage de tous à 60 ans et 40 annuités (convention appuyée
-      sur la part des générations ayant commencé avant 20 ans), 9,4 Md€.'
+    calcul: 'Chiffrage RN repris, sur les mêmes barèmes que l''option 60 ans (périmètre de l''ensemble des administrations
+      publiques) : retour à 62 ans (29,1 Md€), durée ramenée à 42 annuités (5,6 Md€) et, pour environ 35 % du coût d''un passage
+      de tous à 60 ans et 40 annuités (convention appuyée sur la part des générations ayant commencé avant 20 ans), 18,4 Md€.
+      [Recalé le 2026-09-30 sur le chiffrage de le-pen-rn, périmètre APU.]'
     candidats:
     - le-pen-rn
   - id: 62-ans
@@ -61,13 +65,15 @@ leviers:
     axes:
       protection-sociale: 1
     effet:
-      central: -13.9
-      bas: -20.0
-      haut: -8.9
+      central: -29.1
+      bas: -31.2
+      haut: -13.9
     reprend:
     - glucksmann-place-publique/abrogation-reforme-retraites-2023
     - tondelier-ecologistes/retraites-retour-62-ans
-    calcul: Barème retraites_retour_62_ans_2032 (13,9 Md€), identique dans les deux programmes.
+    calcul: Barème retraites_retour_62_ans_2032_apu (29,1 Md€ pour l'ensemble des administrations publiques, 13,9 Md€ pour
+      le seul système de retraite), identique dans les deux programmes. [Recalé le 2026-09-30 sur le chiffrage de glucksmann-place-publique,
+      périmètre APU.]
     candidats:
     - glucksmann-place-publique
     - tondelier-ecologistes
@@ -92,16 +98,17 @@ leviers:
     axes:
       protection-sociale: -1
     effet:
-      central: 1.48
+      central: 2.55
       bas: 0.0
-      haut: 4.43
+      haut: 8.25
     reprend:
     - philippe-horizons/retraites-travailler-plus-longtemps
     - retailleau-lr/retraites-age-63-taux-plein-65
     - zemmour-reconquete/retraite-64-voire-65
-    calcul: Chiffrage Philippe repris (66 ans à terme, 3 mois par génération) ; effet 2032 limité par le calendrier. Retailleau
-      (63 ans minimum, taux plein à 65 ans) est chiffré à 4,19 et Zemmour (64 voire 65 ans) à 1,65. [Recalé le 2026-09-29
-      sur le chiffrage de philippe-horizons.]
+    calcul: Chiffrage Philippe repris (65 ans et 45 annuités en moins de dix ans) ; effet 2032 limité par le calendrier (allongement
+      de durée seul, 10,2 Md€ par an de durée pour l'ensemble des administrations publiques). Retailleau (63 ans minimum,
+      taux plein à 65 ans) est chiffré à 8,76 et Zemmour (64 voire 65 ans) à 4,7. [Recalé le 2026-09-30 sur le chiffrage de
+      philippe-horizons, périmètre APU.]
     candidats:
     - philippe-horizons
     - retailleau-lr
