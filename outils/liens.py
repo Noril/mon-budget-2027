@@ -32,7 +32,7 @@ from .chiffrage import lire_baremes, lire_programmes
 
 CACHE = DONNEES / "cache_liens"
 SORTIE = RACINE / "build" / "liens.md"
-ENTETES = {"User-Agent": "Mozilla/5.0 (votre-budget-2027 ; verification de citations)", "Accept-Language": "fr,en"}
+ENTETES = {"User-Agent": "Mozilla/5.0 (mon-budget-2027 ; verification de citations)", "Accept-Language": "fr,en"}
 
 
 def normaliser(texte: str) -> str:

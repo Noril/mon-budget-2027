@@ -162,7 +162,7 @@ def urne() -> str:
 
 def accueil(cfg):
     depot = html.escape(cfg["depot"])
-    return page("Votre budget 2027 : ce que coûteraient les programmes", f"""
+    return page("Mon budget 2027 : ce que coûteraient les programmes", f"""
 <section class="une">
 <h1>Ce que coûteraient les promesses</h1>
 <p>Huit programmes pour la présidentielle de 2027, chiffrés avec la même méthode. Chaque mesure est citée mot pour
