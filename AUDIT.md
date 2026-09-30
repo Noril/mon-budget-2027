@@ -92,11 +92,35 @@ n'a pas pu être rejoué en ligne. Les points marqués « non vérifié » sont 
   Le tableau de bord se termine désormais par une section « Sources et licences » ; les pages mentionnent le WEO du FMI
   comme données transformées.
 
+- **Paramètres hors barèmes** (harmonisation du 30/09) : les 381 paramètres sans barème des huit programmes ont été
+  extraits et regroupés par grandeur. 84 barèmes créés dans `baremes.yaml` (section « Paramètres communs
+  harmonisés ») pour chaque grandeur utilisée par au moins deux programmes ou pesant plus de 3 Md€ dans une mesure ;
+  153 paramètres y renvoient désormais (240 restent sourcés dans leur mesure). Source primaire relue en ligne pour
+  les valeurs nouvelles ou contestées (Service-public, INSEE, SDES, Sénat, Cour des comptes, DGFiP, Unédic, MESRE,
+  guide de fiscalité des énergies 2026). Valeurs divergentes alignées sur la valeur sourcée : retour d'IS des impôts
+  de production 0,20 (Retailleau et Tondelier retenaient 25 %) ; CFE 8,031 Md€ (DGFiP, au lieu de 7,7) ; règles
+  chômage de juin 2024 4,7 Md€ (Unédic, Attal et Retailleau) ; réformes chômage 2019-2021 et 2023 (2,2 et 4,5 Md€
+  projetés, Tondelier) ; taxe Zucman (Tondelier sur la méthode de Mélenchon : 20 × 0,26 projeté, 10 → 6,3) ; pacte
+  Dutreil 3,6 Md€ (Mélenchon, Tondelier) ; CIR 8,041 Md€ et part des grandes entreprises 0,38 (Tondelier) ; accise
+  sur l'électricité 0,3 Md€ par €/MWh (Glucksmann, comme Mélenchon) ; tarifs d'accise carburants du 1er août 2025
+  (Zemmour) ; condition de cinq ans 2,6 Md€ (Retailleau) ; ratio net/brut des fonctionnaires 0,81 (INSEE) ; classe
+  d'âge 2032 pour la conscription (Mélenchon, comme le service civique de Glucksmann). Chaque mesure touchée porte
+  « Harmonisation des paramètres (30/09/2026) : … aligné sur le barème … » dans `verification.commentaire`.
+  Soldes centraux 2032 : Attal −42,38 → −41,36 ; Glucksmann −68,77 → −70,77 ; Le Pen −39,63 → −39,92 ; Mélenchon
+  −304,65 → −305,44 ; Philippe inchangé ; Retailleau −18,25 → −18,73 ; Tondelier −19,55 → −25,11 ; Zemmour −99,61 →
+  −100,15. Simulateur resynchronisé ; aucun curseur ne bouge de plus de 1 Md€ (cartes inchangées, libellé « Durcir »
+  mis à jour).
+
 ## Points ouverts
 - TOP500 : absence de licence ; la publication de parts agrégées repose sur une lecture des conditions (« create
   additional sublists and statistics »), pas sur une autorisation écrite ; à confirmer auprès de Prometeus GmbH.
 - Dates : date de mise en ligne du plan Knafo (budget2026.fr) inconnue ; livret École LR laissé à « 2026-09 » (daté
   ainsi par le document).
-- Environ 60 paramètres hors barèmes communs listés dans `chiffrage/besoins/`.
+- Paramètres encore hors barèmes (240, listés dans `chiffrage/besoins/`) : montants et cibles annoncés par les
+  candidats, conventions de lecture propres à une mesure et chiffrages tiers d'une mesure précise (Institut Montaigne
+  2022, contre-budgets), qui ne sont pas des grandeurs communes. Une exception au-delà de 3 Md€ : la part salariale de
+  la cotisation vieillesse du régime général (Attal, 40 Md€, chiffre du candidat) ; aucune source primaire ne la
+  publie (la CCSS donne 110,2 Md€ de cotisations des actifs à la CNAV en 2024, sans ventilation) : reconstitution
+  6,9 % × assiette plafonnée + 0,4 % × assiette totale ≈ 40 à 43 Md€, à confirmer (Urssaf, assiette plafonnée).
 - Recette de la CVAE : 3,7 Md€ prélevés (FIPECO, 2025) contre 4,0 à 4,3 Md€ de recette budgétaire ; le rythme de
   recouvrement 2028-2029 et le PLF 2027 (non déposé) peuvent déplacer les coûts d'avance.

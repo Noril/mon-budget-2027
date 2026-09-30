@@ -81,15 +81,14 @@ Ce fichier recense les coûts unitaires et les paramètres dont le chiffrage du 
 
 | Paramètre | Valeur utilisée | Statut dans `baremes.yaml` |
 |---|---|---|
-| `cfe_rendement`, `impots_production_entreprises` | CFE : 7,7 Md€ ; ensemble des impôts de production : 86,8 Md€ (2024, FIPECO, « Les impôts sur la production ») | Non inscrit (`c3s_rendement` : 5,2 Md€ et `cvae_restante` : 3,7 Md€ sont inscrits, pas la CFE ni le total) |
-| `is_retour_impots_production` | Retour d'impôt sur les sociétés au taux moyen effectif de 20 % (Institut Montaigne, législatives 2024) | Non inscrit |
+| `impots_production_entreprises` | Ensemble des impôts de production : 86,8 Md€ (2024, FIPECO, « Les impôts sur la production ») | Non inscrit (CFE, C3S et CVAE sont inscrites : `cfe_rendement`, `c3s_rendement`, `cvae_restante`) |
 | `retraites_40_annuites_avant_20_ans` | Départ à 60 ans avec 40 annuités pour les carrières commencées avant 20 ans : 26,5 Md€ en 2027 (Institut Montaigne 2024, hors abrogation de la réforme de 2023) | Non inscrit (barème voisin : `retraites_age_60_depuis_62`) |
 | `exoneration_hausse_salaires_10pct` | 0,8 / 4,8 / 12 Md€ aux années 1, 3 et 5 ; 15 Md€ bruts à terme (Institut Montaigne 2024) | Non inscrit |
-| `quotient_familial_part_2e_enfant` | 3,4 Md€ (2024, LexImpact via l'Institut Montaigne) | Non inscrit |
 | `tva_produits_premiere_necessite_0` | 4,7 à 8,8 Md€ (2023, Institut Montaigne) | Non inscrit (la dérivation de `tva_point_tous_taux` donne 2,0 Md€ par point au taux de 5,5 %) |
-| `preference_nationale_prestations` | Institut Montaigne : 2,5 (cinq ans de travail) + 3,3 (prestations familiales) ; IFRAP : 6 à 7 Md€ | Non inscrit |
-| `cspe_enr_croissance_annuelle` | CRE, délibération 2026-149 : éolien et photovoltaïque de 6,25 à 7,29 Md€ de 2026 à 2027 ; soutien engagé jusqu'en 2029 | Non inscrit |
-| Crédits du PLF 2026 (Sénat) | Anah 1,5 ; mission APD 3,67 ; fonds vert 1,085 ; aide à l'embauche d'apprentis 2,37 ; mission Agriculture 4,126 (LFI 2026, crédits de paiement), en Md€ | **Inscrit en partie** : la mission APD (3,67 Md€) est citée dans les limites de `apd_part_rnb` ; non inscrit pour les autres |
+| `preference_nationale_prestations` | Institut Montaigne : 3,3 (prestations familiales réservées aux Français) ; IFRAP : 6 à 7 Md€ | Non inscrit (la condition de cinq ans de travail est le barème `prestations_residence_5_ans_economie`) |
+| Crédits du PLF 2026 (Sénat) | Fonds vert 1,085 ; aide à l'embauche d'apprentis 2,37 ; mission Agriculture 4,126 (LFI 2026, crédits de paiement), en Md€ | Non inscrit (Anah et mission APD sont inscrites : `anah_credits_etat`, `mission_apd_credits`) |
 | Mesures votées en LFI et LFSS 2026 | Taxe petits colis 0,40 ; hausse de la taxe sur les boissons sucrées et alcoolisées (TSBA) 2025 ≈ 0,8 ; ACRE 0,184 ; ruptures conventionnelles 0,26 ; taxe sur les holdings ≈ 0,9 au PLF (non chiffrée en LFI), en Md€ | Non inscrit (`chiffrage/REFERENCE.md` ne décrit que les retraites, la CVAE et la contribution exceptionnelle) |
+
+Devenus barèmes communs le 30 septembre 2026 (harmonisation des paramètres entre programmes, retirés du tableau) : `cfe_rendement` (8,031 Md€, DGFiP, au lieu de 7,7), `retour_is_impots_production`, `part_fiscale_entiere_deuxieme_enfant_cout`, `prestations_residence_5_ans_economie`, `ame_aide_urgence_vitale_economie`, `cspe_eolien_pv_hausse_annuelle`, `enr_soutien_annees_non_engagees_2032`, `anah_credits_etat`, `fraude_sociale_recouvree`, `etudiants_droits_differencies_effectif`, `etudiants_droits_differencies_part_exoneree`, `etudiants_droits_differencies_montant_moyen`, `facteur_pib_2029_2032`.
 
 Mesures laissées non chiffrables faute de données : nombre et revenus des retraités en cumul emploi-retraite ; plus-values immobilières par durée de détention ; volume des rachats d'actions ; allocations chômage versées aux étrangers ; visas pour soins.

@@ -304,6 +304,7 @@ mesures:
     parametres:
       productivite:
         valeur: 0.63
+        bareme: rmpt_croissance_reelle_annuelle
         unite: point par an (croissance réelle du revenu moyen par tête)
         source: https://www.cor-retraites.fr/sites/default/files/2026-07/RA_2026_def_1.pdf
         note: 'COR, rapport annuel juin 2026 (hypothèses Direction du budget) : « revenu moyen par tête (RMPT) de l''ensemble
@@ -402,6 +403,7 @@ mesures:
         note: contre-chiffrage de l'équipe de campagne 2022 transmis à l'Institut Montaigne
       f22:
         valeur: 1.3643
+        bareme: facteur_pib_2022_2032
         unite: facteur PIB nominal 2022→2032
         source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2022 : 2 654,0 Md€ (INSEE, indicateur
           finances.pib_nominal@1.0.0) ; 3 620,9 / 2 654,0'
@@ -488,6 +490,7 @@ mesures:
           2019'
       f19:
         valeur: 1.4887
+        bareme: facteur_pib_2019_2032
         unite: facteur PIB nominal 2019→2032
         source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2019 : 2 432,2 Md€ (INSEE, indicateur
           finances.pib_nominal@1.0.0) ; 3 620,9 / 2 432,2'
@@ -566,6 +569,7 @@ mesures:
           : « Le Smic passera à 1 700 euros »'
       smic_net_2026:
         valeur: 1477.93
+        bareme: smic_net_mensuel
         unite: € net par mois
         source: https://www.service-public.gouv.fr/particuliers/vosdroits/F2300
       cout_1pct:
@@ -858,7 +862,7 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -14.76
+    central: -14.75
     bas: -22.61
     haut: -6.9
     montee_en_charge:
@@ -869,7 +873,7 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: -beneficiaires * (cout_net + hausse_smic * cout_brut) * f23 / 1e9
+    formule: -beneficiaires * (cout_net + (smic_cible / smic_net - 1) * cout_brut) * f23 / 1e9
     parametres:
       beneficiaires:
         valeur: 700000
@@ -881,33 +885,42 @@ mesures:
           catégories A, B, C depuis un an ou plus au 4e trimestre 2025 (DARES, http://web.archive.org/web/20260308230842/https://dares.travail-emploi.gouv.fr/sites/default/files/3d0859c9bf70ba890337da9afae2fedb/DI_inscrits_France_travail_2025T4.pdf)'
       cout_net:
         valeur: 12500
+        bareme: tzcld_cout_net_emploi
         unite: € par emploi et par an (2023), net des coûts évités et recettes
         source: https://www.strategie-plan.gouv.fr/files/files/Publications/2025/2025-09-22%20-%20Rapport%20TZCLD/TZCLD_rapport%20final%20evalulation_sous%20embargo_jsq230925%20%C3%A0%2011h.pdf
         note: 'Comité scientifique TZCLD, rapport de septembre 2025 : « un coût net pour la puissance publique d''environ 11 300
           à 13 700 € par EQTP, auquel il convient d''ajouter la dotation d''amorçage » ; milieu de la fourchette'
       cout_brut:
         valeur: 26600
+        bareme: tzcld_cout_brut_emploi
         unite: € par emploi et par an (2023)
         source: https://www.strategie-plan.gouv.fr/files/files/Publications/2025/2025-09-22%20-%20Rapport%20TZCLD/TZCLD_rapport%20final%20evalulation_sous%20embargo_jsq230925%20%C3%A0%2011h.pdf
         note: '« Des dépenses d''un montant de 26 600 € en 2023, auxquelles s''ajoutent 6 200 € » de dotation d''amorçage (versée
           une fois)'
-      hausse_smic:
-        valeur: 0.1503
-        unite: hausse relative du SMIC (1 700 / 1 477,93 − 1)
-        source: https://www.service-public.gouv.fr/particuliers/vosdroits/F2300
-        note: 'SMIC net au 1er juin 2026 : 1 477,93 € ; cible 1 700 € net (page d''accueil de LFI) : la garantie paie « au moins
-          au SMIC revalorisé », la hausse s''ajoute au coût brut'
       f23:
         valeur: 1.2777
         unite: facteur PIB nominal 2023→2032
         bareme: facteur_pib_2023_2032
-    explication: 'Généralisation des territoires zéro chômeur : 700 000 emplois (Institut Montaigne) × coût net pour les APU
-      observé par le comité scientifique (12 500 € par emploi en 2023, après coûts évités et recettes) majoré de la hausse du
-      SMIC à 1 700 € (+15 % du coût brut de 26 600 €), projeté en 2032 (× 1,2777) : 14,8 Md€. L''ancien central reprenait
-      le coût net de l''Institut Montaigne (25 000 − 4 600 € par emploi, évaluation IGF-IGAS de 2019), dépassé par l''évaluation
-      de 2025 qui compte davantage de coûts évités. Dotation d''amorçage (6 200 € par emploi créé, une fois) non comptée en
-      régime de croisière. Bas : 1 000 000 emplois au haut de la fourchette (13 700 €) ; haut : 400 000 emplois, 11 300 € et
-      SMIC à 1 600 € (+8,3 %).'
+      smic_cible:
+        valeur: 1700
+        source: https://lafranceinsoumise.fr/
+        unite: € net par mois
+        note: "page d'accueil de LFI (29/09/2026) : « Le SMIC à 1700€ net »"
+      smic_net:
+        valeur: 1477.93
+        bareme: smic_net_mensuel
+        unite: € net par mois
+    explication: >-
+      Généralisation des territoires zéro chômeur : 700 000 emplois (Institut Montaigne) × coût net pour les APU
+      observé par le comité scientifique (12 500 € par emploi en 2023, après coûts évités et recettes) majoré de la
+      hausse du SMIC à 1 700 € (+15 % du coût brut de 26 600 €), projeté en 2032 (× 1,2777) : 14,8 Md€. L'ancien
+      central reprenait le coût net de l'Institut Montaigne (25 000 − 4 600 € par emploi, évaluation IGF-IGAS de
+      2019), dépassé par l'évaluation de 2025 qui compte davantage de coûts évités. Dotation d'amorçage (6 200 € par
+      emploi créé, une fois) non comptée en régime de croisière. Bas : 1 000 000 emplois au haut de la fourchette
+      (13 700 €) ; haut : 400 000 emplois, 11 300 € et SMIC à 1 600 € (+8,3 %). Mise à jour du 30/09/2026 (barèmes
+      communs), qui remplace les montants ci-dessus : coûts TZCLD sur les barèmes tzcld_cout_net_emploi et
+      tzcld_cout_brut_emploi ; hausse du SMIC recalculée depuis smic_net_mensuel (0,1503 → 0,15026) : central −14,76
+      → −14,75.
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 14.3
@@ -927,14 +940,17 @@ mesures:
     statut: corrige
     par: passe-sources
     date: '2026-09-29'
-    commentaire: 'Passe sources : page Institut Montaigne relue (Wayback, 10/08/2022 : 700 000 bénéficiaires, 20 400 € nets par emploi,
-      données 2019-2022) ; coût net par emploi remplacé par l''évaluation du comité scientifique TZCLD de septembre 2025
-      (11 300 à 13 700 €), et hausse du SMIC promise ajoutée. Central −19,51 → −14,76, bas −27,83 → −22,61, haut −11,19
-      → −6,9. Vérification précédente (verificateur-sonnet, corrige) : Vérification : le montant Institut Montaigne est
-      en euros 2022 ; projeté en euros 2032 (× 1,3643, PIB nominal 2022→2032) ; central ancien -14,3 Md€. Recalé sur les
-      conventions communes du 29/09 : inchangé : emplois au SMIC hors fonction publique (secteurs d''urgence, employeurs
-      non précisés) et chiffrage Montaigne net d''économies de chômage non décomposable ; la convention salaires publics
-      n''est pas appliquée.'
+    commentaire: >-
+      Passe sources : page Institut Montaigne relue (Wayback, 10/08/2022 : 700 000 bénéficiaires, 20 400 € nets par
+      emploi, données 2019-2022) ; coût net par emploi remplacé par l'évaluation du comité scientifique TZCLD de
+      septembre 2025 (11 300 à 13 700 €), et hausse du SMIC promise ajoutée. Central −19,51 → −14,76, bas −27,83 →
+      −22,61, haut −11,19 → −6,9. Vérification précédente (verificateur-sonnet, corrige) : Vérification : le montant
+      Institut Montaigne est en euros 2022 ; projeté en euros 2032 (× 1,3643, PIB nominal 2022→2032) ; central
+      ancien -14,3 Md€. Recalé sur les conventions communes du 29/09 : inchangé : emplois au SMIC hors fonction
+      publique (secteurs d'urgence, employeurs non précisés) et chiffrage Montaigne net d'économies de chômage non
+      décomposable ; la convention salaires publics n'est pas appliquée. Harmonisation des paramètres (30/09/2026) :
+      coûts TZCLD sur les barèmes tzcld_cout_net_emploi et tzcld_cout_brut_emploi ; hausse du SMIC recalculée depuis
+      smic_net_mensuel (0,1503 → 0,15026) : central −14,76 → −14,75.
 - id: emploi-jeune-5-ans
   libelle: « Emploi spécifique jeune » de cinq ans dans le non-marchand et le public
   domaine: travail
@@ -1073,6 +1089,7 @@ mesures:
     parametres:
       reforme_2019_2021:
         valeur: 2.2
+        bareme: assurance_chomage_reforme_2019_2021_economie
         unite: Md€ par an d'économies (régime de croisière, horizon 2027)
         source: https://www.unedic.org/storage/uploads/2025/10/22/Situation-financire-Assurance-chmage-2025-2027--22-octobre-2025_uid_68f8e16ff2058.pdf
         note: 'Unédic, situation financière 2025-2027 (22 octobre 2025), encadré 1, tableau A : « les réformes mises en œuvre
@@ -1080,6 +1097,7 @@ mesures:
           2,2 (éligibilité, salaire journalier de référence, dégressivité) ; réforme 2023 4,5 ; convention 2024 1,5'
       reforme_2023:
         valeur: 4.5
+        bareme: assurance_chomage_reforme_2023_economie
         unite: Md€ par an d'économies (horizon 2027)
         source: https://www.unedic.org/publications/reforme-2023-premiers-effets-de-la-reforme-de-contracyclicite
         note: 'Unédic : réforme de contracyclicité (durée d''indemnisation), économie « de l''ordre de 4,5 Md€ par an » à l''horizon
@@ -1161,12 +1179,14 @@ mesures:
         source: https://web.archive.org/web/20220405165148/https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/creer-une-garantie-dautonomie-de-trois-ans-sous-reserve-dune-formation-qualifiante-et-sous-conditions-de-ressources-pour-les-18-25-ans/
       f22:
         valeur: 1.3643
+        bareme: facteur_pib_2022_2032
         unite: facteur PIB nominal 2022→2032
         source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2022 : 2 654,0 Md€ (INSEE, indicateur
           finances.pib_nominal@1.0.0) ; 3 620,9 / 2 654,0'
         note: le seuil de 1 216 € est celui de 2022 ; le seuil suit ensuite le niveau de vie médian, projeté au PIB nominal
       pauvres:
         valeur: 9.8
+        bareme: pauvrete_nombre_personnes
         unite: millions de personnes pauvres (2023, France métropolitaine)
         source: https://www.insee.fr/fr/statistiques/8600989
         note: 'Insee Première n° 2063 : « En 2023, 9,8 millions de personnes occupant un logement ordinaire en France métropolitaine
@@ -1179,11 +1199,13 @@ mesures:
           ; ménages pauvres d''environ 2,3 personnes, surreprésentation des familles monoparentales ; fourchette 0,6 à 0,7'
       seuil_2023:
         valeur: 1288
+        bareme: seuil_pauvrete_mensuel
         unite: € par mois et par UC
         source: https://www.insee.fr/fr/statistiques/8600989
         note: seuil de pauvreté à 60 % du niveau de vie médian, 2023
       intensite:
         valeur: 0.192
+        bareme: pauvrete_intensite
         unite: écart relatif au seuil
         source: https://www.insee.fr/fr/statistiques/8600989
         note: '« la moitié des personnes en situation de pauvreté ont un niveau de vie inférieur à 1 041 euros par mois, inférieur
@@ -1262,6 +1284,7 @@ mesures:
           : « Le Smic passera à 1 700 euros »'
       aah_max:
         valeur: 1041.59
+        bareme: aah_montant_maximal
         unite: € par mois (montant maximal)
         source: https://www.service-public.gouv.fr/particuliers/vosdroits/F12242
       fp:
@@ -1652,6 +1675,7 @@ mesures:
         note: gratuité limitée aux établissements publics
       f22:
         valeur: 1.3643
+        bareme: facteur_pib_2022_2032
         unite: facteur PIB nominal 2022→2032
         source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2022 : 2 654,0 Md€ (INSEE, indicateur
           finances.pib_nominal@1.0.0) ; 3 620,9 / 2 654,0'
@@ -1709,6 +1733,7 @@ mesures:
         note: 1,64 € de surcoût × 1,4 milliard de repas
       f22:
         valeur: 1.3643
+        bareme: facteur_pib_2022_2032
         unite: facteur PIB nominal 2022→2032
         source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2022 : 2 654,0 Md€ (INSEE, indicateur
           finances.pib_nominal@1.0.0) ; 3 620,9 / 2 654,0'
@@ -1860,7 +1885,7 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -13.55
+    central: -13.53
     bas: -20.75
     haut: -6.53
     montee_en_charge:
@@ -1871,15 +1896,8 @@ mesures:
       '2031': 0.8
       '2032': 1
   calcul:
-    formule: -((fonctionnement_gratuit - economie_cmg) * f21 + investissement / 5 * f16)
+    formule: -((places * cout_place / 1e9 - economie_cmg) * f21 + investissement / 5 * f16)
     parametres:
-      fonctionnement_gratuit:
-        valeur: 7.7
-        unite: Md€ par an (500 000 places ouvertes, coût CNAF d'une place vers 2020-2021)
-        source: https://web.archive.org/web/20220404165131/https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/creer-un-service-public-de-la-petite-enfance-et-ouvrir-500-000-places-en-creche/
-        note: '« Si la puissance publique venait à assurer une totale gratuité des places supplémentaires, les coûts de fonctionnement
-          annuels à sa charge s''élèveraient en revanche à 7,7 Md € en fin de période » (4,3 Md€ avec participation des familles)
-          ; coût d''une place : « 15 381 € par an » (CNAF)'
       economie_cmg:
         valeur: 2.25
         unite: Md€ par an
@@ -1893,23 +1911,39 @@ mesures:
           2016 » ; « L''estimation médiane de 17,5 Md€ » (11 à 24 Md€)'
       f21:
         valeur: 1.4437
+        bareme: facteur_pib_2021_2032
         unite: facteur PIB nominal 2021→2032
         source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2021 : 2 508,1 Md€ (INSEE, indicateur
           finances.pib_nominal@1.0.0) ; 3 620,9 / 2 508,1'
         note: 'convention : le coût CNAF d''une place, « estimation récente » en 2022, est lu aux prix de 2021'
       f16:
         valeur: 1.6224
+        bareme: facteur_pib_2016_2032
         unite: facteur PIB nominal 2016→2032
         source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2016 : 2 231,8 Md€ (INSEE, indicateur
           finances.pib_nominal@1.0.0) ; 3 620,9 / 2 231,8'
         note: coûts de création d'une place relevés en 2016
-    explication: 'Institut Montaigne 2022 relu : 500 000 places en cinq ans, fonctionnement public avec gratuité des nouvelles
-      places (AEC 2025 : « Garantir la gratuité des crèches publiques ») 7,7 Md€ par an une fois les places ouvertes, moins
-      2,25 Md€ de complément de libre choix du mode de garde évité, aux prix de 2021 (× 1,4437) = 7,9 Md€ ; plus l''investissement
-      (17,5 Md€ sur cinq ans, coûts 2016 × 1,6224) dont la dernière tranche tombe en 2032 : 5,7 Md€. Total 13,6 Md€. L''ancien
-      central retenait 9,5 Md€ par an de fonctionnement : c''est le chiffrage de l''équipe de campagne 2022, pas celui de l''Institut.
-      Bas : fonctionnement du candidat (9,5 Md€, qui inclut la gratuité des places existantes, × 1,3643) et investissement
-      haut (24 Md€) : 20,8 ; haut : participation des familles maintenue (4,3 − 2,25) et investissement bas (11 Md€) : 6,5.'
+      places:
+        valeur: 500000
+        source: https://web.archive.org/web/20220404165131/https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/creer-un-service-public-de-la-petite-enfance-et-ouvrir-500-000-places-en-creche/
+        unite: places
+        note: "« ouvrir 500 000 places en crèche » (citation de la mesure)"
+      cout_place:
+        valeur: 15381
+        bareme: creche_cout_fonctionnement_place
+        unite: € par place et par an (vers 2021)
+    explication: >-
+      Institut Montaigne 2022 relu : 500 000 places en cinq ans, fonctionnement public avec gratuité des nouvelles
+      places (AEC 2025 : « Garantir la gratuité des crèches publiques ») 7,7 Md€ par an une fois les places
+      ouvertes, moins 2,25 Md€ de complément de libre choix du mode de garde évité, aux prix de 2021 (× 1,4437) =
+      7,9 Md€ ; plus l'investissement (17,5 Md€ sur cinq ans, coûts 2016 × 1,6224) dont la dernière tranche tombe en
+      2032 : 5,7 Md€. Total 13,6 Md€. L'ancien central retenait 9,5 Md€ par an de fonctionnement : c'est le
+      chiffrage de l'équipe de campagne 2022, pas celui de l'Institut. Bas : fonctionnement du candidat (9,5 Md€,
+      qui inclut la gratuité des places existantes, × 1,3643) et investissement haut (24 Md€) : 20,8 ; haut :
+      participation des familles maintenue (4,3 − 2,25) et investissement bas (11 Md€) : 6,5. Mise à jour du
+      30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : coût de fonctionnement lu comme 500 000
+      places × barème creche_cout_fonctionnement_place (15 381 €, CNAF) au lieu de l'arrondi 7,7 Md€ ; facteurs PIB
+      sur facteur_pib_2021_2032 et facteur_pib_2016_2032 ; central −13,55 → −13,53.
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 9.5
@@ -1923,11 +1957,15 @@ mesures:
     statut: corrige
     par: passe-sources
     date: '2026-09-29'
-    commentaire: 'Passe sources : page Institut Montaigne relue (Wayback, 04/04/2022) : les 9,5 Md€ par an de fonctionnement
-      étaient le chiffrage du candidat, l''Institut chiffrant 4,3 Md€ (7,7 avec gratuité) moins 2,25 Md€ de CMG ; bases de
-      prix 2016 (investissement) et vers 2021 (fonctionnement). Central −17,74 → −13,55, bas −23,06 → −20,75, haut −12,96
-      → −6,53. Vérification précédente (verificateur-sonnet, corrige) : le montant Institut Montaigne est en euros 2022 ; projeté en euros 2032 (× 1,3643, PIB nominal
-      2022→2032) ; central ancien -13,0 Md€.'
+    commentaire: >-
+      Passe sources : page Institut Montaigne relue (Wayback, 04/04/2022) : les 9,5 Md€ par an de fonctionnement
+      étaient le chiffrage du candidat, l'Institut chiffrant 4,3 Md€ (7,7 avec gratuité) moins 2,25 Md€ de CMG ;
+      bases de prix 2016 (investissement) et vers 2021 (fonctionnement). Central −17,74 → −13,55, bas −23,06 →
+      −20,75, haut −12,96 → −6,53. Vérification précédente (verificateur-sonnet, corrige) : le montant Institut
+      Montaigne est en euros 2022 ; projeté en euros 2032 (× 1,3643, PIB nominal 2022→2032) ; central ancien -13,0
+      Md€. Harmonisation des paramètres (30/09/2026) : coût de fonctionnement lu comme 500 000 places × barème
+      creche_cout_fonctionnement_place (15 381 €, CNAF) au lieu de l'arrondi 7,7 Md€ ; facteurs PIB sur
+      facteur_pib_2021_2032 et facteur_pib_2016_2032 ; central −13,55 → −13,53.
 - id: gratuite-enseignement-superieur
   libelle: Gratuité de l'enseignement supérieur, suppression de la CVEC, 15 000 logements étudiants par an
   domaine: education
@@ -2033,9 +2071,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -22.83
-    bas: -27.43
-    haut: -20.74
+    central: -23.11
+    bas: -27.79
+    haut: -21.01
     montee_en_charge:
       '2027': 0
       '2028': 0.3
@@ -2044,14 +2082,8 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: -(conscrits * mois * smic_cible * fp26 / 1e9 + (im - im_remuneration - im_economies) * f22)
+    formule: -(participation * classe_age * mois * smic_cible * fp26 / 1e9 + (im - im_remuneration - im_economies) * f22)
     parametres:
-      conscrits:
-        valeur: 680000
-        unite: jeunes par an
-        source: https://web.archive.org/web/20220409170041/https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/mettre-en-place-une-conscription-citoyenne-de-9-mois-remuneree-au-smic-pour-les-moins-de-25-ans/
-        note: 'Institut Montaigne : « Nous retenons l''hypothèse d''une participation de 85 % d''une classe d''âge chaque année,
-          soit un peu plus de 680 000 personnes »'
       mois:
         valeur: 9
         unite: mois
@@ -2084,18 +2116,33 @@ mesures:
         note: '« les économies pourraient s''établir au total à 0,5 Md€ par an » (JDC, service militaire volontaire)'
       f22:
         valeur: 1.3643
+        bareme: facteur_pib_2022_2032
         unite: facteur PIB nominal 2022→2032
         source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2022 : 2 654,0 Md€ (INSEE, indicateur
           finances.pib_nominal@1.0.0) ; 3 620,9 / 2 654,0'
         note: coûts unitaires de l'Institut Montaigne (encadrement, alimentation, transport, permis) aux prix de 2021-2022
-    explication: 'Deux postes. (1) Solde : 680 000 conscrits × 9 mois × SMIC de 1 700 € net = 10,4 Md€ de 2026, projetés
-      en 2032 (× 1,1842) = 12,3 Md€ ; la solde est comptée nette, les cotisations salariales et la CSG d''une solde brute
-      revenant aux APU. (2) Autres coûts de l''Institut Montaigne (encadrement, immobilier, alimentation, transport, paquetage,
-      permis de conduire, bilans), soit 19 − 10,8 − 0,5 d''économies (JDC, SMV) = 7,7 Md€ aux prix de 2021-2022, projetés
-      (× 1,3643) = 10,5 Md€. Total 22,8 Md€. Bas : solde brute (× 1 867,02 / 1 477,93, service-public.gouv.fr) = 15,6 Md€
-      et autres coûts au haut de Montaigne (19,5 − 10,8) sans économie = 11,9 Md€, soit 27,4 ; haut : solde au SMIC de 1 600
-      € net (AEC 2025) et autres coûts au bas de Montaigne (18 − 10,8 − 0,5), soit 20,7. L''économie du SNU (0,13 Md€, contre-budget)
-      est négligée.'
+      participation:
+        valeur: 0.85
+        source: https://web.archive.org/web/20220409170041/https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/mettre-en-place-une-conscription-citoyenne-de-9-mois-remuneree-au-smic-pour-les-moins-de-25-ans/
+        unite: part d'une classe d'âge
+        note: "Institut Montaigne : « Nous retenons l'hypothèse d'une participation de 85 % d'une classe d'âge chaque année »"
+      classe_age:
+        valeur: 818565
+        bareme: classe_age_18_ans_2032
+        unite: personnes
+    explication: >-
+      Deux postes. (1) Solde : 680 000 conscrits × 9 mois × SMIC de 1 700 € net = 10,4 Md€ de 2026, projetés en 2032
+      (× 1,1842) = 12,3 Md€ ; la solde est comptée nette, les cotisations salariales et la CSG d'une solde brute
+      revenant aux APU. (2) Autres coûts de l'Institut Montaigne (encadrement, immobilier, alimentation, transport,
+      paquetage, permis de conduire, bilans), soit 19 − 10,8 − 0,5 d'économies (JDC, SMV) = 7,7 Md€ aux prix de
+      2021-2022, projetés (× 1,3643) = 10,5 Md€. Total 22,8 Md€. Bas : solde brute (× 1 867,02 / 1 477,93, service-
+      public.gouv.fr) = 15,6 Md€ et autres coûts au haut de Montaigne (19,5 − 10,8) sans économie = 11,9 Md€, soit
+      27,4 ; haut : solde au SMIC de 1 600 € net (AEC 2025) et autres coûts au bas de Montaigne (18 − 10,8 − 0,5),
+      soit 20,7. L'économie du SNU (0,13 Md€, contre-budget) est négligée. Mise à jour du 30/09/2026 (barèmes
+      communs), qui remplace les montants ci-dessus : effectif lu comme 85 % (Institut Montaigne) de la classe d'âge
+      2032 (barème classe_age_18_ans_2032, 818 565 naissances de 2014, comme le service civique de Glucksmann) au
+      lieu de 680 000 (classe d'âge 2021) : 695 780 conscrits ; central −22,83 → −23,11, bas −27,43 → −27,79, haut
+      −20,74 → −21,01.
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 19.0
@@ -2108,15 +2155,21 @@ mesures:
     statut: corrige
     par: passe-sources
     date: '2026-09-29'
-    commentaire: 'Passe sources : page Institut Montaigne relue (Wayback, 09/04/2022). L''ancien calcul appliquait le ratio
-      de SMIC (1 700/1 400) à tout le chiffrage, alors que seule la solde (10,8 des 19 Md€) dépend du SMIC, et comptait la
-      solde brute alors que ses prélèvements reviennent aux APU. Décomposé : central −27,32 → −22,83, bas −28,04 → −27,43,
-      haut −24,39 → −20,74. Vérification précédente (verificateur-sonnet, corrige) : Montaigne 2022 (19 Md€ pour 680 000 jeunes, SMIC 1 400 €) : ratio SMIC 1 700/1 400 appliqué mais aucune
-      projection vers 2032 ; ajout × 1,1842 (2026→2032, le ratio de SMIC ayant déjà absorbé l''inflation 2022-2026). Central
-      ancien -23,07. Ordre de grandeur recoupé : 680 000 × 9 mois × 1 700 € net ≈ 10,4 Md€ de solde net, plus cotisations,
-      permis (1,2 Md€), encadrement et hébergement. Recalé sur les conventions communes du 29/09 : inchangé : la solde des
-      appelés (SMIC, indexé, donc projetée au PIB) n''est pas une rémunération d''agent public au sens de la convention n°
-      1, et le chiffrage Montaigne (solde, permis, encadrement, hébergement) n''est pas décomposable.'
+    commentaire: >-
+      Passe sources : page Institut Montaigne relue (Wayback, 09/04/2022). L'ancien calcul appliquait le ratio de
+      SMIC (1 700/1 400) à tout le chiffrage, alors que seule la solde (10,8 des 19 Md€) dépend du SMIC, et comptait
+      la solde brute alors que ses prélèvements reviennent aux APU. Décomposé : central −27,32 → −22,83, bas −28,04
+      → −27,43, haut −24,39 → −20,74. Vérification précédente (verificateur-sonnet, corrige) : Montaigne 2022 (19
+      Md€ pour 680 000 jeunes, SMIC 1 400 €) : ratio SMIC 1 700/1 400 appliqué mais aucune projection vers 2032 ;
+      ajout × 1,1842 (2026→2032, le ratio de SMIC ayant déjà absorbé l'inflation 2022-2026). Central ancien -23,07.
+      Ordre de grandeur recoupé : 680 000 × 9 mois × 1 700 € net ≈ 10,4 Md€ de solde net, plus cotisations, permis
+      (1,2 Md€), encadrement et hébergement. Recalé sur les conventions communes du 29/09 : inchangé : la solde des
+      appelés (SMIC, indexé, donc projetée au PIB) n'est pas une rémunération d'agent public au sens de la
+      convention n° 1, et le chiffrage Montaigne (solde, permis, encadrement, hébergement) n'est pas décomposable.
+      Harmonisation des paramètres (30/09/2026) : effectif lu comme 85 % (Institut Montaigne) de la classe d'âge
+      2032 (barème classe_age_18_ans_2032, 818 565 naissances de 2014, comme le service civique de Glucksmann) au
+      lieu de 680 000 (classe d'âge 2021) : 695 780 conscrits ; central −22,83 → −23,11, bas −27,43 → −27,79, haut
+      −20,74 → −21,01.
 - id: recherche-investissement
   libelle: Hausse de l'investissement public dans la recherche et l'enseignement supérieur
   domaine: recherche
@@ -2195,6 +2248,7 @@ mesures:
     parametres:
       cout_cir:
         valeur: 8.041
+        bareme: cir_cout
         unite: Md€ (2026)
         source: https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Depenses-fiscales.pdf
         note: 'Cour des comptes, note d''exécution budgétaire 2025 « Dépenses fiscales » (avril 2026), tableau 11 (PLF 2026)
@@ -2252,6 +2306,7 @@ mesures:
     parametres:
       hcaam:
         valeur: 21.1
+        bareme: remboursement_100pct_cout_hcaam
         unite: Md€ (données 2017)
         source: https://www.securite-sociale.fr/files/live/sites/SSFR/files/HCAAM/2022/Rapport%20HCAAM-%20Quatre%20scenarios%20articulation%20AMO-AMC%20-%20janvier%202022.pdf
         note: 'HCAAM, janvier 2022 (scénario de hausse des taux de remboursement, microsimulation Ines-Omar sur l''année 2017)
@@ -2260,6 +2315,7 @@ mesures:
           avec franchises-medicales'
       f17:
         valeur: 1.58
+        bareme: facteur_pib_2017_2032
         unite: facteur PIB nominal 2017→2032
         source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2017 : 2 291,7 Md€ (INSEE, indicateur
           finances.pib_nominal@1.0.0) ; 3 620,9 / 2 291,7 (même facteur que isf_retabli_gain_net)'
@@ -2379,6 +2435,7 @@ mesures:
     parametres:
       rendement_2025:
         valeur: 2.5
+        bareme: franchises_participations_rendement
         unite: Md€ (2025)
         source: https://evaluation.securite-sociale.fr/home/maladie/2-12-3-les-participations-forfai.html
         note: 'rapport d''évaluation des politiques de sécurité sociale (Maladie), indicateur 2.12.3 : « Sous l''effet du doublement
@@ -2386,6 +2443,7 @@ mesures:
           pour atteindre 2,5 Md€ »'
       rendement_avant:
         valeur: 1.6
+        bareme: franchises_participations_rendement
         unite: Md€ (2023)
         source: https://evaluation.securite-sociale.fr/home/maladie/2-12-3-les-participations-forfai.html
         note: '« 1,3 Md€ en 2025 contre 0,9 Md€ en 2023 » (franchises) et « 1,2 Md€ en 2025 contre 0,7 Md€ en 2023 » (participations
@@ -2486,6 +2544,7 @@ mesures:
         note: coût APU, haut
       f22:
         valeur: 1.3643
+        bareme: facteur_pib_2022_2032
         unite: facteur PIB nominal 2022→2032
         source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2022 : 2 654,0 Md€ (INSEE, indicateur
           finances.pib_nominal@1.0.0) ; 3 620,9 / 2 654,0'
@@ -2537,6 +2596,7 @@ mesures:
         note: hypothèse médiane (sinistralité 2,5 %)
       f22:
         valeur: 1.3643
+        bareme: facteur_pib_2022_2032
         unite: facteur PIB nominal 2022→2032
         source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2022 : 2 654,0 Md€ (INSEE, indicateur
           finances.pib_nominal@1.0.0) ; 3 620,9 / 2 654,0'
@@ -2798,6 +2858,7 @@ mesures:
     parametres:
       hausse_2024:
         valeur: 20
+        bareme: accise_electricite_hausse_2024
         unite: €/MWh
         source: https://www.senat.fr/rap/l24-144-21/l24-144-21_mono.html
         note: 'Sénat, rapport général PLF 2025 : la LFI 2024 permettait de relever les tarifs « dans la limite d''une augmentation
@@ -2854,6 +2915,7 @@ mesures:
           280 millions d''euros par an »'
       f22:
         valeur: 1.3643
+        bareme: facteur_pib_2022_2032
         unite: facteur PIB nominal 2022→2032
         source: 'chiffrage/baremes.yaml, barème pib_nominal_2032 (3 620,9 Md€) ; PIB 2022 : 2 654,0 Md€ (INSEE, indicateur
           finances.pib_nominal@1.0.0) ; 3 620,9 / 2 654,0'
@@ -3311,6 +3373,7 @@ mesures:
     parametres:
       rendement_statique:
         valeur: 20
+        bareme: taxe_zucman_rendement_statique
         unite: Md€/an (2025, statique)
         source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
         note: '« Mettre en place la taxe Zucman de 2 % sur les patrimoines de plus de 100 millions d''euros : 20 milliards
@@ -3320,6 +3383,7 @@ mesures:
           une telle imposition » (Assemblée, rapport n° 930)'
       part_conservee:
         valeur: 0.26
+        bareme: reponse_patrimoine_part_conservee
         unite: part de la recette mécanique effectivement perçue
         source: https://cae-eco.fr/static/pdf/Focus_118_emigration_fiscale_250725_v2.pdf
         note: 'CAE, Focus n° 118, juillet 2025 (Bach, Bozio et al.) : « les réponses comportementales (à la fois marge intensive
@@ -3634,15 +3698,16 @@ mesures:
   chiffrable: true
   nature: recette
   effet_solde_primaire:
-    central: 2.72
-    bas: 1.36
-    haut: 4.09
+    central: 2.18
+    bas: 1.09
+    haut: 3.27
     montee_en_charge: *id004
   calcul:
     formule: depenses_fiscales_dmtg * part_supprimee * f25
     parametres:
       depenses_fiscales_dmtg:
-        valeur: 4.5
+        valeur: 3.6
+        bareme: pacte_dutreil_cout
         unite: Md€ (2025)
         source: https://www.ccomptes.fr/sites/default/files/2026-04/20260422-RBDE-2025_0.pdf
         note: 'Cour des comptes, budget de l''État 2025, tableau 22 : dépenses fiscales associées aux DMTG, 4,5 Md€ (majorant
@@ -3657,20 +3722,28 @@ mesures:
         valeur: 1.2106
         unite: facteur PIB nominal 2025→2032
         bareme: facteur_pib_2025_2032
-    explication: 'Coût des dépenses fiscales rattachées aux DMTG (majorant du pacte Dutreil, Cour des comptes) × part supprimée
-      (convention 0,5 pour « limiter fortement », fourchette 0,25 à 0,75) × PIB 2025→2032. Référence : la LFI 2026 a déjà
-      resserré le pacte (actifs somptuaires exclus, engagement individuel porté à six ans, selon Deloitte) ; seul l''avantage
-      résiduel est visé.'
+    explication: >-
+      Coût des dépenses fiscales rattachées aux DMTG (majorant du pacte Dutreil, Cour des comptes) × part supprimée
+      (convention 0,5 pour « limiter fortement », fourchette 0,25 à 0,75) × PIB 2025→2032. Référence : la LFI 2026 a
+      déjà resserré le pacte (actifs somptuaires exclus, engagement individuel porté à six ans, selon Deloitte) ;
+      seul l'avantage résiduel est visé. Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-
+      dessus : assiette alignée sur le barème pacte_dutreil_cout (coût du Dutreil, 3,6 Md€, Cour des comptes 2025)
+      au lieu des 4,5 Md€ de toutes les dépenses fiscales rattachées aux DMTG ; central 2,72 → 2,18, bas 1,36 →
+      1,09, haut 4,09 → 3,27.
   confiance: faible
   verification:
     statut: ok
     par: passe-sources
     date: '2026-09-29'
-    commentaire: 'Passe sources : « Limiter fortement la niche fiscale Dutreil : 3,5 milliards d''euros de recettes » relu p. 61 du
-      contre-budget ; part supprimée écrite comme convention motivée. Vérification précédente (verificateur-sonnet, ok)
-      : Rejoué : 4,5 × 0,5 × 1,2106 = 2,72 ; 4,5 Md€ = dépenses fiscales DMTG, majorant du Dutreil. Pas de double compte
-      avec successions (central IFRAP hors niches). Recalé sur les conventions communes du 29/09 : paramètres recopiés
-      remplacés par le renvoi au barème facteur_pib_2025_2032 ; valeur inchangée.'
+    commentaire: >-
+      Passe sources : « Limiter fortement la niche fiscale Dutreil : 3,5 milliards d'euros de recettes » relu p. 61
+      du contre-budget ; part supprimée écrite comme convention motivée. Vérification précédente (verificateur-
+      sonnet, ok) : Rejoué : 4,5 × 0,5 × 1,2106 = 2,72 ; 4,5 Md€ = dépenses fiscales DMTG, majorant du Dutreil. Pas
+      de double compte avec successions (central IFRAP hors niches). Recalé sur les conventions communes du 29/09 :
+      paramètres recopiés remplacés par le renvoi au barème facteur_pib_2025_2032 ; valeur inchangée. Harmonisation
+      des paramètres (30/09/2026) : assiette alignée sur le barème pacte_dutreil_cout (coût du Dutreil, 3,6 Md€,
+      Cour des comptes 2025) au lieu des 4,5 Md€ de toutes les dépenses fiscales rattachées aux DMTG ; central 2,72
+      → 2,18, bas 1,36 → 1,09, haut 4,09 → 3,27.
 - id: is-progressif
   libelle: Impôt sur les sociétés progressif selon le bénéfice et son usage ; IS majoré pour les très grandes entreprises
   domaine: fiscalite
@@ -3758,6 +3831,7 @@ mesures:
     parametres:
       recette_3pct_par_an:
         valeur: 1.98
+        bareme: contribution_3pct_dividendes_rendement
         unite: Md€/an (moyenne 2013-2017)
         source: https://www.vie-publique.fr/files/rapport/pdf/174000790.pdf
         note: 'IGF, mission d''enquête sur la contribution de 3 % : « 7,9 Md€ étaient contestés sur une recette de 9,9 Md€
@@ -4012,6 +4086,7 @@ mesures:
     parametres:
       part_au_dela_2_smic:
         valeur: 0.0612
+        bareme: allegements_part_au_dela_2_smic
         unite: part du coût des allègements généraux (RGDU 2026) portée par les salaires supérieurs à 2 Smic
         source: https://www.strategie-plan.gouv.fr/files/files/Publications/2024/SMIC/FS-2025-SMIC-RAPPORT-2024-12f%C3%A9v25.pdf
         note: 'Groupe d''experts sur le Smic, rapport 2024, p. 80, graphique I.27 (DSS, données Urssaf, 2023) : coût des allègements
@@ -4217,6 +4292,7 @@ mesures:
     parametres:
       cout_suppression_20pct:
         valeur: 7.8
+        bareme: taxe_habitation_20pct_plus_aises
         unite: Md€/an (2023)
         source: https://www.senat.fr/rap/l22-115-327/l22-115-32716.html
         note: 'Sénat, PLF 2023 : « 10,2 milliards d''euros bénéficient aux 80 % de ménages les moins aisés et 7,8 milliards
@@ -4600,17 +4676,20 @@ mesures:
     parametres:
       allocataires:
         valeur: 754460
+        bareme: aspa_allocataires
         unite: personnes
         source: https://evaluation.securite-sociale.fr/home/retraite/1-13-beneficiaires-du-minimum-vi.html
         note: 'rapport d''évaluation des politiques de sécurité sociale (Retraites), indicateur 1.13 : « Fin 2024, 754 000 personnes
           bénéficient d''une allocation du minimum vieillesse (ASV ou ASPA) » ; 754 460 dans les données de la DREES'
       seuil:
         valeur: 1288
+        bareme: seuil_pauvrete_mensuel
         unite: € par mois
         source: https://www.insee.fr/fr/statistiques/8600989
         note: seuil de pauvreté 2023 (60 % du niveau de vie médian)
       aspa:
         valeur: 1043.59
+        bareme: aspa_montant_personne_seule
         unite: € par mois
         source: https://www.service-public.gouv.fr/particuliers/vosdroits/F16871
         note: Aspa personne seule 2026

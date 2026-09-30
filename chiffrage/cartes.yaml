@@ -279,13 +279,13 @@ cartes:
     levier: assurance-chomage
     texte: "Je n'arrive pas à recruter alors que le chômage reste élevé. On réduit la durée d'indemnisation ?"
     gauche: {libelle: "Règles inchangées", option: inchangees, suite: chomage-abroger}
-    droite: {libelle: "Durcir (4 à 5 Md€)", option: durcir, suite: chomage-durcir-fortement}
+    droite: {libelle: "Durcir (environ 5 Md€)", option: durcir, suite: chomage-durcir-fortement}
   - id: chomage-durcir-fortement
     suite_seulement: true
     personnage: directeur-budget
     levier: assurance-chomage
     texte: "On peut aller plus loin : durée maximale réduite, ruptures conventionnelles, hauts revenus, frontaliers. Environ 12 Md€."
-    gauche: {libelle: "Durcir (4 à 5 Md€)", option: durcir}
+    gauche: {libelle: "Durcir (environ 5 Md€)", option: durcir}
     droite: {libelle: "Durcir fortement (12 Md€)", option: durcir-fortement}
   - id: chomage-abroger
     suite_seulement: true

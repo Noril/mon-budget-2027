@@ -50,12 +50,10 @@ Paramètres utilisés sans barème commun (sourcés dans la mesure) ou qui manqu
 
 | Paramètre | Contenu recherché | Statut dans `baremes.yaml` |
 |---|---|---|
-| `hs_exoneration_part_salariale` | Part salariale de l'exonération des heures supplémentaires : 2 306 sur 5 428 M€ (Cour des comptes, NEB 2026) ; heures par tranche annuelle (1 607-1 623 h, au-delà) | **Inscrit en partie** : `hs_exoneration_cout` (5,4 Md€, part salariale de 2,3 Md€ détaillée dans la dérivation) ; la répartition des heures par tranche n'est pas inscrite |
 | `cotisations_patronales_non_contributives` | Rendement d'un point de cotisation famille, maladie, FNAL, versement mobilité après allègements | Non inscrit (`masse_salariale_privee` donne un ordre de grandeur brut de 7,4 Md€ par point, avant allègements) |
 | `forfait_social_par_assiette` | Ventilation Acoss (participation légale, supra-légale, intéressement, PER, abondements) | Non inscrit |
 | `cfe_etablissements_industriels` | Produit de la CFE des établissements industriels (DGFiP, REI) | Non inscrit |
-| `logements_neufs_annuels` | Autorisations et mises en chantier (SDES, Sitadel) ; 379 222 logements autorisés en 2025 | Non inscrit |
-| `unedic_ruptures_conventionnelles` | Dépense d'allocation et durée moyenne après rupture conventionnelle ; chiffrage Unédic des règles de juin 2024 | Non inscrit |
+| `unedic_ruptures_conventionnelles` | Dépense d'allocation et durée moyenne après rupture conventionnelle | Non inscrit (les règles de juin 2024 sont le barème `assurance_chomage_regles_2024_economie`) |
 | `seniors_trimestres_complets_avant_age_legal` | Effectif et salaire des salariés éligibles (Cnav, DREES EIR) | Non inscrit |
 | `cumul_emploi_retraite` | Cumulants, revenus d'activité et cotisations (DREES) ; flux de surcote | Non inscrit |
 | `retraites_taux_plein_65_decote_7pct` | Simulation COR/Cnav d'un âge minimal de 63 ans avec décote de 7 % par an jusqu'à 65 ans et taux plein automatique à 65 ans | Non inscrit (barèmes voisins : `retraites_age_legal_1_an`, `retraites_duree_assurance_1_an`) |
@@ -66,4 +64,5 @@ Paramètres utilisés sans barème commun (sourcés dans la mesure) ou qui manqu
 | `hebergement_urgence_cout_place` | Coût d'une place d'hébergement d'urgence et part occupée par des étrangers en situation irrégulière (Cour des comptes) | Non inscrit |
 | `cspe_contrats_futurs_enr` | Charges de service public prévisionnelles des contrats d'énergies renouvelables 2028-2032 (CRE) | Non inscrit |
 | `enseignants_prive_sous_contrat` | Effectif et rémunération (programme 139) | Non inscrit |
-| `apd_cad_mission` | APD au sens du CAD et crédits de la mission APD | **Inscrit** : `apd_part_rnb` (APD de 12,88 Md€ en 2025, 0,42 % du RNB ; mission APD de 3,67 Md€ au PLF 2026 citée dans les limites) |
+
+Devenus barèmes communs le 30 septembre 2026 (harmonisation des paramètres entre programmes, retirés du tableau) : `hs_exoneration_cotisations_salariales`, `logements_autorises_annuels`, `assurance_chomage_regles_2024_economie` (4,7 Md€, Unédic, au lieu de la fourchette du candidat), `retour_is_impots_production` (0,20 au lieu du taux normal de 25 %), `prestations_residence_5_ans_economie`, `naissances_annuelles`, `fraude_sociale_recouvree`, `cspe_eolien_pv_hausse_annuelle`, `enr_soutien_annees_non_engagees_2032`, `enseignants_etpt_public`, `fp_ratio_net_brut`, `fp_salaire_brut_entrant`, `retraites_age_legal_reference_2032`.

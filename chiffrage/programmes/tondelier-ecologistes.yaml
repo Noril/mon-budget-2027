@@ -124,9 +124,9 @@ mesures:
   chiffrable: true
   nature: recette
   effet_solde_primaire:
-    central: 10.0
-    bas: 5.0
-    haut: 20.0
+    central: 6.3
+    bas: 3.9
+    haut: 24.2
     montee_en_charge:
       '2027': 0
       '2028': 1
@@ -135,22 +135,25 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: rendement
+    formule: rendement_statique * part_conservee * f25
     parametres:
-      rendement:
-        valeur: 10.0
-        unite: Md€/an
-        source: https://www.senat.fr/rap/r25-760/r25-76033.html
-        note: >-
-          Sénat, rapport d'information n° 760 (2025-2026) « Imposition des hauts patrimoines » (17 juin 2026) : « si 20
-          milliards d'euros annuels étaient attendus de la « taxe Zucman » par son initiateur, il semble que le rendement
-          aurait plutôt été de 5 milliards d'euros […] une fois pris en compte les effets comportementaux, selon plusieurs
-          économistes dont Xavier Jaravel, président du Conseil d'analyse économique ». Convention : central = moyenne
-          géométrique des deux bornes publiques (√(5 × 20) = 10), faute d'estimation indépendante qui les départage.
+      rendement_statique:
+        valeur: 20
+        bareme: taxe_zucman_rendement_statique
+        unite: Md€/an (2025, statique)
+      part_conservee:
+        valeur: 0.26
+        bareme: reponse_patrimoine_part_conservee
+        unite: part de la recette mécanique perçue
+      f25:
+        valeur: 1.2106
+        bareme: facteur_pib_2025_2032
+        unite: facteur PIB nominal 2025→2032
     explication: >-
       Fourchette publique 5 Md€ (après comportements, économistes cités par le Sénat) à 20 Md€ (initiateur, d'après le
       même rapport) ; central 10 par convention. Montants non projetés en 2032 (patrimoines volatils, évitement
       croissant avec le temps).
+      Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : même impôt que Mélenchon (taxe-zucman-2-pct) : recette statique (barème taxe_zucman_rendement_statique, 20 Md€) × part conservée après réactions (reponse_patrimoine_part_conservee, 0,26, CAE) × facteur_pib_2025_2032, au lieu d'un central conventionnel de 10 Md€ ; central 10,0 → 6,3, bas 5,0 → 3,9 (15 × 0,26), haut 20,0 → 24,2 (20 × 1,2106, sans réaction).
   chiffrages_tiers:
   - auteur: Groupe Écologiste et Social (Assemblée), d'après G. Zucman
     montant_md: 15
@@ -174,6 +177,7 @@ mesures:
       (convention). Recouvrement avec l'ISF climatique : l'impôt plancher s'impute sur l'ISF payé par les mêmes
       foyers ; non déduit ici, documenté sur la ligne isf-climatique. Trace précédente (verificateur-sonnet, ok) :
       citation vérifiée, fourchette 5-25.
+      Harmonisation des paramètres (30/09/2026) : même impôt que Mélenchon (taxe-zucman-2-pct) : recette statique (barème taxe_zucman_rendement_statique, 20 Md€) × part conservée après réactions (reponse_patrimoine_part_conservee, 0,26, CAE) × facteur_pib_2025_2032, au lieu d'un central conventionnel de 10 Md€ ; central 10,0 → 6,3, bas 5,0 → 3,9 (15 × 0,26), haut 20,0 → 24,2 (20 × 1,2106, sans réaction).
 - id: isf-climatique
   libelle: Rétablissement de l'ISF avec une composante climatique
   domaine: fiscalite
@@ -260,9 +264,9 @@ mesures:
   chiffrable: true
   nature: recette
   effet_solde_primaire:
-    central: 10.98
-    bas: 4.25
-    haut: 15.42
+    central: 10.61
+    bas: 3.82
+    haut: 15.46
     montee_en_charge:
       '2027': 0
       '2028': 1
@@ -271,17 +275,8 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: (dutreil + demembrement + assurance_vie + surtaxe) * facteur
+    formule: (pacte_dutreil * part_dutreil + demembrement + assurance_vie + surtaxe) * facteur
     parametres:
-      dutreil:
-        valeur: 1.5
-        unite: Md€/an (2023-2024)
-        source: https://www.ccomptes.fr/sites/default/files/2025-11/20251118-Pacte-Dutreil.pdf
-        note: >-
-          Cour des comptes, « Le Pacte Dutreil » (novembre 2025), p. 56 : « Elle est de l'ordre de 3,3 Md€ en 2023 et de
-          5,5 Md€ en 2024 ». Ramener l'exonération de 75 % à 50 % de l'actif rend imposable un tiers de l'assiette exonérée :
-          ≈ 1/3 de la dépense fiscale, soit 1,1 (2023) à 1,8 Md€ (2024) ; central = moyenne 2023-2024 (4,4 / 3 ≈ 1,5).
-          L'aménagement du Dutreil par la LFI 2026 (actifs non professionnels exclus) réduit un peu ce gain : non chiffré.
       demembrement:
         valeur: 2.0
         unite: Md€/an
@@ -319,6 +314,15 @@ mesures:
         valeur: 1.2336
         unite: facteur
         bareme: facteur_pib_2024_2032
+      pacte_dutreil:
+        valeur: 3.6
+        bareme: pacte_dutreil_cout
+        unite: Md€/an (moyenne 2022-2024)
+      part_dutreil:
+        valeur: 0.3333
+        source: https://www.ccomptes.fr/sites/default/files/2025-11/20251118-Pacte-Dutreil.pdf
+        unite: part de la dépense fiscale récupérée
+        note: "ramener l'exonération de 75 % à 50 % de l'actif rend imposable un tiers de l'assiette exonérée"
     explication: >-
       Somme des quatre volets chiffrés sur des sources publiques (euros 2023-2024), projetée en 2032 au PIB nominal :
       (1,5 + 2,0 + 4,0 + 1,4) × 1,2336 = 10,98 Md€. Bas = bornes basses (1,1 + 0,9 + 1,25 + 1,0 = 4,25) non projetées,
@@ -327,6 +331,7 @@ mesures:
       (Dutreil à 50 %, assurance-vie au barème, taxation de l'usufruit, barème inchangé) : « les droits supplémentaires
       seraient de l'ordre de 9 milliards d'euros », quand les DMTG rapportaient 15 Md€ (21,4 Md€ en 2026, barème
       dmtg_rendement). L'annonce de la candidate (10 Md€ dès 2027, 15 Md€ ensuite) est donc dans la fourchette.
+      Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : volet Dutreil lu comme un tiers du barème pacte_dutreil_cout (3,6 Md€, moyenne 2022-2024, bas 2,0, haut 5,5) au lieu d'un tiers de la moyenne 2023-2024 ; central 10,98 → 10,61, bas 4,25 → 3,82, haut 15,42 → 15,46.
   chiffrages_tiers:
   - auteur: Les Écologistes (chiffrage du parti)
     montant_md: 15
@@ -355,6 +360,7 @@ mesures:
       (dossierpresse-budget2027.pdf) non consultable (Cloudflare, pas d'archive) : détail du chiffrage du parti
       inconnu. Trace précédente (verificateur-sonnet, conteste) : central = annonce non vérifiée, bas 1,5 = seul
       Dutreil.
+      Harmonisation des paramètres (30/09/2026) : volet Dutreil lu comme un tiers du barème pacte_dutreil_cout (3,6 Md€, moyenne 2022-2024, bas 2,0, haut 5,5) au lieu d'un tiers de la moyenne 2023-2024 ; central 10,98 → 10,61, bas 4,25 → 3,82, haut 15,42 → 15,46.
 - id: impot-minimal-grandes-entreprises
   libelle: >-
     Impôt minimal sur les bénéfices des sociétés de plus de 1 Md€ de chiffre d'affaires au prorata de l'activité en France,
@@ -470,6 +476,7 @@ mesures:
     parametres:
       csg_capital:
         valeur: 1.91
+        bareme: csg_point_capital
         unite: Md€ par point
         source: chiffrage/baremes.yaml, dérivation du barème csg_point (sources du barème)
         note: >-
@@ -492,6 +499,7 @@ mesures:
           lecture que la TTF de LFI (méthode commune)
       pfu_point:
         valeur: 0.6172
+        bareme: pfu_point_ir
         unite: Md€ par point de la part IR du PFU (2025)
         source: https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Recettes-fiscales.pdf
         note: >-
@@ -685,11 +693,13 @@ mesures:
     parametres:
       hs_salariale:
         valeur: 2.306
+        bareme: hs_exoneration_cotisations_salariales
         unite: Md€/an
         source: >-
           chiffrage/baremes.yaml, dérivation du barème hs_exoneration_cout (exonération de cotisations salariales 2026)
       hs_patronale:
         valeur: 0.872
+        bareme: hs_deduction_forfaitaire_patronale
         unite: Md€/an
         source: >-
           chiffrage/baremes.yaml, dérivation du barème hs_exoneration_cout (déduction forfaitaire patronale 2026)
@@ -700,6 +710,7 @@ mesures:
         note: PIB nominal 2026→2032
       part_au_dela_1_6_smic:
         valeur: 0.172
+        bareme: allegements_part_au_dela_1_6_smic
         unite: part du coût des allègements généraux (RGDU 2026) portée par les salaires supérieurs à 1,6 Smic
         source: https://www.strategie-plan.gouv.fr/files/files/Publications/2024/SMIC/FS-2025-SMIC-RAPPORT-2024-12f%C3%A9v25.pdf
         note: >-
@@ -939,8 +950,8 @@ mesures:
   chiffrable: true
   nature: recette
   effet_solde_primaire:
-    central: 6.42
-    bas: 5.45
+    central: 6.44
+    bas: 5.65
     haut: 6.9
     montee_en_charge:
       '2027': 0
@@ -953,7 +964,8 @@ mesures:
     formule: abattement * facteur
     parametres:
       abattement:
-        valeur: 5.3
+        valeur: 5.322
+        bareme: abattement_10pct_pensions_cout
         unite: Md€/an
         source: >-
           https://lcp.fr/actualites/pensions-de-retraite-les-deputes-retablissent-en-commission-l-abattement-de-10-410270
@@ -968,6 +980,7 @@ mesures:
       Seule la suppression de l'abattement de 10 % des retraités est chiffrée : 5,3 Md€ (bas 4,5 Md€ Cour des comptes,
       haut 5,7 Md€ documents budgétaires 2025, source https://www.aladom.fr/actualites/secteur-service/11316/labattement-de-10-sur-les-pensions-histoire-dun-avantage-fiscal-que-personne-narrive-a-supprimer/),
       projetée en 2032.
+      Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : aligné sur le barème abattement_10pct_pensions_cout (5,3 → 5,322 Md€, Cour des comptes NEB 2026) ; central 6,42 → 6,44 ; bas 5,45 → 5,65 (prévision PLF 2026, 4,665 Md€, × 1,2106).
   confiance: moyenne
   verification:
     statut: ok
@@ -979,6 +992,7 @@ mesures:
       double compte) ; niches fossiles, voitures de fonction et achats non comptés (prudent, aucun montant
       annoncé, règle 6 ciblée non applicable).
       Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2025_2032 ; valeur inchangée.
+      Harmonisation des paramètres (30/09/2026) : aligné sur le barème abattement_10pct_pensions_cout (5,3 → 5,322 Md€, Cour des comptes NEB 2026) ; central 6,42 → 6,44 ; bas 5,45 → 5,65 (prévision PLF 2026, 4,665 Md€, × 1,2106).
 - id: cir-recentrage
   libelle: >-
     Recentrage du crédit d'impôt recherche sur les PME et ETI, logique de subvention à 50 % des projets avec un laboratoire,
@@ -1000,9 +1014,9 @@ mesures:
   chiffrable: true
   nature: economie
   effet_solde_primaire:
-    central: 4.09
+    central: 3.62
     bas: 0.0
-    haut: 4.09
+    haut: 3.62
     montee_en_charge:
       '2027': 0
       '2028': 1
@@ -1011,29 +1025,31 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: cir_total * part_grandes * facteur23
+    formule: cir_total * part_grandes * facteur26
     parametres:
       cir_total:
-        valeur: 7.8
+        valeur: 8.041
+        bareme: cir_cout
         unite: Md€
         source: >-
           https://www.financeinnovation.fr/2026/01/22/cir-le-credit-impot-recherche-cir-en-2023-la-creance-continue-daugmenter-tout-en-comptant-moins-de-declarants/
         note: créance CIR 2023 (MESRE, provisoire)
       part_grandes:
-        valeur: 0.41
+        valeur: 0.38
+        bareme: cir_part_grandes_entreprises
         unite: part
         source: >-
           https://www.financeinnovation.fr/2026/01/22/cir-le-credit-impot-recherche-cir-en-2023-la-creance-continue-daugmenter-tout-en-comptant-moins-de-declarants/
         note: 'grandes entreprises : 41 % de la créance'
-      facteur23:
-        valeur: 1.2777
-        unite: facteur
-        bareme: facteur_pib_2023_2032
-        note: PIB nominal 2023→2032
+      facteur26:
+        valeur: 1.1842
+        bareme: facteur_pib_2026_2032
+        unite: facteur PIB nominal 2026→2032
     explication: >-
       Recentrage sur PME et ETI : économie de la part des grandes entreprises (41 % de 7,8 Md€ en 2023), projetée en
       2032. Bas = 0 : le cofinancement à 50 % des projets menés avec un laboratoire et les 1 000 chaires, non chiffrés,
       peuvent absorber l'économie.
+      Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : coût du CIR aligné sur le barème cir_cout (créance 2023 de 7,8 → 8,041 Md€, PLF 2026, comme Mélenchon) projeté avec facteur_pib_2026_2032 ; part des grandes entreprises sur cir_part_grandes_entreprises (0,41 de la seule créance recherche → 0,38 de la créance totale, MESRE) ; central et haut 4,09 → 3,62.
   effets_retour: 'Délocalisation d''une partie de la R&D des grands groupes : non comptée.'
   confiance: faible
   verification:
@@ -1051,6 +1067,7 @@ mesures:
       relue. Économie brute avant le cofinancement à 50 % et les 1 000 chaires non chiffrés, d'où bas = 0.
       Confiance faible ; pas de double compte avec la ligne dépenses inutiles (qui n'inclut pas le CIR).
       Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2023_2032 ; valeur inchangée.
+      Harmonisation des paramètres (30/09/2026) : coût du CIR aligné sur le barème cir_cout (créance 2023 de 7,8 → 8,041 Md€, PLF 2026, comme Mélenchon) projeté avec facteur_pib_2026_2032 ; part des grandes entreprises sur cir_part_grandes_entreprises (0,41 de la seule créance recherche → 0,38 de la créance totale, MESRE) ; central et haut 4,09 → 3,62.
 - id: collectivites-cvae-dilico
   libelle: Rétablissement de la CVAE pour les collectivités, suppression du DILICO, RSA renationalisé
   domaine: collectivites
@@ -1072,8 +1089,8 @@ mesures:
   chiffrable: true
   nature: recette
   effet_solde_primaire:
-    central: 3.36
-    bas: 3.36
+    central: 3.58
+    bas: 3.58
     haut: 4.48
     montee_en_charge:
       '2027': 0
@@ -1094,7 +1111,8 @@ mesures:
         unite: facteur
         bareme: facteur_pib_2025_2032
       taux_is:
-        valeur: 0.25
+        valeur: 0.2
+        bareme: retour_is_impots_production
         unite: taux
         source: https://www.fipeco.fr/fiche/Limp%C3%B4t-sur-les-soci%C3%A9t%C3%A9s
         note: 'déductibilité de l''impôt de l''assiette de l''IS : retour mécanique (même convention que C3S, CFE, forfait social chez Retailleau)'
@@ -1102,6 +1120,7 @@ mesures:
       Maintien de la CVAE au-delà de 2030 au lieu de sa suppression votée (LFI 2025, inchangée par la LFI 2026) : 3,7 Md€ × 1,2106 ≈ 4,5 Md€ en
       2032 (dérivation du barème), net du manque à gagner d'IS de 25 % (la CVAE est déductible du résultat imposable) :
       3,36 Md€. Haut : sans retour d'IS. Montée : la baisse votée commence en 2028.
+      Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : retour d'IS aligné sur le barème retour_is_impots_production (0,25 → 0,20) ; central et bas 3,36 → 3,58.
   confiance: moyenne
   verification:
     statut: corrige
@@ -1113,6 +1132,7 @@ mesures:
       identique à celle appliquée aux impôts de production dans les autres chiffrages. Central 4,48 -> 3,36
       (-1,12 Md€), bas 3,36, haut 4,48. DILICO et RSA : transferts internes, neutres.
       Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2025_2032 ; valeur inchangée.
+      Harmonisation des paramètres (30/09/2026) : retour d'IS aligné sur le barème retour_is_impots_production (0,25 → 0,20) ; central et bas 3,36 → 3,58.
 - id: lutte-fraude-evasion
   libelle: Renforcement des moyens contre la fraude et l'évasion fiscales
   domaine: fiscalite
@@ -1186,11 +1206,13 @@ mesures:
           https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
       smic_actuel:
         valeur: 1867.02
+        bareme: smic_brut_mensuel
         unite: € brut mensuel
         source: https://www.service-public.gouv.fr/particuliers/vosdroits/F2300
         note: Smic mensuel brut en vigueur au 29 septembre 2026
       inflation_2027:
         valeur: 0.0146
+        bareme: deflateur_pib_2027
         unite: taux
         source: >-
           plan/hypotheses.yaml, déflateur du PIB 2027 (FMI WEO) https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
@@ -1283,6 +1305,7 @@ mesures:
         bareme: retour_prelevements_salaires_publics
       part_b_c:
         valeur: 0.61
+        bareme: fp_part_categories_b_c
         unite: part des agents
         source: https://www.fonction-publique.gouv.fr/files/files/publications/vue-rapport-annuel/ra_2025_vue_emploi_caracteristiques_postes.pdf
         note: >-
@@ -1425,9 +1448,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -10.6
-    bas: -12.14
-    haut: -6.5
+    central: -11.86
+    bas: -12.02
+    haut: -7.75
     montee_en_charge:
       '2027': 0.085
       '2028': 0.374
@@ -1436,20 +1459,23 @@ mesures:
       '2031': 0.889
       '2032': 1.0
   calcul:
-    formule: -(economies_2019_2021*facteur + reforme_2023 + allocations_2025*inflation_cumulee/100)
+    formule: -((economies_2019_2021 + reforme_2023)*facteur + allocations_2025*inflation_cumulee/100)
     parametres:
       economies_2019_2021:
-        valeur: 2.3
+        valeur: 2.2
+        bareme: assurance_chomage_reforme_2019_2021_economie
         unite: Md€/an
         source: https://www.unedic.org/publications/evaluation-de-la-reforme-d-assurance-chomage-2019-2021
         note: conditions d'ouverture −0,8, calcul du SJR −1,0, dégressivité −0,5 Md€ par an (estimations ex ante Unédic)
       facteur:
-        valeur: 1.0
+        valeur: 1.157
+        bareme: facteur_pib_2027_2032
         unite: facteur
         source: https://www.unedic.org/publications/evaluation-de-la-reforme-d-assurance-chomage-2019-2021
         note: montant non projeté en central
       reforme_2023:
-        valeur: 4.2
+        valeur: 4.5
+        bareme: assurance_chomage_reforme_2023_economie
         unite: Md€/an (régime de croisière, 2027)
         source: >-
           https://www.unedic.org/storage/uploads/2023/07/19/Effets-de-ladaptation-des-rgles-dassurance-chmage--la-conjoncture---actualis_0_uid_64b7e3c56dd92.pdf
@@ -1468,12 +1494,18 @@ mesures:
         unite: '% cumulés 2027-2032'
         bareme: inflation_cumulee_2027_2032
         note: 'REFERENCE.md, « Indexations : droit constant »'
-    explication: 'Coût = économies Unédic de la réforme 2019-2021 (2,3 Md€/an) + réforme 2023 de contracyclicité (4,2 Md€/an
-      en régime de croisière, Unédic) + indexation des allocations sur l''inflation à droit constant (37,2 Md€ × 11,03 %
-      = 4,1 Md€) = 10,6. Haut : abrogation des réformes sans coût d''indexation (lecture « usage constant » : l''ARE est
-      revalorisée chaque année de fait, comme le barème de l''IR), 6,5. Bas : réformes projetées en 2032 (× 1,2106) +
-      indexation sur les allocations 2027 (38,7 Md€), 12,14. Convention 2024 (≈ 0,4 Md€ par an selon l''Unédic) et avenant
-      de février 2026 non comptés, faute de chiffrage primaire relu.'
+    explication: >-
+      Coût = économies Unédic de la réforme 2019-2021 (2,3 Md€/an) + réforme 2023 de contracyclicité (4,2 Md€/an en
+      régime de croisière, Unédic) + indexation des allocations sur l'inflation à droit constant (37,2 Md€ × 11,03 %
+      = 4,1 Md€) = 10,6. Haut : abrogation des réformes sans coût d'indexation (lecture « usage constant » : l'ARE
+      est revalorisée chaque année de fait, comme le barème de l'IR), 6,5. Bas : réformes projetées en 2032 (×
+      1,2106) + indexation sur les allocations 2027 (38,7 Md€), 12,14. Convention 2024 (≈ 0,4 Md€ par an selon
+      l'Unédic) et avenant de février 2026 non comptés, faute de chiffrage primaire relu. Mise à jour du 30/09/2026
+      (barèmes communs), qui remplace les montants ci-dessus : économies des réformes alignées sur les barèmes
+      assurance_chomage_reforme_2019_2021_economie (2,3 → 2,2) et assurance_chomage_reforme_2023_economie (4,2 →
+      4,5), toutes deux projetées de 2027 à 2032 (facteur 1,0 → 1,157) comme chez Glucksmann et Mélenchon ; central
+      −10,6 → −11,86 (6,7 × 1,157 + 37,2 × 11,03 %), bas −12,14 → −12,02 (indexation sur les allocations 2027, 38,7
+      Md€), haut −6,5 → −7,75 (réformes seules).
   confiance: faible
   verification:
     statut: corrige
@@ -1495,6 +1527,7 @@ mesures:
       fourchette ; central et bas inchangés. Le coût des réformes de 2023 et 2025 reste non compté
       (minorant).
       Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème inflation_cumulee_2027_2032 ; valeur inchangée.
+      Harmonisation des paramètres (30/09/2026) : économies des réformes alignées sur les barèmes assurance_chomage_reforme_2019_2021_economie (2,3 → 2,2) et assurance_chomage_reforme_2023_economie (4,2 → 4,5), toutes deux projetées de 2027 à 2032 (facteur 1,0 → 1,157) comme chez Glucksmann et Mélenchon ; central −10,6 → −11,86 (6,7 × 1,157 + 37,2 × 11,03 %), bas −12,14 → −12,02 (indexation sur les allocations 2027, 38,7 Md€), haut −6,5 → −7,75 (réformes seules).
 - id: garantie-emploi-55-ans-tzcld
   libelle: >-
     Garantie d'emploi à 55 ans par l'extension de Territoires zéro chômeur de longue durée, soutien à l'IAE
@@ -1671,17 +1704,20 @@ mesures:
     parametres:
       allocataires:
         valeur: 754460
+        bareme: aspa_allocataires
         unite: personnes
         source: >-
           https://www.espace-social.com/minimum-vieillesse-le-nombre-de-beneficiaires-augmente-toujours-en-2024/
         note: allocataires ASV ou Aspa fin 2024 (Drees)
       seuil:
         valeur: 1288
+        bareme: seuil_pauvrete_mensuel
         unite: € par mois
         source: https://www.insee.fr/fr/statistiques/8600989
         note: seuil de pauvreté 2023 (60 % du niveau de vie médian)
       aspa:
         valeur: 1043.59
+        bareme: aspa_montant_personne_seule
         unite: € par mois
         source: https://www.service-public.gouv.fr/particuliers/vosdroits/F16871
         note: Aspa personne seule 2026
@@ -1803,16 +1839,11 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: -(0.5 * smic_net_2000 / rsa_seul - 1) * rsa * facteur23
+    formule: -(0.5 * (2000 * smic_net / smic_brut) / rsa_seul - 1) * rsa * facteur23
     parametres:
-      smic_net_2000:
-        valeur: 1583.2
-        unite: € net mensuel
-        source: https://www.service-public.gouv.fr/particuliers/vosdroits/F2300
-        note: >-
-          2 000 € brut × (1 477,93 / 1 867,02) : Smic à 2 000 € (mesure du programme) au même taux de cotisations
       rsa_seul:
         valeur: 651.69
+        bareme: rsa_montant_personne_seule
         unite: € par mois
         source: https://www.service-public.gouv.fr/particuliers/vosdroits/F19778
         note: RSA personne seule 2026
@@ -1825,6 +1856,14 @@ mesures:
         unite: facteur
         bareme: facteur_pib_2023_2032
         note: PIB nominal 2023→2032
+      smic_net:
+        valeur: 1477.93
+        bareme: smic_net_mensuel
+        unite: € net par mois
+      smic_brut:
+        valeur: 1867.02
+        bareme: smic_brut_mensuel
+        unite: € brut par mois
     explication: >-
       Garantie à 50 % du Smic net : +21,5 % sur le RSA si le Smic passe à 2 000 € brut (+13,4 % au Smic actuel, borne
       haute), appliqués à la dépense de RSA 2023 projetée en 2032.
@@ -1839,6 +1878,7 @@ mesures:
       (allocations CAF 2023) projetés au PIB : cohérent. Extension aux 18-24 ans non chiffrée (minorant) ;
       interaction avec le Smic à 2 000 € signalée.
       Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2023_2032 ; valeur inchangée.
+      Harmonisation des paramètres (30/09/2026) : Smic net à 2 000 € brut recalculé depuis les barèmes smic_net_mensuel et smic_brut_mensuel ; valeur inchangée.
 - id: apl-revalorisation-10pct
   libelle: APL revalorisées de 10 %, abrogation de l'exclusion des étudiants extracommunautaires
   domaine: logement
@@ -2029,6 +2069,7 @@ mesures:
     parametres:
       cout_14_jours:
         valeur: 0.522
+        bareme: conge_paternite_14_jours_cout
         unite: Md€/an
         source: https://www.senat.fr/rap/l20-107-2/l20-107-28.html
         note: 'allongement du congé de paternité de 14 à 28 jours : 522 M€ en 2022 (annexe 9 du PLFSS 2021)'
@@ -2140,6 +2181,7 @@ mesures:
     parametres:
       aah_max:
         valeur: 1041.59
+        bareme: aah_montant_maximal
         unite: € par mois
         source: https://www.service-public.gouv.fr/particuliers/vosdroits/F12242
         note: AAH à taux plein 2026
@@ -2291,6 +2333,7 @@ mesures:
     parametres:
       franchises:
         valeur: 2.5
+        bareme: franchises_participations_rendement
         unite: Md€/an
         source: >-
           https://www.ccomptes.fr/sites/default/files/2026-05/20260527-RALFSS-2026-5-Franchises-et-participations-forfaitaires-de-l-assurance-maladie.pdf
@@ -2461,6 +2504,7 @@ mesures:
     parametres:
       etpt:
         valeur: 341897
+        bareme: enseignants_etpt_premier_degre
         unite: ETPT
         source: chiffrage/baremes.yaml, dérivation du barème cout_enseignant_charge (programme 140, PLF 2026)
       taille_moyenne:
@@ -2541,10 +2585,12 @@ mesures:
     parametres:
       etpt_1d:
         valeur: 341897
+        bareme: enseignants_etpt_premier_degre
         unite: ETPT
         source: chiffrage/baremes.yaml, dérivation du barème cout_enseignant_charge (programme 140)
       etpt_2d:
         valeur: 451966
+        bareme: enseignants_etpt_second_degre
         unite: ETPT
         source: chiffrage/baremes.yaml, dérivation du barème cout_enseignant_charge (programme 141)
       cout:
@@ -2609,12 +2655,14 @@ mesures:
     parametres:
       public_actuel:
         valeur: 10.4
+        bareme: enseignement_prive_financement_public
         unite: Md€
         source: >-
           https://www.assemblee-nationale.fr/dyn/content/download/824787/file/Dossier%20de%20presse%20-%20MI%20financement%20public%20enseignement%20priv%C3%A9.pdf
         note: État 8,5 + collectivités 1,9 Md€ en 2022 (Depp)
       total:
         valeur: 13.83
+        bareme: enseignement_prive_cout_total
         unite: Md€
         source: >-
           https://www.assemblee-nationale.fr/dyn/content/download/824787/file/Dossier%20de%20presse%20-%20MI%20financement%20public%20enseignement%20priv%C3%A9.pdf
@@ -2817,11 +2865,13 @@ mesures:
           https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
       realise_2024:
         valeur: 91374
+        bareme: anah_renovations_ampleur
         unite: rénovations d'ampleur
         source: >-
           https://www.anah.gouv.fr/presse/bilan-2024-de-l-anah-un-effort-massif-pour-mieux-renover-les-logements
       aide_moyenne:
         valeur: 36271
+        bareme: anah_aide_moyenne_renovation_ampleur
         unite: € par rénovation
         source: >-
           https://www.anah.gouv.fr/presse/bilan-2024-de-l-anah-un-effort-massif-pour-mieux-renover-les-logements

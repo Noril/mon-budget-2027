@@ -153,6 +153,7 @@ mesures:
     parametres:
       inflation_2028:
         valeur: 1.721
+        bareme: inflation_ipc_2027
         unite: '% de revalorisation 2028 évitée'
         source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.PCPIPCH.A
         note: 'la revalorisation légale de 2028 (pensions au 1er janvier, prestations au 1er avril) suit l''inflation de 2027 :
@@ -174,6 +175,7 @@ mesures:
         note: 'borne basse du barème : régimes de base, seul levier direct de la loi'
       part_petites:
         valeur: 0.154
+        bareme: pensions_part_masse_sous_1200
         unite: part de la masse des pensions épargnée
         source: https://data.drees.solidarites-sante.gouv.fr/api/explore/v2.1/catalog/datasets/4178_distribution-des-pensions-mensuelles/attachments/eir2020_distribution_des_pensions_mensuelles_xlsx
         note: 'DREES EIR 2020 (tableau 5) : 36,1 % des retraités ont une pension totale < 1 200 € bruts, soit environ 15,4
@@ -225,9 +227,9 @@ mesures:
   chiffrable: true
   nature: economie
   effet_solde_primaire:
-    central: 4.44
-    bas: 3.6
-    haut: 5.0
+    central: 5.44
+    bas: 4.63
+    haut: 6.25
     montee_en_charge:
       '2027': 0
       '2028': 0.5
@@ -239,26 +241,42 @@ mesures:
     formule: economie_2024 * f
     parametres:
       economie_2024:
-        valeur: 3.6
+        valeur: 4.7
+        bareme: assurance_chomage_regles_2024_economie
         unite: Md€/an (estimation gouvernementale 2024)
         source: https://www.huffingtonpost.fr/economie/article/reforme-de-l-assurance-chomage-les-syndicats-et-le-patronat-parviennent-a-un-accord_242266.html
         note: « Pour espérer dégager 3,6 milliards d’euros d’économies [...] Gabriel Attal souhaitait passer de 6 mois de
           travail sur 24 mois [...] à 8 mois travaillés sur 20 mois »
       f:
-        valeur: 1.2336
-        bareme: facteur_pib_2024_2032
+        valeur: 1.157
+        bareme: facteur_pib_2027_2032
         unite: facteur 2024→2032
         note: facteur PIB nominal (FMI WEO avril 2026, plan/hypotheses.yaml), indiqué en tête de chiffrage/baremes.yaml (valeur
           2024→2032 citée dans les barèmes c3s_rendement et masse_salariale_apu)
-    explication: 'Économie attendue en 2024 de la réforme (3,6 Md€) portée en euros 2032 (× 1,2336). Bas : montant nominal
-      2024. Haut : 5 Md€ annoncés par le candidat. Les règles de la convention de 2025 ont repris d''autres paramètres (1,4
-      à 2,3 Md€ sur quatre ans, Unédic) sans modifier la condition d''affiliation.'
+    explication: >-
+      Économie attendue en 2024 de la réforme (3,6 Md€) portée en euros 2032 (× 1,2336). Bas : montant nominal 2024.
+      Haut : 5 Md€ annoncés par le candidat. Les règles de la convention de 2025 ont repris d'autres paramètres (1,4
+      à 2,3 Md€ sur quatre ans, Unédic) sans modifier la condition d'affiliation. Mise à jour du 30/09/2026 (barèmes
+      communs), qui remplace les montants ci-dessus : aligné sur le barème assurance_chomage_regles_2024_economie
+      (Unédic, juin 2024 : 4,0 à 5,4 Md€ en régime de croisière, 4,7 au centre, au lieu des 3,6 Md€ gouvernementaux
+      sans source primaire), projeté de 2027 à 2032 (facteur_pib_2027_2032, 1,157) comme les autres chiffrages de
+      l'Unédic ; central 4,44 → 5,44, bas 3,6 → 4,63 (4,0 × 1,157), haut 5,0 → 6,25 (5,4 × 1,157). Même barème que
+      Retailleau (chomage-regles-juin-2024).
   confiance: moyenne
   verification:
     statut: ok
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Extrait HuffPost relu (3,6 Md€ pour 8 mois sur 20 mois), facteur 2024→2032 1,2336 cohérent ; bas 3,6, haut 5 (montant du candidat). Réserve : économie du régime, sans déduction du basculement de fin de droits vers RSA/ASS. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032 (valeur inchangée)."
+    commentaire: >-
+      Citation retrouvée dans la source (récupérée le 2026-09-29). Extrait HuffPost relu (3,6 Md€ pour 8 mois sur 20
+      mois), facteur 2024→2032 1,2336 cohérent ; bas 3,6, haut 5 (montant du candidat). Réserve : économie du
+      régime, sans déduction du basculement de fin de droits vers RSA/ASS. Recalé sur les conventions communes du
+      29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032 (valeur inchangée). Harmonisation des
+      paramètres (30/09/2026) : aligné sur le barème assurance_chomage_regles_2024_economie (Unédic, juin 2024 : 4,0
+      à 5,4 Md€ en régime de croisière, 4,7 au centre, au lieu des 3,6 Md€ gouvernementaux sans source primaire),
+      projeté de 2027 à 2032 (facteur_pib_2027_2032, 1,157) comme les autres chiffrages de l'Unédic ; central 4,44 →
+      5,44, bas 3,6 → 4,63 (4,0 × 1,157), haut 5,0 → 6,25 (5,4 × 1,157). Même barème que Retailleau (chomage-regles-
+      juin-2024).
 - id: arrets-maladie
   libelle: Plan d'action contre la dérive des arrêts maladie
   domaine: santé / indemnités journalières
@@ -317,6 +335,7 @@ mesures:
         source: https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037
       brut_entrant:
         valeur: 31000
+        bareme: fp_salaire_brut_entrant
         unite: € brut par an, hors cotisations employeurs
         source: https://www.fipeco.fr/fiche/Le-niveau-et-l%C3%A9volution-de-la-masse-salariale-publique
         note: '« coût moyen des entrants (salaire brut des agents de moins de 30 ans en pratique) d''environ 31 000 € pour
@@ -432,6 +451,7 @@ mesures:
         note: « 1000 euros versés par l'État sur un compte bloqué pour chaque nouveau-né »
       naissances:
         valeur: 643905
+        bareme: naissances_annuelles
         unite: naissances par an (2025)
         source: https://www.insee.fr/fr/statistiques/9017867
         note: '« En 2025, 643 905 bébés sont nés en France, soit une baisse de 2,3 % par rapport à 2024 » (Insee Focus n°
@@ -672,9 +692,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -1.71
-    bas: -2.88
-    haut: -1.62
+    central: -1.69
+    bas: -2.85
+    haut: -1.6
     montee_en_charge:
       '2027': 0.3
       '2028': 1
@@ -687,6 +707,7 @@ mesures:
     parametres:
       effectifs:
         valeur: 793863
+        bareme: enseignants_etpt_public
         unite: ETPT
         source: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
         note: enseignants du public, programmes 140 (341 897) et 141 (451 966), PLF 2026 ; privé sous contrat exclu
@@ -696,26 +717,39 @@ mesures:
         source: https://attalpresident.fr/actualites/france-2-gabriel-attal-fait-de-l-ecole-une-priorite-pour-preparer-l-avenir-du-pays
         note: « 200 euros nets par mois pour tous les enseignants, pouvant atteindre 500 euros nets » en milieu de carrière
       ratio_net_brut:
-        valeur: 0.8
+        valeur: 0.81
+        bareme: fp_ratio_net_brut
         unite: net/brut
         source: https://www.fonction-publique.gouv.fr/files/files/publications/rapport-annuel/cc-2025-web.pdf
-        note: cotisations salariales d'un fonctionnaire ≈ 20 % du traitement (pension civile, CSG-CRDS, RAFP)
+        note: "INSEE Première n° 2100 : salaire net moyen 3 267 € pour 4 025 € brut (fonctionnaires de l'État, 2024), soit 0,81"
       retour:
         valeur: 0.28
         unite: part de la rémunération brute revenant aux APU
         bareme: retour_prelevements_salaires_publics
-    explication: 'Convention commune 1 : hausse nette convertie en brut hors cotisations employeurs (0,79 M d''enseignants
-      du public × 200 € nets × 12 / 0,8 ≈ 2,38 Md€), nette des prélèvements qui reviennent aux APU (× (1 − 0,28)). Le
-      candidat annonce 2,5 à 3 Md€ (coût chargé, consigné en chiffrage tiers). Bas : +300 € en moyenne (200 € en début
-      et fin de carrière, 500 € en milieu), retour 0,25, plus ≈ 0,2 Md€ de pensions induites en 2032 (convention 2).
-      Haut : retour 0,32. Montant nominal (hausse en euros nets, point d''indice gelé). Montée : rentrée
-      2027 par loi de finances rectificative, puis année pleine.'
+    explication: >-
+      Convention commune 1 : hausse nette convertie en brut hors cotisations employeurs (0,79 M d'enseignants du
+      public × 200 € nets × 12 / 0,8 ≈ 2,38 Md€), nette des prélèvements qui reviennent aux APU (× (1 − 0,28)). Le
+      candidat annonce 2,5 à 3 Md€ (coût chargé, consigné en chiffrage tiers). Bas : +300 € en moyenne (200 € en
+      début et fin de carrière, 500 € en milieu), retour 0,25, plus ≈ 0,2 Md€ de pensions induites en 2032
+      (convention 2). Haut : retour 0,32. Montant nominal (hausse en euros nets, point d'indice gelé). Montée :
+      rentrée 2027 par loi de finances rectificative, puis année pleine. Mise à jour du 30/09/2026 (barèmes
+      communs), qui remplace les montants ci-dessus : ratio net/brut aligné sur le barème fp_ratio_net_brut (0,8 →
+      0,81, INSEE Première n° 2100) ; effectifs sur enseignants_etpt_public ; central −1,71 → −1,69, bas −2,88 →
+      −2,85, haut −1,62 → −1,60.
   confiance: moyenne
   verification:
     statut: corrige
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Coût du candidat (2,5 à 3 Md€) cohérent avec un contrôle indépendant : 0,79 M ETPT × 200 € × 12 × ≈ 1,45 (charges hors CAS) ≈ 2,7 Md€ avant retour ; la mention « jusqu'à 500 € en milieu de carrière » pourrait pousser vers le haut (bas -3,0). Le retour de 25 % n'est pas sourcé (voir fonctionnaires-moins-100000). Recalé sur les conventions communes du 29/09 : coût recalculé en brut hors cotisations employeurs × (1 − 0,28) (convention 1) au lieu du coût chargé du candidat × (1 − un quart non sourcé) ; central −2,06 → −1,71, bas −3,0 → −2,88, haut −1,88 → −1,62."
+    commentaire: >-
+      Citation retrouvée dans la source (récupérée le 2026-09-29). Coût du candidat (2,5 à 3 Md€) cohérent avec un
+      contrôle indépendant : 0,79 M ETPT × 200 € × 12 × ≈ 1,45 (charges hors CAS) ≈ 2,7 Md€ avant retour ; la
+      mention « jusqu'à 500 € en milieu de carrière » pourrait pousser vers le haut (bas -3,0). Le retour de 25 %
+      n'est pas sourcé (voir fonctionnaires-moins-100000). Recalé sur les conventions communes du 29/09 : coût
+      recalculé en brut hors cotisations employeurs × (1 − 0,28) (convention 1) au lieu du coût chargé du candidat ×
+      (1 − un quart non sourcé) ; central −2,06 → −1,71, bas −3,0 → −2,88, haut −1,88 → −1,62. Harmonisation des
+      paramètres (30/09/2026) : ratio net/brut aligné sur le barème fp_ratio_net_brut (0,8 → 0,81, INSEE Première n°
+      2100) ; effectifs sur enseignants_etpt_public ; central −1,71 → −1,69, bas −2,88 → −2,85, haut −1,62 → −1,60.
 - id: aesh-revalorisation-corps
   libelle: Revaloriser les AESH et en faire un corps professionnel
   domaine: éducation

@@ -120,6 +120,7 @@ mesures:
         note: facteur PIB nominal (FMI WEO avril 2026, plan/hypotheses.yaml), indiqué en tête de chiffrage/baremes.yaml
       retour_is:
         valeur: 0.2
+        bareme: retour_is_impots_production
         unite: part du coût brut revenant en IS
         source: https://www.fipeco.fr/fiche/Limp%C3%B4t-sur-les-soci%C3%A9t%C3%A9s
         note: 'impôts de production déductibles du résultat : une baisse augmente l''IS (retour mécanique, même règle que
@@ -187,6 +188,7 @@ mesures:
       f: *id002
       retour_is:
         valeur: 0.2
+        bareme: retour_is_impots_production
         unite: part du montant rendue par l'IS
         source: https://www.fipeco.fr/fiche/Limp%C3%B4t-sur-les-soci%C3%A9t%C3%A9s
         note: même taux de retour que la ligne impots-production-moins-50md (symétrie du « deal »)
@@ -462,6 +464,7 @@ mesures:
     parametres:
       economie_6_mois:
         valeur: 4.5
+        bareme: assurance_chomage_reforme_2023_economie
         unite: Md€/an (horizon 2027)
         source: https://www.unedic.org/publications/reforme-2023-premiers-effets-de-la-reforme-de-contracyclicite
         note: '« une fois la mesure pleinement montée en charge – à l''horizon 2027 [...] – les moindres dépenses pour le
@@ -559,15 +562,16 @@ mesures:
     haut: -4.72
     montee_en_charge: *id003
   calcul:
-    formule: -taux * etpt * cout_apu_moyen / 1000
+    formule: -taux * etpt * cout_apu_moyen / 1e9
     parametres:
       taux:
         valeur: 0.2
         unite: hausse de la rémunération moyenne
         source: https://lcp.fr/actualites/presidentielle-salaires-des-enseignants-sanctions-pour-les-parents-ce-que-propose
       etpt:
-        valeur: 0.793863
-        unite: millions d'ETPT (programmes 140 et 141, PLF 2026)
+        valeur: 793863
+        bareme: enseignants_etpt_public
+        unite: ETPT
         source: https://www.budget.gouv.fr/documentation/documents-budgetaires-lois/exercice-2026
         note: 341 897 + 451 966 ETPT, lus dans la dérivation du barème cout_enseignant_charge
       cout_apu_moyen:
@@ -589,7 +593,20 @@ mesures:
     statut: corrige
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Calcul rejoué (0,2 × 0,793863 M × 85 000 € × 0,65 × 0,75 = 6,58 Md€), effectifs et coût par ETPT conformes au barème. Réserves : (1) le retour de prélèvements de 25 % est attribué au rapport du Sénat (a25-145-5) qui ne le contient pas : note du paramètre corrigée, ordre de grandeur plausible (CSG, retenue pension, cotisations employeur hors CAS, IR ≈ 30 % du coût hors CAS) mais non sourcé ; (2) enseignants du privé sous contrat (payés par l'État) non inclus, environ +1 Md€ si le candidat les inclut. Recalé sur les conventions communes du 29/09 : coût par agent pris au haut du barème cout_enseignant_apu (agent moyen, brut hors cotisations employeurs, net des retours) au lieu du coût chargé × 0,65 × (1 − un quart non sourcé) ; central −6,58 → −5,43, bas −9,05 → −6,69 (privé sous contrat et pensions induites), haut −6,31 → −4,93 (retour 0,32). Recalé sur les barèmes sourcés du 29/09 : haut de cout_enseignant_apu 34 200 → 32 800 € (rémunération d'activité moyenne lue dans les PAP 2026, 43 703 €, au lieu de 45 640 €) ; central −5,43 → −5,21, bas −6,69 → −6,43, haut −4,93 → −4,72."
+    commentaire: >-
+      Citation retrouvée dans la source (récupérée le 2026-09-29). Calcul rejoué (0,2 × 0,793863 M × 85 000 € × 0,65
+      × 0,75 = 6,58 Md€), effectifs et coût par ETPT conformes au barème. Réserves : (1) le retour de prélèvements
+      de 25 % est attribué au rapport du Sénat (a25-145-5) qui ne le contient pas : note du paramètre corrigée,
+      ordre de grandeur plausible (CSG, retenue pension, cotisations employeur hors CAS, IR ≈ 30 % du coût hors CAS)
+      mais non sourcé ; (2) enseignants du privé sous contrat (payés par l'État) non inclus, environ +1 Md€ si le
+      candidat les inclut. Recalé sur les conventions communes du 29/09 : coût par agent pris au haut du barème
+      cout_enseignant_apu (agent moyen, brut hors cotisations employeurs, net des retours) au lieu du coût chargé ×
+      0,65 × (1 − un quart non sourcé) ; central −6,58 → −5,43, bas −9,05 → −6,69 (privé sous contrat et pensions
+      induites), haut −6,31 → −4,93 (retour 0,32). Recalé sur les barèmes sourcés du 29/09 : haut de
+      cout_enseignant_apu 34 200 → 32 800 € (rémunération d'activité moyenne lue dans les PAP 2026, 43 703 €, au
+      lieu de 45 640 €) ; central −5,43 → −5,21, bas −6,69 → −6,43, haut −4,93 → −4,72. Harmonisation des paramètres
+      (30/09/2026) : effectifs sur le barème enseignants_etpt_public (exprimés en ETPT et non plus en millions :
+      formule / 1e9) ; valeur inchangée.
 - id: soutien-scolaire-universel
   libelle: Créer un service public universel du soutien scolaire (assistant IA et brigades)
   domaine: éducation
@@ -637,6 +654,7 @@ mesures:
     parametres:
       cout_2024:
         valeur: 3.4
+        bareme: part_fiscale_entiere_deuxieme_enfant_cout
         unite: Md€ (2024)
         source: https://web.archive.org/web/2024id_/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/instituer-une-part-fiscale-complete-des-le-deuxieme-enfant/
         note: « Le chiffrage de cette mesure sur la base du modèle LexImpact [...] aboutit à un coût de 3,4 Md€ en 2024 »
@@ -1018,6 +1036,7 @@ mesures:
           supplémentaire à terme (la première rédaction retenait 0,5)'
       cout_etudiant:
         valeur: 19070
+        bareme: cout_etudiant_cpge
         unite: € par étudiant et par an (CPGE, 2024)
         source: https://publication.enseignementsup-recherche.gouv.fr/eesr/FR/T496/la_depense_d_education_pour_l_enseignement_superieur/
         note: '« 19 070 euros pour un élève en CPGE » : faute de chiffre publié pour les écoles d''ingénieurs, la CPGE sert

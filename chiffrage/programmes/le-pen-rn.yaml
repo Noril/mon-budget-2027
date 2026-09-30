@@ -274,6 +274,7 @@ mesures:
       parametres:
         cout_2024:
           valeur: 3.4
+          bareme: part_fiscale_entiere_deuxieme_enfant_cout
           source: >-
             https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/instituer-une-part-fiscale-complete-des-le-deuxieme-enfant
           unite: Md€ (2024)
@@ -736,6 +737,7 @@ mesures:
           note: 0,8 Md€ en 2025, 4,8 en 2027, 12 en 2029 ; manque à gagner brut à terme 15 Md€
         f:
           valeur: 1.0891
+          bareme: facteur_pib_2029_2032
           source: >-
             chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
             avril 2026)
@@ -846,6 +848,7 @@ mesures:
       parametres:
         cinq_ans:
           valeur: 2.6
+          bareme: prestations_residence_5_ans_economie
           source: >-
             https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/reserver-le-benefice-du-rsa-et-des-prestations-de-solidarites-aux-etrangers-ayant-au-moins-5-ans-dequivalent-temps-plein-travaille-en-france
           unite: Md€ par an (2024)
@@ -985,6 +988,7 @@ mesures:
       parametres:
         economie_2024:
           valeur: 0.7
+          bareme: ame_aide_urgence_vitale_economie
           source: >-
             https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/suppression-de-laide-medicale-detat-ame-et-remplacement-par-laide-durgence-vitale
           unite: Md€ (2024)
@@ -1070,16 +1074,19 @@ mesures:
       parametres:
         etudiants:
           valeur: 108100
+          bareme: etudiants_droits_differencies_effectif
           source: >-
             https://www.ccomptes.fr/sites/default/files/2025-03/20250310-Attractivite-de-la-France-pour-les-etudiants-etrangers.pdf
           unite: étudiants relevant des droits différenciés (2023-2024)
         part_exoneree:
           valeur: 0.3
+          bareme: etudiants_droits_differencies_part_exoneree
           source: https://www.etudiant.gouv.fr/fr/droits-d-inscription-1489
           unite: part
           note: exonérations plafonnées à 30 % des assujettis en 2026-2027 (droit en vigueur)
         droits:
-          valeur: 3200
+          valeur: 3208
+          bareme: etudiants_droits_differencies_montant_moyen
           source: https://www.etudiant.gouv.fr/fr/droits-d-inscription-1489
           unite: € par an
           note: moyenne licence (2 895 €) / master (3 941 €), pondération approchée
@@ -1103,6 +1110,7 @@ mesures:
         limité à la fin des exonérations (0,12) ; haut = chiffre RN. Recette, non économie ciblée.
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
         (valeur inchangée).
+        Harmonisation des paramètres (30/09/2026) : droits alignés sur le barème etudiants_droits_differencies_montant_moyen (3 200 → 3 208 €, tarifs 2026-2027) ; écart < 0,01 Md€.
   - id: timbre-visas-touristiques
     libelle: Timbre fiscal sur les visas touristiques
     domaine: immigration
@@ -1141,9 +1149,9 @@ mesures:
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -7.6
-      bas: -9.5
-      haut: -7.6
+      central: -7.93
+      bas: -9.91
+      haut: -7.93
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -1155,7 +1163,8 @@ mesures:
       formule: -(cfe_2024 * f * (1 - retour_is))
       parametres:
         cfe_2024:
-          valeur: 7.7
+          valeur: 8.031
+          bareme: cfe_rendement
           source: https://www.fipeco.fr/fiche/Les-imp%C3%B4ts-sur-la-production
           unite: Md€ (2024)
           note: cotisation foncière des entreprises, comptabilité nationale
@@ -1166,6 +1175,7 @@ mesures:
           note: PIB nominal 2032 / 2024
         retour_is:
           valeur: 0.2
+          bareme: retour_is_impots_production
           source: >-
             https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/baisse-des-impots-de-production-cvae-et-c3s
           unite: part
@@ -1173,6 +1183,7 @@ mesures:
       explication: >-
         Rendement projeté au PIB, net du retour d'IS (impôt déductible). Collectivités compensées par l'État (coût APU
         inchangé). Bas : sans retour d'IS.
+        Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : CFE alignée sur le barème cfe_rendement (7,7 → 8,031 Md€, produit DGFiP 2024) et retour d'IS sur retour_is_impots_production (0,20) ; central −7,6 → −7,93, bas −9,5 → −9,91.
     chiffrages_tiers:
       - auteur: Contre-budget RN 2026 (chiffrage du candidat)
         montant_md: -8.8
@@ -1188,6 +1199,7 @@ mesures:
         d'IS. RN : 8,8 Md€.
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
         (valeur inchangée).
+        Harmonisation des paramètres (30/09/2026) : CFE alignée sur le barème cfe_rendement (7,7 → 8,031 Md€, produit DGFiP 2024) et retour d'IS sur retour_is_impots_production (0,20) ; central −7,6 → −7,93, bas −9,5 → −9,91.
   - id: suppression-cvae
     libelle: Suppression totale de la CVAE
     domaine: fiscalite
@@ -1275,6 +1287,7 @@ mesures:
           note: PIB nominal 2032 / 2024
         retour_is:
           valeur: 0.2
+          bareme: retour_is_impots_production
           source: >-
             https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/baisse-des-impots-de-production-cvae-et-c3s
           unite: part
@@ -1576,6 +1589,7 @@ mesures:
       parametres:
         recouvrement_2024:
           valeur: 0.68
+          bareme: fraude_sociale_recouvree
           source: >-
             https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/HCFIPS/2026/HCFIPS%20-%20Synth%c3%a8se%20Fraude%20sociale%202025%20-%20Version%20finalis%c3%a9e.pdf
           unite: Md€ recouvrés (2024)
@@ -1856,11 +1870,13 @@ mesures:
       parametres:
         croissance_annuelle:
           valeur: 1.04
+          bareme: cspe_eolien_pv_hausse_annuelle
           source: https://www.cre.fr/fileadmin/Documents/Deliberations/2026/260715_2026-149_CSPE_2026-2027.pdf
           unite: Md€ par an
           note: hausse 2026→2027 des charges éolien + photovoltaïque (6,25 → 7,29 Md€, tableau 3)
         annees_non_engagees:
           valeur: 3
+          bareme: enr_soutien_annees_non_engagees_2032
           source: https://www.cre.fr/fileadmin/Documents/Deliberations/2026/260715_2026-149_CSPE_2026-2027.pdf
           unite: années
           note: >-
@@ -1904,9 +1920,9 @@ mesures:
     chiffrable: true
     nature: economie
     effet_solde_primaire:
-      central: 1.78
+      central: 1.82
       bas: 0.0
-      haut: 1.78
+      haut: 1.82
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -1918,7 +1934,8 @@ mesures:
       formule: credits_anah * f
       parametres:
         credits_anah:
-          valeur: 1.5
+          valeur: 1.5353
+          bareme: anah_credits_etat
           source: https://www.senat.fr/rap/l25-139-35-1/l25-139-35-1_mono.html
           unite: Md€ (PLF 2026)
           note: crédits de l'État à l'Anah (programme 135), MaPrimeRénov' comprise
@@ -1932,6 +1949,7 @@ mesures:
         Économie brute des crédits MaPrimeRénov' de l'État (la part CEE de l'Anah n'est pas de la dépense publique).
         Le coût du prêt à taux zéro qui la remplace n'est pas publié : bas = moitié de l'économie (convention).
         Vérification (règle 6) : bas = 0, haut = central.
+        Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : crédits de l'Anah alignés sur le barème anah_credits_etat (1,5 → 1,5353, même valeur que Zemmour) ; central et haut 1,78 → 1,82.
     chiffrages_tiers:
       - auteur: Contre-budget RN 2026 (chiffrage du candidat)
         montant_md: 3.4
@@ -1947,6 +1965,7 @@ mesures:
         zéro non publié. Règle 6 : bas = 0 (avant 0,89), haut = central.
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
         (valeur inchangée).
+        Harmonisation des paramètres (30/09/2026) : crédits de l'Anah alignés sur le barème anah_credits_etat (1,5 → 1,5353, même valeur que Zemmour) ; central et haut 1,78 → 1,82.
   - id: aide-publique-developpement
     libelle: Réduction de l'aide publique au développement
     domaine: action-exterieure
