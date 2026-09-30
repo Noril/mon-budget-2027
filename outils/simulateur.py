@@ -19,6 +19,7 @@ from datetime import date
 import yaml
 from jsonschema import Draft202012Validator
 
+from outils import theme
 from pipelines.commun import RACINE
 from plan import trajectoire as tr
 
@@ -228,14 +229,16 @@ const GL = (D.glossaire || []).flatMap(g => [g.terme, ...(g.variantes || [])].ma
   .sort((a, b) => b.f.length - a.f.length);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));  // tout texte de données inséré en HTML passe par là
 const echap = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const DEJA = new Set();  // un terme n'est expliqué qu'à sa première apparition dans la vue
+function reinitGlossaire() { DEJA.clear(); }
 function annoter(texte) {
   const pris = [], morceaux = [];
   let s = esc(texte);
   for (const {f, g} of GL) {
-    if (pris.includes(g.terme)) continue;
+    if (pris.includes(g.terme) || DEJA.has(g.terme)) continue;
     const re = new RegExp(`(?<![\\p{L}\\d&])${echap(esc(f))}(?![\\p{L}\\d])`, /^[A-Z0-9]+$/.test(f) ? "u" : "iu");
     const m = s.match(re); if (!m) continue;
-    pris.push(g.terme); morceaux.push(`<span class="gl" tabindex="0">${m[0]}<sup>?</sup><span class="def">${esc(g.definition)}</span></span>`);
+    pris.push(g.terme); DEJA.add(g.terme); morceaux.push(`<span class="gl" tabindex="0">${m[0]}<sup>?</sup><span class="def">${esc(g.definition)}</span></span>`);
     s = s.slice(0, m.index) + `\u0000${morceaux.length - 1}\u0000` + s.slice(m.index + m[0].length);
   }
   return s.replace(/\u0000(\d+)\u0000/g, (_, i) => morceaux[+i]);
@@ -275,11 +278,10 @@ function htmlAxes(choix) {
 
 PAGE = r"""<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Simulateur budgétaire 2027</title><style>
-:root{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#66645e;--line:#e2dfd7;--card:#fff;--neg:#b03a2e;--pos:#1e7a4a;--acc:#2451a6}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#161614;--fg:#ecebe6;--muted:#9a978f;--line:#34332f;--card:#1f1f1c;--neg:#e0796e;--pos:#6fcf97;--acc:#8fb0ff}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
-header{max-width:1200px;margin:0 auto;padding:24px 16px 8px}h1{font-size:1.6rem;margin:0 0 .3em}p.m{color:var(--muted);max-width:80ch;margin:.3em 0}
-main{max-width:1200px;margin:0 auto;padding:8px 16px 64px;display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:24px;align-items:start}
+__THEME__
+*{box-sizing:border-box}body{font-size:15.5px}
+header{max-width:72rem;margin:0 auto;padding:8px 16px 8px}h1{margin:.8em 0 .25em}p.m{color:var(--muted);max-width:44rem;margin:.3em 0}
+main{max-width:72rem;margin:0 auto;padding:8px 16px 64px;display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:24px;align-items:start}
 @media (max-width:900px){main{grid-template-columns:1fr}aside{position:static!important}#mini{display:flex!important}body{padding-bottom:56px}}
 #mini{display:none;position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:8px 16px;gap:16px;justify-content:space-between;align-items:center;font-variant-numeric:tabular-nums;z-index:5}
 #mini b{font-size:1.1rem}#mini a{color:var(--acc)}
@@ -301,7 +303,7 @@ svg{width:100%;height:auto;display:block}.grille{stroke:var(--line)}.axe{fill:va
 ol.proches{margin:4px 0;padding-left:18px}ol.proches li{margin:3px 0}ol.proches .ligne{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.barre-acc{height:6px;border-radius:3px;background:var(--acc);display:inline-block;vertical-align:middle;margin-left:6px}
 __COMMUN_CSS__
 footer{max-width:1200px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:.8rem}
-</style></head><body>
+</style></head><body>__ENTETE__
 <header><h1>Et vous, quel budget ?</h1>
 <p class="m">Prenez les décisions que les candidats à la présidentielle 2027 mettent en débat. Chaque option est chiffrée avec
 la même méthode que le chiffrage des programmes : effet sur le solde public en 2032, par rapport au droit en vigueur, sans effet
@@ -385,6 +387,7 @@ function tags(o) {
   return (o.candidats || []).map(id => { const c = candidat(id); return c ? `<span class="tag" style="background:${esc(c.couleur)}">${court(c)}</span>` : ""; }).join("");
 }
 function rendreLeviers() {
+  reinitGlossaire();
   const racine = document.getElementById("leviers"); racine.innerHTML = "";
   for (const [theme, ls] of Object.entries(parTheme)) {
     const d = document.createElement("details"); d.className = "theme"; d.open = true;
@@ -482,6 +485,11 @@ charger(initial);
 </script></body></html>"""
 
 
+def rendre(d: dict) -> str:
+    return remplir(PAGE, THEME=theme.style(), ENTETE=theme.entete("simulateur.html"), PIED=theme.pied(d["genere"]),
+                   COMMUN_JS=COMMUN_JS, COMMUN_CSS=COMMUN_CSS, DONNEES=json_pour_script(d), GENERE=d["genere"])
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--valider", action="store_true")
@@ -501,7 +509,7 @@ def main(argv: list[str] | None = None) -> int:
         return 1 if erreurs else 0
     d = donnees()
     SORTIE.parent.mkdir(exist_ok=True)
-    SORTIE.write_text(remplir(PAGE, COMMUN_JS=COMMUN_JS, COMMUN_CSS=COMMUN_CSS, DONNEES=json_pour_script(d), GENERE=d["genere"]), encoding="utf-8")
+    SORTIE.write_text(rendre(d), encoding="utf-8")
     print(f"-> {SORTIE.relative_to(RACINE)} ({len(d['leviers'])} leviers, {len(d['candidats'])} candidats)")
     return 0
 

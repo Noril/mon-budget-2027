@@ -1,0 +1,5 @@
+Luciole © Laurent Bourcellier & Jonathan Perez
+Caractère typographique conçu pour les personnes malvoyantes par le Centre Technique Régional pour la Déficience
+Visuelle (CTRDV) et le studio typographies.fr. https://www.luciole-vision.com
+Licence Creative Commons Attribution 4.0 International (CC BY 4.0) : https://creativecommons.org/licenses/by/4.0/
+Fichiers repris sans modification (webfonts officielles, format woff2).

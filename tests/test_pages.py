@@ -26,10 +26,8 @@ def donnees():
 
 @pytest.fixture(scope="module")
 def pages(donnees):
-    sim = simulateur.remplir(simulateur.PAGE, COMMUN_JS=simulateur.COMMUN_JS, COMMUN_CSS=simulateur.COMMUN_CSS,
-                             DONNEES=simulateur.json_pour_script(donnees), GENERE=donnees["genere"])
-    j = simulateur.remplir(jeu.PAGE, COMMUN_JS=simulateur.COMMUN_JS, COMMUN_CSS=simulateur.COMMUN_CSS,
-                           DONNEES=simulateur.json_pour_script(donnees), CARTES=simulateur.json_pour_script(jeu.lire_cartes()))
+    sim = simulateur.rendre(donnees)
+    j = jeu.rendre(donnees, jeu.lire_cartes())
     return {"simulateur": sim, "jeu": j}
 
 
@@ -115,8 +113,8 @@ def test_remplir_ne_reinterprete_pas_les_valeurs():
 def test_donnees_hostiles_ne_sortent_pas_du_script(donnees):
     d = copy.deepcopy(donnees)
     d["candidats"][0]["nom"] = "</script><img src=x onerror=alert(1)>"
-    page = simulateur.remplir(simulateur.PAGE, COMMUN_JS=simulateur.COMMUN_JS, COMMUN_CSS=simulateur.COMMUN_CSS,
-                              DONNEES=simulateur.json_pour_script(d), GENERE="2026-01-01")
+    d["genere"] = "2026-01-01"
+    page = simulateur.rendre(d)
     assert page.count("</script>") == 1 and "<img src=x" not in page
 
 
@@ -160,8 +158,14 @@ def _contraste(a, b):
 @pytest.mark.parametrize("nom", ["simulateur", "jeu"])
 def test_contraste_du_texte_attenue(pages, nom):
     racine = re.search(r":root\{([^}]*)\}", pages[nom]).group(1)
-    v = {k: (c if len(c) == 7 else "#" + "".join(ch * 2 for ch in c[1:]))
-         for k, c in re.findall(r"--([a-z]+):(#[0-9a-f]{3,6})\b", racine)}
+    brut = dict(re.findall(r"--([a-z]+):([^;}]+)", racine))
+    v = {}
+    for k, c in brut.items():
+        while (m := re.fullmatch(r"var\(--([a-z]+)\)", c.strip())):  # jetons définis par renvoi
+            c = brut[m.group(1)]
+        if re.fullmatch(r"#[0-9a-f]{3,6}", c.strip()):
+            c = c.strip()
+            v[k] = c if len(c) == 7 else "#" + "".join(ch * 2 for ch in c[1:])
     for fond in ("bg", "card"):
         assert _contraste(v["fg"], v[fond]) >= 7
         assert _contraste(v["muted"], v[fond]) >= 4.5, (nom, fond)

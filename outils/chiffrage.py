@@ -22,6 +22,7 @@ from pathlib import Path
 import yaml
 from jsonschema import Draft202012Validator
 
+from outils import theme
 from pipelines.commun import DONNEES, RACINE, ecrire_json, maintenant
 from plan import trajectoire as tr
 
@@ -433,12 +434,11 @@ def rapport_html(agregats: list[dict], traj: dict) -> str:
         )
     return f"""<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chiffrage des programmes 2027</title><style>
-:root{{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#66645e;--line:#e2dfd7;--neg:#b03a2e;--pos:#1e7a4a;--card:#fff}}
-@media (prefers-color-scheme:dark){{:root{{--bg:#161614;--fg:#ecebe6;--muted:#9a978f;--line:#34332f;--neg:#e0796e;--pos:#6fcf97;--card:#1f1f1c}}}}
-body{{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}}
-main{{max-width:1100px;margin:0 auto;padding:24px 16px 64px}}h1{{font-size:1.7rem;margin:.2em 0}}h2{{margin-top:2.2em}}
-h2 small{{color:var(--muted);font-weight:400;font-size:.7em}}a{{color:inherit}}p.m{{color:var(--muted);max-width:75ch}}
-table{{border-collapse:collapse;width:100%;background:var(--card)}}th,td{{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}}
+{theme.style()}
+body{{font-size:16px}}
+main{{max-width:72rem;margin:0 auto;padding:0 16px}}h1{{margin:.9em 0 .3em}}
+h2 small{{color:var(--muted);font-family:var(--texte);font-weight:400;font-size:.5em;margin-left:.4em}}p.m{{color:var(--muted);max-width:44rem}}
+table{{border-collapse:collapse;width:100%;background:var(--card);box-shadow:var(--ombre)}}th,td{{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}}
 th{{font-size:.8rem;color:var(--muted);font-weight:600}}.n{{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}}
 .neg{{color:var(--neg)}}.pos{{color:var(--pos)}}tr.nc td{{color:var(--muted)}}small{{color:var(--muted)}}
 .scroll{{overflow-x:auto}}details{{margin-top:4px}}summary{{cursor:pointer;color:var(--muted);font-size:.8rem}}
@@ -446,9 +446,9 @@ details p,blockquote{{font-size:.85rem;max-width:70ch;margin:.4em 0}}blockquote{
 code{{font-size:.8rem;word-break:break-all}}
 .note{{display:inline-block;min-width:2.6em;text-align:center;font-weight:700;border-radius:4px;padding:1px 5px;font-size:.85rem}}
 .note.a{{background:#1e7a4a22;color:var(--pos)}}.note.b{{background:#c9a22722;color:#7a5c00}}.note.c{{background:#b03a2e22;color:var(--neg)}}
-.notes details{{margin:.3em 0}}.notes summary{{font-size:.95rem;color:var(--fg)}}table.comp{{max-width:760px;margin:.4em 0 .8em}}svg{{width:100%;height:auto;background:var(--card)}}.grille{{stroke:var(--line)}}.axe{{fill:var(--muted);font-size:11px}}.leg{{font-size:11px}}
-</style></head><body><main>
-<h1>Chiffrage des programmes présidentiels 2027</h1>
+.notes details{{margin:.3em 0}}.notes summary{{font-size:.95rem;color:var(--fg)}}table.comp{{max-width:760px;margin:.4em 0 .8em}}svg{{width:100%;height:auto;background:var(--card);box-shadow:var(--ombre)}}.grille{{stroke:var(--line)}}.axe{{fill:var(--muted);font-size:11px}}.leg{{font-size:11px}}
+</style></head><body>{theme.entete('rapport.html')}<main>
+<h1>Le rapport</h1>
 <p class="m">Généré le {date.today().isoformat()}. Effet sur le solde public primaire, en milliards d'euros courants par an en régime de
 croisière (2032) ; négatif = coût pour les finances publiques. Chaque mesure est citée verbatim avec son lien, calculée par
 une formule rejouable à partir de barèmes publics, et confrontée aux chiffrages tiers quand ils existent. Aucun effet de
@@ -471,7 +471,7 @@ comparaison (négatif = le programme coûte probablement plus que le solde affic
 <tbody>{''.join(lignes)}</tbody></table></div>
 <h2>Dette publique projetée, scénario central (% du PIB)</h2>{_svg_dette(traj['gel'], agregats)}
 {''.join(sections)}
-</main></body></html>"""
+</main>{theme.pied(date.today().isoformat())}</body></html>"""
 
 
 def main(argv: list[str] | None = None) -> int:

@@ -17,7 +17,7 @@ leviers:
   theme: Retraites
   question: À quel âge ouvrir le droit à la retraite ?
   aide: Le droit en vigueur reprend en 2028 la montée vers 64 ans ; un an d'âge légal vaut environ 6,6 Md€ par an en 2032
-    pour le système de retraite (barème retraites_age_legal_1_an).
+    pour le système de retraite.
   type: choix
   axe: depenses
   options:
@@ -117,7 +117,7 @@ leviers:
   theme: Retraites
   question: Comment revaloriser les pensions de retraite ?
   aide: Les pensions suivent l'inflation ; un point de revalorisation de toutes les pensions coûte environ 5 Md€ par an en
-    2032, 4,2 Md€ après prélèvements (barèmes retraites_revalo_1pct et retour_prelevements_pensions).
+    2032, 4,2 Md€ après prélèvements.
   type: choix
   axe: depenses
   options:
@@ -199,7 +199,7 @@ leviers:
   theme: Fonction publique
   question: Comment faire évoluer la rémunération des agents publics (point d'indice) ?
   aide: Le point d'indice est gelé en droit constant ; l'indexer sur l'inflation de 2027 à 2032 coûte environ 20,6 Md€ bruts
-    en 2032, 14,8 Md€ nets des prélèvements en retour (barème indexation_point_indice_2027_2032).
+    en 2032, 14,8 Md€ nets des prélèvements en retour.
   type: choix
   axe: depenses
   options:
@@ -290,8 +290,8 @@ leviers:
 - id: effectifs-publics
   theme: Fonction publique
   question: Combien d'agents publics ?
-  aide: La fonction publique compte 5,8 millions d'agents et 136 700 départs à la retraite par an (barèmes fp_effectifs_total,
-    fp_departs_retraite_annuels) ; un poste d'enseignant pèse environ 25 000 € par an sur le solde (cout_enseignant_apu).
+  aide: La fonction publique compte 5,8 millions d'agents et 136 700 départs à la retraite par an ; un poste d'enseignant
+    pèse environ 25 000 € par an sur le solde (cout_enseignant_apu).
   type: choix
   axe: depenses
   options:
@@ -363,8 +363,7 @@ leviers:
   theme: Fiscalité des ménages
   question: Faut-il modifier la CSG ?
   aide: La CSG rapporte environ 157 Md€ (2025) ; un point sur les revenus d'activité vaut environ 11,7 Md€ en 2026 (13,9 Md€
-    en 2032), un point sur toutes les assiettes 17,9 Md€ en 2025 (21,7 Md€ en 2032) (barèmes csg_rendement, csg_point_activite,
-    csg_point).
+    en 2032), un point sur toutes les assiettes 17,9 Md€ en 2025 (21,7 Md€ en 2032).
   type: choix
   axe: prelevements
   options:
@@ -440,7 +439,7 @@ leviers:
   theme: Fiscalité des ménages
   question: Faut-il modifier les cotisations prélevées sur les salaires (part salariale, cotisations vieillesse) ?
   aide: La masse salariale privée est d'environ 740 Md€ ; un point de cotisation vieillesse au régime général rapporte environ
-    6,2 Md€ (barèmes masse_salariale_privee, retraites_cotisation_vieillesse_1_point).
+    6,2 Md€.
   type: choix
   axe: prelevements
   options:
@@ -534,7 +533,7 @@ leviers:
   theme: Fiscalité des ménages
   question: Quel régime pour les heures supplémentaires ?
   aide: Les exonérations d'impôt et de cotisations sur les heures supplémentaires coûtent environ 5,4 Md€ en 2026, 6,4 Md€
-    en 2032 (barème hs_exoneration_cout).
+    en 2032.
   type: choix
   axe: prelevements
   options:
@@ -588,7 +587,7 @@ leviers:
   theme: Fiscalité des ménages
   question: Faut-il modifier l'impôt sur le revenu ?
   aide: L'impôt sur le revenu rapporte environ 95 Md€ (2025) ; une baisse uniforme de 1 % de l'impôt dû coûte environ 1 Md€
-    en 2026, 1,2 Md€ en 2032 (barèmes ir_rendement, ir_baisse_1pct).
+    en 2026, 1,2 Md€ en 2032.
   type: choix
   axe: prelevements
   options:
@@ -673,7 +672,7 @@ leviers:
 - id: successions
   theme: Fiscalité des ménages
   question: Faut-il modifier les droits de succession et de donation ?
-  aide: Les droits de succession et de donation rapportent environ 21 Md€ par an (barème dmtg_rendement).
+  aide: Les droits de succession et de donation rapportent environ 21 Md€ par an.
   type: choix
   axe: prelevements
   options:
@@ -756,7 +755,7 @@ leviers:
   theme: Fiscalité des ménages
   question: Faut-il taxer davantage les très grands patrimoines ?
   aide: L'impôt sur la fortune immobilière rapporte environ 2,8 Md€ ; rétablir l'ISF de 2017 rapporterait environ 3,1 Md€
-    nets en 2032 (barèmes ifi_rendement, isf_retabli_gain_net).
+    nets en 2032.
   type: choix
   axe: prelevements
   options:
@@ -854,8 +853,8 @@ leviers:
   theme: Fiscalité des ménages
   question: Comment imposer les revenus du capital (dividendes, intérêts, plus-values) ?
   aide: Le prélèvement forfaitaire unique est de 31,4 % depuis 2026 ; le supprimer et imposer ces revenus au barème rapporterait
-    de 0 à 3,1 Md€ selon la réaction des dividendes, environ 1,5 Md€ au central (barème pfu_passage_bareme) ; la taxe sur
-    les transactions financières rapporte environ 2,5 Md€ (ttf_rendement).
+    de 0 à 3,1 Md€ selon la réaction des dividendes, environ 1,5 Md€ au central ; la taxe sur les transactions financières
+    rapporte environ 2,5 Md€ (ttf_rendement).
   type: choix
   axe: prelevements
   options:
@@ -932,8 +931,7 @@ leviers:
 - id: impots-production
   theme: Entreprises
   question: Faut-il modifier les impôts de production (CFE, C3S, CVAE…) ?
-  aide: La C3S rapporte environ 5,2 Md€ et la CVAE restante 3,7 Md€, supprimée en 2030 selon la loi en vigueur (barèmes c3s_rendement,
-    cvae_restante).
+  aide: La C3S rapporte environ 5,2 Md€ et la CVAE restante 3,7 Md€, supprimée en 2030 selon la loi en vigueur.
   type: choix
   axe: prelevements
   options:
@@ -1036,8 +1034,7 @@ leviers:
 - id: aides-entreprises
   theme: Entreprises
   question: Faut-il réduire les aides publiques aux entreprises (hors allègements généraux de cotisations) ?
-  aide: Les aides publiques aux entreprises sont estimées à environ 211 Md€ par an, allègements de cotisations compris (barème
-    aides_publiques_entreprises).
+  aide: Les aides publiques aux entreprises sont estimées à environ 211 Md€ par an, allègements de cotisations compris.
   type: choix
   axe: depenses
   options:
@@ -1114,7 +1111,7 @@ leviers:
 - id: cotisations-patronales
   theme: Entreprises
   question: Faut-il modifier les cotisations patronales et leurs allègements ?
-  aide: Les allègements généraux de cotisations patronales coûtent environ 76 Md€ en 2025 (barème allegements_generaux_cout).
+  aide: Les allègements généraux de cotisations patronales coûtent environ 76 Md€ en 2025.
   type: choix
   axe: prelevements
   options:
@@ -1214,8 +1211,7 @@ leviers:
   theme: Énergie
   question: Faut-il baisser les taxes sur l'énergie (TVA, accise sur l'électricité) ?
   aide: Passer la TVA de 20 % à 5,5 % sur l'électricité, le gaz, les carburants et le fioul coûterait environ 12 Md€ par an
-    selon le Gouvernement (9 à 12,8 Md€ selon les sources) ; 1 €/MWh d'accise sur l'électricité vaut environ 0,3 Md€ (barèmes
-    tva_energie_total_5_5, accise_electricite_1_euro_mwh).
+    selon le Gouvernement (9 à 12,8 Md€ selon les sources) ; 1 €/MWh d'accise sur l'électricité vaut environ 0,3 Md€.
   type: choix
   axe: prelevements
   options:
@@ -1280,8 +1276,7 @@ leviers:
 - id: carburants
   theme: Énergie
   question: Faut-il réduire le coût des carburants par l'impôt ou par une aide ?
-  aide: L'accise sur les carburants rapporte environ 30 Md€ ; un centime par litre vaut environ 0,54 Md€ avec la TVA induite
-    (barèmes ticpe_rendement_total, ticpe_centime_litre, convention 6).
+  aide: L'accise sur les carburants rapporte environ 30 Md€ ; un centime par litre vaut environ 0,54 Md€ avec la TVA induite.
   type: choix
   axe: prelevements
   options:
@@ -1346,7 +1341,7 @@ leviers:
   theme: Social
   question: Faut-il augmenter le Smic au-delà de sa revalorisation légale ?
   aide: 'Une hausse de 1 % du Smic coûte environ 0,9 Md€ par an aux administrations publiques (0,3 à 1,7 selon les hypothèses
-    : allègements, salaires publics, prestations), davantage au-delà de 10 % (barème smic_1pct_cout_apu, convention 7).'
+    : allègements, salaires publics, prestations), davantage au-delà de 10 %.'
   type: choix
   axe: depenses
   options:
@@ -1416,7 +1411,7 @@ leviers:
 - id: minima-sociaux
   theme: Social
   question: Faut-il modifier les minima sociaux (RSA, AAH) ?
-  aide: Le RSA coûte environ 11,7 Md€ par an et l'allocation aux adultes handicapés 14,6 Md€ (barèmes rsa_depense, aah_depense).
+  aide: Le RSA coûte environ 11,7 Md€ par an et l'allocation aux adultes handicapés 14,6 Md€.
   type: choix
   axe: depenses
   options:
@@ -1508,7 +1503,7 @@ leviers:
 - id: assurance-chomage
   theme: Social
   question: Faut-il modifier les règles de l'assurance chômage ?
-  aide: L'assurance chômage dépense environ 46,6 Md€ par an (barème assurance_chomage_depenses).
+  aide: L'assurance chômage dépense environ 46,6 Md€ par an.
   type: choix
   axe: depenses
   options:
@@ -1615,7 +1610,7 @@ leviers:
   question: Faut-il conditionner les prestations sociales et l'aide médicale d'État à la nationalité ou à la durée de résidence
     ?
   aide: L'aide médicale d'État coûte environ 1,4 Md€ par an, les aides au logement 16,1 Md€ et les prestations familiales
-    33,3 Md€ (barèmes ame_depense, aides_logement_depense, prestations_familiales_depense).
+    33,3 Md€.
   type: choix
   axe: depenses
   options:
@@ -1717,7 +1712,7 @@ leviers:
   theme: Éducation
   question: De combien revaloriser les enseignants, au-delà du point d'indice ?
   aide: 'Un enseignant pèse environ 25 000 € (entrant) à 33 000 € (agent moyen) par an sur le solde public, net des cotisations
-    et des prélèvements en retour (barème cout_enseignant_apu) : 10 % de hausse représentent environ 2,5 à 3 Md€.'
+    et des prélèvements en retour : 10 % de hausse représentent environ 2,5 à 3 Md€.'
   type: choix
   axe: depenses
   options:
@@ -1879,7 +1874,7 @@ leviers:
   question: Quel niveau d'aide publique au développement ?
   aide: L'aide publique au développement représente 0,42 % du revenu national brut en 2025 selon l'OCDE, soit environ 15 Md€
     à l'échelle de 2032 ; la porter à 0,7 % coûterait au plus 10 à 12 Md€ de plus, une partie de l'aide prenant la forme de
-    prêts (barèmes apd_part_rnb, rnb_nominal_2032).
+    prêts.
   type: choix
   axe: depenses
   options:
@@ -1962,7 +1957,7 @@ leviers:
   theme: État et collectivités
   question: Faut-il réduire les agences de l'État, les subventions et les dotations aux collectivités ?
   aide: Les concours financiers de l'État aux collectivités s'élèvent à environ 53 Md€ par an, dont 27 Md€ de dotation globale
-    de fonctionnement (barèmes concours_financiers_collectivites, dgf).
+    de fonctionnement.
   type: choix
   axe: depenses
   options:
@@ -2061,8 +2056,8 @@ leviers:
 - id: sante
   theme: Santé
   question: Combien de dépenses de santé en plus (ou en moins) par rapport à aujourd'hui ?
-  aide: Pour ordre de grandeur, un point de CSG sur toutes les assiettes rapporte environ 17,9 Md€ (barème csg_point) ; remboursement
-    intégral, franchises, recrutements de soignants et économies de gestion passent par ce curseur.
+  aide: Pour ordre de grandeur, un point de CSG sur toutes les assiettes rapporte environ 17,9 Md€ ; remboursement intégral,
+    franchises, recrutements de soignants et économies de gestion passent par ce curseur.
   type: curseur
   axe: depenses
   axes:
@@ -2097,8 +2092,7 @@ leviers:
   theme: Défense
   question: Combien de dépenses de défense et de service national en plus de la loi de programmation militaire ?
   aide: 0,1 point de PIB d'effort de défense représente environ 3,6 Md€ en 2032 ; la loi de programmation militaire actualisée
-    (août 2026) porte les crédits de la mission Défense d'environ 57 Md€ en 2026 à 76 Md€ en 2030 (barèmes defense_0_1_point_pib_2032,
-    defense_credits_mission).
+    (août 2026) porte les crédits de la mission Défense d'environ 57 Md€ en 2026 à 76 Md€ en 2030.
   type: curseur
   axe: depenses
   axes:
@@ -2123,8 +2117,8 @@ leviers:
 - id: education
   theme: Éducation
   question: Combien de dépenses d'éducation et de petite enfance en plus, hors salaires des enseignants ?
-  aide: 'Un poste d''enseignant pèse environ 25 000 € par an sur le solde public (barème cout_enseignant_apu) : 10 000 postes
-    représentent environ 0,25 Md€ ; taille des classes, gratuité, crèches et bâti scolaire passent par ce curseur.'
+  aide: 'Un poste d''enseignant pèse environ 25 000 € par an sur le solde public : 10 000 postes représentent environ 0,25
+    Md€ ; taille des classes, gratuité, crèches et bâti scolaire passent par ce curseur.'
   type: curseur
   axe: depenses
   axes:
@@ -2163,9 +2157,9 @@ leviers:
   theme: Écologie
   question: Combien de dépenses de transition écologique en plus (investissements, adaptation, transports, énergies renouvelables),
     hors rénovation des logements ?
-  aide: Un point de PIB représente environ 36 Md€ en 2032 (barème point_pib_2032) ; le soutien public à l'éolien et au solaire
-    dépasse 6 Md€ en 2026 selon la Commission de régulation de l'énergie, surtout pour des contrats anciens, et les programmes
-    qui proposent d'y mettre fin en chiffrent l'économie à environ 3 Md€ par an.
+  aide: Un point de PIB représente environ 36 Md€ en 2032 ; le soutien public à l'éolien et au solaire dépasse 6 Md€ en 2026
+    selon la Commission de régulation de l'énergie, surtout pour des contrats anciens, et les programmes qui proposent d'y
+    mettre fin en chiffrent l'économie à environ 3 Md€ par an.
   type: curseur
   axe: depenses
   axes:
@@ -2204,7 +2198,7 @@ leviers:
 - id: recherche-innovation
   theme: Recherche
   question: Combien de dépenses de recherche, d'enseignement supérieur et d'innovation en plus ?
-  aide: 0,1 point de PIB représente environ 3,6 Md€ en 2032 (barème point_pib_2032).
+  aide: 0,1 point de PIB représente environ 3,6 Md€ en 2032.
   type: curseur
   axe: depenses
   axes:

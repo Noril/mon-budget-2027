@@ -13,6 +13,8 @@ from pathlib import Path
 
 import yaml
 
+from outils import theme
+
 RACINE = Path(__file__).resolve().parent.parent
 BUILD = RACINE / "build"
 SORTIE = BUILD / "site"
@@ -21,7 +23,8 @@ FICHIERS = ["chiffrage.md", "tableau-de-bord.md"]
 DONNEES = [RACINE / "data" / "chiffrage.json"]
 
 # Pages autonomes : scripts et styles en ligne, aucune ressource externe.
-CSP = "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+CSP = ("default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; "
+       "base-uri 'none'; form-action 'none'; frame-ancestors 'none'")
 VERCEL = {
     # site statique déjà construit : pas de framework ni de compilation côté Vercel (le projet détecte sinon du Python)
     "framework": None,
@@ -39,25 +42,51 @@ VERCEL = {
 }
 
 CSS = """
-:root{--bg:#fbfaf7;--fg:#1c1b19;--mut:#5e5a52;--card:#fff;--line:#e2ded4;--acc:#1f4e9c}
-@media (prefers-color-scheme:dark){:root{--bg:#161615;--fg:#eeece6;--mut:#a9a498;--card:#211f1d;--line:#37342f;--acc:#8fb4ff}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.55 system-ui,sans-serif}
-main{max-width:52rem;margin:0 auto;padding:2rem 1rem 4rem}h1{font-size:2rem;line-height:1.2}h2{margin-top:2.2rem}
-a{color:var(--acc)}.cartes{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));margin:1.5rem 0}
-.carte{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1rem 1.2rem}
-.carte h3{margin:.2rem 0 .4rem}.carte a{font-weight:600}.mut{color:var(--mut);font-size:.92rem}
-footer{border-top:1px solid var(--line);margin-top:3rem;padding-top:1rem;color:var(--mut);font-size:.92rem}
-a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+main{max-width:72rem;margin:0 auto;padding:0 16px}
+.prose{max-width:40rem}.prose p,.prose li{max-width:40rem}.prose li{margin:.35em 0}
+.mut{color:var(--muted);font-size:.94rem}
+/* Accueil */
+.une{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:1rem 3rem;align-items:end;margin:3.2rem 0 2rem}
+.une h1{margin:0;font-size:clamp(3rem,9vw,6.4rem);line-height:.9}
+.une p{margin:0;max-width:34rem;font-size:1.08rem}
+@media (max-width:760px){.une{grid-template-columns:1fr;margin-top:2rem}}
+.urne{position:relative;margin:2.4rem 0 .8rem;padding:3.2rem clamp(12px,3vw,2.2rem) 2.2rem;border:2px solid var(--arete);
+  border-radius:6px;background:linear-gradient(180deg,#ffffff55,#ffffff22);box-shadow:inset 0 0 0 6px #ffffff33}
+@media (prefers-color-scheme:dark){.urne{background:linear-gradient(180deg,#ffffff0d,#ffffff05);box-shadow:inset 0 0 0 6px #ffffff08}}
+.urne:before{content:"";position:absolute;top:-2px;left:50%;width:min(44%,18rem);height:12px;transform:translate(-50%,-50%);
+  background:var(--encre);border-radius:6px;box-shadow:0 0 0 5px var(--bg)}
+.bulletins{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.4rem 1.2rem}
+@media (max-width:900px){.bulletins{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.bulletin{display:flex}.bulletin a{flex:1;display:flex;flex-direction:column;background:var(--card);color:var(--fg);text-decoration:none;border:1px solid var(--line);
+  padding:1.1rem .9rem 1rem;text-align:center;box-shadow:var(--ombre);transform:rotate(var(--r));
+  transition:transform .18s ease}
+.bulletin a:hover,.bulletin a:focus-visible{transform:rotate(0) translateY(-4px)}
+.bulletin .nom{display:block;font-weight:700;font-size:1.02rem;line-height:1.25}
+.bulletin .parti{display:block;color:var(--muted);font-size:.84rem;line-height:1.3;margin:.15rem 0 .8rem}
+.bulletin .solde{display:block;margin-top:auto;font-family:var(--titre);font-weight:800;font-size:clamp(2.1rem,4.4vw,2.9rem);line-height:1;
+  padding-top:.7rem;border-top:1px solid var(--line)}
+.bulletin .unite{display:block;color:var(--muted);font-size:.8rem;margin-top:.2rem}
+@media (prefers-reduced-motion:no-preference){
+  .bulletin a{animation:tombe .7s cubic-bezier(.2,.8,.25,1) both;animation-delay:calc(var(--i) * 70ms)}
+  @keyframes tombe{from{opacity:0;transform:translateY(-28px) rotate(0)}to{opacity:1;transform:rotate(var(--r))}}
+}
+.legende{color:var(--muted);font-size:.9rem;max-width:46rem}
+.portes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 2.4rem;margin:3.4rem 0 1rem;border-top:2px solid var(--fg)}
+@media (max-width:760px){.portes{grid-template-columns:1fr}}
+.porte{padding:1.2rem 0 1.4rem;border-bottom:1px solid var(--line)}
+.porte h2{margin:0 0 .35rem;font-size:2rem}.porte h2 a{color:var(--fg);text-decoration:none}
+.porte h2 a:hover{color:var(--acc)}.porte p{margin:0;color:var(--muted)}
+.bandeau{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem 3rem;margin-top:3rem}
+@media (max-width:760px){.bandeau{grid-template-columns:1fr}}
+.bandeau h2{margin-top:0}
 """
 
 
-def page(titre, corps, description=""):
+def page(titre, corps, description="", actif=""):
     return f"""<!doctype html><html lang="fr"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(titre)}</title>
-<meta name="description" content="{html.escape(description)}"><style>{CSS}</style></head>
-<body><main>{corps}
-<footer><a href="index.html">Accueil</a> · <a href="mentions-legales.html">Mentions légales</a> ·
-<a href="methode.html">Méthode et limites</a></footer></main></body></html>
+<meta name="description" content="{html.escape(description)}"><style>{theme.style()}{CSS}</style></head>
+<body>{theme.entete(actif)}<main>{corps}</main>{theme.pied(date.today().isoformat())}</body></html>
 """
 
 
@@ -83,39 +112,64 @@ def ou_ecrivez(cfg):
     return f' ou écrivez à <a href="mailto:{c}">{c}</a>'
 
 
+def _md(x: float) -> str:
+    if abs(x) < 0.05:
+        return "0"
+    s = f"{abs(x):.0f}" if abs(x) >= 10 else f"{abs(x):.1f}".replace(".", ",")
+    return ("−" if x < -0.05 else "+" if x > 0.05 else "") + s
+
+
+def urne() -> str:
+    """Les programmes en bulletins, dans l'ordre alphabétique des noms, comme sur les panneaux électoraux."""
+    donnees = json.loads((RACINE / "data" / "chiffrage.json").read_text(encoding="utf-8"))["programmes"]
+    progs = sorted(donnees, key=lambda a: a["candidat"].split(" ", 1)[-1])
+    items = []
+    for i, a in enumerate(progs):
+        c = a["croisiere"]["central"]
+        signe = "neg" if c < -0.05 else "pos" if c > 0.05 else ""
+        r = ((i * 37) % 7 - 3) * 0.55
+        items.append(
+            f'<li class="bulletin" style="--i:{i};--r:{r:.2f}deg"><a href="rapport.html#{html.escape(a["id"])}">'
+            f'<span class="nom">{html.escape(a["candidat"])}</span><span class="parti">{html.escape(a["parti"])}</span>'
+            f'<span class="solde {signe}">{_md(c)}</span><span class="unite">Md€ par an en 2032</span></a></li>')
+    return f'<div class="urne"><ul class="bulletins">{"".join(items)}</ul></div>'
+
+
 def accueil(cfg):
-    depot = cfg["depot"]
-    return page("Chiffrer les programmes 2027", f"""
-<h1>Chiffrer les programmes 2027, en open data</h1>
-<p>Un chiffrage indépendant et rejouable des programmes des candidats à l'élection présidentielle de 2027 :
-chaque mesure est citée mot pour mot avec son lien, son coût se recalcule à partir de barèmes publics communs, et
-l'effet cumulé est projeté sur la dette publique jusqu'en 2032. Même méthode pour tous les candidats, aucun jugement
-sur l'opportunité des mesures.</p>
-<div class="cartes">
-<div class="carte"><h3>Le rapport</h3><p>Coût de chaque programme, mesure par mesure, avec les sources et les
-incertitudes.</p><a href="rapport.html">Lire le rapport</a></div>
-<div class="carte"><h3>Le simulateur</h3><p>Composez votre propre budget et situez-le par rapport aux
-candidats.</p><a href="simulateur.html">Ouvrir le simulateur</a></div>
-<div class="carte"><h3>Le jeu du budget</h3><p>Des choix, deux options, l'effet sur le solde et la
-dette.</p><a href="jeu.html">Jouer</a></div>
+    depot = html.escape(cfg["depot"])
+    return page("Chiffrer 2027 : ce que coûteraient les programmes", f"""
+<section class="une">
+<h1>Ce que coûteraient les promesses</h1>
+<p>Huit programmes pour la présidentielle de 2027, chiffrés avec la même méthode. Chaque mesure est citée mot pour
+mot avec son lien, et son coût se recalcule à partir de barèmes publics. Rien n'est caché : ouvrez un bulletin.</p>
+</section>
+{urne()}
+<p class="legende">Effet de chaque programme sur le solde public, en milliards d'euros par an une fois toutes ses mesures
+en place (2032), scénario central. Négatif : le programme creuse le déficit. Candidats dans l'ordre alphabétique.
+Le chiffrage ne juge pas l'opportunité des mesures, il en donne le coût.</p>
+<div class="portes">
+<div class="porte"><h2><a href="rapport.html">Lire le rapport</a></h2><p>Chaque programme mesure par mesure, avec
+la citation, le calcul, les sources et la fourchette d'incertitude.</p></div>
+<div class="porte"><h2><a href="simulateur.html">Composer son budget</a></h2><p>Vingt-neuf décisions, leur coût, et
+les candidats dont vos choix se rapprochent.</p></div>
+<div class="porte"><h2><a href="jeu.html">Jouer carte par carte</a></h2><p>Un dilemme par carte, à gauche ou à
+droite : votre programme se construit, sa facture aussi.</p></div>
 </div>
-<p class="mut">Le chiffrage ne prédit pas le résultat d'une politique : il calcule ce que coûterait ce qui est promis,
-au droit voté au 29 septembre 2026, sans effet de second tour (croissance, emploi). Lisez la
-<a href="methode.html">méthode et ses limites</a>.</p>
-<h2>Vérifier et contribuer</h2>
-<p>Tout est public : le code (licence MIT), les textes et chiffrages (CC BY 4.0) et les données (licence d'origine)
-sont sur <a href="{html.escape(depot)}">GitHub</a>. Une erreur, une citation inexacte, un barème contestable :
-<a href="{html.escape(depot)}/issues/new/choose">ouvrez une issue</a>{ou_ecrivez(cfg)}. Les candidats et leurs équipes
-disposent d'un droit de réponse : voir les <a href="mentions-legales.html">mentions légales</a>.</p>
-<p class="mut">Généré le {date.today().isoformat()}. Téléchargements :
-<a href="chiffrage.md">rapport (Markdown)</a> · <a href="tableau-de-bord.md">tableau de bord</a> ·
-<a href="chiffrage.json">données du chiffrage (JSON)</a>.</p>""",
-                "Chiffrage indépendant, sourcé et rejouable des programmes de la présidentielle 2027.")
+<div class="bandeau">
+<div class="prose"><h2>Ce que ce chiffrage mesure</h2><p>Ce que coûterait ce qui est promis, par rapport au droit voté
+au 29 septembre 2026, sans effet de second tour : la croissance ou l'emploi invoqués par un candidat sont décrits,
+pas comptés. Les chiffres sont des ordres de grandeur. <a href="methode.html">Méthode et limites</a>.</p></div>
+<div class="prose"><h2>Vérifier, corriger</h2><p>Le code, les barèmes et chaque chiffrage sont publics
+<a href="{depot}">sur GitHub</a>. Une citation inexacte, un calcul contestable : <a href="{depot}/issues/new/choose">signalez-le</a>{ou_ecrivez(cfg)}.
+Les équipes de campagne disposent d'un <a href="mentions-legales.html">droit de réponse</a>. Données :
+<a href="chiffrage.json">chiffrage (JSON)</a>, <a href="chiffrage.md">rapport (Markdown)</a>,
+<a href="tableau-de-bord.md">tableau de bord</a>.</p></div>
+</div>""", "Chiffrage indépendant, sourcé et rejouable des programmes de la présidentielle 2027.", "index.html")
 
 
 def methode(cfg):
     d = html.escape(cfg["depot"])
-    return page("Méthode et limites", f"""
+    return page("Méthode et limites", f"""<div class="prose">
 <h1>Méthode et limites</h1>
 <h2>Principes</h2>
 <ul>
@@ -145,7 +199,7 @@ chiffrée selon sa lecture la plus probable, qui est écrite.</li>
 <li><a href="{d}/blob/main/chiffrage/baremes.yaml">Barèmes communs et leurs sources</a></li>
 <li><a href="{d}/tree/main/chiffrage/programmes">Un fichier par programme, avec les citations</a></li>
 <li><a href="{d}/blob/main/plan/README.md">Trajectoire de la dette</a></li>
-</ul>""", "Principes, conventions et limites du chiffrage.")
+</ul></div>""", "Principes, conventions et limites du chiffrage.", "methode.html")
 
 
 def mentions(cfg):
@@ -157,7 +211,7 @@ def mentions(cfg):
         editeur = f"{html.escape(e['nom'])}{qualite}.{directeur}"
     else:
         editeur = f"Site publié à titre non professionnel par les contributeurs du <a href=\"{d}\">dépôt public</a>."
-    return page("Mentions légales", f"""
+    return page("Mentions légales", f"""<div class="prose">
 <h1>Mentions légales</h1>
 <h2>Éditeur</h2>
 <p>{editeur} Contact : {lien_contact(cfg)}.</p>
@@ -176,7 +230,7 @@ journaliser les adresses IP des visites dans le cadre de son service.</p>
 <h2>Licences</h2>
 <p>Code : MIT. Textes, chiffrages et pages : CC BY 4.0. Données : licence d'origine, indiquée dans le catalogue.
 Les citations de programmes et d'articles sont reproduites à titre de courtes citations, avec leur source, à des fins
-d'analyse et d'information.</p>""", "Éditeur, hébergeur, droit de réponse.")
+d'analyse et d'information.</p></div>""", "Éditeur, hébergeur, droit de réponse.")
 
 
 def main():

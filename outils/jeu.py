@@ -14,6 +14,7 @@ import sys
 
 import yaml
 
+from outils import theme
 from pipelines.commun import RACINE
 
 from .simulateur import COMMUN_CSS, COMMUN_JS, donnees, json_pour_script, lire_leviers, remplir
@@ -65,9 +66,8 @@ def valider(doc: dict | None = None) -> list[str]:
 PAGE = r"""<!doctype html><html lang="fr"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Élysée 2027 : le jeu du budget</title><style>
-:root{--bg:#f4f1ea;--fg:#1d1d1b;--muted:#66645e;--line:#dcd8cd;--card:#fffdf8;--neg:#b03a2e;--pos:#1e7a4a;--acc:#2451a6}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141412;--fg:#ecebe6;--muted:#9a978f;--line:#34332f;--card:#1f1f1c;--neg:#e0796e;--pos:#6fcf97;--acc:#8fb0ff}}
-*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font:16px/1.45 system-ui,-apple-system,Segoe UI,sans-serif;overscroll-behavior:none}
+__THEME__
+*{box-sizing:border-box}html,body{height:100%;overscroll-behavior:none}body{font-size:16px;line-height:1.45}
 #app{max-width:440px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;padding:14px 16px 20px}
 .jauges{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .jauge{text-align:center;font-size:.75rem;color:var(--muted)}.jauge .ic{font-size:1.4rem;display:block}
@@ -77,7 +77,7 @@ PAGE = r"""<!doctype html><html lang="fr"><head><meta charset="utf-8">
 .piste b{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--muted)}
 .apercu{height:14px;font-size:.72rem;font-weight:700}
 #table{flex:1;display:flex;align-items:center;justify-content:center;position:relative;min-height:400px;margin-top:10px;touch-action:none}
-.carte{position:absolute;width:100%;max-width:380px;background:var(--card);border:1px solid var(--line);border-radius:18px;
+.carte{position:absolute;width:100%;max-width:380px;background:var(--card);border:1px solid var(--line);border-radius:4px;
   box-shadow:0 8px 30px #0002;padding:18px 18px 22px;user-select:none;cursor:grab;will-change:transform}
 .carte.anim{transition:transform .3s ease,opacity .3s}
 .choix-haut{display:flex;justify-content:space-between;gap:8px;min-height:44px;font-weight:700;font-size:.95rem}
@@ -87,20 +87,29 @@ PAGE = r"""<!doctype html><html lang="fr"><head><meta charset="utf-8">
 .texte{font-size:1.1rem;text-align:center;min-height:5.5em}
 .boutons,.impacts{display:grid;grid-template-columns:1fr 1fr;gap:10px}.boutons{margin-top:14px}
 .impacts{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);text-align:center}
-.boutons button{font:inherit;font-size:.85rem;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}
+.boutons button{font:inherit;font-weight:700;font-size:.85rem;padding:10px;border-radius:4px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}
 __COMMUN_CSS__
 .impact{display:block;font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
 .bas{display:flex;justify-content:space-between;color:var(--muted);font-size:.8rem;margin-top:10px}
 .bas a{color:var(--acc)}
-.fin h1{font-size:1.5rem;margin:.4em 0 .2em}.fin .kpi{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
-.fin .gros{font-size:1.8rem;font-weight:800;font-variant-numeric:tabular-nums}.petit{color:var(--muted);font-size:.8rem}
+.fin h1{font-size:clamp(2.4rem,9vw,3.4rem);margin:.5em 0 .1em;display:inline-block}.fin .kpi{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.fin .gros{font-family:var(--titre);font-size:2.4rem;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}.petit{color:var(--muted);font-size:.8rem}
 .fin ul{padding-left:18px;margin:.3em 0}.fin li{margin:3px 0}.neg{color:var(--neg)}.pos{color:var(--pos)}
 .fin button,.fin a.bt{display:inline-block;font:inherit;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--fg);text-decoration:none;cursor:pointer;margin:4px 6px 4px 0}
-.accueil{text-align:center}.accueil h1{font-size:1.7rem;margin:.6em 0 .2em}.accueil p{color:var(--muted)}
-.accueil button{font:inherit;font-size:1.05rem;padding:12px 22px;border-radius:12px;border:0;background:var(--acc);color:var(--bg);cursor:pointer;margin-top:10px}
+.accueil{text-align:center;padding-top:6vh}.accueil h1{font-size:clamp(2.8rem,11vw,4.4rem);line-height:.92;margin:.3em 0 .35em}
+.accueil p{color:var(--muted);max-width:30rem;margin-left:auto;margin-right:auto}
+.accueil button{font:inherit;font-weight:700;font-size:1.05rem;padding:12px 26px;border-radius:4px;border:0;background:var(--acc);color:#fff;cursor:pointer;margin-top:14px}
+.pile{position:relative;width:120px;height:92px;margin:0 auto}
+.pile span{position:absolute;inset:0;background:var(--card);border:1px solid var(--line);box-shadow:var(--ombre)}
+.pile span:nth-child(1){transform:rotate(-7deg)}.pile span:nth-child(2){transform:rotate(4deg)}
+.pile span:nth-child(3){transform:rotate(-1deg);border-top:6px solid var(--acc)}
+.tampon{display:inline-block;font-family:var(--titre);font-weight:800;font-size:1.5rem;color:var(--acc);border:3px solid var(--acc);
+  border-radius:6px;padding:.05em .45em;transform:rotate(-8deg);margin:.6rem 0 0 .2rem;opacity:.9}
+@media (prefers-reduced-motion:no-preference){.tampon{animation:tamponne .45s cubic-bezier(.3,1.6,.5,1) .25s both}
+  @keyframes tamponne{from{transform:rotate(-8deg) scale(1.9);opacity:0}to{transform:rotate(-8deg) scale(1);opacity:.9}}}
 svg{width:100%;height:auto;display:block}.grille{stroke:var(--line)}.axe{fill:var(--muted);font-size:10px}
 .barre-acc{height:6px;border-radius:3px;background:var(--acc);display:inline-block;vertical-align:middle;margin:0 6px}
-</style></head><body><main id="app"></main>
+</style></head><body>__ENTETE__<main id="app"></main>
 <script>
 const D = __DONNEES__;
 const C = __CARTES__;
@@ -184,7 +193,7 @@ function valeur(carte, cote) { const c = carte[cote]; return "option" in c ? c.o
 function avec(carte, cote) { return {...choix, [carte.levier]: valeur(carte, cote)}; }
 
 function accueil() {
-  app.innerHTML = `<div class="accueil"><div style="font-size:4rem;margin-top:12vh">🏛️</div><h1>Élysée 2027 : le jeu du budget</h1>
+  app.innerHTML = `<div class="accueil"><div class="pile" aria-hidden="true"><span></span><span></span><span></span></div><h1>Le jeu du budget</h1>
     <p>Vous venez d'être élu·e. Chaque carte est une décision que les candidats mettent en débat. Glissez à gauche ou à droite :
     votre programme se construit, et sa facture aussi.</p>
     <p class="petit">Montants chiffrés avec la même méthode que les programmes des candidats (effet sur le solde public en 2032, sans
@@ -208,6 +217,7 @@ function annuler() {
   choix = h.choix; file = h.file; vues = h.vues; total = h.total; suivante();
 }
 function suivante() {
+  reinitGlossaire();
   majJauges();
   if (!file.length) return fin();
   const carte = C.cartes.find(c => c.id === file[0]), p = perso(carte.personnage);
@@ -275,7 +285,7 @@ function fin() {
   }).sort((a, b) => a.e - b.e);
   const proches = D.candidats.map(c => ({c, ...accord(c, choix)})).filter(r => r.n).sort((a, b) => b.pct - a.pct);
   const lien = "simulateur.html#b=" + encodeURIComponent(JSON.stringify(choix));
-  app.innerHTML = `<div class="fin"><h1>Votre programme</h1>
+  app.innerHTML = `<div class="fin"><h1>Votre programme</h1> <span class="tampon" aria-hidden="true">A voté</span>
     <div class="kpi"><div><div class="petit">Solde en 2032, par an</div><div class="gros ${b.solde < 0 ? "neg" : b.solde > 0 ? "pos" : ""}">${fmt(b.solde)} Md€</div>
       <div class="petit">fourchette ${fmt(b.bas)} à ${fmt(b.haut)}</div></div>
       <div><div class="petit">Dette publique en 2032</div><div class="gros">${fmt(b.dette, false)} %</div><div class="petit">droit actuel : ${fmt(ref, false)} %</div></div></div>
@@ -294,6 +304,11 @@ accueil();
 </script></body></html>"""
 
 
+def rendre(d: dict, cartes: dict) -> str:
+    return remplir(PAGE, THEME=theme.style(), ENTETE=theme.entete("jeu.html"), COMMUN_JS=COMMUN_JS, COMMUN_CSS=COMMUN_CSS,
+                   DONNEES=json_pour_script(d), CARTES=json_pour_script(cartes))
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--valider", action="store_true")
@@ -307,7 +322,7 @@ def main(argv: list[str] | None = None) -> int:
     if erreurs or args.valider:
         print(f"{len(erreurs)} erreur(s).")
         return 1 if erreurs else 0
-    page = remplir(PAGE, COMMUN_JS=COMMUN_JS, COMMUN_CSS=COMMUN_CSS, DONNEES=json_pour_script(donnees()), CARTES=json_pour_script(lire_cartes()))
+    page = rendre(donnees(), lire_cartes())
     SORTIE.parent.mkdir(exist_ok=True)
     SORTIE.write_text(page, encoding="utf-8")
     print(f"-> {SORTIE.relative_to(RACINE)} ({len(lire_cartes()['cartes'])} cartes)")
