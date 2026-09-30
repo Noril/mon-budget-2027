@@ -10,3 +10,5 @@ __pycache__/
 
 # Copies de travail des agents
 .claude/
+.vercel
+.env*
