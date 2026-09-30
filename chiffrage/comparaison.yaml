@@ -1,0 +1,257 @@
+# Comparaison avec les autres chiffrages globaux (page publique).
+# montant_md : effet sur le solde public, négatif = déficit en plus, Md€ par an.
+# annee_euros : euros (et horizon) du chiffrage cité.
+# Notre solde central cité dans « ecarts » : régime de croisière 2032, euros courants 2032, calcul du 30 septembre 2026.
+# Conversion indicative d'un montant en euros 2032 à part de PIB constante : ×1,36 depuis 2022, ×1,23 depuis 2024,
+# ×1,16 depuis 2027 (PIB nominal 2032 de 3 621 Md€, barèmes facteur_pib_*).
+note: >-
+  Aucun organisme indépendant n'a publié, au 30 septembre 2026, de chiffrage global des programmes présidentiels 2027 :
+  les références disponibles portent sur les programmes de 2022 (présidentielle) ou de 2024 (législatives), souvent
+  différents de ceux de 2027, et sont exprimées en euros de leur année ou à l'horizon 2027, quand nous chiffrons le
+  régime de croisière 2032 en euros de 2032. Les écarts tiennent aussi au périmètre (nous comptons l'ensemble des
+  administrations publiques, retraites comprises), au sort des économies annoncées sans mesure détaillée (enveloppes
+  comptées à zéro dans notre solde central), aux effets comptés (réaction de l'assiette des impôts oui ; croissance et
+  « recettes liées à la reprise de l'activité » non) et aux mesures retenues par chacun. Aucun montant ci-dessous n'est
+  directement comparable au nôtre sans ces corrections.
+candidats:
+  - programme: melenchon-lfi
+    annonce:
+      texte: >-
+        Pas de chiffrage global du programme 2027 au 30 septembre 2026 (nouvelle version de L'Avenir en commun et son
+        chiffrage annoncés pour le 6 novembre 2026). Dernier chiffrage d'ensemble du parti : contre-budget 2026 du groupe
+        LFI (octobre 2025), 167,9 Md€ de dépenses et 183,6 Md€ de recettes, solde revendiqué +26,7 Md€ la première année.
+        En 2022, le candidat affichait 250 Md€ de dépenses et 267 Md€ de recettes (+17 Md€).
+      source: https://lafranceinsoumise.fr/wp-content/uploads/2025/10/Budget-2026_LFI_web_pages.pdf
+    references:
+      - auteur: Institut Montaigne
+        objet: "programme du Nouveau Front populaire, législatives 2024 (coalition LFI, PS, Les Écologistes, PCF, Place publique)"
+        montant_md: -179
+        annee_euros: 2024
+        source: https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/nouveau-front-populaire/synthese/
+      - auteur: Fondation IFRAP
+        objet: "programme du Nouveau Front populaire, législatives 2024, écart au solde 2027 du programme de stabilité"
+        montant_md: -160
+        annee_euros: 2027
+        source: https://www.ifrap.org/budget-et-fiscalite/nouveau-front-populaire-rassemblement-national-et-ensemble-pour-la-republique-le-chiffrage-des-programmes
+      - auteur: Fondation IFRAP
+        objet: "programme présidentiel 2022 (L'Avenir en commun 2022), solde en 2027"
+        montant_md: -66
+        annee_euros: 2027
+        source: https://www.ifrap.org/budget-et-fiscalite/macron-le-pen-zemmour-melenchon-le-cout-de-leur-programme-pour-les-finances-publiques
+      - auteur: Institut Montaigne
+        objet: "programme présidentiel 2022 (L'Avenir en commun 2022)"
+        montant_md: -218.9
+        annee_euros: 2022
+        source: https://web.archive.org/web/2022/https://www.institutmontaigne.org/presidentielle-2022/synthese-des-chiffrages/
+    ecarts: >-
+      Notre solde central est de −305,4 Md€ en 2032, sur L'Avenir en commun 2025 et les annonces de campagne 2026. Porté
+      en euros 2032, le −218,9 Md€ de l'Institut Montaigne (2022) représente environ −298 Md€ et le −179 Md€ du NFP
+      (2024) environ −221 Md€ ; le programme chiffré diffère : SMIC à 1 700 € net au lieu de 1 400 €, échelle mobile des
+      salaires, plan d'investissement de 200 Md€ (−40 Md€ par an chez nous), garantie d'autonomie (−43,3 Md€ chez nous,
+      −12,3 Md€ chez Montaigne en 2022). Les chiffrages de l'IFRAP (−66 Md€ en 2022, −160 Md€ en 2024) portent sur le
+      solde de 2027, mesures en cours de montée en charge ; en 2022, l'IFRAP retenait +208 Md€ d'impôts et cotisations
+      nouveaux ; nous comptons en outre la réaction de l'assiette des impôts nouveaux.
+  - programme: le-pen-rn
+    annonce:
+      texte: >-
+        « Nous présenterons juste avant le débat budgétaire notre trajectoire de rétablissement des finances publiques avec
+        125 milliards d'euros d'économies » (débat du Medef, 27 août 2026 ; document non publié au 30 septembre 2026).
+        Réforme des retraites chiffrée par la candidate à « 9 milliards d'euros ». Dernier chiffrage complet du parti :
+        contre-budget 2026 du groupe RN (octobre 2025), 35,6 Md€ d'amélioration nette du solde revendiquée.
+      source: https://www.epochtimes.fr/marine-le-pen-promet-125-milliards-deuros-deconomies-et-defend-une-retraite-a-60-ou-62-ans-3335415.html
+    references:
+      - auteur: Institut Montaigne
+        objet: "programme du Rassemblement national, législatives 2024"
+        montant_md: -71
+        annee_euros: 2024
+        source: https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/synthese/
+      - auteur: Fondation IFRAP
+        objet: "programme du Rassemblement national, législatives 2024, écart au solde 2027 du programme de stabilité"
+        montant_md: -14.5
+        annee_euros: 2027
+        source: https://www.ifrap.org/budget-et-fiscalite/nouveau-front-populaire-rassemblement-national-et-ensemble-pour-la-republique-le-chiffrage-des-programmes
+      - auteur: Fondation IFRAP
+        objet: "programme présidentiel 2022 de Marine Le Pen, solde en 2027"
+        montant_md: -29
+        annee_euros: 2027
+        source: https://www.ifrap.org/budget-et-fiscalite/macron-le-pen-zemmour-melenchon-le-cout-de-leur-programme-pour-les-finances-publiques
+      - auteur: Institut Montaigne
+        objet: "programme présidentiel 2022 de Marine Le Pen"
+        montant_md: -101.8
+        annee_euros: 2022
+        source: https://web.archive.org/web/2022/https://www.institutmontaigne.org/presidentielle-2022/synthese-des-chiffrages/
+    ecarts: >-
+      Notre solde central est de −39,9 Md€ en 2032. Le −71 Md€ de l'Institut Montaigne (2024, environ −88 Md€ en euros
+      2032) retient des économies de 14 Md€ ; nous comptons en plus des économies ciblées du programme 2026 appliquées
+      comme annoncées dans la limite du budget visé (agences −20 %, prestations réservées après cinq ans de travail,
+      dotations aux régions), mais aussi des baisses d'impôts absentes en 2024 (CFE, C3S), et nous chiffrons le volet
+      retraites avec nos barèmes communs, moins cher que la lecture de Montaigne (retour complet aux règles d'avant 2003
+      pour les carrières longues). L'IFRAP (−14,5 Md€) mesure le solde de 2027, avant l'essentiel de la montée en charge
+      des retraites. Le plan de « 125 milliards d'euros d'économies », sans mesure publiée, compte pour zéro dans notre
+      solde central. Le programme 2022 (−101,8 Md€ chez Montaigne) comportait des mesures abandonnées depuis, dont
+      l'exonération d'impôt sur le revenu des moins de 30 ans et la nationalisation des autoroutes.
+  - programme: attal-renaissance
+    annonce:
+      texte: >-
+        « Toutes les propositions que nous formulerons durant la campagne seront financées » ; « 150 milliards d'euros
+        d'économies, dont les deux tiers sur les dépenses sociales, avec un retour du déficit public sous les 3 % du PIB
+        avant la fin du mandat » (23 septembre 2026). Aucune hausse d'impôt. Pas de coût total publié.
+      source: https://attalpresident.fr/actualites/gabriel-attal-presente-un-plan-de-desendettement-et-un-messmer-ii-pour-sortir-des-dependances-francaises
+    references:
+      - auteur: Institut Montaigne
+        objet: "programme d'Ensemble pour la République (Renaissance, MoDem, Horizons), législatives 2024"
+        montant_md: -20.6
+        annee_euros: 2024
+        source: https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/ensemble-majorite-presidentielle/synthese/
+      - auteur: Fondation IFRAP
+        objet: "programme d'Ensemble pour la République, législatives 2024, écart au solde 2027 du programme de stabilité"
+        montant_md: 4
+        annee_euros: 2027
+        source: https://www.ifrap.org/budget-et-fiscalite/nouveau-front-populaire-rassemblement-national-et-ensemble-pour-la-republique-le-chiffrage-des-programmes
+      - auteur: Fondation IFRAP
+        objet: "programme présidentiel 2022 d'Emmanuel Macron (La République en marche, devenue Renaissance), solde en 2027"
+        montant_md: 27
+        annee_euros: 2027
+        source: https://www.ifrap.org/budget-et-fiscalite/macron-le-pen-zemmour-melenchon-le-cout-de-leur-programme-pour-les-finances-publiques
+      - auteur: Institut Montaigne
+        objet: "programme présidentiel 2022 d'Emmanuel Macron (La République en marche, devenue Renaissance)"
+        montant_md: -44.5
+        annee_euros: 2022
+        source: https://web.archive.org/web/2022/https://www.institutmontaigne.org/presidentielle-2022/synthese-des-chiffrages/
+    ecarts: >-
+      Notre solde central est de −41,4 Md€ en 2032. Les références portent sur d'autres programmes et un autre candidat
+      (Emmanuel Macron en 2022, la coalition Ensemble en 2024). L'essentiel de notre montant vient d'une mesure de 2026
+      absente de ces programmes : la suppression de la part salariale de la cotisation vieillesse (« équivalent d'un 13ᵉ
+      mois », −40,7 Md€). L'enveloppe de 120 à 150 Md€ d'économies, sans mesures détaillées, compte pour zéro dans notre
+      solde central. Les soldes positifs de l'IFRAP (+27 Md€ en 2022, +4 Md€ en 2024) incluent des recettes et économies
+      liées à la reprise de l'activité (2022), effets que nous ne comptons pas.
+  - programme: philippe-horizons
+    annonce:
+      texte: >-
+        Pas de chiffrage global publié au 30 septembre 2026. Objectif : « ramener le déficit de plus de 5 % à 2 % du PIB
+        en fin de quinquennat » ; « deal fiscal » présenté comme neutre (50 Md€ de baisse d'impôts de production contre
+        50 Md€ d'aides aux entreprises en moins).
+      source: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
+    references:
+      - auteur: Institut Montaigne
+        objet: "programme d'Ensemble pour la République (Renaissance, MoDem, Horizons), législatives 2024"
+        montant_md: -20.6
+        annee_euros: 2024
+        source: https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/ensemble-majorite-presidentielle/synthese/
+      - auteur: Fondation IFRAP
+        objet: "programme d'Ensemble pour la République, législatives 2024, écart au solde 2027 du programme de stabilité"
+        montant_md: 4
+        annee_euros: 2027
+        source: https://www.ifrap.org/budget-et-fiscalite/nouveau-front-populaire-rassemblement-national-et-ensemble-pour-la-republique-le-chiffrage-des-programmes
+    ecarts: >-
+      Aucun chiffrage indépendant d'un programme propre à Horizons ou à Édouard Philippe ; les seules références portent
+      sur le programme commun d'Ensemble en 2024, dont Horizons était partie, et non sur le programme 2027. Notre solde
+      central (0,0 Md€ en 2032) résulte surtout du « deal fiscal » : la baisse de 50 Md€ d'impôts de production (−44,8 Md€
+      nets) et la réduction de 50 Md€ des aides aux entreprises, comptée comme annoncée (+55,3 Md€) car ciblée sur un
+      périmètre nommé mais sans liste d'aides ; si cette économie n'est pas réalisée, le solde tombe vers −87,6 Md€ (borne
+      basse).
+  - programme: retailleau-lr
+    annonce:
+      texte: >-
+        Pas de chiffrage global publié. « Je m'engage parallèlement sur un plan d'économies de 120 milliards d'euros à
+        l'horizon 2032 » (15 avril 2026) ; 40 Md€ de baisses de prélèvements pour les entreprises présentés comme
+        « identifié, financé » ; retraites : « 40 milliards d'économies en cumulé sur cinq ans ».
+      source: https://contrepoints.org/flat-tax-aides-aux-entreprises-assurances-sociales-calendrier-des-reformes-bruno-retailleau-repond-a-nos-questions/
+    references:
+      - auteur: Fondation IFRAP
+        objet: "programme présidentiel 2022 de Valérie Pécresse (Les Républicains), solde en 2027"
+        montant_md: 30
+        annee_euros: 2027
+        source: https://www.ifrap.org/budget-et-fiscalite/macron-le-pen-zemmour-melenchon-le-cout-de-leur-programme-pour-les-finances-publiques
+      - auteur: Institut Montaigne
+        objet: "programme présidentiel 2022 de Valérie Pécresse (Les Républicains)"
+        montant_md: -35.1
+        annee_euros: 2022
+        source: https://web.archive.org/web/2022/https://www.institutmontaigne.org/presidentielle-2022/synthese-des-chiffrages/
+    ecarts: >-
+      Aucun chiffrage indépendant d'un programme de Bruno Retailleau ; les références portent sur le programme 2022 de
+      Valérie Pécresse pour le même parti, qui comportait la retraite à 65 ans et une réduction des effectifs publics.
+      Notre solde central est de −18,7 Md€ en 2032 : les baisses de cotisations et la restitution de pouvoir d'achat aux
+      salariés sont comptées, tandis que l'enveloppe de 120 Md€ d'économies, sans mesures détaillées, compte pour zéro.
+      Le solde positif de l'IFRAP (+30 Md€ en 2027) compte comme recette la lutte contre la fraude annoncée par la
+      candidate de 2022.
+  - programme: tondelier-ecologistes
+    annonce:
+      texte: >-
+        Le programme de juillet 2026 (557 mesures) ne comporte ni chiffrage global ni tableau de financement. Référence la
+        plus complète du parti : le contre-budget 2026 (« plan de sortie de crise », septembre 2025), +28,5 Md€ de recettes,
+        −16,6 Md€ de dépenses, déficit ramené à 3,7 % du PIB en 2030.
+      source: https://www.publicsenat.fr/actualites/politique/les-ecologistes-presentent-leur-plan-de-sortie-de-crise-et-preparent-la-cohabitation
+    references:
+      - auteur: Institut Montaigne
+        objet: "programme du Nouveau Front populaire, législatives 2024 (coalition LFI, PS, Les Écologistes, PCF, Place publique)"
+        montant_md: -179
+        annee_euros: 2024
+        source: https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/nouveau-front-populaire/synthese/
+      - auteur: Fondation IFRAP
+        objet: "programme du Nouveau Front populaire, législatives 2024, écart au solde 2027 du programme de stabilité"
+        montant_md: -160
+        annee_euros: 2027
+        source: https://www.ifrap.org/budget-et-fiscalite/nouveau-front-populaire-rassemblement-national-et-ensemble-pour-la-republique-le-chiffrage-des-programmes
+      - auteur: Fondation IFRAP
+        objet: "programme présidentiel 2022 de Yannick Jadot (EELV), solde en 2027"
+        montant_md: -33
+        annee_euros: 2027
+        source: https://www.ifrap.org/budget-et-fiscalite/macron-le-pen-zemmour-melenchon-le-cout-de-leur-programme-pour-les-finances-publiques
+    ecarts: >-
+      Notre solde central est de −25,1 Md€ en 2032, sur le programme écologiste de 2026. Les références NFP portent sur
+      un programme de coalition comprenant des mesures absentes du programme 2026 (retraite à 60 ans, SMIC à 1 600 €,
+      blocage des prix), alors que ce dernier prévoit le retour à 62 ans et de nombreuses recettes chiffrées (rationalisation des
+      exonérations de cotisations, CSG progressive, successions). L'IFRAP (Jadot 2022) porte sur un autre programme et
+      sur le solde de 2027. Une partie des mesures 2026 trop vagues pour être chiffrées reçoit une estimation indicative
+      (−59,8 Md€) affichée à part et non incluse dans notre solde.
+  - programme: glucksmann-place-publique
+    annonce:
+      texte: >-
+        Aucun chiffrage global publié au 30 septembre 2026, le programme de mandat n'étant pas publié. Chiffrages partiels :
+        baisse de CSG d'environ 15 Md€ financée par 15 Md€ de fiscalité des successions ; engagement de ne financer la
+        hausse des salaires ni « par la casse du modèle social », ni « par l'aggravation de la dette ».
+      source: https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/augmenter-les-salaires-en-taxant-les-plus-gros-heritages-la-proposition-de-raphael-glucksmann-est-elle-realiste_8076284.html
+    references:
+      - auteur: Institut Montaigne
+        objet: "programme du Nouveau Front populaire, législatives 2024 (coalition LFI, PS, Les Écologistes, PCF, Place publique)"
+        montant_md: -179
+        annee_euros: 2024
+        source: https://web.archive.org/web/2024/https://www.institutmontaigne.org/legislatives-2024/nouveau-front-populaire/synthese/
+      - auteur: Fondation IFRAP
+        objet: "programme du Nouveau Front populaire, législatives 2024, écart au solde 2027 du programme de stabilité"
+        montant_md: -160
+        annee_euros: 2027
+        source: https://www.ifrap.org/budget-et-fiscalite/nouveau-front-populaire-rassemblement-national-et-ensemble-pour-la-republique-le-chiffrage-des-programmes
+    ecarts: >-
+      Aucun chiffrage indépendant d'un programme de Raphaël Glucksmann ou de Place publique (non candidat en 2022) ; les
+      seules références portent sur le programme de coalition du NFP en 2024, que Place publique a signé. Notre solde
+      central (−70,8 Md€ en 2032) porte sur 14 mesures chiffrées sur 48 recensées, faute de programme publié : baisse de
+      CSG, indexation du point d'indice, abrogation de la réforme des retraites de 2023, aide au développement à 0,7 %.
+      Les mesures du NFP absentes des annonces de 2026 (retraite à 60 ans, blocage des prix) n'y figurent pas.
+  - programme: zemmour-reconquete
+    annonce:
+      texte: >-
+        Aucun chiffrage global publié par Éric Zemmour. Sarah Knafo (Reconquête) : « 140 milliards d'économies par an. Au
+        minimum. […] 24 mesures : tout est listé, chiffré, sourcé », finançant la suppression de la CSG sur les revenus
+        d'activité, des droits de succession et des impôts de production. Pas de coût total publié pour ces baisses. En
+        2022, le candidat affichait un solde de +20 Md€.
+      source: https://www.budget2026.fr/
+    references:
+      - auteur: Fondation IFRAP
+        objet: "programme présidentiel 2022 d'Éric Zemmour, solde en 2027"
+        montant_md: -5
+        annee_euros: 2027
+        source: https://www.ifrap.org/budget-et-fiscalite/macron-le-pen-zemmour-melenchon-le-cout-de-leur-programme-pour-les-finances-publiques
+      - auteur: Institut Montaigne
+        objet: "programme présidentiel 2022 d'Éric Zemmour"
+        montant_md: -145.8
+        annee_euros: 2022
+        source: https://web.archive.org/web/2022/https://www.institutmontaigne.org/presidentielle-2022/synthese-des-chiffrages/
+    ecarts: >-
+      Notre solde central est de −100,1 Md€ en 2032. Les références portent sur le programme de 2022, qui ne comportait
+      pas la suppression de la CSG sur les revenus d'activité (−112,5 Md€ chez nous). Les économies ciblées de 2026 sont
+      comptées comme annoncées dans la limite du budget visé (non-remplacement de 800 000 départs, prestations réservées
+      aux Français…) ; l'enveloppe de 140 Md€, au-delà de ces mesures, compte pour zéro. Le −5 Md€ de l'IFRAP (2027)
+      inclut 41 Md€ de recettes liées à la reprise de l'activité, effet que nous ne comptons pas, et l'économie du report
+      de l'âge de la retraite à 64 ans, déjà inscrit dans la législation de référence de 2027.
