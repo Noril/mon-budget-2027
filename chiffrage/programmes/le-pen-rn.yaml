@@ -79,7 +79,8 @@ notes: >-
   « avant le débat budgétaire » (début octobre). La collecte s'appuie sur (1) le contre-budget 2026 du groupe RN (octobre
   2025), dernier document chiffré ligne à ligne, dont les montants sont ceux du RN et non les nôtres, et dont la base
   est le PLF 2026 : les lignes qui annulent des mesures du PLF 2026 n'ont d'effet par rapport à la législation au 1er
-  janvier 2027 que si ces mesures ont été adoptées en LFI/LFSS 2026 (à vérifier en phase 2) ; (2) les prises de parole
+  janvier 2027 que si ces mesures ont été adoptées en LFI/LFSS 2026 (vérifié sur les textes adoptés, mesure
+  annulations-mesures-fiscales-budget-2026) ; (2) les prises de parole
   de la candidate en 2026 (Medef 27 août, Hénin-Beaumont 13 septembre, LCI 16 septembre, lettre ouverte du 21 septembre)
   ; (3) le programme législatif 2024, seulement pour les mesures reconfirmées depuis. Engagements 2022 non reconfirmés
   et donc exclus : renationalisation des autoroutes, privatisation de l'audiovisuel public (le contre-budget 2026 prévoit
@@ -88,8 +89,8 @@ notes: >-
   sans source primaire trouvée). Tension interne documentée : J. Bardella (mai 2026) a évoqué un relèvement de l'âge
   légal ; l'arbitrage de juillet 2026 et le débat Medef ont confirmé la ligne 60/62 ans de la candidate. Le conseiller
   économique F. Durvye a quitté la campagne le 27 août 2026. Chiffrage (phase 2) : quand le seul chiffre disponible est
-  celui du candidat (ou de Sarah Knafo), il est projeté en 2032 au PIB nominal, le central le reprend et le bas retient
-  la moitié de l'économie (convention, paramètre « convention du chiffrage ») ; les enveloppes d'économies non détaillées
+  celui du candidat (ou de Sarah Knafo), il est projeté en 2032 au PIB nominal et le central le reprend ; pour une
+  économie ciblée, le bas est nul (économie non réalisée) et le haut égal au central (règle 6) ; les enveloppes d'économies non détaillées
   suivent la règle 6 (central 0, haut = écart d'affichage).
 mesures:
   - id: tva-energie-5-5
@@ -106,9 +107,8 @@ mesures:
       Mesure phare constante depuis 2022 (communiqué de Marine Le Pen du 21 octobre 2021 : « baisser immédiatement la
       TVA de 20 à 5,5% sur les carburants, mais aussi sur le gaz, le fioul domestique et l'électricité »,
       rassemblementnational.fr), reconfirmée en septembre 2026 (AFP, Boursorama, 15 septembre 2026 : « Marine Le Pen
-      exige une baisse de la TVA sur l'énergie de 20 à 5,5%, au cœur de son programme » ; LCI 16 septembre). Citation
-      remplacée par la source primaire (contre-budget 2026). Périmètre du contre-budget
-      2026 : « Baisse TVA énergies 10,960 » Md€ (gaz, électricité, carburants, bois, fioul), montant du RN. Le taux de
+      exige une baisse de la TVA sur l'énergie de 20 à 5,5%, au cœur de son programme » ; LCI 16 septembre). Source
+      primaire citée : contre-budget 2026. Périmètre du contre-budget 2026 : « Baisse TVA énergies 10,960 » Md€ (gaz, électricité, carburants, bois, fioul), montant du RN. Le taux de
       5,5 % s'applique déjà à l'abonnement électricité/gaz : chiffrer sur les consommations au taux normal. Juridiquement
       contestée (directive TVA) : non retenu dans le montant, signalé en confiance. Montée en charge : loi de finances
       rectificative dès l'été 2027 (programme 2024), d'où 40 % en 2027. Compatibilité avec la directive TVA non acquise
@@ -359,9 +359,8 @@ mesures:
       date: '2025-10-23'
     precision: precise
     interpretation: >-
-      Réponse au gel du barème proposé par le PLF 2026. Effet nul par rapport à la législation 2027 si le barème a été
-      indexé en LFI 2026 ; sinon, coût du dégel. Vérifier la LFI 2026 en phase 2. Vérification (LFI 2026 promulguée le
-      19 février 2026) : barème indexé, gel non voté.
+      Réponse au gel du barème proposé par le PLF 2026. La LFI 2026 (promulguée le 19 février 2026) a indexé le barème
+      et le gel n'a pas été voté : effet nul par rapport à la législation 2027.
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
@@ -574,15 +573,15 @@ mesures:
         Reconstruit à partir des barèmes communs, comme les autres promesses de retraite (LFI, Écologistes, PS) : annulation
         des mesures d'âge de 2023 nette de la suspension (13,9) ; durée ramenée de 171 à 168 trimestres pour tous (0,75 ×
         4,4) ; pour les bénéficiaires du barème progressif, le passage de 62 à 60 ans et de 42 à 40 annuités, au prorata
-        de leur poids (0,35 × (18 + 2 × 4,4)). Le RN coûte ainsi moins que « 60 ans et 40 annuités pour tous » (LFI, 42,9
-        Md€), dont il est un sous-ensemble. Bas = hauts des barèmes (15,8 ; 25 ; 8,8 par an de durée) et part 0,5 : 15,8 +
+        de leur poids (0,35 × (18 + 2 × 4,4)) : 13,9 + 3,3 + 9,38 = 26,58 Md€. Le RN coûte ainsi moins que « 60 ans et 40
+        annuités pour tous » (LFI, 42,9 Md€), dont il est un sous-ensemble. Bas = hauts des barèmes (15,8 ; 25 ; 8,8 par an de durée) et part 0,5 : 15,8 +
         0,75 × 8,8 + 0,5 × (25 + 2 × 8,8) = 43,7 ; haut = bas des barèmes (11,4 ; 13,2) avec la durée au central (4,4) et
-        part 0,25 : 11,4 + 3,3 + 0,25 × (13,2 + 8,8) = 20,2. L'ancien chiffrage (Institut Montaigne 2024,
-        −44,6 Md€) est abandonné : Montaigne applique à presque toute la génération le retour complet aux règles d'avant
+        part 0,25 : 11,4 + 3,3 + 0,25 × (13,2 + 8,8) = 20,2. Le chiffrage de l'Institut Montaigne (2024, ≈ 44,6 Md€ en
+        2032) n'est pas retenu : Montaigne applique à presque toute la génération le retour complet aux règles d'avant
         2003 (« en revenant totalement sur les mesures d'âges et de durée de cotisation de 2003, 2010, 2014 pour ceux qui
         ont commencé à travailler avant 20 ans, et partiellement pour ceux qui ont commencé à travailler après 20 ans, le
         coût de la mesure est estimé à 26,5 Md€ », montant identique à son chiffrage 2022 du retour complet à 60 ans), ce
-        qui revenait à chiffrer le RN plus cher que la retraite à 60 ans pour tous. Périmètre (convention commune 4) :
+        qui chiffrerait le RN plus cher que la retraite à 60 ans pour tous. Périmètre (convention commune 4) :
         solde du système de retraite ; le coût pour l'ensemble des APU est décrit dans effets_retour.
     chiffrages_tiers:
       - auteur: Fondation IFRAP (présidentielle 2022, même dispositif)
@@ -707,8 +706,8 @@ mesures:
     precision: partielle
     interpretation: >-
       Reconfirmée en campagne 2026 (AFP, Boursorama, 15 septembre 2026 : « Marine Le Pen veut de son côté inciter les
-      entreprises à augmenter les salaires de 10% en exonérant cette hausse de cotisations patronales ») ; citation de
-      presse remplacée par la source primaire (programme 2024).
+      entreprises à augmenter les salaires de 10% en exonérant cette hausse de cotisations patronales ») ; source
+      primaire citée : programme 2024.
       Paramètres du programme 2024 : « permettre aux entreprises d'augmenter les salaires de 10 % jusqu'à trois fois
       le SMIC, en les exonérant de l'augmentation des cotisations patronales pendant trois à cinq ans ». Coût dépendant
       du taux de recours (hypothèse clé) ; mesure temporaire : régime de croisière 2032 éventuellement nul si durée de
@@ -871,10 +870,11 @@ mesures:
       explication: >-
         Deux volets du programme 2024 reconfirmés en 2026 (Bardella : aides non contributives réservées aux familles
         françaises) : condition de 5 ans de travail pour le RSA et les prestations de solidarité, et prestations familiales
-        réservées aux Français (Montaigne, médianes), projetés. Ordre de grandeur cohérent avec l'IFRAP (6 à 7 Md€ de
-        prestations nationales versées aux étrangers en situation régulière). Bas : nouveaux entrants seulement (droits
-        acquis). Risque de censure constitutionnelle signalé, non déduit.
-        Vérification (règle 6) : bas = 0, haut = central.
+        réservées aux Français (Institut Montaigne, médianes : 2,6 Md€, barème prestations_residence_5_ans_economie, et
+        3,3 Md€), projetés : (2,6 + 3,3) × 1,2336 = 7,28 Md€. Ordre de grandeur cohérent avec l'IFRAP (6 à 7 Md€ de
+        prestations nationales versées aux étrangers en situation régulière). Bas = 0 (règle 6 : économie non réalisée,
+        par exemple limitée aux nouveaux entrants ou censurée), haut = central. Risque de censure constitutionnelle
+        signalé, non déduit du central.
     chiffrages_tiers:
       - auteur: Institut Montaigne (législatives 2024)
         montant_md: 2.6
@@ -999,9 +999,9 @@ mesures:
           unite: facteur
           note: PIB nominal 2032 / 2024
       explication: >-
-        Bas = 0 : report des soins vers l'hôpital (soins urgents, créances irrécouvrables) non estimé publiquement. Haut
-        = barème AME haut moins les soins urgents (0,132 Md€), projeté.
-        Vérification (règle 6) : bas = 0, haut = central.
+        Économie nette de l'AME ramenée à l'aide d'urgence vitale (barème ame_aide_urgence_vitale_economie, 0,7 Md€ en
+        2024, Institut Montaigne), projetée : 0,7 × 1,2336 = 0,86 Md€. Bas = 0 : report des soins vers l'hôpital (soins
+        urgents, créances irrécouvrables) non estimé publiquement. Haut = central (règle 6).
     chiffrages_tiers:
       - auteur: Institut Montaigne (législatives 2024)
         montant_md: 0.7
@@ -1181,9 +1181,9 @@ mesures:
           unite: part
           note: « retour IS », estimé au taux moyen effectif de 20 % (Institut Montaigne, 2024)
       explication: >-
-        Rendement projeté au PIB, net du retour d'IS (impôt déductible). Collectivités compensées par l'État (coût APU
-        inchangé). Bas : sans retour d'IS.
-        Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : CFE alignée sur le barème cfe_rendement (7,7 → 8,031 Md€, produit DGFiP 2024) et retour d'IS sur retour_is_impots_production (0,20) ; central −7,6 → −7,93, bas −9,5 → −9,91.
+        Rendement de la CFE (barème cfe_rendement, 8,031 Md€, produit DGFiP 2024) projeté au PIB, net du retour d'IS
+        (impôt déductible ; barème retour_is_impots_production, 20 %) : 8,031 × 1,2336 × 0,8 = 7,93 Md€. Collectivités
+        compensées par l'État (coût APU inchangé). Haut = central. Bas : sans retour d'IS, 9,91.
     chiffrages_tiers:
       - auteur: Contre-budget RN 2026 (chiffrage du candidat)
         montant_md: -8.8
@@ -1698,8 +1698,8 @@ mesures:
             subventions-associations, train-de-vie-etat-et-petites-economies, fonds-vert, aides-apprentissage-avant-licence,
             sante-medicaments-unite-ald
       explication: >-
-        Règle 6. Les économies identifiables du programme sont chiffrées dans leurs propres mesures (somme des centraux
-        : 39.28 Md€) : central = 0 pour ne pas les compter deux fois. Haut = écart d'affichage entre l'annonce (125 Md€,
+        Règle 6. Les économies identifiables du programme sont chiffrées dans leurs propres mesures (somme des centraux :
+        39,28 Md€) : central = 0 pour ne pas les compter deux fois. Haut = écart d'affichage entre l'annonce (125 Md€,
         lue comme un niveau annuel en 2032) et cette somme. Bas = 0.
     confiance: faible
     verification:
@@ -1768,8 +1768,7 @@ mesures:
           note: chiffre du candidat
       explication: >-
         Barème psr_ue : une réduction unilatérale de la contribution n'est pas juridiquement possible (décision relative
-        aux ressources propres, unanimité). Central et bas = 0 ; haut = montant du RN projeté.
-        Vérification (règle 6) : bas = 0, haut = central.
+        aux ressources propres, unanimité). Central, bas et haut = 0 (règle 6 : haut = central).
     confiance: faible
     verification:
       statut: corrige
@@ -1883,9 +1882,9 @@ mesures:
             soutien déjà engagé jusqu'en 2029 (« environ +10 GWe estimés par la CRE entre 2026 et 2029 ») : 2030-2032
       explication: >-
         Les contrats signés restent dus (20 ans) : l'économie porte sur les nouveaux contrats non engagés (2030-2032),
-        approchés par la hausse annuelle récente des charges. Haut : montant du RN (rupture des contrats, suppose des
-        indemnisations non comptées). Très sensible au prix de marché de l'électricité (≈ 90 M€ par €/MWh, CRE).
-        Vérification (règle 6) : bas = 0, haut = central.
+        approchés par la hausse annuelle récente des charges : 1,04 Md€ × 3 ans = 3,12 Md€. Bas = 0 (économie non
+        réalisée), haut = central (règle 6) : le montant du RN supposerait la rupture des contrats et des indemnisations
+        non comptées. Très sensible au prix de marché de l'électricité (≈ 90 M€ par €/MWh, CRE).
     chiffrages_tiers:
       - auteur: Contre-budget RN 2026 (chiffrage du candidat)
         montant_md: 7.2
@@ -1946,10 +1945,10 @@ mesures:
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
-        Économie brute des crédits MaPrimeRénov' de l'État (la part CEE de l'Anah n'est pas de la dépense publique).
-        Le coût du prêt à taux zéro qui la remplace n'est pas publié : bas = moitié de l'économie (convention).
-        Vérification (règle 6) : bas = 0, haut = central.
-        Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : crédits de l'Anah alignés sur le barème anah_credits_etat (1,5 → 1,5353, même valeur que Zemmour) ; central et haut 1,78 → 1,82.
+        Économie brute des crédits de l'État à l'Anah, MaPrimeRénov' comprise (barème anah_credits_etat, 1,5353 Md€,
+        PLF 2026, comme chez Zemmour ; la part CEE de l'Anah n'est pas de la dépense publique), projetée : 1,5353 ×
+        1,1842 = 1,82 Md€. Le RN annonce 3,4 Md€ nets, au-dessus du budget de l'État sur ce périmètre. Le coût du prêt
+        à taux zéro qui la remplace n'est pas publié : bas = 0 (règle 6), haut = central.
     chiffrages_tiers:
       - auteur: Contre-budget RN 2026 (chiffrage du candidat)
         montant_md: 3.4
@@ -2002,9 +2001,8 @@ mesures:
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
-        Chiffre du RN projeté ; la mission APD compte 3,67 Md€ de CP en 2026 (Sénat), la baisse est donc réalisable budgétairement.
-        Bas : moitié (convention).
-        Vérification (règle 6) : bas = 0, haut = central.
+        Chiffre du RN (2,3 Md€) projeté : 2,3 × 1,1842 = 2,72 Md€ ; la mission APD compte 3,67 Md€ de CP en 2026
+        (Sénat), la baisse est donc réalisable budgétairement. Bas = 0 (économie non réalisée), haut = central (règle 6).
     confiance: moyenne
     verification:
       statut: corrige
@@ -2025,7 +2023,7 @@ mesures:
     precision: partielle
     interpretation: >-
       Transfert État → collectivités : l'effet sur le solde APU dépend de l'ajustement des collectivités (dépenses ou
-      impôts locaux, ou déficit d'investissement). Lecture centrale : économie partielle ; bas = 0.
+      impôts locaux, ou déficit d'investissement). Lecture centrale : économie intégrale (montant du RN) ; bas = 0.
     chiffrable: true
     nature: economie
     effet_solde_primaire:
@@ -2054,7 +2052,7 @@ mesures:
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
-        Chiffre du RN projeté. Les collectivités doivent équilibrer leur section de fonctionnement : la baisse améliore
+        Chiffre du RN (5 Md€) projeté : 5 × 1,1842 = 5,92 Md€. Les collectivités doivent équilibrer leur section de fonctionnement : la baisse améliore
         le solde APU sauf report sur l'emprunt d'investissement ou consommation de trésorerie. Plafond (règle 6) : le
         périmètre visé compte ≈ 11 Md€ : fraction de TVA des régions ex-DGF (« environ 5,2 milliards d'euros en 2024 »,
         gelée en 2025 ; le rétablissement d'une DGF des régions prévu par le PLF 2026 a été abandonné dans la loi de
@@ -2062,7 +2060,7 @@ mesures:
         compensation du bloc communal (« 4,4 milliards d'euros en 2025 », communes et EPCI) : Sénat, rapport spécial
         Relations avec les collectivités territoriales, PLF 2026, https://www.senat.fr/rap/l25-139-325/l25-139-32516.html.
         Les 5 Md€ du RN tiennent dans ce périmètre ; pour les régions, la baisse porte en droit sur une fraction de TVA.
-        Vérification (règle 6) : bas = 0, haut = central.
+        Bas = 0 (report sur l'emprunt ou la trésorerie des collectivités), haut = central (règle 6).
     confiance: faible
     verification:
       statut: ok
@@ -2114,13 +2112,12 @@ mesures:
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
-        Chiffre du RN projeté ; plafond (règle 6) : jaune « Effort financier de l'État en faveur des associations », PLF
+        Chiffre du RN (3,2 Md€) projeté : 3,2 × 1,1842 = 3,79 Md€. Plafond (règle 6) : jaune « Effort financier de l'État en faveur des associations », PLF
         2026 (https://www.assemblee-nationale.fr/dyn/dyn/contenu/visualisation/1090007/file/14-Jaune2026_Associations_Rapport.pdf)
         : « 71,4 % des versements aux associations au niveau des programmes sont des subventions et leur montant représente
         76,7 % des montants versés, soit 7,3 milliards d'euros » (2024), sur 9,5 Md€ de versements. Les 3,2 Md€ du RN
         (44 % des subventions) tiennent dans ce périmètre ; le tri « intérêt général » n'est pas défini. Bas = 0 (économie
-        non réalisée).
-        Vérification (règle 6) : bas = 0, haut = central.
+        non réalisée), haut = central.
     confiance: faible
     verification:
       statut: ok
@@ -2174,9 +2171,9 @@ mesures:
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
-        Somme des cinq lignes du RN (0,513 + 0,154 + 0,177 + 0,040 + 0,031), projetée ; dotations 2026 : Présidence 0,12,
-        Assemblée 0,61, Sénat 0,35 Md€ (Sénat).
-        Vérification (règle 6) : bas = 0, haut = central.
+        Somme des cinq lignes du RN (0,513 + 0,154 + 0,177 + 0,040 + 0,031 = 0,915 Md€), projetée : 0,915 × 1,1842 =
+        1,08 Md€ ; dotations 2026 : Présidence 0,12, Assemblée 0,61, Sénat 0,35 Md€ (Sénat). Bas = 0 (économie non
+        réalisée), haut = central (règle 6).
     confiance: moyenne
     verification:
       statut: corrige
@@ -2222,7 +2219,9 @@ mesures:
           unite: facteur
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
-      explication: Chiffre du RN projeté ; le fonds vert a 1,085 Md€ de CP en 2026 (Sénat).
+      explication: >-
+        Chiffre du RN (0,46 Md€) projeté : 0,46 × 1,1842 = 0,54 Md€ ; le fonds vert a 1,085 Md€ de CP en 2026 (Sénat).
+        Bas = 0 (économie non réalisée), haut = central (règle 6).
     confiance: moyenne
     verification:
       statut: corrige
@@ -2269,9 +2268,9 @@ mesures:
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
-        Chiffre du RN projeté ; l'aide à l'embauche d'apprentis a 2,37 Md€ de CP en 2026, déjà réduite de 31 % et limitée
-        à 750 € pour les niveaux bac+3 et plus : l'économie restante est probablement inférieure (bas : moitié).
-        Vérification (règle 6) : bas = 0, haut = central.
+        Chiffre du RN (1,6 Md€) projeté : 1,6 × 1,1842 = 1,89 Md€ ; l'aide à l'embauche d'apprentis a 2,37 Md€ de CP en
+        2026, déjà réduite de 31 % et limitée à 750 € pour les niveaux bac+3 et plus : l'économie restante est
+        probablement inférieure. Bas = 0 (économie non réalisée), haut = central (règle 6).
     confiance: faible
     verification:
       statut: corrige
@@ -2319,9 +2318,8 @@ mesures:
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
-        Chiffre du RN projeté ; aucune évaluation publique des économies de la délivrance à l'unité ni du contrôle des
-        ALD. Bas : moitié (convention).
-        Vérification (règle 6) : bas = 0, haut = central.
+        Chiffre du RN (1,0 Md€) projeté : 1,0 × 1,1842 = 1,18 Md€ ; aucune évaluation publique des économies de la
+        délivrance à l'unité ni du contrôle des ALD. Bas = 0 (économie non réalisée), haut = central (règle 6).
     confiance: faible
     verification:
       statut: corrige

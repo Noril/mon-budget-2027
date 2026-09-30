@@ -110,7 +110,7 @@ mesures:
     ; le franceinfo du 21/09/2026 parle d''une « baisse de cotisations ou de la CSG ». Lecture retenue : baisse de CSG sur
     revenus d''activité de 15 Md€, gagée par la mesure successions (sans double compte avec elle). La compensation à la Sécurité
     sociale est à traiter en phase 2 (perte de recette APU). Chiffrage : gagé par les trois mesures successions (successions-tranche-haute-50,
-    successions-pacte-dutreil, successions-plus-values-latentes), chiffrées séparément ; leur rendement central (≈ 7,1 Md€ après la passe sources du 29/09)
+    successions-pacte-dutreil, successions-plus-values-latentes), chiffrées séparément ; leur rendement central (≈ 7,1 Md€)
     est très inférieur aux 15 Md€ annoncés, ce qui fait apparaître un besoin de financement. Source primaire : 20 h de TF1
     du 23/08/2026 (vidéo TF1 INFO, https://www.youtube.com/watch?v=IWgtgaxmYlA), verbatim transcrit par Public Sénat : « Nous
     augmenterons la rémunération nette des travailleurs français et nous le financerons en taxant les méga héritages, les
@@ -150,8 +150,8 @@ mesures:
         bareme: retour_ir_csg_deductible
         note: 'ratio de 2018 (3,9 Md€ d''IR pour 22,5 Md€ de CSG déductible), ajusté pour le barème d''IR de 2020 : 0,16 (0,14
           à 0,185) ; 9,8 Md€ net par point de CSG d''activité en 2026'
-    explication: 'Enveloppe revendiquée de 15 Md€ rendue sur les salaires, soit environ 1,1 point de CSG sur les revenus d''activité
-      (barème csg_point_activite : 11,71 Md€ par point en 2026, ≈ 13,9 Md€ en 2032). Barème retour_ir_csg_deductible : la baisse
+    explication: 'Enveloppe revendiquée de 15 Md€ rendue sur les salaires, soit environ 1,3 point de CSG sur les revenus d''activité
+      (barème csg_point_activite : 11,71 Md€ par point en 2026, 15 / 11,71 ≈ 1,28). Barème retour_ir_csg_deductible : la baisse
       de CSG déductible relève l''IR de 16 % de son montant (14 à 18,5 %) ; coût net = 15 × 1,1842 (facteur_pib_2026_2032) × (1 − 0,16)
       = 14,92 Md€ en 2032. Bas : retour de 14 % : −15,28. Haut : enveloppe non projetée (euros 2026) et retour de 18,5 %
       : −12,23. Montée en charge : loi de finances et LFSS votées fin 2027, effet au 1er janvier
@@ -563,8 +563,7 @@ mesures:
   interpretation: 'Abrogation = retour à 62 ans et au calendrier Touraine (voir Acte I : « Abroger la réforme Macron de 2023
     »). La réforme ultérieure (« certains doivent pouvoir partir à la retraite à 60 ans, d''autres devront travailler davantage
     », Acte I ; les cadres « devront en revanche partir plus tard », livre, mai 2026) n''est pas paramétrée : son effet est
-    une source d''incertitude (fourchette), pas du central. La réforme ultérieure « fondée sur la pénibilité » (départs à
-    60 ans pour certains, plus tard pour les cadres) n''est pas paramétrée : non comptée ; elle pourrait réduire le coût.'
+    une source d''incertitude (fourchette), pas du central ; elle pourrait réduire le coût.'
   chiffrable: true
   nature: depense
   effet_solde_primaire:
@@ -875,8 +874,8 @@ mesures:
     support: programme du parti (Place publique, « Acte I », 42 chantiers)
   precision: precise
   interpretation: Retour de l'accise sur l'électricité (ex-TICFE) à son niveau d'avant février 2024 pour les ménages ; à apprécier
-    par rapport au tarif en vigueur au 1er janvier 2027. Le rendement par €/MWh vient d'une tribune (Connaissance des énergies,
-    2024) ; un barème d'accise électricité est à ajouter.
+    par rapport au tarif en vigueur au 1er janvier 2027. Le rendement par €/MWh est celui du barème commun
+    accise_electricite_1_euro_mwh (tarifs normaux, tous consommateurs), comme pour la même promesse de Mélenchon.
   chiffrable: true
   nature: baisse_recette
   effet_solde_primaire:
@@ -907,14 +906,12 @@ mesures:
         note: '« La remontée de 20 €/MWh de l''accise sur l''électricité en février 2024 va probablement rapporter de l''ordre
           de 4 milliards d''euros sur l''année 2024 » : 4 / 20'
     explication: >-
-      Baisse de l'accise de 20 €/MWh (l'incrément de février 2024) par rapport au tarif en vigueur (30,85 €/MWh pour
-      les ménages en 2026), à 0,2 Md€ par €/MWh (4 Md€ pour 20 €/MWh, tous consommateurs). Pas de projection au PIB
-      (assiette en volume). Bas : retour à 1 €/MWh pour les ménages (−29,85 €/MWh × 0,2). Haut = central :
-      l'électrification des usages accroîtrait plutôt l'assiette (et donc le coût). Mise à jour du 30/09/2026
-      (barèmes communs), qui remplace les montants ci-dessus : rendement aligné sur le barème
-      accise_electricite_1_euro_mwh (0,2 → 0,3 Md€ par €/MWh, tarifs normaux, ≈ 300 TWh), comme la même promesse de
-      Mélenchon (abolir-hausse-accise-electricite) ; hausse sur accise_electricite_hausse_2024. Central −4,0 → −6,0
-      ; bas (retour à 1 €/MWh) −5,97 → −8,96 ; haut −4,0 → −3,2 (ménages seuls, bas du barème, 0,16 × 20).
+      Baisse de l'accise de 20 €/MWh (l'incrément de février 2024, barème accise_electricite_hausse_2024) par rapport
+      au tarif en vigueur (30,85 €/MWh pour les ménages en 2026), à 0,3 Md€ par €/MWh (barème
+      accise_electricite_1_euro_mwh, tarifs normaux, ≈ 300 TWh) : 20 × 0,3 = 6,0 Md€, comme la même promesse de
+      Mélenchon (abolir-hausse-accise-electricite). Pas de projection au PIB (assiette en volume). Bas : retour à 1
+      €/MWh (−29,85 €/MWh × 0,3 = −8,96). Haut : ménages seuls (bas du barème, 0,16 Md€ par €/MWh × 20 = −3,2).
+      L'électrification des usages accroîtrait plutôt l'assiette (et donc le coût).
   effets_retour: 'Soutien au pouvoir d''achat et à l''électrification : non compté.'
   confiance: moyenne
   verification:

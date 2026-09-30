@@ -78,8 +78,8 @@ mesures:
   precision: precise
   interpretation: 'Baisse de 50 Md€/an des impôts de production (foncier, chiffre d''affaires, valeur ajoutée : catégories décrites
     par Public Sénat, 6 nov. 2025, sans liste d''impôts ; la CVAE en fait partie par hypothèse), dès le premier PLF. Chiffrée séparément de la contrepartie (baisse des aides) pour rendre visible l''hypothèse
-    de neutralité. Référence : la législation au 1er janvier 2027 prévoit déjà la fin de la CVAE (calendrier à vérifier) :
-    ne compter que l''écart. Phase 2 : la contrepartie (aides-entreprises-moins-50md) est chiffrée à part selon la règle 6.'
+    de neutralité. Référence : le droit voté prévoit déjà la suppression de la CVAE en 2030 (REFERENCE.md) : seul
+    l''écart est compté. Phase 2 : la contrepartie (aides-entreprises-moins-50md) est chiffrée à part selon la règle 6.'
   effets_retour: Le candidat attend un choc de compétitivité (investissement, emploi) ; non compté.
   chiffrable: true
   nature: baisse_recette
@@ -130,11 +130,11 @@ mesures:
     explication: 'Baisse de 50 Md€ (euros 2025) des impôts de production dès le premier budget (LFI 2028), portée en euros
       2032 avec le PIB (une baisse de taux suit l''assiette), nette du surcroît d''IS (0,20). La CVAE, dont la suppression
       en 2030 est déjà votée, ne coûte rien en 2032 : si elle fait partie des 50 Md€ (central), le coût brut est de 46,3
-      Md€ en euros 2025. Bas : CVAE hors des 50 Md€ et sans retour d''IS (50 Md€ pleins, 60,5 Md€ en 2032). Haut : montant
-      figé en euros courants 2025, net de CVAE, retour d''IS de 0,25. Effets annuels : en 2028-2029 la CVAE existe encore
-      dans la référence, la baisse porte sur 50 Md€ (× 1,0787 et × 1,1116, PIB nominal) ; à partir de 2030, 46,3 Md€ ×
-      facteur PIB de l''année ; tous × 0,8. Vérification du 2026-09-29 : le retour d''IS, omis à la première rédaction, est
-      ajouté par cohérence avec les autres programmes (règle 3, effet mécanique documenté).'
+      Md€ en euros 2025, soit 46,3 × 1,2106 × (1 − 0,20) = 44,84 Md€ en 2032. Le retour d''IS (règle 3, effet mécanique
+      documenté) est compté comme dans les autres programmes. Bas : CVAE hors des 50 Md€ et sans retour d''IS (50 Md€
+      pleins, 60,53 Md€ en 2032). Haut : montant figé en euros courants 2025, net de CVAE, retour d''IS de 0,25 (34,73).
+      Effets annuels : en 2028-2029 la CVAE existe encore dans la référence, la baisse porte sur 50 Md€ (× 1,0787 et ×
+      1,1116, PIB nominal) ; à partir de 2030, 46,3 Md€ × facteur PIB de l''année ; tous × 0,8.'
   confiance: moyenne
   verification:
     statut: corrige
@@ -201,9 +201,8 @@ mesures:
           suppression réduit l''IS ; les crédits et réductions d''impôt (dépenses fiscales) ne sont pas imposables'
     explication: '50 Md€ (euros 2025) portés en euros 2032 avec le même facteur PIB que la baisse d''impôts de production
       (60,53 Md€), inférieurs au plafond du périmètre hors allègements (70 Md€ en 2025 selon le ministre, 84,7 Md€ en 2032)
-      : le plafond ne joue pas. Net de l''IS perdu sur la part « subventions » (30/70 × 0,20 = 8,6 %) : 55,34 Md€. Première
-      rédaction du 29/09 : 60,53 sans retour d''IS, alors que la ligne symétrique (baisse d''impôts de production) en compte
-      un. Lecture contestable du plafond : sur le périmètre « au sens strict » du Sénat (33 Md€ en 2023 hors allègements,
+      : le plafond ne joue pas. Net de l''IS perdu sur la part « subventions » (30/70 × 0,20 = 8,6 %), par symétrie avec
+      la baisse d''impôts de production, qui compte un retour d''IS : 60,53 × (1 − 0,086) = 55,34 Md€. Haut = central. Lecture contestable du plafond : sur le périmètre « au sens strict » du Sénat (33 Md€ en 2023 hors allègements,
       42,2 Md€ en 2032 avec facteur_pib_2023_2032), le central tomberait à 38,6 Md€ ; ce périmètre exclut les dépenses fiscales
       de TVA et « déclassées » (intégration fiscale), dont la suppression est juridiquement possible et que le candidat
       n''exclut pas : le périmètre du ministre (70 Md€) est retenu, celui du Sénat au sens strict est une sensibilité. Bas
@@ -423,8 +422,8 @@ mesures:
         valeur: 0.16
         unite: part de la baisse brute des pensions qui ne revient plus aux APU (CSG, CRDS, CASA, IR)
         bareme: retour_prelevements_pensions
-    explication: 'Aucun levier précisé et aucun montant annoncé : central 0 (première rédaction : 5,0 Md€ par une hypothèse
-      d''un point de revalorisation, sans base dans les sources, corrigée à la vérification du 2026-09-29). Haut : un point
+    explication: 'Aucun levier précisé et aucun montant annoncé : central 0 (règle 6, seul ce qui est annoncé ou documenté
+      est compté). Haut : un point
       de revalorisation des pensions (5,0 Md€ brut en 2032, effet permanent), net des prélèvements sur les pensions
       (convention commune 3 : × (1 − 0,16), soit 4,2 Md€), du même ordre que les pistes de la presse. Bas 0.'
   confiance: faible
@@ -582,11 +581,12 @@ mesures:
           moyenne pondérée des programmes 140 et 141 (PAP 2026) 43 703 € × (1 − 0,25)'
     explication: 'Convention commune 1 (revalorisation des agents en place) : 20 % du coût moyen d''un enseignant pour le
       solde des APU (haut du barème cout_enseignant_apu, 32 800 € : brut moyen hors cotisations employeurs net des
-      prélèvements qui reviennent aux APU ; le CAS Pensions, transfert interne, ne compte pas) × 0,794 M ETPT. Bas :
-      + enseignants du privé sous contrat (≈ 140 000, ≈ 0,9 Md€) et pensions induites en 2032 (≈ 0,3 Md€, convention 2).
-      Haut : retour de prélèvements 0,32 (43 703 € × 0,68 ≈ 29 720 €). Convention de droit constant (REFERENCE.md) : point d''indice gelé en référence,
-      la hausse s''applique au niveau de rémunération actuel sans projection au PIB. Montée linéaire sur le quinquennat. Enseignants
-      du privé sous contrat non inclus (sous-estimation). La baisse démographique invoquée n''est pas comptée en économie
+      prélèvements qui reviennent aux APU ; le CAS Pensions, transfert interne, ne compte pas) × 793 863 ETPT = 5,21 Md€.
+      Bas : + enseignants du privé sous contrat (≈ 140 000, ≈ 0,9 Md€) et pensions induites en 2032 (≈ 0,3 Md€,
+      convention 2) : 6,43. Haut : retour de prélèvements 0,32 (43 703 € × 0,68 ≈ 29 720 €) : 4,72. Convention de droit
+      constant (REFERENCE.md) : point d''indice gelé en référence, la hausse s''applique au niveau de rémunération actuel
+      sans projection au PIB. Montée linéaire sur le quinquennat. Enseignants du privé sous contrat non inclus au central
+      (sous-estimation). La baisse démographique invoquée n''est pas comptée en économie
       faute de suppression de postes annoncée.'
   confiance: moyenne
   verification:
@@ -842,7 +842,7 @@ mesures:
           2026 peut différer de quelques dizaines de millions)'
     explication: 'Fonds de 2 Md€ par an (montant nominal) regroupant le Fonds vert (1,07 Md€ de CP en 2026) et le fonds Barnier
       (0,229 Md€ de CP) : crédits nouveaux 0,70 Md€. Couvre aussi le doublement du Fonds vert (fonds-vert-doublement, non
-      compté à part). Bas : lecture de la première rédaction, fonds de 2 Md€ entièrement nouveau et doublement du Fonds vert
+      compté à part). Bas : lecture maximale, fonds de 2 Md€ entièrement nouveau et doublement du Fonds vert
       en sus, indexés sur le PIB ((2 + 1,07) × 1,1842 = 3,64 Md€). Haut = central.'
   confiance: moyenne
   verification:

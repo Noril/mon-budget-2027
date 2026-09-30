@@ -77,8 +77,8 @@ mesures:
   interpretation: 'Enveloppe traitée selon la règle 6. Montants lus comme des niveaux annuels d''économies (120 Md€ en 2032,
     150 Md€ en 2037), pas comme des cumuls (voir verification). Le 25 août (LCI) : « 120 milliards d’euros d’économies durant les cinq
     premières années » ; le 23 septembre : « 150 milliards d’euros d’économies, dont les deux tiers sur les dépenses sociales
-    ». central = somme des mesures identifiées ci-dessous, haut = 120 Md€ (quinquennat), bas = 0. Phase 2 : doubles comptes
-    évités en ne portant que l''écart d''affichage.'
+    ». Les mesures identifiées sont chiffrées ligne à ligne ; cette ligne ne porte que l''écart d''affichage entre les
+    120 Md€ et ces mesures : central et bas nuls, haut = écart entier (106,86 Md€). Pas de double compte.'
   chiffrable: true
   nature: economie
   effet_solde_primaire:
@@ -111,8 +111,9 @@ mesures:
         unite: part de l'écart d'affichage réputée documentée
         source: https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037
         note: 'règle 6 : aucune autre économie identifiée'
-    explication: 'Règle 6 : les économies identifiées (13.14 Md€ en 2032) sont déjà comptées ligne à ligne ; cette ligne ne
-      porte que l''écart d''affichage (120 − 13.14 Md€), nul en central et en bas, entier en haut. Les 120 Md€ du candidat
+    explication: 'Règle 6 : les économies identifiées (paramètre documente, 13,14 Md€ en 2032) sont déjà comptées ligne à
+      ligne ; cette ligne ne porte que l''écart d''affichage, nul en central et en bas, entier en haut (120 − 13,14 = 106,86
+      Md€). Les 120 Md€ du candidat
       se mesurent par rapport à une évolution tendancielle de la dépense ; notre référence est le droit voté sans tendanciel
       : l''écart d''affichage est donc un majorant.'
   confiance: faible
@@ -187,11 +188,12 @@ mesures:
         note: 'convention commune 3 ; bas 0,20 (haut du barème : petites pensions épargnées, pensions gelées plus imposées),
           haut 0,16 ; prestations hors retraites sans retour (minima et prestations non imposables)'
     explication: 'Gel en 2028 de la revalorisation légale (inflation 2027 ≈ 1,72 %) : prestations hors retraites (1 Md€ par point,
-      × 1,2106) et pensions des régimes de base (3,5 Md€ par point en 2032) hors « petites retraites », nettes des
-      prélèvements qui reviennent aux APU (convention commune 3 : × (1 − 0,16) ; bas 0,20). Effet de niveau permanent
-      (pas de rattrapage annoncé). Haut : pensions complémentaires gelées aussi (5,0 Md€ par point) et seuil de petite retraite
-      bas ; bas : seuil à 1 400 € et masse de prestations basse. Convention de droit constant : l''indexation est la référence,
-      la sous-indexation une économie.'
+      × 1,2106) et pensions des régimes de base (3,5 Md€ par point en 2032) hors « petites retraites » (15,4 % de la
+      masse, pensions < 1 200 €), nettes des prélèvements qui reviennent aux APU (convention commune 3 : × (1 − 0,16))
+      : 6,36 Md€. Effet de niveau permanent (pas de rattrapage annoncé). Haut : pensions complémentaires gelées aussi
+      (5,0 Md€ par point), seuil de petite retraite à 1 000 € (9,6 %) et masse de prestations haute (1,15) : 8,93 ; bas :
+      seuil à 1 400 € (23 %), masse de prestations basse (0,85) et retour de 0,20 : 5,48. Convention de droit constant :
+      l''indexation est la référence, la sous-indexation une économie.'
   confiance: moyenne
   verification:
     statut: corrige
@@ -254,14 +256,12 @@ mesures:
         note: facteur PIB nominal (FMI WEO avril 2026, plan/hypotheses.yaml), indiqué en tête de chiffrage/baremes.yaml (valeur
           2024→2032 citée dans les barèmes c3s_rendement et masse_salariale_apu)
     explication: >-
-      Économie attendue en 2024 de la réforme (3,6 Md€) portée en euros 2032 (× 1,2336). Bas : montant nominal 2024.
-      Haut : 5 Md€ annoncés par le candidat. Les règles de la convention de 2025 ont repris d'autres paramètres (1,4
-      à 2,3 Md€ sur quatre ans, Unédic) sans modifier la condition d'affiliation. Mise à jour du 30/09/2026 (barèmes
-      communs), qui remplace les montants ci-dessus : aligné sur le barème assurance_chomage_regles_2024_economie
-      (Unédic, juin 2024 : 4,0 à 5,4 Md€ en régime de croisière, 4,7 au centre, au lieu des 3,6 Md€ gouvernementaux
-      sans source primaire), projeté de 2027 à 2032 (facteur_pib_2027_2032, 1,157) comme les autres chiffrages de
-      l'Unédic ; central 4,44 → 5,44, bas 3,6 → 4,63 (4,0 × 1,157), haut 5,0 → 6,25 (5,4 × 1,157). Même barème que
-      Retailleau (chomage-regles-juin-2024).
+      Économie en régime de croisière des règles de juin 2024 selon l'Unédic (barème
+      assurance_chomage_regles_2024_economie : 4,7 Md€ au centre d'une fourchette de 4,0 à 5,4 Md€), projetée de
+      2027 à 2032 comme les autres chiffrages de l'Unédic (facteur_pib_2027_2032, × 1,157) : 4,7 × 1,157 = 5,44 Md€.
+      Bas : 4,0 × 1,157 = 4,63 ; haut : 5,4 × 1,157 = 6,25, proche des 5 Md€ annoncés par le candidat. Les règles
+      de la convention de 2025 ont repris d'autres paramètres (1,4 à 2,3 Md€ sur quatre ans, Unédic) sans modifier la
+      condition d'affiliation. Même barème que Retailleau (chomage-regles-juin-2024).
   confiance: moyenne
   verification:
     statut: ok
@@ -727,15 +727,13 @@ mesures:
         unite: part de la rémunération brute revenant aux APU
         bareme: retour_prelevements_salaires_publics
     explication: >-
-      Convention commune 1 : hausse nette convertie en brut hors cotisations employeurs (0,79 M d'enseignants du
-      public × 200 € nets × 12 / 0,8 ≈ 2,38 Md€), nette des prélèvements qui reviennent aux APU (× (1 − 0,28)). Le
+      Convention commune 1 : hausse nette convertie en brut hors cotisations employeurs (793 863 ETPT d'enseignants
+      du public, barème enseignants_etpt_public, × 200 € nets × 12 / 0,81, ratio net/brut du barème
+      fp_ratio_net_brut ≈ 2,35 Md€), nette des prélèvements qui reviennent aux APU (× (1 − 0,28)) : 1,69 Md€. Le
       candidat annonce 2,5 à 3 Md€ (coût chargé, consigné en chiffrage tiers). Bas : +300 € en moyenne (200 € en
       début et fin de carrière, 500 € en milieu), retour 0,25, plus ≈ 0,2 Md€ de pensions induites en 2032
-      (convention 2). Haut : retour 0,32. Montant nominal (hausse en euros nets, point d'indice gelé). Montée :
-      rentrée 2027 par loi de finances rectificative, puis année pleine. Mise à jour du 30/09/2026 (barèmes
-      communs), qui remplace les montants ci-dessus : ratio net/brut aligné sur le barème fp_ratio_net_brut (0,8 →
-      0,81, INSEE Première n° 2100) ; effectifs sur enseignants_etpt_public ; central −1,71 → −1,69, bas −2,88 →
-      −2,85, haut −1,62 → −1,60.
+      (convention 2) : 2,85. Haut : retour 0,32 : 1,60. Montant nominal (hausse en euros nets, point d'indice gelé).
+      Montée : rentrée 2027 par loi de finances rectificative, puis année pleine.
   confiance: moyenne
   verification:
     statut: corrige
