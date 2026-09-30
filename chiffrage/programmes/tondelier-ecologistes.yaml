@@ -1627,14 +1627,14 @@ mesures:
     Référentiel au 1er janvier 2027 : réforme de 2023 suspendue (âge figé à 62 ans et 9 mois ?). Coût = de 62 ans 9 mois
     (ou de la trajectoire post-suspension) à 62 ans ; durée d'assurance (172 trimestres) : maintenue ou abrogée, non
     précisé. Retraite à 60 ans pour carrières longues : extension à chiffrer. La retraite à 60 ans pour les carrières
-    longues et pénibles (périmètre non défini) n'est pas comptée ; un âge légal de 60 ans pour tous coûterait 18 Md€
-    de plus (barème retraites_age_60_depuis_62).
+    longues et pénibles (périmètre non défini) n'est pas comptée ; un âge légal de 60 ans pour tous coûterait 37,7 Md€
+    de plus au périmètre APU (barème retraites_age_60_depuis_62_apu).
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -13.9
-    bas: -15.8
-    haut: -11.4
+    central: -29.1
+    bas: -31.2
+    haut: -13.9
     montee_en_charge:
       '2027': 0
       '2028': 0.2
@@ -1646,22 +1646,25 @@ mesures:
     formule: -cout
     parametres:
       cout:
-        valeur: 13.9
-        unite: Md€ courants par an (solde du système de retraite), en 2032
-        bareme: retraites_retour_62_ans_2032
-    explication: 'Barème : annulation des mesures d''âge de 2023 nette du gel déjà voté jusqu''au 1er janvier 2028. Bornes
-      du barème : bas −15,8 (profil Cnav porté au périmètre tous régimes), haut −11,4 (effet de l''âge seul).'
-  effets_retour: 'Convention commune n° 4 : le central porte sur le solde du système de retraite. Coût pour l''ensemble
-    des APU, effets d''emploi des seniors compris (non comptés, règle 3) : la DG Trésor chiffre le gain total de la réforme
-    2023 à 24,2 Md€ constants 2024 en 2030 (contre 9,7 Md€ pour le seul système ; Cour des comptes, tableau n° 5), soit un
-    coût complet de l''abrogation de l''ordre de 25 Md€ en 2032.'
+        valeur: 29.1
+        unite: Md€ courants par an (solde des APU), en 2032
+        bareme: retraites_retour_62_ans_2032_apu
+    explication: 'Barème retraites_retour_62_ans_2032_apu (périmètre de l''ensemble des APU, convention commune n° 4) :
+      annulation des mesures d''âge de 2023 nette du gel déjà voté jusqu''au 1er janvier 2028. Bas −31,2 (haut du barème APU,
+      sans effet de bord sur les autres prestations) ; haut −13,9 (périmètre du seul système de retraite, barème
+      retraites_retour_62_ans_2032).'
+  effets_retour: 'Périmètre APU compté depuis le 30/09 (convention commune n° 4) : prélèvements des seniors qui cessent de
+    travailler et effets de bord sur les autres prestations sont dans le montant (recoupement DG Trésor : gain total de la
+    réforme 2023 de 24,2 Md€ constants 2024 en 2030, contre 9,7 Md€ pour le seul système ; Cour des comptes, tableau n° 5).
+    Effets de bouclage macroéconomique non comptés.'
   confiance: moyenne
   verification:
     statut: corrige
-    par: verificateur-sonnet
-    date: "2026-09-29"
+    par: perimetre-apu
+    date: "2026-09-30"
     commentaire: >-
-      Citation vérifiée. Barème retraites_retour_62_ans_2032 (15,7 Md€ Cnav 2032 moins 1,8 Md€ de
+      Périmètre APU (30/09) : barème retraites_retour_62_ans_2032_apu ; central −13,9 → −29,1 ; bas −15,8 → −31,2 ;
+      haut −11,4 → −13,9 (périmètre du système). Citation vérifiée. Barème retraites_retour_62_ans_2032 (15,7 Md€ Cnav 2032 moins 1,8 Md€ de
       suspension déjà votée = 13,9 Md€) relu ; le gel voté est bien déduit du coût. Réserve de barème : il
       s'agit du solde du système de retraite, pas de l'ensemble des APU (la Cour donne 13 Md€ contre 5,8
       Md€ pour un an d'âge en 2035), donc le coût APU est probablement sous-estimé ; la retraite à 60 ans

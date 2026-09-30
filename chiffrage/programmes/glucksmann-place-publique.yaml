@@ -567,9 +567,9 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -13.9
-    bas: -15.8
-    haut: -11.4
+    central: -29.1
+    bas: -31.2
+    haut: -13.9
     montee_en_charge:
       '2027': 0
       '2028': 0.15
@@ -581,25 +581,24 @@ mesures:
     formule: -cout
     parametres:
       cout:
-        valeur: 13.9
-        unite: Md€ courants par an (solde du système de retraite), en 2032
-        bareme: retraites_retour_62_ans_2032
-    explication: 'Barème retraites_retour_62_ans_2032 : retour à 62 ans et au calendrier Touraine, net de la suspension déjà
+        valeur: 29.1
+        unite: Md€ courants par an (solde des APU), en 2032
+        bareme: retraites_retour_62_ans_2032_apu
+    explication: 'Barème retraites_retour_62_ans_2032_apu (périmètre de l''ensemble des APU, convention commune n° 4) : retour à 62 ans et au calendrier Touraine, net de la suspension déjà
       votée (LFSS 2026, âge gelé jusqu''au 1er janvier 2028). Effet nul en 2027 (suspension en vigueur), puis croissant avec
       les générations qui auraient vu leur âge relevé à partir de 2028 (profil conventionnel ; le COR situe l''effet maximal
-      vers 2032). Bornes du barème : bas −15,8 (profil Cnav porté au périmètre tous régimes), haut −11,4 (effet de l''âge
-      seul).'
-  effets_retour: 'Moindre emploi des seniors et moindres recettes de cotisations au-delà du périmètre du barème, et effets
-    sur le chômage des seniors : non comptés (convention commune n° 4 : le central porte sur le solde du système de retraite).
-    Coût pour l''ensemble des APU, effets d''emploi compris : la DG Trésor chiffre le gain total de la réforme 2023 à 24,2
-    Md€ constants 2024 en 2030 (contre 9,7 Md€ pour le seul système ; Cour des comptes, tableau n° 5), soit un coût complet
-    de l''abrogation de l''ordre de 25 Md€ en 2032.'
+      vers 2032). Bas −31,2 (haut du barème APU, sans effet de bord sur les autres prestations) ; haut −13,9 (périmètre du
+      seul système de retraite, barème retraites_retour_62_ans_2032).'
+  effets_retour: 'Périmètre APU compté depuis le 30/09 (convention commune n° 4) : prélèvements des seniors qui cessent de
+    travailler et effets de bord sur les autres prestations sont dans le montant (recoupement DG Trésor : gain total de la
+    réforme 2023 de 24,2 Md€ constants 2024 en 2030, contre 9,7 Md€ pour le seul système ; Cour des comptes, tableau n° 5).
+    Effets de bouclage macroéconomique non comptés.'
   confiance: moyenne
   verification:
     statut: corrige
-    par: verificateur-sonnet
-    date: '2026-09-29'
-    commentaire: "Citation retrouvée (LCP). Barème retraites_retour_62_ans_2032 relu (tableau Cnav du rapport Bernalicis : solde 15,7 Md€ en 2032, moins 1,8 Md€ de suspension COR) : 13,9. La colonne 2032 est bien la 8e valeur (3,4 ; 6,6 ; … ; 15,7 ; puis 14,8 en 2035 et 11,1 en 2040). Réserves : le solde Cnav inclut +4,5 Md€ de cotisations liées au maintien en emploi (effet mécanique, à garder, mais hors taxes sur salaires et chômage) ; périmètre régime général ou tous régimes non précisé (limite du barème). Référence : suspension LFSS 2026 correctement déduite (pas de coût 2027). Pas de double compte : la réforme « pénibilité » ultérieure n'est pas comptée. Recalé sur les barèmes sourcés du 29/09 : bornes ad hoc remplacées par celles du barème retraites_retour_62_ans_2032 ; central −13,9 inchangé ; bas −20,0 → −15,8 ; haut −8,9 → −11,4."
+    par: perimetre-apu
+    date: '2026-09-30'
+    commentaire: "Périmètre APU (30/09) : barème retraites_retour_62_ans_2032_apu ; central −13,9 → −29,1 ; bas −15,8 → −31,2 ; haut −11,4 → −13,9 (périmètre du système). Citation retrouvée (LCP). Barème retraites_retour_62_ans_2032 relu (tableau Cnav du rapport Bernalicis : solde 15,7 Md€ en 2032, moins 1,8 Md€ de suspension COR) : 13,9. La colonne 2032 est bien la 8e valeur (3,4 ; 6,6 ; … ; 15,7 ; puis 14,8 en 2035 et 11,1 en 2040). Réserves : le solde Cnav inclut +4,5 Md€ de cotisations liées au maintien en emploi (effet mécanique, à garder, mais hors taxes sur salaires et chômage) ; périmètre régime général ou tous régimes non précisé (limite du barème). Référence : suspension LFSS 2026 correctement déduite (pas de coût 2027). Pas de double compte : la réforme « pénibilité » ultérieure n'est pas comptée. Recalé sur les barèmes sourcés du 29/09 : bornes ad hoc remplacées par celles du barème retraites_retour_62_ans_2032 ; central −13,9 inchangé ; bas −20,0 → −15,8 ; haut −8,9 → −11,4."
 - id: abrogation-reforme-assurance-chomage
   libelle: Abrogation de la réforme de l'assurance chômage
   domaine: emploi

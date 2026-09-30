@@ -28,7 +28,9 @@ uv run python -m outils.chiffrage             # build/chiffrage.md, build/chiffr
 3. **Effets comptés** : effets directs et mécaniques sur les comptes publics, y compris les retours certains à
    l'intérieur des administrations (cotisations et impôts payés sur une hausse de salaire public, par exemple) et,
    pour un impôt, la réaction de l'assiette documentée par une source publique (DG Trésor, CPO, Cour des comptes,
-   IPP…). **Effets non comptés** : croissance, emploi, inflation, taux d'intérêt. Invoqués par le candidat, ils sont
+   IPP…). Pour l'âge et la durée de retraite, les prélèvements et prestations des seniors qui restent en emploi ou le
+   quittent sont un effet direct, compté (périmètre APU, convention 4 de `REFERENCE.md`). **Effets non comptés** :
+   croissance, emploi, inflation, taux d'intérêt. Invoqués par le candidat, ils sont
    décrits dans `effets_retour`, jamais ajoutés au montant.
 4. **Fourchette** : `bas` = hypothèse la plus défavorable au solde, `haut` = la plus favorable. Elle traduit
    l'incertitude sur les paramètres et sur la lecture de la promesse.

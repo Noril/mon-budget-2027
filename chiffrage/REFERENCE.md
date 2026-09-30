@@ -53,11 +53,20 @@ Elles s'appliquent à tous les programmes ; le détail et les sources sont dans 
    = 41,3 brut, 29,7 net). Les pensions induites vont dans le bas.
 3. **Pensions.** Effet net = brut × (1 − `retour_prelevements_pensions`, 0,16) ; petites pensions 0,08 ; pensions
    élevées ou hausse proportionnelle avec IR plus fort 0,20 ; minima (ASPA, AAH, RSA) sans retour.
-4. **Retraites (âge, durée).** Le central porte sur le solde du système de retraite. Hausse de durée d'assurance :
-   `retraites_duree_assurance_hausse_1_an` (5,9 Md€ par an de durée) ; baisse : `retraites_duree_assurance_1_an`
-   (4,4), les deux n'étant pas symétriques. Le coût pour l'ensemble des
-   administrations (Cour des comptes, DG Trésor), qui ajoute surtout les prélèvements sur l'emploi des seniors,
-   relève d'un effet d'activité exclu par la règle 3 : il va dans `effets_retour` ou `chiffrages_tiers`.
+4. **Retraites (âge, durée) : périmètre de l'ensemble des administrations publiques** (depuis le 30/09/2026). Le
+   central porte sur le solde des APU : système de retraite (pensions, cotisations vieillesse), plus les cotisations
+   et impôts que paient les seniors qui restent en emploi (ou ne paient plus s'ils partent plus tôt), moins les
+   effets de bord sur les autres prestations (chômage, indemnités journalières, invalidité, minima). C'est un effet
+   direct de la mesure, pas un effet macroéconomique : il est compté (Cour des comptes 2025, tableaux n° 6 et 7,
+   données DG Trésor et Cnav). Barèmes : `retraites_age_legal_1_an_apu` (baisse d'un an, 13,8 Md€),
+   `retraites_age_legal_hausse_1_an_apu` (hausse, 18,8), `retraites_retour_62_ans_2032_apu` (29,1),
+   `retraites_age_60_depuis_62_apu` (37,7), `retraites_duree_assurance_1_an_apu` (baisse d'un an de durée, 7,4),
+   `retraites_duree_assurance_hausse_1_an_apu` (hausse, 10,2). Bornes : du côté qui aggrave l'effet, hauts des
+   barèmes `_apu` ; du côté qui l'atténue, le même calcul au **périmètre du seul système de retraite** (barèmes
+   sans suffixe : 13,9 ; 18 ; 6,6 ; 4,4 ; 5,9) : borne favorable (`haut`) d'un coût, borne défavorable (`bas`)
+   d'une économie, sauf quand la lecture de la promesse donne une borne plus large. Pas de retour d'impôt sur les
+   pensions à ajouter (compris dans les autres recettes). Les effets de bouclage (chômage et salaires à dix ans,
+   modèles Mésange ou e-mod) restent exclus (règle 3).
 5. **CSG et cotisations salariales.** Une baisse d'un point de CSG déductible rend 16 % en impôt sur le revenu
    (`retour_ir_csg_deductible`, 0,14 à 0,185 : 3,9 Md€ d'IR pour 22,5 Md€ de CSG rendue déductible en 2018, ajusté du
    barème de l'IR de 2020) : net ≈ 11,71 × 0,84 ≈ 9,8 Md€ par point d'activité en 2026. Même ratio pour une
@@ -83,7 +92,8 @@ Elles s'appliquent à tous les programmes ; le détail et les sources sont dans 
     - Cotisation vieillesse de type non précisé : central du barème, sans retour.
     - APD : départ à `apd_part_rnb` sur `rnb_nominal_2032`, borne défavorable depuis 0,38 % (bas du barème :
       projection 2026 de Focus 2030, aucune prévision officielle n'étant publiée), borne favorable depuis 0,48 % (2024).
-    - Retraites (âge) : les bornes n'incluent pas le coût toutes administrations.
+    - Retraites (âge, durée) : central au périmètre APU ; la borne qui atténue l'effet reprend le périmètre du
+      système de retraite (convention 4).
     - Smic au-delà de 10 % : le produit linéaire est la borne favorable.
 13. **Allègements généraux supprimés au-dessus d'un seuil.** Part du coût de la réduction générale dégressive unique
     (RGDU, barème 2026) portée par les salaires au-dessus du seuil, reconstituée sur la distribution des allègements
