@@ -95,7 +95,10 @@ __COMMUN_CSS__
 .fin h1{font-size:clamp(2.4rem,9vw,3.4rem);margin:.5em 0 .1em;display:inline-block}.fin .kpi{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
 .fin .gros{font-family:var(--titre);font-size:2.4rem;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}.petit{color:var(--muted);font-size:.8rem}
 .fin ul{padding-left:18px;margin:.3em 0}.fin li{margin:3px 0}.neg{color:var(--neg)}.pos{color:var(--pos)}
-.fin button,.fin a.bt{display:inline-block;font:inherit;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--fg);text-decoration:none;cursor:pointer;margin:4px 6px 4px 0}
+.partager{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0 4px}
+.fin button.principal{background:var(--acc);color:#fff;border-color:var(--acc)}
+.partage-recu{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--acc);padding:10px 12px;margin:14px 0 0}
+.fin button,.fin a.bt{display:inline-block;font:inherit;padding:10px 14px;border-radius:4px;border:1px solid var(--line);background:var(--card);color:var(--fg);font-weight:700;text-decoration:none;cursor:pointer;margin:4px 6px 4px 0}
 .accueil{text-align:center;padding-top:6vh}.accueil h1{font-size:clamp(2.8rem,11vw,4.4rem);line-height:.92;margin:.3em 0 .35em}
 .accueil p{color:var(--muted);max-width:30rem;margin-left:auto;margin-right:auto}
 .accueil button{font:inherit;font-weight:700;font-size:1.05rem;padding:12px 26px;border-radius:4px;border:0;background:var(--acc);color:#fff;cursor:pointer;margin-top:14px}
@@ -276,8 +279,40 @@ function carte(b) {
   }
   return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Carte des dépenses et des impôts : vous et les candidats">${s}</svg>`;
 }
-function fin() {
-  const b = bilan(choix), ref = D.reference.at(-1).dette;
+function deficit(s) {
+  if (s < -0.05) return [fmt(-s, false), "Md€ de déficit en plus chaque année (2032)"];
+  if (s > 0.05) return [fmt(s, false), "Md€ de déficit en moins chaque année (2032)"];
+  return ["0", "sans effet net sur le déficit (2032)"];
+}
+function lienResultat() {
+  return location.origin + location.pathname + "#r=" + encodeURIComponent(JSON.stringify(choix));
+}
+async function imageResultat(b, proches) {
+  try { await Promise.all(['800 80px "Big Shoulders Display"', '700 30px Luciole', '400 30px Luciole'].map(f => document.fonts.load(f))); } catch (e) {}
+  const c = document.createElement("canvas"); c.width = 1200; c.height = 630;
+  const x = c.getContext("2d"), T = '"Big Shoulders Display", sans-serif', L = 'Luciole, sans-serif';
+  x.fillStyle = "#eef0f3"; x.fillRect(0, 0, 1200, 630);
+  x.fillStyle = "#1c2230"; x.font = `800 44px ${T}`; x.fillText("Mon budget 2027", 64, 92);
+  x.fillStyle = "#aab3be"; x.fillRect(64, 106, 1072, 4);
+  x.fillStyle = "#1c2230"; x.font = `800 84px ${T}`; x.fillText("Mon programme", 64, 208);
+  x.save(); x.translate(930, 190); x.rotate(-0.14); x.strokeStyle = "#5a3e9b"; x.lineWidth = 5; x.strokeRect(0, -44, 170, 60);
+  x.fillStyle = "#5a3e9b"; x.font = `800 40px ${T}`; x.fillText("A voté", 26, 2); x.restore();
+  const [n, lib] = deficit(b.solde);
+  x.fillStyle = "#d5dae1"; x.fillRect(70, 258, 580, 250); x.fillStyle = "#fff"; x.fillRect(64, 250, 580, 250);
+  x.strokeStyle = "#d3d8df"; x.lineWidth = 2; x.strokeRect(64, 250, 580, 250);
+  x.fillStyle = "#1c2230"; x.font = `800 140px ${T}`; x.fillText(n, 96, 400);
+  x.fillStyle = "#505a69"; x.font = `400 24px ${L}`; x.fillText(lib, 96, 448);
+  x.fillText(`Dette publique en 2032 : ${fmt(b.dette, false)} % du PIB`, 96, 482);
+  x.fillStyle = "#1c2230"; x.font = `700 30px ${L}`; x.fillText("Candidats les plus proches", 700, 280);
+  proches.slice(0, 3).forEach((r, i) => {
+    x.fillStyle = r.c.couleur; x.font = `700 30px ${L}`; x.fillText(r.c.nom, 700, 332 + i * 74);
+    x.fillStyle = "#505a69"; x.font = `400 24px ${L}`; x.fillText(`${Math.round(r.pct)} % d'accord`, 700, 362 + i * 74);
+  });
+  x.fillStyle = "#5a3e9b"; x.font = `700 28px ${L}`; x.fillText("Et vous ? mon-budget-2027.fr/jeu", 64, 574);
+  return new Promise(ok => c.toBlob(ok, "image/png"));
+}
+function fin(partage = false) {
+  const b = bilan(choix), ref = D.reference.at(-1).dette, [n, lib] = deficit(b.solde);
   const faits = D.leviers.filter(l => (choix[l.id] ?? defaut(l)) !== defaut(l)).map(l => {
     const v = choix[l.id], e = effet(l, v).central;
     const lib = l.type === "choix" ? esc(l.options.find(o => o.id === v).libelle) : esc(`${l.question.replace(/ \?$/, "")} : ${v > 0 ? "+" : ""}${v} ${l.curseur.unite}`);
@@ -285,22 +320,53 @@ function fin() {
   }).sort((a, b) => a.e - b.e);
   const proches = D.candidats.map(c => ({c, ...accord(c, choix)})).filter(r => r.n).sort((a, b) => b.pct - a.pct);
   const lien = "simulateur.html#b=" + encodeURIComponent(JSON.stringify(choix));
-  app.innerHTML = `<div class="fin"><h1>Votre programme</h1> <span class="tampon" aria-hidden="true">A voté</span>
-    <div class="kpi"><div><div class="petit">Solde en 2032, par an</div><div class="gros ${b.solde < 0 ? "neg" : b.solde > 0 ? "pos" : ""}">${fmt(b.solde)} Md€</div>
-      <div class="petit">fourchette ${fmt(b.bas)} à ${fmt(b.haut)}</div></div>
-      <div><div class="petit">Dette publique en 2032</div><div class="gros">${fmt(b.dette, false)} %</div><div class="petit">droit actuel : ${fmt(ref, false)} %</div></div></div>
-    <h3>Vos mesures</h3>${faits.length ? `<ul>${faits.map(f => `<li>${f.lib} <b class="${f.e < 0 ? "neg" : f.e > 0 ? "pos" : ""}">${fmt(f.e)} Md€</b></li>`).join("")}</ul>` : `<p class="petit">Aucun changement : vous gardez le droit actuel.</p>`}
+  app.innerHTML = `<div class="fin">${partage ? `<p class="partage-recu">Voici le programme de quelqu'un qui a joué. <button class="principal" id="mien">Faire le mien</button></p>` : ""}
+    <h1>${partage ? "Son programme" : "Votre programme"}</h1> <span class="tampon" aria-hidden="true">A voté</span>
+    <div class="kpi"><div><div class="gros">${n}</div><div class="petit">${lib}<br>fourchette du solde : ${fmt(b.bas)} à ${fmt(b.haut)} Md€</div></div>
+      <div><div class="gros">${fmt(b.dette, false)} %</div><div class="petit">dette publique en 2032<br>droit actuel : ${fmt(ref, false)} %</div></div></div>
+    ${partage ? "" : `<div class="partager"><button class="principal" id="partager">Partager mon résultat</button><button id="copier">Copier le lien</button><button id="image">Télécharger l'image</button><span class="petit" id="msg-partage" role="status"></span></div>`}
+    <h3>${partage ? "Ses mesures" : "Vos mesures"}</h3>${faits.length ? `<ul>${faits.map(f => `<li>${f.lib} <b class="${f.e < 0 ? "neg" : f.e > 0 ? "pos" : ""}">${fmt(f.e)} Md€</b></li>`).join("")}</ul>` : `<p class="petit">Aucun changement : le droit actuel est conservé.</p>`}
     <h3>Les candidats les plus proches</h3><ol>${proches.slice(0, 5).map(r => `<li><b style="color:${esc(r.c.couleur)}">${esc(r.c.nom)}</b><span class="barre-acc" style="width:${r.pct * .6}px"></span><span class="petit">${Math.round(r.pct)} % d'accord (${r.n} décisions)</span></li>`).join("")}</ol>
-    <h3>Vos positions par thème</h3>${htmlAxes(choix)}
+    <h3>Positions par thème</h3>${htmlAxes(choix)}
     <h3>Dépenses et impôts</h3>${carte(b)}
-    <p><button id="retour">↶ Revenir à la dernière carte</button><button id="rejouer">Rejouer</button><a class="bt" href="${lien}">Ajuster dans le simulateur détaillé</a><button id="partager">Copier le lien</button></p>
+    <p>${partage ? "" : `<button id="retour">↶ Revenir à la dernière carte</button>`}<button id="rejouer">${partage ? "Faire le mien" : "Rejouer"}</button><a class="bt" href="${lien}">Ajuster dans le simulateur détaillé</a></p>
     <p class="petit">Les montants donnent l'effet sur le solde public en 2032 par rapport au droit en vigueur, sans effet de second tour. La trajectoire de la dette repose sur des hypothèses tirées du World Economic Outlook du FMI (données transformées). Données du ${esc(D.genere)}.</p></div>`;
   document.getElementById("rejouer").onclick = demarrer;
+  if (partage) { document.getElementById("mien").onclick = demarrer; window.scrollTo(0, 0); return; }
   document.getElementById("retour").onclick = annuler;
-  document.getElementById("partager").onclick = () => navigator.clipboard?.writeText(new URL(lien, location.href).href);
+  const msg = t => { document.getElementById("msg-partage").textContent = t; };
+  const telecharger = blob => { const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "mon-budget-2027.png"; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); };
+  const texte = `Mon programme 2027 : ${n} ${lib.replace(" (2032)", " en 2032")}. Et vous ?`;
+  document.getElementById("copier").onclick = async () => { try { await navigator.clipboard.writeText(lienResultat()); msg("Lien copié."); } catch (e) { msg(lienResultat()); } };
+  document.getElementById("image").onclick = async () => { telecharger(await imageResultat(b, proches)); msg("Image téléchargée."); };
+  document.getElementById("partager").onclick = async () => {
+    const blob = await imageResultat(b, proches);
+    const fichier = new File([blob], "mon-budget-2027.png", {type: "image/png"});
+    try {
+      if (navigator.canShare && navigator.canShare({files: [fichier]})) { await navigator.share({files: [fichier], title: "Mon budget 2027", text: texte + " " + lienResultat()}); return; }
+      if (navigator.share) { await navigator.share({title: "Mon budget 2027", text: texte, url: lienResultat()}); return; }
+    } catch (e) { if (e && e.name === "AbortError") return; }
+    telecharger(blob);
+    try { await navigator.clipboard.writeText(texte + " " + lienResultat()); msg("Image téléchargée et texte copié : collez-le avec l'image sur le réseau de votre choix."); }
+    catch (e) { msg("Image téléchargée."); }
+  };
   window.scrollTo(0, 0);
 }
-accueil();
+function resultatPartage() {
+  if (!location.hash.startsWith("#r=")) return false;
+  try {
+    const c = JSON.parse(decodeURIComponent(location.hash.slice(3)));
+    choix = {};
+    for (const l of D.leviers) {
+      if (!(l.id in c)) continue;
+      const v = c[l.id];
+      if (l.type === "choix" ? l.options.some(o => o.id === v) : typeof v === "number" && v >= l.curseur.min && v <= l.curseur.max) choix[l.id] = v;
+    }
+    fin(true);
+    return true;
+  } catch (e) { return false; }
+}
+if (!resultatPartage()) accueil();
 </script></body></html>"""
 
 

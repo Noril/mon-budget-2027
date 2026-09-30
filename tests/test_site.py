@@ -28,3 +28,10 @@ def test_vercel_json_impose_csp_sans_ressource_externe():
     csp = next(h["value"] for h in site.VERCEL["headers"][0]["headers"] if h["key"] == "Content-Security-Policy")
     assert "default-src 'none'" in csp and "http" not in csp
     assert site.VERCEL["cleanUrls"] is True
+
+
+def test_apercus_de_partage(tmp_path, monkeypatch):
+    from outils import partage
+
+    im = partage.generique("Titre", "Texte de description")
+    assert im.size == (1200, 630) and partage.png(im).startswith(b"\x89PNG")

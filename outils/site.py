@@ -6,6 +6,7 @@ Les pages produites par outils.chiffrage, outils.simulateur et outils.jeu doiven
 """
 import html
 import json
+import re
 import shutil
 import sys
 from datetime import date
@@ -13,7 +14,7 @@ from pathlib import Path
 
 import yaml
 
-from outils import theme
+from outils import partage, theme
 
 RACINE = Path(__file__).resolve().parent.parent
 BUILD = RACINE / "build"
@@ -277,6 +278,55 @@ Les citations de programmes et d'articles sont reproduites à titre de courtes c
 d'analyse et d'information.</p></div>""", "Éditeur, hébergeur, droit de réponse.")
 
 
+DESCRIPTIONS = {
+    "index.html": "Huit programmes pour la présidentielle 2027 chiffrés avec la même méthode, mesure par mesure, sources à l'appui.",
+    "jeu.html": "Une trentaine de dilemmes, à gauche ou à droite. À la fin, votre programme, sa facture et les candidats qui vous ressemblent.",
+    "simulateur.html": "Composez votre budget 2027 décision par décision et voyez la dette bouger jusqu'en 2032.",
+    "rapport.html": "Le chiffrage des huit programmes : solde, fourchette, dette 2032, notes de précision et de confiance.",
+}
+
+
+def apercus(cfg) -> None:
+    """Images Open Graph (build/site/og/) et balises de partage dans chaque page."""
+    base = (cfg.get("url_site") or "").rstrip("/")
+    og = SORTIE / "og"
+    og.mkdir(exist_ok=True)
+    fichier = RACINE / "data" / "chiffrage.json"
+    progs = json.loads(fichier.read_text(encoding="utf-8"))["programmes"] if fichier.exists() else []
+    progs = sorted(progs, key=lambda a: a["candidat"].split(" ", 1)[-1])
+    images = {
+        "index.html": partage.accueil([(a["candidat"].split(" ", 1)[-1], effet_deficit(a["croisiere"]["central"])[0]) for a in progs]),
+        "jeu.html": partage.generique("Et vous, quel budget ?", DESCRIPTIONS["jeu.html"], pile=True),
+        "simulateur.html": partage.generique("Composez votre budget 2027", DESCRIPTIONS["simulateur.html"]),
+        "rapport.html": partage.generique("Les programmes 2027 chiffrés", DESCRIPTIONS["rapport.html"]),
+    }
+    for a in progs:
+        montant, legende = effet_deficit(a["croisiere"]["central"])
+        images[f"programme-{a['id']}.html"] = partage.programme(a["candidat"], a["parti"], montant, legende.replace(" (2032)", " en 2032"))
+    for page in sorted(SORTIE.glob("*.html")):
+        nom_image = images.get(page.name) and f"{page.stem}.png"
+        if nom_image:
+            (og / nom_image).write_bytes(partage.png(images[page.name]))
+        image = f"{base}/og/{nom_image or 'index.png'}"
+        texte = page.read_text(encoding="utf-8")
+        titre = re.search(r"<title>(.*?)</title>", texte, re.S)
+        titre = html.unescape(titre.group(1)) if titre else "Mon budget 2027"
+        desc = DESCRIPTIONS.get(page.name)
+        if not desc and page.name.startswith("programme-"):
+            desc = "Chaque mesure du programme citée, chiffrée et sourcée."
+        desc = desc or DESCRIPTIONS["index.html"]
+        url = f"{base}/{'' if page.name == 'index.html' else page.stem}"
+        balises = "".join([
+            f'<meta property="og:type" content="website"><meta property="og:site_name" content="Mon budget 2027">',
+            f'<meta property="og:title" content="{html.escape(titre)}"><meta property="og:description" content="{html.escape(desc)}">',
+            f'<meta property="og:url" content="{html.escape(url)}"><meta property="og:image" content="{html.escape(image)}">',
+            '<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">',
+            '<meta property="og:locale" content="fr_FR"><meta name="twitter:card" content="summary_large_image">',
+        ])
+        if 'property="og:title"' not in texte:
+            page.write_text(texte.replace("</head>", balises + "</head>", 1), encoding="utf-8")
+
+
 def main():
     cfg = charger_config()
     absents = [f for f in PAGES if not (BUILD / f).exists()]
@@ -298,6 +348,7 @@ def main():
     (SORTIE / "index.html").write_text(accueil(cfg), encoding="utf-8")
     (SORTIE / "methode.html").write_text(methode(cfg), encoding="utf-8")
     (SORTIE / "mentions-legales.html").write_text(mentions(cfg), encoding="utf-8")
+    apercus(cfg)
     (SORTIE / "vercel.json").write_text(json.dumps(VERCEL, indent=2) + "\n", encoding="utf-8")
     (SORTIE / "robots.txt").write_text("User-agent: *\nAllow: /\n", encoding="utf-8")
     print(f"-> {SORTIE.relative_to(RACINE)}/")
