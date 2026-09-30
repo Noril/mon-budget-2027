@@ -71,11 +71,24 @@ main{max-width:72rem;margin:0 auto;padding:0 16px}
   @keyframes tombe{from{opacity:0;transform:translateY(-28px) rotate(0)}to{opacity:1;transform:rotate(var(--r))}}
 }
 .legende{color:var(--muted);font-size:.9rem;max-width:46rem}
-.portes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 2.4rem;margin:3.4rem 0 1rem;border-top:2px solid var(--fg)}
+.bouton{display:inline-block;font-weight:700;font-size:1.02rem;text-decoration:none;padding:.72rem 1.3rem;border-radius:4px;
+  border:2px solid var(--acc);color:var(--acc);background:transparent;line-height:1.2}
+.bouton:hover{background:var(--acc);color:#fff}
+.bouton.plein{background:var(--acc);color:#fff}.bouton.plein:hover{background:var(--fg);border-color:var(--fg)}
+@media (prefers-color-scheme:dark){.bouton:hover,.bouton.plein{color:#10201c}}
+.actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.3rem}
+.jeu{display:grid;grid-template-columns:auto minmax(0,1fr);gap:1.4rem 2.6rem;align-items:center;margin:3rem 0 0;padding:2rem clamp(16px,4vw,3rem);
+  background:var(--card);border:2px solid var(--fg);border-top-width:8px;box-shadow:var(--ombre)}
+@media (max-width:640px){.jeu{grid-template-columns:1fr}}
+.jeu h2{margin:0 0 .4rem;font-size:clamp(2rem,5vw,3rem)}.jeu p{margin:0;max-width:36rem}
+.pile{position:relative;width:132px;height:100px;margin:10px}
+.pile span{position:absolute;inset:0;background:var(--card);border:1px solid var(--line);box-shadow:var(--ombre)}
+.pile span:nth-child(1){transform:rotate(-8deg)}.pile span:nth-child(2){transform:rotate(5deg)}
+.pile span:nth-child(3){transform:rotate(-1deg);border-top:7px solid var(--acc)}
+.portes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 2.4rem;margin:3.4rem 0 1rem;border-top:2px solid var(--fg)}
 @media (max-width:760px){.portes{grid-template-columns:1fr}}
 .porte{padding:1.2rem 0 1.4rem;border-bottom:1px solid var(--line)}
-.porte h2{margin:0 0 .35rem;font-size:2rem}.porte h2 a{color:var(--fg);text-decoration:none}
-.porte h2 a:hover{color:var(--acc)}.porte p{margin:0;color:var(--muted)}
+.porte h2{margin:0 0 .35rem;font-size:2rem}.porte p{margin:0 0 1rem;color:var(--muted)}
 .bandeau{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem 3rem;margin-top:3rem}
 @media (max-width:760px){.bandeau{grid-template-columns:1fr}}
 .bandeau h2{margin-top:0}
@@ -153,19 +166,24 @@ def accueil(cfg):
 <section class="une">
 <h1>Ce que coûteraient les promesses</h1>
 <p>Huit programmes pour la présidentielle de 2027, chiffrés avec la même méthode. Chaque mesure est citée mot pour
-mot avec son lien, et son coût se recalcule à partir de barèmes publics. Rien n'est caché : ouvrez un bulletin.</p>
+mot avec son lien, et son coût se recalcule à partir de barèmes publics. Rien n'est caché : ouvrez un bulletin.
+<span class="actions"><a class="bouton plein" href="jeu.html">Jouer : construire mon programme</a></span></p>
 </section>
 {urne()}
 <p class="legende">Ce que chaque programme ajoute au déficit public, ou en retire, chaque année une fois toutes ses mesures
 en place (2032), scénario central, en milliards d'euros. Candidats dans l'ordre alphabétique. Le chiffrage ne juge pas
 l'opportunité des mesures, il en donne le coût.</p>
+<section class="jeu" aria-labelledby="titre-jeu">
+<div class="pile" aria-hidden="true"><span></span><span></span><span></span></div>
+<div><h2 id="titre-jeu">À vous de choisir</h2><p>Retraites, impôts, fonctionnaires, énergie : une trentaine de dilemmes,
+à gauche ou à droite. À la fin, votre programme, sa facture et les candidats dont vous êtes le plus proche.</p>
+<div class="actions"><a class="bouton plein" href="jeu.html">Commencer le jeu</a></div></div>
+</section>
 <div class="portes">
-<div class="porte"><h2><a href="rapport.html">Lire le rapport</a></h2><p>Chaque programme mesure par mesure, avec
-la citation, le calcul, les sources et la fourchette d'incertitude.</p></div>
-<div class="porte"><h2><a href="simulateur.html">Composer son budget</a></h2><p>Vingt-neuf décisions, leur coût, et
-les candidats dont vos choix se rapprochent.</p></div>
-<div class="porte"><h2><a href="jeu.html">Jouer carte par carte</a></h2><p>Un dilemme par carte, à gauche ou à
-droite : votre programme se construit, sa facture aussi.</p></div>
+<div class="porte"><h2>Le rapport</h2><p>Chaque programme mesure par mesure, avec la citation, le calcul, les sources
+et la fourchette d'incertitude.</p><a class="bouton" href="rapport.html">Lire le rapport</a></div>
+<div class="porte"><h2>Le simulateur</h2><p>Les mêmes décisions en détail : ajustez chaque levier et voyez la dette
+bouger jusqu'en 2032.</p><a class="bouton" href="simulateur.html">Composer mon budget</a></div>
 </div>
 <div class="bandeau">
 <div class="prose"><h2>Ce que ce chiffrage mesure</h2><p>Ce que coûterait ce qui est promis, par rapport au droit voté
