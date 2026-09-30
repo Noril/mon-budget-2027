@@ -1,7 +1,7 @@
 # Chiffrer les programmes 2027, en open data
 
 Chiffrage indépendant et rejouable des programmes des candidats à l'élection présidentielle de 2027 : chaque mesure
-est citée verbatim avec son lien, son coût se recalcule à partir de barèmes publics communs, un second agent vérifie
+est citée verbatim avec son lien, son coût se recalcule à partir de barèmes publics communs, un second modèle d'IA vérifie
 le chiffrage, et l'effet cumulé est projeté sur la dette publique jusqu'en 2032.
 
 **Le site** (rapport, simulateur budgétaire, jeu du budget) est déployé sur Vercel à chaque mise à jour de `main` : voir
@@ -11,6 +11,13 @@ l'adresse dans la description du dépôt. Le site se génère entièrement depui
 29 septembre 2026. Les programmes ne sont pas tous arrêtés : chaque fichier dit d'où viennent les mesures et
 leur niveau de précision. Le chiffrage donne des ordres de grandeur comparables, pas une prévision. Limites détaillées
 dans `chiffrage/README.md` et sur la page « Méthode et limites » du site.
+
+## Produit avec l'IA
+
+La collecte des programmes, le chiffrage, sa vérification, les textes du site et le code sont produits avec des modèles
+d'intelligence artificielle (Claude, d'Anthropic), sous la direction d'une personne qui a fixé la méthode et les règles.
+Les garde-fous sont automatiques et publics (citations comparées à leur source, formules rejouables, barèmes sourcés,
+recalcul indépendant des indicateurs), mais aucun économiste n'a encore relu les chiffrages : voir `AUDIT.md`.
 
 ## Rejouer
 

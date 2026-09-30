@@ -70,6 +70,7 @@ a:hover{text-decoration-thickness:2px}
 .nav a{font-weight:700;text-decoration:none;color:var(--fg)}.nav a:hover{color:var(--acc)}
 .nav a[aria-current=page]{color:var(--acc);box-shadow:inset 0 -3px 0 var(--acc)}
 @media (max-width:640px){.nav{gap:.2rem 1rem;font-size:.92rem}.nav .marque{flex-basis:100%;margin-bottom:.1rem}}
+.avis{max-width:72rem;margin:0 auto;padding:.45rem 16px;font-size:.84rem;color:var(--muted);border-bottom:1px solid var(--line)}
 .pied{max-width:72rem;margin:4rem auto 0;padding:1.2rem 16px 3rem;border-top:2px solid var(--arete);color:var(--muted);
   font-size:.92rem;display:flex;flex-wrap:wrap;gap:.4rem 1.6rem}
 .pied a{color:var(--muted)}
@@ -80,14 +81,20 @@ LIENS = [("index.html", "Accueil"), ("rapport.html", "Le rapport"), ("simulateur
          ("jeu.html", "Le jeu"), ("methode.html", "Méthode et limites")]
 
 
+AVIS_IA = ("Site produit avec des modèles d'intelligence artificielle (Claude, d'Anthropic) : collecte des programmes, "
+           "chiffrage, vérification et textes. Pas encore relu par des économistes. Les sources sont citées pour que chacun "
+           "puisse vérifier.")
+
+
 def entete(actif: str) -> str:
     liens = "".join(f'<a href="{h}"{" aria-current=page" if h == actif else ""}>{t}</a>' for h, t in LIENS[1:])
-    return f'<nav class="nav" aria-label="Sections du site"><a class="marque" href="index.html">Chiffrer 2027</a>{liens}</nav>'
+    return (f'<nav class="nav" aria-label="Sections du site"><a class="marque" href="index.html">Chiffrer 2027</a>{liens}</nav>'
+            f'<p class="avis">{AVIS_IA} <a href="methode.html#production">Comment ce site est produit</a></p>')
 
 
 def pied(genere: str) -> str:
     return (f'<footer class="pied"><span>Données du {html.escape(genere)}</span><a href="methode.html">Méthode et limites</a>'
-            '<a href="mentions-legales.html">Mentions légales</a><span>Textes et chiffrages sous CC BY 4.0. Police Luciole © Laurent Bourcellier et Jonathan Perez (CC BY 4.0)</span></footer>')
+            '<a href="mentions-legales.html">Mentions légales</a><span>Contenu produit par intelligence artificielle, à vérifier sur les sources citées.</span><span>Textes et chiffrages sous CC BY 4.0. Police Luciole © Laurent Bourcellier et Jonathan Perez (CC BY 4.0)</span></footer>')
 
 
 def style() -> str:

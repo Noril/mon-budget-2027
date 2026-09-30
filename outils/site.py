@@ -195,6 +195,20 @@ chiffrée selon sa lecture la plus probable, qui est écrite.</li>
 <li>La trajectoire de la dette repose sur des hypothèses macroéconomiques tirées de la base World Economic Outlook du FMI (données transformées), communes à tous.</li>
 <li>Une erreur est possible : signalez-la, elle sera corrigée et l'historique des corrections est public.</li>
 </ul>
+<h2 id="production">Comment ce site est produit</h2>
+<p>Ce site est produit avec des modèles d'intelligence artificielle de la famille Claude, développés par Anthropic, à
+l'initiative et sous la direction d'une personne qui a fixé la méthode, les règles de neutralité et les priorités.</p>
+<ul>
+<li><b>Ce que l'IA a fait.</b> Rechercher et citer les mesures des programmes, trouver les sources des coûts, écrire les
+calculs, vérifier chaque chiffrage par un second modèle qui ne l'avait pas écrit, rédiger les textes du site, du
+simulateur et du jeu, et écrire le code.</li>
+<li><b>Les garde-fous.</b> Chaque citation est comparée automatiquement au texte de sa source. Chaque montant se
+recalcule par une formule publique à partir de barèmes sourcés. Les indicateurs de départ sont recalculés
+indépendamment. Tout est public et rejouable.</li>
+<li><b>Ce qui manque.</b> Aucun économiste n'a encore relu ces chiffrages, et les équipes de campagne n'ont pas encore
+été consultées. Des erreurs sont possibles : <a href="{d}/issues/new/choose">signalez-les</a>, elles seront corrigées
+publiquement.</li>
+</ul>
 <h2>Pour aller plus loin</h2>
 <ul>
 <li><a href="{d}/blob/main/chiffrage/README.md">Méthode détaillée du chiffrage</a></li>

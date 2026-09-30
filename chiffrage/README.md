@@ -54,7 +54,7 @@ uv run python -m outils.chiffrage             # build/chiffrage.md, build/chiffr
    biais qu'introduisent les mesures non chiffrées.
 8. **Chiffrages tiers** : Institut Montaigne, IFRAP, OFCE, IPP, Terra Nova, Cour des comptes, COR, presse
    spécialisée. Consignés avec leur montant et leur lien ; un écart important avec notre chiffre est expliqué.
-9. **Vérification indépendante** : un second agent, qui n'a pas écrit le chiffrage, relit la citation, rejoue la
+9. **Vérification indépendante** : un second modèle d'IA (agent), qui n'a pas écrit le chiffrage, relit la citation, rejoue la
    formule, contrôle les paramètres dans les sources et renseigne `verification` (ok, corrige, conteste).
 
 ## Notes de précision et de confiance
@@ -74,6 +74,11 @@ calculées par `outils/chiffrage.py` (`noter`) à partir des champs des fichiers
 | | Barèmes communs | 15 % | part des paramètres tirés de `baremes.yaml`, pondérée par le montant de la mesure |
 
 Les poids sont un choix, à discuter : ils sont dans le code, et chaque composante est affichée.
+
+## Production par l'IA
+
+Collecte, chiffrage, vérification et textes sont produits par des modèles d'IA (Claude, d'Anthropic) sous la direction
+d'une personne. Aucune relecture par un économiste à ce jour ; le site l'affiche sur chaque page.
 
 ## Trajectoire de dette
 
