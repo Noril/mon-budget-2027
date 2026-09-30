@@ -432,6 +432,15 @@ def _page(titre: str, corps: str) -> str:
 </main>{theme.pied(date.today().isoformat())}</body></html>"""
 
 
+def _effet_deficit(solde: float) -> tuple[str, str]:
+    """Montant positif et libellé explicite : un solde négatif est un déficit en plus, pas une économie."""
+    if solde < -0.05:
+        return _md(-solde, False), "Md€ de déficit en plus chaque année en 2032"
+    if solde > 0.05:
+        return _md(solde, False), "Md€ de déficit en moins chaque année en 2032"
+    return "0", "sans effet net sur le déficit en 2032"
+
+
 def _ordre(agregats: list[dict]) -> list[dict]:
     """Ordre alphabétique des noms, comme sur les panneaux électoraux."""
     return sorted(agregats, key=lambda a: a["candidat"].split(" ", 1)[-1])
@@ -503,7 +512,7 @@ def programme_html(a: dict, agregats: list[dict], traj: dict) -> str:
 <h1>{e(a['candidat'])}</h1>
 <p class="m">{e(a['parti'])}</p>
 <div class="chiffres">
-<div><span class="gros">{_md(c['central'])}</span><span class="lib">Md€ par an en 2032, fourchette {_md(c['bas'])} à {_md(c['haut'])}</span></div>
+<div><span class="gros">{_effet_deficit(c['central'])[0]}</span><span class="lib">{_effet_deficit(c['central'])[1]} ; solde {_md(c['central'])} Md€, fourchette {_md(c['bas'])} à {_md(c['haut'])}</span></div>
 <div><span class="gros">{_md(dg['central'][-1]['dette'], False)} %</span><span class="lib">dette publique en 2032 (droit actuel : {_md(traj['gel']['reference'][-1]['dette'], False)} %)</span></div>
 <div><span class="gros">{a['nb_chiffrees']} / {a['nb_mesures']}</span><span class="lib">mesures chiffrées, dont {a['nb_verifiees']} vérifiées</span></div>
 </div>

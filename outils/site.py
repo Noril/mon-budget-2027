@@ -119,6 +119,15 @@ def _md(x: float) -> str:
     return ("−" if x < -0.05 else "+" if x > 0.05 else "") + s
 
 
+def effet_deficit(solde: float) -> tuple[str, str]:
+    """Montant et libellé lisibles : un solde négatif est un déficit en plus, pas une économie."""
+    if solde < -0.05:
+        return _md(-solde).lstrip("+"), "Md€ de déficit en plus chaque année (2032)"
+    if solde > 0.05:
+        return _md(solde).lstrip("+"), "Md€ de déficit en moins chaque année (2032)"
+    return "0", "sans effet net sur le déficit (2032)"
+
+
 def urne() -> str:
     """Les programmes en bulletins, dans l'ordre alphabétique des noms, comme sur les panneaux électoraux."""
     fichier = RACINE / "data" / "chiffrage.json"
@@ -134,7 +143,7 @@ def urne() -> str:
         items.append(
             f'<li class="bulletin" style="--i:{i};--r:{r:.2f}deg"><a href="programme-{html.escape(a["id"])}.html">'
             f'<span class="nom">{html.escape(a["candidat"])}</span><span class="parti">{html.escape(a["parti"])}</span>'
-            f'<span class="solde {signe}">{_md(c)}</span><span class="unite">Md€ par an en 2032</span></a></li>')
+            f'<span class="solde {signe}">{effet_deficit(c)[0]}</span><span class="unite">{effet_deficit(c)[1]}</span></a></li>')
     return f'<div class="urne"><ul class="bulletins">{"".join(items)}</ul></div>'
 
 
@@ -147,9 +156,9 @@ def accueil(cfg):
 mot avec son lien, et son coût se recalcule à partir de barèmes publics. Rien n'est caché : ouvrez un bulletin.</p>
 </section>
 {urne()}
-<p class="legende">Effet de chaque programme sur le solde public, en milliards d'euros par an une fois toutes ses mesures
-en place (2032), scénario central. Négatif : le programme creuse le déficit. Candidats dans l'ordre alphabétique.
-Le chiffrage ne juge pas l'opportunité des mesures, il en donne le coût.</p>
+<p class="legende">Ce que chaque programme ajoute au déficit public, ou en retire, chaque année une fois toutes ses mesures
+en place (2032), scénario central, en milliards d'euros. Candidats dans l'ordre alphabétique. Le chiffrage ne juge pas
+l'opportunité des mesures, il en donne le coût.</p>
 <div class="portes">
 <div class="porte"><h2><a href="rapport.html">Lire le rapport</a></h2><p>Chaque programme mesure par mesure, avec
 la citation, le calcul, les sources et la fourchette d'incertitude.</p></div>
