@@ -197,7 +197,8 @@ function accueil() {
     <p>Vous venez d'être élu·e. Chaque carte est une décision que les candidats mettent en débat. Glissez à gauche ou à droite :
     votre programme se construit, et sa facture aussi.</p>
     <p class="petit">Montants chiffrés avec la même méthode que les programmes des candidats (effet sur le solde public en 2032, sans
-    effet de second tour). Personnages fictifs.</p><button id="go">Commencer</button></div>`;
+    effet de second tour). Personnages fictifs. Cartes, chiffrages et textes produits avec l'IA (Claude) :
+    <a href="methode.html#production">comment</a>.</p><button id="go">Commencer</button></div>`;
   document.getElementById("go").onclick = demarrer;
 }
 function demarrer() {
@@ -305,7 +306,7 @@ accueil();
 
 
 def rendre(d: dict, cartes: dict) -> str:
-    return remplir(PAGE, THEME=theme.style(), ENTETE=theme.entete("jeu.html"), COMMUN_JS=COMMUN_JS, COMMUN_CSS=COMMUN_CSS,
+    return remplir(PAGE, THEME=theme.style(), ENTETE=theme.entete("jeu.html", avis=False), COMMUN_JS=COMMUN_JS, COMMUN_CSS=COMMUN_CSS,
                    DONNEES=json_pour_script(d), CARTES=json_pour_script(cartes))
 
 

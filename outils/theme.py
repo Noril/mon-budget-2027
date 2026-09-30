@@ -1,7 +1,7 @@
 """Identité visuelle commune du site : « l'urne transparente ».
 
 Depuis 1988, les urnes françaises sont transparentes : chacun voit les bulletins qu'elles contiennent. Le site applique
-la même idée aux promesses budgétaires. Fond de plexiglas, bulletins blancs, encre d'ardoise, violet du tampon
+la même idée aux promesses budgétaires. Fond gris clair, bulletins blancs, encre bleu nuit, violet du tampon
 « A voté » pour les actions.
 
 Polices embarquées en data URI (fichiers et licences dans outils/polices/) : le site n'appelle aucune ressource externe.
@@ -46,15 +46,15 @@ def polices_css() -> str:
 # Jetons : noms repris par toutes les pages (--bg, --fg, --muted, --line, --card, --acc, --neg, --pos).
 JETONS_CSS = """
 :root{
-  --plexi:#e3ede9;--arete:#9fbfb4;--bulletin:#ffffff;--encre:#1d2b2f;--tampon:#5a3e9b;
-  --bg:var(--plexi);--fg:var(--encre);--muted:#4e6068;--line:#c3d6cf;--card:var(--bulletin);--acc:var(--tampon);
-  --neg:#a8261d;--pos:#1b6a4e;--ombre:0 1px 0 #9fbfb433,0 10px 24px -14px #1d2b2f55;
+  --plexi:#eef0f3;--arete:#aab3be;--bulletin:#ffffff;--encre:#1c2230;--tampon:#5a3e9b;
+  --bg:var(--plexi);--fg:var(--encre);--muted:#505a69;--line:#d3d8df;--card:var(--bulletin);--acc:var(--tampon);
+  --neg:#a8261d;--pos:#1b6a4e;--ombre:0 1px 0 #aab3be33,0 10px 24px -14px #1c223055;
   --titre:'Big Shoulders Display','Arial Narrow',sans-serif;
   --texte:'Luciole',system-ui,-apple-system,'Segoe UI',sans-serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]){
-  --plexi:#0f1d1a;--arete:#3b5a51;--bulletin:#172925;--encre:#e4efeb;--tampon:#bba8f2;
-  --muted:#9ab3ab;--line:#2c453e;--neg:#f0877d;--pos:#79d3ad;--ombre:0 10px 24px -14px #000c;
+  --plexi:#13161c;--arete:#3e4654;--bulletin:#1c2029;--encre:#e8eaef;--tampon:#bba8f2;
+  --muted:#a3abb8;--line:#2e3440;--neg:#f0877d;--pos:#79d3ad;--ombre:0 10px 24px -14px #000c;
 }}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 var(--texte);font-variant-numeric:tabular-nums}
@@ -86,10 +86,11 @@ AVIS_IA = ("Site produit avec des modèles d'intelligence artificielle (Claude, 
            "puisse vérifier.")
 
 
-def entete(actif: str) -> str:
+def entete(actif: str, avis: bool = True) -> str:
     liens = "".join(f'<a href="{h}"{" aria-current=page" if h == actif else ""}>{t}</a>' for h, t in LIENS[1:])
-    return (f'<nav class="nav" aria-label="Sections du site"><a class="marque" href="index.html">Chiffrer 2027</a>{liens}</nav>'
-            f'<p class="avis">{AVIS_IA} <a href="methode.html#production">Comment ce site est produit</a></p>')
+    bandeau = f'<p class="avis">{AVIS_IA} <a href="methode.html#production">Comment ce site est produit</a></p>' if avis else ""
+    return f'<nav class="nav" aria-label="Sections du site"><a class="marque" href="index.html">Chiffrer 2027</a>{liens}</nav>{bandeau}'
+
 
 
 def pied(genere: str) -> str:
