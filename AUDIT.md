@@ -111,7 +111,17 @@ n'a pas pu être rejoué en ligne. Les points marqués « non vérifié » sont 
   −100,15. Simulateur resynchronisé ; aucun curseur ne bouge de plus de 1 Md€ (cartes inchangées, libellé « Durcir »
   mis à jour).
 
+- **Cohérence finale (30/09)** : explications et interprétations réécrites sur les montants actuels (82 textes) ;
+  sommes documentées des enveloppes d'Attal, du RN et de Reconquête recalculées ; avance de la CVAE en 2028-2029
+  nette du retour d'IS de 20 % pour les trois programmes qui la proposent ; notes de paramètres alignées sur les
+  barèmes qu'elles citent.
+
 ## Points ouverts
+- Bornes à justifier : `retailleau-lr/seuil-zero-cotisation` (haut −4,2 contre ≈ −4,36 par la méthode décrite),
+  `tondelier-ecologistes/cir-recentrage` (haut = central alors que les hauts des barèmes donneraient ≈ 3,9), écarts
+  d'arrondi ≤ 0,1 sur quelques bornes (Attal droit au brut, Mélenchon minimum vieillesse, Philippe enseignants).
+- Relecture humaine par des économistes des finances publiques et droit de réponse des équipes de campagne avant toute
+  promotion du site.
 - TOP500 : absence de licence ; la publication de parts agrégées repose sur une lecture des conditions (« create
   additional sublists and statistics »), pas sur une autorisation écrite ; à confirmer auprès de Prometeus GmbH.
 - Dates : date de mise en ligne du plan Knafo (budget2026.fr) inconnue ; livret École LR laissé à « 2026-09 » (daté
