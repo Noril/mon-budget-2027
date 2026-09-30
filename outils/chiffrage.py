@@ -262,7 +262,7 @@ def rapport_md(agregats: list[dict], traj: dict) -> str:
     l = [
         "# Chiffrage des programmes présidentiels 2027", "",
         f"Généré le {date.today().isoformat()} par `outils.chiffrage`. Effet sur le solde public primaire en Md€ courants "
-        "par an en régime de croisière (2032) ; négatif = coût. Fourchette : hypothèse basse et haute. "
+        "par an en régime de croisière (2032). Un montant négatif est un coût. La fourchette va de l'hypothèse basse à la haute. "
         "Aucun effet de second tour n'est compté (voir chiffrage/README.md).", "",
         "| Programme | Mesures chiffrées | Coûts | Économies et recettes | Solde net (fourchette) | Dette 2032 (réf. gel : "
         f"{_md(traj['gel']['reference'][-1]['dette'], False)} % PIB) | Annonce du candidat |",
@@ -468,11 +468,11 @@ def rapport_html(agregats: list[dict], traj: dict) -> str:
     return _page("Le rapport : chiffrage des programmes 2027", f"""
 <h1>Le rapport</h1>
 <p class="m">Effet de chaque programme sur le solde public, en milliards d'euros par an une fois toutes ses mesures en place
-(2032) ; négatif : le programme creuse le déficit. Chaque mesure est citée mot pour mot avec son lien et calculée par une
+(2032). Un montant négatif signifie que le programme creuse le déficit. Chaque mesure est citée mot pour mot avec son lien et calculée par une
 formule rejouable à partir de barèmes publics. Aucun effet de second tour (croissance, emploi, taux) n'est compté.
-Trajectoires de dette : hypothèses macroéconomiques tirées de la base World Economic Outlook du FMI (données
-transformées : prolongées jusqu'en 2032, taux d'intérêt implicite déduit), solde primaire de référence gelé au dernier
-niveau observé ({traj['gel']['depart']}).</p>
+Les trajectoires de dette reposent sur des hypothèses macroéconomiques tirées de la base World Economic Outlook du FMI,
+transformées pour les prolonger jusqu'en 2032 et en déduire un taux d'intérêt implicite. Le solde primaire de référence
+est gelé au dernier niveau observé ({traj['gel']['depart']}).</p>
 <h2>Un programme par page</h2>
 <ul class="programmes">{liste}</ul>
 <h2>Solde net par an en 2032 (Md€, point central et fourchette)</h2>{_svg_soldes(agregats)}
@@ -481,8 +481,8 @@ niveau observé ({traj['gel']['depart']}).</p>
 candidat rend chiffrable. <b>Confiance du chiffrage</b> : ce que vaut notre estimation. Leurs composantes sont détaillées
 sur la page de chaque programme. Les programmes ne sont pas publiés au même degré de détail : une enveloppe d'économies
 sans mesure identifiée compte zéro au central. La colonne « Mesures non chiffrées » donne l'ordre de grandeur des
-promesses trop vagues pour être chiffrées ; il n'entre pas dans le solde (négatif : le programme coûte probablement plus
-que le solde affiché).</p>
+promesses trop vagues pour être chiffrées. Il n'entre pas dans le solde. S'il est négatif, le programme coûte probablement
+plus que le solde affiché.</p>
 <div class="scroll" tabindex="0" role="region" aria-label="Comparaison des programmes"><table><thead><tr><th>Programme</th><th>Précision</th><th>Confiance</th><th>Solde net / an</th><th>Mesures non chiffrées : ordre de grandeur</th><th>Dette 2032, % PIB (réf. {_md(traj['gel']['reference'][-1]['dette'], False)})</th></tr></thead>
 <tbody>{''.join(lignes)}</tbody></table></div>
 <h2>Dette publique projetée, scénario central (% du PIB)</h2>{_svg_dette(traj['gel'], agregats)}""")
@@ -516,7 +516,7 @@ def programme_html(a: dict, agregats: list[dict], traj: dict) -> str:
 <h1>{e(a['candidat'])}</h1>
 <p class="m">{e(a['parti'])}</p>
 <div class="chiffres">
-<div><span class="gros">{_effet_deficit(c['central'])[0]}</span><span class="lib">{_effet_deficit(c['central'])[1]} ; solde {_md(c['central'])} Md€, fourchette {_md(c['bas'])} à {_md(c['haut'])}</span></div>
+<div><span class="gros">{_effet_deficit(c['central'])[0]}</span><span class="lib">{_effet_deficit(c['central'])[1]} (solde {_md(c['central'])} Md€, fourchette {_md(c['bas'])} à {_md(c['haut'])})</span></div>
 <div><span class="gros">{_md(dg['central'][-1]['dette'], False)} %</span><span class="lib">dette publique en 2032 (droit actuel : {_md(traj['gel']['reference'][-1]['dette'], False)} %)</span></div>
 <div><span class="gros">{a['nb_chiffrees']} / {a['nb_mesures']}</span><span class="lib">mesures chiffrées, dont {a['nb_verifiees']} vérifiées</span></div>
 </div>

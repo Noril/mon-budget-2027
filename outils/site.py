@@ -166,28 +166,28 @@ def accueil(cfg):
 <section class="une">
 <h1>Ce que coûteraient les promesses</h1>
 <p>Huit programmes pour la présidentielle de 2027, chiffrés avec la même méthode. Chaque mesure est citée mot pour
-mot avec son lien, et son coût se recalcule à partir de barèmes publics. Rien n'est caché : ouvrez un bulletin.
+mot avec son lien, et son coût se recalcule à partir de barèmes publics. Cliquez sur un bulletin pour voir le détail.
 <span class="actions"><a class="bouton plein" href="jeu.html">Jouer : construire mon programme</a></span></p>
 </section>
 {urne()}
-<p class="legende">Ce que chaque programme ajoute au déficit public, ou en retire, chaque année une fois toutes ses mesures
-en place (2032), scénario central, en milliards d'euros. Candidats dans l'ordre alphabétique. Le chiffrage ne juge pas
+<p class="legende">Ce que chaque programme ajoute au déficit public ou en retire chaque année, une fois toutes ses mesures
+en place (2032). Scénario central, en milliards d'euros. Candidats dans l'ordre alphabétique. Le chiffrage ne juge pas
 l'opportunité des mesures, il en donne le coût.</p>
 <section class="jeu" aria-labelledby="titre-jeu">
 <div class="pile" aria-hidden="true"><span></span><span></span><span></span></div>
-<div><h2 id="titre-jeu">À vous de choisir</h2><p>Retraites, impôts, fonctionnaires, énergie : une trentaine de dilemmes,
-à gauche ou à droite. À la fin, votre programme, sa facture et les candidats dont vous êtes le plus proche.</p>
+<div><h2 id="titre-jeu">À vous de choisir</h2><p>Une trentaine de choix sur les retraites, les impôts, les fonctionnaires ou l'énergie,
+à trancher à gauche ou à droite. À la fin, vous voyez votre programme, ce qu'il coûte et les candidats dont vous êtes le plus proche.</p>
 <div class="actions"><a class="bouton plein" href="jeu.html">Commencer le jeu</a></div></div>
 </section>
 <div class="portes">
 <div class="porte"><h2>Le rapport</h2><p>Chaque programme mesure par mesure, avec la citation, le calcul, les sources
 et la fourchette d'incertitude.</p><a class="bouton" href="rapport.html">Lire le rapport</a></div>
-<div class="porte"><h2>Le simulateur</h2><p>Les mêmes décisions en détail : ajustez chaque levier et voyez la dette
-bouger jusqu'en 2032.</p><a class="bouton" href="simulateur.html">Composer mon budget</a></div>
+<div class="porte"><h2>Le simulateur</h2><p>Les mêmes décisions, avec toutes les options. Réglez-les une à une et suivez la dette
+jusqu'en 2032.</p><a class="bouton" href="simulateur.html">Composer mon budget</a></div>
 </div>
 <div class="bandeau">
-<div class="prose"><h2>Ce que ce chiffrage mesure</h2><p>Ce que coûterait ce qui est promis, par rapport au droit voté
-au 29 septembre 2026, sans effet de second tour : la croissance ou l'emploi invoqués par un candidat sont décrits,
+<div class="prose"><h2>Ce que ce chiffrage mesure</h2><p>Le coût des promesses, par rapport au droit voté
+au 29 septembre 2026 et hors effets de second tour : la croissance ou l'emploi invoqués par un candidat sont décrits,
 pas comptés. Les chiffres sont des ordres de grandeur. <a href="methode.html">Méthode et limites</a>.</p></div>
 <div class="prose"><h2>Vérifier, corriger</h2><p>Le code, les barèmes et chaque chiffrage sont publics
 <a href="{depot}">sur GitHub</a>. Une citation inexacte, un calcul contestable : <a href="{depot}/issues/new/choose">signalez-le</a>{ou_ecrivez(cfg)}.
@@ -203,12 +203,12 @@ def methode(cfg):
 <h1>Méthode et limites</h1>
 <h2>Principes</h2>
 <ul>
-<li><b>Citation d'abord.</b> Une mesure n'entre que citée mot pour mot, avec son URL (site du candidat ou du parti,
+<li><b>La citation d'abord.</b> Une mesure n'est retenue que si elle est citée mot pour mot, avec son lien (site du candidat ou du parti,
 programme, discours, entretien publié).</li>
 <li><b>Même méthode pour tous.</b> Même droit de référence (voté au 29 septembre 2026), mêmes barèmes, mêmes
 conventions : deux programmes qui promettent la même chose coûtent la même chose.</li>
-<li><b>Rien d'invérifiable.</b> Formules rejouables, paramètres sourcés. Ce qui ne se chiffre pas est dit, avec son
-sens probable, et mesuré par une note de précision.</li>
+<li><b>Tout se vérifie.</b> Chaque formule peut être rejouée et chaque paramètre a sa source. Quand une mesure ne se
+chiffre pas, c'est écrit, avec son sens probable, et la note de précision en tient compte.</li>
 <li><b>Aucun effet de second tour</b> dans le solde : la croissance, l'emploi ou les taux invoqués par les
 candidats sont décrits, pas comptés.</li>
 <li><b>Neutralité.</b> Le chiffrage ne juge pas l'opportunité des mesures.</li>
@@ -220,7 +220,7 @@ sources sont des déclarations publiques, pas un programme unique et stable.</li
 <li>Les chiffres sont des ordres de grandeur, au droit constant, avec des barèmes moyens. Une promesse vague est
 chiffrée selon sa lecture la plus probable, qui est écrite.</li>
 <li>La trajectoire de la dette repose sur des hypothèses macroéconomiques tirées de la base World Economic Outlook du FMI (données transformées), communes à tous.</li>
-<li>Une erreur est possible : signalez-la, elle sera corrigée et l'historique des corrections est public.</li>
+<li>Une erreur est possible. Signalez-la : elle sera corrigée, et l'historique des corrections est public.</li>
 </ul>
 <h2 id="production">Comment ce site est produit</h2>
 <p>Ce site est produit avec des modèles d'intelligence artificielle de la famille Claude, développés par Anthropic, à
@@ -265,7 +265,7 @@ def mentions(cfg):
 <p>Toute personne nommée sur ce site peut demander une correction ou exercer son droit de réponse (article 6 IV de
 la loi n° 2004-575 du 21 juin 2004) en écrivant au contact ci-dessus ou en ouvrant une
 <a href="{d}/issues/new/choose">issue publique</a>. Une erreur factuelle démontrée (citation inexacte, attribution
-erronée, lien mort, erreur de calcul) est corrigée dans les meilleurs délais ; l'historique des corrections est
+erronée, lien mort, erreur de calcul) est corrigée dans les meilleurs délais. L'historique des corrections est
 public dans le dépôt.</p>
 <h2>Données personnelles</h2>
 <p>Ce site est statique : il ne dépose aucun cookie, n'utilise aucun traceur, aucun service d'analyse et aucune

@@ -305,9 +305,9 @@ __COMMUN_CSS__
 footer{max-width:1200px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:.8rem}
 </style></head><body>__ENTETE__
 <header><h1>Et vous, quel budget ?</h1>
-<p class="m">Prenez les décisions que les candidats à la présidentielle 2027 mettent en débat. Chaque option est chiffrée avec
-la même méthode que le chiffrage des programmes : effet sur le solde public en 2032, par rapport au droit en vigueur, sans effet
-de second tour. Votre dette 2032 et les candidats dont vous êtes le plus proche se mettent à jour à chaque choix.</p>
+<p class="m">Prenez vous-même les décisions débattues par les candidats à la présidentielle 2027. Chaque option est chiffrée avec
+la même méthode que les programmes : effet sur le solde public en 2032 par rapport au droit en vigueur, sans effet
+de second tour. La dette en 2032 et les candidats les plus proches de vos choix se mettent à jour à chaque choix.</p>
 <div class="barre"><button id="raz">Tout remettre au droit actuel</button>
 <select id="depart" aria-label="Partir du programme d'un candidat"><option value="">Partir du programme de…</option></select>
 <button id="partager">Copier le lien de mon budget</button></div></header>
@@ -316,14 +316,14 @@ de second tour. Votre dette 2032 et les candidats dont vous êtes le plus proche
 <div><div class="petit">Dette publique en 2032</div><div class="gros" id="dette" aria-live="polite"></div><div class="petit" id="dette-ref"></div></div></div>
 <svg id="courbe" viewBox="0 0 380 170" role="img" aria-label="Trajectoire de la dette publique jusqu'en 2032 : votre budget, le droit actuel et les candidats"></svg>
 <h3>Où vous situez-vous ?</h3><svg id="carte" viewBox="0 0 380 300" role="img" aria-label="Carte des dépenses et des impôts : vous et les candidats"></svg>
-<div class="petit">Axe horizontal : dépenses publiques en plus ou en moins ; axe vertical : impôts et cotisations en plus ou en
-moins, en Md€ par an en 2032, d'après les leviers de cette page.</div>
+<div class="petit">De gauche à droite, les dépenses publiques en plus ou en moins. De bas en haut, les impôts et cotisations
+en plus ou en moins. En Md€ par an en 2032, d'après les choix de cette page.</div>
 <h3>Vos positions par thème</h3><div id="axes"></div>
 <h3>Candidats les plus proches de vos choix</h3><ol class="proches" id="proches"></ol>
-<div class="petit">Part des leviers où votre choix est celui du candidat, sur les seuls leviers où son programme prend position.</div></aside></main>
+<div class="petit">Part des décisions où vous faites le même choix que le candidat, parmi celles où son programme prend position.</div></aside></main>
 <div id="mini"><span>Solde 2032 <b id="mini-solde"></b></span><span>Dette <b id="mini-dette"></b></span><a href="#resultats">Résultats ↓</a></div>
-<footer>Données du __GENERE__. Montée en charge des mesures : convention commune ; trajectoire : hypothèses tirées du World Economic Outlook du FMI (données transformées), solde
-primaire de référence gelé. Méthode, sources et chiffrage détaillé des programmes : rapport de chiffrage du même dépôt.</footer>
+<footer>Données du __GENERE__. Les mesures montent en charge selon une convention commune. La trajectoire de la dette repose sur des hypothèses tirées du World Economic Outlook du FMI (données transformées),
+avec un solde primaire de référence gelé. La méthode, les sources et le chiffrage détaillé des programmes sont dans le rapport.</footer>
 __PIED__
 <script>
 const D = __DONNEES__;
@@ -461,7 +461,7 @@ function majResultats() {
   document.getElementById("axes").innerHTML = htmlAxes(etat);
   const cl = D.candidats.map(c => ({c, ...accord(c)})).filter(r => r.n).sort((a, b) => b.pct - a.pct);
   document.getElementById("proches").innerHTML = cl.map(r => `<li><div class="ligne"><span style="color:${esc(r.c.couleur)};font-weight:600">${esc(r.c.nom)}</span><span class="barre-acc" style="width:${r.pct * 0.6}px"></span>
-    <span class="petit">${Math.round(r.pct)} % d'accord sur ${r.n} levier${r.n > 1 ? "s" : ""}</span></div></li>`).join("");
+    <span class="petit">${Math.round(r.pct)} % d'accord sur ${r.n} décision${r.n > 1 ? "s" : ""}</span></div></li>`).join("");
   for (const [theme, ls] of Object.entries(parTheme)) {
     const t = ls.reduce((s, l) => s + effet(l, etat[l.id]).central, 0);
     const span = document.querySelector(`[data-i="${themes.indexOf(theme)}"]`); if (span) { span.textContent = t ? fmt(t) + " Md€" : ""; span.className = "t " + (t < 0 ? "neg" : t > 0 ? "pos" : ""); }

@@ -14,7 +14,7 @@
 
 - terme: PIB
   variantes: ["produit intérieur brut", "point de PIB", "points de PIB"]
-  definition: "Produit intérieur brut : valeur de tout ce qui est produit en France en un an. Projeté à environ 3 600 Md€ en 2032 ; un point de PIB vaut alors environ 36 Md€."
+  definition: "Produit intérieur brut : valeur de tout ce qui est produit en France en un an. Projeté à environ 3 600 Md€ en 2032. Un point de PIB vaut alors environ 36 Md€."
 
 - terme: solde public
   variantes: ["solde", "déficit public", "déficit"]
@@ -55,7 +55,7 @@
 
 - terme: RNB
   variantes: ["revenu national brut", "revenu national"]
-  definition: "Revenu national brut : PIB plus les revenus reçus de l'étranger, moins ceux versés à l'étranger. Environ 3 700 Md€ projetés en 2032 ; sert de base aux objectifs d'aide au développement."
+  definition: "Revenu national brut : PIB plus les revenus reçus de l'étranger, moins ceux versés à l'étranger. Environ 3 700 Md€ projetés en 2032. Il sert de base aux objectifs d'aide au développement."
 
 # ====================================================================================================
 # Impôts et prélèvements
@@ -63,7 +63,7 @@
 
 - terme: CSG
   variantes: ["contribution sociale généralisée"]
-  definition: "Contribution sociale généralisée : impôt prélevé sur presque tous les revenus (salaires, pensions, revenus du capital) pour financer la Sécurité sociale. Environ 157 Md€ ; un point sur toutes les assiettes rapporte environ 18 Md€."
+  definition: "Contribution sociale généralisée : impôt prélevé sur presque tous les revenus (salaires, pensions, revenus du capital) pour financer la Sécurité sociale. Elle rapporte environ 157 Md€. Un point sur toutes les assiettes rapporte environ 18 Md€."
 
 - terme: CRDS
   variantes: ["contribution au remboursement de la dette sociale"]
@@ -75,7 +75,7 @@
 
 - terme: accise
   variantes: ["accises", "accise sur les carburants", "accise sur l'électricité"]
-  definition: "Impôt calculé sur la quantité consommée (litre, MWh) et non sur le prix. Sur les carburants, elle rapporte environ 30 Md€ par an ; un centime par litre vaut environ 0,5 Md€."
+  definition: "Impôt calculé sur la quantité consommée (litre, MWh) et non sur le prix. Sur les carburants, elle rapporte environ 30 Md€ par an. Un centime par litre vaut environ 0,5 Md€."
 
 - terme: MWh
   variantes: ["mégawattheure"]
@@ -83,7 +83,7 @@
 
 - terme: impôt sur le revenu
   variantes: ["IR"]
-  definition: "Impôt progressif sur les revenus du foyer fiscal, calculé par tranches selon un barème. Il rapporte environ 95 Md€ par an ; une baisse de 1 % de l'impôt dû coûte environ 1 Md€."
+  definition: "Impôt progressif sur les revenus du foyer fiscal, calculé par tranches selon un barème. Il rapporte environ 95 Md€ par an. Une baisse de 1 % de l'impôt dû coûte environ 1 Md€."
 
 - terme: barème
   variantes: ["barème de l'impôt sur le revenu", "imposés au barème", "imposition au barème"]
@@ -126,7 +126,7 @@
 
 - terme: ISF
   variantes: ["impôt de solidarité sur la fortune"]
-  definition: "Impôt de solidarité sur la fortune : impôt annuel sur l'ensemble du patrimoine au-delà de 1,3 M€, remplacé en 2018 par l'IFI. Il rapportait 4,1 Md€ en 2017 ; le rétablir rapporterait environ 3,1 Md€ nets."
+  definition: "Impôt de solidarité sur la fortune : impôt annuel sur l'ensemble du patrimoine au-delà de 1,3 M€, remplacé en 2018 par l'IFI. Il rapportait 4,1 Md€ en 2017. Le rétablir rapporterait environ 3,1 Md€ nets."
 
 - terme: IFI
   variantes: ["impôt sur la fortune immobilière"]
@@ -164,7 +164,7 @@
 
 - terme: CVAE
   variantes: ["cotisation sur la valeur ajoutée des entreprises"]
-  definition: "Cotisation sur la valeur ajoutée des entreprises : impôt de production en voie de suppression. Elle rapporte encore environ 3,7 Md€ ; la loi prévoit sa disparition en 2030."
+  definition: "Cotisation sur la valeur ajoutée des entreprises : impôt de production en voie de suppression. Elle rapporte encore environ 3,7 Md€ et la loi prévoit sa disparition en 2030."
 
 - terme: C3S
   variantes: ["contribution sociale de solidarité des sociétés"]
@@ -184,7 +184,7 @@
 
 - terme: part salariale
   variantes: ["cotisations salariales", "cotisations prélevées sur les salaires"]
-  definition: "Cotisations retenues sur le salaire brut du salarié (surtout pour la retraite) ; elles font la différence entre salaire brut et salaire net, avec la CSG et la CRDS."
+  definition: "Cotisations retenues sur le salaire brut du salarié (surtout pour la retraite). Avec la CSG et la CRDS, elles font la différence entre salaire brut et salaire net."
 
 - terme: allègements de cotisations
   variantes: ["allègements", "allègements généraux", "allègements généraux de cotisations"]
@@ -222,7 +222,7 @@
 
 - terme: Smic
   variantes: ["SMIC", "salaire minimum"]
-  definition: "Salaire minimum interprofessionnel de croissance, revalorisé chaque année selon la loi (inflation et une partie des hausses de salaires). Environ 2,2 millions de salariés au Smic ; +1 % coûte environ 0,9 Md€ par an aux administrations publiques."
+  definition: "Salaire minimum interprofessionnel de croissance, revalorisé chaque année selon la loi (inflation et une partie des hausses de salaires). Environ 2,2 millions de salariés sont au Smic. Une hausse de 1 % coûte environ 0,9 Md€ par an aux administrations publiques."
 
 - terme: revalorisation légale
   definition: "Hausse du Smic imposée chaque 1er janvier par la loi, calculée sur l'inflation et la moitié du gain de pouvoir d'achat du salaire horaire des ouvriers et employés. Le gouvernement peut décider un « coup de pouce » en plus."
@@ -346,7 +346,7 @@
 # ====================================================================================================
 
 - terme: point d'indice
-  definition: "Valeur qui sert à calculer le traitement des fonctionnaires. Il n'évolue que sur décision du gouvernement ; +1 % coûte environ 1,9 Md€ bruts par an en 2032, 1,3 Md€ après prélèvements en retour."
+  definition: "Valeur qui sert à calculer le traitement des fonctionnaires. Il n'évolue que sur décision du gouvernement. Une hausse de 1 % coûte environ 1,9 Md€ bruts par an en 2032, 1,3 Md€ après prélèvements en retour."
 
 - terme: agents publics
   variantes: ["fonction publique", "fonctionnaires"]
@@ -424,7 +424,7 @@
 
 - terme: énergies renouvelables
   variantes: ["renouvelables", "éoliennes", "solaire"]
-  definition: "Énergies tirées de sources qui se renouvellent (vent, soleil, eau, biomasse). Selon la Commission de régulation de l'énergie, le soutien public à l'éolien et au solaire dépasse 6 Md€ en 2026 ; il varie avec les prix de l'électricité."
+  definition: "Énergies tirées de sources qui se renouvellent (vent, soleil, eau, biomasse). Selon la Commission de régulation de l'énergie, le soutien public à l'éolien et au solaire dépasse 6 Md€ en 2026. Il varie avec les prix de l'électricité."
 
 - terme: adaptation au climat
   variantes: ["adaptation"]
@@ -456,8 +456,8 @@
 
 - terme: APD
   variantes: ["aide publique au développement", "aide au développement"]
-  definition: "Aide publique au développement : dons et prêts aidés aux pays en développement. Environ 0,42 % du revenu national brut en 2025 ; l'objectif international est de 0,7 %."
+  definition: "Aide publique au développement : dons et prêts aidés aux pays en développement. Environ 0,42 % du revenu national brut en 2025, pour un objectif international de 0,7 %."
 
 - terme: Agence française de développement
   variantes: ["AFD"]
-  definition: "Banque publique qui finance des projets dans les pays en développement (santé, éducation, climat) ; elle met en œuvre une grande partie de l'aide française au développement."
+  definition: "Banque publique qui finance des projets dans les pays en développement (santé, éducation, climat). Elle met en œuvre une grande partie de l'aide française au développement."

@@ -2,16 +2,16 @@
 
 Les programmes de la présidentielle 2027 chiffrés en open data, et un jeu pour composer votre propre budget.
 
-Chiffrage indépendant et rejouable des programmes des candidats à l'élection présidentielle de 2027 : chaque mesure
-est citée verbatim avec son lien, son coût se recalcule à partir de barèmes publics communs, un second modèle d'IA vérifie
-le chiffrage, et l'effet cumulé est projeté sur la dette publique jusqu'en 2032.
+Chiffrage indépendant et rejouable des programmes des candidats à l'élection présidentielle de 2027. Chaque mesure
+est citée mot pour mot avec son lien et son coût se recalcule à partir de barèmes publics communs. Un second modèle d'IA
+vérifie le chiffrage, puis l'effet cumulé est projeté sur la dette publique jusqu'en 2032.
 
-**Le site** (rapport, simulateur budgétaire, jeu du budget) est déployé sur Vercel à chaque mise à jour de `main` : voir
-l'adresse dans la description du dépôt. Le site se génère entièrement depuis ce dépôt.
+**Le site** (rapport, simulateur budgétaire, jeu du budget) est déployé sur Vercel à chaque mise à jour de `main`. Son
+adresse figure dans la description du dépôt. Tout le site se génère depuis ce dépôt.
 
 **Périmètre.** Huit candidats ou candidats pressentis (voir `chiffrage/programmes/`), droit de référence voté au
 29 septembre 2026. Les programmes ne sont pas tous arrêtés : chaque fichier dit d'où viennent les mesures et
-leur niveau de précision. Le chiffrage donne des ordres de grandeur comparables, pas une prévision. Limites détaillées
+leur niveau de précision. Le chiffrage donne des ordres de grandeur comparables, pas une prévision. Les limites sont détaillées
 dans `chiffrage/README.md` et sur la page « Méthode et limites » du site.
 
 ## Produit avec l'IA
@@ -19,7 +19,7 @@ dans `chiffrage/README.md` et sur la page « Méthode et limites » du site.
 La collecte des programmes, le chiffrage, sa vérification, les textes du site et le code sont produits avec des modèles
 d'intelligence artificielle (Claude, d'Anthropic), sous la direction d'une personne qui a fixé la méthode et les règles.
 Les garde-fous sont automatiques et publics (citations comparées à leur source, formules rejouables, barèmes sourcés,
-recalcul indépendant des indicateurs), mais aucun économiste n'a encore relu les chiffrages : voir `AUDIT.md`.
+recalcul indépendant des indicateurs), mais aucun économiste n'a encore relu les chiffrages (voir `AUDIT.md`).
 
 ## Rejouer
 
@@ -54,8 +54,8 @@ schemas/               JSON Schema des sources, indicateurs, programmes et barè
 
 - **Même méthode pour tous** : même droit de référence (voté au 29 septembre 2026), mêmes barèmes, mêmes conventions
   (`chiffrage/REFERENCE.md`). Deux programmes qui promettent la même chose coûtent la même chose.
-- **Rien d'invérifiable** : citation verbatim, formule rejouable, paramètres sourcés ; ce qui ne se chiffre pas est
-  dit, avec son sens probable, et mesuré par une note de précision.
+- **Tout se vérifie** : chaque mesure est citée mot pour mot, chaque formule peut être rejouée et chaque paramètre a sa
+  source. Quand une mesure ne se chiffre pas, c'est écrit, avec son sens probable, et la note de précision en tient compte.
 - **Aucun effet de second tour** dans le solde : la croissance, l'emploi et les taux invoqués par les candidats sont
   décrits, pas comptés.
 - **Neutralité** : le chiffrage ne juge pas l'opportunité des mesures.
@@ -69,4 +69,4 @@ Une erreur, une citation inexacte, un lien mort, un barème contestable : ouvrez
 ## Licences
 
 Code sous MIT (`LICENSE`), textes et chiffrages sous CC BY 4.0, données sous leur licence d'origine, indiquée dans le
-catalogue : détail dans `LICENSES.md`. Pour citer le projet : `CITATION.cff`.
+catalogue. Le détail est dans `LICENSES.md`. Pour citer le projet : `CITATION.cff`.

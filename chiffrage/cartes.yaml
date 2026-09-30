@@ -108,7 +108,7 @@ cartes:
     suite_seulement: true
     personnage: syndicaliste
     levier: smic
-    texte: "Plus vite : 2 000 € bruts dès 2027, avec une aide aux petites entreprises ?"
+    texte: "Et aller plus vite, avec 2 000 € bruts dès 2027 et une aide aux petites entreprises ?"
     gauche: {libelle: "1 600 € nets en deux ans", option: 1600-net}
     droite: {libelle: "2 000 € bruts dès 2027", option: 2000-brut, suite: smic-1700-net}
   - id: smic-1700-net
@@ -335,7 +335,7 @@ cartes:
     suite_seulement: true
     personnage: maire-rural
     levier: impot-revenu
-    texte: "Plutôt aider les familles : une part fiscale entière dès le deuxième enfant ?"
+    texte: "Plutôt aider les familles, avec une part fiscale entière dès le deuxième enfant ?"
     gauche: {libelle: "Baisse classes moyennes", option: baisse-classes-moyennes}
     droite: {libelle: "Part entière au 2e enfant", option: quotient-deuxieme-enfant}
 
@@ -372,7 +372,7 @@ cartes:
     suite_seulement: true
     personnage: economiste
     levier: heures-supplementaires
-    texte: "Les exonérations d'heures sup coûtent 5,4 Md€ par an ; certains économistes estiment qu'elles freinent l'embauche. On les impose comme les autres heures ?"
+    texte: "Les exonérations d'heures sup coûtent 5,4 Md€ par an. Certains économistes estiment qu'elles freinent l'embauche. On les impose comme les autres heures ?"
     gauche: {libelle: "Exonération actuelle", option: exoneration-actuelle}
     droite: {libelle: "Imposer comme les autres", option: fiscalisation}
 
@@ -430,7 +430,7 @@ cartes:
     suite_seulement: true
     personnage: directeur-budget
     levier: agences-dotations
-    texte: "Autre voie : baisser de 20 % certaines agences, les subventions aux associations et les dotations des régions et intercommunalités."
+    texte: "Autre possibilité : baisser de 20 % certaines agences, les subventions aux associations et les dotations des régions et intercommunalités."
     gauche: {libelle: "Audiovisuel et agences", option: agences-audiovisuel}
     droite: {libelle: "Baisse de 20 %", option: agences-subventions-dotations}
 
@@ -467,7 +467,7 @@ cartes:
     suite_seulement: true
     personnage: agriculteur
     levier: transition-ecologique
-    texte: "Le soutien public à l'éolien et au solaire dépasse 6 Md€ en 2026 (CRE). On arrête d'en signer de nouveaux, soit environ 3,5 Md€ d'économie en 2032 ?"
+    texte: "Le soutien public à l'éolien et au solaire dépasse 6 Md€ en 2026 (CRE). On arrête de signer de nouveaux contrats, soit environ 3,5 Md€ d'économie en 2032 ?"
     gauche: {libelle: "Budget actuel", valeur: 0}
     droite: {libelle: "Plus de nouveaux contrats", valeur: -3.5}
   - id: transition-plus
@@ -481,7 +481,7 @@ cartes:
     suite_seulement: true
     personnage: militante-ecologiste
     levier: transition-ecologique
-    texte: "Ou un plan massif : rail, fret, RER métropolitains, renouvelables. Environ 40 Md€ par an."
+    texte: "Ou un plan beaucoup plus large pour le rail, le fret, les RER métropolitains et les renouvelables ? Environ 40 Md€ par an."
     gauche: {libelle: "+8,5 Md€", valeur: 8.5}
     droite: {libelle: "+40 Md€", valeur: 40}
 

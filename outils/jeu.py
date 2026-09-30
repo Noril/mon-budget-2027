@@ -194,8 +194,8 @@ function avec(carte, cote) { return {...choix, [carte.levier]: valeur(carte, cot
 
 function accueil() {
   app.innerHTML = `<div class="accueil"><div class="pile" aria-hidden="true"><span></span><span></span><span></span></div><h1>Le jeu du budget</h1>
-    <p>Vous venez d'être élu·e. Chaque carte est une décision que les candidats mettent en débat. Glissez à gauche ou à droite :
-    votre programme se construit, et sa facture aussi.</p>
+    <p>Vous venez d'être élu·e. Chaque carte pose une question débattue par les candidats. Glissez-la à gauche ou à droite.
+    Votre programme se construit au fil des cartes, et sa facture avec lui.</p>
     <p class="petit">Montants chiffrés avec la même méthode que les programmes des candidats (effet sur le solde public en 2032, sans
     effet de second tour). Personnages fictifs.</p><button id="go">Commencer</button></div>`;
   document.getElementById("go").onclick = demarrer;
@@ -294,7 +294,7 @@ function fin() {
     <h3>Vos positions par thème</h3>${htmlAxes(choix)}
     <h3>Dépenses et impôts</h3>${carte(b)}
     <p><button id="retour">↶ Revenir à la dernière carte</button><button id="rejouer">Rejouer</button><a class="bt" href="${lien}">Ajuster dans le simulateur détaillé</a><button id="partager">Copier le lien</button></p>
-    <p class="petit">Chiffrage : effet sur le solde public en 2032 par rapport au droit en vigueur, sans effet de second tour ; trajectoire : hypothèses tirées du World Economic Outlook du FMI (données transformées). Données du ${esc(D.genere)}.</p></div>`;
+    <p class="petit">Les montants donnent l'effet sur le solde public en 2032 par rapport au droit en vigueur, sans effet de second tour. La trajectoire de la dette repose sur des hypothèses tirées du World Economic Outlook du FMI (données transformées). Données du ${esc(D.genere)}.</p></div>`;
   document.getElementById("rejouer").onclick = demarrer;
   document.getElementById("retour").onclick = annuler;
   document.getElementById("partager").onclick = () => navigator.clipboard?.writeText(new URL(lien, location.href).href);
