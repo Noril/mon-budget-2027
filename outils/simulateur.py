@@ -324,6 +324,7 @@ moins, en Md€ par an en 2032, d'après les leviers de cette page.</div>
 <div id="mini"><span>Solde 2032 <b id="mini-solde"></b></span><span>Dette <b id="mini-dette"></b></span><a href="#resultats">Résultats ↓</a></div>
 <footer>Données du __GENERE__. Montée en charge des mesures : convention commune ; trajectoire : hypothèses tirées du World Economic Outlook du FMI (données transformées), solde
 primaire de référence gelé. Méthode, sources et chiffrage détaillé des programmes : rapport de chiffrage du même dépôt.</footer>
+__PIED__
 <script>
 const D = __DONNEES__;
 const fmt = (x, s = true) => (s && x > 0 ? "+" : "") + x.toFixed(1).replace(".", ",").replace("-", "−");

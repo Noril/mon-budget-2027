@@ -86,7 +86,7 @@ AVIS_IA = ("Site produit avec des modèles d'intelligence artificielle (Claude, 
            "puisse vérifier.")
 
 
-def entete(actif: str, avis: bool = True) -> str:
+def entete(actif: str, avis: bool = False) -> str:
     liens = "".join(f'<a href="{h}"{" aria-current=page" if h == actif else ""}>{t}</a>' for h, t in LIENS[1:])
     bandeau = f'<p class="avis">{AVIS_IA} <a href="methode.html#production">Comment ce site est produit</a></p>' if avis else ""
     return f'<nav class="nav" aria-label="Sections du site"><a class="marque" href="index.html">Mon budget 2027</a>{liens}</nav>{bandeau}'
@@ -95,7 +95,7 @@ def entete(actif: str, avis: bool = True) -> str:
 
 def pied(genere: str) -> str:
     return (f'<footer class="pied"><span>Données du {html.escape(genere)}</span><a href="methode.html">Méthode et limites</a>'
-            '<a href="mentions-legales.html">Mentions légales</a><span>Contenu produit par intelligence artificielle, à vérifier sur les sources citées.</span><span>Textes et chiffrages sous CC BY 4.0. Police Luciole © Laurent Bourcellier et Jonathan Perez (CC BY 4.0)</span></footer>')
+            '<a href="mentions-legales.html">Mentions légales</a><span>Contenu entièrement produit par intelligence artificielle.</span><span>Textes et chiffrages sous CC BY 4.0. Police Luciole © Laurent Bourcellier et Jonathan Perez (CC BY 4.0)</span></footer>')
 
 
 def style() -> str:

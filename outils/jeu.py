@@ -109,7 +109,7 @@ __COMMUN_CSS__
   @keyframes tamponne{from{transform:rotate(-8deg) scale(1.9);opacity:0}to{transform:rotate(-8deg) scale(1);opacity:.9}}}
 svg{width:100%;height:auto;display:block}.grille{stroke:var(--line)}.axe{fill:var(--muted);font-size:10px}
 .barre-acc{height:6px;border-radius:3px;background:var(--acc);display:inline-block;vertical-align:middle;margin:0 6px}
-</style></head><body>__ENTETE__<main id="app"></main>
+</style></head><body>__ENTETE__<main id="app"></main>__PIED__
 <script>
 const D = __DONNEES__;
 const C = __CARTES__;
@@ -197,8 +197,7 @@ function accueil() {
     <p>Vous venez d'être élu·e. Chaque carte est une décision que les candidats mettent en débat. Glissez à gauche ou à droite :
     votre programme se construit, et sa facture aussi.</p>
     <p class="petit">Montants chiffrés avec la même méthode que les programmes des candidats (effet sur le solde public en 2032, sans
-    effet de second tour). Personnages fictifs. Cartes, chiffrages et textes produits avec l'IA (Claude) :
-    <a href="methode.html#production">comment</a>.</p><button id="go">Commencer</button></div>`;
+    effet de second tour). Personnages fictifs.</p><button id="go">Commencer</button></div>`;
   document.getElementById("go").onclick = demarrer;
 }
 function demarrer() {
@@ -306,7 +305,7 @@ accueil();
 
 
 def rendre(d: dict, cartes: dict) -> str:
-    return remplir(PAGE, THEME=theme.style(), ENTETE=theme.entete("jeu.html", avis=False), COMMUN_JS=COMMUN_JS, COMMUN_CSS=COMMUN_CSS,
+    return remplir(PAGE, THEME=theme.style(), ENTETE=theme.entete("jeu.html"), PIED=theme.pied(d["genere"]), COMMUN_JS=COMMUN_JS, COMMUN_CSS=COMMUN_CSS,
                    DONNEES=json_pour_script(d), CARTES=json_pour_script(cartes))
 
 
