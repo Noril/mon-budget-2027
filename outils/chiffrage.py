@@ -252,7 +252,7 @@ def trajectoires(agregats: list[dict]) -> dict:
 
 def _md(x: float | None, signe: bool = True) -> str:
     if x is None:
-        return "—"
+        return "n.d."
     if signe and abs(x) < 0.05:
         return "0,0"
     return (f"{x:+.1f}" if signe else f"{x:.1f}").replace(".", ",").replace("-", "−")
@@ -276,16 +276,16 @@ def rapport_md(agregats: list[dict], traj: dict) -> str:
             f"{_md(a['couts'])} | {_md(a['gains'])} | {_md(a['croisiere']['central'])} "
             f"[{_md(a['croisiere']['bas'])} ; {_md(a['croisiere']['haut'])}] | "
             f"{_md(d['central'][-1]['dette'], False)} [{_md(d['bas'][-1]['dette'], False)} ; {_md(d['haut'][-1]['dette'], False)}] | "
-            f"{ann.get('texte', '—')} |"
+            f"{ann.get('texte', 'aucun chiffrage global publié')} |"
         )
     for a in agregats:
         l += ["", f"## {a['candidat']} ({a['parti']})", "", "| Mesure | Domaine | Effet central | Fourchette | Confiance | Tiers | Vérif. |",
               "| --- | --- | --- | --- | --- | --- | --- |"]
         for m in sorted(a["mesures"], key=lambda m: (m["central"] is None, m["central"] or 0)):
             if m["chiffrable"]:
-                tiers = "; ".join(f"{t} {_md(v)}" for t, v in m["tiers"]) or "—"
+                tiers = "; ".join(f"{t} {_md(v)}" for t, v in m["tiers"]) or "aucun"
                 l.append(f"| [{m['libelle']}]({m['url']}) | {m['domaine']} | {_md(m['central'])} | "
-                         f"[{_md(m['bas'])} ; {_md(m['haut'])}] | {m['confiance']} | {tiers} | {m['verification'] or '—'} |")
+                         f"[{_md(m['bas'])} ; {_md(m['haut'])}] | {m['confiance']} | {tiers} | {STATUTS.get(m['verification'], 'non vérifiée')} |")
             else:
                 l.append(f"| [{m['libelle']}]({m['url']}) | {m['domaine']} | non chiffrable | {m['raison']} | | | |")
     return "\n".join(l) + "\n"
@@ -320,7 +320,7 @@ def _detail_note(nom: str, n: dict) -> str:
 
 
 def _pct(x: float | None) -> str:
-    return "—" if x is None else f"{round(100 * x)} %"
+    return "n.d." if x is None else f"{round(100 * x)} %"
 
 
 def _svg_dette(traj: dict, agregats: list[dict], couleurs: list[str] | None = None) -> str:
@@ -432,6 +432,10 @@ def _page(titre: str, corps: str) -> str:
 </main>{theme.pied(date.today().isoformat())}</body></html>"""
 
 
+STATUTS = {"ok": "confirmée", "corrige": "corrigée", "conteste": "contestée"}
+SENS = {"cout": "coût", "economie": "économie", "neutre": "neutre", "incertain": "incertain"}
+
+
 def _effet_deficit(solde: float) -> tuple[str, str]:
     """Montant positif et libellé explicite : un solde négatif est un déficit en plus, pas une économie."""
     if solde < -0.05:
@@ -455,7 +459,7 @@ def rapport_html(agregats: list[dict], traj: dict) -> str:
             f"<tr><td><a href='{e(page_programme(a['id']))}'>{e(a['candidat'])}</a><br><small>{e(a['parti'])}</small></td>"
             f"<td>{_badge(a['notes']['precision'])}</td><td>{_badge(a['notes']['confiance'])}</td>"
             f"<td class='n'><b>{_md(a['croisiere']['central'])}</b><br><small>[{_md(a['croisiere']['bas'])} ; {_md(a['croisiere']['haut'])}]</small></td>"
-            f"<td class='n'>{_md(a['indicatif']['central']) if a['nb_indicatives'] else '—'}<br><small>{a['sens_non_chiffrees']['cout']} coûts, "
+            f"<td class='n'>{_md(a['indicatif']['central']) if a['nb_indicatives'] else 'aucune'}<br><small>{a['sens_non_chiffrees']['cout']} coûts, "
             f"{a['sens_non_chiffrees']['economie']} économies probables</small></td>"
             f"<td class='n'><b>{_md(dg['central'][-1]['dette'], False)}</b><br><small>[{_md(dg['bas'][-1]['dette'], False)} ; {_md(dg['haut'][-1]['dette'], False)}]</small></td></tr>"
         )
@@ -490,15 +494,15 @@ def programme_html(a: dict, agregats: list[dict], traj: dict) -> str:
     for m in sorted(a["mesures"], key=lambda m: (m["central"] is None, m["central"] or 0)):
         lien = f"<a href='{_url_sure(m['url'])}'>{e(m['libelle'])}</a>" + _detail(m)
         if m["chiffrable"]:
-            tiers = "<br>".join(f"{e(t)} : {_md(v)}" for t, v in m["tiers"]) or "—"
+            tiers = "<br>".join(f"{e(t)} : {_md(v)}" for t, v in m["tiers"]) or "aucun"
             cls = "neg" if (m["central"] or 0) < 0 else "pos"
             rows.append(f"<tr><td>{lien}</td><td>{e(m['domaine'])}</td><td class='n {cls}'>{_md(m['central'])}</td>"
                         f"<td class='n'><small>[{_md(m['bas'])} ; {_md(m['haut'])}]</small></td><td>{e(m['confiance'] or '')}</td>"
-                        f"<td><small>{tiers}</small></td><td>{e(m['verification'] or '—')}</td></tr>")
+                        f"<td><small>{tiers}</small></td><td>{STATUTS.get(m['verification'], 'non vérifiée')}</td></tr>")
         else:
             rows.append(f"<tr class='nc'><td>{lien}</td><td>{e(m['domaine'])}</td><td colspan='5'><small>Non chiffrable : {e(m['raison'] or '')}"
-                        f"{' — sens probable : ' + e(m['sens']) if m.get('sens') else ''}"
-                        f"{' — ordre de grandeur indicatif : ' + _md(m['indicative']['central']) + ' [' + _md(m['indicative']['bas']) + ' ; ' + _md(m['indicative']['haut']) + '] (' + e(m['indicative']['lecture']) + ')' if m.get('indicative') else ''}"
+                        f"{'. Sens probable : ' + SENS.get(m['sens'], e(m['sens'])) if m.get('sens') else ''}"
+                        f"{'. Ordre de grandeur indicatif : ' + _md(m['indicative']['central']) + ' [' + _md(m['indicative']['bas']) + ' ; ' + _md(m['indicative']['haut']) + '] (' + e(m['indicative']['lecture']) + ')' if m.get('indicative') else ''}"
                         "</small></td></tr>")
     ordre = _ordre(agregats)
     i = next((k for k, x in enumerate(ordre) if x["id"] == a["id"]), 0)

@@ -400,7 +400,7 @@ function rendreLeviers() {
         for (const o of l.options) {
           const e = o.effet.central;
           h += `<label class="opt"><input type="radio" name="${esc(l.id)}" value="${esc(o.id)}" ${etat[l.id] === o.id ? "checked" : ""}>
-            <span>${esc(o.libelle)}</span><span class="eff ${e < 0 ? "neg" : e > 0 ? "pos" : ""}">${e ? fmt(e) + " Md€" : "—"}</span>
+            <span>${esc(o.libelle)}</span><span class="eff ${e < 0 ? "neg" : e > 0 ? "pos" : ""}">${e ? fmt(e) + " Md€" : "0"}</span>
             <span class="tags">${tags(o)}</span></label>`;
         }
       } else {

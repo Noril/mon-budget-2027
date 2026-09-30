@@ -5,19 +5,19 @@ parti: Renaissance
 statut_candidature: déclaré le 23 mai 2026 (Mur-de-Barrez, Aveyron)
 date_collecte: '2026-09-29'
 sources:
-- titre: attalpresident.fr — Mes engagements (chantiers capitaux et dettes à résorber)
+- titre: attalpresident.fr, Mes engagements (chantiers capitaux et dettes à résorber)
   url: https://attalpresident.fr/programme
   date: consulté le 2026-09-29
-- titre: attalpresident.fr — Dette de l'État
+- titre: attalpresident.fr, Dette de l'État
   url: https://attalpresident.fr/programme/dette-de-letat
   date: consulté le 2026-09-29
-- titre: attalpresident.fr — Travail & salaires
+- titre: attalpresident.fr, Travail & salaires
   url: https://attalpresident.fr/programme/travail-salaires
   date: consulté le 2026-09-29
-- titre: attalpresident.fr — Éducation
+- titre: attalpresident.fr, Éducation
   url: https://attalpresident.fr/programme/education
   date: consulté le 2026-09-29
-- titre: attalpresident.fr — Frontières
+- titre: attalpresident.fr, Frontières
   url: https://attalpresident.fr/programme/frontieres
   date: consulté le 2026-09-29
 - titre: 'Entretien au Parisien : zéro déficit en 2037'
@@ -35,10 +35,10 @@ sources:
 - titre: Débat du Medef (compte rendu de campagne)
   url: https://attalpresident.fr/actualites/a-la-ref-gabriel-attal-grand-gagnant-du-premier-debat-de-la-presidentielle-2027
   date: '2026-08-27'
-- titre: LCP — Débat du Medef
+- titre: LCP, Débat du Medef
   url: https://lcp.fr/actualites/presidentielle-2027-ce-qu-il-faut-retenir-du-premier-debat-entre-les-candidats-440670
   date: '2026-08-27'
-- titre: Fondation IFRAP — Comparateur des programmes présidentielle 2027
+- titre: Fondation IFRAP, Comparateur des programmes présidentielle 2027
   url: https://www.ifrap.org/comparateurs/presidentielles-2027
   date: consulté le 2026-09-29
 annonce_candidat:
