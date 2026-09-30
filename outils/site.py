@@ -23,6 +23,11 @@ DONNEES = [RACINE / "data" / "chiffrage.json"]
 # Pages autonomes : scripts et styles en ligne, aucune ressource externe.
 CSP = "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
 VERCEL = {
+    # site statique déjà construit : pas de framework ni de compilation côté Vercel (le projet détecte sinon du Python)
+    "framework": None,
+    "buildCommand": "",
+    "installCommand": "",
+    "outputDirectory": ".",
     "cleanUrls": True,
     "trailingSlash": False,
     "headers": [{"source": "/(.*)", "headers": [

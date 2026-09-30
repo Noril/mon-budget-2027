@@ -57,7 +57,10 @@ jobs:
             echo "::warning::Secrets Vercel absents (VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID) : site construit, non déployé."
             exit 0
           fi
-          npx --yes vercel@latest deploy build/site --prod --yes --token "$VERCEL_TOKEN"
+          # copie hors du dépôt git : sinon Vercel attribue le déploiement à l'auteur du commit et peut le bloquer
+          cp -R build/site "$RUNNER_TEMP/site"
+          cd "$RUNNER_TEMP"
+          npx --yes vercel@latest deploy "$RUNNER_TEMP/site" --prod --yes --token "$VERCEL_TOKEN"
       - uses: actions/upload-artifact@v7
         with:
           name: site
