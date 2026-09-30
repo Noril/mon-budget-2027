@@ -355,6 +355,10 @@
               "minItems": 1
             }
           }
+        },
+        "economie_non_detaillee": {
+          "type": "boolean",
+          "description": "économie ciblée sur un périmètre nommé mais sans mesure détaillée (règle 6) : comptée pour moitié dans la lecture prudente"
         }
       },
       "if": {

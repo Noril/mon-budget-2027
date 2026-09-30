@@ -128,6 +128,9 @@ def agreger(p: dict) -> dict:
     croisiere = {cle: sum(m["effet_solde_primaire"][cle] for m in chiffrees) for cle in ("central", "bas", "haut")}
     couts = sum(min(m["effet_solde_primaire"]["central"], 0) for m in chiffrees)
     gains = sum(max(m["effet_solde_primaire"]["central"], 0) for m in chiffrees)
+    # lecture prudente : les économies ciblées sans mesure détaillée ne comptent que pour moitié
+    non_detaillees = sum(m["effet_solde_primaire"]["central"] for m in chiffrees if m.get("economie_non_detaillee"))
+    prudent = croisiere["central"] - 0.5 * non_detaillees
     non_chiffrees = [m for m in p["mesures"] if not m.get("chiffrable")]
     sens = {s: sum(1 for m in non_chiffrees if m.get("sens_probable") == s) for s in ("cout", "economie", "neutre", "incertain")}
     indicatives = [m["estimation_indicative"] for m in non_chiffrees if "estimation_indicative" in m]
@@ -139,6 +142,7 @@ def agreger(p: dict) -> dict:
         "nb_mesures": len(p["mesures"]), "nb_chiffrees": len(chiffrees),
         "nb_verifiees": sum(1 for m in chiffrees if m.get("verification", {}).get("statut") in ("ok", "corrige")),
         "croisiere": croisiere, "couts": couts, "gains": gains, "par_annee": totaux,
+        "economies_non_detaillees": non_detaillees, "prudent": prudent,
         "annonce": p.get("annonce_candidat"),
         "mesures": [
             {"id": m["id"], "libelle": m["libelle"], "domaine": m["domaine"], "chiffrable": m["chiffrable"],
