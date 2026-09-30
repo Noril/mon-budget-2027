@@ -276,12 +276,12 @@ public dans le dépôt.</p>
 <h2 id="donnees">Données personnelles</h2>
 <p>Ce site ne dépose aucun cookie, n'utilise aucun traceur, aucun service d'analyse et aucune ressource externe. Les
 choix faits dans le simulateur restent dans votre navigateur.</p>
-<p>À la fin du jeu, vous pouvez accepter, en cochant une case décochée par défaut, que vos choix soient enregistrés
-pour établir des statistiques sur chaque décision. Sont enregistrés uniquement : vos réponses aux décisions du jeu et
-le jour de la partie. Ne sont enregistrés ni votre adresse IP, ni l'heure, ni aucun cookie ou identifiant : une partie
-enregistrée ne peut pas être reliée à une personne. Ces données ne sont pas publiées et ne sont ni vendues ni cédées.
-Elles sont hébergées dans l'Union européenne (base Postgres Neon). Les résultats des joueurs ne constituent pas un
-sondage et ne sont pas représentatifs de l'opinion.</p>
+<p>À la fin du jeu, vos choix sont enregistrés automatiquement, de façon anonyme, pour établir des statistiques sur
+chaque décision. Sont enregistrés uniquement : vos réponses aux décisions du jeu et le jour de la partie. Ne sont
+enregistrés ni votre adresse IP, ni l'heure, ni aucun cookie ou identifiant : une partie enregistrée ne peut pas être
+reliée à une personne. Ces données ne sont pas publiées et ne sont ni vendues ni cédées. Elles sont hébergées dans
+l'Union européenne (base Postgres Neon). Les résultats des joueurs ne constituent pas un sondage et ne sont pas
+représentatifs de l'opinion.</p>
 <p>L'hébergeur du site peut journaliser les adresses IP des visites dans le cadre de son service ; le site ne les
 conserve pas.</p>
 <h2>Licences</h2>

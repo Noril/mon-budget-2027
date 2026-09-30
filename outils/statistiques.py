@@ -1,4 +1,4 @@
-"""Statistiques privées des parties du jeu enregistrées avec consentement (base Postgres Neon, jamais publiée).
+"""Statistiques privées des parties du jeu enregistrées de façon anonyme (base Postgres Neon, jamais publiée).
 
     # .env.local (ignoré par git) : DATABASE_URL="postgres://…", chaîne de connexion copiée depuis la console Neon
     # (Vercel → Storage → la base → Open in Neon → Connect). Vercel marque la variable comme sensible : `vercel env pull`
@@ -6,7 +6,7 @@
     uv run python -m outils.statistiques                      # répartition des choix, décision par décision
     uv run python -m outils.statistiques --croiser retraites-age taxes-energie
 
-Échantillon auto-sélectionné (les joueurs qui acceptent) : ce ne sont pas des sondages, à ne jamais présenter comme
+Échantillon auto-sélectionné (les joueurs du site) : ce ne sont pas des sondages, à ne jamais présenter comme
 l'opinion des Français (loi n° 77-808 du 19 juillet 1977 relative aux sondages).
 """
 

@@ -1,4 +1,4 @@
-// Fonction Vercel : enregistre, de façon anonyme et sur consentement, les choix d'une partie du jeu.
+// Fonction Vercel : enregistre, de façon anonyme, les choix d'une partie terminée du jeu.
 // Aucune donnée personnelle : ni adresse IP, ni cookie, ni identifiant, ni heure (le jour seulement).
 // Base Postgres (Neon, région UE) jointe par son API HTTP : aucune dépendance à installer.
 import { LEVIERS, VERSION } from "./_leviers.js";
@@ -45,7 +45,7 @@ export default async function handler(req, res) {
   const ip = (req.headers["x-forwarded-for"] || "").split(",")[0].trim();
   if (trop(ip)) return res.status(429).json({ erreur: "trop de requêtes" });
   const corps = typeof req.body === "string" ? JSON.parse(req.body || "{}") : req.body || {};
-  if (JSON.stringify(corps).length > 4000 || corps.consentement !== true) return res.status(400).json({ erreur: "requête refusée" });
+  if (JSON.stringify(corps).length > 4000) return res.status(400).json({ erreur: "requête refusée" });
   const choix = nettoyer(corps.choix);
   if (!choix || Object.keys(choix).length < 10) return res.status(400).json({ erreur: "partie incomplète" });
   try {
