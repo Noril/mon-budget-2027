@@ -585,12 +585,10 @@ mesures:
           bareme: facteur_pib_2027_2032
           unite: facteur PIB nominal 2027→2032
       explication: >-
-        Fourchette du candidat (Unédic, dans le champ des APU), projetée en 2032 au PIB nominal (les allocations
-        suivent les salaires). Aucun chiffrage Unédic récent de ces paramètres n'a été relu. Mise à jour du 30/09/2026
-        (barèmes communs), qui remplace les montants ci-dessus : aligné sur le barème
-        assurance_chomage_regles_2024_economie (4,7 Md€, Unédic juin 2024, au lieu de la fourchette du candidat 4 à 5
-        Md€), projeté de 2027 à 2032 (1,157) ; central 5,45 → 5,44, bas 4,84 → 4,63, haut 6,05 → 6,25. Même barème
-        qu'Attal (assurance-chomage-5md).
+        Économie des règles de juin 2024 (barème assurance_chomage_regles_2024_economie, 4,7 Md€ par an, Unédic, juin
+        2024 ; même barème qu'Attal, assurance-chomage-5md), dans le champ des APU, projetée de 2027 à 2032 au PIB
+        nominal (les allocations suivent les salaires) : 4,7 × 1,157 = 5,44 Md€. Bas et haut : bornes du barème (4,0 et
+        5,4 Md€) projetées, 4,63 et 6,25. Le candidat annonce 4 à 5 Md€ (tableau p. 35).
     confiance: faible
     verification:
       statut: ok
@@ -1048,11 +1046,10 @@ mesures:
           source: https://www.fipeco.fr/fiche/Limp%C3%B4t-sur-les-soci%C3%A9t%C3%A9s
           note: 'déductibilité de l''impôt supprimé de l''assiette de l''IS : retour mécanique'
       explication: >-
-        Rendement de la C3S (2024) projeté en 2032 au PIB nominal, net du surcroît d'IS (la C3S est déductible du
-        résultat). Bas : sans retour d'IS. Première année pleine 2028 (C3S assise sur le chiffre d'affaires N-1, payée
-        en mai). Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : retour d'IS aligné
-        sur le barème retour_is_impots_production (0,25 → 0,20, taux effectif moyen, comme les autres programmes) ;
-        central et haut −4,81 → −5,13.
+        Rendement de la C3S (barème c3s_rendement, 5,2 Md€ en 2024) projeté en 2032 au PIB nominal, net du surcroît
+        d'IS (la C3S est déductible du résultat ; barème retour_is_impots_production, 20 %, taux effectif moyen, comme
+        dans les autres programmes) : 5,2 × 1,2336 × 0,8 = 5,13 Md€. Haut = central. Bas : sans retour d'IS, 6,41.
+        Première année pleine 2028 (C3S assise sur le chiffre d'affaires N-1, payée en mai).
     confiance: haute
     verification:
       statut: ok
@@ -1166,10 +1163,9 @@ mesures:
           note: 'déductibilité de l''impôt supprimé de l''assiette de l''IS : retour mécanique'
       explication: >-
         Le livret affecte 2,8 Md€ à la mesure (la part de la participation légale, maintenue à 20 %, n'est pas
-        publiée) ; projeté en 2032, net du retour d'IS (le forfait social est déductible). Bas : sans retour d'IS ;
-        haut : montant non indexé. À affiner avec la ventilation Acoss du forfait social par assiette. Mise à jour du
-        30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : retour d'IS aligné sur le barème
-        retour_is_impots_production (0,25 → 0,20) ; central −2,54 → −2,71, haut −2,1 → −2,24.
+        publiée) ; projeté en 2032, net du retour d'IS (le forfait social est déductible ; barème
+        retour_is_impots_production, 20 %) : 2,8 × 1,2106 × 0,8 = 2,71 Md€. Bas : sans retour d'IS, 3,39 ; haut :
+        montant non indexé, 2,8 × 0,8 = 2,24. À affiner avec la ventilation Acoss du forfait social par assiette.
     confiance: faible
     verification:
       statut: ok
@@ -1227,10 +1223,9 @@ mesures:
           source: https://www.fipeco.fr/fiche/Limp%C3%B4t-sur-les-soci%C3%A9t%C3%A9s
           note: 'déductibilité de l''impôt supprimé de l''assiette de l''IS : retour mécanique'
       explication: >-
-        Montant du livret projeté en 2032, net du retour d'IS (CFE déductible). Recette des collectivités : coût pour
-        les APU qu'elle soit compensée ou non. Bas : sans retour d'IS ; haut : non indexé. Mise à jour du 30/09/2026
-        (barèmes communs), qui remplace les montants ci-dessus : retour d'IS aligné sur le barème
-        retour_is_impots_production (0,25 → 0,20) ; central −1,72 → −1,84, haut −1,43 → −1,52.
+        Montant du livret (1,9 Md€) projeté en 2032, net du retour d'IS (CFE déductible ; barème
+        retour_is_impots_production, 20 %) : 1,9 × 1,2106 × 0,8 = 1,84 Md€. Recette des collectivités : coût pour les
+        APU qu'elle soit compensée ou non. Bas : sans retour d'IS, 2,30 ; haut : non indexé, 1,9 × 0,8 = 1,52.
     confiance: faible
     verification:
       statut: ok
@@ -1617,14 +1612,13 @@ mesures:
           unite: facteur
           note: PIB nominal 2032 / 2024
       explication: >-
-        Même lecture et même source que la condition de cinq ans du RN (Institut Montaigne, médiane, projetée) : RSA,
+        Même lecture et même barème que la condition de cinq ans du RN (prestations_residence_5_ans_economie, 2,6 Md€
+        en 2024, médiane de l'Institut Montaigne), projeté en 2032 : 2,6 × 1,2336 = 3,21 Md€. Mesure visée : RSA,
         prime d'activité, APL et prestations de solidarité réservées aux étrangers justifiant cinq ans d'activité et
         de résidence légale. Appliquée aux nouveaux venus : l'effet monte en charge sur cinq ans et atteint en 2032 le
         stock des étrangers de moins de cinq ans de résidence. Le volet revenu familial (enfants de parents récemment
-        arrivés) n'est pas ajouté, faute de donnée. Haut : haut de la fourchette Montaigne (3,1 Md€) projeté. Bas : 0
-        (censure constitutionnelle possible, comme pour le RN). Mise à jour du 30/09/2026 (barèmes communs), qui
-        remplace les montants ci-dessus : aligné sur le barème prestations_residence_5_ans_economie (2,5 → 2,6 Md€,
-        médiane de l'encadré et de l'analyse détaillée de l'Institut Montaigne, comme Le Pen) ; central 3,08 → 3,21.
+        arrivés) n'est pas ajouté, faute de donnée. Haut : haut de la fourchette Montaigne (3,1 Md€) projeté, 3,82. Bas :
+        0 (censure constitutionnelle possible, comme pour le RN).
     chiffrages_tiers:
     - auteur: Institut Montaigne (législatives 2024, mesure RN équivalente)
       montant_md: 2.5
@@ -2303,7 +2297,7 @@ mesures:
       exclue (« ne vise aucune suppression de poste »). Dans l'entretien du 1er juillet 2026 : « Je ne remplacerai
       pas tous les fonctionnaires qui partiront à la retraite. Il y a une économie à faire d'à peu près 250 000
       postes » ; l'IFRAP résume « 250 000 à 300 000 postes ». Le livret précise que 125 000 sont redéployés sans
-      économie : retenir 125 000 en central, 250 000 en haut.
+      économie : retenir 125 000 départs non remplacés (les 250 000 comptent aussi les agents redéployés).
     chiffrable: true
     nature: economie
     effet_solde_primaire:
@@ -2690,14 +2684,14 @@ mesures:
           bareme: retour_prelevements_salaires_publics
           unite: part de la rémunération brute
       explication: >-
-        Hausse nette convertie en brut (hors cotisations employeurs), puis nette des prélèvements qui reviennent aux
-        APU (convention commune 1 : × (1 − 0,28) ; le CAS Pensions, transfert interne aux APU, ne compte plus).
-        Central : moyenne sur trois tiers de carrière (+135, +300, 0 €) ; bas : +217,5 € pour tous (moyenne début-
-        milieu), retour 0,25, plus ≈ 0,2 Md€ de pensions induites en 2032 (convention 2) ; haut : +135 € pour tous,
-        retour 0,32. Montants nominaux (point d'indice gelé, pas de projection). Privé sous contrat (≈ 140 000
-        enseignants rémunérés par l'État) non inclus : le coût réel serait plus élevé. Mise à jour du 30/09/2026
-        (barèmes communs), qui remplace les montants ci-dessus : ratio net/brut aligné sur le barème fp_ratio_net_brut
-        (0,8 → 0,81) ; central −1,24 → −1,23, bas −2,14 → −2,12, haut −1,09 → −1,08.
+        Hausse nette mensuelle convertie en brut hors cotisations employeurs (barème fp_ratio_net_brut, 0,81), puis
+        nette des prélèvements qui reviennent aux APU (convention commune 1 : × (1 − 0,28) ; le CAS Pensions,
+        transfert interne aux APU, ne compte pas), pour les 793 863 ETPT d'enseignants du public. Central : moyenne sur
+        trois tiers de carrière (+135, +300, 0 €, soit +145 €) : 793 863 × 145 × 12 / 0,81 × 0,72 = 1,23 Md€ ; bas :
+        +217,5 € pour tous (moyenne début-milieu), retour 0,25, plus ≈ 0,2 Md€ de pensions induites en 2032
+        (convention 2) : 2,12 ; haut : +135 € pour tous, retour 0,32 : 1,08. Montants nominaux (point d'indice gelé,
+        pas de projection). Privé sous contrat (≈ 140 000 enseignants rémunérés par l'État) non inclus : le coût réel
+        serait plus élevé.
     confiance: moyenne
     verification:
       statut: corrige

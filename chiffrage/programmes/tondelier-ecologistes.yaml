@@ -150,10 +150,12 @@ mesures:
         bareme: facteur_pib_2025_2032
         unite: facteur PIB nominal 2025→2032
     explication: >-
-      Fourchette publique 5 Md€ (après comportements, économistes cités par le Sénat) à 20 Md€ (initiateur, d'après le
-      même rapport) ; central 10 par convention. Montants non projetés en 2032 (patrimoines volatils, évitement
-      croissant avec le temps).
-      Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : même impôt que Mélenchon (taxe-zucman-2-pct) : recette statique (barème taxe_zucman_rendement_statique, 20 Md€) × part conservée après réactions (reponse_patrimoine_part_conservee, 0,26, CAE) × facteur_pib_2025_2032, au lieu d'un central conventionnel de 10 Md€ ; central 10,0 → 6,3, bas 5,0 → 3,9 (15 × 0,26), haut 20,0 → 24,2 (20 × 1,2106, sans réaction).
+      Même impôt et même méthode que chez Mélenchon (taxe-zucman-2-pct) : recette statique (barème
+      taxe_zucman_rendement_statique, 20 Md€ en 2025) × part conservée après les réactions des contribuables (barème
+      reponse_patrimoine_part_conservee, 0,26, CAE), projetée en 2032 (× 1,2106) : 20 × 0,26 × 1,2106 = 6,3 Md€.
+      Bas : bas du barème statique (15 Md€), mêmes réactions, non projeté : 15 × 0,26 = 3,9. Haut : recette statique
+      sans réaction, projetée : 20 × 1,2106 = 24,2. La fourchette publique citée par le Sénat (≈ 5 Md€ après
+      comportements, 20 Md€ selon l'initiateur) est comprise dans cet intervalle.
   chiffrages_tiers:
   - auteur: Groupe Écologiste et Social (Assemblée), d'après G. Zucman
     montant_md: 15
@@ -325,13 +327,13 @@ mesures:
         note: "ramener l'exonération de 75 % à 50 % de l'actif rend imposable un tiers de l'assiette exonérée"
     explication: >-
       Somme des quatre volets chiffrés sur des sources publiques (euros 2023-2024), projetée en 2032 au PIB nominal :
-      (1,5 + 2,0 + 4,0 + 1,4) × 1,2336 = 10,98 Md€. Bas = bornes basses (1,1 + 0,9 + 1,25 + 1,0 = 4,25) non projetées,
-      figurant l'évitement (anticipation des donations, départs) ; haut = bornes hautes (1,8 + 3,2 + 5,0 + 2,5 = 12,5)
-      projetées = 15,42. Le CAE (note n° 69, p. 11) trouve un ordre de grandeur comparable pour une réforme voisine
+      pacte Dutreil ramené à 50 %, soit un tiers du barème pacte_dutreil_cout (3,6 / 3 = 1,2 Md€), démembrement (2,0),
+      assurance-vie (4,0) et deux tranches supplémentaires (1,4) : (1,2 + 2,0 + 4,0 + 1,4) × 1,2336 = 10,61 Md€.
+      Bas = bornes basses (2,0 / 3 + 0,9 + 1,25 + 1,0 = 3,82) non projetées, figurant l'évitement (anticipation des
+      donations, départs) ; haut = bornes hautes (5,5 / 3 + 3,2 + 5,0 + 2,5 = 12,53) projetées = 15,46. Le CAE (note n° 69, p. 11) trouve un ordre de grandeur comparable pour une réforme voisine
       (Dutreil à 50 %, assurance-vie au barème, taxation de l'usufruit, barème inchangé) : « les droits supplémentaires
       seraient de l'ordre de 9 milliards d'euros », quand les DMTG rapportaient 15 Md€ (21,4 Md€ en 2026, barème
       dmtg_rendement). L'annonce de la candidate (10 Md€ dès 2027, 15 Md€ ensuite) est donc dans la fourchette.
-      Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : volet Dutreil lu comme un tiers du barème pacte_dutreil_cout (3,6 Md€, moyenne 2022-2024, bas 2,0, haut 5,5) au lieu d'un tiers de la moyenne 2023-2024 ; central 10,98 → 10,61, bas 4,25 → 3,82, haut 15,42 → 15,46.
   chiffrages_tiers:
   - auteur: Les Écologistes (chiffrage du parti)
     montant_md: 15
@@ -977,10 +979,11 @@ mesures:
         unite: facteur
         bareme: facteur_pib_2025_2032
     explication: >-
-      Seule la suppression de l'abattement de 10 % des retraités est chiffrée : 5,3 Md€ (bas 4,5 Md€ Cour des comptes,
-      haut 5,7 Md€ documents budgétaires 2025, source https://www.aladom.fr/actualites/secteur-service/11316/labattement-de-10-sur-les-pensions-histoire-dun-avantage-fiscal-que-personne-narrive-a-supprimer/),
-      projetée en 2032.
-      Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : aligné sur le barème abattement_10pct_pensions_cout (5,3 → 5,322 Md€, Cour des comptes NEB 2026) ; central 6,42 → 6,44 ; bas 5,45 → 5,65 (prévision PLF 2026, 4,665 Md€, × 1,2106).
+      Seule la suppression de l'abattement de 10 % des retraités est chiffrée : coût de l'abattement (barème
+      abattement_10pct_pensions_cout, 5,322 Md€, Cour des comptes, NEB 2026) projeté en 2032 : 5,322 × 1,2106 = 6,44 Md€.
+      Bas : prévision du PLF 2026 (4,665 Md€, bas du barème) : 5,65. Haut : 5,7 Md€ (documents budgétaires 2025,
+      source https://www.aladom.fr/actualites/secteur-service/11316/labattement-de-10-sur-les-pensions-histoire-dun-avantage-fiscal-que-personne-narrive-a-supprimer/)
+      projetés : 6,90.
   confiance: moyenne
   verification:
     statut: ok
@@ -1009,7 +1012,7 @@ mesures:
     support: programme (chap. 25, mesure 8)
   precision: partielle
   interpretation: >-
-    Économie sur la part CIR des grandes entreprises (environ 7 Md€ de CIR au total) moins le coût de la subvention et
+    Économie sur la part CIR des grandes entreprises (environ 8 Md€ de CIR au total) moins le coût de la subvention et
     des chaires.
   chiffrable: true
   nature: economie
@@ -1046,10 +1049,11 @@ mesures:
         bareme: facteur_pib_2026_2032
         unite: facteur PIB nominal 2026→2032
     explication: >-
-      Recentrage sur PME et ETI : économie de la part des grandes entreprises (41 % de 7,8 Md€ en 2023), projetée en
-      2032. Bas = 0 : le cofinancement à 50 % des projets menés avec un laboratoire et les 1 000 chaires, non chiffrés,
-      peuvent absorber l'économie.
-      Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : coût du CIR aligné sur le barème cir_cout (créance 2023 de 7,8 → 8,041 Md€, PLF 2026, comme Mélenchon) projeté avec facteur_pib_2026_2032 ; part des grandes entreprises sur cir_part_grandes_entreprises (0,41 de la seule créance recherche → 0,38 de la créance totale, MESRE) ; central et haut 4,09 → 3,62.
+      Recentrage sur PME et ETI : économie de la part des grandes entreprises. Coût du CIR (barème cir_cout, 8,041 Md€,
+      PLF 2026, comme chez Mélenchon) × part des grandes entreprises dans la créance totale (barème
+      cir_part_grandes_entreprises, 0,38, MESRE), projeté en 2032 (× 1,1842) : 8,041 × 0,38 × 1,1842 = 3,62 Md€.
+      Haut = central. Bas = 0 : le cofinancement à 50 % des projets menés avec un laboratoire et les 1 000 chaires, non
+      chiffrés, peuvent absorber l'économie.
   effets_retour: 'Délocalisation d''une partie de la R&D des grands groupes : non comptée.'
   confiance: faible
   verification:
@@ -1117,10 +1121,10 @@ mesures:
         source: https://www.fipeco.fr/fiche/Limp%C3%B4t-sur-les-soci%C3%A9t%C3%A9s
         note: 'déductibilité de l''impôt de l''assiette de l''IS : retour mécanique (même convention que C3S, CFE, forfait social chez Retailleau)'
     explication: >-
-      Maintien de la CVAE au-delà de 2030 au lieu de sa suppression votée (LFI 2025, inchangée par la LFI 2026) : 3,7 Md€ × 1,2106 ≈ 4,5 Md€ en
-      2032 (dérivation du barème), net du manque à gagner d'IS de 25 % (la CVAE est déductible du résultat imposable) :
-      3,36 Md€. Haut : sans retour d'IS. Montée : la baisse votée commence en 2028.
-      Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : retour d'IS aligné sur le barème retour_is_impots_production (0,25 → 0,20) ; central et bas 3,36 → 3,58.
+      Maintien de la CVAE au-delà de 2030 au lieu de sa suppression votée (LFI 2025, inchangée par la LFI 2026) : CVAE
+      restante (barème cvae_restante, 3,7 Md€) projetée en 2032 (× 1,2106 ≈ 4,48 Md€), nette du manque à gagner d'IS
+      (la CVAE est déductible du résultat imposable ; barème retour_is_impots_production, 20 %) : 3,7 × 1,2106 × 0,8 =
+      3,58 Md€. Bas = central. Haut : sans retour d'IS, 4,48. Montée : la baisse votée commence en 2028.
   confiance: moyenne
   verification:
     statut: corrige
@@ -1269,7 +1273,7 @@ mesures:
     : C et B seulement). Indexation du point sur l''inflation : à droit constant (REFERENCE.md), le point est gelé
     en référence, l''indexation coûte donc la masse indiciaire × l''inflation cumulée 2027-2032 (déflateur FMI, 11,03
     %), pour tous les agents, enseignants et chercheurs compris (leurs mesures dédiées ne portent que sur les hausses
-    au-delà). Les +10 % des catégories B et C s''ajoutent sans double compte (effet croisé 10 % × indexation compté depuis le 29/09). La
+    au-delà). Les +10 % des catégories B et C s''ajoutent sans double compte (effet croisé 10 % × indexation compté). La
     part des effectifs surestime la part de la masse salariale (catégorie C moins payée).'
   chiffrable: true
   nature: depense
@@ -1438,10 +1442,9 @@ mesures:
     date: 2026-07
     support: programme (chap. 14, mesure 7)
   precision: partielle
-  interpretation: 'Coût = économies Unédic des réformes 2019, 2021, 2023, 2025 (chiffrages Unédic). Recettes compensatoires
-    : bonus-malus renforcé sur les contrats courts (mesure 11), à chiffrer séparément. La réforme de février 2023
-    (contracyclicité, −25 % de durée) est comptée (chiffrage Unédic) ; la convention de 2024 et l''avenant de 2026 ne le
-    sont pas, ce qui minore le coût. Indexation des allocations sur l''inflation : la revalorisation de l''ARE
+  interpretation: 'Coût = économies Unédic des réformes abrogées. Recettes compensatoires : bonus-malus renforcé sur
+    les contrats courts (mesure 11). Les réformes 2019-2021 et de février 2023 (contracyclicité, −25 % de durée) sont
+    comptées (chiffrages Unédic) ; la convention de 2024 et l''avenant de 2026 ne le sont pas, ce qui minore le coût. Indexation des allocations sur l''inflation : la revalorisation de l''ARE
     relève d''une délibération annuelle de l''Unédic, pas de la loi ; à droit constant (REFERENCE.md), elle est gelée
     en référence et l''indexation promise coûte les allocations × l''inflation cumulée 2027-2032. Bonus-malus renforcé
     non chiffré.'
@@ -1472,7 +1475,7 @@ mesures:
         bareme: facteur_pib_2027_2032
         unite: facteur
         source: https://www.unedic.org/publications/evaluation-de-la-reforme-d-assurance-chomage-2019-2021
-        note: montant non projeté en central
+        note: économies des réformes (régime de croisière 2027) projetées en 2032
       reforme_2023:
         valeur: 4.5
         bareme: assurance_chomage_reforme_2023_economie
@@ -1495,17 +1498,14 @@ mesures:
         bareme: inflation_cumulee_2027_2032
         note: 'REFERENCE.md, « Indexations : droit constant »'
     explication: >-
-      Coût = économies Unédic de la réforme 2019-2021 (2,3 Md€/an) + réforme 2023 de contracyclicité (4,2 Md€/an en
-      régime de croisière, Unédic) + indexation des allocations sur l'inflation à droit constant (37,2 Md€ × 11,03 %
-      = 4,1 Md€) = 10,6. Haut : abrogation des réformes sans coût d'indexation (lecture « usage constant » : l'ARE
-      est revalorisée chaque année de fait, comme le barème de l'IR), 6,5. Bas : réformes projetées en 2032 (×
-      1,2106) + indexation sur les allocations 2027 (38,7 Md€), 12,14. Convention 2024 (≈ 0,4 Md€ par an selon
-      l'Unédic) et avenant de février 2026 non comptés, faute de chiffrage primaire relu. Mise à jour du 30/09/2026
-      (barèmes communs), qui remplace les montants ci-dessus : économies des réformes alignées sur les barèmes
-      assurance_chomage_reforme_2019_2021_economie (2,3 → 2,2) et assurance_chomage_reforme_2023_economie (4,2 →
-      4,5), toutes deux projetées de 2027 à 2032 (facteur 1,0 → 1,157) comme chez Glucksmann et Mélenchon ; central
-      −10,6 → −11,86 (6,7 × 1,157 + 37,2 × 11,03 %), bas −12,14 → −12,02 (indexation sur les allocations 2027, 38,7
-      Md€), haut −6,5 → −7,75 (réformes seules).
+      Coût = économies Unédic des réformes abrogées, projetées de 2027 à 2032 (× 1,157, comme chez Glucksmann et
+      Mélenchon) : réforme 2019-2021 (barème assurance_chomage_reforme_2019_2021_economie, 2,2 Md€/an) et réforme 2023
+      de contracyclicité (barème assurance_chomage_reforme_2023_economie, 4,5 Md€/an en régime de croisière) ; plus
+      l'indexation des allocations sur l'inflation à droit constant (37,2 Md€ × 11,03 % = 4,10 Md€) : (2,2 + 4,5) ×
+      1,157 + 4,10 = 11,86. Bas : indexation appliquée aux allocations 2027 (38,7 Md€ × 11,03 % = 4,27) : 12,02. Haut :
+      abrogation des réformes sans coût d'indexation (lecture « usage constant » : l'ARE est revalorisée chaque année
+      de fait, comme le barème de l'IR) : 7,75. Convention 2024 (≈ 0,4 Md€ par an selon l'Unédic) et avenant de
+      février 2026 non comptés, faute de chiffrage primaire relu.
   confiance: faible
   verification:
     statut: corrige
@@ -1682,7 +1682,7 @@ mesures:
     support: programme (chap. 31, mesure 4)
   precision: partielle
   interpretation: >-
-    Seuil de pauvreté à 60 % du revenu médian (environ 1 300 € par mois), contre environ 1 030 € pour l'ASPA en 2026.
+    Seuil de pauvreté à 60 % du revenu médian (environ 1 300 € par mois), contre environ 1 040 € pour l'ASPA en 2026.
     Minorant : les nouveaux entrants attirés par le plafond relevé et la hausse du minimum contributif (« progressivement
     ») ne sont pas comptés ; une hausse de 100 € du Mico coûterait 1,6 Md€ (barème retraites_minimum_contributif_hausse_100e).
     Seuil 2023 non revalorisé.
@@ -2635,7 +2635,7 @@ mesures:
     support: programme (chap. 23, mesure 10)
   precision: partielle
   interpretation: >-
-    Financement public du privé environ 12 Md€ (État et collectivités), part publique actuelle environ 75 % ; retour
+    Financement public du privé environ 10,4 Md€ en 2022 (État et collectivités), part publique actuelle environ 75 % ; retour
     d'élèves vers le public (coût) à prendre en compte en fourchette basse.
   chiffrable: true
   nature: economie
@@ -3198,8 +3198,7 @@ mesures:
     support: programme (chap. 51, mesure 2 ; chap. 52, mesure 2)
   precision: precise
   interpretation: >-
-    Linéaire sur dix ans : en 2032, 6/10 de la cible (à partir de 2027). Déduire les créations déjà prévues par la LOPJ
-    2023-2027. Revalorisations des bas salaires et aide juridictionnelle non chiffrées. La LOPJ 2023-2027 s'arrête en
+    Linéaire sur dix ans : en 2032, cinq années de recrutement (2028-2032), soit la moitié de la cible. Revalorisations des bas salaires et aide juridictionnelle non chiffrées. La LOPJ 2023-2027 s'arrête en
     2027 : pas de recouvrement.
   chiffrable: true
   nature: depense

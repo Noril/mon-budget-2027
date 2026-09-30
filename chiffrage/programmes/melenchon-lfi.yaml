@@ -200,7 +200,7 @@ mesures:
     à trancher. Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge)
     : 8,2 Md€ (minimum contributif) + 5 Md€ (retraites agricoles au SMIC, y compris retraités actuels). Les pensions complémentaires
     relèvent des partenaires sociaux : seul le complément par les régimes de base est compté. Le relèvement du minimum vieillesse
-    au seuil de pauvreté n''est pas chiffré (pas de barème ASPA) : sous-estimation.'
+    au seuil de pauvreté est chiffré à part (minimum-vieillesse-seuil-pauvrete).'
   chiffrable: true
   nature: depense
   effet_solde_primaire:
@@ -246,8 +246,8 @@ mesures:
       complète sous 1 700 € net croît avec la cible, et le barème vaut pour le Mico seul. Bas : chiffrage de l''équipe de campagne
       2022 transmis à l''Institut Montaigne (« Pension minimale à 1 400 euros pour une carrière complète : 24,8 Md€ », euros
       2027) × facteur_pib_2027_2032 (1,157) × 0,92 = 26,4 Md€ ; l''Institut Montaigne (12,05 Md€ pour le MICO, euros 2027,
-      soit 12,8 Md€ en 2032 net des retours) est sous le central et ne sert plus de borne (l''ancien bas le projetait à tort
-      depuis 2022 : ses montants sont en euros 2027). Haut : ancienne valeur linéaire du barème (8,4 Md€) × 0,92. Le minimum
+      soit 12,8 Md€ en 2032 net des retours) est sous le central et ne sert pas de borne. Haut : barème linéaire (8,4
+      Md€) × 0,92 = 7,74 Md€. Le minimum
       vieillesse au seuil de pauvreté est chiffré à part (minimum-vieillesse-seuil-pauvrete).'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
@@ -446,10 +446,11 @@ mesures:
     version annoncée pour le 6 novembre 2026). Mesure de recette : +1,25 point en 2031-2032. Montant revendiqué par LFI dans
     le contre-budget 2026 (octobre 2025, première année, avant montée en charge) : 3,2 Md€ la première année (+0,25 point)
     ; « Soumettre les dividendes, la participation, l''épargne salariale, les rachats d''actions à cotisations » : 15,5 Md€
-    (traité ici dans la même mesure pour éviter le double compte). Double compte : les cotisations sur les dividendes et les
-    rachats d''actions (15,5 Md€ avec l''épargne salariale dans le contre-budget) ne sont pas comptées ici, la base des dividendes
-    étant déjà visée par la fin du PFU et la taxe de 10 %. Une hausse de cotisation salariale réduit un peu l''assiette de
-    l''IR (retour_ir_cotisation_salariale, 0,16 : compté dans le haut seulement, la répartition salarié/employeur n''étant pas précisée).'
+    (seul le volet participation et épargne salariale est traité ici, dans la même mesure, pour éviter le double compte).
+    Les cotisations sur les dividendes et les rachats d''actions ne sont pas comptées ici, la base des dividendes étant
+    déjà visée par la fin du PFU et la taxe de 10 %. Une hausse de cotisation salariale réduit un peu l''assiette de l''IR
+    (barème retour_ir_cotisation_salariale : compté dans le haut seulement, à 0,14, la répartition salarié/employeur n''étant
+    pas précisée).'
   chiffrable: true
   nature: recette
   effet_solde_primaire:
@@ -497,15 +498,16 @@ mesures:
         note: le chiffrage Montaigne porte sur l'assiette 2019 (primes versées en 2019)
     explication: 'Deux volets. (1) +1,25 point de cotisation vieillesse en 2032 × rendement d''un point (6,2 Md€ en 2025,
       barème retraites_cotisation_vieillesse_1_point, valeur centrale retenue car la promesse ne précise pas le type de cotisation)
-      × PIB 2025→2032 = 9,4 Md€. (2) Cotisations sociales sur l''intéressement, la participation et l''épargne salariale :
-      6,9 Md€ (Institut Montaigne 2022, avec réaction des employeurs) × 1,2336 = 8,5 Md€. Bas = rendement patronal sous plafond
-      (4,8 Md€ le point, réduit par les allègements) pour le volet 1 ; il couvre aussi le surcoût pour les employeurs publics
-      d''une hausse de la part patronale (agents contractuels relevant du régime général), non chiffré faute de donnée ouverte
-      sur leur part dans l''assiette. Haut = rendement salarial déplafonné (7,6 Md€), net du retour négatif sur l''IR d''une
-      cotisation salariale (× (1 − 0,14), barème retour_ir_cotisation_salariale, bas de la fourchette 0,14-0,185 pour la borne
-      favorable d''une recette), soit 1,25 × 7,6 × 0,86 × 1,2106 = 9,9, et 9 Md€ × 1,4887 = 13,4 pour le volet 2. Volet 2 au central : 6,9 Md€ (assiette 2019) × PIB
-      2019 → 2032 (1,4887) = 10,3 Md€ ; bas : même montant projeté depuis 2024 seulement (× 1,2336 = 8,5), pour couvrir un
-      recul des versements. Montée : volet 1 par cinquièmes de 2028 à 2032, volet 2 plein dès 2028.'
+      × PIB 2025→2032 (× 1,2106) = 9,38 Md€. (2) Cotisations sociales sur l''intéressement, la participation et l''épargne
+      salariale : 6,9 Md€ (Institut Montaigne 2022, avec réaction des employeurs, assiette 2019) × PIB 2019→2032 (× 1,4887)
+      = 10,27 Md€. Total 19,65 Md€. Bas : volet 1 au rendement patronal sous plafond (4,8 Md€ le point, réduit par les
+      allègements : 7,26 Md€), qui couvre aussi le surcoût pour les employeurs publics d''une hausse de la part patronale
+      (agents contractuels relevant du régime général), non chiffré faute de donnée ouverte sur leur part dans l''assiette ;
+      volet 2 projeté depuis 2024 seulement (6,9 × 1,2336 = 8,51), pour couvrir un recul des versements ; total 15,77. Haut :
+      volet 1 au rendement salarial déplafonné (7,6 Md€), net du retour négatif sur l''IR d''une cotisation salariale (× (1 −
+      0,14), barème retour_ir_cotisation_salariale, bas de la fourchette 0,14-0,185 pour la borne favorable d''une recette),
+      soit 1,25 × 7,6 × 0,86 × 1,2106 = 9,89 ; volet 2 au haut de Montaigne (9 Md€ × 1,4887 = 13,40) ; total 23,29.
+      Montée : volet 1 par cinquièmes de 2028 à 2032, volet 2 plein dès 2028.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 8.0
@@ -543,8 +545,8 @@ mesures:
     le 29/09/2026) l''écrit : « Le SMIC à 1700€ net ». Effets APU directs : masse salariale publique, allègements généraux et prime d''activité, cotisations
     et impôts en retour, fonds de péréquation pour les TPE-PME « financé par le redéploiement des aides aux grandes entreprises
     » (contre-budget). Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en
-    charge) : 1,6 Md€ pour le SMIC à 1 600 € net. Décision de chiffrage : 1 700 € net en central, 1 600 € (AEC 2025) en borne
-    favorable.'
+    charge) : 1,6 Md€ pour le SMIC à 1 600 € net. Décision de chiffrage : 1 700 € net en central ; la lecture à 1 600 € (AEC
+    2025) n''est pas retenue comme borne, le haut étant égal au central (convention commune n° 7).'
   chiffrable: true
   nature: depense
   effet_solde_primaire:
@@ -590,7 +592,7 @@ mesures:
       : haut = central. Bas : haut du barème (1,7 Md€ par point, effet barème RGDU entier), 15,03 × 1,7 × 1,2106 = 30,9 Md€.
       Interaction : la suppression des exonérations au-dessus de 2 SMIC (exonerations-cotisations-2-smic) réduit la part
       des allègements (RGDU jusqu''à 3 SMIC) qu''une hausse du SMIC fait croître ; non déduite ici. La lecture à 1 600 € (AEC 2025,
-      +8,3 %) n''est plus la borne favorable. Hausse par décret dès l''été 2027.'
+      +8,3 %) n''est pas retenue comme borne favorable. Hausse par décret dès l''été 2027.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 2.7
@@ -912,15 +914,13 @@ mesures:
         unite: € net par mois
     explication: >-
       Généralisation des territoires zéro chômeur : 700 000 emplois (Institut Montaigne) × coût net pour les APU
-      observé par le comité scientifique (12 500 € par emploi en 2023, après coûts évités et recettes) majoré de la
-      hausse du SMIC à 1 700 € (+15 % du coût brut de 26 600 €), projeté en 2032 (× 1,2777) : 14,8 Md€. L'ancien
-      central reprenait le coût net de l'Institut Montaigne (25 000 − 4 600 € par emploi, évaluation IGF-IGAS de
-      2019), dépassé par l'évaluation de 2025 qui compte davantage de coûts évités. Dotation d'amorçage (6 200 € par
-      emploi créé, une fois) non comptée en régime de croisière. Bas : 1 000 000 emplois au haut de la fourchette
-      (13 700 €) ; haut : 400 000 emplois, 11 300 € et SMIC à 1 600 € (+8,3 %). Mise à jour du 30/09/2026 (barèmes
-      communs), qui remplace les montants ci-dessus : coûts TZCLD sur les barèmes tzcld_cout_net_emploi et
-      tzcld_cout_brut_emploi ; hausse du SMIC recalculée depuis smic_net_mensuel (0,1503 → 0,15026) : central −14,76
-      → −14,75.
+      observé par le comité scientifique TZCLD (barème tzcld_cout_net_emploi : 12 500 € par emploi en 2023, après
+      coûts évités et recettes), majoré de la hausse du SMIC à 1 700 € (1 700 / 1 477,93 − 1 = 15,03 % du coût brut
+      de 26 600 €, barème tzcld_cout_brut_emploi), projeté en 2032 (× 1,2777) : 14,75 Md€. L'évaluation de 2025,
+      qui compte davantage de coûts évités, remplace le coût net de l'Institut Montaigne (25 000 − 4 600 € par
+      emploi, évaluation IGF-IGAS de 2019). Dotation d'amorçage (6 200 € par emploi créé, une fois) non comptée en
+      régime de croisière. Bas : 1 000 000 emplois au haut de la fourchette (13 700 €) : 22,61 ; haut : 400 000
+      emplois, 11 300 € et SMIC à 1 600 € (+8,3 %) : 6,9.
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 14.3
@@ -1002,8 +1002,7 @@ mesures:
           à 1572 heures », recrutements compensatoires réduits de 15 à 45 % par des gains de productivité'
     explication: 'Coût pour les employeurs publics (recrutements compensant 35 heures de moins par agent), chiffré par l''Institut
       Montaigne net des cotisations et de la CSG qui reviennent aux APU (médiane 1,6 Md€). Pas de projection par le PIB : les
-      rémunérations publiques sont gelées à droit constant (conventions communes n° 1 et 11) ; l''ancien central (× 1,3643)
-      les projetait. Bas : 1,9 ; haut : 1,3 (hypothèses de gains de productivité de l''Institut). Effet sur le privé non budgétaire.'
+      rémunérations publiques sont gelées à droit constant (conventions communes n° 1 et 11). Bas : 1,9 ; haut : 1,3 (hypothèses de gains de productivité de l''Institut). Effet sur le privé non budgétaire.'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 1.6
@@ -1143,8 +1142,7 @@ mesures:
     à 60 % (1 216 € dans le texte, 1 288 € dans le contre-budget). Le chapitre 10 (s3) l''étend aux jeunes « détachés du foyer
     fiscal parental ». Montant revendiqué par LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en
     charge) : 10 Md€ pour le volet « jeunes », avec montée en charge. La hausse immédiate « des minima sociaux » (chapitre
-    9, s1) est absorbée par cette mesure. La hausse immédiate « des minima sociaux » (chapitre 9) est absorbée ici ; l''AAH
-    est chiffrée à part.'
+    9, s1) est absorbée par cette mesure ; l''AAH est chiffrée à part.'
   chiffrable: true
   nature: depense
   effet_solde_primaire:
@@ -1216,14 +1214,14 @@ mesures:
         bareme: facteur_pib_2023_2032
     explication: 'Deux volets. (1) Jeunes détachés du foyer parental (chapitre 10, s3) : estimation centrale de l''Institut
       Montaigne (12,28 Md€, garantie à 1 063 €) portée au seuil de l''AEC 2025 (× 1 216 / 1 063) puis projetée (× 1,3643)
-      = 19,2 Md€. L''ancien central retenait le scénario sans condition de ressources (21,4 Md€), que l''Institut présente
-      comme une hypothèse haute. (2) Garantie pour tous (chapitre 7, s4) : déficit de pauvreté, c''est-à-dire la somme à verser
+      = 19,2 Md€ ; le scénario sans condition de ressources (21,4 Md€), que l''Institut présente comme une hypothèse
+      haute, va dans le bas. (2) Garantie pour tous (chapitre 7, s4) : déficit de pauvreté, c''est-à-dire la somme à verser
       pour porter chaque ménage pauvre au seuil = 9,8 millions de personnes × 0,65 UC × 1 288 € × 19,2 % × 12 = 18,9 Md€ en
       2023, projetés (× 1,2777) = 24,1 Md€ ; convention : l''intensité médiane (Insee) sert d''écart moyen, le recours est
-      complet, sans réaction de l''offre de travail ; les DOM (hors champ Insee) ne sont pas comptés. L''ancien volet adultes
-      (dépense de RSA × (seuil / forfait − 1), 12,3 Md€) ne comptait que les allocataires actuels. Recouvrements : l''AAH au
-      SMIC et l''Aspa au seuil de pauvreté (mesures à part) comblent une partie de ce déficit (de l''ordre de 1 à 2 Md€, non
-      déduits). Bas : scénario jeunes sans condition de ressources (21,4 Md€ → 33,4) et 0,7 UC par personne : 59,4 ; haut
+      complet, sans réaction de l''offre de travail ; les DOM (hors champ Insee) ne sont pas comptés. Total 43,3 Md€.
+      Recouvrements : l''AAH au SMIC et l''Aspa au seuil de pauvreté (mesures à part) comblent une partie de ce déficit (de
+      l''ordre de 1 à 2 Md€, non déduits). Bas : scénario jeunes sans condition de ressources (21,4 Md€, soit 33,4 en 2032)
+      et 0,7 UC par personne : 59,4 ; haut
       : volet jeunes au montant du contre-budget (10 Md€ × 1,1842) et volet adultes limité aux allocataires du RSA (11,7
       Md€ × (1 216 / 651,69 − 1) × 1,2106 = 12,3) : 24,1.'
   chiffrages_tiers:
@@ -1933,17 +1931,15 @@ mesures:
         bareme: creche_cout_fonctionnement_place
         unite: € par place et par an (vers 2021)
     explication: >-
-      Institut Montaigne 2022 relu : 500 000 places en cinq ans, fonctionnement public avec gratuité des nouvelles
-      places (AEC 2025 : « Garantir la gratuité des crèches publiques ») 7,7 Md€ par an une fois les places
-      ouvertes, moins 2,25 Md€ de complément de libre choix du mode de garde évité, aux prix de 2021 (× 1,4437) =
-      7,9 Md€ ; plus l'investissement (17,5 Md€ sur cinq ans, coûts 2016 × 1,6224) dont la dernière tranche tombe en
-      2032 : 5,7 Md€. Total 13,6 Md€. L'ancien central retenait 9,5 Md€ par an de fonctionnement : c'est le
-      chiffrage de l'équipe de campagne 2022, pas celui de l'Institut. Bas : fonctionnement du candidat (9,5 Md€,
-      qui inclut la gratuité des places existantes, × 1,3643) et investissement haut (24 Md€) : 20,8 ; haut :
-      participation des familles maintenue (4,3 − 2,25) et investissement bas (11 Md€) : 6,5. Mise à jour du
-      30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : coût de fonctionnement lu comme 500 000
-      places × barème creche_cout_fonctionnement_place (15 381 €, CNAF) au lieu de l'arrondi 7,7 Md€ ; facteurs PIB
-      sur facteur_pib_2021_2032 et facteur_pib_2016_2032 ; central −13,55 → −13,53.
+      Méthode de l'Institut Montaigne (2022) : 500 000 places en cinq ans, fonctionnement public avec gratuité des
+      nouvelles places (AEC 2025 : « Garantir la gratuité des crèches publiques »), soit 500 000 places × 15 381 €
+      (barème creche_cout_fonctionnement_place, CNAF) = 7,69 Md€ par an une fois les places ouvertes, moins 2,25 Md€
+      de complément de libre choix du mode de garde évité, aux prix de 2021 (facteur_pib_2021_2032, × 1,4437) = 7,85
+      Md€ ; plus l'investissement (17,5 Md€ sur cinq ans, coûts 2016, facteur_pib_2016_2032, × 1,6224) dont la
+      dernière tranche tombe en 2032 : 5,68 Md€. Total 13,53 Md€. Les 9,5 Md€ par an de fonctionnement sont le
+      chiffrage de l'équipe de campagne 2022, pas celui de l'Institut : ils vont dans le bas. Bas : fonctionnement du
+      candidat (9,5 Md€, qui inclut la gratuité des places existantes, × 1,3643) et investissement haut (24 Md€) :
+      20,75 ; haut : participation des familles maintenue (4,3 − 2,25) et investissement bas (11 Md€) : 6,53.
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 9.5
@@ -2131,18 +2127,16 @@ mesures:
         bareme: classe_age_18_ans_2032
         unite: personnes
     explication: >-
-      Deux postes. (1) Solde : 680 000 conscrits × 9 mois × SMIC de 1 700 € net = 10,4 Md€ de 2026, projetés en 2032
-      (× 1,1842) = 12,3 Md€ ; la solde est comptée nette, les cotisations salariales et la CSG d'une solde brute
-      revenant aux APU. (2) Autres coûts de l'Institut Montaigne (encadrement, immobilier, alimentation, transport,
-      paquetage, permis de conduire, bilans), soit 19 − 10,8 − 0,5 d'économies (JDC, SMV) = 7,7 Md€ aux prix de
-      2021-2022, projetés (× 1,3643) = 10,5 Md€. Total 22,8 Md€. Bas : solde brute (× 1 867,02 / 1 477,93, service-
-      public.gouv.fr) = 15,6 Md€ et autres coûts au haut de Montaigne (19,5 − 10,8) sans économie = 11,9 Md€, soit
-      27,4 ; haut : solde au SMIC de 1 600 € net (AEC 2025) et autres coûts au bas de Montaigne (18 − 10,8 − 0,5),
-      soit 20,7. L'économie du SNU (0,13 Md€, contre-budget) est négligée. Mise à jour du 30/09/2026 (barèmes
-      communs), qui remplace les montants ci-dessus : effectif lu comme 85 % (Institut Montaigne) de la classe d'âge
-      2032 (barème classe_age_18_ans_2032, 818 565 naissances de 2014, comme le service civique de Glucksmann) au
-      lieu de 680 000 (classe d'âge 2021) : 695 780 conscrits ; central −22,83 → −23,11, bas −27,43 → −27,79, haut
-      −20,74 → −21,01.
+      Deux postes. (1) Solde : 85 % (taux de l'Institut Montaigne) de la classe d'âge 2032 (barème
+      classe_age_18_ans_2032, 818 565 naissances de 2014, comme le service civique de Glucksmann), soit 695 780
+      conscrits × 9 mois × SMIC de 1 700 € net = 10,6 Md€ de 2026, projetés en 2032 (× 1,1842) = 12,6 Md€ ; la
+      solde est comptée nette, les cotisations salariales et la CSG d'une solde brute revenant aux APU. (2) Autres
+      coûts de l'Institut Montaigne (encadrement, immobilier, alimentation, transport, paquetage, permis de conduire,
+      bilans), soit 19 − 10,8 − 0,5 d'économies (JDC, SMV) = 7,7 Md€ aux prix de 2021-2022, projetés (× 1,3643) =
+      10,5 Md€. Total 23,1 Md€. Bas : solde brute (× 1 867,02 / 1 477,93, service-public.gouv.fr) = 15,9 Md€ et
+      autres coûts au haut de Montaigne (19,5 − 10,8) sans économie = 11,9 Md€, soit 27,8 ; haut : solde au SMIC de
+      1 600 € net (AEC 2025) = 11,9 Md€ et autres coûts au bas de Montaigne (18 − 10,8 − 0,5) = 9,1 Md€, soit 21,0.
+      L'économie du SNU (0,13 Md€, contre-budget) est négligée.
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 19.0
@@ -2873,8 +2867,7 @@ mesures:
       l''accise sur l''électricité du 1er février 2024, plafonné à 10 % des tarifs réglementés (Sénat). L''abolir coûte 20 ×
       0,3 Md€ (barème accise_electricite_1_euro_mwh, tarifs normaux, ≈ 300 TWh) = 6,0 Md€ ; accise assise sur les volumes,
       sans projection par le PIB. Bas : haut du barème (TVA induite), 6,6 ; haut : ménages seuls (0,16 Md€ par €/MWh), 3,2,
-      proche des 3,5 Md€ revendiqués par LFI. L''ancien central (3,5 Md€ du contre-budget × 1,1842) n''avait pas de source
-      indépendante.'
+      proche des 3,5 Md€ revendiqués par LFI (montant sans source indépendante, non retenu).'
   confiance: faible
   verification:
     statut: corrige
@@ -2992,10 +2985,10 @@ mesures:
         valeur: 36.2
         unite: Md€ courants 2032 par point de PIB
         bareme: point_pib_2032
-    explication: '0,1 point de PIB 2032. Bas : +20 % (gratuité des musées en sus) ; haut : contre-budget (1,8 × 1,18). Borne
-      basse révisée (vérification) : dépense publique de culture COFOG 08.2 France 2024 = 0,646 % du PIB (Eurostat, indicateur
-      culture.depense_publique_culture@1.0.0) : passer à 1 % du PIB coûterait 0,354 point × 36,2 = 12,8 Md€ si la promesse
-      se lit sur ce périmètre (le contre-budget ne chiffre que 1,8 Md€ pour le ministère).'
+    explication: 'Écart de 0,1 point de PIB (dépenses culturelles publiques de 0,9 % du PIB selon l''Institut Montaigne) × 36,2
+      Md€ par point de PIB 2032 (barème point_pib_2032) = 3,62 Md€. Bas : lecture sur le périmètre COFOG 08.2, où la dépense
+      publique de culture est de 0,646 % du PIB en 2024 (Eurostat, indicateur culture.depense_publique_culture@1.0.0) : passer
+      à 1 % coûterait 0,354 point × 36,2 = 12,8 Md€. Haut : contre-budget (1,8 Md€ pour le ministère × 1,1842 = 2,13).'
   chiffrages_tiers:
   - auteur: Institut Montaigne (présidentielle 2022, mesure identique de L'AEC 2022)
     montant_md: 3.0
@@ -3174,7 +3167,7 @@ mesures:
   precision: vague
   interpretation: 'Le contre-budget 2026 précise : « Nous proposons de minorer d''autant la contribution française au budget
     de l''Union européenne », soit 9 Md€ d''économies (contribution nette). Unilatéral, contraire au règlement ressources
-    propres : fourchette de 0 à 9 Md€.'
+    propres : chiffré à 0 au central comme aux bornes (voir calcul).'
   chiffrable: true
   nature: economie
   effet_solde_primaire:
@@ -3628,7 +3621,7 @@ mesures:
     version annoncée pour le 6 novembre 2026). Réaffirmé à la Fête de l''Humanité (septembre 2026). Montant revendiqué par
     LFI dans le contre-budget 2026 (octobre 2025, première année, avant montée en charge) : 10 Md€. Double compte : le haut
     de l''Institut Montaigne inclut les avantages sur assiettes spécifiques (dont une partie du pacte Dutreil), chiffrés à
-    part dans pacte-dutreil ; notre central n''en tient pas compte. Contre-budget : 10 Md€ revendiqués.'
+    part dans pacte-dutreil ; notre central n''en tient pas compte.'
   chiffrable: true
   nature: recette
   effet_solde_primaire:
@@ -3723,13 +3716,10 @@ mesures:
         unite: facteur PIB nominal 2025→2032
         bareme: facteur_pib_2025_2032
     explication: >-
-      Coût des dépenses fiscales rattachées aux DMTG (majorant du pacte Dutreil, Cour des comptes) × part supprimée
-      (convention 0,5 pour « limiter fortement », fourchette 0,25 à 0,75) × PIB 2025→2032. Référence : la LFI 2026 a
-      déjà resserré le pacte (actifs somptuaires exclus, engagement individuel porté à six ans, selon Deloitte) ;
-      seul l'avantage résiduel est visé. Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-
-      dessus : assiette alignée sur le barème pacte_dutreil_cout (coût du Dutreil, 3,6 Md€, Cour des comptes 2025)
-      au lieu des 4,5 Md€ de toutes les dépenses fiscales rattachées aux DMTG ; central 2,72 → 2,18, bas 1,36 →
-      1,09, haut 4,09 → 3,27.
+      Coût du pacte Dutreil (barème pacte_dutreil_cout : 3,6 Md€, Cour des comptes 2025) × part supprimée
+      (convention 0,5 pour « limiter fortement ») × PIB 2025→2032 (× 1,2106) = 2,18 Md€. Bas : part supprimée 0,25
+      (1,09) ; haut : 0,75 (3,27). Référence : la LFI 2026 a déjà resserré le pacte (actifs somptuaires exclus,
+      engagement individuel porté à six ans, selon Deloitte) ; seul l'avantage résiduel est visé.
   confiance: faible
   verification:
     statut: ok
@@ -4654,8 +4644,7 @@ mesures:
     date: 2025-01
     support: 'programme : L''Avenir en commun, édition 2025 (melenchon2027.fr, copie Wayback du 2026-09-07)'
   precision: precise
-  interpretation: 'Volet non compté de pension-minimale-smic (« Le minimum vieillesse au seuil de pauvreté n''est toujours
-    pas chiffré »). Même lecture et mêmes paramètres que la promesse identique de Tondelier (retraites-petites-pensions) :
+  interpretation: 'Volet de la promesse sur les pensions chiffré à part de pension-minimale-smic, qui ne le couvre pas. Même lecture et mêmes paramètres que la promesse identique de Tondelier (retraites-petites-pensions) :
     Aspa portée au seuil de pauvreté à 60 % du niveau de vie médian pour les allocataires actuels, sans les nouveaux entrants
     (minorant).'
   chiffrable: true

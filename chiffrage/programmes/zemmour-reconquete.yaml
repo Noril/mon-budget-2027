@@ -84,8 +84,8 @@ notes: >-
   Md€, 64 ans, etc.) n'est retenu que lorsqu'il a été reconfirmé. Le contre-budget d'octobre 2025 (rejet de mesures du
   PLF 2026 : surtaxe d'IS, CDHR, hausse de la contribution à l'UE) n'est pas repris : il visait la loi de finances 2026,
   non le programme 2027. Chiffrage (phase 2) : quand le seul chiffre disponible est celui du candidat (ou de Sarah Knafo),
-  il est projeté en 2032 au PIB nominal, le central le reprend et le bas retient la moitié de l'économie (convention,
-  paramètre « convention du chiffrage ») ; les enveloppes d'économies non détaillées suivent la règle 6 (central 0, haut
+  il est projeté en 2032 au PIB nominal et le central le reprend ; pour une économie ciblée, le bas est nul (économie
+  non réalisée) et le haut égal au central (règle 6) ; les enveloppes d'économies non détaillées suivent la règle 6 (central 0, haut
   = écart d'affichage).
 mesures:
   - id: suppression-csg-activite
@@ -195,8 +195,8 @@ mesures:
       support: entretien publié (Sarah Knafo au JDD, propos recueillis par Jules Torres)
     precision: precise
     interpretation: >-
-      Droits de succession seuls (≈ 16 Md€ en 2024), droits de donation maintenus (lecture littérale) ; lecture haute
-      : droits de mutation à titre gratuit en entier (+ ≈ 4,9 Md€ de donations). Le contre-budget d'octobre 2025 chiffrait
+      Droits de succession seuls (≈ 17 Md€ en 2026), droits de donation maintenus (lecture littérale) ; lecture large
+      (borne basse du solde) : droits de mutation à titre gratuit en entier (+ ≈ 4,4 Md€ de donations). Le contre-budget d'octobre 2025 chiffrait
       déjà la suppression à 16 Md€. En 2022, É. Zemmour proposait seulement d'exonérer « une large majorité » des Français
       : reconfirmation par le candidat à obtenir.
     chiffrable: true
@@ -316,13 +316,12 @@ mesures:
           unite: Md€/an
           note: avance de la suppression déjà votée pour 2030, effet 2028 et 2029 seulement (effet_solde_primaire.annuel)
       explication: >-
-        Périmètre nommé (CVAE, C3S, CFE). 2032 : CFE (7,7 Md€ en 2024, FIPECO : « la cotisation foncière des entreprises
-        (7,7 Md€) ») et C3S (5,2 Md€, barème c3s_rendement), projetées au PIB, nettes du retour d'IS (20 %) :
-        (7,7 + 5,2) × 1,2336 × 0,8 = 12,73. La CVAE, supprimée en 2030 par la loi, ne coûte que son avance en 2028 et 2029
-        (3,7 Md€, barème cvae_restante, sans retour d'IS comme pour le RN) : −16,43 ces deux années (annuel). Bas : sans
-        retour d'IS, (7,7 + 5,2) × 1,2336 = 15,91. L'ancien bas (99,7 Md€, tous les impôts de production au sens de
-        l'Insee) est abandonné : le périmètre de la promesse est désormais connu.
-        Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : CFE alignée sur le barème cfe_rendement (7,7 → 8,031 Md€, DGFiP 2024) ; retour d'IS sur retour_is_impots_production ; central −12,73 → −13,06, bas −15,91 → −16,32, annuel 2028-2029 −16,43 → −16,76.
+        Périmètre nommé (CVAE, C3S, CFE). 2032 : CFE (barème cfe_rendement, 8,031 Md€, produit DGFiP 2024) et C3S
+        (barème c3s_rendement, 5,2 Md€), projetées au PIB, nettes du retour d'IS (barème retour_is_impots_production,
+        20 %) : (8,031 + 5,2) × 1,2336 × 0,8 = 13,06 Md€. La CVAE, supprimée en 2030 par la loi, ne coûte que son avance
+        en 2028 et 2029 (3,7 Md€, barème cvae_restante, sans retour d'IS comme pour le RN) : −16,76 ces deux années
+        (annuel). Haut = central. Bas : sans retour d'IS, (8,031 + 5,2) × 1,2336 = 16,32. Les autres impôts de
+        production au sens de l'Insee sont hors du périmètre nommé.
     confiance: faible
     verification:
       statut: corrige
@@ -408,11 +407,12 @@ mesures:
           source: https://www.fipeco.fr/fiche/Les-taxes-sur-les-carburants
           unite: c€/l (2026, SP95-E5)
       explication: >-
-        Baisse moyenne pondérée d'un tiers des taux (≈ 20,7 c€/l) × 0,54 Md€ par c€/l (accise 0,48 + TVA induite 0,06,
-        convention commune 6). Bas : borne haute du barème (0,55, TVA induite comprise), haut : borne basse de l'accise
-        (0,45, volumes en baisse) + TVA induite, soit 0,51. Les taux restent au-dessus des minima européens (33,0 et
-        35,9 c€/l).
-        Mise à jour du 30/09/2026 (barèmes communs), qui remplace les montants ci-dessus : tarifs d'accise alignés sur les barèmes accise_gazole_taux (59,4 → 60,75 c€/l) et accise_essence_taux (68,29 → 69,02 c€/l), en vigueur depuis le 1er août 2025 ; volumes et TVA induite sur les barèmes des carburants ; central −11,17 → −11,38, bas −11,38 → −11,59, haut −10,55 → −10,75.
+        Baisse d'un tiers des tarifs d'accise en vigueur depuis le 1er août 2025 (barèmes accise_gazole_taux, 60,75 c€/l,
+        et accise_essence_taux, 69,02 c€/l), pondérés par les volumes (gazole 34,7, essence 14,8 ; barèmes des
+        carburants) : ≈ 21,1 c€/l en moyenne, × 0,54 Md€ par c€/l (accise 0,48 + TVA induite 0,06, convention commune
+        6) = 11,38 Md€. Bas : borne haute du barème (0,55, TVA induite comprise), 11,59 ; haut : borne basse de l'accise
+        (0,45, volumes en baisse) + TVA induite, soit 0,51, 10,75. Les taux restent au-dessus des minima européens (33,0
+        et 35,9 c€/l).
     chiffrages_tiers:
       - auteur: Sarah Knafo (simulateur combienjegagne.fr)
         montant_md: -12
@@ -703,9 +703,10 @@ mesures:
       explication: >-
         Convention commune 1 (postes supprimés) : postes non remplacés, limités par les départs en retraite disponibles
         en cinq ans (136 700 par an, soit 683 500, 85 % de l'objectif) × coût d'un entrant pour le solde des APU
-        (31 000 € brut hors cotisations employeurs × (1 − 0,28) ≈ 22 300 €, comme les barèmes cout_*_apu). Les
-        cotisations employeurs vont à d'autres APU et ne comptent pas ; le chiffre d'Ecalle (30 à 40 Md€, coût moyen
-        chargé) est consigné en chiffrage tiers. Vérification (règle 6) : bas = 0, haut = central.
+        (31 000 € brut hors cotisations employeurs × (1 − 0,28) = 22 320 €, comme les barèmes cout_*_apu) : 683 500 ×
+        22 320 € = 15,26 Md€. Les cotisations employeurs vont à d'autres APU et ne comptent pas ; le chiffre d'Ecalle (30
+        à 40 Md€, coût moyen chargé) est consigné en chiffrage tiers. Bas = 0 (économie non réalisée), haut = central
+        (règle 6).
     chiffrages_tiers:
       - auteur: François Ecalle (Fipeco), cité par franceinfo
         montant_md: 35
@@ -777,8 +778,7 @@ mesures:
           note: chiffre de l'auteure
       explication: >-
         Les gains de productivité de l'IA sont le moyen de supprimer les postes de la mesure non-remplacement-800000-departs
-        : central = 0 pour éviter le double compte ; haut = montant affiché.
-        Vérification (règle 6) : bas = 0, haut = central.
+        : central, bas et haut = 0 pour éviter le double compte (règle 6 : haut = central).
     confiance: faible
     verification:
       statut: corrige
@@ -830,11 +830,11 @@ mesures:
           unite: facteur
           note: PIB nominal 2032 / 2024
       explication: >-
-        Exclusion de tous les étrangers des prestations non contributives : ordre de grandeur IFRAP, projeté (facteur
-        2024, légère sous-estimation). Recoupement : RSA 15,6 % des foyers hors UE (≈ 1,8 Md€), APL 2,4 Md€, prestations
-        familiales 1,6 Md€. Bas : nouveaux entrants seulement (droits acquis, Institut Montaigne 0,58). Risque de censure
-        constitutionnelle signalé, non déduit.
-        Vérification (règle 6) : bas = 0, haut = central.
+        Exclusion de tous les étrangers des prestations non contributives : ordre de grandeur IFRAP (6,5 Md€), projeté
+        avec le facteur 2024 (légère sous-estimation) : 6,5 × 1,2336 = 8,02 Md€. Recoupement : RSA 15,6 % des foyers hors
+        UE (≈ 1,8 Md€), APL 2,4 Md€, prestations familiales 1,6 Md€. Bas = 0 (règle 6 : économie non réalisée, par
+        exemple limitée aux nouveaux entrants, 0,58 selon l'Institut Montaigne, ou censurée), haut = central. Risque de
+        censure constitutionnelle signalé, non déduit du central.
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 17.5
@@ -1041,9 +1041,9 @@ mesures:
           unite: années
           note: soutien déjà engagé jusqu'en 2029 (« environ +10 GWe … entre 2026 et 2029 »)
       explication: >-
-        Même lecture que pour le RN : les contrats signés restent dus ; économie sur les contrats non engagés 2030-2032.
-        Haut : montant affiché (8 Md€).
-        Vérification (règle 6) : bas = 0, haut = central.
+        Même lecture et même barème que pour le RN : les contrats signés restent dus ; économie sur les contrats non
+        engagés 2030-2032 (1,04 Md€ × 3 ans = 3,12 Md€). Bas = 0 (économie non réalisée), haut = central (règle 6) : le
+        montant affiché (8 Md€) supposerait la rupture des contrats en cours.
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 8
@@ -1102,9 +1102,10 @@ mesures:
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
-        Central : crédits spécifiques (programme 147). Le chiffre de l'auteure (8 Md€) correspond au document de politique
-        transversale (20 Md€ sur 32 programmes, crédits de droit commun : écoles, police…) : borne haute.
-        Vérification (règle 6) : bas = 0, haut = central.
+        Central : crédits spécifiques (programme 147, 0,652 Md€) projetés : 0,6517 × 1,1842 = 0,77 Md€. Le chiffre de
+        l'auteure (8 Md€) correspond au document de politique transversale (20 Md€ sur 32 programmes, crédits de droit
+        commun : écoles, police…), hors du périmètre supprimable. Bas = 0 (économie non réalisée), haut = central (règle
+        6).
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 8
@@ -1161,10 +1162,10 @@ mesures:
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
-        Seuls les crédits de l'État sont une dépense publique (≈ 0,9 Md€ de ressources CEE de l'Anah n'en sont pas).
-        Le chiffre de l'auteure (6 Md€) dépasse le budget total de l'Anah. Bas : moitié (engagements pluriannuels déjà
-        pris, convention).
-        Vérification (règle 6) : bas = 0, haut = central.
+        Seuls les crédits de l'État sont une dépense publique (≈ 0,9 Md€ de ressources CEE de l'Anah n'en sont pas) :
+        barème anah_credits_etat (1,5353 Md€, PLF 2026, comme chez Le Pen) projeté, 1,5353 × 1,1842 = 1,82 Md€. Le
+        chiffre de l'auteure (6 Md€) dépasse le budget total de l'Anah. Bas = 0 (engagements pluriannuels déjà pris,
+        économie non réalisée), haut = central (règle 6).
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 6
@@ -1222,8 +1223,8 @@ mesures:
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
-        Subvention de l'État en CP projetée. Bas : moitié (engagements en cours, 2,09 Md€ d'AE). Haut : chiffre affiché.
-        Vérification (règle 6) : bas = 0, haut = central.
+        Subvention de l'État en CP (1,06 Md€) projetée : 1,06 × 1,1842 = 1,26 Md€. Bas = 0 (engagements en cours,
+        2,09 Md€ d'AE), haut = central (règle 6) ; le chiffre affiché (3,4 Md€) n'est pas retenu.
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 3.4
@@ -1344,8 +1345,8 @@ mesures:
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
-        Subvention de l'État projetée ; bas : moitié des missions reprises par les préfectures et l'assurance maladie.
-        Vérification (règle 6) : bas = 0, haut = central.
+        Subvention de l'État (0,627 Md€) projetée : 0,627 × 1,1842 = 0,74 Md€. Bas = 0 (missions reprises par les
+        préfectures et l'assurance maladie), haut = central (règle 6).
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 1
@@ -1411,9 +1412,9 @@ mesures:
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
-        Organismes nommés dont le budget est connu (Arcom, CESE, CESER). Les autres structures citées sont de petite
-        taille. Haut : chiffre affiché (1,066 Md€). Bas : missions de régulation reprises ailleurs.
-        Vérification (règle 6) : bas = 0, haut = central.
+        Organismes nommés dont le budget est connu (Arcom 0,0505, CESE 0,0341, CESER 0,055 Md€), projetés : 0,1396 ×
+        1,1842 = 0,17 Md€. Les autres structures citées sont de petite taille ; le chiffre affiché (1,066 Md€) n'est pas
+        retenu. Bas = 0 (missions de régulation reprises ailleurs), haut = central (règle 6).
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 1.066
@@ -1470,10 +1471,10 @@ mesures:
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
-        Central : crédits de la mission APD. L'APD au sens OCDE (13,0 Md€ en 2025) inclut la part européenne (déjà dans
-        la mesure sur l'UE), des prêts et des dépenses imputées (étudiants, réfugiés) : borne haute seulement. Bas :
-        engagements en cours (moitié).
-        Vérification (règle 6) : bas = 0, haut = central.
+        Central : crédits de la mission APD (3,67 Md€ de CP en 2026) projetés : 3,67 × 1,1842 = 4,35 Md€. L'APD au sens
+        OCDE (13,0 Md€ en 2025) inclut la part européenne (déjà dans la mesure sur l'UE), des prêts et des dépenses
+        imputées (étudiants, réfugiés) : elle n'est pas retenue. Bas = 0 (engagements en cours, économie non réalisée),
+        haut = central (règle 6).
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 14
@@ -1527,9 +1528,8 @@ mesures:
           unite: Md€
           note: chiffre de l'auteure (budget2026.fr)
       explication: >-
-        Barème psr_ue : baisse unilatérale juridiquement impossible (décision ressources propres, unanimité) ; central
-        et bas = 0, haut = chiffre affiché projeté.
-        Vérification (règle 6) : bas = 0, haut = central.
+        Barème psr_ue : baisse unilatérale juridiquement impossible (décision ressources propres, unanimité) ; central,
+        bas et haut = 0 (règle 6 : haut = central).
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 14
@@ -1649,9 +1649,9 @@ mesures:
           unite: facteur
           note: PIB nominal 2032 / 2024
       explication: >-
-        Même lecture que pour le RN : une partie des soins bascule vers l'hôpital et les soins urgents. Haut : barème
-        ame_depense haut projeté. Bas = 0.
-        Vérification (règle 6) : bas = 0, haut = central.
+        Même lecture et même barème que pour le RN : économie nette de l'AME ramenée à l'urgence vitale
+        (ame_aide_urgence_vitale_economie, 0,7 Md€ en 2024) projetée, 0,7 × 1,2336 = 0,86 Md€. Bas = 0 : une partie des
+        soins bascule vers l'hôpital et les soins urgents. Haut = central (règle 6).
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 1.3
@@ -1725,10 +1725,10 @@ mesures:
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
-        Chiffre de l'auteure projeté. Haut : 60 % des 3,07 Md€ du programme 177 (part des hébergés en situation irrégulière
-        selon le ministre du Logement, sans statistique officielle). Bas = 0 : principe d'accueil inconditionnel (code
-        de l'action sociale), reports vers d'autres dispositifs.
-        Vérification (règle 6) : bas = 0, haut = central.
+        Chiffre de l'auteure (0,7 Md€) projeté : 0,7 × 1,1842 = 0,83 Md€, sous le plafond du périmètre (60 % des 3,07 Md€
+        du programme 177, part des hébergés en situation irrégulière selon le ministre du Logement, sans statistique
+        officielle). Bas = 0 : principe d'accueil inconditionnel (code de l'action sociale), reports vers d'autres
+        dispositifs. Haut = central (règle 6).
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 0.7
@@ -1912,10 +1912,10 @@ mesures:
           note: >-
             PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
       explication: >-
-        Associations : « politisées » non défini, chiffre affiché ; presse et syndicats : crédits de l'État. La contribution
-        patronale de 0,016 % au fonds paritaire (0,12 Md€) est un prélèvement : sa suppression n'améliorerait pas le
-        solde.
-        Vérification (règle 6) : bas = 0, haut = central.
+        Associations : « politisées » non défini, chiffre affiché (1,5 Md€, milieu de 1 à 2 Md€) ; presse (0,178 Md€) et
+        syndicats (0,035 Md€) : crédits de l'État ; total projeté 1,713 × 1,1842 = 2,03 Md€. La contribution patronale
+        de 0,016 % au fonds paritaire (0,12 Md€) est un prélèvement : sa suppression n'améliorerait pas le solde. Bas =
+        0 (économie non réalisée), haut = central (règle 6).
     chiffrages_tiers:
       - auteur: Sarah Knafo (budget2026.fr)
         montant_md: 1.8
