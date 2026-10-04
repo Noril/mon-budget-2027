@@ -60,7 +60,7 @@ def libelles() -> dict[str, tuple[str, dict[str, str]]]:
 def repartition() -> None:
     lignes = parties()
     n = len(lignes)
-    print(f"{n} parties enregistrées (échantillon de joueurs volontaires, non représentatif)\n")
+    print(f"{n} parties enregistrées (joueurs du site : échantillon non représentatif)\n")
     if not n:
         return
     for id_levier, (question, options) in libelles().items():
