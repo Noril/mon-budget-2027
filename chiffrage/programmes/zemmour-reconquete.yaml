@@ -4,8 +4,10 @@ parti: Reconquête
 statut_candidature: >-
   Candidat annoncé : « Je suis candidat à la présidence de la République, je serai candidat à l'élection présidentielle
   » (Face à BFM, BFMTV, 17 septembre 2026) ; déclaration formelle attendue à l'automne 2026 (octobre selon son entourage).
-  Sarah Knafo, vice-présidente de Reconquête et eurodéputée, n'est pas candidate.
-date_collecte: '2026-09-29'
+  Au 7 octobre 2026, il « n'a pas encore officialisé sa candidature » (AFP) ; LCP (24 septembre) considère en revanche
+  qu'il l'a officialisée sur BFMTV le 17 septembre. Absent du recensement des candidats déclarés de franceinfo au 8 octobre
+  2026. Sarah Knafo, vice-présidente de Reconquête et eurodéputée, n'est pas candidate.
+date_collecte: '2026-10-11'
 sources:
   - titre: >-
       Budget : le plan de Sarah Knafo – 24 mesures, 140 Md€ d'économies par an (site budget2026.fr / budget2027.fr, relayé
@@ -60,6 +62,25 @@ sources:
     url: >-
       https://www.franceinfo.fr/vrai-ou-fake/vrai-ou-faux-sarah-knafo-a-t-elle-raison-de-denoncer-dans-son-livre-un-casse-du-siecle-orchestre-par-l-etat-au-detriment-des-contribuables_8175293.html
     date: '2026-09-08'
+  - titre: >-
+      L'essentiel (AFP) – Manifs lycéennes : Zemmour veut « faire payer les parents » (Sommet de l'élevage, 7 octobre
+      2026 ; « n'a pas encore officialisé sa candidature »)
+    url: >-
+      https://www.lessentiel.lu/fr/story/manifs-lyceennes-zemmour-veut-faire-payer-les-parents-jusqu-a-la-nuit-des-temps-103645882
+    date: '2026-10-07'
+  - titre: >-
+      France 3 Auvergne-Rhône-Alpes – Sommet de l'élevage : Le Pen, Zemmour, Ruffin et Dupont-Aignan en campagne (PAC,
+      « exception agricole française », sortie des accords de libre-échange)
+    url: >-
+      https://france3-regions.franceinfo.fr/auvergne-rhone-alpes/puy-de-dome/clermont-ferrand/sommet-de-l-elevage-selfies-serrage-de-mains-le-pen-zemmour-ruffin-et-dupont-aignan-en-campagne-3429441.html
+    date: '2026-10-07'
+  - titre: 'LCP – Présidentielle 2027 : la liste des candidats déjà en lice et des prétendants'
+    url: https://lcp.fr/actualites/presidentielle-2027-la-liste-des-candidats-deja-en-lice-et-des-pretendants-436373
+    date: '2026-09-24'
+  - titre: franceinfo – trombinoscope des candidats déclarés (31 candidats au 8 octobre 2026, sans Éric Zemmour)
+    url: >-
+      https://www.franceinfo.fr/elections/presidentielle/portraits-qui-sont-les-candidats-declares-a-l-election-presidentielle-de-2027_8208032.html
+    date: '2026-10-08'
 annonce_candidat:
   cout_md: null
   financement_md: 140
@@ -86,7 +107,14 @@ notes: >-
   non le programme 2027. Chiffrage (phase 2) : quand le seul chiffre disponible est celui du candidat (ou de Sarah Knafo),
   il est projeté en 2032 au PIB nominal et le central le reprend ; pour une économie ciblée, le bas est nul (économie
   non réalisée) et le haut égal au central (règle 6) ; les enveloppes d'économies non détaillées suivent la règle 6 (central 0, haut
-  = écart d'affichage).
+  = écart d'affichage). Veille du 29 septembre au 11 octobre 2026 : pas de déclaration formelle, de programme présidentiel
+  ni de chiffrage nouveau ; budget2026.fr affiche toujours « 140 milliards d'économies par an » et les mêmes 24 mesures
+  (consulté le 11 octobre). Déclarations relevées : au Sommet de l'élevage (7 octobre), rééquilibrage de la PAC en faveur
+  de la production, « une exception agricole française », « la sortie des accords de libre-échange mais pas du marché
+  commun européen » (France 3) ; face aux blocages de lycées, faire payer les parents des « casseurs », « quitte à leur
+  prendre sur leurs allocations sociales », et rétablir la loi anti-casseurs (AFP). Pistes, non intégrées faute de
+  paramètres : exception agricole et réorientation de la PAC (budget européen, effet national incertain) ; retenues sur
+  allocations (effet marginal).
 mesures:
   - id: suppression-csg-activite
     libelle: Suppression de la CSG sur les revenus d'activité

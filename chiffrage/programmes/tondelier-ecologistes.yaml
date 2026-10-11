@@ -6,8 +6,11 @@ statut_candidature: >-
   le parti dans une primaire de la gauche unitaire annoncée pour le 11 octobre 2026. Cette primaire est de facto compromise
   depuis juillet 2026 (le PS s'en retire le 9 juillet, Clémentine Autain se retire le 11 juillet). Au 29 septembre 2026,
   Tondelier maintient sa candidature et mène une « double campagne, pour l'écologie et pour l'union ». Elle est en retrait
-  partiel de la campagne après la naissance de son fils (vers le 18 septembre 2026).
-date_collecte: '2026-09-29'
+  partiel de la campagne après la naissance de son fils (vers le 18 septembre 2026). Au 11 octobre 2026, aucun scrutin
+  de primaire unitaire ne s'est tenu (Wikipédia : « projet non abouti », « de facto abandonné » depuis juillet 2026) ;
+  elle figure parmi les candidats déclarés à la présidentielle dans le recensement de franceinfo au 8 octobre 2026, comme
+  François Ruffin, qui « maintient sa candidature en son nom ».
+date_collecte: '2026-10-11'
 sources:
 - titre: >-
     Les Écologistes, « Pour une prospérité écologique. Le nouveau programme des Écologistes » (juillet 2026, 557 mesures,
@@ -69,6 +72,18 @@ sources:
 - titre: Fondation IFRAP, comparateur des programmes présidentielle 2027 (synthèse tierce)
   url: https://www.ifrap.org/comparateurs/presidentielles-2027
   date: consulté le 2026-09-29
+- titre: Wikipédia, Primaire de la gauche unitaire de 2026 (version du 11 octobre 2026, « projet non abouti »)
+  url: https://fr.wikipedia.org/wiki/Primaire_de_la_gauche_unitaire_de_2026
+  date: consulté le 2026-10-11
+- titre: franceinfo, trombinoscope des candidats déclarés à la présidentielle 2027 (31 candidats au 8 octobre 2026)
+  url: https://www.franceinfo.fr/elections/presidentielle/portraits-qui-sont-les-candidats-declares-a-l-election-presidentielle-de-2027_8208032.html
+  date: '2026-10-08'
+- titre: LCP, la liste des candidats déjà en lice et des prétendants (Tondelier « maintient sa candidature »)
+  url: https://lcp.fr/actualites/presidentielle-2027-la-liste-des-candidats-deja-en-lice-et-des-pretendants-436373
+  date: '2026-09-24'
+- titre: Public Sénat, politique familiale, que proposent les candidats (livret des Écologistes sur la santé reproductive)
+  url: https://www.publicsenat.fr/actualites/politique/politique-familiale-allocations-creches-que-proposent-les-candidats-a-la-presidentielle
+  date: '2026-10-09'
 - titre: Votons-2027, programme de Marine Tondelier (agrégateur, 161 mesures citées)
   url: https://votons-2027.fr/candidats/tondelier/programme
   date: mis à jour le 2026-09-29
@@ -103,7 +118,14 @@ notes: >-
   en texte (artefacts d'extraction corrigés : « TV A » → « TVA », espaces parasites, coupures de mots). Le site lesecologistes.fr
   est protégé par Cloudflare à la date de collecte : le PDF est cité par son archive Wayback (16 juillet 2026), identique
   à la version téléchargée. Recherche web interrompue (quota) : pas de chiffrage tiers du programme de juillet 2026 trouvé
-  hors IFRAP (synthèse sans montants).
+  hors IFRAP (synthèse sans montants). Veille du 29 septembre au 11 octobre 2026 : la primaire unitaire du 11 octobre
+  n'a pas eu lieu (aucun scrutin ni résultat ; Wikipédia, version du 11 octobre : « projet non abouti ») ; Tondelier reste
+  candidate déclarée (franceinfo, 8 octobre), de même que François Ruffin hors primaire. La primaire sociale-démocrate
+  (PS, Place publique, GRS) a désigné Raphaël Glucksmann le 11 octobre. Ajout : service public d'accompagnement à domicile
+  après la naissance et congé d'allaitement indemnisé, tirés d'un livret sur la santé reproductive cité par Public Sénat
+  (9 octobre) ; le livret lui-même n'a pas été retrouvé (lesecologistes.fr protégé par Cloudflare). Aucune réaction chiffrée
+  au PLF 2027 (présenté le 1er octobre) trouvée dans la période. Pistes : texte et chiffrage du livret santé reproductive ;
+  éventuel accord à gauche après la désignation de Glucksmann.
 mesures:
 - id: taxe-zucman
   libelle: Impôt plancher de 2 % sur les patrimoines de plus de 100 M€ (taxe Zucman), extension de l'exit tax
@@ -3710,3 +3732,28 @@ mesures:
       surestimait le recours (25 % des mères, moins de 5 % des pères à la PREPARE selon la même annexe) : central −2,0 →
       −0,6, bas −4,0 → −1,4, haut −0,8 → −0,3. Trace précédente (recalage-couverture, corrige) : volet séparé de conges-parentalite-egaux
       ; non compté dans le solde principal.'
+- id: accompagnement-post-naissance-allaitement
+  libelle: Service public de l'accompagnement à domicile après la naissance et congé d'allaitement choisi et indemnisé
+  domaine: famille
+  citation:
+    texte: Marine Tondelier propose de créer un « service public de l’accompagnement à domicile après la naissance » et de
+      construire « un congé parental mieux rémunéré, suffisamment long et comportant une part individuelle non transférable
+      pour chaque parent ».
+    url: https://www.publicsenat.fr/actualites/politique/politique-familiale-allocations-creches-que-proposent-les-candidats-a-la-presidentielle
+    date: '2026-10-09'
+    support: 'presse (Public Sénat, d''après le livret des Écologistes sur la santé reproductive) ; même article : « un congé
+      d’allaitement choisi et indemnisé »'
+  precision: vague
+  interpretation: 'Le volet congé parental recoupe conges-parentalite-egaux et conges-parentalite-indemnisation (programme
+    de juillet 2026) et n''est pas recompté. Restent deux dispositifs nouveaux : un service public de visites à domicile
+    après la naissance et un congé d''allaitement indemnisé, sans durée ni taux annoncés dans la source lue.'
+  chiffrable: false
+  raison_non_chiffrable: Ni durée ni taux d'indemnisation du congé d'allaitement, ni contenu (nombre de visites, professionnels)
+    du service public d'accompagnement ; le livret source n'a pas été retrouvé.
+  sens_probable: cout
+  verification:
+    statut: ok
+    par: veille-2026-10-11
+    date: '2026-10-11'
+    commentaire: Citation relue dans l'article de Public Sénat du 9 octobre 2026 (sous-chaîne exacte). Source primaire (livret)
+      non consultée ; à remplacer par le livret quand il sera accessible.
