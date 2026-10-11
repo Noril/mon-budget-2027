@@ -134,3 +134,34 @@ n'a pas pu être rejoué en ligne. Les points marqués « non vérifié » sont 
   6,9 % × assiette plafonnée + 0,4 % × assiette totale ≈ 40 à 43 Md€, à confirmer (Urssaf, assiette plafonnée).
 - Recette de la CVAE : 3,7 Md€ prélevés (FIPECO, 2025) contre 4,0 à 4,3 Md€ de recette budgétaire ; le rythme de
   recouvrement 2028-2029 et le PLF 2027 (non déposé) peuvent déplacer les coûts d'avance.
+
+## Veille du 11 octobre 2026 : à intégrer
+
+Repérée par recherche web seulement (pages non ouvertes : ni citation verbatim, ni chiffre relu). Rien n'est encore
+intégré aux programmes ; chaque point demande de lire la source primaire.
+
+- **Le Pen (RN), priorité haute.** Contre-budget 2027 et trajectoire 2027-2032 présentés le 6 octobre 2026
+  (M. Le Pen, J. Bardella, J.-P. Tanguy) : 125 mesures, 140 Md€ d'économies nettes en 2032 selon la plupart des
+  comptes rendus (125 Md€ selon d'autres), déficit sous 3 % en 2030. `le-pen-rn.yaml` repose encore sur le
+  contre-budget 2026 : à refaire sur le dossier de presse du 6 octobre (non trouvé en ligne à cette date). Mesures
+  citées par la presse : TVA à 5,5 % sur l'énergie (12,2 Md€ selon le RN), suppression CFE, CVAE et C3S (17,1 Md€),
+  remplacement de l'IFI par un impôt sur la fortune financière, fin des subventions aux renouvelables (plus de 5 Md€),
+  suppression de la plupart des agences (OFB, Anses, Ademe ; 3,4 Md€), contribution à l'UE plafonnée à 5 Md€,
+  retour à 62 ans (60 ans carrières longues), priorité nationale, prélèvement à la source de la TVA (fraude). La baisse
+  des cotisations salariales n'y figure pas : réexamen annoncé au congrès des 24-25 octobre. Sources :
+  [Public Sénat](https://www.publicsenat.fr/actualites/politique/140-milliards-deuros-deconomies-dici-2032-leffort-radical-propose-par-marine-le-pen-pour-redresser-les-f),
+  [CNews](https://www.cnews.fr/france/2026-10-06/125-milliards-deuros-deconomies-marine-le-pen-et-jordan-bardella-devoilent-ce),
+  [Institut de l'Entreprise](https://www.institut-entreprise.fr/wp-content/uploads/2026/10/Analyse-primaire-contre-budget-RN-Note-de-contexte-IDEP.pdf),
+  [Vert](https://vert.eco/chaleurs-actuelles/marine-le-pen-presente-le-contre-budget-du-rn-pour-2027-une-attaque-contre-les-renouvelables-et-les-agences-environnementales/).
+- **Philippe (Horizons).** France 2, 8 octobre 2026 : non-remplacement d'un fonctionnaire sur trois (le fichier n'a que
+  « 7 000 recrutements de moins en 2027 »), exonération de cotisations pour les salariés qui travaillent davantage,
+  refonte des allocations familiales ; 65 ans et chômage à 12 mois déjà intégrés. Source :
+  [Euronews](https://fr.euronews.com/2026/10/09/presidentielle-2027-edouard-philippe-mise-sur-le-travail-et-la-reduction-des-depenses-publ).
+- **Glucksmann (Place publique).** Primaire « Choisir 2027 » : 1er tour les 9-10 octobre, 2e tour les 16-17 octobre ;
+  résultat à reporter dans `statut_candidature`.
+- **Tondelier (Écologistes).** Primaire de la gauche unitaire tenue le 11 octobre 2026 (Tondelier, Ruffin, Autain) :
+  résultat à reporter.
+- **Zemmour (Reconquête).** Pas de déclaration formelle trouvée en octobre ; pas de programme publié.
+- **Droit de référence.** PLF et PLFSS 2027 présentés en Conseil des ministres le 1er octobre 2026 (54 Md€ d'effort,
+  déficit visé 5,0 %) : non votés, ils ne changent pas la référence (droit voté au 29 septembre 2026). À suivre :
+  vote de l'Assemblée prévu le 17 novembre.
