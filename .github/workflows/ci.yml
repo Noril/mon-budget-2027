@@ -29,7 +29,7 @@ jobs:
       - uses: astral-sh/setup-uv@v7
       - run: uv sync
       # Dernières données brutes et normalisées : une source injoignable depuis GitHub garde sa dernière version
-      - uses: actions/cache/restore@v4
+      - uses: actions/cache/restore@v6
         with:
           path: |
             data/brut
@@ -39,7 +39,7 @@ jobs:
       - name: Ingestion de toutes les sources actives
         run: uv run python -m pipelines.ingest
       # Sauvegardé même en cas d'échec : chaque source réussie garde sa version pour les exécutions suivantes
-      - uses: actions/cache/save@v4
+      - uses: actions/cache/save@v6
         if: always()
         with:
           path: |
