@@ -3,7 +3,7 @@ id: philippe-horizons
 candidat: Édouard Philippe
 parti: Horizons
 statut_candidature: déclaré (Le Point, 3 septembre 2024) ; campagne lancée le 5 juillet 2026 (meeting de l'Adidas Arena)
-date_collecte: '2026-09-29'
+date_collecte: '2026-10-11'
 sources:
 - titre: Avec Édouard 2027, Pour une France plus prospère
   url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
@@ -50,15 +50,43 @@ sources:
 - titre: Fondation IFRAP, Comparateur des programmes présidentielle 2027
   url: https://www.ifrap.org/comparateurs/presidentielles-2027
   date: consulté le 2026-09-29
+- titre: Avec Édouard 2027, Trois principales annonces d'Édouard Philippe à l'Heure de vérité
+  url: https://www.edouardphilippe.fr/actualites/trois-principales-annonces-dedouard-philippe-a-lheure-de-verite
+  date: '2026-10-08'
+- titre: franceinfo, Ce qu'il faut retenir de l'interview d'Édouard Philippe dans « L'Heure de vérité » (France 2)
+  url: https://www.franceinfo.fr/politique/edouard-philippe/immigration-retraites-allocations-familiales-parcoursup-ce-qu-il-faut-retenir-de-l-interview-d-edouard-philippe-dans-l-emission-l-heure-de-verite_8228416.html
+  date: '2026-10-08'
+- titre: franceinfo, direct de « L'Heure de vérité » avec Édouard Philippe
+  url: https://www.franceinfo.fr/replay-magazine/france-2/l-heure-de-verite/direct-presidentielle-2027-retraites-pouvoir-d-achat-dette-guerre-en-ukraine-edouard-philippe-est-l-invite-de-l-heure-de-verite-a-partir-de-20h40-suivez-l-emission-avec-nous_8228425.html
+  date: '2026-10-08'
+- titre: AFP (Bourse Direct), A « L'Heure de vérité », Philippe ébauche une France à nouveau « commandée et gouvernée »
+  url: https://www.boursedirect.fr/fr/actualites/categorie/politique/a-l-heure-de-verite-philippe-ebauche-une-france-a-nouveau-commandee-et-gouvernee-afp-b61ead8f6279ef25847a715f537619cb6675d12c
+  date: '2026-10-08'
+- titre: AFP (Bourse Direct), Édouard Philippe veut aider les familles « dès le premier enfant » et via une réduction d'impôt
+  url: https://www.boursedirect.fr/fr/actualites/categorie/politique/edouard-philippe-veut-aider-les-familles-des-le-premier-enfant-et-via-une-reduction-d-impot-afp-c3317a518b346155bf8f97a5589679a6ea926423
+  date: '2026-10-08'
+- titre: Euronews, Édouard Philippe mise sur le travail et la réduction des dépenses publiques
+  url: https://fr.euronews.com/2026/10/09/presidentielle-2027-edouard-philippe-mise-sur-le-travail-et-la-reduction-des-depenses-publ
+  date: '2026-10-09'
+- titre: LCP, Allocations familiales, Édouard Philippe propose 350 euros dès le premier enfant
+  url: https://lcp.fr/actualites/allocations-familiales-edouard-philippe-propose-350-euros-des-le-premier-enfant-443576
+  date: '2026-10-09'
 annonce_candidat:
   cout_md: null
   financement_md: null
-  texte: 'Pas de chiffrage global publié au 29 septembre 2026. Objectif affiché : « ramener le déficit de plus de 5 % à 2
+  texte: 'Pas de chiffrage global publié au 11 octobre 2026. Chiffrages partiels du 8 octobre 2026 : exonération d''impôt
+    des jeunes parents « qui coûte 3 Mds € par an financés par le plan de redressement des finances publiques » (non détaillé),
+    allocation familiale unique « à coût constant ». Objectif affiché : « ramener le déficit de plus de 5 % à 2
     % du PIB en fin de quinquennat » ; « deal fiscal » présenté comme neutre (50 Md€ de baisse d''impôts de production contre
     50 Md€ d''aides en moins) ; hausse des salaires enseignants présentée comme financée par la baisse démographique « sans
     dégrader les finances publiques ».'
   url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
-notes: 'Programme non publié en entier au 29 septembre 2026 : quatre pages « priorités » du site de campagne, discours du
+notes: 'Veille du 11 octobre 2026 : annonces de « L''Heure de vérité » (France 2, 8 octobre 2026) intégrées (communiqué
+  du site de campagne, franceinfo, AFP) : non-remplacement d''un départ à la retraite sur trois dans la fonction publique
+  (chiffré), heures au-delà de 35 h par accord exonérées (nouveau), zéro impôt sur le revenu pour les jeunes parents (nouveau,
+  3 Md€ selon le candidat), allocation familiale unique de 350 € (précisée, non chiffrable). La part fiscale dès le deuxième
+  enfant a disparu du site : retrait probable, maintenue (statut contesté) en attendant confirmation. Effort budgétaire annoncé : 50 % sur les dépenses sociales, 25 % sur les
+  collectivités (AFP), sans montant. Programme non publié en entier au 29 septembre 2026 : quatre pages « priorités » du site de campagne, discours du
   5 juillet, entretiens (Échos, Figaro, AFP, RTL). La réforme des retraites a été précisée le 29 septembre 2026 (65 ans et 45 annuités
   en moins de dix ans, calendrier non publié) ; son effet en 2032 reste la principale source d''incertitude. Les pages « priorités » ne sont pas datées. Le programme européen d''Horizons
   (2024) repris par certains agrégateurs n''est pas retenu. Phase 2 (29 septembre 2026) : chiffrage à droit constant (chiffrage/REFERENCE.md)
@@ -226,7 +254,10 @@ mesures:
   precision: partielle
   interpretation: 'Objectif de solde, pas une mesure : traité selon la règle 6 (enveloppe non détaillée). central = mesures
     identifiées ci-dessous, haut = effort implicite pour passer de ~5 % à 2 % du PIB, bas = 0. La règle d''or est une mesure
-    institutionnelle (voir regle-or). Le candidat exclut les dépenses militaires de la règle (IFRAP).'
+    institutionnelle (voir regle-or). Le candidat exclut les dépenses militaires de la règle (IFRAP). Le 8 octobre 2026
+    (France 2, AFP) : ramener « significativement » le déficit « en dessous de la barrière des 3%, c''est-à-dire 2% » en
+    fin de quinquennat, « en faisant porter l''effort pour 50% sur les dépenses sociales et à 25% sur les collectivités »
+    (formulation de l''AFP), sans montant.'
   chiffrable: false
   raison_non_chiffrable: 'Objectif de solde (2 % du PIB en 2032) sans montant d''économies annoncé : ce n''est pas une mesure.
     L''écart entre cet objectif et le solde obtenu par les mesures chiffrées se lit sur la trajectoire (outils.chiffrage)
@@ -537,6 +568,79 @@ mesures:
   raison_non_chiffrable: 'Bascule des cotisations vers un impôt à large assiette présentée comme à rendement constant, sans
     montant : effet nul par construction sur le solde (rien à chiffrer tant que l''asymétrie n''est pas documentée).'
   sens_probable: neutre
+- id: temps-travail-accords-heures-exonerees
+  libelle: Temps de travail fixé par accord d'entreprise, heures au-delà de 35 h défiscalisées et exonérées, plus aucune cotisation
+    patronale au-delà de 37 h
+  domaine: travail
+  citation:
+    texte: Concrètement, si une entreprise trouve un accord pour élever sa durée du travail au-dessus de 35 heures, toutes
+      les heures travaillées au-dessus de 35 heures seront défiscalisées et exonérées de cotisation et il n'y aura plus une
+      seule cotisation pour les entreprises au-delà de 37 heures.
+    url: https://www.edouardphilippe.fr/actualites/trois-principales-annonces-dedouard-philippe-a-lheure-de-verite
+    date: '2026-10-08'
+    support: site du candidat (communiqué sur l'émission « L'Heure de vérité », France 2)
+  precision: partielle
+  interpretation: 'Sur France 2 : « si vous travaillez plus longtemps, le salarié va gagner plus, parce qu''il n''y aura
+    plus de cotisations sociales. Et l''entreprise va pouvoir disposer d''un coût du travail qui sera un peu moins élevé
+    », « travailler deux heures de plus par semaine, c''est 1.000 euros de plus par an » au Smic (AFP). Droit en vigueur
+    : les heures supplémentaires sont déjà exonérées d''impôt sur le revenu (jusqu''à 7 500 € par an) et de cotisations
+    salariales, avec une déduction forfaitaire de cotisations patronales sous 250 salariés (barème hs_exoneration_cout).
+    Lecture : de 35 à 37 h, exonérations salariales et fiscales maintenues (coût nul par rapport à la référence) ; au-delà
+    de 37 h, exonération totale des cotisations patronales, nouvelle, dans les entreprises qui signent un accord (incitées
+    à le faire dès qu''elles pratiquent des heures supplémentaires structurelles). Effet statique sur les heures supplémentaires
+    existantes ; les heures nouvelles n''existent pas dans la référence. Plafond de 7 500 € de défiscalisation : son sort
+    n''est pas dit (non compté). Contributions (CSG, CRDS) supposées maintenues.'
+  chiffrable: true
+  nature: baisse_recette
+  effet_solde_primaire:
+    central: -2.08
+    bas: -5.21
+    haut: -1.3
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.5
+      '2029': 1
+      '2030': 1
+      '2031': 1
+      '2032': 1
+  calcul:
+    formule: -cotis_patronales_hs * part_au_dela_37h * f
+    parametres:
+      cotis_patronales_hs:
+        valeur: 4.3
+        unite: Md€/an (2025), cotisations patronales payées sur les heures supplémentaires existantes
+        source: https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf
+        note: 'même grandeur que la ligne seuil-zero-cotisation du programme Retailleau (livret LR « Le travail gagnant
+          », p. 21 : restitution aux entreprises sur les heures supplémentaires déjà réalisées), pour que la même promesse
+          ait le même coût ; recoupement : ≈ 0,9 milliard d''heures et 16,8 Md€ brut en 2023 (DARES, limites du barème
+          hs_exoneration_cout) × un taux de cotisations patronales effectif de l''ordre de 30 %, moins la déduction forfaitaire
+          existante (0,87 Md€, barème hs_deduction_forfaitaire_patronale)'
+      part_au_dela_37h:
+        valeur: 0.4
+        unite: part des heures supplémentaires existantes effectuées au-delà de 37 h par semaine
+        source: https://dares.travail-emploi.gouv.fr/publication/les-heures-supplementaires-remunerees-quels-salaries-quelles-entreprises
+        note: 'convention : aucune source ouverte ne ventile les heures supplémentaires par tranche (barème hs_exoneration_cout,
+          limites) ; 104 heures par an en moyenne par salarié concerné (DARES, 2023), soit environ 2,3 heures par semaine,
+          avec des durées collectives fréquentes à 39 h (4 heures, dont la moitié au-delà de 37 h)'
+      f:
+        valeur: 1.2106
+        bareme: facteur_pib_2025_2032
+        unite: facteur 2025→2032
+    explication: 'Effet statique : exonération totale des cotisations patronales sur les heures supplémentaires existantes
+      effectuées au-delà de 37 h (4,3 Md€ de cotisations patronales sur l''ensemble des heures supplémentaires en 2025 ×
+      0,4) dans des entreprises supposées toutes couvertes par un accord, projetée au PIB nominal : 2,08 Md€ en 2032. Bas
+      : lecture large (« exonérées de cotisation » couvre aussi les cotisations patronales de 35 à 37 h) : toutes les heures
+      supplémentaires existantes, 5,21. Haut : part au-delà de 37 h de 25 % : 1,30. Le passage de 35 à 37 h ne coûte rien
+      par rapport à la référence pour les heures déjà exonérées ; les heures nouvellement travaillées et les cotisations
+      qu''elles ne rapportent pas ne sont pas comptées (pas de recette dans la référence).'
+  effets_retour: 'Le candidat attend plus d''heures travaillées et plus de pouvoir d''achat (« Tout le monde y gagnera, on
+    travaillera plus ») ; effet volume non compté.'
+  confiance: faible
+  verification:
+    statut: ok
+    par: veille-2026-10-11
+    date: '2026-10-11'
+    commentaire: "Veille du 11/10/2026 : citation relue dans le communiqué du site de campagne (8 oct. 2026), recoupée par la dépêche AFP (Bourse Direct, Sud Radio), franceinfo et Euronews (« exonérer de cotisations sociales les salariés qui accepteraient de travailler deux heures supplémentaires par semaine »). Chiffrage nouveau : même grandeur de cotisations patronales sur les heures existantes que la mesure comparable du programme Retailleau ; part au-delà de 37 h par convention (non sourcée), d'où la confiance faible."
 - id: enseignants-plus-20pct
   libelle: Augmenter de 20 % la rémunération moyenne des enseignants sur le quinquennat
   domaine: éducation
@@ -642,8 +746,11 @@ mesures:
     date: consulté le 2026-09-29
     support: site du candidat
   precision: precise
-  interpretation: Le deuxième enfant ouvrirait une part entière au lieu d'une demi-part ; plafonnement du quotient familial
-    supposé inchangé.
+  interpretation: 'Le deuxième enfant ouvrirait une part entière au lieu d''une demi-part ; plafonnement du quotient familial
+    supposé inchangé. Au 11 octobre 2026, la mesure ne figure plus sur la page « Pour une France plus attentive à ses enfants
+    » (les deux autres mesures familiales y sont toujours), et la refonte de la politique familiale présentée le 8 octobre
+    2026 (ir-zero-jeunes-parents, aide-unique-familles) ne la mentionne pas : retrait probable, non confirmé. Maintenue
+    en attendant (référencée par chiffrage/simulateur.yaml) ; si elle est retirée, le solde s''améliore de 4,19 Md€.'
   chiffrable: true
   nature: baisse_recette
   effet_solde_primaire:
@@ -677,23 +784,88 @@ mesures:
   effets_retour: Effet nataliste invoqué ; non compté.
   confiance: moyenne
   verification:
-    statut: ok
-    par: verificateur-sonnet
-    date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Extrait Institut Montaigne relu via la Wayback Machine (3,4 Md€ en 2024, LexImpact, 8 % des foyers). Facteur 2024→2032 1,2336 cohérent. Mesure identique à celle du RN. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032 (valeur inchangée)."
+    statut: conteste
+    par: veille-2026-10-11
+    date: '2026-10-11'
+    commentaire: "Veille du 11/10/2026 : la citation n'est plus sur la page du site relue ce jour (aucune archive de la page au 29/09 dans la Wayback Machine) ; la refonte familiale du 8 octobre ne la reprend pas. Statut ok → conteste : mesure probablement retirée ; montants inchangés en attendant une confirmation (retrait : +4,19 Md€ sur le solde 2032, et mise à jour de chiffrage/simulateur.yaml, impot-revenu/quotient-deuxieme-enfant). Trace précédente (verificateur-sonnet, 29/09, ok) : Citation retrouvée dans la source (récupérée le 2026-09-29). Extrait Institut Montaigne relu via la Wayback Machine (3,4 Md€ en 2024, LexImpact, 8 % des foyers). Facteur 2024→2032 1,2336 cohérent. Mesure identique à celle du RN. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032 (valeur inchangée)."
 - id: aide-unique-familles
-  libelle: Fusionner les prestations familiales en une aide unique et universelle
+  libelle: Allocation familiale unique de 350 € par mois et par enfant dès le premier enfant, dégressive avec le revenu
   domaine: politique familiale
   citation:
-    texte: Créer une aide financière unique, lisible et universelle pour les familles, en fusionnant les dispositifs existants
-      trop complexes et trop éparpillés.
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants
-    date: consulté le 2026-09-29
-    support: site du candidat
-  precision: vague
+    texte: Pour les plus modestes, Édouard Philippe mettra en place une allocation familiale unique dès le premier enfant
+      de 350 euros par mois et par enfant, dégressive avec le revenu, en fusionnant une dizaine de dispositifs complexes
+      et illisibles. Cette proposition est à coût constant en rationalisant les dispositifs existants (allocations familiales,
+      supplément familial de traitement, prime de naissance…).
+    url: https://www.edouardphilippe.fr/actualites/trois-principales-annonces-dedouard-philippe-a-lheure-de-verite
+    date: '2026-10-08'
+    support: site du candidat (communiqué sur l'émission « L'Heure de vérité », France 2)
+  precision: partielle
+  interpretation: 'Précise l''« aide financière unique, lisible et universelle pour les familles » de la page « Pour une France
+    plus attentive à ses enfants » (toujours en ligne le 11 octobre 2026). Sur France 2 : « revoir totalement le système
+    des allocations familiales », « une allocation familiale unique qui permet de verser 350 € dès le premier enfant » (AFP,
+    8 oct. 2026). Montant maximal, dispositifs fusionnés (« une dizaine », trois nommés) et barème de dégressivité non publiés
+    ; le candidat la présente « à coût constant ». Le supplément familial de traitement des agents publics fusionné dans
+    une prestation : transfert entre APU, neutre en soi.'
   chiffrable: false
-  raison_non_chiffrable: 'Fusion sans barème : effet présumé nul à périmètre constant, trop vague pour être chiffré.'
+  raison_non_chiffrable: 'Barème de dégressivité et liste des dispositifs fusionnés non publiés : le coût dépend entièrement
+    de la pente de dégressivité. Ordre de grandeur : 350 € × 12 = 4 200 € par enfant et par an ; les seules allocations
+    familiales (13,8 Md€ en 2024, barème allocations_familiales_depense) financent ce montant plein pour environ 3,3 millions
+    d''enfants. La neutralité annoncée (« à coût constant ») n''est ni démontrée ni contredite par les éléments publiés.'
   sens_probable: incertain
+  verification:
+    statut: corrige
+    par: veille-2026-10-11
+    date: '2026-10-11'
+    commentaire: "Veille du 11/10/2026 : communiqué du site de campagne (8 oct. 2026) relu ; citation remplacée (350 € par mois et par enfant dès le premier enfant, dégressive avec le revenu, « à coût constant ») ; précision vague → partielle. Recoupé par l'AFP (Bourse Direct), franceinfo, LCP et Euronews (« dégressif en fonction de l'impôt sur le revenu »). Reste non chiffrable (dégressivité inconnue), sens incertain. Ancienne citation (page « priorités », toujours en ligne) : « Créer une aide financière unique, lisible et universelle pour les familles, en fusionnant les dispositifs existants trop complexes et trop éparpillés. »"
+- id: ir-zero-jeunes-parents
+  libelle: Exonérer d'impôt sur le revenu les jeunes parents des classes moyennes pendant les trois premières années de l'enfant
+    (réduction d'impôt plafonnée à 3 000 €)
+  domaine: fiscalité des ménages
+  citation:
+    texte: Concrètement, tous les foyers qui paient moins de 3 000 euros d'impôt sur le revenu seront exonérés d'impôt pendant
+      trois ans, et ceux qui en paient plus bénéficieront d'une réduction d'impôt de 3 000 euros. Ce dispositif, qui coûte
+      3 Mds € par an financés par le plan de redressement des finances publiques d'Édouard Philippe, permettra aux parents
+      qui travaillent de faire face aux dépenses et d'accueillir leur enfant sereinement.
+    url: https://www.edouardphilippe.fr/actualites/trois-principales-annonces-dedouard-philippe-a-lheure-de-verite
+    date: '2026-10-08'
+    support: site du candidat (communiqué sur l'émission « L'Heure de vérité », France 2)
+  precision: precise
+  interpretation: 'Réduction d''impôt sur le revenu d''au plus 3 000 € par an pendant les trois années suivant une naissance
+    (« jusqu''à leur entrée à l''école »), pour chaque enfant (« un enfant, puis un deuxième, puis un troisième », France
+    2, AFP). Lecture : un plafond par foyer et par an, non indexé ; non remboursable (« exonérés d''impôt »). Le candidat
+    publie le coût (3 Md€ par an) ; le « plan de redressement » qui le financerait n''est pas détaillé et n''est pas compté
+    ici. La « part fiscale dès le deuxième enfant » a disparu de la page du site (voir part-fiscale-deuxieme-enfant,
+    maintenue et contestée) : les deux sont comptées tant que le retrait n''est pas confirmé.'
+  chiffrable: true
+  nature: baisse_recette
+  effet_solde_primaire:
+    central: -3.0
+    bas: -3.55
+    haut: -2.65
+    montee_en_charge: *id001
+  calcul:
+    formule: -cout_annonce
+    parametres:
+      cout_annonce:
+        valeur: 3.0
+        unite: Md€/an (chiffrage du candidat, 2026)
+        source: https://www.edouardphilippe.fr/actualites/trois-principales-annonces-dedouard-philippe-a-lheure-de-verite
+        note: « Ce dispositif, qui coûte 3 Mds € par an » ; plafond nominal de 3 000 € par foyer, non projeté au PIB
+    explication: 'Chiffrage publié par le candidat (3 Md€ par an), retenu au central faute de microsimulation publique ;
+      plafond nominal de 3 000 €, donc non projeté. Bas : coût qui suit les revenus (× facteur_pib_2026_2032, 1,1842) :
+      3,55. Haut, recoupement indépendant : un foyer par enfant de moins de trois ans (643 905 naissances en 2025 × 3, barème
+      naissances_annuelles), part des foyers imposés dans l''ensemble des foyers (45,73 % en 2025, rapport d''activité de
+      la DGFiP, cité par MoneyVox : https://www.moneyvox.fr/impot/actualites/108717/46-des-francais-paient-un-impot-sur-le-revenu-919-425-foyers-de-plus-en-un-an),
+      réduction pleine de 3 000 € : 2,65 Md€. Ce recoupement surestime la réduction moyenne (beaucoup de foyers paient moins
+      de 3 000 €) et sous-estime la part d''imposés chez les jeunes parents en emploi : le chiffre du candidat est dans
+      le même ordre de grandeur. Effet dès 2028 (premier budget).'
+  effets_retour: Soutien à la natalité et au pouvoir d'achat invoqués ; non comptés.
+  confiance: moyenne
+  verification:
+    statut: ok
+    par: veille-2026-10-11
+    date: '2026-10-11'
+    commentaire: "Veille du 11/10/2026 : citation et coût (3 Md€ par an) relus dans le communiqué du site de campagne du 8 octobre 2026 ; propos à l'antenne relus dans la dépêche AFP (Bourse Direct : « une réduction d'impôt d'environ 3.000 euros », « les trois années qui suivront la naissance d'un enfant »), LCP et franceinfo. Recoupement (naissances INSEE, part des foyers imposés DGFiP via MoneyVox) cohérent avec le chiffre annoncé."
 - id: ptz-chaque-naissance
   libelle: Prêt à taux zéro à chaque naissance
   domaine: politique familiale / logement
@@ -704,7 +876,8 @@ mesures:
     support: site du candidat
   precision: partielle
   interpretation: Montant et durée du prêt non précisés ; coût = bonification d'intérêts (crédit d'impôt aux banques, comme
-    le PTZ).
+    le PTZ). Rappelé le 8 octobre 2026 sur France 2 (« prêt à taux zéro pour les familles qui, ayant un enfant, doivent
+    changer d'appartement et décider de pouvoir acheter un appartement », AFP), sans montant.
   chiffrable: false
   raison_non_chiffrable: 'Montant et durée du prêt non précisés : le coût d''un PTZ (bonification d''intérêts) dépend entièrement
     de ces paramètres.'
@@ -1210,35 +1383,81 @@ mesures:
     sources:
     - https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
 - id: fonction-publique-non-remplacement
-  libelle: Recruter 7 000 fonctionnaires de moins que les départs en 2027
+  libelle: Ne remplacer que deux départs à la retraite sur trois dans la fonction publique (250 000 postes en cinq ans)
   domaine: fonction publique
   citation:
-    texte: Mais "trouver 450 millions dans le budget de l’État, c’est possible. L’année prochaine, 130.000 fonctionnaires
-      partent à la retraite. Il faudra qu’on les remplace, mais recruter 123.000 au lieu de 130.000, c’est une piste", a suggéré
-    url: https://www.bfmtv.com/economie/economie-social/trouver-450-millions-dans-le-budget-de-l-etat-c-est-possible-edouard-philippe-suggere-de-supprimer-7-000-postes-de-fonctionnaires-en-2027-pour-financer-les-nouvelles-aides-carburant_AV-202609240327.html
-    date: '2026-09-24'
-    support: presse (entretien RTL)
-  precision: partielle
-  interpretation: 'Source primaire introuvable (entretien RTL du 24 septembre 2026 : ni transcription ni vidéo retrouvées sur rtl.fr ou le site du candidat ; verbatim de BFM). Piste citée pour financer les aides carburant de 2027 ; pérennité au-delà de 2027 non dite. Hypothèse :
-    réduction de 7 000 ETP pérenne.'
-  chiffrable: false
-  raison_non_chiffrable: Suggestion adressée au gouvernement actuel pour le budget 2027 (financer les aides carburant), pas
-    une mesure du quinquennat ; effet de l'ordre de 0,3 Md€ si pérennisé.
-  sens_probable: economie
-  estimation_indicative:
-    central: 0.17
-    bas: 0.0
-    haut: 0.23
-    lecture: '7 000 départs non remplacés en 2027, pérennisés : 7 000 × coût d''un entrant (24 850 €) ; haut : agent moyen (32
-      800 €) ; bas : simple suggestion pour 2027.'
-    sources:
-    - cout_enseignant_apu
-    - https://www.bfmtv.com/economie/economie-social/trouver-450-millions-dans-le-budget-de-l-etat-c-est-possible-edouard-philippe-suggere-de-supprimer-7-000-postes-de-fonctionnaires-en-2027-pour-financer-les-nouvelles-aides-carburant_AV-202609240327.html
+    texte: Il entend aussi réorganiser les agences de l'Etat et souhaite ne renouveler, durant son quinquennat, que deux
+      départs sur trois concernant les 750 000 départs à la retraite prévus dans la fonction publique.
+    url: https://www.franceinfo.fr/politique/edouard-philippe/immigration-retraites-allocations-familiales-parcoursup-ce-qu-il-faut-retenir-de-l-interview-d-edouard-philippe-dans-l-emission-l-heure-de-verite_8228416.html
+    date: '2026-10-08'
+    support: presse (franceinfo, émission « L'Heure de vérité », France 2)
+  precision: precise
+  interpretation: 'Annonce du 8 octobre 2026 sur France 2 (« L''Heure de vérité ») ; non reprise dans le communiqué du site
+    de campagne sur l''émission (source primaire introuvable). AFP (Bourse Direct, 8 oct. 2026) : « M. Philippe a par ailleurs
+    indiqué ne pas vouloir remplacer un fonctionnaire sur trois partant à la retraite, ce qui équivaut à 250.000 postes supprimés
+    sur cinq ans. » Lecture : un départ à la retraite sur trois non remplacé dans les trois versants, de 2028 à 2032 (premier
+    budget du quinquennat : LFI 2028). Les trois versants sont visés (« la fonction publique ») ; l''État ne décide pas
+    des recrutements des collectivités et des hôpitaux (leviers : dotations, ONDAM ; le candidat veut faire porter 25 %
+    de l''effort sur les collectivités, AFP). Remplace la piste du 24 septembre 2026 (7 000 recrutements de moins en 2027,
+    RTL, rapportée par BFM : « recruter 123.000 au lieu de 130.000, c''est une piste »), adressée au budget 2027 du gouvernement
+    en place et non comptée à part. Éducation nationale non exclue : la hausse de 20 % des salaires enseignants (enseignants-plus-20pct)
+    est chiffrée sur les effectifs actuels (effet croisé négligeable).'
+  chiffrable: true
+  nature: economie
+  effet_solde_primaire:
+    central: 5.09
+    bas: 2.54
+    haut: 8.02
+    montee_en_charge:
+      '2027': 0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1
+  calcul:
+    formule: min(postes, departs * annees / 3) * brut_entrant * (1 - retour) / 1e9
+    parametres:
+      postes:
+        valeur: 250000
+        unite: postes non remplacés sur le quinquennat (annonce)
+        source: https://www.boursedirect.fr/fr/actualites/categorie/politique/a-l-heure-de-verite-philippe-ebauche-une-france-a-nouveau-commandee-et-gouvernee-afp-b61ead8f6279ef25847a715f537619cb6675d12c
+        note: '« ce qui équivaut à 250.000 postes supprimés sur cinq ans » (AFP) ; un tiers des « 750 000 départs à la retraite
+          prévus » (franceinfo)'
+      departs:
+        valeur: 136700
+        bareme: fp_departs_retraite_annuels
+        unite: départs à la retraite par an (2024, trois versants)
+      annees:
+        valeur: 5
+        unite: années d'application d'ici 2032 (budgets 2028 à 2032)
+        source: https://www.franceinfo.fr/politique/edouard-philippe/immigration-retraites-allocations-familiales-parcoursup-ce-qu-il-faut-retenir-de-l-interview-d-edouard-philippe-dans-l-emission-l-heure-de-verite_8228416.html
+        note: « durant son quinquennat »
+      brut_entrant:
+        valeur: 31000
+        bareme: fp_salaire_brut_entrant
+        unite: € brut par an, hors cotisations employeurs
+        note: non projeté (point d'indice gelé à droit constant, convention commune 2)
+      retour:
+        valeur: 0.28
+        bareme: retour_prelevements_salaires_publics
+        unite: part de la rémunération brute
+    explication: 'Convention commune 1 (postes supprimés), même méthode que les autres programmes (Retailleau, Zemmour) :
+      un départ à la retraite sur trois, sur les départs observés (136 700 en 2024, DGAFP) pendant cinq ans, soit 227 833
+      postes (le candidat compte 250 000 sur 750 000 départs prévus ; le plafond des départs observés joue), × coût d''un
+      entrant pour le solde des APU (31 000 € brut hors cotisations employeurs × (1 − 0,28) = 22 320 €) = 5,09 Md€ en 2032.
+      Les cotisations employeurs (CAS Pensions, CNRACL) vont à d''autres APU et ne comptent pas. Bas : moitié de l''économie
+      rétrocédée en mesures catégorielles (convention RGPP du barème non_remplacement_un_sur_deux_etat) : 2,54. Haut : 250
+      000 postes annoncés au coût d''un agent moyen (masse salariale brute APU hors cotisations employeurs 248 Md€ / 5,8 M
+      agents ≈ 42 760 € × (1 − 0,25) ≈ 32 070 €) : 8,02. Le recul de l''âge de départ (retraites-travailler-plus-longtemps)
+      réduit le nombre de départs : non pris en compte.'
+  effets_retour: Pas d'effet sur l'emploi ou la qualité du service compté.
+  confiance: moyenne
   verification:
-    statut: ok
-    par: passe-sources
-    date: '2026-09-29'
-    commentaire: "Passe sources : citation relue dans BFM (propos sur RTL, 24 sept. 2026) ; source primaire introuvable. Non chiffrable maintenu (suggestion pour le budget 2027 du gouvernement en place) ; estimation indicative inchangée (7 000 × coût d'un entrant, barème cout_enseignant_apu). Recalé sur les barèmes sourcés du 29/09 : cout_enseignant_apu 24 100 → 24 850 € (haut 34 200 → 32 800) ; estimation indicative 0,17 inchangée, haut 0,24 → 0,23."
+    statut: corrige
+    par: veille-2026-10-11
+    date: '2026-10-11'
+    commentaire: "Veille du 11/10/2026 : annonce du 8 octobre 2026 (France 2) relue dans franceinfo (« ne renouveler, durant son quinquennat, que deux départs sur trois concernant les 750 000 départs à la retraite prévus dans la fonction publique ») et dans la dépêche AFP (Bourse Direct : « 250.000 postes supprimés sur cinq ans ») ; Euronews concorde. Mesure repassée en chiffrable (convention commune 1, barèmes fp_departs_retraite_annuels, fp_salaire_brut_entrant, retour_prelevements_salaires_publics) : estimation indicative 0,17 (7 000 postes, hors solde) → 5,09 Md€ (bas 2,54, haut 8,02). Citation précédente (BFM, RTL, 24/09/2026, 7 000 recrutements de moins en 2027) gardée dans l'interprétation. Trace précédente (passe-sources, 29/09) : citation BFM relue, source primaire introuvable ; non chiffrable (suggestion pour le budget 2027)."
 - id: amendes-prestations-sociales
   libelle: Recouvrement forcé des amendes non payées sur les prestations sociales
   domaine: justice / recettes
@@ -1319,6 +1538,10 @@ mesures:
     date: consulté le 2026-09-29
     support: site du candidat
   precision: precise
+  interpretation: 'Le 8 octobre 2026, objectif chiffré ajouté : « Édouard Philippe se fixe donc l''objectif de diviser au
+    moins l''immigration par deux sur le quinquennat », avec, outre les leviers ci-dessus, une « preuve financière obligatoire
+    pour les étudiants étrangers » et une « liste de pays sûrs XXL pour l''asile » (communiqué du site de campagne,
+    https://www.edouardphilippe.fr/actualites/trois-principales-annonces-dedouard-philippe-a-lheure-de-verite).'
   chiffrable: false
   raison_non_chiffrable: 'NON_BUDGETAIRE : mesures juridiques et diplomatiques.'
   sens_probable: neutre

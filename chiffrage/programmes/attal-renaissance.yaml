@@ -2,8 +2,8 @@
 id: attal-renaissance
 candidat: Gabriel Attal
 parti: Renaissance
-statut_candidature: déclaré le 23 mai 2026 (Mur-de-Barrez, Aveyron)
-date_collecte: '2026-09-29'
+statut_candidature: déclaré le 23 mai 2026 (Mur-de-Barrez, Aveyron) ; premier meeting régional à Lyon le 10 octobre 2026
+date_collecte: '2026-10-11'
 sources:
 - titre: attalpresident.fr, Mes engagements (chantiers capitaux et dettes à résorber)
   url: https://attalpresident.fr/programme
@@ -41,6 +41,30 @@ sources:
 - titre: Fondation IFRAP, Comparateur des programmes présidentielle 2027
   url: https://www.ifrap.org/comparateurs/presidentielles-2027
   date: consulté le 2026-09-29
+- titre: 'attalpresident.fr : entretien au Parisien (rassemblement, jeunesse, dette ; frein d''urgence budgétaire de 15 Md€)'
+  url: https://attalpresident.fr/actualites/gabriel-attal-dans-le-parisien-rassemblement-jeunesse-et-dette
+  date: '2026-10-04'
+- titre: 'attalpresident.fr : CNEWS et Europe 1 (budget 2027, retraites, justice des mineurs)'
+  url: https://attalpresident.fr/actualites/gabriel-attal-sur-cnews-et-europe-1-il-faut-proposer-aux-francais-un-projet-d-espoir
+  date: '2026-09-30'
+- titre: 'attalpresident.fr : Assises de l''AFER (épargne, assurance-vie, donations, 150 Md€ d''économies d''ici 2032)'
+  url: https://attalpresident.fr/actualites/aux-assises-de-l-afer-gabriel-attal-defend-une-epargne-qui-finance-l-economie-francaise
+  date: '2026-09-29'
+- titre: 'attalpresident.fr : Grand Oral de Batimat (logement, loi de programmation sur cinq ans)'
+  url: https://attalpresident.fr/actualites/gabriel-attal-veut-liberer-l-acces-au-logement-et-relancer-le-secteur-du-batiment
+  date: '2026-09-29'
+- titre: 'attalpresident.fr : Gabriel Attal face aux lycéens'
+  url: https://attalpresident.fr/actualites/gabriel-attal-face-aux-lyceens-il-faut-un-president-qui-comprenne-la-jeunesse
+  date: '2026-10-06'
+- titre: 'franceinfo : meeting de Lyon (10 octobre 2026), « pacte » pour la jeunesse'
+  url: https://www.franceinfo.fr/politique/gabriel-attal/je-veux-etre-le-president-qui-parlera-a-la-jeunesse-parce-qu-il-la-comprend-en-meeting-a-lyon-gabriel-attal-tente-de-relancer-sa-campagne-en-pleine-mobilisation-lyceenne_8231377.html
+  date: '2026-10-10'
+- titre: 'AFP (Orange Actu) : Attal présente son « pacte pour la jeunesse » et vise Mélenchon (meeting de Lyon)'
+  url: https://actu.orange.fr/france/presidentielle-attal-presente-son-quot-pacte-pour-la-jeunesse-quot-et-vise-melenchon-CNT000002sx1WI.html
+  date: '2026-10-10'
+- titre: 'AFP (Orange Actu) : Attal et Philippe appellent au rassemblement (congrès du Parti radical, Dijon)'
+  url: https://actu.orange.fr/france/attal-et-philippe-appellent-au-rassemblement-chacun-dans-son-couloir-CNT000002sCX2O.html
+  date: '2026-10-11'
 annonce_candidat:
   cout_md: null
   financement_md: null
@@ -48,7 +72,10 @@ annonce_candidat:
     : « 150 milliards d’euros d’économies, dont les deux tiers sur les dépenses sociales, avec un retour du déficit public
     sous les 3 % du PIB avant la fin du mandat, un équilibre des comptes sociaux en 2032 et un retour à l’équilibre de l’ensemble
     des finances publiques en 2037 » (23 sept. 2026) ; « 120 milliards d’euros d’économies durant les cinq premières années
-    » (LCI, 25 août 2026). Aucune hausse d''impôt. Coût revendiqué de la hausse des salaires enseignants : 2,5 à 3 Md€.'
+    » (LCI, 25 août 2026). Aucune hausse d''impôt. Coût revendiqué de la hausse des salaires enseignants : 2,5 à 3 Md€. Le Parisien (4 oct. 2026,
+    compte rendu du site) : « dès son arrivée à l’Élysée, Gabriel Attal sera en mesure d’actionner un frein d’urgence budgétaire
+    de 15 milliards d’euros pour éviter une crise de la dette. Il mettra ensuite en œuvre son vaste plan de 150 milliards d’euros
+    d’économies » (le frein d''urgence est une étape de cette enveloppe, sans poste détaillé).'
   url: https://attalpresident.fr/actualites/gabriel-attal-presente-un-plan-de-desendettement-et-un-messmer-ii-pour-sortir-des-dependances-francaises
 notes: 'Programme en construction : six pages thématiques sur attalpresident.fr et environ 75 comptes rendus d''entretiens
   et de déplacements (mai-septembre 2026), tous récupérés. Les comptes rendus du site sont rédigés par la campagne (citations
@@ -59,7 +86,18 @@ notes: 'Programme en construction : six pages thématiques sur attalpresident.fr
   Grand meeting à Lyon le 10 octobre 2026 : nouvelles mesures probables. Phase 2 (29 septembre 2026) : chiffrage à droit constant
   (chiffrage/REFERENCE.md) avec les barèmes communs ; mesures non budgétaires préfixées NON_BUDGETAIRE. L''enveloppe de 120
   à 150 Md€ ne porte que l''écart d''affichage (règle 6) ; le « droit au brut » est chiffré brut, son financement annoncé
-  par des économies sociales étant compté dans les lignes d''économies.'
+  par des économies sociales étant compté dans les lignes d''économies. Veille du 29 septembre au 11 octobre 2026 : meeting
+  de Lyon (10 octobre, « pacte pour la jeunesse ») et comptes rendus du site relus ; la plupart des annonces reprennent des
+  mesures déjà présentes (hausse de 200 à 500 € net des enseignants en milieu de carrière, moins d''élèves par classe, certificat
+  d''études, brevet obligatoire, système universel sans âge légal, compte retraite de 1 000 € à la naissance, fléchage de 50
+  % de l''intéressement vers l''épargne retraite, règle d''or). Ajouts non chiffrables : adaptation au climat de tous les établissements
+  scolaires en cinq ans, engagement civique d''un mois avant 25 ans. Pistes non retenues faute de paramètres : « double règle
+  d''or » (équilibre et dépenses d''avenir), loi de programmation du logement sur cinq ans (Batimat, 28 septembre), donations
+  facilitées aux petits-enfants et petits-neveux (AFER, 29 septembre), « révolution du temps scolaire » (sport et culture
+  à partir de 15 h), justice des mineurs. PLF 2027 (présenté le 1er octobre) : « Ce budget n’est pas celui que nous souhaitons,
+  mais la France doit adopter un budget pour sécuriser nos services publics » (site de campagne, compte rendu du Parisien,
+  4 octobre) ; « Si des mesures avec lesquelles nous sommes en désaccord sont adoptées, je reviendrai dessus si je suis élu
+  président de la République. » (CNEWS, 30 septembre), sans liste des mesures visées.'
 mesures:
 - id: economies-120-150md
   libelle: 'Plan de désendettement : 120 à 150 Md€ d''économies, déficit sous 3 % avant 2032, équilibre en 2037'
@@ -1370,3 +1408,48 @@ mesures:
       de 2024, non reconfirmée en 2026.'
     sources:
     - https://www.egora.fr/actus-pro/politiques/attal-promet-une-mutuelle-1-euro-par-jour
+- id: batiments-scolaires-adaptation-climat
+  libelle: Adapter l'ensemble des établissements scolaires au changement climatique en cinq ans
+  domaine: éducation
+  citation:
+    texte: Il annonce aussi vouloir augmenter les moyens de l'Education nationale, en relevant nettement le salaire des enseignants,
+      et promet d'adapter en cinq ans l'ensemble des bâtiments scolaires au changement climatique.
+    url: https://www.franceinfo.fr/politique/gabriel-attal/je-veux-etre-le-president-qui-parlera-a-la-jeunesse-parce-qu-il-la-comprend-en-meeting-a-lyon-gabriel-attal-tente-de-relancer-sa-campagne-en-pleine-mobilisation-lyceenne_8231377.html
+    date: '2026-10-10'
+    support: 'presse (compte rendu du meeting de Lyon) ; AFP (Orange Actu, même jour) : donnera « cinq ans » à son gouvernement
+      pour adapter « l’ensemble de nos établissements scolaires »'
+  precision: vague
+  interpretation: 'Bâti scolaire relevant surtout des collectivités (communes, départements, régions) ; ni montant, ni part
+    de l''État, ni nature des travaux (rafraîchissement, isolation, végétalisation) annoncés.'
+  chiffrable: false
+  raison_non_chiffrable: Ni enveloppe, ni périmètre de travaux, ni répartition entre l'État et les collectivités ; le coût
+    dépend entièrement du niveau d'adaptation retenu.
+  sens_probable: cout
+  verification:
+    statut: ok
+    par: veille-2026-10-11
+    date: '2026-10-11'
+    commentaire: Citation relue dans l'article franceinfo du 10 octobre 2026 (extraction texte, sous-chaîne exacte) et confirmée
+      par la dépêche AFP reprise par Orange Actu le même jour. Aucun chiffre publié ; non chiffrable.
+- id: engagement-civique-un-mois
+  libelle: Un mois d'engagement civique pour chaque jeune avant 25 ans
+  domaine: jeunesse
+  citation:
+    texte: mais également que chaque jeune puisse donner un mois de son temps lors d'un engagement civique, et ce, avant 25
+      ans.
+    url: https://www.franceinfo.fr/politique/gabriel-attal/je-veux-etre-le-president-qui-parlera-a-la-jeunesse-parce-qu-il-la-comprend-en-meeting-a-lyon-gabriel-attal-tente-de-relancer-sa-campagne-en-pleine-mobilisation-lyceenne_8231377.html
+    date: '2026-10-10'
+    support: presse (compte rendu du meeting de Lyon)
+  precision: vague
+  interpretation: 'Caractère obligatoire ou volontaire, indemnisation et encadrement non précisés (« puisse donner » suggère
+    un droit ouvert plutôt qu''une obligation).'
+  chiffrable: false
+  raison_non_chiffrable: Ni caractère obligatoire, ni indemnisation, ni taux de participation annoncés ; coût compris entre
+    quasi nul (dispositif volontaire existant) et plusieurs centaines de millions d'euros (classe d'âge entière indemnisée).
+  sens_probable: cout
+  verification:
+    statut: ok
+    par: veille-2026-10-11
+    date: '2026-10-11'
+    commentaire: Citation relue dans l'article franceinfo du 10 octobre 2026 (sous-chaîne exacte de la phrase). Source primaire
+      (discours) non publiée sur attalpresident.fr au 11 octobre 2026.

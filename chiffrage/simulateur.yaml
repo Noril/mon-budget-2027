@@ -1973,15 +1973,16 @@ leviers:
     axes:
       services-agents-publics: -2
     effet:
-      central: 19.91
+      central: 21.18
       bas: 0.0
-      haut: 19.91
+      haut: 21.18
     reprend:
     - le-pen-rn/agences-operateurs-moins-20
     - le-pen-rn/subventions-associations
     - le-pen-rn/train-de-vie-etat-et-petites-economies
     - le-pen-rn/dgf-regions-epci
-    calcul: Somme des quatre mesures RN ; économies ciblées (règle 6), bas = 0.
+    calcul: Somme des quatre mesures RN ; économies ciblées (règle 6), bas = 0. [Recalé le 2026-10-11 sur le chiffrage de
+      le-pen-rn.]
     candidats:
     - le-pen-rn
     montee:
@@ -2181,7 +2182,7 @@ leviers:
       melenchon-lfi: 40.38
       tondelier-ecologistes: 8.4
       philippe-horizons: 0.7
-      le-pen-rn: -3.66
+      le-pen-rn: -3.0
       zemmour-reconquete: -4.38
       retailleau-lr: -3.12
     reprend:

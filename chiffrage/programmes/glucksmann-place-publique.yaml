@@ -1,10 +1,11 @@
 id: glucksmann-place-publique
 candidat: Raphaël Glucksmann
 parti: Place publique
-statut_candidature: 'déclaré le 23 août 2026 (20 h de TF1), candidat à la primaire de la gauche socialiste et démocratique
-  (PS, Place publique, GRS) : 1er tour 9-10 octobre 2026, 2e tour 16-17 octobre 2026 ; candidature validée le 16 septembre
-  2026'
-date_collecte: '2026-09-29'
+statut_candidature: 'déclaré le 23 août 2026 (20 h de TF1) ; désigné candidat de la gauche socialiste et démocratique
+  (PS, Place publique, GRS) dès le 1er tour de la primaire « Choisir 2027 » le 11 octobre 2026 : 66,13 % des suffrages exprimés
+  (79 613 voix), devant Olivier Faure (14,48 %), Ségolène Royal (7,62 %), Emmanuel Maurel (5,92 %) et Jérôme Guedj (5,83
+  %) ; vote prolongé jusqu''au 11 octobre 18 h après une cyberattaque ; pas de second tour'
+date_collecte: '2026-10-11'
 sources:
 - titre: 'Place publique, « Acte I » : vision pour la France en 42 chantiers (projet du parti)'
   url: https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf
@@ -62,13 +63,37 @@ sources:
 - titre: 'Libération, tribune « Sauvons l''école publique, par Raphaël Glucksmann » (payante ; archive partielle)'
   url: http://web.archive.org/web/20260902063141/https://www.liberation.fr/idees-et-debats/tribunes/sauvons-lecole-publique-par-raphael-glucksmann-20260901_PRYPIERBW5CAPJEQJ2AREILB7Q/
   date: '2026-09-01'
+- titre: 'LCP : Raphaël Glucksmann, qui l''emporte dès le 1er tour, désigné candidat de la gauche sociale-démocrate (résultats
+    proclamés par Patrick Mennucci)'
+  url: https://lcp.fr/actualites/primaire-socialiste-raphael-glucksmann-qui-l-emporte-des-le-1er-tour-designe-candidat-de
+  date: '2026-10-11'
+- titre: 'CNews (AFP) : Raphaël Glucksmann remporte la primaire de la gauche avec 66 % des voix (120 587 votants)'
+  url: https://www.cnews.fr/france/2026-10-11/presidentielle-2027-raphael-glucksmann-remporte-la-primaire-de-la-gauche-avec-66
+  date: '2026-10-11'
+- titre: 'AFP (Orange Actu) : cyberattaque, vote prolongé jusqu''au dimanche 11 octobre 18 h'
+  url: https://actu.orange.fr/france/primaire-de-la-gauche-glucksmann-espere-l-emporter-des-le-premier-tour-le-scrutin-reste-incertain-CNT000002sCbJx.html
+  date: '2026-10-11'
+- titre: 'Public Sénat : le vote du premier tour perturbé par une cyberattaque ; les trois partis organisateurs saisissent
+    la justice'
+  url: https://www.publicsenat.fr/actualites/politique/le-vote-du-premier-tour-de-la-primaire-du-ps-perturbe-par-une-cyberattaque
+  date: '2026-10-09'
+- titre: 'LCP : Glucksmann, Faure, Royal, Maurel, Guedj, quelles différences entre les candidats (CSG, retraites à 62 ans,
+    avoirs russes)'
+  url: https://lcp.fr/actualites/glucksmann-faure-royal-maurel-guedj-quelles-differences-entre-les-candidats-a-la
+  date: '2026-10-09'
+- titre: 'franceinfo : dernier débat de la primaire (BFMTV, 4 octobre 2026)'
+  url: https://www.franceinfo.fr/politique/ps/primaire-a-gauche/invectives-retraites-soutien-aux-lyceens-ce-qu-il-faut-retenir-du-dernier-debat-de-la-primaire-socialiste_8222563.html
+  date: '2026-10-04'
+- titre: 'franceinfo, Vrai ou faux : six affirmations du débat du 1er octobre 2026 (France 2, France Inter)'
+  url: https://www.franceinfo.fr/vrai-ou-fake/vrai-ou-faux-salaire-des-enseignants-impot-sur-la-fortune-dividendes-on-a-verifie-six-affirmations-des-candidats-a-la-primaire-de-la-gauche-lors-de-leur-debat_8218897.html
+  date: '2026-10-02'
 - titre: 'franceinfo 8.30 : service universel et obligatoire'
   url: https://www.franceinfo.fr/replay-radio/8h30-fauvelle-dely/plan-de-trump-pour-l-ukraine-retour-du-service-militaire-et-desunion-de-la-gauche-le-8-30-franceinfo-de-raphael-glucksmann_7606847.html
   date: '2025-11-24'
 annonce_candidat:
   cout_md: null
   financement_md: null
-  texte: 'Aucun chiffrage global publié au 29 septembre 2026 ; le programme de mandat n''est pas publié. Seuls chiffrages
+  texte: 'Aucun chiffrage global publié au 11 octobre 2026 ; le programme de mandat n''est pas publié. Seuls chiffrages
     revendiqués : baisse de CSG d''environ 15 Md€ financée par 15 Md€ de hausse de la fiscalité des successions > 2 M€ (2
     + 3 + 10 Md€, franceinfo 25/08/2026), et hausse des salaires enseignants « 6 milliards en tout » (30/08/2026). Engagement
     de principe (Medef, 27/08/2026) : ne financer la hausse des salaires ni « par la casse du modèle social », ni « par l''aggravation
@@ -79,8 +104,9 @@ notes: 'Statut : candidat déclaré le 23/08/2026, il concourt à la primaire de
   Raphaël Glucksmann (Place publique), Jérôme Guedj (PS), Emmanuel Maurel (GRS), Ségolène Royal (ex-PS). Philippe Brun (PS)
   a été écarté le 16/09 après sa suspension du PS (référé et appel rejetés le 23/09) ; Fabien Verdier et Maxime Legrand n''ont
   pas été retenus (parrainages). François Ruffin a renoncé à y entrer le 12/09 ; Karim Bouamrane et Bernard Cazeneuve refusent
-  la primaire. Vote : 9-10 octobre, second tour 16-17 octobre 2026. Si Glucksmann perd la primaire, ce fichier ne correspondra
-  plus à un candidat. Sources : il n''existe pas encore de programme de mandat ; le socle est l''« Acte I » de Place publique
+  la primaire. Vote : 9-10 octobre, prolongé au 11 octobre 18 h après une cyberattaque contre la plateforme électronique (justice saisie par les
+  trois partis organisateurs) ; résultats proclamés le 11 octobre par Patrick Mennucci : Glucksmann élu dès le 1er tour (66,13
+  %, 79 613 voix, 120 587 votants pour environ 140 000 inscrits ; LCP, AFP), pas de second tour. Sources : il n''existe pas encore de programme de mandat ; le socle est l''« Acte I » de Place publique
   (juin 2025, 42 chantiers, présenté comme « une vision et non un catalogue figé de mesures »), le livre « Nous avons encore
   envie » (mai 2026, non consulté directement, cité via la presse) et les annonces de campagne (août-septembre 2026), connues
   surtout par la presse (entretiens télévisés et radio sans transcription officielle). Passe « sources » du 29/09/2026 :
@@ -92,7 +118,13 @@ notes: 'Statut : candidat déclaré le 23/08/2026, il concourt à la primaire de
   TF1 INFO) ; à défaut, « source primaire introuvable » est indiqué dans interpretation. Les mesures de l''Acte I sont postérieures
   à 2022 et n''exigent pas de reconfirmation ; celles non reprises en campagne le signalent dans interpretation. Le programme
   européen 2024 (338 mesures) n''est pas repris. Collecte : citations vérifiées sous-chaîne exacte des textes extraits (curl
-  + extraction, espaces normalisés), le 29/09/2026.'
+  + extraction, espaces normalisés), le 29/09/2026. Veille du 29/09 au 11/10/2026 : débats des 1er et 4 octobre (France 2-France
+  Inter, BFMTV) ; positions rapportées par la presse, déjà présentes dans le fichier : abrogation de la réforme de 2023 et retour
+  à 62 ans, sans retour à 60 ans (LCP, franceinfo), baisse de la CSG sur les salaires (contestée par Faure, Royal et Maurel),
+  « une loi de programmation sur cinq ans » pour le bâti scolaire, la hausse des salaires enseignants et la baisse des effectifs
+  par classe (franceinfo, 4 octobre), saisie des avoirs publics russes pour l''Ukraine. Aucun programme de mandat ni chiffrage
+  global publié au 11/10/2026 ; glucks2027.fr n''affiche encore que la page d''appel au vote. Pistes : contenu et montant
+  de la loi de programmation scolaire ; programme présidentiel attendu après la désignation.'
 mesures:
 - id: baisse-csg-salaires
   libelle: Baisse de la CSG sur les salaires (environ 15 Md€ rendus aux salariés)

@@ -1,9 +1,10 @@
 id: melenchon-lfi
 candidat: Jean-Luc Mélenchon
 parti: La France insoumise
-statut_candidature: déclaré le 3 mai 2026 ; meeting de lancement à Saint-Denis le 7 juin 2026 ; recherche des 500 parrainages
-  en cours
-date_collecte: '2026-09-29'
+statut_candidature: déclaré le 3 mai 2026 ; meeting de lancement à Saint-Denis le 7 juin 2026 ; meeting de Clermont-Ferrand
+  le 11 octobre 2026 (premier meeting en intérieur) ; convention sur le programme au Bourget annoncée pour novembre 2026 ;
+  recherche des 500 parrainages en cours
+date_collecte: '2026-10-11'
 sources:
 - titre: 'L''Avenir en commun, édition 2025 (831 mesures), livre-programme en ligne sur melenchon2027.fr (copies Wayback d''août-septembre
     2026 : le site, protégé par Cloudflare, indique « L''Avenir en commun est en cours de réactualisation »)'
@@ -41,6 +42,20 @@ sources:
 - titre: 'LCP : que proposent les candidats sur les retraites'
   url: https://lcp.fr/actualites/presidentielle-que-proposent-les-candidats-a-l-elysee-sur-les-retraites-441751
   date: '2026-09-23'
+- titre: 'franceinfo : à Clermont-Ferrand, Jean-Luc Mélenchon déroule ses propositions sur la jeunesse et l''éducation (11
+    octobre 2026)'
+  url: https://www.franceinfo.fr/elections/presidentielle/a-clermont-ferrand-jean-luc-melenchon-fait-salle-comble-et-deroule-ses-propositions-sur-la-jeunesse-et-l-education_8232880.html
+  date: '2026-10-11'
+- titre: 'AFP (Orange Actu) : à Clermont-Ferrand, Mélenchon fait salle comble pour dénoncer « l''ignominie » Parcoursup'
+  url: https://actu.orange.fr/france/a-clermont-ferrand-melenchon-fait-salle-comble-pour-denoncer-quot-l-ignominie-quot-parcoursup-CNT000002sCYfK.html
+  date: '2026-10-11'
+- titre: 'Blog de Jean-Luc Mélenchon : « Tout pouvoir redoute les révoltes de la jeunesse » (entretien à Centre Presse)'
+  url: https://melenchon.fr/2026/10/09/tout-pouvoir-redoute-les-revoltes-de-la-jeunesse-interview-pour-centre-presse/
+  date: '2026-10-09'
+- titre: 'Blog de Jean-Luc Mélenchon : « Que contient le dernier budget de la macronie ? » (note de l''Institut La Boétie
+    sur le PLF 2027)'
+  url: https://melenchon.fr/2026/10/06/que-contient-le-dernier-budget-de-la-macronie/
+  date: '2026-10-06'
 - titre: 'LCP : le programme remanié sera présenté les 6 et 7 novembre 2026'
   url: https://lcp.fr/actualites/presidentielle-le-programme-remanie-de-la-nouvelle-france-de-jean-luc-melenchon-sera
   date: '2026-09-23'
@@ -70,7 +85,15 @@ notes: 'Base : L''Avenir en commun, édition 2025 (janvier 2025, 831 mesures), p
   Machine (le site renvoie une erreur 403) : certaines sont en euros 2027 (« les chiffrages sont construits par hypothèse
   à horizon 2027 »), d''autres sur des données 2016-2022, et la base de chaque montant est indiquée mesure par mesure (passe-sources,
   29/09/2026). Collecte : citations vérifiées
-  comme sous-chaînes exactes des textes extraits par curl (espaces, apostrophes et césures de PDF normalisés), le 29/09/2026.'
+  comme sous-chaînes exactes des textes extraits par curl (espaces, apostrophes et césures de PDF normalisés), le 29/09/2026.
+  Veille du 29/09 au 11/10/2026 : aucune nouvelle mesure chiffrée ni nouveau chiffrage global ; la version remaniée de L''Avenir
+  en commun reste annoncée pour novembre (convention au Bourget « le mois prochain », AFP, 11/10). Meeting de Clermont-Ferrand
+  (11/10, sur fond de mobilisation lycéenne) : abolition de Parcoursup, droit de vote à 16 ans, retraite à 60 ans, annulation
+  de la dette détenue par la BCE, déjà au fichier, sauf le vote à 16 ans (non budgétaire). Entretien à Centre Presse (9/10) : « état d''urgence sociale », blocage
+  des prix, gel des loyers, des carburants, de l''électricité et du gaz, « blocage des marges », négociations salariales obligatoires
+  (déjà au fichier). PLF 2027 : la note de l''Institut La Boétie reprise sur
+  le blog (6/10) critique le projet du gouvernement sans proposer de mesure nouvelle. Pistes : stocks publics de matières
+  premières (blog, 18/09/2026, sans montant) ; chiffrage de la nouvelle version du programme en novembre.'
 mesures:
 - id: retraite-60-ans
   libelle: Retour de l'âge légal à 60 ans avec 40 annuités (abrogation de la réforme 2023)

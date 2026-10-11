@@ -4,7 +4,7 @@ parti: Les Républicains
 statut_candidature: >-
   Déclaré. Candidature annoncée le 12 février 2026, désigné candidat des Républicains le 19 avril 2026.
   Président de LR, sénateur de Vendée, ancien ministre de l'Intérieur.
-date_collecte: 2026-09-29
+date_collecte: '2026-10-11'
 sources:
   - titre: "LR, « Le travail gagnant » (livret de propositions, daté décembre 2025, présenté le 7 janvier 2026)"
     url: https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf
@@ -60,6 +60,15 @@ sources:
   - titre: "Fondation IFRAP, comparateur des programmes présidentielle 2027 (synthèse tierce)"
     url: https://www.ifrap.org/comparateurs/presidentielles-2027
     date: consulté le 2026-09-29
+  - titre: "Public Sénat, budget 2027 : Bruno Retailleau demande au gouvernement le retour de la réforme des retraites"
+    url: https://www.publicsenat.fr/actualites/politique/budget-bruno-retailleau-demande-au-gouvernement-le-retour-de-la-reforme-des-retraites
+    date: 2026-09-16
+  - titre: "franceinfo, Bruno Retailleau pose « la question de l'interdiction de LFI » (BFMTV-RMC, 1er octobre 2026)"
+    url: https://www.franceinfo.fr/societe/education/blocage-des-lycees/bruno-retailleau-marine-le-pen-gabriel-attal-plusieurs-candidats-a-la-presidentielle-attaquent-la-france-insoumise-sur-sa-responsabilite-dans-le-blocage-des-lycees_8218180.html
+    date: 2026-10-01
+  - titre: "Public Sénat, politique familiale : que proposent les candidats (revenu familial, congé de naissance)"
+    url: https://www.publicsenat.fr/actualites/politique/politique-familiale-allocations-creches-que-proposent-les-candidats-a-la-presidentielle
+    date: 2026-10-09
   - titre: "Votons-2027, programme de Bruno Retailleau (agrégateur, 103 mesures citées)"
     url: https://votons-2027.fr/candidats/retailleau/programme
     date: mis à jour le 2026-09-01
@@ -94,6 +103,15 @@ notes: >-
   primaires du 30/09/2026 : AME retrouvée (entretien au Parisien du 24 novembre 2025, repris sur republicains.fr) ;
   justice des mineurs déjà citée d'après l'entretien au JDD du 15 juin 2025 ; baisse de 10 % de l'APD introuvable
   hors comparateur IFRAP (passée en non chiffrable) ; 80 Md€ d'ÉlyséeScope introuvables (écartés).
+  Veille du 29 septembre au 11 octobre 2026 : aucune proposition chiffrée nouvelle ni nouveau livret trouvés
+  (republicains.fr : dernière actualité datée du 23 septembre 2026 dans l'index consulté le 11 octobre). Prises de
+  position relevées, sans effet budgétaire : « la question de l'interdiction de LFI » (BFMTV-RMC, 1er octobre) ;
+  refus de la « grande coalition » proposée par Gabriel Attal (« Ce sera sans nous », X, 4 octobre, cité par franceinfo).
+  PLF 2027 : la demande de rétablir la réforme des retraites dans le budget (franceinfo, 16 septembre, Public Sénat)
+  et le refus de voter « un appauvrissement des retraités » restent les dernières réactions sourcées ; aucune réaction
+  datée du 1er au 11 octobre retrouvée dans une source primaire ou de presse lue. Le récapitulatif de Public Sénat
+  (9 octobre) sur la politique familiale reprend des mesures déjà au fichier (revenu familial de 240 €, congé de
+  naissance à six mois).
 mesures:
   # --- Cadre budgétaire -------------------------------------------------------------------------
   - id: enveloppe-economies-120md
