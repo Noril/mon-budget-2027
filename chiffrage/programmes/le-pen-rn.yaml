@@ -7,8 +7,76 @@ statut_candidature: >-
   : elle est éligible. Pourvoi en cassation en cours (la Cour de cassation a annoncé statuer au plus tard début avril
   2027, avant le premier tour du 18 avril 2027). Si l'inéligibilité était rétablie, Jordan Bardella, président du RN
   et Premier ministre annoncé en cas de victoire (« ticket »), serait le candidat de recours.
-date_collecte: '2026-09-29'
+date_collecte: '2026-10-11'
 sources:
+  - titre: >-
+      Reuters (Boursorama) – Marine Le Pen veut ramener le déficit budgétaire à 3% d'ici 2030 (conférence de presse du
+      contre-budget 2027 et de la trajectoire 2027-2032)
+    url: >-
+      https://www.boursorama.com/actualite-economique/actualites/marine-le-pen-veut-ramener-le-deficit-budgetaire-a-3-d-ici-2030-e234d02e0ea563e2766ea6142c4a1bdc
+    date: '2026-10-06'
+  - titre: >-
+      CNews – Baisse de la TVA, préférence nationale, simplification administrative... Ce que contient le contre-budget
+      du Rassemblement national
+    url: >-
+      https://www.cnews.fr/france/2026-10-06/baisse-de-la-tva-preference-nationale-simplification-administrative-que-contient
+    date: '2026-10-06'
+  - titre: >-
+      CNews – 125 milliards d'euros d'économies : Marine Le Pen et Jordan Bardella dévoilent ce mardi leur stratégie
+      budgétaire (tribune de Marine Le Pen dans L'Opinion sur la règle d'or)
+    url: >-
+      https://www.cnews.fr/france/2026-10-06/125-milliards-deuros-deconomies-marine-le-pen-et-jordan-bardella-devoilent-ce
+    date: '2026-10-06'
+  - titre: >-
+      Public Sénat – 140 milliards d'euros d'économies d'ici 2032 : « l'effort radical » proposé par Marine Le Pen pour
+      « redresser » les finances publiques
+    url: >-
+      https://www.publicsenat.fr/actualites/politique/140-milliards-deuros-deconomies-dici-2032-leffort-radical-propose-par-marine-le-pen-pour-redresser-les-f
+    date: '2026-10-06'
+  - titre: >-
+      Sud Radio (AFP) – Présidentielle : en quête de crédibilité budgétaire, Le Pen promet un « effort radical » de « 140
+      milliards net »
+    url: >-
+      https://www.sudradio.fr/societe/presidentielle-en-quete-de-credibilite-budgetaire-le-pen-promet-un-effort-radical-de-140-milliards-net
+    date: '2026-10-06'
+  - titre: Planet.fr (AFP) – Marine Le Pen a présenté son « contre-budget » pour dégager 140 milliards d'euros d'économies
+    url: >-
+      https://www.planet.fr/marine-le-pen-a-presente-son-contre-budget-pour-degager-140-milliards-deuros-deconomies.2999682.817022.html
+    date: '2026-10-06'
+  - titre: Acteurs publics – La réforme de l'État et des collectivités au cœur des économies programmées par le RN
+    url: >-
+      https://acteurspublics.fr/articles/la-reforme-de-letat-et-des-collectivites-au-coeur-des-economies-programmees-par-le-rn/
+    date: 2026-10
+  - titre: >-
+      La Gazette France – « 140 milliards » d'économies : ce qu'il faut retenir de l'intervention de Marine Le Pen
+    url: >-
+      https://www.lagazettefrance.fr/article/140-milliards-d-economies-ce-qu-il-faut-retenir-de-l-intervention-de-marine-le-pen
+    date: '2026-10-06'
+  - titre: >-
+      Vert – Marine Le Pen présente le « contre-budget » du RN pour 2027, une attaque contre les renouvelables et les
+      agences environnementales
+    url: >-
+      https://vert.eco/chaleurs-actuelles/marine-le-pen-presente-le-contre-budget-du-rn-pour-2027-une-attaque-contre-les-renouvelables-et-les-agences-environnementales/
+    date: '2026-10-07'
+  - titre: >-
+      franceinfo – « Ce n'est pas du tout crédible » : le budget de Marine Le Pen et ses 140 milliards d'économies sous
+      le feu des critiques
+    url: >-
+      https://www.franceinfo.fr/politique/front-national/ce-n-est-pas-du-tout-credible-le-budget-de-marine-le-pen-et-ses-140-milliards-d-economies-sous-le-feu-des-critiques_8227204.html
+    date: '2026-10-08'
+  - titre: >-
+      Public Sénat – Préférence nationale : la proposition du RN de taxer l'embauche de travailleurs étrangers inquiète
+      les entrepreneurs (cite la page 24 du contre-budget)
+    url: >-
+      https://www.publicsenat.fr/actualites/politique/preference-nationale-la-proposition-du-rn-de-taxer-lembauche-de-travailleurs-etrangers-inquiete-les-entrepreneurs
+    date: '2026-10-09'
+  - titre: >-
+      Institut de l'Entreprise – Contre-budget du RN : 140 milliards affichés, moins de 10 milliards crédibles (note de
+      contexte ; retranscrit l'annexe du dossier de presse du RN, diapositives 24 à 26 : source secondaire, chiffrage
+      tiers)
+    url: >-
+      https://www.institut-entreprise.fr/wp-content/uploads/2026/10/Analyse-primaire-contre-budget-RN-Note-de-contexte-IDEP.pdf
+    date: '2026-10-06'
   - titre: Contre-budget 2026 du groupe RN à l'Assemblée nationale (conférence de presse)
     url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
     date: '2025-10-23'
@@ -63,35 +131,48 @@ sources:
       https://rassemblementnational.fr/communiques/carburants-que-bruxelles-laisse-enfin-les-etats-baisser-les-taxes
     date: '2026-09-24'
 annonce_candidat:
-  cout_md: null
-  financement_md: 125
+  cout_md: 102.8
+  financement_md: 244.4
   texte: >-
-    Au débat du Medef (REF, 27 août 2026) : « Nous présenterons juste avant le débat budgétaire notre trajectoire de
-    rétablissement des finances publiques avec 125 milliards d'euros d'économies » (horizon 2032, « objectif minimal
-    » selon le porte-parole Stéphane Rambaud) ; document non publié au 29 septembre 2026. Réforme des retraites chiffrée
-    par la candidate à « 9 milliards d'euros » (« déficit assumé »). Dernier chiffrage complet publié : contre-budget
-    2026 du groupe RN (23 octobre 2025, base PLF 2026) : 88,3 Md€ d'économies et recettes nouvelles, 52,7 Md€ de baisses
-    d'impôts et dépenses nouvelles, soit 35,6 Md€ d'amélioration nette du solde revendiquée.
+    Contre-budget 2027 et trajectoire 2027-2032 présentés le 6 octobre 2026 (dossier de presse « Pour la Renaissance de
+    la France : l'urgence de réparer les finances publiques », 125 mesures, non publié en ligne) : « Compte tenu de la
+    hausse des taux et du budget indigent que proposent Sébastien Lecornu et Emmanuel Macron, je vous annonce dès
+    maintenant que nous portons l'ajustement nécessaire à 140 milliards d'euros nets d'économies en 2032 par rapport à
+    2026 » (Marine Le Pen, Reuters et AFP), contre 125 Md€ annoncés au Medef le 27 août 2026 ; « 30 milliards » de
+    baisses d'impôts et « 15 mds de "dépenses provisionnées pour des droits nouveaux" » (AFP). Annexe du dossier
+    (diapositives 24 à 26), selon sa retranscription par l'Institut de l'Entreprise : amélioration nette du solde de 71,6
+    Md€ en 2027 et 141,7 Md€ en 2031, soit 140,8 puis 244,4 Md€ de recettes et économies brutes, 53,2 puis 49,1 Md€ de
+    baisses d'impôts et 16,1 puis 53,7 Md€ de dépenses nouvelles ; cout_md (102,8) et financement_md (244,4) reprennent
+    les montants 2031 de l'annexe. Cibles affichées : équilibre primaire en 18 mois, déficit sous 3 % du PIB en 2030,
+    dette à 112 % du PIB en 2032.
   url: >-
-    https://www.epochtimes.fr/marine-le-pen-promet-125-milliards-deuros-deconomies-et-defend-une-retraite-a-60-ou-62-ans-3335415.html
+    https://www.boursorama.com/actualite-economique/actualites/marine-le-pen-veut-ramener-le-deficit-budgetaire-a-3-d-ici-2030-e234d02e0ea563e2766ea6142c4a1bdc
 notes: >-
-  Pas de programme présidentiel 2027 complet publié au 29 septembre 2026 : le plan de 125 Md€ d'économies est annoncé
-  « avant le débat budgétaire » (début octobre). La collecte s'appuie sur (1) le contre-budget 2026 du groupe RN (octobre
-  2025), dernier document chiffré ligne à ligne, dont les montants sont ceux du RN et non les nôtres, et dont la base
-  est le PLF 2026 : les lignes qui annulent des mesures du PLF 2026 n'ont d'effet par rapport à la législation au 1er
-  janvier 2027 que si ces mesures ont été adoptées en LFI/LFSS 2026 (vérifié sur les textes adoptés, mesure
-  annulations-mesures-fiscales-budget-2026) ; (2) les prises de parole
-  de la candidate en 2026 (Medef 27 août, Hénin-Beaumont 13 septembre, LCI 16 septembre, lettre ouverte du 21 septembre)
-  ; (3) le programme législatif 2024, seulement pour les mesures reconfirmées depuis. Engagements 2022 non reconfirmés
-  et donc exclus : renationalisation des autoroutes, privatisation de l'audiovisuel public (le contre-budget 2026 prévoit
-  seulement une baisse de dotation), plan santé de 20 Md€, budget de défense à 55 Md€ en 2027 (le programme 2024 veut
-  « sanctuariser » la LPM), exonération d'IR des moins de 30 ans (attribuée à J. Bardella par des sites secondaires,
-  sans source primaire trouvée). Tension interne documentée : J. Bardella (mai 2026) a évoqué un relèvement de l'âge
-  légal ; l'arbitrage de juillet 2026 et le débat Medef ont confirmé la ligne 60/62 ans de la candidate. Le conseiller
-  économique F. Durvye a quitté la campagne le 27 août 2026. Chiffrage (phase 2) : quand le seul chiffre disponible est
-  celui du candidat (ou de Sarah Knafo), il est projeté en 2032 au PIB nominal et le central le reprend ; pour une
-  économie ciblée, le bas est nul (économie non réalisée) et le haut égal au central (règle 6) ; les enveloppes d'économies non détaillées
-  suivent la règle 6 (central 0, haut = écart d'affichage).
+  Base depuis le 11 octobre 2026 : contre-budget 2027 et trajectoire 2027-2032 présentés le 6 octobre 2026 par Marine Le
+  Pen, Jordan Bardella et Jean-Philippe Tanguy (dossier de presse de 71 pages, 125 mesures). Le dossier n'est pas publié
+  (rassemblementnational.fr ne propose que GRN-CONTRE-BUDGET-2026.pdf) : la collecte repose sur les comptes rendus de
+  presse (Reuters, AFP via Sud Radio et Planet, CNews, Public Sénat, Acteurs publics, La Gazette France, Vert, franceinfo)
+  et, pour les montants mesure par mesure, sur la retranscription de l'annexe par l'Institut de l'Entreprise (note du 6
+  octobre 2026, source secondaire et critique, citée comme chiffrage tiers « selon le RN », jamais comme vérité). Les
+  citations du contre-budget 2026 (octobre 2025) sont conservées quand aucune citation verbatim 2027 n'a été trouvée ;
+  l'interprétation dit alors quel compte rendu reconfirme la mesure. Mesures du dossier 2027 connues seulement par
+  paraphrase (pas de citation verbatim lue) et donc non ajoutées : TVA prélevée à la source (18 Md€ en 2031 selon
+  l'annexe ; « quelque 26 milliards » selon Reuters), impôt sur les sociétés assis sur le chiffre d'affaires (7,5 Md€),
+  exonération d'IR des moins de 30 ans jusqu'à quatre Smic (2,0 Md€), retour de la TICPE au niveau de 2017 (3,9 Md€),
+  lutte contre les dépenses indues (9,5), coûts hospitaliers (8,3), parc immobilier de l'État (5,1), fusion Urssaf-DGFiP
+  (1,72), aidants (+2 Md€) et soins dentaires (+1,4 Md€) ; elles pèsent dans l'enveloppe des 140 Md€ (règle 6) ou dans
+  l'estimation indicative des droits nouveaux. La réforme des retraites et le pilier de capitalisation seront détaillés
+  « dans les semaines à venir » ; la baisse des cotisations salariales (« rapprochement brut-net », projet d'avril 2026)
+  n'apparaît pas dans les comptes rendus du contre-budget et est renvoyée au congrès du RN des 24 et 25 octobre 2026.
+  Engagements 2022 non reconfirmés et donc exclus : renationalisation des autoroutes (l'annexe 2027 évoque des
+  « autoroutes nationalisées » selon l'Institut de l'Entreprise, sans libellé lu), privatisation de l'audiovisuel public,
+  plan santé de 20 Md€, budget de défense à 55 Md€ en 2027. Chiffrage : quand le seul chiffre disponible est celui du
+  candidat, il est projeté en 2032 au PIB nominal (montants 2031 de l'annexe × 1,0283) ; économies ciblées sans détail :
+  central = annonce plafonnée, bas 0, haut = central ; enveloppes non détaillées : central 0, haut = écart d'affichage
+  (règle 6). Plusieurs recettes et économies du plan sont juridiquement fragiles (contribution à l'UE, prestations et
+  taxe réservées selon la nationalité) : signalé en confiance, déduit seulement quand la règle 6 le prévoit (contribution
+  à l'UE). Tension interne documentée : J. Bardella (mai 2026) a évoqué un relèvement de l'âge légal ; l'arbitrage de
+  juillet 2026 a confirmé la ligne 60/62 ans. Le conseiller économique F. Durvye a quitté la campagne le 27 août 2026.
 mesures:
   - id: tva-energie-5-5
     libelle: Baisse de la TVA de 20 % à 5,5 % sur les énergies (carburants, électricité, gaz, fioul, bois)
@@ -104,15 +185,19 @@ mesures:
       support: contre-budget 2026 du groupe RN (conférence de presse, pages 4 et 7)
     precision: precise
     interpretation: >-
-      Mesure phare constante depuis 2022 (communiqué de Marine Le Pen du 21 octobre 2021 : « baisser immédiatement la
-      TVA de 20 à 5,5% sur les carburants, mais aussi sur le gaz, le fioul domestique et l'électricité »,
+      Mesure phare constante depuis 2022 (communiqué de Marine Le Pen du 21 octobre 2021 : « baisser immédiatement
+      la TVA de 20 à 5,5% sur les carburants, mais aussi sur le gaz, le fioul domestique et l'électricité »,
       rassemblementnational.fr), reconfirmée en septembre 2026 (AFP, Boursorama, 15 septembre 2026 : « Marine Le Pen
       exige une baisse de la TVA sur l'énergie de 20 à 5,5%, au cœur de son programme » ; LCI 16 septembre). Source
-      primaire citée : contre-budget 2026. Périmètre du contre-budget 2026 : « Baisse TVA énergies 10,960 » Md€ (gaz, électricité, carburants, bois, fioul), montant du RN. Le taux de
-      5,5 % s'applique déjà à l'abonnement électricité/gaz : chiffrer sur les consommations au taux normal. Juridiquement
-      contestée (directive TVA) : non retenu dans le montant, signalé en confiance. Montée en charge : loi de finances
-      rectificative dès l'été 2027 (programme 2024), d'où 40 % en 2027. Compatibilité avec la directive TVA non acquise
-      pour les carburants (plancher) : non déduite.
+      primaire citée : contre-budget 2026. Périmètre du contre-budget 2026 : « Baisse TVA énergies 10,960 » Md€
+      (gaz, électricité, carburants, bois, fioul), montant du RN. Le taux de 5,5 % s'applique déjà à l'abonnement
+      électricité/gaz : chiffrer sur les consommations au taux normal. Juridiquement contestée (directive TVA) : non
+      retenu dans le montant, signalé en confiance. Montée en charge : loi de finances rectificative dès l'été 2027
+      (programme 2024), d'où 40 % en 2027. Compatibilité avec la directive TVA non acquise pour les carburants
+      (plancher) : non déduite. Reprise dans le contre-budget 2027 du 6 octobre 2026 : CNews rapporte « la baisse de
+      la TVA sur le gaz, l'électricité, les carburants, le bois et le fioul » (paraphrase, sans guillemets) et
+      franceinfo une « baisse de la TVA sur le gaz et l'électricité » ; 12,2 Md€ en 2027 selon l'annexe du dossier
+      (Institut de l'Entreprise). Aucune citation verbatim 2027 lue : citation 2026 conservée.
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
@@ -156,31 +241,42 @@ mesures:
       - auteur: Contre-budget RN 2026 (chiffrage du candidat)
         montant_md: -10.96
         url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+      - auteur: Contre-budget RN 2027, selon l'annexe retranscrite par l'Institut de l'Entreprise
+        montant_md: -12.2
+        url: >-
+          https://www.institut-entreprise.fr/wp-content/uploads/2026/10/Analyse-primaire-contre-budget-RN-Note-de-contexte-IDEP.pdf
+        date: '2026-10-06'
+        commentaire: >-
+          Montant 2027 de l'annexe (« TVA sur les énergies »), carburants compris ; dans notre fourchette (9,0 à
+          12,8).
     effets_retour: >-
       Le RN invoque un effet « déflationniste » et un retour de TVA sur les autres consommations (1,82 Md€ dans le contre-budget)
       : non comptés.
     confiance: moyenne
     verification:
-      statut: corrige
-      par: passe-sources
-      date: '2026-09-29'
+      statut: ok
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
-        Citation de presse (AFP, Boursorama) remplacée par la source primaire : contre-budget 2026 du groupe RN, pages
-        4 et 7 (« Baisse de la TVA sur les énergies (gaz, électricité, carburants, bois, fioul) », « Baisse TVA
-        énergies 10,960 »), relu sur le PDF ; reconfirmation 2026 gardée dans interpretation. Montant inchangé
-        (barèmes communs). Trace antérieure (verificateur-sonnet, corrige) : Citation retrouvée sur l'URL. Barèmes
-        tva_energie_* relus (Bercy juin 2024 : électricité 4,5, gaz 2,3, carburants 10 ; recalcul SDES). Total 17,6
-        proche de Bercy 16,8 et de Montaigne 11,3 à 13,6 (fourchette de consommation). Réserve : le « carburants 10
-        Md€ » de Bercy inclut vraisemblablement le fioul, d'où ≈ 0,6 Md€ de double compte possible avec la ligne fioul
-        (couvert par la fourchette). Non-conformité à la directive TVA signalée, non déduite. Recalé sur les
-        conventions communes du 29/09 : barème carburants ramené à 9,4 Md€ (carburants routiers hors fioul), ce qui
-        supprime le double compte avec la ligne fioul ; central −17,6 → −17,0, haut −14,8 → −13,0 (bornes basses : 4,5
-        + 1,7 + 6,4 + 0,4).
-        Recalé sur les barèmes sourcés du 29/09 : le barème carburants passe de 9,4 à 6,4 Md€ (TVA non déductible sur
-        les produits pétroliers, SDES 2024), et la somme par énergie (14,0) dépasse la borne mécanique du CPO (12,8) :
-        la mesure, qui vise les quatre énergies, est chiffrée sur tva_energie_total_5_5 ; central −17,0 → −12,0, bas
-        −20,45 → −12,8, haut −13,0 → −9,0. Le chiffre de Bercy 2024 (16,8) excède la borne mécanique ; Montaigne (11,3)
-        et le contre-budget RN (10,96) sont dans la fourchette.
+        Mesure reprise dans le contre-budget 2027 (CNews et franceinfo du 6 et 8 octobre 2026, paraphrases ; annexe
+        : 12,2 Md€ en 2027 selon l'Institut de l'Entreprise). Citation 2026 conservée faute de citation verbatim
+        2027 ; montant inchangé (barème tva_energie_total_5_5). Trace antérieure (passe-sources, corrige,
+        2026-09-29) : Citation de presse (AFP, Boursorama) remplacée par la source primaire : contre-budget 2026 du
+        groupe RN, pages 4 et 7 (« Baisse de la TVA sur les énergies (gaz, électricité, carburants, bois, fioul) »,
+        « Baisse TVA énergies 10,960 »), relu sur le PDF ; reconfirmation 2026 gardée dans interpretation. Montant
+        inchangé (barèmes communs). Trace antérieure (verificateur-sonnet, corrige) : Citation retrouvée sur l'URL.
+        Barèmes tva_energie_* relus (Bercy juin 2024 : électricité 4,5, gaz 2,3, carburants 10 ; recalcul SDES).
+        Total 17,6 proche de Bercy 16,8 et de Montaigne 11,3 à 13,6 (fourchette de consommation). Réserve : le «
+        carburants 10 Md€ » de Bercy inclut vraisemblablement le fioul, d'où ≈ 0,6 Md€ de double compte possible
+        avec la ligne fioul (couvert par la fourchette). Non-conformité à la directive TVA signalée, non déduite.
+        Recalé sur les conventions communes du 29/09 : barème carburants ramené à 9,4 Md€ (carburants routiers hors
+        fioul), ce qui supprime le double compte avec la ligne fioul ; central −17,6 → −17,0, haut −14,8 → −13,0
+        (bornes basses : 4,5 + 1,7 + 6,4 + 0,4). Recalé sur les barèmes sourcés du 29/09 : le barème carburants
+        passe de 9,4 à 6,4 Md€ (TVA non déductible sur les produits pétroliers, SDES 2024), et la somme par énergie
+        (14,0) dépasse la borne mécanique du CPO (12,8) : la mesure, qui vise les quatre énergies, est chiffrée sur
+        tva_energie_total_5_5 ; central −17,0 → −12,0, bas −20,45 → −12,8, haut −13,0 → −9,0. Le chiffre de Bercy
+        2024 (16,8) excède la borne mécanique ; Montaigne (11,3) et le contre-budget RN (10,96) sont dans la
+        fourchette.
   - id: tva-100-produits-premiere-necessite
     libelle: Suppression de la TVA sur une centaine de produits de première nécessité
     domaine: fiscalite
@@ -190,15 +286,20 @@ mesures:
       date: '2025-10-23'
     precision: partielle
     interpretation: >-
-      Le programme 2024 la réservait au cas de « forte inflation » (« suspension de la TVA sur une centaine de produits
-      de première nécessité ») ; le contre-budget 2026 l'inscrit sans condition pour 3,5 Md€. Liste des produits non
-      publiée. Mesure non réaffirmée oralement en 2026 : lecture permanente retenue, fourchette basse = 0 si conditionnelle.
+      Le programme 2024 la réservait au cas de « forte inflation » (« suspension de la TVA sur une centaine de
+      produits de première nécessité ») ; le contre-budget 2026 l'inscrit sans condition pour 3,5 Md€. Liste des
+      produits non publiée. Mesure non réaffirmée oralement en 2026 : lecture permanente retenue, fourchette basse =
+      0 si conditionnelle. Reprise dans le contre-budget 2027 sans condition d'inflation : « suppression de la TVA
+      sur 100 produits de première nécessité » (franceinfo, 8 octobre 2026, paraphrase) ; « TVA nulle sur cent
+      produits essentiels » (formulation de l'Institut de l'Entreprise) pour 3,5 Md€ en 2027 selon l'annexe qu'il retranscrit. La
+      borne haute n'est donc plus nulle : elle reprend le chiffre du RN projeté (3,5 × 1,157 = 4,05). Liste des
+      produits toujours non publiée.
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
       central: -5.8
       bas: -10.86
-      haut: 0.0
+      haut: -4.05
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -222,8 +323,8 @@ mesures:
           note: PIB nominal 2032 / 2024
       explication: >-
         Institut Montaigne : 4,7 Md€ (liste restreinte) à 8,8 Md€ (liste étendue, amendement RN de 2023), euros 2023
-        projetés en 2032 avec le facteur 2024→2032 (légère sous-estimation). Haut = 0 : mesure réservée aux périodes
-        de forte inflation dans le programme 2024.
+        projetés en 2032 avec le facteur 2024→2032 (légère sous-estimation). Haut = chiffre du RN pour 2027 (3,5 Md€)
+        projeté au PIB (× 1,157) : la mesure est reprise sans condition dans le contre-budget 2027.
     chiffrages_tiers:
       - auteur: Institut Montaigne (législatives 2024)
         montant_md: -6.75
@@ -233,20 +334,32 @@ mesures:
       - auteur: Contre-budget RN 2026 (chiffrage du candidat)
         montant_md: -3.5
         url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+      - auteur: Contre-budget RN 2027, selon l'annexe retranscrite par l'Institut de l'Entreprise
+        montant_md: -3.5
+        url: >-
+          https://www.institut-entreprise.fr/wp-content/uploads/2026/10/Analyse-primaire-contre-budget-RN-Note-de-contexte-IDEP.pdf
+        date: '2026-10-06'
+        commentaire: >-
+          Montant 2027 de l'annexe ; l'Institut de l'Entreprise relève que la mesure suppose une répercussion
+          intégrale sur les prix (Benzarti et Carloni, 2019).
     confiance: faible
     verification:
-      statut: ok
-      par: passe-sources
-      date: '2026-09-29'
+      statut: corrige
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
-        Source Montaigne relue (archive 2024) : « Coût par an Par l'Institut Montaigne 6,75 Md€ 4,7 Md€ estimation
-        basse 8,8 Md€ estimation haute ». Central sur la liste restreinte (4,7, « une centaine de produits ») et non
-        sur la médiane Montaigne (6,75) ; bas = liste étendue (8,8), haut = 0 (mesure conditionnelle à une forte
-        inflation dans le programme 2024). Citation primaire (contre-budget 2026). Trace antérieure (verificateur-
-        sonnet, ok) : Citation retrouvée sur l'URL. Montaigne 4,7 (liste restreinte) à 8,8 Md€ (liste étendue) en
-        euros 2023 projetés ; contre-budget RN 3,5. Lecture permanente retenue, haut = 0 si conditionnelle (programme
-        2024) : cohérent. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème
-        facteur_pib_2024_2032 (valeur inchangée).
+        Mesure reprise sans condition dans le contre-budget 2027 (franceinfo, CNews ; 3,5 Md€ en 2027 selon l'annexe
+        retranscrite par l'Institut de l'Entreprise) : haut 0 → −4,05 (chiffre du RN projeté avec
+        facteur_pib_2027_2032) ; central (liste restreinte Montaigne) et bas inchangés. Citation 2026 conservée
+        faute de libellé 2027 verbatim. Trace antérieure (passe-sources, ok, 2026-09-29) : Source Montaigne relue
+        (archive 2024) : « Coût par an Par l'Institut Montaigne 6,75 Md€ 4,7 Md€ estimation basse 8,8 Md€ estimation
+        haute ». Central sur la liste restreinte (4,7, « une centaine de produits ») et non sur la médiane Montaigne
+        (6,75) ; bas = liste étendue (8,8), haut = 0 (mesure conditionnelle à une forte inflation dans le programme
+        2024). Citation primaire (contre-budget 2026). Trace antérieure (verificateur-sonnet, ok) : Citation
+        retrouvée sur l'URL. Montaigne 4,7 (liste restreinte) à 8,8 Md€ (liste étendue) en euros 2023 projetés ;
+        contre-budget RN 3,5. Lecture permanente retenue, haut = 0 si conditionnelle (programme 2024) : cohérent.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
+        (valeur inchangée).
   - id: ir-part-pleine-deuxieme-enfant
     libelle: Part fiscale pleine dès le deuxième enfant (quotient familial)
     domaine: fiscalite
@@ -255,7 +368,11 @@ mesures:
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
       date: '2025-10-23'
     precision: precise
-    interpretation: Plafond du quotient familial par demi-part supplémentaire supposé inchangé.
+    interpretation: >-
+      Plafond du quotient familial par demi-part supplémentaire supposé inchangé. Reprise dans le contre-budget 2027
+      : CNews (6 octobre 2026) cite « une part fiscale pleine dès le deuxième enfant » parmi les mesures
+      (paraphrase) ; l'Institut de l'Entreprise la range dans les baisses d'impôts des ménages de l'annexe, sans
+      montant isolé. Citation 2026 conservée.
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
@@ -296,13 +413,15 @@ mesures:
     confiance: moyenne
     verification:
       statut: ok
-      par: verificateur-sonnet
-      date: '2026-09-29'
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
-        Citation retrouvée sur l'URL. Coût LexImpact 3,4 Md€ (Montaigne, 2024) projeté au PIB ; haut = chiffre RN 2,86
-        projeté. Ordre de grandeur cohérent avec le coût du quotient familial.
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
-        (valeur inchangée).
+        Reconfirmée par le compte rendu CNews du contre-budget 2027 (6 octobre 2026) ; pas de montant 2027 isolé ni
+        de citation verbatim 2027 : citation et montant inchangés. Trace antérieure (verificateur-sonnet, ok,
+        2026-09-29) : Citation retrouvée sur l'URL. Coût LexImpact 3,4 Md€ (Montaigne, 2024) projeté au PIB ; haut =
+        chiffre RN 2,86 projeté. Ordre de grandeur cohérent avec le coût du quotient familial. Recalé sur les
+        conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032 (valeur
+        inchangée).
   - id: ir-demi-part-veufs
     libelle: Généralisation de la demi-part fiscale des veuves et veufs
     domaine: fiscalite
@@ -499,17 +618,24 @@ mesures:
       support: presse
     precision: partielle
     interpretation: >-
-      Ligne 2022 et 2024 (« Abroger la réforme des retraites de Macron et mettre en place un système de retraites progressif
-      », programme législatif 2024, rassemblementnational.fr/documents/202406-programme.pdf), reconfirmée par l'arbitrage
-      interne de juillet 2026 et au débat du Medef (REF, 27 août 2026). Source primaire du détail 2026 (vidéo ou transcription
-      officielle du débat) introuvable : citation de presse conservée. Lecture retenue : âge légal ramené à 62 ans et durée
-      plafonnée à 42 annuités (168 trimestres) pour tous ; départ à 60 ans avec 40 annuités pour les assurés ayant commencé
-      à travailler avant 20 ans ; barème progressif entre 20 et 24 ans et demi. La candidate chiffre la réforme à « 9
-      milliards d'euros » (Boulevard Voltaire) ; selon Epoch Times, ce montant vise le volet d'exonération des seniors :
-      ambiguïté signalée. Référence : législation au 1er janvier 2027 (réforme 2023 suspendue par la LFSS 2026, âge et
-      durée gelés jusqu'au 1er janvier 2028, puis reprise vers 64 ans / 43 annuités). Le contre-budget 2026 inscrivait 1,5
-      Md€ pour le « Lancement de la réforme des retraites MLP » (première année seulement). Montée : aucun effet avant 2028
-      (âge gelé par la suspension jusqu'au 1er janvier 2028), puis montée avec le calendrier que la mesure annule.
+      Ligne 2022 et 2024 (« Abroger la réforme des retraites de Macron et mettre en place un système de retraites
+      progressif », programme législatif 2024, rassemblementnational.fr/documents/202406-programme.pdf), reconfirmée
+      par l'arbitrage interne de juillet 2026 et au débat du Medef (REF, 27 août 2026). Source primaire du détail
+      2026 (vidéo ou transcription officielle du débat) introuvable : citation de presse conservée. Lecture retenue
+      : âge légal ramené à 62 ans et durée plafonnée à 42 annuités (168 trimestres) pour tous ; départ à 60 ans avec
+      40 annuités pour les assurés ayant commencé à travailler avant 20 ans ; barème progressif entre 20 et 24 ans
+      et demi. La candidate chiffre la réforme à « 9 milliards d'euros » (Boulevard Voltaire) ; selon Epoch Times,
+      ce montant vise le volet d'exonération des seniors : ambiguïté signalée. Référence : législation au 1er
+      janvier 2027 (réforme 2023 suspendue par la LFSS 2026, âge et durée gelés jusqu'au 1er janvier 2028, puis
+      reprise vers 64 ans / 43 annuités). Le contre-budget 2026 inscrivait 1,5 Md€ pour le « Lancement de la réforme
+      des retraites MLP » (première année seulement). Montée : aucun effet avant 2028 (âge gelé par la suspension
+      jusqu'au 1er janvier 2028), puis montée avec le calendrier que la mesure annule. Contre-budget 2027 (6 octobre
+      2026) : la réforme n'est pas détaillée (« Dans les semaines à venir, nous vous présenterons des corrections de
+      mesures injustes ou inefficaces du système actuel des retraites », CNews) ; la candidate reste « favorable à
+      ramener l'âge de départ à la retraite à 62 ans, voire à 60 » (CNews, La Gazette France, paraphrase). L'annexe
+      chiffre la réforme du programme à 9,5 Md€ en 2031 (Institut de l'Entreprise) ; les économies de « correction »
+      annoncées pour la financer sont dans la mesure retraites-corrections-15-20-md. Citation du 27 août 2026
+      conservée.
     chiffrable: true
     nature: depense
     effet_solde_primaire:
@@ -614,31 +740,42 @@ mesures:
         commentaire: >-
           « 9 milliards d'euros » selon la candidate ; proche du chiffrage IFRAP 2022 du seul volet carrières longues,
           sans l'annulation de la reprise du calendrier de 2023 (29,1 Md€ en 2032 au périmètre APU, 13,9 au périmètre du système).
+      - auteur: Contre-budget RN 2027, selon l'annexe retranscrite par l'Institut de l'Entreprise
+        montant_md: -9.5
+        url: >-
+          https://www.institut-entreprise.fr/wp-content/uploads/2026/10/Analyse-primaire-contre-budget-RN-Note-de-contexte-IDEP.pdf
+        date: '2026-10-06'
+        commentaire: >-
+          Coût de la réforme des retraites du programme en 2031 selon l'annexe ; l'Institut de l'Entreprise le juge
+          « largement sous-évalué ». Écart avec notre central : même explication que pour les 9 Md€ du débat du
+          Medef (annulation de la reprise du calendrier de 2023 non comptée par le RN).
     effets_retour: >-
       Périmètre APU compté depuis le 30/09 (convention commune 4) : prélèvements que ne paient plus les seniors qui
       partent plus tôt et moindres dépenses de chômage, d'indemnités journalières, d'invalidité et de minima (effets de
       bord) sont dans le montant. Effets de bouclage macroéconomique non comptés.
     confiance: faible
     verification:
-      statut: corrige
-      par: perimetre-apu
-      date: '2026-09-30'
+      statut: ok
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
-        Périmètre APU (30/09) : barèmes _apu (29,1 ; 37,7 ; 7,4 par an de durée) ; central −26,58 → −53,03, bas −43,7 →
-        −65,53 (hauts des barèmes APU, part 0,5), haut −20,2 → −26,58 (périmètre du système, part 0,35).
-        Rechiffré sur les barèmes communs : central −44,56 → −26,58, bas −62,23 → −44,4, haut −21,9 → −17,65. L'ancien
-        chiffrage reprenait l'Institut Montaigne 2024 (34,7 Md€ en 2027), qui applique le retour complet aux règles
-        d'avant 2003 à la plupart des assurés et rendait le RN plus cher que la retraite à 60 ans pour tous de LFI
-        (−42,9) ; le RN n'en est qu'un sous-ensemble. Part des bénéficiaires : convention 0,35 (0,25 à 0,5), appuyée sur
-        Montaigne (57 % de la génération 1962 avec un trimestre avant 20 ans), la Cnav via le COR (carrières longues
-        6-15 % des générations 1960-1970 à droit d'avant 2023) et la DREES (26 % de la génération 1956) ; recoupée par
-        l'IFRAP 2022 (9,6 Md€ pour le volet carrières longues). Citation : source primaire introuvable, presse
-        conservée. Trace antérieure (verificateur-sonnet, conteste) : central Montaigne cohérent avec sa formule, bas
-        contesté puis recalé sur le barème (IFRAP 2025), écart inexpliqué avec les 9 Md€ de la candidate, désormais
-        rapproché du chiffrage IFRAP 2022.
-        Recalé sur les barèmes sourcés du 29/09 : bornes des barèmes retraites_retour_62_ans_2032 (11,4 ; 15,8 au lieu
-        de 8,9 ; 20) et retraites_age_60_depuis_62 (13,2 ; 25) ; central inchangé (−26,58), bas −44,4 → −43,7, haut
-        −17,65 → −20,2.
+        Ligne 60/62 ans reconfirmée par les comptes rendus du 6 octobre 2026 (CNews, La Gazette France) ; réforme
+        détaillée renvoyée aux « semaines à venir ». Montant RN 2031 (9,5 Md€, annexe retranscrite par l'Institut de
+        l'Entreprise) ajouté en chiffrage tiers ; chiffrage inchangé. Trace antérieure (perimetre-apu, corrige,
+        2026-09-30) : Périmètre APU (30/09) : barèmes _apu (29,1 ; 37,7 ; 7,4 par an de durée) ; central −26,58 →
+        −53,03, bas −43,7 → −65,53 (hauts des barèmes APU, part 0,5), haut −20,2 → −26,58 (périmètre du système,
+        part 0,35). Rechiffré sur les barèmes communs : central −44,56 → −26,58, bas −62,23 → −44,4, haut −21,9 →
+        −17,65. L'ancien chiffrage reprenait l'Institut Montaigne 2024 (34,7 Md€ en 2027), qui applique le retour
+        complet aux règles d'avant 2003 à la plupart des assurés et rendait le RN plus cher que la retraite à 60 ans
+        pour tous de LFI (−42,9) ; le RN n'en est qu'un sous-ensemble. Part des bénéficiaires : convention 0,35
+        (0,25 à 0,5), appuyée sur Montaigne (57 % de la génération 1962 avec un trimestre avant 20 ans), la Cnav via
+        le COR (carrières longues 6-15 % des générations 1960-1970 à droit d'avant 2023) et la DREES (26 % de la
+        génération 1956) ; recoupée par l'IFRAP 2022 (9,6 Md€ pour le volet carrières longues). Citation : source
+        primaire introuvable, presse conservée. Trace antérieure (verificateur-sonnet, conteste) : central Montaigne
+        cohérent avec sa formule, bas contesté puis recalé sur le barème (IFRAP 2025), écart inexpliqué avec les 9
+        Md€ de la candidate, désormais rapproché du chiffrage IFRAP 2022. Recalé sur les barèmes sourcés du 29/09 :
+        bornes des barèmes retraites_retour_62_ans_2032 (11,4 ; 15,8 au lieu de 8,9 ; 20) et
+        retraites_age_60_depuis_62 (13,2 ; 25) ; central inchangé (−26,58), bas −44,4 → −43,7, haut −17,65 → −20,2.
   - id: cumul-emploi-retraite-sans-cotisations
     libelle: >-
       Suppression des cotisations retraite et chômage des actifs ayant l'âge et les trimestres qui continuent à travailler
@@ -691,6 +828,104 @@ mesures:
         Citation retrouvée sur l'URL (Sud Radio, AFP) ; source primaire introuvable. Estimation indicative (hors
         solde) : effectif de 606 000 cumulants et part de temps partiel sourcés (DREES 2025) ; masse de revenus
         d'activité passée en convention explicite (≈ 10 Md€), montant inchangé (−3,6, fourchette −10,7 à −1,3).
+  - id: retraites-corrections-15-20-md
+    libelle: >-
+      « Corrections » du système de retraite : 15 à 20 Md€ d'économies à terme
+    domaine: retraites
+    citation:
+      texte: >-
+        «Dans les semaines à venir, nous vous présenterons des corrections de mesures injustes ou inefficaces du
+        système actuel des retraites, permettant de dégager entre 15 et 20 milliards d'économies à terme», a affirmé
+        la candidate du RN, qui est favorable à ramener l'âge de départ à la retraite à 62 ans, voire à 60.
+      url: >-
+        https://www.cnews.fr/france/2026-10-06/baisse-de-la-tva-preference-nationale-simplification-administrative-que-contient
+      date: '2026-10-06'
+      support: presse (conférence de presse du contre-budget 2027)
+    precision: vague
+    interpretation: >-
+      Économie ciblée sur un périmètre nommé (le système de retraite) sans mesure détaillée au 11 octobre 2026 :
+      chiffrée selon la règle 6 (central = annonce, bas 0, haut = central). Lecture retenue : bas de la fourchette
+      annoncée (15 Md€), qui est aussi le montant de l'annexe pour 2031 (« Retraites : réparation du système actuel
+      », 15,0 Md€, Institut de l'Entreprise). Elle sert, selon la candidate, à réduire le déficit des retraites et à
+      financer sa propre réforme (retraites-60-62-ans). Les pensions resteraient indexées sur l'inflation (France
+      Transactions, cité par Planète Grandes Écoles).
+    chiffrable: true
+    economie_non_detaillee: true
+    nature: economie
+    effet_solde_primaire:
+      central: 15.42
+      bas: 0.0
+      haut: 15.42
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 0.25
+        '2029': 0.5
+        '2030': 0.75
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: annonce * f
+      parametres:
+        annonce:
+          valeur: 15.0
+          source: >-
+            https://www.cnews.fr/france/2026-10-06/baisse-de-la-tva-preference-nationale-simplification-administrative-que-contient
+          unite: Md€ (2031, « à terme »)
+          note: bas de la fourchette « entre 15 et 20 milliards » ; 15,0 Md€ en 2031 dans l'annexe (Institut de l'Entreprise)
+        f:
+          valeur: 1.0283
+          source: plan/hypotheses.yaml (FMI WEO avril 2026, 2032 reconduit)
+          unite: facteur
+          note: PIB nominal 2032 / 2031 = 1,01058 × 1,01757
+      explication: >-
+        Règle 6, économie ciblée : 15 × 1,0283 = 15,42 Md€ en 2032. Plafond : le périmètre (dépenses de retraite,
+        plus de 400 Md€ par an) n'est pas contraignant ; aucune des « corrections » n'est décrite, d'où bas = 0 et
+        confiance faible. Montée en charge linéaire 2028-2031 (convention).
+    chiffrages_tiers:
+      - auteur: Contre-budget RN 2027, selon l'annexe retranscrite par l'Institut de l'Entreprise
+        montant_md: 15.0
+        url: >-
+          https://www.institut-entreprise.fr/wp-content/uploads/2026/10/Analyse-primaire-contre-budget-RN-Note-de-contexte-IDEP.pdf
+        date: '2026-10-06'
+        commentaire: >-
+          2031 ; « aucune mesure décrite » selon l'Institut, qui la classe parmi les mesures sans mode opératoire.
+    confiance: faible
+    verification:
+      statut: ok
+      par: veille-2026-10-11
+      date: '2026-10-11'
+      commentaire: >-
+        Mesure nouvelle du contre-budget 2027 ; citation verbatim (CNews, reprise par La Gazette France et l'AFP).
+        Règle 6 appliquée comme économie ciblée (périmètre nommé : système de retraite) ; à relire : la lecture en
+        enveloppe (central 0) se défend aussi, faute de toute mesure.
+  - id: pilier-capitalisation
+    libelle: Création d'un pilier de retraite par capitalisation
+    domaine: retraites
+    citation:
+      texte: >-
+        La candidate, favorable à ramener l'âge de départ à la retraite à 62 ans, voire à 60, a annoncé la
+        présentation à venir d'une "grande réforme de la capitalisation individuelle et collective", comprenant la
+        "création d'un véritable pilier de capitalisation".
+      url: >-
+        https://www.lagazettefrance.fr/article/140-milliards-d-economies-ce-qu-il-faut-retenir-de-l-intervention-de-marine-le-pen
+      date: '2026-10-06'
+      support: presse (conférence de presse du contre-budget 2027)
+    precision: vague
+    interpretation: >-
+      Dispositif annoncé pour « les semaines à venir » ; financement (cotisations détournées du régime par
+      répartition, incitations fiscales, abondement public) inconnu.
+    chiffrable: false
+    raison_non_chiffrable: >-
+      Dispositif non décrit : son effet sur le solde dépend du financement (cotisations basculées de la répartition,
+      niches fiscales ou abondement public), qui n'est pas publié.
+    sens_probable: incertain
+    verification:
+      statut: ok
+      par: veille-2026-10-11
+      date: '2026-10-11'
+      commentaire: >-
+        Mesure nouvelle annoncée le 6 octobre 2026 (citation verbatim, La Gazette France ; CNews). Non chiffrable
+        faute de dispositif.
   - id: hausse-salaires-10-exoneree
     libelle: Exonération de cotisations patronales des hausses de salaire de 10 % (jusqu'à 3 SMIC, 3 à 5 ans)
     domaine: travail
@@ -704,13 +939,14 @@ mesures:
       support: programme législatif 2024 du RN (« Un projet, une méthode »)
     precision: partielle
     interpretation: >-
-      Reconfirmée en campagne 2026 (AFP, Boursorama, 15 septembre 2026 : « Marine Le Pen veut de son côté inciter les
-      entreprises à augmenter les salaires de 10% en exonérant cette hausse de cotisations patronales ») ; source
-      primaire citée : programme 2024.
-      Paramètres du programme 2024 : « permettre aux entreprises d'augmenter les salaires de 10 % jusqu'à trois fois
-      le SMIC, en les exonérant de l'augmentation des cotisations patronales pendant trois à cinq ans ». Coût dépendant
-      du taux de recours (hypothèse clé) ; mesure temporaire : régime de croisière 2032 éventuellement nul si durée de
-      3 ans. Absente du contre-budget 2026.
+      Reconfirmée en campagne 2026 (AFP, Boursorama, 15 septembre 2026 : « Marine Le Pen veut de son côté inciter
+      les entreprises à augmenter les salaires de 10% en exonérant cette hausse de cotisations patronales ») ;
+      source primaire citée : programme 2024. Paramètres du programme 2024 : « permettre aux entreprises d'augmenter
+      les salaires de 10 % jusqu'à trois fois le SMIC, en les exonérant de l'augmentation des cotisations patronales
+      pendant trois à cinq ans ». Coût dépendant du taux de recours (hypothèse clé) ; mesure temporaire : régime de
+      croisière 2032 éventuellement nul si durée de 3 ans. Absente du contre-budget 2026. Non citée dans les comptes
+      rendus du contre-budget 2027 lus (6-11 octobre 2026) ni dans la liste des mesures commentées par l'Institut de
+      l'Entreprise : maintien à vérifier dans le dossier.
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
@@ -756,21 +992,23 @@ mesures:
     confiance: faible
     verification:
       statut: conteste
-      par: passe-sources
-      date: '2026-09-29'
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
-        Citation de presse remplacée par la source primaire (programme 2024, relu sur le PDF). Source du coût relue
-        (Institut Montaigne, archive 2024) : elle contient deux lectures incompatibles. (1) Recours croissant : « 800
-        millions d'euros en 2025, de 4,8 milliards d'euros en 2027 et de 12 milliards d'euros en 2029 », « le manque à
-        gagner brut serait ainsi estimé à 15 Md € pour l'année 2029 », net du retour d'IS (3 Md€) 12 Md€ : retenue au
-        central (12 × 1,0891 = 13,07 en 2032). (2) Exonération limitée à cinq ans par cohorte : tableau « 2025 0,8 Md
-        € [...] 2029 4 Md € TOTAL sur 5 ans 12 Md € », soit ≈ 4 Md€ par an en régime de croisière (4,36 projetés),
-        proche de la borne favorable (−5,23). Écart non tranchable sans le détail du modèle ; statut conteste. Facteur
-        f recalculé sur plan/hypotheses.yaml (croissance en volume et déflateur 2030-2032 : 1,02987 × 1,02834 ×
-        1,02834 = 1,0891). Trace antérieure (verificateur-sonnet, ok) : Citation retrouvée sur l'URL. Montaigne : 0,8
-        Md€ en 2025, 4,8 en 2027, 12 en 2029, 15 en brut à terme ; 2032 = cinquième année d'une mise en œuvre en 2028
-        (le texte dit « quatrième » : coquille sans effet sur la valeur 12). Bas 15, haut recours limité : cohérent.
-        IR et CSG sur les hausses non comptés.
+        Mesure absente des comptes rendus du contre-budget 2027 : maintien au programme à vérifier. Chiffrage et
+        statut contesté inchangés. Trace antérieure (passe-sources, conteste, 2026-09-29) : Citation de presse
+        remplacée par la source primaire (programme 2024, relu sur le PDF). Source du coût relue (Institut
+        Montaigne, archive 2024) : elle contient deux lectures incompatibles. (1) Recours croissant : « 800 millions
+        d'euros en 2025, de 4,8 milliards d'euros en 2027 et de 12 milliards d'euros en 2029 », « le manque à gagner
+        brut serait ainsi estimé à 15 Md € pour l'année 2029 », net du retour d'IS (3 Md€) 12 Md€ : retenue au
+        central (12 × 1,0891 = 13,07 en 2032). (2) Exonération limitée à cinq ans par cohorte : tableau « 2025 0,8
+        Md € [...] 2029 4 Md € TOTAL sur 5 ans 12 Md € », soit ≈ 4 Md€ par an en régime de croisière (4,36
+        projetés), proche de la borne favorable (−5,23). Écart non tranchable sans le détail du modèle ; statut
+        conteste. Facteur f recalculé sur plan/hypotheses.yaml (croissance en volume et déflateur 2030-2032 :
+        1,02987 × 1,02834 × 1,02834 = 1,0891). Trace antérieure (verificateur-sonnet, ok) : Citation retrouvée sur
+        l'URL. Montaigne : 0,8 Md€ en 2025, 4,8 en 2027, 12 en 2029, 15 en brut à terme ; 2032 = cinquième année
+        d'une mise en œuvre en 2028 (le texte dit « quatrième » : coquille sans effet sur la valeur 12). Bas 15,
+        haut recours limité : cohérent. IR et CSG sur les hausses non comptés.
   - id: indexation-pensions-prestations
     libelle: Indexation des retraites et dégel des prestations sociales
     domaine: social
@@ -825,9 +1063,18 @@ mesures:
       date: '2025-10-23'
     precision: partielle
     interpretation: >-
-      Reconfirmé par J. Bardella (JDD, avril 2026 : « les aides sociales non contributives seront réservées aux familles
-      françaises ») et dans le discours d'Hénin-Beaumont (logement social, APL). Liste des prestations (RSA, prime d'activité,
-      allocations familiales, APL, ASPA ?) à fixer. Constitutionnalité incertaine (CC, avril 2024) : signalée, non déduite.
+      Reconfirmé par J. Bardella (JDD, avril 2026 : « les aides sociales non contributives seront réservées aux
+      familles françaises ») et dans le discours d'Hénin-Beaumont (logement social, APL). Liste des prestations
+      (RSA, prime d'activité, allocations familiales, APL, ASPA ?) à fixer. Constitutionnalité incertaine (CC, avril
+      2024) : signalée, non déduite. Contre-budget 2027 : la « priorité nationale » doit rapporter « 15 milliards la
+      première année (puis) 29 milliards en année pleine » (Marine Le Pen, AFP), « en réservant notamment les
+      prestations de solidarité aux étrangers ayant travaillé cinq ans sur le territoire » (franceinfo, paraphrase)
+      ; CNews cite « 24 milliards d'euros en année pleine ». L'annexe retranscrite par l'Institut de l'Entreprise
+      compte 12,2 Md€ en 2031 pour les « prestations de solidarité après 5 ans de travail » et 5,9 Md€ pour les «
+      prestations familiales : un parent français » (libellés de l'Institut). Notre central (7,28) reste sur les
+      chiffrages de l'Institut Montaigne, sous le plafond de l'IFRAP (6 à 7 Md€ de prestations nationales versées
+      aux étrangers en situation régulière) ; les 18,1 Md€ du RN dépassent ce plafond. Fragilité juridique (principe
+      d'égalité, CEDH, directive 2003/109/CE) signalée, non déduite. Citation 2026 conservée.
     chiffrable: true
     nature: economie
     effet_solde_primaire:
@@ -888,22 +1135,34 @@ mesures:
       - auteur: Contre-budget RN 2026 (chiffrage du candidat)
         montant_md: 6.1
         url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+      - auteur: Contre-budget RN 2027, selon l'annexe retranscrite par l'Institut de l'Entreprise
+        montant_md: 18.1
+        url: >-
+          https://www.institut-entreprise.fr/wp-content/uploads/2026/10/Analyse-primaire-contre-budget-RN-Note-de-contexte-IDEP.pdf
+        date: '2026-10-06'
+        commentaire: >-
+          2031 : 12,2 Md€ (prestations de solidarité après 5 ans de travail) + 5,9 Md€ (prestations familiales
+          réservées aux foyers dont un parent est français). Classées « juridiquement fragiles » par l'Institut de
+          l'Entreprise.
     confiance: faible
     verification:
-      statut: corrige
-      par: passe-sources
-      date: '2026-09-29'
+      statut: ok
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
-        Sources Montaigne relues (archives 2024) : volet 5 ans « 2,6 Md€ » au central (et non 2,5), prestations
-        familiales « près de 3,3 Md€ » en médiane ; central 7,15 → 7,28 = (2,6 + 3,3) × 1,2336. Plafond : sous les
-        prestations nationales versées aux étrangers en situation régulière (IFRAP, 6 à 7 Md€, ≈ 8 Md€ projetés).
-        Confiance faible maintenue (constitutionnalité, lecture Bardella). Trace antérieure (verificateur-sonnet,
-        corrige) : Citation retrouvée sur l'URL. Central 7,15 (Montaigne 2,5 + 3,3 de prestations familiales,
-        projetés) ≈ chiffre du RN projeté (6,1 → 7,2) et sous l'IFRAP (6 à 7 Md€ pour toute exclusion des étrangers en
-        situation régulière, 8,0 projeté) : plafond respecté. Le volet prestations familiales dépasse la lettre de la
-        citation (5 ans de travail) : lecture Bardella (JDD), signalée. Règle 6 : bas = 0, haut = central (avant 0,72
-        et 8,64). Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème
-        facteur_pib_2024_2032 (valeur inchangée).
+        Mesure reprise dans le contre-budget 2027 (franceinfo 8 octobre 2026, AFP) ; montants RN 2031 (12,2 + 5,9
+        Md€) ajoutés en chiffrage tiers. Central maintenu sur Montaigne (7,28), plafonné par le volume des
+        prestations versées aux étrangers en situation régulière (IFRAP) ; citation 2026 conservée. Trace antérieure
+        (passe-sources, corrige, 2026-09-29) : Sources Montaigne relues (archives 2024) : volet 5 ans « 2,6 Md€ » au
+        central (et non 2,5), prestations familiales « près de 3,3 Md€ » en médiane ; central 7,15 → 7,28 = (2,6 +
+        3,3) × 1,2336. Plafond : sous les prestations nationales versées aux étrangers en situation régulière
+        (IFRAP, 6 à 7 Md€, ≈ 8 Md€ projetés). Confiance faible maintenue (constitutionnalité, lecture Bardella).
+        Trace antérieure (verificateur-sonnet, corrige) : Citation retrouvée sur l'URL. Central 7,15 (Montaigne 2,5
+        + 3,3 de prestations familiales, projetés) ≈ chiffre du RN projeté (6,1 → 7,2) et sous l'IFRAP (6 à 7 Md€
+        pour toute exclusion des étrangers en situation régulière, 8,0 projeté) : plafond respecté. Le volet
+        prestations familiales dépasse la lettre de la citation (5 ans de travail) : lecture Bardella (JDD),
+        signalée. Règle 6 : bas = 0, haut = central (avant 0,72 et 8,64). Recalé sur les conventions communes du
+        29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032 (valeur inchangée).
   - id: priorite-nationale-logement-social
     libelle: Priorité nationale dans l'attribution des logements sociaux (et des APL)
     domaine: logement
@@ -961,6 +1220,88 @@ mesures:
       - https://www.ccomptes.fr/fr/publications/la-politique-de-lutte-contre-limmigration-irreguliere
       - assurance_chomage_depenses
       - facteur_pib_2026_2032
+  - id: taxe-embauche-extra-europeens
+    libelle: Taxe de 1 000 € par an et par salarié extra-européen embauché
+    domaine: immigration
+    citation:
+      texte: >-
+        C'est une simple ligne à la page 24 sur 71 du contre-budget du Rassemblement national qui a ému plusieurs
+        corporations d'entrepreneurs. Dans les détails des mesures portant sur l'immigration, on peut lire : « Taxe
+        de 1 000 euros par an à l'embauche d'un extra-européen ».
+      url: >-
+        https://www.publicsenat.fr/actualites/politique/preference-nationale-la-proposition-du-rn-de-taxer-lembauche-de-travailleurs-etrangers-inquiete-les-entrepreneurs
+      date: '2026-10-09'
+      support: libellé du contre-budget 2027 (p. 24) cité par Public Sénat
+    precision: precise
+    interpretation: >-
+      Taxe annuelle due par l'employeur pour chaque salarié ressortissant d'un pays hors Union européenne.
+      Amendement de J.-P. Tanguy au PLF 2027 (rejeté en commission des finances) : 1 000 € par an et par salarié, «
+      due par tout employeur, privé ou public, à l'exception des particuliers employeurs », « tant que la France
+      n'est pas au « plein emploi » » ; assiette « estimée à environ 1,3 million de salariés extra-communautaires »,
+      rendement « de l'ordre de 1,3 milliard d'euros par an » (Public Sénat). L'annexe du dossier compte 1 Md€
+      (Institut de l'Entreprise). S'ajoute à la taxe existante à l'embauche d'un salarié étranger (CESEDA, art. L.
+      436-10). Fragilité juridique (principe d'égalité, droit de l'UE sur l'égalité de traitement des travailleurs
+      ressortissants de pays tiers) signalée, non déduite.
+    chiffrable: true
+    nature: recette
+    effet_solde_primaire:
+      central: 1.3
+      bas: 1.0
+      haut: 1.3
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 1.0
+        '2029': 1.0
+        '2030': 1.0
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: taxe * salaries / 1e9
+      parametres:
+        taxe:
+          valeur: 1000
+          source: >-
+            https://www.publicsenat.fr/actualites/politique/preference-nationale-la-proposition-du-rn-de-taxer-lembauche-de-travailleurs-etrangers-inquiete-les-entrepreneurs
+          unite: € par an et par salarié
+          note: montant fixe en euros, non indexé (pas de projection au PIB)
+        salaries:
+          valeur: 1300000
+          source: >-
+            https://www.publicsenat.fr/actualites/politique/preference-nationale-la-proposition-du-rn-de-taxer-lembauche-de-travailleurs-etrangers-inquiete-les-entrepreneurs
+          unite: salariés ressortissants de pays hors UE
+          note: assiette retenue par l'exposé de l'amendement de J.-P. Tanguy (« environ 1,3 million »)
+      explication: >-
+        1 000 € × 1,3 million de salariés = 1,3 Md€ par an (calcul de l'amendement du député RN). Bas = 1,0 Md€,
+        montant de l'annexe du contre-budget (assiette réduite par la baisse de l'immigration légale visée par le
+        programme). Haut = central. Réaction de l'emploi (DG Trésor, modèle Mésange) et exemption éventuelle au
+        plein emploi non comptées (règle 3).
+    chiffrages_tiers:
+      - auteur: Contre-budget RN 2027, selon l'annexe retranscrite par l'Institut de l'Entreprise
+        montant_md: 1.0
+        url: >-
+          https://www.institut-entreprise.fr/wp-content/uploads/2026/10/Analyse-primaire-contre-budget-RN-Note-de-contexte-IDEP.pdf
+        date: '2026-10-06'
+        commentaire: >-
+          Recette comptée « sans aucune perte d'emploi » selon l'Institut, qui rappelle l'élasticité du modèle
+          Mésange (12 500 à 25 000 emplois par milliard de hausse du coût du travail).
+      - auteur: Amendement J.-P. Tanguy au PLF 2027 (cité par Public Sénat)
+        montant_md: 1.3
+        url: >-
+          https://www.publicsenat.fr/actualites/politique/preference-nationale-la-proposition-du-rn-de-taxer-lembauche-de-travailleurs-etrangers-inquiete-les-entrepreneurs
+        date: '2026-10-09'
+    effets_retour: >-
+      Effets sur l'emploi et sur l'assiette (moindres embauches, travail non déclaré) non comptés ; organisations
+      patronales (Les Entrepreneurs, SDI) et Emmaüs France contestent la mesure (Public Sénat).
+    confiance: faible
+    verification:
+      statut: ok
+      par: veille-2026-10-11
+      date: '2026-10-11'
+      commentaire: >-
+        Mesure nouvelle du contre-budget 2027 ; libellé du dossier (p. 24) cité verbatim par Public Sénat le 9
+        octobre 2026. Calcul rejoué sur les paramètres de l'amendement du député RN (1 000 € × 1,3 million) ; bas =
+        montant de l'annexe (1 Md€). Confiance faible : constitutionnalité et conformité au droit de l'UE non
+        établies.
   - id: ame-en-amu
     libelle: Remplacement de l'aide médicale d'État par une aide médicale d'urgence
     domaine: immigration
@@ -969,6 +1310,9 @@ mesures:
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
       date: '2025-10-23'
     precision: precise
+    interpretation: >-
+      Reprise dans l'annexe du contre-budget 2027 (« AME remplacée par l'AMU », libellé de l'Institut de
+      l'Entreprise, sans montant isolé) ; aucune citation verbatim 2027 lue : citation 2026 conservée.
     chiffrable: true
     nature: economie
     effet_solde_primaire:
@@ -1011,14 +1355,15 @@ mesures:
         url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
     confiance: moyenne
     verification:
-      statut: corrige
-      par: verificateur-sonnet
-      date: '2026-09-29'
+      statut: ok
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
-        Citation retrouvée sur l'URL. Économie nette de 0,7 Md€ (Montaigne) après maintien de l'urgence vitale, le RN
-        annonce 1,3 brut. Règle 6 : central plafonné par ce que le droit permet, bas = 0, haut = central (avant 1,7).
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
-        (valeur inchangée).
+        Reconfirmée par la note de l'Institut de l'Entreprise (annexe 2027) ; citation et montant inchangés. Trace
+        antérieure (verificateur-sonnet, corrige, 2026-09-29) : Citation retrouvée sur l'URL. Économie nette de 0,7
+        Md€ (Montaigne) après maintien de l'urgence vitale, le RN annonce 1,3 brut. Règle 6 : central plafonné par
+        ce que le droit permet, bas = 0, haut = central (avant 1,7). Recalé sur les conventions communes du 29/09 :
+        facteur de projection renvoyé au barème facteur_pib_2024_2032 (valeur inchangée).
   - id: suppression-visa-soins
     libelle: Suppression du visa pour soins
     domaine: immigration
@@ -1142,9 +1487,12 @@ mesures:
       date: '2025-10-23'
     precision: precise
     interpretation: >-
-      Reconfirmé par J. Bardella (X, 2026 : « suppression des impôts de production »). Impôt local : compensation aux
-      collectivités par l'État supposée (coût APU inchangé). Retour d'IS (le RN compte « Retour IS baisse impôts de production
-      1,100 ») : effet mécanique d'assiette admis par la méthode s'il est documenté.
+      Reconfirmé par J. Bardella (X, 2026 : « suppression des impôts de production »). Impôt local : compensation
+      aux collectivités par l'État supposée (coût APU inchangé). Retour d'IS (le RN compte « Retour IS baisse impôts
+      de production 1,100 ») : effet mécanique d'assiette admis par la méthode s'il est documenté. Contre-budget
+      2027 : suppression de la CFE, de la CVAE et de la C3S pour 17,1 Md€ en 2027 selon l'annexe retranscrite par
+      l'Institut de l'Entreprise ; « baisse des impôts de production » de 20 Md€ selon IMI Daily (paraphrase).
+      Citation 2026 conservée.
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
@@ -1187,18 +1535,27 @@ mesures:
       - auteur: Contre-budget RN 2026 (chiffrage du candidat)
         montant_md: -8.8
         url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+      - auteur: Contre-budget RN 2027, selon l'annexe retranscrite par l'Institut de l'Entreprise
+        montant_md: -17.1
+        url: >-
+          https://www.institut-entreprise.fr/wp-content/uploads/2026/10/Analyse-primaire-contre-budget-RN-Note-de-contexte-IDEP.pdf
+        date: '2026-10-06'
+        commentaire: >-
+          Montant 2027 pour la suppression de la CFE, de la CVAE et de la C3S ensemble (non ventilé dans la note).
     confiance: haute
     verification:
       statut: ok
-      par: verificateur-sonnet
-      date: '2026-09-29'
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
+        Reprise dans le contre-budget 2027 (annexe : 17,1 Md€ pour les trois impôts en 2027, Institut de
+        l'Entreprise) ; citation et chiffrage inchangés. Trace antérieure (verificateur-sonnet, ok, 2026-09-29) :
         Citation retrouvée sur l'URL. CFE 7,7 Md€ relue (FIPECO, comptabilité nationale 2024) ; retour d'IS 20 %
         (Montaigne) ; compensation des collectivités : coût APU inchangé. 7,7 × 1,2336 × 0,8 = 7,6 ; bas sans retour
-        d'IS. RN : 8,8 Md€.
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
-        (valeur inchangée).
-        Harmonisation des paramètres (30/09/2026) : CFE alignée sur le barème cfe_rendement (7,7 → 8,031 Md€, produit DGFiP 2024) et retour d'IS sur retour_is_impots_production (0,20) ; central −7,6 → −7,93, bas −9,5 → −9,91.
+        d'IS. RN : 8,8 Md€. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème
+        facteur_pib_2024_2032 (valeur inchangée). Harmonisation des paramètres (30/09/2026) : CFE alignée sur le
+        barème cfe_rendement (7,7 → 8,031 Md€, produit DGFiP 2024) et retour d'IS sur retour_is_impots_production
+        (0,20) ; central −7,6 → −7,93, bas −9,5 → −9,91.
   - id: suppression-cvae
     libelle: Suppression totale de la CVAE
     domaine: fiscalite
@@ -1208,8 +1565,11 @@ mesures:
       date: '2025-10-23'
     precision: precise
     interpretation: >-
-      La législation en vigueur prévoit déjà l'extinction progressive de la CVAE (reportée à 2030) : en 2032, l'effet
-      par rapport à la législation est nul ; seule l'accélération 2027-2029 coûte.
+      La législation en vigueur prévoit déjà l'extinction progressive de la CVAE (reportée à 2030) : en 2032,
+      l'effet par rapport à la législation est nul ; seule l'accélération 2027-2029 coûte. Contre-budget 2027 :
+      suppression de la CFE, de la CVAE et de la C3S pour 17,1 Md€ en 2027 selon l'annexe retranscrite par
+      l'Institut de l'Entreprise ; « baisse des impôts de production » de 20 Md€ selon IMI Daily (paraphrase).
+      Citation 2026 conservée.
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
@@ -1244,13 +1604,15 @@ mesures:
     confiance: haute
     verification:
       statut: ok
-      par: verificateur-sonnet
-      date: '2026-09-29'
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
+        Reprise dans le contre-budget 2027 (annexe : 17,1 Md€ pour les trois impôts en 2027, Institut de
+        l'Entreprise) ; citation et chiffrage inchangés. Trace antérieure (verificateur-sonnet, ok, 2026-09-29) :
         Citation retrouvée sur l'URL. Effet nul en 2032 (suppression votée pour 2030) ; annuel 2028-2029 à −3,7 :
         légèrement surestimé si la loi réduit déjà la CVAE en 2028-2029 (suppression « progressive » selon
-        economie.gouv.fr ; calendrier des taux non retrouvé), écart de l'ordre de 1 à 2 Md€ par an sur 2028-2029, sans
-        effet 2032.
+        economie.gouv.fr ; calendrier des taux non retrouvé), écart de l'ordre de 1 à 2 Md€ par an sur 2028-2029,
+        sans effet 2032.
   - id: suppression-c3s
     libelle: Suppression de la contribution sociale de solidarité des sociétés (C3S)
     domaine: fiscalite
@@ -1259,6 +1621,10 @@ mesures:
       url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
       date: '2025-10-23'
     precision: precise
+    interpretation: >-
+      Contre-budget 2027 : suppression de la CFE, de la CVAE et de la C3S pour 17,1 Md€ en 2027 selon l'annexe
+      retranscrite par l'Institut de l'Entreprise ; « baisse des impôts de production » de 20 Md€ selon IMI Daily
+      (paraphrase). Citation 2026 conservée.
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
@@ -1299,13 +1665,14 @@ mesures:
     confiance: haute
     verification:
       statut: ok
-      par: verificateur-sonnet
-      date: '2026-09-29'
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
-        Citation retrouvée sur l'URL. C3S 5,2 Md€ relue (FIPECO) ; retour d'IS 20 % ; 5,2 × 1,2336 × 0,8 = 5,13 ; bas
-        sans retour d'IS. RN : 4,8 Md€.
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
-        (valeur inchangée).
+        Reprise dans le contre-budget 2027 (annexe : 17,1 Md€ pour les trois impôts en 2027, Institut de
+        l'Entreprise) ; citation et chiffrage inchangés. Trace antérieure (verificateur-sonnet, ok, 2026-09-29) :
+        Citation retrouvée sur l'URL. C3S 5,2 Md€ relue (FIPECO) ; retour d'IS 20 % ; 5,2 × 1,2336 × 0,8 = 5,13 ;
+        bas sans retour d'IS. RN : 4,8 Md€. Recalé sur les conventions communes du 29/09 : facteur de projection
+        renvoyé au barème facteur_pib_2024_2032 (valeur inchangée).
   - id: fiscalite-entreprises-divers
     libelle: >-
       Autres allègements ciblés (octroi de mer, crédit d'impôt péages des transporteurs, aides à l'investissement outre-mer)
@@ -1377,8 +1744,12 @@ mesures:
       date: '2025-10-23'
     precision: partielle
     interpretation: >-
-      Barème non publié ; montant RN = recette nette de l'IFI (≈ 2,2 Md€) et de la taxe holdings supprimés ? À clarifier.
-      Le RN exonérait la résidence principale et taxait les actifs financiers (2022).
+      Barème non publié ; montant RN = recette nette de l'IFI (≈ 2,2 Md€) et de la taxe holdings supprimés ? À
+      clarifier. Le RN exonérait la résidence principale et taxait les actifs financiers (2022). Contre-budget 2027
+      : un « effort » sera demandé aux « plus favorisés » via un impôt sur la fortune financière (Reuters, 6 octobre
+      2026) ; l'Institut de l'Entreprise mentionne l'« IFF à la place de l'IFI » dans l'annexe, sans montant isolé ;
+      selon IMI Daily, les parts détenues par les dirigeants dans leur propre entreprise seraient exonérées, sans
+      seuil ni barème publiés.
     chiffrable: false
     raison_non_chiffrable: >-
       Barème, seuil et assiette de l'IFF non publiés ; le rendement net dépend aussi du sort de la taxe sur les holdings.
@@ -1396,6 +1767,13 @@ mesures:
       - isf_retabli_gain_net
       - isf_2017_rendement
       - ifi_rendement
+    verification:
+      statut: ok
+      par: veille-2026-10-11
+      date: '2026-10-11'
+      commentaire: >-
+        Reconfirmé le 6 octobre 2026 (Reuters) ; barème toujours non publié : non chiffrable inchangé, estimation
+        indicative inchangée.
   - id: taxe-rachats-actions
     libelle: Taxe sur les rachats d'actions
     domaine: fiscalite
@@ -1405,26 +1783,48 @@ mesures:
       date: '2025-10-23'
     precision: vague
     interpretation: >-
-      Taux non publié ; 8,4 Md€ suppose un taux très élevé sur ~30 Md€ de rachats annuels (CAC 40) : réaction d'assiette
-      forte attendue.
+      Taux non publié ; 8,4 Md€ suppose un taux très élevé sur ~30 Md€ de rachats annuels (CAC 40) : réaction
+      d'assiette forte attendue. Reprise dans le contre-budget 2027 : « une taxe sur le rachat d'actions supposée
+      rapporter 11,4 milliards d'euros dès 2027 » (franceinfo, paraphrase) ; montants de l'annexe : 11,35 Md€ en
+      2027, puis 0,34 Md€ par an (Institut de l'Entreprise). Citation 2026 conservée.
     chiffrable: false
     raison_non_chiffrable: >-
       Taux et assiette non publiés : le rendement annoncé (8,4 Md€) ne peut être rapproché d'aucun paramètre ; la réaction
       d'assiette (substitution des rachats par des dividendes) serait forte.
     sens_probable: economie
     estimation_indicative:
-      central: 1.5
-      bas: 0.5
-      haut: 4.0
-      lecture: 'Taxe de l''ordre de 10 % sur des rachats d''actions d''environ 30 Md€ par an (CAC 40), dont l''assiette serait
-        divisée par deux par substitution vers les dividendes, projetée en 2032. Bas : taux faible ou fuite d''assiette plus
-        forte ; haut : taux de 15 % et faible réaction. Les 8,4 Md€ du RN supposent un taux proche de 30 % sans aucune réaction
-        de l''assiette : écartés. Ordre de grandeur non sourcé. Le montant de 30 Md€ de rachats annuels du CAC 40 n''a pas été
-        retrouvé (le CAC 40 a versé 107,5 Md€ en dividendes et rachats en 2025, La Tribune, sans ventilation lue).'
+      central: 0.35
+      bas: 0.0
+      haut: 0.35
+      lecture: >-
+        Contre-budget 2027 : l'annexe compte 11,35 Md€ en 2027 puis 0,34 Md€ par an (Institut de l'Entreprise ; «
+        11,4 milliards d'euros dès 2027 », franceinfo), soit une recette concentrée sur la première année. En régime
+        de croisière (2032), le chiffre du candidat lui-même est de 0,34 Md€ (2031), projeté × 1,0283 = 0,35 :
+        l'estimation ne peut dépasser l'affichage du candidat. Central = haut = 0,35, bas 0 (taux et assiette non
+        publiés, substitution des rachats par des dividendes). La recette de 2027 (≈ 11 Md€, soit le tiers des 34,8
+        Md€ de rachats du CAC 40 en 2025 selon la Lettre Vernimmen citée par l'Institut) ne relève pas du régime de
+        croisière ; son réalisme est contesté (Institut de l'Entreprise, ministre de l'Économie, franceinfo).
       sources:
+      - https://www.institut-entreprise.fr/wp-content/uploads/2026/10/Analyse-primaire-contre-budget-RN-Note-de-contexte-IDEP.pdf
+      - https://www.franceinfo.fr/politique/front-national/ce-n-est-pas-du-tout-credible-le-budget-de-marine-le-pen-et-ses-140-milliards-d-economies-sous-le-feu-des-critiques_8227204.html
       - https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      - is_rendement_net
-      - facteur_pib_2025_2032
+    chiffrages_tiers:
+      - auteur: Contre-budget RN 2027, selon l'annexe retranscrite par l'Institut de l'Entreprise
+        montant_md: 0.34
+        url: >-
+          https://www.institut-entreprise.fr/wp-content/uploads/2026/10/Analyse-primaire-contre-budget-RN-Note-de-contexte-IDEP.pdf
+        date: '2026-10-06'
+        commentaire: >-
+          0,34 Md€ par an à partir de 2028 (2031) ; 11,35 Md€ en 2027. L'Institut de l'Entreprise note que la taxe
+          américaine est de 1 % et que celle du projet de budget 2025 devait rapporter environ 200 M€.
+    verification:
+      statut: corrige
+      par: veille-2026-10-11
+      date: '2026-10-11'
+      commentaire: >-
+        Montants du contre-budget 2027 (annexe retranscrite par l'Institut de l'Entreprise : 11,35 Md€ en 2027 puis
+        0,34 Md€ par an) : l'estimation indicative 2032 est ramenée au chiffre du candidat (central 1,5 → 0,35 ;
+        haut 4,0 → 0,35 ; bas 0,5 → 0). Non chiffrable inchangé (taux et assiette non publiés).
   - id: taxe-transactions-intrajournalieres
     libelle: Taxe sur les transactions financières intra-journalières
     domaine: fiscalite
@@ -1479,15 +1879,18 @@ mesures:
       date: '2025-10-23'
     precision: vague
     interpretation: >-
-      Les CEE sont une obligation privée hors comptes publics. « Rebudgétiser » = remplacer l'obligation par une taxe
-      affectée au budget ? L'effet net sur le solde dépend de l'usage (si les dépenses d'efficacité énergétique financées
-      par les CEE sont reprises par l'État, effet ≈ 0). Lecture à arrêter en phase 2.
+      Les CEE sont une obligation privée hors comptes publics. « Rebudgétiser » = remplacer l'obligation par une
+      taxe affectée au budget ? L'effet net sur le solde dépend de l'usage (si les dépenses d'efficacité énergétique
+      financées par les CEE sont reprises par l'État, effet ≈ 0). Lecture à arrêter en phase 2. Reprise dans
+      l'annexe du contre-budget 2027 : 8,0 Md€ en 2031 (et 1,3 Md€ pour les certificats de production de biogaz),
+      selon l'Institut de l'Entreprise, qui la classe parmi les écritures sans effet sur le déficit tant que les
+      programmes financés ne sont pas supprimés. Citation 2026 conservée.
     chiffrable: true
     nature: recette
     effet_solde_primaire:
       central: 0.0
       bas: 0.0
-      haut: 7.11
+      haut: 8.23
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -1505,16 +1908,27 @@ mesures:
           note: chiffre du candidat
       explication: >-
         Remplacer l'obligation CEE par une taxe affectée au budget qui finance les mêmes économies d'énergie est neutre
-        pour le solde (central 0). Haut : la taxe est perçue sans reprise des dépenses (montant du RN).
+        pour le solde (central 0). Haut : la taxe est perçue sans reprise des dépenses, au montant de l'annexe du contre-budget 2027 (8,0 Md€ en 2031, × 1,0283 = 8,23).
+    chiffrages_tiers:
+      - auteur: Contre-budget RN 2027, selon l'annexe retranscrite par l'Institut de l'Entreprise
+        montant_md: 8.0
+        url: >-
+          https://www.institut-entreprise.fr/wp-content/uploads/2026/10/Analyse-primaire-contre-budget-RN-Note-de-contexte-IDEP.pdf
+        date: '2026-10-06'
+        commentaire: >-
+          2031 ; classée par l'Institut « sans effet sur le déficit » (gain seulement si les programmes financés
+          disparaissent).
     confiance: faible
     verification:
-      statut: ok
-      par: verificateur-sonnet
-      date: '2026-09-29'
+      statut: corrige
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
-        Citation retrouvée sur l'URL. Les CEE sont une obligation privée : neutre pour le solde si les dépenses
-        financées sont reprises (central 0) ; haut = recette du RN sans reprise : cohérent, recette non ciblée sur un
-        budget.
+        Haut porté de 7,11 (6 Md€ du contre-budget 2026 projetés) à 8,23 (8,0 Md€ de l'annexe 2027 en 2031 × 1,0283)
+        ; central 0 inchangé (neutre si les dépenses financées sont reprises). Trace antérieure
+        (verificateur-sonnet, ok, 2026-09-29) : Citation retrouvée sur l'URL. Les CEE sont une obligation privée :
+        neutre pour le solde si les dépenses financées sont reprises (central 0) ; haut = recette du RN sans reprise
+        : cohérent, recette non ciblée sur un budget.
   - id: redevance-marche-energetique
     libelle: Redevance d'accès au marché électrique et gazier historique français
     domaine: energie
@@ -1568,8 +1982,14 @@ mesures:
       date: '2025-10-23'
     precision: vague
     interpretation: >-
-      Programme 2024 : ministère dédié, carte Vitale biométrique, accès des organismes sociaux aux fichiers. Rendement
-      incertain ; traité comme enveloppe peu documentée (fourchette basse proche de 0).
+      Programme 2024 : ministère dédié, carte Vitale biométrique, accès des organismes sociaux aux fichiers.
+      Rendement incertain ; traité comme enveloppe peu documentée (fourchette basse proche de 0). Contre-budget 2027
+      : la lutte contre la fraude passe par le prélèvement à la source de la TVA (« quelque 26 milliards d'euros »
+      selon la candidate, Reuters, paraphrase ; 18 Md€ en 2031 dans l'annexe selon l'Institut de l'Entreprise) et
+      une « réforme des marchés publics » contre les « cartels » (mesure reforme-marches-publics-cartels) ; douanes
+      et DGCCRF « considérablement renforcées » (Acteurs publics). Faute de citation verbatim de la TVA à la source,
+      ce montant n'est pas ajouté ici : il relève de l'écart d'affichage de l'enveloppe des 140 Md€. Citation 2026
+      conservée.
     chiffrable: true
     economie_non_detaillee: true
     nature: recette
@@ -1609,13 +2029,51 @@ mesures:
     confiance: faible
     verification:
       statut: ok
-      par: verificateur-sonnet
-      date: '2026-09-29'
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
-        Citation retrouvée sur l'URL. Recouvrement HCFIPS 0,68 Md€ (barème fraude_sociale_estimee : doublement), haut
-        = annonce RN 3,5 projetée, bas 0 : cohérent. Recettes de fraude, règle 6 non applicable.
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
-        (valeur inchangée).
+        Chiffrage inchangé ; volets 2027 (TVA à la source, marchés publics) connus par paraphrase ou citation
+        fragmentaire, signalés dans l'interprétation et laissés dans l'enveloppe des 140 Md€ (règle 6). Trace
+        antérieure (verificateur-sonnet, ok, 2026-09-29) : Citation retrouvée sur l'URL. Recouvrement HCFIPS 0,68
+        Md€ (barème fraude_sociale_estimee : doublement), haut = annonce RN 3,5 projetée, bas 0 : cohérent. Recettes
+        de fraude, règle 6 non applicable. Recalé sur les conventions communes du 29/09 : facteur de projection
+        renvoyé au barème facteur_pib_2024_2032 (valeur inchangée).
+  - id: reforme-marches-publics-cartels
+    libelle: Réforme des marchés publics contre les « cartels » et les « surfacturations »
+    domaine: etat
+    citation:
+      texte: >-
+        Côté commande publique, Marine Le Pen compte engager une "réforme des marchés publics", qui mettrait fin à
+        ce qu'elle qualifie de "cartels" et de "surfacturations".
+      url: >-
+        https://acteurspublics.fr/articles/la-reforme-de-letat-et-des-collectivites-au-coeur-des-economies-programmees-par-le-rn/
+      date: '2026-10-06'
+      support: presse (conférence de presse du contre-budget 2027)
+    precision: vague
+    interpretation: >-
+      L'annexe compte 5,8 Md€ en 2031 pour les « cartels des marchés publics » (Institut de l'Entreprise, qui juge
+      le rendement « non chiffrable ex ante »). Citation fragmentaire : aucune mesure opérationnelle décrite.
+    chiffrable: false
+    raison_non_chiffrable: >-
+      Aucun dispositif décrit (contrôles, sanctions, centralisation des achats) : le rendement d'une lutte contre les
+      ententes et surfacturations ne peut être estimé ex ante ; le montant du RN relève de l'écart d'affichage de
+      l'enveloppe des 140 Md€.
+    sens_probable: economie
+    chiffrages_tiers:
+      - auteur: Contre-budget RN 2027, selon l'annexe retranscrite par l'Institut de l'Entreprise
+        montant_md: 5.8
+        url: >-
+          https://www.institut-entreprise.fr/wp-content/uploads/2026/10/Analyse-primaire-contre-budget-RN-Note-de-contexte-IDEP.pdf
+        date: '2026-10-06'
+        commentaire: >-
+          2031 ; classée parmi les mesures sans mode opératoire.
+    verification:
+      statut: ok
+      par: veille-2026-10-11
+      date: '2026-10-11'
+      commentaire: >-
+        Mesure nouvelle du contre-budget 2027 (citation fragmentaire entre guillemets, Acteurs publics). Non
+        chiffrable.
   - id: petites-recettes-diverses
     libelle: Suppression de niches (journalistes, conseillers régionaux) et CVEC affectée au budget général
     domaine: fiscalite
@@ -1631,6 +2089,35 @@ mesures:
       Effet inférieur au seuil de 0,1 Md€ pour la niche ; la réaffectation de la CVEC est un transfert interne aux administrations
       publiques, sans effet sur le solde APU.
     sens_probable: neutre
+  - id: suppression-120-taxes
+    libelle: Suppression de plus de 120 taxes « ridicules ou inutiles »
+    domaine: fiscalite
+    citation:
+      texte: >-
+        « Autre symbole de la rationalisation de l'État : je confirme la suppression de plus de 120 taxes ridicules
+        ou inutiles, une mesure indispensable de simplification administrative que je compte bien amplifier dès que
+        nous aurons accès aux services de Bercy », a ajouté la candidate à la présidentielle.
+      url: >-
+        https://acteurspublics.fr/articles/la-reforme-de-letat-et-des-collectivites-au-coeur-des-economies-programmees-par-le-rn/
+      date: '2026-10-06'
+      support: presse (conférence de presse du contre-budget 2027)
+    precision: vague
+    interpretation: >-
+      J. Bardella (BFMTV, cité par Planet.fr/AFP) : « Ma première décision si je suis chef du gouvernement sera de
+      supprimer une myriade de 120 taxes et impôts. » Liste non publiée dans les comptes rendus lus ; les taxes à
+      faible rendement visées par les rapports parlementaires pèsent chacune moins de 0,1 Md€.
+    chiffrable: false
+    raison_non_chiffrable: >-
+      Liste des taxes non publiée : le rendement total supprimé ne peut être établi (petites taxes souvent affectées
+      à des opérateurs, dont la perte peut être compensée).
+    sens_probable: cout
+    verification:
+      statut: ok
+      par: veille-2026-10-11
+      date: '2026-10-11'
+      commentaire: >-
+        Mesure nouvelle du contre-budget 2027 (citation verbatim, Acteurs publics ; Bardella, Planet.fr/AFP). Non
+        chiffrable faute de liste.
   - id: retours-fiscaux-revendiques
     libelle: Retours d'IS et de TVA revendiqués (baisse des impôts de production et des « dépenses contraintes »)
     domaine: fiscalite
@@ -1645,106 +2132,185 @@ mesures:
       d'IS mécanique lié à la suppression d'impôts déductibles est intégré aux mesures d'impôts de production. Montants
       RN : 2,92 Md€, à citer dans effets_retour.
     sens_probable: neutre
-  - id: plan-125-md-economies
-    libelle: Plan de « rétablissement des finances publiques » de 125 Md€ d'économies d'ici 2032
+  - id: plan-140-md-economies-2032
+    libelle: Trajectoire de « 140 milliards d'euros nets d'économies en 2032 par rapport à 2026 »
     domaine: etat
     citation:
       texte: >-
-        « Nous présenterons juste avant le débat budgétaire notre trajectoire de rétablissement des finances publiques
-        avec 125 milliards d’euros d’économies », a annoncé celle qui concourt pour la quatrième fois à l’élection présidentielle
-      url: https://www.bvoltaire.fr/devant-le-medef-marine-le-pen-defend-son-epineuse-reforme-des-retraites/
-      date: '2026-08-27'
-      support: presse
+        "Compte tenu de la hausse des taux et du budget indigent que proposent Sébastien Lecornu et Emmanuel Macron,
+        je vous annonce dès maintenant que nous portons l'ajustement nécessaire à 140 milliards d'euros nets
+        d'économies en 2032 par rapport à 2026", a déclaré la candidate d'extrême-droite.
+      url: >-
+        https://www.boursorama.com/actualite-economique/actualites/marine-le-pen-veut-ramener-le-deficit-budgetaire-a-3-d-ici-2030-e234d02e0ea563e2766ea6142c4a1bdc
+      date: '2026-10-06'
+      support: presse (Reuters ; même citation par l'AFP, Planet.fr)
     precision: vague
     interpretation: >-
-      Enveloppe non détaillée au 29 septembre 2026 (règle 6) : central = part documentée par les mesures d'économies
-      de ce fichier (sans double compte), haut = 125, bas = 0. Selon J.-P. Tanguy, sources : immigration, millefeuille
-      administratif, formation professionnelle, contribution à l'UE ; « ni hausse des taxes ni hausse des impôts ». À
-      mettre à jour dès la publication du document (annoncée début octobre 2026). Reconfirmé sur LCI le 16 septembre
-      2026 (Capital, repris par Yahoo Finance : « Début octobre, je présenterai la trajectoire budgétaire pour le quinquennat.
-      Ces 125 milliards d'euros d'économies, il faudra les trouver, et pas sur les droits des Français ni sur leurs pensions
-      de retraite » ; « arrêter de financer l'immigration [...] Ce sera 25 milliards d'euros d'économisés » ; fin de l'aide
-      financière à l'Ukraine évoquée). Document toujours non publié au 29 septembre 2026. Source primaire introuvable (ni
-      vidéo ni transcription officielle du débat Medef ; l'entretien LCI n'est pas repris sur rassemblementnational.fr) :
-      citation de presse conservée.
+      Enveloppe globale (règle 6) : 140 Md€ en 2032 (125 Md€ en 2030), contre 125 Md€ annoncés au Medef le 27 août
+      2026 (« Nous présenterons juste avant le débat budgétaire notre trajectoire de rétablissement des finances
+      publiques avec 125 milliards d'euros d'économies », Boulevard Voltaire). Répartition annoncée : immigration et
+      priorité nationale 15 Md€ la première année et 29 Md€ en année pleine (« autour de 20% » du plan, AFP), État
+      24 Md€ et Sécurité sociale 20 Md€ (Planet.fr), « réorganisation de l'État » 20,7 Md€ dès 2027 et collectivités
+      8,2 Md€ en 2027 (Public Sénat), contribution à l'UE. L'annexe (Institut de l'Entreprise) affiche une
+      amélioration nette du solde de 141,7 Md€ en 2031, dont des postes non repris ici faute de citation verbatim
+      (TVA prélevée à la source 18,0 ; dépenses indues 9,5 ; coûts hospitaliers 8,3 ; IS assis sur le chiffre
+      d'affaires 7,5 ; parc immobilier de l'État 5,1). Lecture retenue, comme pour l'annonce de 125 Md€ : 140 Md€
+      d'économies comparés aux seules mesures d'économie chiffrées de ce fichier ; le terme « nets » (nets des
+      baisses d'impôts selon France Transactions, cité par Planète Grandes Écoles) laisse ouverte une lecture plus
+      large, à relire.
     chiffrable: true
     nature: economie
     effet_solde_primaire:
       central: 0.0
       bas: 0.0
-      haut: 85.68
+      haut: 79.39
       montee_en_charge:
         '2027': 0.0
-        '2028': 0.2
-        '2029': 0.4
-        '2030': 0.6
-        '2031': 0.8
+        '2028': 0.5
+        '2029': 0.7
+        '2030': 0.85
+        '2031': 0.95
         '2032': 1.0
     calcul:
       formule: 0 * annonce + 0 * documente
       parametres:
         annonce:
-          valeur: 125
-          source: https://www.bvoltaire.fr/devant-le-medef-marine-le-pen-defend-son-epineuse-reforme-des-retraites/
-          unite: Md€
-          note: « 125 milliards d'euros d'économies » (Medef, 27 août 2026), horizon 2032
+          valeur: 140
+          source: >-
+            https://www.boursorama.com/actualite-economique/actualites/marine-le-pen-veut-ramener-le-deficit-budgetaire-a-3-d-ici-2030-e234d02e0ea563e2766ea6142c4a1bdc
+          unite: Md€ (2032)
+          note: « 140 milliards d'euros nets d'économies en 2032 par rapport à 2026 » (6 octobre 2026)
         documente:
-          valeur: 39.32
+          valeur: 60.61
           source: somme des mesures d'économie de ce fichier
           unite: Md€ (2032)
           note: >-
-            ame-en-amu, baisse-contribution-ue, prestations-solidarite-5-ans-travail, fin-soutien-enr-intermittentes,
-            maprimerenov-en-pret-100-renov, aide-publique-developpement, dgf-regions-epci, agences-operateurs-moins-20,
-            subventions-associations, train-de-vie-etat-et-petites-economies, fonds-vert, aides-apprentissage-avant-licence,
-            sante-medicaments-unite-ald
+            ame-en-amu 0,86, baisse-contribution-ue 0, prestations-solidarite-5-ans-travail 7,28,
+            fin-soutien-enr-intermittentes 3,12, maprimerenov-en-pret-100-renov 1,82, aide-publique-developpement
+            2,72, dgf-regions-epci 5,92, agences-operateurs-moins-20 10,39, subventions-associations 3,79,
+            train-de-vie-etat-et-petites-economies 1,08, aides-apprentissage-avant-licence 1,89,
+            sante-medicaments-unite-ald 1,18, retraites-corrections-15-20-md 15,42,
+            collectivites-effectifs-epci-metropoles 5,14
       explication: >-
-        Règle 6. Les économies identifiables du programme sont chiffrées dans leurs propres mesures (somme des centraux :
-        39,32 Md€) : central = 0 pour ne pas les compter deux fois. Haut = écart d'affichage entre l'annonce (125 Md€,
-        lue comme un niveau annuel en 2032) et cette somme. Bas = 0.
+        Règle 6. Les économies identifiables sont chiffrées dans leurs propres mesures (somme des centraux : 60,61
+        Md€) : central = 0 pour ne pas les compter deux fois. Haut = écart d'affichage entre l'annonce (140 Md€ en
+        2032) et cette somme : 79,39 Md€. Bas = 0. Montée en charge du haut : effort concentré sur les trois
+        premières années selon la candidate (« l'essentiel de l'effort d'ajustement au cours des trois premières
+        années », AFP), 2027 exclu par convention.
+    chiffrages_tiers:
+      - auteur: Contre-budget RN 2027, selon l'annexe retranscrite par l'Institut de l'Entreprise
+        montant_md: 141.7
+        url: >-
+          https://www.institut-entreprise.fr/wp-content/uploads/2026/10/Analyse-primaire-contre-budget-RN-Note-de-contexte-IDEP.pdf
+        date: '2026-10-06'
+        commentaire: >-
+          Amélioration nette du solde affichée en 2031 (71,6 Md€ en 2027) ; recalcul ligne à ligne de l'Institut :
+          140,3 Md€.
+      - auteur: Institut de l'Entreprise (note de contexte)
+        montant_md: 7.5
+        url: >-
+          https://www.institut-entreprise.fr/wp-content/uploads/2026/10/Analyse-primaire-contre-budget-RN-Note-de-contexte-IDEP.pdf
+        date: '2026-10-06'
+        commentaire: >-
+          Amélioration nette « crédible » en 2031 selon l'Institut (fourchette −25 à +50 Md€) : 50 % des mesures
+          sans mode opératoire, 0 % des mesures juridiquement fragiles ou sans effet sur le déficit ; classement que
+          l'Institut dit « discutable ligne à ligne ».
+    effets_retour: >-
+      Le RN attend 2,8 points de croissance supplémentaire sur cinq ans, un effet récessif limité à 0,5 point et une baisse
+      des taux (refinancement à 4,0 % dès 2028) : non comptés (règle 3).
     confiance: faible
     verification:
       statut: ok
-      par: passe-sources
-      date: '2026-09-29'
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
-        Citation retrouvée (Boulevard Voltaire) ; source primaire introuvable. Fraîcheur : plan toujours non publié au
-        29 septembre 2026 (annoncé « début octobre », LCI 16 septembre, relu sur Yahoo Finance/Capital). Règle 6
-        appliquée (central 0, haut = écart d'affichage) ; somme documentée recalculée après la passe : 39,15 → 39,28 Md€ (prestations de solidarité 7,15 → 7,28), haut 85,85 → 85,72.
-        Trace antérieure (verificateur-sonnet, ok) : Citation retrouvée sur l'URL. Enveloppe globale (règle 6) :
-        central 0, haut = 125 − 39,15 ; la somme documentée 39,15 est recalculée exactement (13 mesures d'économie,
-        avant mes corrections de bas/haut qui ne touchent pas les centraux).
+        Enveloppe mise à jour sur le contre-budget 2027 : annonce 125 → 140 Md€ (citation verbatim, Reuters, reprise
+        par l'AFP) ; id renommé (plan-125-md-economies → plan-140-md-economies-2032). Somme documentée recalculée
+        (39,32 → 60,61 Md€ : fonds vert devenu dépense, agences 10,39, nouvelles mesures
+        retraites-corrections-15-20-md et collectivites-effectifs-epci-metropoles) ; haut 85,68 → 79,39. Trace
+        antérieure (passe-sources, ok, 2026-09-29) : règle 6 appliquée à l'annonce de 125 Md€ du Medef.
   - id: regle-or-constitution
     libelle: Règle d'or budgétaire inscrite dans la Constitution
     domaine: institutions
     citation:
       texte: >-
-        Stop à la "folie normative", plan de "rétablissement des finances publiques" avec 125 milliards d'euros d'économies,
-        "inscription dans la Constitution d'une règle d'or" budgétaire...
-      url: https://www.sudradio.fr/societe/marine-le-pen-et-la-delicate-operation-seduction-du-monde-economique
-      date: '2026-08-28'
-      support: presse
+        «Notre règle d'or imposera un déficit systématiquement inférieur au seuil stabilisant de la dette, soit le
+        niveau permettant de diminuer chaque année la dette en proportion du PIB», a-t-elle expliqué. «A titre
+        d'exemple, pour l'année 2027, le déficit maximal autorisé serait de 2,4% selon les hypothèses
+        macroéconomiques actuelles», a-t-elle ajouté.
+      url: >-
+        https://www.cnews.fr/france/2026-10-06/125-milliards-deuros-deconomies-marine-le-pen-et-jordan-bardella-devoilent-ce
+      date: '2026-10-06'
+      support: tribune de Marine Le Pen dans L'Opinion, citée par CNews
     precision: vague
+    interpretation: >-
+      Règle d'or adoptée par référendum, organisé « dans les douze mois » ou « dans la première année du mandat »
+      (Public Sénat, AFP) ; selon l'Institut de l'Entreprise, ajustement minimal de 0,5 point de PIB par an en cas
+      d'écart et dérogation aux trois cinquièmes du Parlement ; objectif de long terme : dette à 60 % du PIB
+      (CNews).
     chiffrable: false
     raison_non_chiffrable: Réforme institutionnelle sans effet budgétaire direct.
     sens_probable: neutre
     verification:
       statut: ok
-      par: passe-sources
-      date: '2026-09-29'
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
-        Citation de presse (Sud Radio, AFP) : source primaire introuvable (absente du programme 2024 ; pas de vidéo ni
-        de transcription officielle du débat Medef du 27 août 2026 trouvées). Non chiffrable (institutionnel).
+        Citation remplacée par la tribune du 6 octobre 2026 (CNews, verbatim). Non chiffrable (institutionnel)
+        inchangé. Trace antérieure (passe-sources, ok, 2026-09-29) : Citation de presse (Sud Radio, AFP) : source
+        primaire introuvable (absente du programme 2024 ; pas de vidéo ni de transcription officielle du débat Medef
+        du 27 août 2026 trouvées). Non chiffrable (institutionnel).
+  - id: centralisation-tva-fin-reconduction
+    libelle: Centralisation des recettes de TVA et fin de la reconduction automatique des dépenses
+    domaine: institutions
+    citation:
+      texte: >-
+        « Chaque année, l'Etat transférera aux collectivités territoriales et à la Sécurité Sociale les ressources
+        que le Parlement estime nécessaire à leur équilibre », explique la candidate à la présidentielle qui précise
+        qu'il n'y aura « plus aucune validation a priori ou reconduction de dépenses d'une année sur l'autre sans
+        visa du ministre des Comptes publics ».
+      url: >-
+        https://www.publicsenat.fr/actualites/politique/140-milliards-deuros-deconomies-dici-2032-leffort-radical-propose-par-marine-le-pen-pour-redresser-les-f
+      date: '2026-10-06'
+      support: presse (conférence de presse du contre-budget 2027)
+    precision: partielle
+    interpretation: >-
+      Les fractions de TVA affectées aux collectivités et à la Sécurité sociale seraient remplacées par des
+      dotations votées chaque année ; reprise en main des taxes affectées et « pilotage serré des trésoreries »
+      (Acteurs publics). Selon J.-P. Tanguy (CNews, 4 octobre 2026), la fin de la reconduction automatique
+      représente « des milliards d'euros d'économies », sans chiffrage. L'écrêtement de la TVA affectée aux
+      collectivités (3,4 Md€ selon l'Institut de l'Entreprise) relève de la mesure dgf-regions-epci.
+    chiffrable: false
+    raison_non_chiffrable: >-
+      Réforme des circuits de financement entre administrations publiques : transferts neutres sur le solde des APU
+      (règle 6 bis) ; les économies attendues de la fin des reconductions automatiques ne sont pas chiffrées.
+    sens_probable: neutre
+    verification:
+      statut: ok
+      par: veille-2026-10-11
+      date: '2026-10-11'
+      commentaire: >-
+        Mesure nouvelle du contre-budget 2027 (citations verbatim, Public Sénat ; Acteurs publics). Non chiffrable :
+        transferts internes aux APU.
   - id: baisse-contribution-ue
     libelle: Baisse de la contribution française au budget de l'Union européenne
     domaine: europe
     citation:
-      texte: Baisse de la contribution de la France à l'UE 8,700
-      url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: '2025-10-23'
+      texte: >-
+        Il y a également « 9 milliards d'euros sur notre contribution à l'Union européenne » a rappelé Jordan
+        Bardella aux côtés de Marine Le Pen.
+      url: >-
+        https://www.publicsenat.fr/actualites/politique/140-milliards-deuros-deconomies-dici-2032-leffort-radical-propose-par-marine-le-pen-pour-redresser-les-f
+      date: '2026-10-06'
+      support: presse (conférence de presse du contre-budget 2027)
     precision: partielle
     interpretation: >-
-      Unilatérale (contraire aux décisions ressources propres) : faisabilité juridique nulle sans accord à 27. Citée
-      par la candidate au Medef parmi les sources des 125 Md€.
+      Contre-budget 2027 : contribution « ramenée à cinq milliards d'euros contre près de 29 milliards prévus pour
+      cette année » (Reuters, paraphrase) ; « -8,9 milliards nets » (La Gazette France) ; 11,1 Md€ en 2027 puis 13,1
+      Md€ en 2031 dans l'annexe selon l'Institut de l'Entreprise (« jusqu'à 20 milliards » selon franceinfo).
+      Unilatérale : contraire à la décision relative aux ressources propres (unanimité, ratification par chaque
+      État) ; faisabilité juridique nulle sans accord à 27. Montant annoncé en 2027 sur le contre-budget 2026 : 8,7
+      Md€.
     chiffrable: true
     nature: economie
     effet_solde_primaire:
@@ -1762,96 +2328,152 @@ mesures:
       formule: 0 * baisse_rn
       parametres:
         baisse_rn:
-          valeur: 8.7
-          source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-          unite: Md€ (2026)
-          note: chiffre du candidat
+          valeur: 13.1
+          source: >-
+            https://www.institut-entreprise.fr/wp-content/uploads/2026/10/Analyse-primaire-contre-budget-RN-Note-de-contexte-IDEP.pdf
+          unite: Md€ (2031)
+          note: chiffre du candidat (annexe du contre-budget 2027 retranscrite par l'Institut de l'Entreprise)
       explication: >-
         Barème psr_ue : une réduction unilatérale de la contribution n'est pas juridiquement possible (décision relative
         aux ressources propres, unanimité). Central, bas et haut = 0 (règle 6 : haut = central).
+    chiffrages_tiers:
+      - auteur: Contre-budget RN 2027, selon l'annexe retranscrite par l'Institut de l'Entreprise
+        montant_md: 13.1
+        url: >-
+          https://www.institut-entreprise.fr/wp-content/uploads/2026/10/Analyse-primaire-contre-budget-RN-Note-de-contexte-IDEP.pdf
+        date: '2026-10-06'
+        commentaire: >-
+          2031 (11,1 Md€ en 2027) ; 42 % du prélèvement sur recettes attendu en 2027 (31,2 Md€, Cour des comptes) ;
+          classée « juridiquement fragile » (décision ressources propres, unanimité).
+      - auteur: Contre-budget RN 2026 (chiffrage du candidat)
+        montant_md: 8.7
+        url: >-
+          https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
     confiance: faible
     verification:
-      statut: corrige
-      par: verificateur-sonnet
-      date: '2026-09-29'
+      statut: ok
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
-        Citation retrouvée sur l'URL. Baisse unilatérale de la contribution à l'UE impossible (unanimité pour les
-        ressources propres) : central 0 selon la règle 6 ; haut ramené à 0 (avant 10,3), bas 0.
+        Citation 2026 remplacée par la déclaration de J. Bardella du 6 octobre 2026 (Public Sénat, verbatim).
+        Montant du RN mis à jour (13,1 Md€ en 2031 selon l'annexe) ; central, bas et haut restent à 0 (règle 6 : une
+        contribution à l'UE ne se baisse pas unilatéralement). Trace antérieure (verificateur-sonnet, corrige,
+        2026-09-29) : Citation retrouvée sur l'URL. Baisse unilatérale de la contribution à l'UE impossible
+        (unanimité pour les ressources propres) : central 0 selon la règle 6 ; haut ramené à 0 (avant 10,3), bas 0.
   - id: agences-operateurs-moins-20
-    libelle: Baisse de 20 % des financements de certaines agences et opérateurs (OFB, Ademe…)
+    libelle: Suppression ou réinternalisation de la quasi-totalité des agences et opérateurs de l'État
     domaine: etat
     citation:
       texte: >-
-        Baisser de 20% les affectations financières ou les subventions à certaines agences et organismes (cf annexe)
-        7,700
-      url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: '2025-10-23'
+        Le « pendant national » de la réforme territoriale voulue par le RN se traduira par « la fin de la
+        quasi-totalité des agences et autres organismes parasites », explique Marine Le Pen.
+      url: >-
+        https://www.publicsenat.fr/actualites/politique/140-milliards-deuros-deconomies-dici-2032-leffort-radical-propose-par-marine-le-pen-pour-redresser-les-f
+      date: '2026-10-06'
+      support: presse (conférence de presse du contre-budget 2027)
     precision: partielle
     interpretation: >-
-      Annexe listant les organismes non publiée avec le PDF ; revoir le fonctionnement des agences cité au Medef 2026 et
-      sur LCI le 16 septembre 2026 (« en tapant dans les agences qui ne servent à rien ou qui font doublon »).
+      Contre-budget 2027 : 3,4 Md€ de baisse de dépenses en 2027 (Public Sénat, Vert) et « plus de 10 milliards
+      d'euros en 2031 » (Acteurs publics) ; 10,1 Md€ en 2031 pour la « suppression ou réinternalisation d'agences »
+      selon l'annexe retranscrite par l'Institut de l'Entreprise. Agences citées : OFB, Anses, agences de l'eau,
+      Ademe, Anah, ANR (Vert, Acteurs publics). Missions en partie réaffectées à l'administration centrale ;
+      non-remplacement de départs (« L'ensemble de ces politiques de rationalisation aura pour conséquence une
+      diminution du nombre d'agents publics nécessaires », Acteurs publics ; 85 000 postes dans les agences d'ici
+      2032 selon France Transactions, cité par Planète Grandes Écoles). Le contre-budget 2026 prévoyait une baisse
+      de 20 % des financements de certaines agences (7,7 Md€). Recouvrement possible avec MaPrimeRénov' (Anah) et le
+      fonds vert, chiffrés à part.
     chiffrable: true
     economie_non_detaillee: true
     nature: economie
     effet_solde_primaire:
-      central: 9.12
+      central: 10.39
       bas: 0.0
-      haut: 9.12
+      haut: 10.39
       montee_en_charge:
         '2027': 0.0
-        '2028': 1.0
-        '2029': 1.0
-        '2030': 1.0
+        '2028': 0.4
+        '2029': 0.6
+        '2030': 0.8
         '2031': 1.0
         '2032': 1.0
     calcul:
       formule: montant * f
       parametres:
         montant:
-          valeur: 7.7
-          source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-          unite: Md€ (2026)
-          note: chiffre du candidat (contre-budget 2026)
+          valeur: 10.1
+          source: >-
+            https://www.institut-entreprise.fr/wp-content/uploads/2026/10/Analyse-primaire-contre-budget-RN-Note-de-contexte-IDEP.pdf
+          unite: Md€ (2031)
+          note: chiffre du candidat (annexe du contre-budget 2027, « suppression ou réinternalisation d'agences »)
         f:
-          valeur: 1.1842
-          bareme: facteur_pib_2026_2032
+          valeur: 1.0283
+          source: plan/hypotheses.yaml (FMI WEO avril 2026, 2032 reconduit)
           unite: facteur
-          note: >-
-            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+          note: PIB nominal 2032 / 2031 = 1,01058 × 1,01757
       explication: >-
-        Chiffre du RN projeté (annexe listant les organismes non publiée). Plafond (règle 6) : jaune « Opérateurs de l'État
-        » du PLF 2026 : « les 431 opérateurs de l'État bénéficieront d'un total de 73 288 M€ de financements publics »
-        (dont 33,9 Md€ de subventions pour charges de service public, 16,7 Md€ de transferts, 21,7 Md€ de taxes affectées ;
-        universités 12,8 Md€) ; 20 % de ce total hors universités, CNRS et CEA (≈ 55,6 Md€) font 11,1 Md€ : l'assiette
-        implicite du RN (38,5 Md€) tient dans le périmètre. Bas = 0 (économie non réalisée), haut = central (règle 6).
-        Source : https://www2.assemblee-nationale.fr/static/17/Annexes-DL/PLF-2026/22-Jaune2026_Operateurs.pdf (p. 24).
+        Chiffre du RN pour 2031 projeté : 10,1 × 1,0283 = 10,39 Md€. Plafond (règle 6) : jaune « Opérateurs de
+        l'État » du PLF 2026 : « les 431 opérateurs de l'État bénéficieront d'un total de 73 288 M€ de financements
+        publics » (universités 12,8 Md€) ; hors universités, CNRS et CEA (≈ 55,6 Md€), 10,1 Md€ représentent 18 % :
+        le montant tient dans le périmètre, mais suppose la suppression de missions (la commission d'enquête du
+        Sénat chiffrait à 0,54 Md€ les économies de fonctionnement sans suppression de politiques publiques). Bas =
+        0 (économie non réalisée), haut = central (règle 6). Montée : 3,4 Md€ en 2027 dans le plan du RN, 0 ici
+        (convention du fichier : première loi de finances en 2028). Source :
+        https://www2.assemblee-nationale.fr/static/17/Annexes-DL/PLF-2026/22-Jaune2026_Operateurs.pdf (p. 24).
+    chiffrages_tiers:
+      - auteur: Contre-budget RN 2027, selon l'annexe retranscrite par l'Institut de l'Entreprise
+        montant_md: 10.1
+        url: >-
+          https://www.institut-entreprise.fr/wp-content/uploads/2026/10/Analyse-primaire-contre-budget-RN-Note-de-contexte-IDEP.pdf
+        date: '2026-10-06'
+        commentaire: >-
+          2031 (3,4 Md€ en 2027) ; classée par l'Institut parmi les mesures sans mode opératoire (les universités
+          sont des opérateurs).
+      - auteur: Sénat, commission d'enquête sur les agences de l'État (cité par Public Sénat)
+        montant_md: 0.54
+        url: >-
+          https://www.publicsenat.fr/actualites/economie/contre-budget-du-rn-des-propositions-qui-manquent-de-credibilite-economique-mais-trahissent-une-veritable-coherence-doctrinale
+        commentaire: >-
+          Économies réalisables sur le seul fonctionnement des agences, sans suppression de politiques publiques.
     confiance: faible
     verification:
-      statut: ok
-      par: passe-sources
-      date: '2026-09-29'
+      statut: corrige
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
-        Budget réel du poste relu : jaune Opérateurs de l'État, PLF 2026 (www2.assemblee-nationale.fr,
-        22-Jaune2026_Operateurs.pdf), 73 288 M€ de financements publics aux 431 opérateurs ; −20 % sur un périmètre de
-        38,5 Md€ reste sous le plafond (11,1 Md€ hors universités et grands organismes de recherche). Montant inchangé
-        (7,7 × 1,1842 = 9,12) ; confiance faible (annexe non publiée, recouvrement possible avec Anah, Ademe et fonds
-        vert, que le contre-budget chiffre à part). Trace antérieure (verificateur-sonnet, corrige) : Citation
-        retrouvée sur l'URL. Annexe listant les agences non publiée : le montant (7,7 Md€ = 20 % de 38,5 Md€ de
-        financements) n'est pas contrôlable ; risque de recouvrement avec les lignes Ademe, Anah (MaPrimeRénov'),
-        fonds vert. Règle 6 : central = annonce projetée, bas = 0 (avant 4,56), haut = central. Confiance faible.
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
-        (valeur inchangée).
+        Mesure changée dans le contre-budget 2027 : de −20 % sur certaines agences (7,7 Md€, 2026) à la suppression
+        ou réinternalisation de la « quasi-totalité » des agences (10,1 Md€ en 2031 selon l'annexe retranscrite par
+        l'Institut de l'Entreprise ; « plus de 10 milliards » selon Acteurs publics). Citation remplacée (Public
+        Sénat, verbatim) ; central 9,12 → 10,39 (10,1 × 1,0283), sous le plafond du jaune Opérateurs ; montée en
+        charge étalée 2028-2031. Confiance faible. Trace antérieure (passe-sources, ok, 2026-09-29) : Budget réel du
+        poste relu : jaune Opérateurs de l'État, PLF 2026 (www2.assemblee-nationale.fr,
+        22-Jaune2026_Operateurs.pdf), 73 288 M€ de financements publics aux 431 opérateurs ; −20 % sur un périmètre
+        de 38,5 Md€ reste sous le plafond (11,1 Md€ hors universités et grands organismes de recherche). Montant
+        inchangé (7,7 × 1,1842 = 9,12) ; confiance faible (annexe non publiée, recouvrement possible avec Anah,
+        Ademe et fonds vert, que le contre-budget chiffre à part). Trace antérieure (verificateur-sonnet, corrige) :
+        Citation retrouvée sur l'URL. Annexe listant les agences non publiée : le montant (7,7 Md€ = 20 % de 38,5
+        Md€ de financements) n'est pas contrôlable ; risque de recouvrement avec les lignes Ademe, Anah
+        (MaPrimeRénov'), fonds vert. Règle 6 : central = annonce projetée, bas = 0 (avant 4,56), haut = central.
+        Confiance faible. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème
+        facteur_pib_2026_2032 (valeur inchangée).
   - id: fin-soutien-enr-intermittentes
     libelle: Suppression des tarifs d'achat et compléments de rémunération des énergies intermittentes
     domaine: energie
     citation:
-      texte: Suppression des tarifs préférentiels de rachat d'électricité (énergies intermittentes) 7,200
-      url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: '2025-10-23'
+      texte: >-
+        La candidate du RN a également promis une "grande réforme structurelle" de "la politique écologique et
+        énergétique", s'engageant comme à son habitude à "cesser les subventionnements à perte des énergies
+        intermittentes", comme le solaire ou l'éolien.
+      url: >-
+        https://www.lagazettefrance.fr/article/140-milliards-d-economies-ce-qu-il-faut-retenir-de-l-intervention-de-marine-le-pen
+      date: '2026-10-06'
+      support: presse (conférence de presse du contre-budget 2027)
     precision: partielle
     interpretation: >-
-      Les contrats en cours sont des engagements juridiques : lecture basse = nouveaux contrats seulement. Le coût du
-      soutien (CSPE budgétaire) dépend du prix de marché de l'électricité (charges faibles quand les prix sont hauts).
+      Les contrats en cours sont des engagements juridiques : lecture basse = nouveaux contrats seulement. Le coût
+      du soutien (CSPE budgétaire) dépend du prix de marché de l'électricité (charges faibles quand les prix sont
+      hauts). Contre-budget 2027 : J.-P. Tanguy espère « plus de 5 milliards d'euros dès la première année » de la
+      suppression des subventions (Vert, paraphrase), avec un moratoire sur les nouveaux projets. Contre-budget 2026
+      : « Suppression des tarifs préférentiels de rachat d'électricité (énergies intermittentes) 7,200 ».
     chiffrable: true
     nature: economie
     effet_solde_primaire:
@@ -1890,19 +2512,30 @@ mesures:
       - auteur: Contre-budget RN 2026 (chiffrage du candidat)
         montant_md: 7.2
         url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
+      - auteur: Contre-budget RN 2027, selon J.-P. Tanguy (Vert)
+        montant_md: 5.0
+        url: >-
+          https://vert.eco/chaleurs-actuelles/marine-le-pen-presente-le-contre-budget-du-rn-pour-2027-une-attaque-contre-les-renouvelables-et-les-agences-environnementales/
+        date: '2026-10-07'
+        commentaire: >-
+          « plus de 5 milliards d'euros dès la première année » (paraphrase de Vert) ; suppose la remise en cause de
+          contrats en cours.
     confiance: faible
     verification:
       statut: ok
-      par: passe-sources
-      date: '2026-09-29'
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
-        CRE, délibération 2026-149 du 15 juillet 2026, tableau 3 relu : éolien terrestre 1 157,1 + éolien en mer 965,6
-        + photovoltaïque 4 125,5 = 6 248,2 M€ (2026) ; 1 404,6 + 1 306,7 + 4 579,2 = 7 290,5 M€ (2027), soit +1,04 Md€
-        par an ; « soutien déjà engagé par l'Etat (environ +10 GWe estimés par la CRE entre 2026 et 2029) » relu.
-        Plafond (contrats signés dus) : 3,12 Md€, sous les 7,2 Md€ du RN. Paramètre annees_non_engagees (3) :
-        convention explicite, les contrats engagés jusqu'en 2029 restant dus. Trace antérieure (verificateur-sonnet,
-        corrige) : Citation retrouvée sur l'URL. Charges CRE (6,25 → 7,29 Md€) relues ; contrats signés dus : plafond
-        légal 3,12 (contrats non engagés), très sous les 7,2 Md€ du RN. Règle 6 : haut = central (avant 8,53), bas 0.
+        Citation 2026 remplacée par la déclaration du 6 octobre 2026 (La Gazette France, verbatim entre guillemets).
+        Chiffrage inchangé (contrats signés dus : économie limitée aux contrats non engagés). Trace antérieure
+        (passe-sources, ok, 2026-09-29) : CRE, délibération 2026-149 du 15 juillet 2026, tableau 3 relu : éolien
+        terrestre 1 157,1 + éolien en mer 965,6 + photovoltaïque 4 125,5 = 6 248,2 M€ (2026) ; 1 404,6 + 1 306,7 + 4
+        579,2 = 7 290,5 M€ (2027), soit +1,04 Md€ par an ; « soutien déjà engagé par l'Etat (environ +10 GWe estimés
+        par la CRE entre 2026 et 2029) » relu. Plafond (contrats signés dus) : 3,12 Md€, sous les 7,2 Md€ du RN.
+        Paramètre annees_non_engagees (3) : convention explicite, les contrats engagés jusqu'en 2029 restant dus.
+        Trace antérieure (verificateur-sonnet, corrige) : Citation retrouvée sur l'URL. Charges CRE (6,25 → 7,29
+        Md€) relues ; contrats signés dus : plafond légal 3,12 (contrats non engagés), très sous les 7,2 Md€ du RN.
+        Règle 6 : haut = central (avant 8,53), bas 0.
   - id: maprimerenov-en-pret-100-renov
     libelle: Remplacement de MaPrimeRénov' par un prêt à taux zéro « 100 % Rénov »
     domaine: logement
@@ -1915,13 +2548,18 @@ mesures:
       date: '2026-09-21'
     precision: partielle
     interpretation: >-
-      Contre-budget 2026 : « Remplacement "Ma Primrenov" par "100%Renov" 3,400 » Md€ nets. Économie = crédits MaPrimeRénov'
-      moins coût budgétaire du PTZ (bonification d'intérêts).
+      Contre-budget 2026 : « Remplacement "Ma Primrenov" par "100%Renov" 3,400 » Md€ nets. Économie = crédits
+      MaPrimeRénov' moins coût budgétaire du PTZ (bonification d'intérêts). Contre-budget 2027 : MaPrimeRénov' est «
+      arrêté pour être intégré à un plan « 100% rénov' » visant à l'isolation et à la climatisation » (Vert,
+      paraphrase) ; France Budget (simulateur, d'après la presse) encode le dispositif « 100 % Rénov' » comme une
+      dépense de 3,8 Md€. Le solde net de la mesure 2027 (économie sur l'Anah ou dépense nouvelle) n'est pas établi
+      : bas porté à −4,40 (3,8 × 1,157). Recouvrement possible avec la suppression de l'Anah
+      (agences-operateurs-moins-20).
     chiffrable: true
     nature: economie
     effet_solde_primaire:
       central: 1.82
-      bas: 0.0
+      bas: -4.4
       haut: 1.82
       montee_en_charge:
         '2027': 0.0
@@ -1949,7 +2587,8 @@ mesures:
         Économie brute des crédits de l'État à l'Anah, MaPrimeRénov' comprise (barème anah_credits_etat, 1,5353 Md€,
         PLF 2026, comme chez Zemmour ; la part CEE de l'Anah n'est pas de la dépense publique), projetée : 1,5353 ×
         1,1842 = 1,82 Md€. Le RN annonce 3,4 Md€ nets, au-dessus du budget de l'État sur ce périmètre. Le coût du prêt
-        à taux zéro qui la remplace n'est pas publié : bas = 0 (règle 6), haut = central.
+        à taux zéro qui la remplace n'est pas publié ; bas = dispositif « 100 % Rénov' » à 3,8 Md€ de dépense (France
+        Budget, 2027) projeté × 1,157, haut = central.
     chiffrages_tiers:
       - auteur: Contre-budget RN 2026 (chiffrage du candidat)
         montant_md: 3.4
@@ -1957,23 +2596,36 @@ mesures:
     confiance: faible
     verification:
       statut: corrige
-      par: verificateur-sonnet
-      date: '2026-09-29'
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
-        Citation retrouvée sur l'URL. Subvention de l'État à l'Anah 1 535 M€ (PLF 2026) relue dans le Sénat ; le RN
-        annonce 3,4 Md€ nets, au-dessus du budget de l'État du périmètre : central plafonné 1,78 ; coût du prêt à taux
-        zéro non publié. Règle 6 : bas = 0 (avant 0,89), haut = central.
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
-        (valeur inchangée).
-        Harmonisation des paramètres (30/09/2026) : crédits de l'Anah alignés sur le barème anah_credits_etat (1,5 → 1,5353, même valeur que Zemmour) ; central et haut 1,78 → 1,82.
+        Contre-budget 2027 : MaPrimeRénov' intégrée à un plan « 100 % Rénov' » d'isolation et de climatisation
+        (Vert) dont le coût n'est pas publié par le RN ; bas 0 → −4,40 (dépense de 3,8 Md€ retenue par France
+        Budget, projetée). Central et citation (lettre du 21 septembre 2026) inchangés. Trace antérieure
+        (verificateur-sonnet, corrige, 2026-09-29) : Citation retrouvée sur l'URL. Subvention de l'État à l'Anah 1
+        535 M€ (PLF 2026) relue dans le Sénat ; le RN annonce 3,4 Md€ nets, au-dessus du budget de l'État du
+        périmètre : central plafonné 1,78 ; coût du prêt à taux zéro non publié. Règle 6 : bas = 0 (avant 0,89),
+        haut = central. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème
+        facteur_pib_2026_2032 (valeur inchangée). Harmonisation des paramètres (30/09/2026) : crédits de l'Anah
+        alignés sur le barème anah_credits_etat (1,5 → 1,5353, même valeur que Zemmour) ; central et haut 1,78 →
+        1,82.
   - id: aide-publique-developpement
     libelle: Réduction de l'aide publique au développement
     domaine: action-exterieure
     citation:
-      texte: Rationalisation de l'Aide Publique au Développement 2,300
-      url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: '2025-10-23'
+      texte: >-
+        Marine Le Pen a plaidé pour une «rationalisation du mille-feuille territorial », marqué par «la fin de la
+        quasi-totalité des agences, des associations sans lien avec l'intérêt général», ou encore «de l'aide
+        publique au développement».
+      url: >-
+        https://www.cnews.fr/france/2026-10-06/baisse-de-la-tva-preference-nationale-simplification-administrative-que-contient
+      date: '2026-10-06'
+      support: presse (conférence de presse du contre-budget 2027)
     precision: partielle
+    interpretation: >-
+      Contre-budget 2027 : « une baisse drastique de l'aide publique au développement au profit de l'Outre-mer »
+      (Reuters, paraphrase) ; montant 2027 non isolé dans les comptes rendus. Montant du contre-budget 2026 conservé
+      (« Rationalisation de l'Aide Publique au Développement 2,300 »).
     chiffrable: true
     economie_non_detaillee: true
     nature: economie
@@ -2007,14 +2659,15 @@ mesures:
         (Sénat), la baisse est donc réalisable budgétairement. Bas = 0 (économie non réalisée), haut = central (règle 6).
     confiance: moyenne
     verification:
-      statut: corrige
-      par: verificateur-sonnet
-      date: '2026-09-29'
+      statut: ok
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
-        Citation retrouvée sur l'URL. Mission APD 3,67 Md€ de CP (Sénat) > 2,3 annoncés : réalisable. Règle 6 : bas =
-        0 (avant 1,36), haut = central.
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
-        (valeur inchangée).
+        Citation 2026 remplacée par la déclaration du 6 octobre 2026 (CNews, verbatim) ; aucun montant 2027 publié :
+        chiffrage inchangé. Trace antérieure (verificateur-sonnet, corrige, 2026-09-29) : Citation retrouvée sur
+        l'URL. Mission APD 3,67 Md€ de CP (Sénat) > 2,3 annoncés : réalisable. Règle 6 : bas = 0 (avant 1,36), haut
+        = central. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème
+        facteur_pib_2026_2032 (valeur inchangée).
   - id: dgf-regions-epci
     libelle: Baisse de la dotation globale de fonctionnement des régions et des intercommunalités
     domaine: collectivites
@@ -2024,8 +2677,14 @@ mesures:
       date: '2025-10-23'
     precision: partielle
     interpretation: >-
-      Transfert État → collectivités : l'effet sur le solde APU dépend de l'ajustement des collectivités (dépenses ou
-      impôts locaux, ou déficit d'investissement). Lecture centrale : économie intégrale (montant du RN) ; bas = 0.
+      Transfert État → collectivités : l'effet sur le solde APU dépend de l'ajustement des collectivités (dépenses
+      ou impôts locaux, ou déficit d'investissement). Lecture centrale : économie intégrale (montant du RN) ; bas =
+      0. Contre-budget 2027 : la ligne « Baisse de la DGF pour les régions et les EPCI » n'est pas citée dans les
+      comptes rendus lus ; l'effort des collectivités (8,2 Md€ en 2027 selon Public Sénat) comprend, selon
+      l'Institut de l'Entreprise, un « écrêtement de la TVA affectée aux collectivités » (3,4 Md€, classé sans effet
+      sur le solde consolidé), dans un cadre de centralisation de la TVA (mesure
+      centralisation-tva-fin-reconduction), et des lignes d'effectifs et de structures chiffrées à part
+      (collectivites-effectifs-epci-metropoles). Montant 2026 conservé dans l'attente du dossier.
     chiffrable: true
     economie_non_detaillee: true
     nature: economie
@@ -2066,27 +2725,122 @@ mesures:
         Bas = 0 (report sur l'emprunt ou la trésorerie des collectivités), haut = central (règle 6).
     confiance: faible
     verification:
-      statut: ok
-      par: passe-sources
-      date: '2026-09-29'
+      statut: conteste
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
-        Budget réel du poste relu (Sénat, rapport spécial PLF 2026 : TVA-DGF des régions ≈ 5,2 Md€, dotation
-        d'intercommunalité 1,8 Md€, dotation de compensation 4,4 Md€) : plafond ≈ 11 Md€, non atteint. Précision
-        juridique : la loi de finances 2026 a abandonné le rétablissement de la DGF des régions (ATD 31,
+        Ligne du contre-budget 2026 non retrouvée telle quelle dans les comptes rendus du contre-budget 2027 :
+        remplacée vraisemblablement par l'écrêtement de la TVA affectée aux collectivités (3,4 Md€ selon l'annexe
+        retranscrite par l'Institut de l'Entreprise), transfert que la règle 6 bis tiendrait pour neutre sur le
+        solde des APU. Montant conservé (5,92) en attendant le dossier ; à relire (risque de surestimation de 2,5 à
+        5,9 Md€). Trace antérieure (passe-sources, ok, 2026-09-29) : Budget réel du poste relu (Sénat, rapport
+        spécial PLF 2026 : TVA-DGF des régions ≈ 5,2 Md€, dotation d'intercommunalité 1,8 Md€, dotation de
+        compensation 4,4 Md€) : plafond ≈ 11 Md€, non atteint. Précision juridique : la loi de finances 2026 a
+        abandonné le rétablissement de la DGF des régions (ATD 31,
         https://atd31.fr/fr/base-doc/finances-locales/loi-de-finances/loi-de-finances-pour-2026.html) ; les régions
         perçoivent une fraction de TVA, que la mesure réduirait. Montant inchangé (5 × 1,1842 = 5,92), confiance
-        faible (réaction des collectivités). Trace antérieure (verificateur-sonnet, corrige) : Citation retrouvée sur
-        l'URL. Baisse de dotation 5,0 Md€ (RN), non contredite ; effet solde APU dépendant de l'ajustement des
+        faible (réaction des collectivités). Trace antérieure (verificateur-sonnet, corrige) : Citation retrouvée
+        sur l'URL. Baisse de dotation 5,0 Md€ (RN), non contredite ; effet solde APU dépendant de l'ajustement des
         collectivités (hors comptage). Règle 6 : bas = 0 (avant 2,96), haut = central. Recalé sur les conventions
         communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032 (valeur inchangée).
+  - id: collectivites-effectifs-epci-metropoles
+    libelle: >-
+      Collectivités : ajustement des effectifs et suppression des EPCI et des métropoles
+    domaine: collectivites
+    citation:
+      texte: >-
+        Dans les annexes du projet de budget du RN, la « suppression des EPCI et des métropoles » permettrait, par
+        exemple, une baisse de dépenses de 250 millions d'euros. « L'ajustement des effectifs à la suite de la
+        rationalisation des compétences des collectivités » aurait comme conséquence selon le même document une
+        baisse des dépenses de 800 millions d'euros.
+      url: >-
+        https://www.publicsenat.fr/actualites/politique/140-milliards-deuros-deconomies-dici-2032-leffort-radical-propose-par-marine-le-pen-pour-redresser-les-f
+      date: '2026-10-06'
+      support: libellés de l'annexe du contre-budget 2027 cités par Public Sénat
+    precision: partielle
+    interpretation: >-
+      « Nous réaliserons une simplification radicale qui clarifiera définitivement les compétences » (Marine Le Pen,
+      Acteurs publics). Montants de l'annexe en 2027 : 0,25 et 0,8 Md€ (Public Sénat) ; en 2031 : 1,25 Md€ pour la
+      suppression des intercommunalités et des métropoles (après un coût de 25 M€ la première année) et 3,75 Md€
+      pour l'ajustement des effectifs (Acteurs publics). Non comptés ici faute de libellé verbatim : application des
+      35 heures dans la fonction publique territoriale (1,3 Md€ en 2031) et « application stricte des compétences »
+      (2,1 Md€), cités par Acteurs publics. Non-remplacement de départs (116 000 postes dans les collectivités d'ici
+      2032 selon France Transactions, cité par Planète Grandes Écoles). La suppression des EPCI suppose une loi
+      organique ou ordinaire lourde ; les métropoles et EPCI ne sont pas des collectivités au sens de la
+      Constitution (Acteurs publics).
+    chiffrable: true
+    economie_non_detaillee: true
+    nature: economie
+    effet_solde_primaire:
+      central: 5.14
+      bas: 0.0
+      haut: 5.14
+      montee_en_charge:
+        '2027': 0.0
+        '2028': 0.3
+        '2029': 0.5
+        '2030': 0.75
+        '2031': 1.0
+        '2032': 1.0
+    calcul:
+      formule: (effectifs + epci_metropoles) * f
+      parametres:
+        effectifs:
+          valeur: 3.75
+          source: >-
+            https://acteurspublics.fr/articles/la-reforme-de-letat-et-des-collectivites-au-coeur-des-economies-programmees-par-le-rn/
+          unite: Md€ (2031)
+          note: chiffre du candidat (annexe du contre-budget 2027) ; 0,8 Md€ en 2027 (Public Sénat)
+        epci_metropoles:
+          valeur: 1.25
+          source: >-
+            https://acteurspublics.fr/articles/la-reforme-de-letat-et-des-collectivites-au-coeur-des-economies-programmees-par-le-rn/
+          unite: Md€ (2031)
+          note: chiffre du candidat (annexe du contre-budget 2027) ; 0,25 Md€ en 2027 (Public Sénat)
+        f:
+          valeur: 1.0283
+          source: plan/hypotheses.yaml (FMI WEO avril 2026, 2032 reconduit)
+          unite: facteur
+          note: PIB nominal 2032 / 2031 = 1,01058 × 1,01757
+      explication: >-
+        Règle 6, économie ciblée : (3,75 + 1,25) × 1,0283 = 5,14 Md€ en 2032. Économie de dépenses des
+        collectivités, qui pèse sur le solde des APU si elle n'est pas compensée par d'autres dépenses locales.
+        Plafond : non contraignant au regard des dépenses de personnel et de fonctionnement du bloc communal (non
+        resourcé dans cette passe, à vérifier). Bas = 0, haut = central.
+    chiffrages_tiers:
+      - auteur: Contre-budget RN 2027, selon Acteurs publics
+        montant_md: 5.0
+        url: >-
+          https://acteurspublics.fr/articles/la-reforme-de-letat-et-des-collectivites-au-coeur-des-economies-programmees-par-le-rn/
+        commentaire: >-
+          2031 : effectifs 3,75 + EPCI et métropoles 1,25 ; l'effort total des collectivités est de 8,2 Md€ dès 2027
+          selon Public Sénat.
+    confiance: faible
+    verification:
+      statut: ok
+      par: veille-2026-10-11
+      date: '2026-10-11'
+      commentaire: >-
+        Mesure nouvelle du contre-budget 2027 ; libellés de l'annexe cités verbatim par Public Sénat, montants 2031
+        par Acteurs publics. Recouvrement possible avec dgf-regions-epci (même effort des collectivités), signalé.
   - id: subventions-associations
     libelle: Baisse des subventions aux associations « ne relevant pas de l'intérêt général »
     domaine: etat
     citation:
-      texte: Baisser les subventions aux associations ne relevant pas de l'intérêt général 3,200
-      url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: '2025-10-23'
+      texte: >-
+        Marine Le Pen a plaidé pour une «rationalisation du mille-feuille territorial », marqué par «la fin de la
+        quasi-totalité des agences, des associations sans lien avec l'intérêt général», ou encore «de l'aide
+        publique au développement».
+      url: >-
+        https://www.cnews.fr/france/2026-10-06/baisse-de-la-tva-preference-nationale-simplification-administrative-que-contient
+      date: '2026-10-06'
+      support: presse (conférence de presse du contre-budget 2027)
     precision: vague
+    interpretation: >-
+      Contre-budget 2027 : fin des subventions aux associations « ne relevant pas de l'intérêt général », gain
+      espéré de 3,7 Md€ à partir de 2028 (Vert) ; contre-budget 2026 : « Baisser les subventions aux associations ne
+      relevant pas de l'intérêt général 3,200 ». Montant central conservé (3,2 Md€ 2026 projetés = 3,79, proche des
+      3,7 Md€ de 2028).
     chiffrable: true
     economie_non_detaillee: true
     nature: economie
@@ -2122,19 +2876,33 @@ mesures:
         76,7 % des montants versés, soit 7,3 milliards d'euros » (2024), sur 9,5 Md€ de versements. Les 3,2 Md€ du RN
         (44 % des subventions) tiennent dans ce périmètre ; le tri « intérêt général » n'est pas défini. Bas = 0 (économie
         non réalisée), haut = central.
+    chiffrages_tiers:
+      - auteur: Contre-budget RN 2027, selon Vert
+        montant_md: 3.7
+        url: >-
+          https://vert.eco/chaleurs-actuelles/marine-le-pen-presente-le-contre-budget-du-rn-pour-2027-une-attaque-contre-les-renouvelables-et-les-agences-environnementales/
+        date: '2026-10-07'
+        commentaire: >-
+          « à partir de 2028 ».
+      - auteur: Contre-budget RN 2026 (chiffrage du candidat)
+        montant_md: 3.2
+        url: >-
+          https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
     confiance: faible
     verification:
       statut: ok
-      par: passe-sources
-      date: '2026-09-29'
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
-        Budget réel du poste relu dans le jaune associations du PLF 2026 (subventions de l'État 7 301 M€ en 2024,
-        versements totaux 9 521 M€) : plafond non atteint (3,2 Md€ annoncés). Montant inchangé (3,2 × 1,1842 = 3,79) ;
-        confiance faible (périmètre « intérêt général » non défini, 44 % des subventions). Trace antérieure
-        (verificateur-sonnet, corrige) : Citation retrouvée sur l'URL. 3,2 Md€ (RN) sous les 7,3 Md€ de subventions de
-        l'État aux associations : plafond respecté. Règle 6 : bas = 0 (avant 1,89), haut = central. Recalé sur les
-        conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032 (valeur
-        inchangée).
+        Citation 2026 remplacée par la déclaration du 6 octobre 2026 (CNews, verbatim) ; montant 2027 (3,7 Md€ à
+        partir de 2028, Vert) cohérent avec le central (3,79) : chiffrage inchangé. Trace antérieure (passe-sources,
+        ok, 2026-09-29) : Budget réel du poste relu dans le jaune associations du PLF 2026 (subventions de l'État 7
+        301 M€ en 2024, versements totaux 9 521 M€) : plafond non atteint (3,2 Md€ annoncés). Montant inchangé (3,2
+        × 1,1842 = 3,79) ; confiance faible (périmètre « intérêt général » non défini, 44 % des subventions). Trace
+        antérieure (verificateur-sonnet, corrige) : Citation retrouvée sur l'URL. 3,2 Md€ (RN) sous les 7,3 Md€ de
+        subventions de l'État aux associations : plafond respecté. Règle 6 : bas = 0 (avant 1,89), haut = central.
+        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
+        (valeur inchangée).
   - id: train-de-vie-etat-et-petites-economies
     libelle: Train de vie de l'État, audiovisuel public, aides à la presse, CESER, plan vélo
     domaine: etat
@@ -2190,19 +2958,29 @@ mesures:
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
         (valeur inchangée).
   - id: fonds-vert
-    libelle: Suppression du fonds vert (hors inondations et feux de forêt)
+    libelle: Fonds vert transformé en Fonds de financement des catastrophes naturelles (+0,1 Md€)
     domaine: ecologie
     citation:
-      texte: Suppression du fonds vert hors dépenses pour inondations et feux de forêts 0,460
-      url: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-      date: '2025-10-23'
-    precision: precise
+      texte: >-
+        Enfin, le parti ambitionne de transformer le Fonds vert en «Fonds de financement des catastrophes
+        naturelles», revenant sur «les catastrophes climatiques» qui ont touché la France cet été.
+      url: >-
+        https://www.cnews.fr/france/2026-10-06/baisse-de-la-tva-preference-nationale-simplification-administrative-que-contient
+      date: '2026-10-06'
+      support: presse (conférence de presse du contre-budget 2027)
+    precision: partielle
+    interpretation: >-
+      Changement par rapport au contre-budget 2026, qui supprimait le fonds vert hors inondations et feux de forêt
+      (« Suppression du fonds vert hors dépenses pour inondations et feux de forêts 0,460 ») : le contre-budget 2027
+      le transforme en fonds de lutte contre les risques climatiques « augmenté de 100 millions d'euros » (Vert,
+      paraphrase). L'économie de 0,54 Md€ disparaît ; la mesure devient une dépense de 0,1 Md€ (montant 2027,
+      projeté).
     chiffrable: true
-    nature: economie
+    nature: depense
     effet_solde_primaire:
-      central: 0.54
-      bas: 0.0
-      haut: 0.54
+      central: -0.12
+      bas: -0.12
+      haut: 0.0
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -2211,32 +2989,32 @@ mesures:
         '2031': 1.0
         '2032': 1.0
     calcul:
-      formule: montant * f
+      formule: -(hausse * f)
       parametres:
-        montant:
-          valeur: 0.46
-          source: https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf
-          unite: Md€ (2026)
-          note: chiffre du candidat (contre-budget 2026)
+        hausse:
+          valeur: 0.1
+          source: >-
+            https://vert.eco/chaleurs-actuelles/marine-le-pen-presente-le-contre-budget-du-rn-pour-2027-une-attaque-contre-les-renouvelables-et-les-agences-environnementales/
+          unite: Md€ (2027)
+          note: « augmenté de 100 millions d'euros » (Vert), chiffre du candidat
         f:
-          valeur: 1.1842
-          bareme: facteur_pib_2026_2032
+          valeur: 1.157
+          bareme: facteur_pib_2027_2032
           unite: facteur
-          note: >-
-            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+          note: PIB nominal 2032 / 2027
       explication: >-
-        Chiffre du RN (0,46 Md€) projeté : 0,46 × 1,1842 = 0,54 Md€ ; le fonds vert a 1,085 Md€ de CP en 2026 (Sénat).
-        Bas = 0 (économie non réalisée), haut = central (règle 6).
+        Hausse de 0,1 Md€ du fonds (1,085 Md€ de CP en 2026, Sénat) projetée : 0,1 × 1,157 = 0,12 Md€. Haut = 0
+        (redéploiement à enveloppe constante).
     confiance: moyenne
     verification:
       statut: corrige
-      par: verificateur-sonnet
-      date: '2026-09-29'
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
-        Citation retrouvée sur l'URL. 0,46 Md€ sous le fonds vert (1,085 Md€ de CP, Sénat) : plafond respecté. Règle 6
-        : bas = 0 (avant 0,27), haut = central.
-        Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
-        (valeur inchangée).
+        Mesure changée dans le contre-budget 2027 : le fonds vert n'est plus supprimé mais transformé en « Fonds de
+        financement des catastrophes naturelles » (CNews) et augmenté de 100 M€ (Vert). Central +0,54 (économie) →
+        −0,12 (dépense) ; citation remplacée. Trace antérieure (verificateur-sonnet, corrige, 2026-09-29) : 0,46 Md€
+        sous le fonds vert (1,085 Md€ de CP, Sénat).
   - id: aides-apprentissage-avant-licence
     libelle: Aides à l'apprentissage réservées aux formations de niveau inférieur à la licence
     domaine: travail
@@ -2416,6 +3194,54 @@ mesures:
         0,09 après tri sur le vote de la LFI 2026 est cohérente.
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
         (valeur inchangée).
+  - id: droits-nouveaux-provisionnes
+    libelle: Dépenses « provisionnées pour des droits nouveaux » (aidants, soins dentaires, troisième enfant, permis de conduire)
+    domaine: social
+    citation:
+      texte: >-
+        Les 140 mds d'économies sont d'autant plus ambitieux à atteindre que Marine Le Pen a promis en sens inverse
+        30 mds de baisses d'impôts et 15 mds de "dépenses provisionnées pour des droits nouveaux", ainsi que des
+        rallonges pour l'outre-mer, la recherche et l'éducation.
+      url: >-
+        https://www.sudradio.fr/societe/presidentielle-en-quete-de-credibilite-budgetaire-le-pen-promet-un-effort-radical-de-140-milliards-net
+      date: '2026-10-06'
+      support: presse (AFP)
+    precision: vague
+    interpretation: >-
+      Contenu connu par les comptes rendus (paraphrases) : budget des proches aidants « + 2 milliards »,
+      remboursement des soins dentaires « 1,4 milliard d'euros », « subvention pour le troisième enfant » à
+      l'horizon 2031, gratuité du permis de conduire pour « les jeunes éligibles à partir de 2028 » (CNews) ou « au
+      casier judiciaire vierge » (Reuters), recrutement d'infirmières scolaires, « sacralisation » du budget de
+      l'Éducation nationale (Reuters). L'annexe compte 19,1 Md€ de « prestations et droits » nouveaux pour les
+      ménages en 2031, réforme des retraites (9,5 Md€, chiffrée à part dans retraites-60-62-ans) comprise (Institut
+      de l'Entreprise).
+    chiffrable: false
+    raison_non_chiffrable: >-
+      Enveloppe de dépenses dont seuls deux postes sont chiffrés (aidants, soins dentaires) et dont le périmètre
+      exact (réforme des retraites comprise ou non) n'est pas publié ; rallonges outre-mer, recherche et éducation non
+      chiffrées.
+    sens_probable: cout
+    estimation_indicative:
+      central: -9.87
+      bas: -15.42
+      haut: -3.93
+      lecture: >-
+        Annexe : 19,1 Md€ de droits nouveaux des ménages en 2031 moins la réforme des retraites (9,5 Md€, déjà
+        chiffrée) = 9,6 Md€, × 1,0283 = 9,87 Md€ en 2032. Bas : les 15 Md€ annoncés hors retraites (× 1,0283). Haut
+        : seuls les deux postes chiffrés (aidants 2 + dentaire 1,4 = 3,4 Md€, montants 2027 × 1,157). Rallonges
+        outre-mer, recherche et éducation non comprises.
+      sources:
+      - https://www.sudradio.fr/societe/presidentielle-en-quete-de-credibilite-budgetaire-le-pen-promet-un-effort-radical-de-140-milliards-net
+      - https://www.cnews.fr/france/2026-10-06/baisse-de-la-tva-preference-nationale-simplification-administrative-que-contient
+      - https://www.institut-entreprise.fr/wp-content/uploads/2026/10/Analyse-primaire-contre-budget-RN-Note-de-contexte-IDEP.pdf
+      - facteur_pib_2027_2032
+    verification:
+      statut: ok
+      par: veille-2026-10-11
+      date: '2026-10-11'
+      commentaire: >-
+        Mesure nouvelle du contre-budget 2027 (expression citée entre guillemets par l'AFP). Enveloppe de dépenses
+        non détaillée : non chiffrable (règle 7), estimation indicative hors solde.
   - id: golden-share-atos-arcelor-opella
     libelle: Prise de participations (« golden share ») dans Atos, ArcelorMittal France et Opella
     domaine: industrie
@@ -2498,20 +3324,35 @@ mesures:
     precision: vague
     interpretation: >-
       Entretien publié (règle 1) ; aucune reprise sur rassemblementnational.fr trouvée. Engagement déjà au programme
-      législatif 2024 (calendrier : « Sortie des règles européennes de fixation des prix de l'électricité », négociations
-      européennes, juillet 2024, rassemblementnational.fr/documents/202406-programme.pdf).
+      législatif 2024 (calendrier : « Sortie des règles européennes de fixation des prix de l'électricité »,
+      négociations européennes, juillet 2024, rassemblementnational.fr/documents/202406-programme.pdf).
+      Contre-budget 2027 : une « reprise en main de la production d'électricité » permettrait « une baisse des
+      factures pour tous les ménages » (Marine Le Pen, CNews, 6 octobre 2026) ; l'annexe compte le « prix national
+      de l'électricité » comme une baisse de dépenses de 9,3 Md€ en 2031 sans mécanisme explicité (Institut de
+      l'Entreprise). Non retenu : ni le mécanisme ni le poste de dépense publique concerné ne sont décrits.
     chiffrable: false
     raison_non_chiffrable: >-
       Effet budgétaire indirect (dividendes et impôts d'EDF, charges de service public) non déterminable sans mécanisme
       précisé.
     sens_probable: incertain
+    chiffrages_tiers:
+      - auteur: Contre-budget RN 2027, selon l'annexe retranscrite par l'Institut de l'Entreprise
+        montant_md: 9.3
+        url: >-
+          https://www.institut-entreprise.fr/wp-content/uploads/2026/10/Analyse-primaire-contre-budget-RN-Note-de-contexte-IDEP.pdf
+        date: '2026-10-06'
+        commentaire: >-
+          2031, classé en baisse de dépenses ; l'Institut le range parmi les mesures sans mode opératoire.
     verification:
       statut: ok
-      par: passe-sources
-      date: '2026-09-29'
+      par: veille-2026-10-11
+      date: '2026-10-11'
       commentaire: >-
-        Citation : entretien publié de J. Bardella (JDD), source primaire au sens de la règle 1 ; reprise officielle
-        introuvable. Engagement confirmé par le programme 2024 (relu). Non chiffrable inchangé.
+        Mesure reprise dans le contre-budget 2027 avec un rendement affiché de 9,3 Md€ (annexe, Institut de
+        l'Entreprise) ; mécanisme toujours non décrit : non chiffrable inchangé, sens incertain. Trace antérieure
+        (passe-sources, ok, 2026-09-29) : Citation : entretien publié de J. Bardella (JDD), source primaire au sens
+        de la règle 1 ; reprise officielle introuvable. Engagement confirmé par le programme 2024 (relu). Non
+        chiffrable inchangé.
   - id: abandon-ets2-accises-carburants
     libelle: Abandon de l'ETS2 et baisse de la fiscalité des carburants au niveau européen
     domaine: energie
