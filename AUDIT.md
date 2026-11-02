@@ -11,7 +11,8 @@ n'a pas pu être rejoué en ligne. Les points marqués « non vérifié » sont 
 - Schémas, renvois aux barèmes, unicité des identifiants, citation et URL présentes pour chaque mesure : tests
   automatiques.
 - Pages générées : échappement du contenu, autonomie (aucune ressource externe), accessibilité de base.
-- Quelques chiffres recoupés par recherche (TVA, IS, COR, FMI avril 2026, PFU…), sans lecture des pages sources.
+- Quelques chiffres recoupés par recherche (TVA, IS, COR, FMI avril 2026, PFU…), sans lecture des pages sources
+  (le millésime FMI est passé à octobre 2026 le 2 novembre 2026 : voir plus bas).
 
 ## Vérifié en ligne le 30 septembre 2026
 1. **Citations** (`uv run python -m outils.liens`) : les 453 citations écrites des 8 programmes sont retrouvées mot pour
@@ -115,6 +116,19 @@ n'a pas pu être rejoué en ligne. Les points marqués « non vérifié » sont 
   sommes documentées des enveloppes d'Attal, du RN et de Reconquête recalculées ; avance de la CVAE en 2028-2029
   nette du retour d'IS de 20 % pour les trois programmes qui la proposent ; notes de paramètres alignées sur les
   barèmes qu'elles citent.
+
+- **Millésime FMI (2 novembre 2026)** : `plan/hypotheses.yaml` passe du WEO d'avril 2026 à celui d'octobre 2026
+  (publié le 13 octobre). Barèmes dérivés recalculés depuis `plan/trajectoire.py` (`_series_fmi`) et le PIB observé
+  (`finances.pib_nominal`) : PIB 2032 3 621 → 3 642 Md€, point de PIB 36,2 → 36,4, RNB 2032 3 685 → 3 706,
+  facteur_pib_2025_2032 1,2106 → 1,2177 (et les autres années de départ), inflation cumulée 2027-2032 11,03 → 11,88 %
+  (bornes 9,59 et 12,09), indexation du point 20,6 → 22,1 Md€ brut (montée 0,18 / 0,34 / 0,50 / 0,67 / 0,83 / 1),
+  IPCH 2027 1,721 → 2,243 %, déflateur 2027 1,46 → 2,09 % ; déflateur FMI 2032/2024 des barèmes de retraite 1,1386 →
+  1,1506 (barèmes `_apu` et système relevés de 0,1 à 0,2 Md€). 150 mesures recalées (formule rejouée, bornes selon leur
+  calcul écrit) et 5 bornes sans paramètre de barème ; chaque mesure porte « Recalé sur le FMI WEO d'octobre 2026 : … »
+  dans `verification.commentaire`. Soldes centraux 2032 : Attal −41,36 → −39,65 ; Glucksmann −85,97 → −86,49 ; Le Pen
+  −43,90 → −44,01 ; Mélenchon −347,84 → −350,19 ; Philippe +1,09 → +1,11 ; Retailleau −14,16 → −14,46 ; Tondelier
+  −40,31 → −40,85 ; Zemmour −97,10 → −97,77. Dette 2032 de référence (solde primaire gelé) 133,1 → 134,8 % du PIB.
+  Simulateur resynchronisé.
 
 ## Points ouverts
 - Bornes à justifier : `retailleau-lr/seuil-zero-cotisation` (haut −4,2 contre ≈ −4,36 par la méthode décrite),
