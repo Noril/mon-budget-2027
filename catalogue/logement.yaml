@@ -11,12 +11,12 @@
     auth: aucune
   licence: Licence Ouverte 2.0
   maille: [departement]
-  millesime: mensuel (fin de mois) ; séries depuis janvier 2000
+  millesime: mensuel (fin de mois) ; séries depuis janvier 2002 (le SDES a retiré 2000-2001 du fichier en octobre 2026)
   fraicheur_max_jours: 70
   domaines: [logement]
   normalisation: dido
   controles:
-    lignes_min: 90000
+    lignes_min: 85000
     colonnes: [ANNEE, MOIS, DEPARTEMENT_CODE, DEPARTEMENT_LIBELLE, TYPE_LGT, LOG_AUT, LOG_COM, millesime]
   statut: actif
   notes: >

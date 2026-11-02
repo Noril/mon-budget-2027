@@ -298,6 +298,12 @@ DESCRIPTIONS = {
 }
 
 
+def _montant_signe(solde: float) -> str:
+    """Pour l'image d'aperçu, dont la légende parle de déficit en plus : un excédent s'affiche avec un signe moins."""
+    montant = effet_deficit(solde)[0]
+    return f"−{montant}" if solde > 0.05 else montant
+
+
 def apercus(cfg) -> None:
     """Images Open Graph (build/site/og/) et balises de partage dans chaque page."""
     base = (cfg.get("url_site") or "").rstrip("/")
@@ -307,7 +313,7 @@ def apercus(cfg) -> None:
     progs = json.loads(fichier.read_text(encoding="utf-8"))["programmes"] if fichier.exists() else []
     progs = sorted(progs, key=lambda a: a["candidat"].split(" ", 1)[-1])
     images = {
-        "index.html": partage.accueil([(a["candidat"].split(" ", 1)[-1], effet_deficit(a["croisiere"]["central"])[0]) for a in progs]),
+        "index.html": partage.accueil([(a["candidat"].split(" ", 1)[-1], _montant_signe(a["croisiere"]["central"])) for a in progs]),
         "jeu.html": partage.generique("Et vous, quel budget ?", DESCRIPTIONS["jeu.html"], pile=True),
         "simulateur.html": partage.generique("Composez votre budget 2027", DESCRIPTIONS["simulateur.html"]),
         "rapport.html": partage.generique("Les programmes 2027 chiffrés", DESCRIPTIONS["rapport.html"]),
