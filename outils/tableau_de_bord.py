@@ -20,10 +20,10 @@ SORTIE = RACINE / "build" / "tableau-de-bord.md"
 
 
 def _valeur(table: Path, maille: str, code: str, periode: str) -> float | None:
-    ligne = duckdb.execute(
+    ligne = next(iter(duckdb.execute(
         f"SELECT valeur FROM read_parquet('{table}') WHERE maille = ? AND code = ? AND periode = ?",
         [maille, code, periode],
-    ).fetchone()
+    ).fetchall()), None)
     return ligne[0] if ligne else None
 
 
@@ -42,13 +42,13 @@ def resumer(definition: dict, table: Path) -> dict:
 
     if "pays" in definition["maille"]:
         # Dernière période où la France et la moyenne UE sont toutes deux publiées, sinon la dernière de la France
-        (p_ue,) = duckdb.sql(
+        (p_ue,) = next(iter(duckdb.sql(
             f"""SELECT coalesce(
                     (SELECT max(periode) FROM {t} WHERE maille = 'pays' AND code = 'FR' AND valeur IS NOT NULL
                        AND periode IN (SELECT periode FROM {t} WHERE maille = 'pays' AND code = 'EU27_2020'
                                        AND valeur IS NOT NULL)),
                     (SELECT max(periode) FROM {t} WHERE maille = 'pays' AND code = 'FR' AND valeur IS NOT NULL))"""
-        ).fetchone()
+        ).fetchall()), None)
         if p_ue:
             pays = dict(duckdb.execute(
                 f"SELECT code, valeur FROM {t} WHERE maille = 'pays' AND periode = ? AND valeur IS NOT NULL", [p_ue]
@@ -60,11 +60,11 @@ def resumer(definition: dict, table: Path) -> dict:
                 r["rang_fr"] = ordre.index("FR") + 1
 
     if "departement" in definition["maille"] and periodes_fr:
-        extremes = duckdb.execute(
-            f"""SELECT arg_min(libelle, valeur), min(valeur), arg_max(libelle, valeur), max(valeur), count(*)
+        extremes = next(iter(duckdb.execute(
+            f"""SELECT (array_agg(libelle ORDER BY valeur, libelle))[1], min(valeur), (array_agg(libelle ORDER BY valeur DESC, libelle))[1], max(valeur), count(*)
                 FROM {t} WHERE maille = 'departement' AND periode = ? AND valeur IS NOT NULL""",
             [r["periode"]],
-        ).fetchone()
+        ).fetchall()), None)
         if extremes and extremes[4]:
             r |= {"dep_min": extremes[0], "val_min": extremes[1], "dep_max": extremes[2], "val_max": extremes[3],
                   "nb_dep": extremes[4]}
