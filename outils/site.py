@@ -23,8 +23,10 @@ PAGES = {"chiffrage.html": "rapport.html", "simulateur.html": "simulateur.html",
 FICHIERS = ["chiffrage.md", "tableau-de-bord.md"]
 DONNEES = [RACINE / "data" / "chiffrage.json"]
 
-# Pages autonomes : scripts et styles en ligne, aucune ressource externe.
-CSP = ("default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'self'; "
+# Pages autonomes : scripts et styles en ligne, aucune ressource externe. Seule exception, servie par le même
+# domaine : la mesure d'audience sans cookie de Vercel (/_vercel/insights), ajoutée à chaque page par apercus().
+ANALYTICS = '<script defer src="/_vercel/insights/script.js"></script>'
+CSP = ("default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'self'; "
        "base-uri 'none'; form-action 'none'; frame-ancestors 'none'")
 VERCEL = {
     # site statique déjà construit : pas de framework ni de compilation côté Vercel (le projet détecte sinon du Python)
@@ -274,8 +276,11 @@ la loi n° 2004-575 du 21 juin 2004) en écrivant au contact ci-dessus ou en ouv
 erronée, lien mort, erreur de calcul) est corrigée dans les meilleurs délais. L'historique des corrections est
 public dans le dépôt.</p>
 <h2 id="donnees">Données personnelles</h2>
-<p>Ce site ne dépose aucun cookie, n'utilise aucun traceur, aucun service d'analyse et aucune ressource externe. Les
-choix faits dans le simulateur restent dans votre navigateur.</p>
+<p>Ce site ne dépose aucun cookie, n'utilise aucun traceur publicitaire et aucune ressource externe. Les choix faits
+dans le simulateur restent dans votre navigateur.</p>
+<p>La fréquentation est mesurée par Vercel Web Analytics, sans cookie ni identifiant durable : seuls sont comptés les
+pages vues, le site d'où vient la visite, le pays, le type d'appareil et de navigateur. Une visite n'est pas suivie
+d'un jour à l'autre ni d'un site à l'autre, et ces mesures ne sont pas reliées aux parties du jeu.</p>
 <p>À la fin du jeu, vos choix sont enregistrés automatiquement, de façon anonyme, pour établir des statistiques sur
 chaque décision. Sont enregistrés uniquement : vos réponses aux décisions du jeu et le jour de la partie. Ne sont
 enregistrés ni votre adresse IP, ni l'heure, ni aucun cookie ou identifiant : une partie enregistrée ne peut pas être
@@ -342,7 +347,7 @@ def apercus(cfg) -> None:
             '<meta property="og:locale" content="fr_FR"><meta name="twitter:card" content="summary_large_image">',
         ])
         if 'property="og:title"' not in texte:
-            page.write_text(texte.replace("</head>", balises + "</head>", 1), encoding="utf-8")
+            page.write_text(texte.replace("</head>", balises + ANALYTICS + "</head>", 1), encoding="utf-8")
 
 
 def _url(u: str) -> str:
