@@ -96,7 +96,7 @@ def normaliser_et_controler(source: dict, manifeste: dict) -> list[str]:
     provisoire = sortie.with_suffix(".tmp.parquet")
     normaliser(source, [RACINE / f["fichier"] for f in manifeste["fichiers"]], provisoire)
 
-    lignes = duckdb.sql(f"SELECT count(*) FROM read_parquet('{provisoire}')").fetchone()[0]
+    lignes = next(iter(duckdb.sql(f"SELECT count(*) FROM read_parquet('{provisoire}')").fetchall()), None)[0]
     colonnes = {c[0] for c in duckdb.sql(f"DESCRIBE SELECT * FROM read_parquet('{provisoire}')").fetchall()}
     lignes_avant = avant["lignes"] if avant and avant["recupere_le"] != manifeste["recupere_le"] else None
     try:

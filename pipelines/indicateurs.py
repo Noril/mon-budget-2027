@@ -45,9 +45,9 @@ def calculer(definition: dict) -> dict:
     mailles = {m for (m,) in duckdb.sql("SELECT DISTINCT maille FROM resultat").fetchall()}
     if not mailles <= set(definition["maille"]):
         raise ControleEchoue(f"{definition['id']} : mailles {sorted(mailles)} hors déclaration")
-    doublons = duckdb.sql(
+    doublons = next(iter(duckdb.sql(
         "SELECT count(*) FROM (SELECT maille, code, periode FROM resultat GROUP BY ALL HAVING count(*) > 1)"
-    ).fetchone()[0]
+    ).fetchall()), None)[0]
     if doublons:
         raise ControleEchoue(f"{definition['id']} : {doublons} doublons (maille, code, periode)")
 
@@ -62,7 +62,7 @@ def calculer(definition: dict) -> dict:
         "calcule_le": maintenant(),
         "formule": definition["formule"],
         "formule_sha256": sha256(chemin_sql),
-        "lignes": duckdb.sql(f"SELECT count(*) FROM read_parquet('{sortie}')").fetchone()[0],
+        "lignes": next(iter(duckdb.sql(f"SELECT count(*) FROM read_parquet('{sortie}')").fetchall()), None)[0],
         "sources": {s: lire_json(NORMALISE / f"{s}.manifeste.json") for s in sorted(appelees)},
     }
     ecrire_json(INDICATEURS_CALCULES / f"{nom}.lignage.json", lignage)
