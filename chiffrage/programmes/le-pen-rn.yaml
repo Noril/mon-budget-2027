@@ -292,14 +292,14 @@ mesures:
       0 si conditionnelle. Reprise dans le contre-budget 2027 sans condition d'inflation : « suppression de la TVA
       sur 100 produits de première nécessité » (franceinfo, 8 octobre 2026, paraphrase) ; « TVA nulle sur cent
       produits essentiels » (formulation de l'Institut de l'Entreprise) pour 3,5 Md€ en 2027 selon l'annexe qu'il retranscrit. La
-      borne haute n'est donc plus nulle : elle reprend le chiffre du RN projeté (3,5 × 1,157 = 4,05). Liste des
+      borne haute n'est donc plus nulle : elle reprend le chiffre du RN projeté (3,5 × 1,1592 = 4,06). Liste des
       produits toujours non publiée.
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -5.8
-      bas: -10.86
-      haut: -4.05
+      central: -5.83
+      bas: -10.92
+      haut: -4.06
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -317,14 +317,14 @@ mesures:
           unite: Md€ (coût actualisé 2023)
           note: 'scénario 1 : liste restrictive de produits alimentaires et d''hygiène'
         f:
-          valeur: 1.2336
+          valeur: 1.2408
           bareme: facteur_pib_2024_2032
           unite: facteur
           note: PIB nominal 2032 / 2024
       explication: >-
         Institut Montaigne : 4,7 Md€ (liste restreinte) à 8,8 Md€ (liste étendue, amendement RN de 2023), euros 2023
         projetés en 2032 avec le facteur 2024→2032 (légère sous-estimation). Haut = chiffre du RN pour 2027 (3,5 Md€)
-        projeté au PIB (× 1,157) : la mesure est reprise sans condition dans le contre-budget 2027.
+        projeté au PIB (× 1,1592) : la mesure est reprise sans condition dans le contre-budget 2027.
     chiffrages_tiers:
       - auteur: Institut Montaigne (législatives 2024)
         montant_md: -6.75
@@ -360,6 +360,7 @@ mesures:
         contre-budget RN 3,5. Lecture permanente retenue, haut = 0 si conditionnelle (programme 2024) : cohérent.
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032
         (valeur inchangée).
+        Recalé sur le FMI WEO d'octobre 2026 : central −5,8 → −5,83 (bas −10,86 → −10,92, haut −4,05 → −4,06).
   - id: ir-part-pleine-deuxieme-enfant
     libelle: Part fiscale pleine dès le deuxième enfant (quotient familial)
     domaine: fiscalite
@@ -376,9 +377,9 @@ mesures:
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -4.19
-      bas: -4.19
-      haut: -3.39
+      central: -4.22
+      bas: -4.22
+      haut: -3.41
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -397,7 +398,7 @@ mesures:
           unite: Md€ (2024)
           note: simulation LexImpact (Assemblée nationale), plafonnement du quotient familial compris
         f:
-          valeur: 1.2336
+          valeur: 1.2408
           bareme: facteur_pib_2024_2032
           unite: facteur
           note: PIB nominal 2032 / 2024
@@ -422,6 +423,7 @@ mesures:
         chiffre RN 2,86 projeté. Ordre de grandeur cohérent avec le coût du quotient familial. Recalé sur les
         conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032 (valeur
         inchangée).
+        Recalé sur le FMI WEO d'octobre 2026 : central −4,19 → −4,22 (bas −4,19 → −4,22, haut −3,39 → −3,41).
   - id: ir-demi-part-veufs
     libelle: Généralisation de la demi-part fiscale des veuves et veufs
     domaine: fiscalite
@@ -433,8 +435,8 @@ mesures:
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -1.18
-      bas: -1.18
+      central: -1.19
+      bas: -1.19
       haut: -0.59
       montee_en_charge:
         '2027': 0.0
@@ -452,11 +454,11 @@ mesures:
           unite: Md€ (2026)
           note: 'seul chiffrage disponible : celui du candidat'
         f:
-          valeur: 1.1842
+          valeur: 1.1921
           bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
-            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+            PIB nominal 2032 / 2026 = 1,2177 / 1,0215 (croissance nominale 2026 : 0,411 % en volume, 1,731 % de déflateur)
       explication: >-
         Chiffre du contre-budget projeté au PIB ; aucun chiffrage indépendant trouvé. Haut = moitié (convention).
     confiance: faible
@@ -469,6 +471,7 @@ mesures:
         Ordre de grandeur plausible.
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
         (valeur inchangée).
+        Recalé sur le FMI WEO d'octobre 2026 : central −1,18 → −1,19 (bas −1,18 → −1,19).
   - id: indexation-bareme-ir-csg
     libelle: Indexation du barème de l'IR (et des seuils de CSG) sur l'inflation
     domaine: fiscalite
@@ -533,9 +536,9 @@ mesures:
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -1.95
-      bas: -2.54
-      haut: -1.85
+      central: -1.96
+      bas: -2.56
+      haut: -1.86
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -576,11 +579,11 @@ mesures:
           unite: Md€ par an
           note: contribution patronale sur les ruptures conventionnelles portée de 30 à 40 % (art. 15 LFSS)
         f:
-          valeur: 1.1842
+          valeur: 1.1921
           bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
-            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+            PIB nominal 2032 / 2026 = 1,2177 / 1,0215 (croissance nominale 2026 : 0,411 % en volume, 1,731 % de déflateur)
       explication: >-
         Seules les mesures du PLF/PLFSS 2026 effectivement votées ont un coût à annuler : taxe petits colis, hausse 2025
         de la TSBA, réforme de l'ACRE, contribution sur les ruptures conventionnelles. Non votées (coût nul) : abattement
@@ -603,6 +606,7 @@ mesures:
         0,26) ; total < 2 Md€ : paramètres non tous rouverts, le tri voté / non voté est cohérent avec REFERENCE.md.
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
         (valeur inchangée).
+        Recalé sur le FMI WEO d'octobre 2026 : central −1,95 → −1,96 (bas −2,54 → −2,56, haut −1,85 → −1,86).
   - id: retraites-60-62-ans
     libelle: >-
       Retour de l'âge légal à 62 ans (42 annuités), départ à 60 ans avec 40 annuités pour les carrières commencées avant
@@ -639,9 +643,9 @@ mesures:
     chiffrable: true
     nature: depense
     effet_solde_primaire:
-      central: -53.03
-      bas: -65.53
-      haut: -26.58
+      central: -53.17
+      bas: -65.7
+      haut: -26.72
       montee_en_charge:
         '2027': 0.0
         '2028': 0.4
@@ -664,7 +668,7 @@ mesures:
             Calendrier de la loi du 20 janvier 2014 (rétabli par retraites_retour_62_ans_2032) : 171 trimestres pour les
             générations 1970 à 1972, qui ont 60 à 62 ans en 2032 ; ramenés à 168 (42 annuités) : 3 trimestres
         duree_1an:
-          valeur: 7.4
+          valeur: 7.5
           bareme: retraites_duree_assurance_1_an_apu
           unite: Md€ courants 2032 par an et par année de durée
           note: valeur 2035, majorant pour 2032 selon le barème
@@ -698,12 +702,12 @@ mesures:
       explication: >-
         Reconstruit à partir des barèmes communs, comme les autres promesses de retraite (LFI, Écologistes, PS), au
         périmètre de l'ensemble des administrations publiques (convention commune 4) : annulation des mesures d'âge de
-        2023 nette de la suspension (29,1) ; durée ramenée de 171 à 168 trimestres pour tous (0,75 × 7,4 = 5,55) ; pour
+        2023 nette de la suspension (29,1) ; durée ramenée de 171 à 168 trimestres pour tous (0,75 × 7,5 = 5,62) ; pour
         les bénéficiaires du barème progressif, le passage de 62 à 60 ans et de 42 à 40 annuités, au prorata de leur
-        poids (0,35 × (37,7 + 2 × 7,4) = 18,38) : 53,03 Md€. Le RN coûte ainsi moins que « 60 ans et 40 annuités pour
-        tous » (LFI, 85,3 Md€), dont il est un sous-ensemble. Bas = hauts des barèmes APU (31,2 ; 40,3 ; 8,1 par an de
-        durée) et part 0,5 : 31,2 + 0,75 × 8,1 + 0,5 × (40,3 + 2 × 8,1) = 65,53 ; haut = même calcul au périmètre du seul
-        système de retraite (13,9 + 0,75 × 4,4 + 0,35 × (18 + 2 × 4,4) = 26,58, ancien central). Le chiffrage de
+        poids (0,35 × (37,7 + 2 × 7,5) = 18,45) : 53,17 Md€. Le RN coûte ainsi moins que « 60 ans et 40 annuités pour
+        tous » (LFI, 85,3 Md€), dont il est un sous-ensemble. Bas = hauts des barèmes APU (31,2 ; 40,3 ; 8,2 par an de
+        durée) et part 0,5 : 31,2 + 0,75 × 8,2 + 0,5 × (40,3 + 2 × 8,2) = 65,70 ; haut = même calcul au périmètre du seul
+        système de retraite (13,9 + 0,75 × 4,5 + 0,35 × (18 + 2 × 4,5) = 26,72, ancien central). Le chiffrage de
         l'Institut Montaigne (2024, ≈ 44,6 Md€ en 2032, périmètre des régimes) n'est pas retenu : Montaigne applique à
         presque toute la génération le retour complet aux règles d'avant 2003 (« en revenant totalement sur les mesures
         d'âges et de durée de cotisation de 2003, 2010, 2014 pour ceux qui ont commencé à travailler avant 20 ans, et
@@ -776,6 +780,7 @@ mesures:
         Md€ de la candidate, désormais rapproché du chiffrage IFRAP 2022. Recalé sur les barèmes sourcés du 29/09 :
         bornes des barèmes retraites_retour_62_ans_2032 (11,4 ; 15,8 au lieu de 8,9 ; 20) et
         retraites_age_60_depuis_62 (13,2 ; 25) ; central inchangé (−26,58), bas −44,4 → −43,7, haut −17,65 → −20,2.
+        Recalé sur le FMI WEO d'octobre 2026 : central −53,03 → −53,17 (bas −65,53 → −65,7, haut −26,58 → −26,72).
   - id: cumul-emploi-retraite-sans-cotisations
     libelle: >-
       Suppression des cotisations retraite et chômage des actifs ayant l'âge et les trimestres qui continuent à travailler
@@ -853,9 +858,9 @@ mesures:
     economie_non_detaillee: true
     nature: economie
     effet_solde_primaire:
-      central: 15.42
+      central: 15.44
       bas: 0.0
-      haut: 15.42
+      haut: 15.44
       montee_en_charge:
         '2027': 0.0
         '2028': 0.25
@@ -873,12 +878,12 @@ mesures:
           unite: Md€ (2031, « à terme »)
           note: bas de la fourchette « entre 15 et 20 milliards » ; 15,0 Md€ en 2031 dans l'annexe (Institut de l'Entreprise)
         f:
-          valeur: 1.0283
-          source: plan/hypotheses.yaml (FMI WEO avril 2026, 2032 reconduit)
+          valeur: 1.0291
+          source: plan/hypotheses.yaml (FMI WEO octobre 2026, 2032 reconduit)
           unite: facteur
-          note: PIB nominal 2032 / 2031 = 1,01058 × 1,01757
+          note: PIB nominal 2032 / 2031 = 1,01090 × 1,01803
       explication: >-
-        Règle 6, économie ciblée : 15 × 1,0283 = 15,42 Md€ en 2032. Plafond : le périmètre (dépenses de retraite,
+        Règle 6, économie ciblée : 15 × 1,0291 = 15,44 Md€ en 2032. Plafond : le périmètre (dépenses de retraite,
         plus de 400 Md€ par an) n'est pas contraignant ; aucune des « corrections » n'est décrite, d'où bas = 0 et
         confiance faible. Montée en charge linéaire 2028-2031 (convention).
     chiffrages_tiers:
@@ -898,6 +903,7 @@ mesures:
         Mesure nouvelle du contre-budget 2027 ; citation verbatim (CNews, reprise par La Gazette France et l'AFP).
         Règle 6 appliquée comme économie ciblée (périmètre nommé : système de retraite) ; à relire : la lecture en
         enveloppe (central 0) se défend aussi, faute de toute mesure.
+        Recalé sur le FMI WEO d'octobre 2026 : central 15,42 → 15,44 (haut 15,42 → 15,44).
   - id: pilier-capitalisation
     libelle: Création d'un pilier de retraite par capitalisation
     domaine: retraites
@@ -950,9 +956,9 @@ mesures:
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -13.07
-      bas: -16.34
-      haut: -5.23
+      central: -13.09
+      bas: -16.37
+      haut: -5.24
       montee_en_charge:
         '2027': 0.0
         '2028': 0.1
@@ -970,13 +976,13 @@ mesures:
           unite: Md€ (quatrième année de la mesure)
           note: 0,8 Md€ en 2025, 4,8 en 2027, 12 en 2029 ; manque à gagner brut à terme 15 Md€
         f:
-          valeur: 1.0891
+          valeur: 1.0909
           bareme: facteur_pib_2029_2032
           source: >-
-            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2106) ; plan/hypotheses.yaml (FMI WEO
-            avril 2026)
+            chiffrage/baremes.yaml (en-tête : facteur PIB nominal 2025→2032 = 1,2177) ; plan/hypotheses.yaml (FMI WEO
+            octobre 2026)
           unite: facteur
-          note: 'PIB nominal 2032 / 2029 (croissances nominales 2030-2032 : 2,99 %, 2,83 %, 2,83 %)'
+          note: 'PIB nominal 2032 / 2029 (croissances nominales 2030-2032 : 3,00 %, 2,91 %, 2,91 %)'
       explication: >-
         Montée de Montaigne décalée de trois ans (mise en œuvre 2028) : 2032 = quatrième année = 12 Md€ ; bas = régime
         de croisière (15 Md€), haut = recours limité (valeur de la deuxième année).
@@ -1009,6 +1015,7 @@ mesures:
         l'URL. Montaigne : 0,8 Md€ en 2025, 4,8 en 2027, 12 en 2029, 15 en brut à terme ; 2032 = cinquième année
         d'une mise en œuvre en 2028 (le texte dit « quatrième » : coquille sans effet sur la valeur 12). Bas 15,
         haut recours limité : cohérent. IR et CSG sur les hausses non comptés.
+        Recalé sur le FMI WEO d'octobre 2026 : central −13,07 → −13,09 (bas −16,34 → −16,37, haut −5,23 → −5,24).
   - id: indexation-pensions-prestations
     libelle: Indexation des retraites et dégel des prestations sociales
     domaine: social
@@ -1078,9 +1085,9 @@ mesures:
     chiffrable: true
     nature: economie
     effet_solde_primaire:
-      central: 7.28
+      central: 7.32
       bas: 0.0
-      haut: 7.28
+      haut: 7.32
       montee_en_charge:
         '2027': 0.0
         '2028': 0.4
@@ -1109,7 +1116,7 @@ mesures:
             prestations familiales réservées aux foyers dont un parent est français : « cette mesure pourrait générer, selon
             une estimation médiane, près de 3,3 Md€ par an » (fourchette affichée 2,6 à 3,9)
         f:
-          valeur: 1.2336
+          valeur: 1.2408
           bareme: facteur_pib_2024_2032
           unite: facteur
           note: PIB nominal 2032 / 2024
@@ -1117,7 +1124,7 @@ mesures:
         Deux volets du programme 2024 reconfirmés en 2026 (Bardella : aides non contributives réservées aux familles
         françaises) : condition de 5 ans de travail pour le RSA et les prestations de solidarité, et prestations familiales
         réservées aux Français (Institut Montaigne, médianes : 2,6 Md€, barème prestations_residence_5_ans_economie, et
-        3,3 Md€), projetés : (2,6 + 3,3) × 1,2336 = 7,28 Md€. Ordre de grandeur cohérent avec l'IFRAP (6 à 7 Md€ de
+        3,3 Md€), projetés : (2,6 + 3,3) × 1,2408 = 7,32 Md€. Ordre de grandeur cohérent avec l'IFRAP (6 à 7 Md€ de
         prestations nationales versées aux étrangers en situation régulière). Bas = 0 (règle 6 : économie non réalisée,
         par exemple limitée aux nouveaux entrants ou censurée), haut = central. Risque de censure constitutionnelle
         signalé, non déduit du central.
@@ -1163,6 +1170,7 @@ mesures:
         prestations familiales dépasse la lettre de la citation (5 ans de travail) : lecture Bardella (JDD),
         signalée. Règle 6 : bas = 0, haut = central (avant 0,72 et 8,64). Recalé sur les conventions communes du
         29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032 (valeur inchangée).
+        Recalé sur le FMI WEO d'octobre 2026 : central 7,28 → 7,32 (haut 7,28 → 7,32).
   - id: priorite-nationale-logement-social
     libelle: Priorité nationale dans l'attribution des logements sociaux (et des APL)
     domaine: logement
@@ -1316,9 +1324,9 @@ mesures:
     chiffrable: true
     nature: economie
     effet_solde_primaire:
-      central: 0.86
+      central: 0.87
       bas: 0.0
-      haut: 0.86
+      haut: 0.87
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -1337,13 +1345,13 @@ mesures:
           unite: Md€ (2024)
           note: AME de droit commun moins les soins maintenus au titre de l'urgence vitale
         f:
-          valeur: 1.2336
+          valeur: 1.2408
           bareme: facteur_pib_2024_2032
           unite: facteur
           note: PIB nominal 2032 / 2024
       explication: >-
         Économie nette de l'AME ramenée à l'aide d'urgence vitale (barème ame_aide_urgence_vitale_economie, 0,7 Md€ en
-        2024, Institut Montaigne), projetée : 0,7 × 1,2336 = 0,86 Md€. Bas = 0 : report des soins vers l'hôpital (soins
+        2024, Institut Montaigne), projetée : 0,7 × 1,2408 = 0,87 Md€. Bas = 0 : report des soins vers l'hôpital (soins
         urgents, créances irrécouvrables) non estimé publiquement. Haut = central (règle 6).
     chiffrages_tiers:
       - auteur: Institut Montaigne (législatives 2024)
@@ -1364,6 +1372,7 @@ mesures:
         Md€ (Montaigne) après maintien de l'urgence vitale, le RN annonce 1,3 brut. Règle 6 : central plafonné par
         ce que le droit permet, bas = 0, haut = central (avant 1,7). Recalé sur les conventions communes du 29/09 :
         facteur de projection renvoyé au barème facteur_pib_2024_2032 (valeur inchangée).
+        Recalé sur le FMI WEO d'octobre 2026 : central 0,86 → 0,87 (haut 0,86 → 0,87).
   - id: suppression-visa-soins
     libelle: Suppression du visa pour soins
     domaine: immigration
@@ -1405,7 +1414,7 @@ mesures:
     effet_solde_primaire:
       central: 0.12
       bas: 0.0
-      haut: 1.3
+      haut: 1.31
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -1435,11 +1444,11 @@ mesures:
           unite: € par an
           note: moyenne licence (2 895 €) / master (3 941 €), pondération approchée
         f:
-          valeur: 1.1842
+          valeur: 1.1921
           bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
-            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+            PIB nominal 2032 / 2026 = 1,2177 / 1,0215 (croissance nominale 2026 : 0,411 % en volume, 1,731 % de déflateur)
       explication: >-
         Les droits différenciés (2 895 € / 3 941 €) sont déjà dans le droit, exonérations plafonnées à 30 % : la promesse
         ne rapporte plus que la fin des exonérations restantes. Haut : chiffre du RN (1,1 Md€), qui suppose une hausse
@@ -1455,6 +1464,7 @@ mesures:
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
         (valeur inchangée).
         Harmonisation des paramètres (30/09/2026) : droits alignés sur le barème etudiants_droits_differencies_montant_moyen (3 200 → 3 208 €, tarifs 2026-2027) ; écart < 0,01 Md€.
+        Recalé sur le FMI WEO d'octobre 2026 : central 0,12 inchangé (haut 1,3 → 1,31).
   - id: timbre-visas-touristiques
     libelle: Timbre fiscal sur les visas touristiques
     domaine: immigration
@@ -1496,9 +1506,9 @@ mesures:
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -7.93
-      bas: -9.91
-      haut: -7.93
+      central: -7.97
+      bas: -9.97
+      haut: -7.97
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -1516,7 +1526,7 @@ mesures:
           unite: Md€ (2024)
           note: cotisation foncière des entreprises, comptabilité nationale
         f:
-          valeur: 1.2336
+          valeur: 1.2408
           bareme: facteur_pib_2024_2032
           unite: facteur
           note: PIB nominal 2032 / 2024
@@ -1529,7 +1539,7 @@ mesures:
           note: « retour IS », estimé au taux moyen effectif de 20 % (Institut Montaigne, 2024)
       explication: >-
         Rendement de la CFE (barème cfe_rendement, 8,031 Md€, produit DGFiP 2024) projeté au PIB, net du retour d'IS
-        (impôt déductible ; barème retour_is_impots_production, 20 %) : 8,031 × 1,2336 × 0,8 = 7,93 Md€. Collectivités
+        (impôt déductible ; barème retour_is_impots_production, 20 %) : 8,031 × 1,2408 × 0,8 = 7,97 Md€. Collectivités
         compensées par l'État (coût APU inchangé). Haut = central. Bas : sans retour d'IS, 9,91.
     chiffrages_tiers:
       - auteur: Contre-budget RN 2026 (chiffrage du candidat)
@@ -1556,6 +1566,7 @@ mesures:
         facteur_pib_2024_2032 (valeur inchangée). Harmonisation des paramètres (30/09/2026) : CFE alignée sur le
         barème cfe_rendement (7,7 → 8,031 Md€, produit DGFiP 2024) et retour d'IS sur retour_is_impots_production
         (0,20) ; central −7,6 → −7,93, bas −9,5 → −9,91.
+        Recalé sur le FMI WEO d'octobre 2026 : central −7,93 → −7,97 (bas −9,91 → −9,97, haut −7,93 → −7,97).
   - id: suppression-cvae
     libelle: Suppression totale de la CVAE
     domaine: fiscalite
@@ -1628,9 +1639,9 @@ mesures:
     chiffrable: true
     nature: baisse_recette
     effet_solde_primaire:
-      central: -5.13
-      bas: -6.41
-      haut: -5.13
+      central: -5.16
+      bas: -6.45
+      haut: -5.16
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -1646,7 +1657,7 @@ mesures:
           bareme: c3s_rendement
           unite: Md€/an
         f:
-          valeur: 1.2336
+          valeur: 1.2408
           bareme: facteur_pib_2024_2032
           unite: facteur
           note: PIB nominal 2032 / 2024
@@ -1673,6 +1684,7 @@ mesures:
         Citation retrouvée sur l'URL. C3S 5,2 Md€ relue (FIPECO) ; retour d'IS 20 % ; 5,2 × 1,2336 × 0,8 = 5,13 ;
         bas sans retour d'IS. RN : 4,8 Md€. Recalé sur les conventions communes du 29/09 : facteur de projection
         renvoyé au barème facteur_pib_2024_2032 (valeur inchangée).
+        Recalé sur le FMI WEO d'octobre 2026 : central −5,13 → −5,16 (bas −6,41 → −6,45, haut −5,13 → −5,16).
   - id: fiscalite-entreprises-divers
     libelle: >-
       Autres allègements ciblés (octroi de mer, crédit d'impôt péages des transporteurs, aides à l'investissement outre-mer)
@@ -1717,11 +1729,11 @@ mesures:
           unite: Md€ (2026)
           note: chiffre du candidat
         f:
-          valeur: 1.1842
+          valeur: 1.1921
           bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
-            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+            PIB nominal 2032 / 2026 = 1,2177 / 1,0215 (croissance nominale 2026 : 0,411 % en volume, 1,731 % de déflateur)
       explication: >-
         Chiffres du contre-budget, projetés. Haut : sans la « réforme de l'octroi de mer », dont le contenu n'est pas
         connu.
@@ -1735,6 +1747,7 @@ mesures:
         non contredit par une source.
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
         (valeur inchangée).
+        Recalé sur le FMI WEO d'octobre 2026 : central −0,89 inchangé (bornes inchangées).
   - id: impot-fortune-financiere
     libelle: Impôt sur la fortune financière (IFF) remplaçant l'IFI et la taxe sur les holdings
     domaine: fiscalite
@@ -1799,7 +1812,7 @@ mesures:
       lecture: >-
         Contre-budget 2027 : l'annexe compte 11,35 Md€ en 2027 puis 0,34 Md€ par an (Institut de l'Entreprise ; «
         11,4 milliards d'euros dès 2027 », franceinfo), soit une recette concentrée sur la première année. En régime
-        de croisière (2032), le chiffre du candidat lui-même est de 0,34 Md€ (2031), projeté × 1,0283 = 0,35 :
+        de croisière (2032), le chiffre du candidat lui-même est de 0,34 Md€ (2031), projeté × 1,0291 = 0,35 :
         l'estimation ne peut dépasser l'affichage du candidat. Central = haut = 0,35, bas 0 (taux et assiette non
         publiés, substitution des rachats par des dividendes). La recette de 2027 (≈ 11 Md€, soit le tiers des 34,8
         Md€ de rachats du CAC 40 en 2025 selon la Lettre Vernimmen citée par l'Institut) ne relève pas du régime de
@@ -1908,7 +1921,7 @@ mesures:
           note: chiffre du candidat
       explication: >-
         Remplacer l'obligation CEE par une taxe affectée au budget qui finance les mêmes économies d'énergie est neutre
-        pour le solde (central 0). Haut : la taxe est perçue sans reprise des dépenses, au montant de l'annexe du contre-budget 2027 (8,0 Md€ en 2031, × 1,0283 = 8,23).
+        pour le solde (central 0). Haut : la taxe est perçue sans reprise des dépenses, au montant de l'annexe du contre-budget 2027 (8,0 Md€ en 2031, × 1,0291 = 8,23).
     chiffrages_tiers:
       - auteur: Contre-budget RN 2027, selon l'annexe retranscrite par l'Institut de l'Entreprise
         montant_md: 8.0
@@ -2015,7 +2028,7 @@ mesures:
           unite: Md€ recouvrés (2024)
           note: 'règle du barème fraude_sociale_estimee : gain = doublement du recouvrement'
         f:
-          valeur: 1.2336
+          valeur: 1.2408
           bareme: facteur_pib_2024_2032
           unite: facteur
           note: PIB nominal 2032 / 2024
@@ -2038,6 +2051,7 @@ mesures:
         Md€ (barème fraude_sociale_estimee : doublement), haut = annonce RN 3,5 projetée, bas 0 : cohérent. Recettes
         de fraude, règle 6 non applicable. Recalé sur les conventions communes du 29/09 : facteur de projection
         renvoyé au barème facteur_pib_2024_2032 (valeur inchangée).
+        Recalé sur le FMI WEO d'octobre 2026 : central 0,84 inchangé (bornes inchangées).
   - id: reforme-marches-publics-cartels
     libelle: Réforme des marchés publics contre les « cartels » et les « surfacturations »
     domaine: etat
@@ -2163,7 +2177,7 @@ mesures:
     effet_solde_primaire:
       central: 0.0
       bas: 0.0
-      haut: 79.39
+      haut: 79.18
       montee_en_charge:
         '2027': 0.0
         '2028': 0.5
@@ -2181,20 +2195,20 @@ mesures:
           unite: Md€ (2032)
           note: « 140 milliards d'euros nets d'économies en 2032 par rapport à 2026 » (6 octobre 2026)
         documente:
-          valeur: 60.61
+          valeur: 60.82
           source: somme des mesures d'économie de ce fichier
           unite: Md€ (2032)
           note: >-
-            ame-en-amu 0,86, baisse-contribution-ue 0, prestations-solidarite-5-ans-travail 7,28,
-            fin-soutien-enr-intermittentes 3,12, maprimerenov-en-pret-100-renov 1,82, aide-publique-developpement
-            2,72, dgf-regions-epci 5,92, agences-operateurs-moins-20 10,39, subventions-associations 3,79,
-            train-de-vie-etat-et-petites-economies 1,08, aides-apprentissage-avant-licence 1,89,
-            sante-medicaments-unite-ald 1,18, retraites-corrections-15-20-md 15,42,
-            collectivites-effectifs-epci-metropoles 5,14
+            ame-en-amu 0,87, baisse-contribution-ue 0, prestations-solidarite-5-ans-travail 7,32,
+            fin-soutien-enr-intermittentes 3,12, maprimerenov-en-pret-100-renov 1,83, aide-publique-developpement
+            2,74, dgf-regions-epci 5,96, agences-operateurs-moins-20 10,39, subventions-associations 3,81,
+            train-de-vie-etat-et-petites-economies 1,09, aides-apprentissage-avant-licence 1,91,
+            sante-medicaments-unite-ald 1,19, retraites-corrections-15-20-md 15,44,
+            collectivites-effectifs-epci-metropoles 5,15
       explication: >-
-        Règle 6. Les économies identifiables sont chiffrées dans leurs propres mesures (somme des centraux : 60,61
+        Règle 6. Les économies identifiables sont chiffrées dans leurs propres mesures (somme des centraux : 60,82
         Md€) : central = 0 pour ne pas les compter deux fois. Haut = écart d'affichage entre l'annonce (140 Md€ en
-        2032) et cette somme : 79,39 Md€. Bas = 0. Montée en charge du haut : effort concentré sur les trois
+        2032) et cette somme : 79,18 Md€. Bas = 0. Montée en charge du haut : effort concentré sur les trois
         premières années selon la candidate (« l'essentiel de l'effort d'ajustement au cours des trois premières
         années », AFP), 2027 exclu par convention.
     chiffrages_tiers:
@@ -2229,6 +2243,7 @@ mesures:
         (39,32 → 60,61 Md€ : fonds vert devenu dépense, agences 10,39, nouvelles mesures
         retraites-corrections-15-20-md et collectivites-effectifs-epci-metropoles) ; haut 85,68 → 79,39. Trace
         antérieure (passe-sources, ok, 2026-09-29) : règle 6 appliquée à l'annonce de 125 Md€ du Medef.
+        Recalé sur le FMI WEO d'octobre 2026 : économies documentées 60,61 → 60,82 Md€, haut 79,39 → 79,18 ; central et bas nuls inchangés.
   - id: regle-or-constitution
     libelle: Règle d'or budgétaire inscrite dans la Constitution
     domaine: institutions
@@ -2406,12 +2421,12 @@ mesures:
           unite: Md€ (2031)
           note: chiffre du candidat (annexe du contre-budget 2027, « suppression ou réinternalisation d'agences »)
         f:
-          valeur: 1.0283
-          source: plan/hypotheses.yaml (FMI WEO avril 2026, 2032 reconduit)
+          valeur: 1.0291
+          source: plan/hypotheses.yaml (FMI WEO octobre 2026, 2032 reconduit)
           unite: facteur
-          note: PIB nominal 2032 / 2031 = 1,01058 × 1,01757
+          note: PIB nominal 2032 / 2031 = 1,01090 × 1,01803
       explication: >-
-        Chiffre du RN pour 2031 projeté : 10,1 × 1,0283 = 10,39 Md€. Plafond (règle 6) : jaune « Opérateurs de
+        Chiffre du RN pour 2031 projeté : 10,1 × 1,0291 = 10,39 Md€. Plafond (règle 6) : jaune « Opérateurs de
         l'État » du PLF 2026 : « les 431 opérateurs de l'État bénéficieront d'un total de 73 288 M€ de financements
         publics » (universités 12,8 Md€) ; hors universités, CNRS et CEA (≈ 55,6 Md€), 10,1 Md€ représentent 18 % :
         le montant tient dans le périmètre, mais suppose la suppression de missions (la commission d'enquête du
@@ -2455,6 +2470,7 @@ mesures:
         (MaPrimeRénov'), fonds vert. Règle 6 : central = annonce projetée, bas = 0 (avant 4,56), haut = central.
         Confiance faible. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème
         facteur_pib_2026_2032 (valeur inchangée).
+        Recalé sur le FMI WEO d'octobre 2026 : central 10,39 inchangé (bornes inchangées).
   - id: fin-soutien-enr-intermittentes
     libelle: Suppression des tarifs d'achat et compléments de rémunération des énergies intermittentes
     domaine: energie
@@ -2553,14 +2569,14 @@ mesures:
       arrêté pour être intégré à un plan « 100% rénov' » visant à l'isolation et à la climatisation » (Vert,
       paraphrase) ; France Budget (simulateur, d'après la presse) encode le dispositif « 100 % Rénov' » comme une
       dépense de 3,8 Md€. Le solde net de la mesure 2027 (économie sur l'Anah ou dépense nouvelle) n'est pas établi
-      : bas porté à −4,40 (3,8 × 1,157). Recouvrement possible avec la suppression de l'Anah
+      : bas porté à −4,40 (3,8 × 1,1592). Recouvrement possible avec la suppression de l'Anah
       (agences-operateurs-moins-20).
     chiffrable: true
     nature: economie
     effet_solde_primaire:
-      central: 1.82
+      central: 1.83
       bas: -4.4
-      haut: 1.82
+      haut: 1.83
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -2578,17 +2594,17 @@ mesures:
           unite: Md€ (PLF 2026)
           note: crédits de l'État à l'Anah (programme 135), MaPrimeRénov' comprise
         f:
-          valeur: 1.1842
+          valeur: 1.1921
           bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
-            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+            PIB nominal 2032 / 2026 = 1,2177 / 1,0215 (croissance nominale 2026 : 0,411 % en volume, 1,731 % de déflateur)
       explication: >-
         Économie brute des crédits de l'État à l'Anah, MaPrimeRénov' comprise (barème anah_credits_etat, 1,5353 Md€,
         PLF 2026, comme chez Zemmour ; la part CEE de l'Anah n'est pas de la dépense publique), projetée : 1,5353 ×
-        1,1842 = 1,82 Md€. Le RN annonce 3,4 Md€ nets, au-dessus du budget de l'État sur ce périmètre. Le coût du prêt
+        1,1921 = 1,83 Md€. Le RN annonce 3,4 Md€ nets, au-dessus du budget de l'État sur ce périmètre. Le coût du prêt
         à taux zéro qui la remplace n'est pas publié ; bas = dispositif « 100 % Rénov' » à 3,8 Md€ de dépense (France
-        Budget, 2027) projeté × 1,157, haut = central.
+        Budget, 2027) projeté × 1,1592, haut = central.
     chiffrages_tiers:
       - auteur: Contre-budget RN 2026 (chiffrage du candidat)
         montant_md: 3.4
@@ -2609,6 +2625,7 @@ mesures:
         facteur_pib_2026_2032 (valeur inchangée). Harmonisation des paramètres (30/09/2026) : crédits de l'Anah
         alignés sur le barème anah_credits_etat (1,5 → 1,5353, même valeur que Zemmour) ; central et haut 1,78 →
         1,82.
+        Recalé sur le FMI WEO d'octobre 2026 : central 1,82 → 1,83 (haut 1,82 → 1,83).
   - id: aide-publique-developpement
     libelle: Réduction de l'aide publique au développement
     domaine: action-exterieure
@@ -2630,9 +2647,9 @@ mesures:
     economie_non_detaillee: true
     nature: economie
     effet_solde_primaire:
-      central: 2.72
+      central: 2.74
       bas: 0.0
-      haut: 2.72
+      haut: 2.74
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -2649,13 +2666,13 @@ mesures:
           unite: Md€ (2026)
           note: chiffre du candidat (contre-budget 2026)
         f:
-          valeur: 1.1842
+          valeur: 1.1921
           bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
-            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+            PIB nominal 2032 / 2026 = 1,2177 / 1,0215 (croissance nominale 2026 : 0,411 % en volume, 1,731 % de déflateur)
       explication: >-
-        Chiffre du RN (2,3 Md€) projeté : 2,3 × 1,1842 = 2,72 Md€ ; la mission APD compte 3,67 Md€ de CP en 2026
+        Chiffre du RN (2,3 Md€) projeté : 2,3 × 1,1921 = 2,74 Md€ ; la mission APD compte 3,67 Md€ de CP en 2026
         (Sénat), la baisse est donc réalisable budgétairement. Bas = 0 (économie non réalisée), haut = central (règle 6).
     confiance: moyenne
     verification:
@@ -2668,6 +2685,7 @@ mesures:
         l'URL. Mission APD 3,67 Md€ de CP (Sénat) > 2,3 annoncés : réalisable. Règle 6 : bas = 0 (avant 1,36), haut
         = central. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème
         facteur_pib_2026_2032 (valeur inchangée).
+        Recalé sur le FMI WEO d'octobre 2026 : central 2,72 → 2,74 (haut 2,72 → 2,74).
   - id: dgf-regions-epci
     libelle: Baisse de la dotation globale de fonctionnement des régions et des intercommunalités
     domaine: collectivites
@@ -2689,9 +2707,9 @@ mesures:
     economie_non_detaillee: true
     nature: economie
     effet_solde_primaire:
-      central: 5.92
+      central: 5.96
       bas: 0.0
-      haut: 5.92
+      haut: 5.96
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -2708,13 +2726,13 @@ mesures:
           unite: Md€ (2026)
           note: chiffre du candidat (contre-budget 2026)
         f:
-          valeur: 1.1842
+          valeur: 1.1921
           bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
-            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+            PIB nominal 2032 / 2026 = 1,2177 / 1,0215 (croissance nominale 2026 : 0,411 % en volume, 1,731 % de déflateur)
       explication: >-
-        Chiffre du RN (5 Md€) projeté : 5 × 1,1842 = 5,92 Md€. Les collectivités doivent équilibrer leur section de fonctionnement : la baisse améliore
+        Chiffre du RN (5 Md€) projeté : 5 × 1,1921 = 5,96 Md€. Les collectivités doivent équilibrer leur section de fonctionnement : la baisse améliore
         le solde APU sauf report sur l'emprunt d'investissement ou consommation de trésorerie. Plafond (règle 6) : le
         périmètre visé compte ≈ 11 Md€ : fraction de TVA des régions ex-DGF (« environ 5,2 milliards d'euros en 2024 »,
         gelée en 2025 ; le rétablissement d'une DGF des régions prévu par le PLF 2026 a été abandonné dans la loi de
@@ -2743,6 +2761,7 @@ mesures:
         sur l'URL. Baisse de dotation 5,0 Md€ (RN), non contredite ; effet solde APU dépendant de l'ajustement des
         collectivités (hors comptage). Règle 6 : bas = 0 (avant 2,96), haut = central. Recalé sur les conventions
         communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032 (valeur inchangée).
+        Recalé sur le FMI WEO d'octobre 2026 : central 5,92 → 5,96 (haut 5,92 → 5,96).
   - id: collectivites-effectifs-epci-metropoles
     libelle: >-
       Collectivités : ajustement des effectifs et suppression des EPCI et des métropoles
@@ -2772,9 +2791,9 @@ mesures:
     economie_non_detaillee: true
     nature: economie
     effet_solde_primaire:
-      central: 5.14
+      central: 5.15
       bas: 0.0
-      haut: 5.14
+      haut: 5.15
       montee_en_charge:
         '2027': 0.0
         '2028': 0.3
@@ -2798,12 +2817,12 @@ mesures:
           unite: Md€ (2031)
           note: chiffre du candidat (annexe du contre-budget 2027) ; 0,25 Md€ en 2027 (Public Sénat)
         f:
-          valeur: 1.0283
-          source: plan/hypotheses.yaml (FMI WEO avril 2026, 2032 reconduit)
+          valeur: 1.0291
+          source: plan/hypotheses.yaml (FMI WEO octobre 2026, 2032 reconduit)
           unite: facteur
-          note: PIB nominal 2032 / 2031 = 1,01058 × 1,01757
+          note: PIB nominal 2032 / 2031 = 1,01090 × 1,01803
       explication: >-
-        Règle 6, économie ciblée : (3,75 + 1,25) × 1,0283 = 5,14 Md€ en 2032. Économie de dépenses des
+        Règle 6, économie ciblée : (3,75 + 1,25) × 1,0291 = 5,15 Md€ en 2032. Économie de dépenses des
         collectivités, qui pèse sur le solde des APU si elle n'est pas compensée par d'autres dépenses locales.
         Plafond : non contraignant au regard des dépenses de personnel et de fonctionnement du bloc communal (non
         resourcé dans cette passe, à vérifier). Bas = 0, haut = central.
@@ -2823,6 +2842,7 @@ mesures:
       commentaire: >-
         Mesure nouvelle du contre-budget 2027 ; libellés de l'annexe cités verbatim par Public Sénat, montants 2031
         par Acteurs publics. Recouvrement possible avec dgf-regions-epci (même effort des collectivités), signalé.
+        Recalé sur le FMI WEO d'octobre 2026 : central 5,14 → 5,15 (haut 5,14 → 5,15).
   - id: subventions-associations
     libelle: Baisse des subventions aux associations « ne relevant pas de l'intérêt général »
     domaine: etat
@@ -2845,9 +2865,9 @@ mesures:
     economie_non_detaillee: true
     nature: economie
     effet_solde_primaire:
-      central: 3.79
+      central: 3.81
       bas: 0.0
-      haut: 3.79
+      haut: 3.81
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -2864,13 +2884,13 @@ mesures:
           unite: Md€ (2026)
           note: chiffre du candidat (contre-budget 2026)
         f:
-          valeur: 1.1842
+          valeur: 1.1921
           bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
-            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+            PIB nominal 2032 / 2026 = 1,2177 / 1,0215 (croissance nominale 2026 : 0,411 % en volume, 1,731 % de déflateur)
       explication: >-
-        Chiffre du RN (3,2 Md€) projeté : 3,2 × 1,1842 = 3,79 Md€. Plafond (règle 6) : jaune « Effort financier de l'État en faveur des associations », PLF
+        Chiffre du RN (3,2 Md€) projeté : 3,2 × 1,1921 = 3,81 Md€. Plafond (règle 6) : jaune « Effort financier de l'État en faveur des associations », PLF
         2026 (https://www.assemblee-nationale.fr/dyn/dyn/contenu/visualisation/1090007/file/14-Jaune2026_Associations_Rapport.pdf)
         : « 71,4 % des versements aux associations au niveau des programmes sont des subventions et leur montant représente
         76,7 % des montants versés, soit 7,3 milliards d'euros » (2024), sur 9,5 Md€ de versements. Les 3,2 Md€ du RN
@@ -2903,6 +2923,7 @@ mesures:
         subventions de l'État aux associations : plafond respecté. Règle 6 : bas = 0 (avant 1,89), haut = central.
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
         (valeur inchangée).
+        Recalé sur le FMI WEO d'octobre 2026 : central 3,79 → 3,81 (haut 3,79 → 3,81).
   - id: train-de-vie-etat-et-petites-economies
     libelle: Train de vie de l'État, audiovisuel public, aides à la presse, CESER, plan vélo
     domaine: etat
@@ -2919,9 +2940,9 @@ mesures:
     economie_non_detaillee: true
     nature: economie
     effet_solde_primaire:
-      central: 1.08
+      central: 1.09
       bas: 0.0
-      haut: 1.08
+      haut: 1.09
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -2938,14 +2959,14 @@ mesures:
           unite: Md€ (2026)
           note: chiffre du candidat (contre-budget 2026)
         f:
-          valeur: 1.1842
+          valeur: 1.1921
           bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
-            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+            PIB nominal 2032 / 2026 = 1,2177 / 1,0215 (croissance nominale 2026 : 0,411 % en volume, 1,731 % de déflateur)
       explication: >-
-        Somme des cinq lignes du RN (0,513 + 0,154 + 0,177 + 0,040 + 0,031 = 0,915 Md€), projetée : 0,915 × 1,1842 =
-        1,08 Md€ ; dotations 2026 : Présidence 0,12, Assemblée 0,61, Sénat 0,35 Md€ (Sénat). Bas = 0 (économie non
+        Somme des cinq lignes du RN (0,513 + 0,154 + 0,177 + 0,040 + 0,031 = 0,915 Md€), projetée : 0,915 × 1,1921 =
+        1,09 Md€ ; dotations 2026 : Présidence 0,12, Assemblée 0,61, Sénat 0,35 Md€ (Sénat). Bas = 0 (économie non
         réalisée), haut = central (règle 6).
     confiance: moyenne
     verification:
@@ -2957,6 +2978,7 @@ mesures:
         CESE, audiovisuel, presse) budgétairement suffisant. Règle 6 : bas = 0 (avant 0,54), haut = central.
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
         (valeur inchangée).
+        Recalé sur le FMI WEO d'octobre 2026 : central 1,08 → 1,09 (haut 1,08 → 1,09).
   - id: fonds-vert
     libelle: Fonds vert transformé en Fonds de financement des catastrophes naturelles (+0,1 Md€)
     domaine: ecologie
@@ -2998,12 +3020,12 @@ mesures:
           unite: Md€ (2027)
           note: « augmenté de 100 millions d'euros » (Vert), chiffre du candidat
         f:
-          valeur: 1.157
+          valeur: 1.1592
           bareme: facteur_pib_2027_2032
           unite: facteur
           note: PIB nominal 2032 / 2027
       explication: >-
-        Hausse de 0,1 Md€ du fonds (1,085 Md€ de CP en 2026, Sénat) projetée : 0,1 × 1,157 = 0,12 Md€. Haut = 0
+        Hausse de 0,1 Md€ du fonds (1,085 Md€ de CP en 2026, Sénat) projetée : 0,1 × 1,1592 = 0,12 Md€. Haut = 0
         (redéploiement à enveloppe constante).
     confiance: moyenne
     verification:
@@ -3015,6 +3037,7 @@ mesures:
         financement des catastrophes naturelles » (CNews) et augmenté de 100 M€ (Vert). Central +0,54 (économie) →
         −0,12 (dépense) ; citation remplacée. Trace antérieure (verificateur-sonnet, corrige, 2026-09-29) : 0,46 Md€
         sous le fonds vert (1,085 Md€ de CP, Sénat).
+        Recalé sur le FMI WEO d'octobre 2026 : central −0,12 inchangé (bornes inchangées).
   - id: aides-apprentissage-avant-licence
     libelle: Aides à l'apprentissage réservées aux formations de niveau inférieur à la licence
     domaine: travail
@@ -3026,9 +3049,9 @@ mesures:
     chiffrable: true
     nature: economie
     effet_solde_primaire:
-      central: 1.89
+      central: 1.91
       bas: 0.0
-      haut: 1.89
+      haut: 1.91
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -3045,13 +3068,13 @@ mesures:
           unite: Md€ (2026)
           note: chiffre du candidat (contre-budget 2026)
         f:
-          valeur: 1.1842
+          valeur: 1.1921
           bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
-            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+            PIB nominal 2032 / 2026 = 1,2177 / 1,0215 (croissance nominale 2026 : 0,411 % en volume, 1,731 % de déflateur)
       explication: >-
-        Chiffre du RN (1,6 Md€) projeté : 1,6 × 1,1842 = 1,89 Md€ ; l'aide à l'embauche d'apprentis a 2,37 Md€ de CP en
+        Chiffre du RN (1,6 Md€) projeté : 1,6 × 1,1921 = 1,91 Md€ ; l'aide à l'embauche d'apprentis a 2,37 Md€ de CP en
         2026, déjà réduite de 31 % et limitée à 750 € pour les niveaux bac+3 et plus : l'économie restante est
         probablement inférieure. Bas = 0 (économie non réalisée), haut = central (règle 6).
     confiance: faible
@@ -3065,6 +3088,7 @@ mesures:
         central.
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
         (valeur inchangée).
+        Recalé sur le FMI WEO d'octobre 2026 : central 1,89 → 1,91 (haut 1,89 → 1,91).
   - id: sante-medicaments-unite-ald
     libelle: Délivrance des médicaments à l'unité et contrôle systématique des ALD
     domaine: sante
@@ -3076,9 +3100,9 @@ mesures:
     chiffrable: true
     nature: economie
     effet_solde_primaire:
-      central: 1.18
+      central: 1.19
       bas: 0.0
-      haut: 1.18
+      haut: 1.19
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -3095,13 +3119,13 @@ mesures:
           unite: Md€ (2026)
           note: chiffre du candidat (contre-budget 2026)
         f:
-          valeur: 1.1842
+          valeur: 1.1921
           bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
-            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+            PIB nominal 2032 / 2026 = 1,2177 / 1,0215 (croissance nominale 2026 : 0,411 % en volume, 1,731 % de déflateur)
       explication: >-
-        Chiffre du RN (1,0 Md€) projeté : 1,0 × 1,1842 = 1,18 Md€ ; aucune évaluation publique des économies de la
+        Chiffre du RN (1,0 Md€) projeté : 1,0 × 1,1921 = 1,19 Md€ ; aucune évaluation publique des économies de la
         délivrance à l'unité ni du contrôle des ALD. Bas = 0 (économie non réalisée), haut = central (règle 6).
     confiance: faible
     verification:
@@ -3113,6 +3137,7 @@ mesures:
         central. Confiance faible.
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
         (valeur inchangée).
+        Recalé sur le FMI WEO d'octobre 2026 : central 1,18 → 1,19 (haut 1,18 → 1,19).
   - id: gestion-dette-btf
     libelle: Réforme de la gestion des BTF et moindre besoin d'emprunt
     domaine: dette
@@ -3145,9 +3170,9 @@ mesures:
     chiffrable: true
     nature: depense
     effet_solde_primaire:
-      central: -1.48
-      bas: -1.97
-      haut: -1.48
+      central: -1.49
+      bas: -1.99
+      haut: -1.49
       montee_en_charge:
         '2027': 0.0
         '2028': 1.0
@@ -3175,11 +3200,11 @@ mesures:
           unite: Md€ de CP
           note: baisse effectivement votée des CP de la mission Agriculture (4,216 → 4,126 Md€, LFI 2025 → LFI 2026)
         f:
-          valeur: 1.1842
+          valeur: 1.1921
           bareme: facteur_pib_2026_2032
           unite: facteur
           note: >-
-            PIB nominal 2032 / 2026 = 1,2106 / 1,0223 (croissance nominale 2026 : 0,858 % en volume, 1,358 % de déflateur)
+            PIB nominal 2032 / 2026 = 1,2177 / 1,0215 (croissance nominale 2026 : 0,411 % en volume, 1,731 % de déflateur)
       explication: >-
         Outre-mer et protection sociale complémentaire des hospitaliers au chiffre du RN ; « suppression de la baisse
         des crédits agriculture » limitée à la baisse réellement votée (0,09 Md€ de CP au lieu de 0,5). Bas : montant
@@ -3194,6 +3219,7 @@ mesures:
         0,09 après tri sur le vote de la LFI 2026 est cohérente.
         Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032
         (valeur inchangée).
+        Recalé sur le FMI WEO d'octobre 2026 : central −1,48 → −1,49 (bas −1,97 → −1,99, haut −1,48 → −1,49).
   - id: droits-nouveaux-provisionnes
     libelle: Dépenses « provisionnées pour des droits nouveaux » (aidants, soins dentaires, troisième enfant, permis de conduire)
     domaine: social
@@ -3227,8 +3253,8 @@ mesures:
       haut: -3.93
       lecture: >-
         Annexe : 19,1 Md€ de droits nouveaux des ménages en 2031 moins la réforme des retraites (9,5 Md€, déjà
-        chiffrée) = 9,6 Md€, × 1,0283 = 9,87 Md€ en 2032. Bas : les 15 Md€ annoncés hors retraites (× 1,0283). Haut
-        : seuls les deux postes chiffrés (aidants 2 + dentaire 1,4 = 3,4 Md€, montants 2027 × 1,157). Rallonges
+        chiffrée) = 9,6 Md€, × 1,0291 = 9,88 Md€ en 2032. Bas : les 15 Md€ annoncés hors retraites (× 1,0291). Haut
+        : seuls les deux postes chiffrés (aidants 2 + dentaire 1,4 = 3,4 Md€, montants 2027 × 1,1592). Rallonges
         outre-mer, recherche et éducation non comprises.
       sources:
       - https://www.sudradio.fr/societe/presidentielle-en-quete-de-credibilite-budgetaire-le-pen-promet-un-effort-radical-de-140-milliards-net

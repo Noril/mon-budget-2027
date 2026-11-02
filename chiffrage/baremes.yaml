@@ -4,8 +4,8 @@
 # - coûts et rendements en valeur positive ; le signe (coût < 0) se met dans la mesure du programme ;
 # - `bas` et `haut` sont la plus petite et la plus grande valeur plausible du barème, pas la convention
 #   défavorable/favorable au solde qui vaut pour les mesures ;
-# - montants en Md€ courants de l'année indiquée dans `annee` ; pour 2032, facteur PIB nominal 2025→2032 = 1,2106
-#   (PIB 2025 finances.pib_nominal@1.0.0, croissance et déflateur de plan/hypotheses.yaml, FMI WEO avril 2026),
+# - montants en Md€ courants de l'année indiquée dans `annee` ; pour 2032, facteur PIB nominal 2025→2032 = 1,2177
+#   (PIB 2025 finances.pib_nominal@1.0.0, croissance et déflateur de plan/hypotheses.yaml, FMI WEO octobre 2026),
 #   sauf quand la derivation dit autrement (énergie, TICPE : volumes et prix, pas PIB) ; facteurs par année de
 #   départ : facteur_pib_2023_2032 à facteur_pib_2027_2032. Une dépense non indexée à droit constant (point
 #   d'indice gelé) ne se projette PAS au PIB (voir point_indice_1pct_2032) ;
@@ -16,7 +16,7 @@
 #   minima non imposables) ; retraites (âge, durée) : barèmes `_apu` (ensemble des administrations publiques,
 #   prélèvements sur l'emploi des seniors et autres prestations compris) au central, barèmes système pour la borne
 #   qui réduit l'effet (haut d'un coût, bas d'une économie ; convention commune 4, 30/09/2026) ;
-# - indexation sur l'inflation à droit constant 2027-2032 : inflation_cumulee_2027_2032 (déflateur, +11,03 %) ;
+# - indexation sur l'inflation à droit constant 2027-2032 : inflation_cumulee_2027_2032 (déflateur, +11,88 %) ;
 # - sources récupérées et extraits relus le 29 septembre 2026 ; budget.gouv.fr bloquait alors les robots : quelques
 #   URL de documents budgétaires pointent vers la page d'index de l'exercice (signalé dans `limites`).
 
@@ -42,8 +42,8 @@
     Valeur : 209 Md€ en comptabilité nationale (INSEE, reprise par FIPECO), l'optique pertinente pour le solde
     des APU. Haut : 211,7 Md€, TVA nette totale 2025 en comptabilité budgétaire (Cour des comptes : brute 288,9 −
     remboursements et dégrèvements 77,2), dont 57,0 à la sécurité sociale, 52,8 aux collectivités, 4,0 pour
-    l'audiovisuel public et 98,1 au budget général de l'État. Projection 2032 à structure inchangée : 209 × 1,2106
-    (facteur_pib_2025_2032) ≈ 253 Md€.
+    l'audiovisuel public et 98,1 au budget général de l'État. Projection 2032 à structure inchangée : 209 × 1,2177
+    (facteur_pib_2025_2032) ≈ 254 Md€.
   limites: >
     Le chiffre de comptabilité nationale n'a pas été relu dans une publication de l'INSEE (repris de FIPECO) ;
     l'écart avec la comptabilité budgétaire (≈ 3 Md€) tient aux décalages d'encaissement. Toute mesure de TVA
@@ -72,7 +72,7 @@
     Tableau 2 du Trésor-Éco : rendement statique net 2025 d'un point au taux normal = 7,5 Md€ (8,9 Md€ brut,
     tableau 1 ; l'écart est la TVA acquittée par les APU elles-mêmes, qui revient en dépense). Valeur retenue :
     net (7,5), cohérent avec un effet sur le solde des APU ; haut = brut (8,9). Symétrique pour une baisse.
-    Projection 2032 : × 1,2106 (PIB nominal, plan/hypotheses.yaml) ≈ 9,1 Md€.
+    Projection 2032 : × 1,2177 (PIB nominal, plan/hypotheses.yaml) ≈ 9,1 Md€.
   limites: >
     Chiffrage statique (comportements inchangés), hors effets sur les prix et la consommation ; pour une baisse
     d'un point, la transmission aux prix est incomplète mais n'affecte pas le coût budgétaire statique.
@@ -436,7 +436,7 @@
     IS net structurel ≈ 60 Md€ en 2025 (Cour des comptes, net des crédits d'impôt, hors contribution
     exceptionnelle des grandes entreprises) ; 66,9 Md€ en comptabilité nationale y compris la contribution
     exceptionnelle, qui a rapporté 7,5 Md€ en 2025 selon la Cour (8,0 Md€ attendus en LFI et dans les Voies et
-    moyens). Projection 2032 : × 1,2106 (PIB nominal 2025→2032,
+    moyens). Projection 2032 : × 1,2177 (PIB nominal 2025→2032,
     plan/hypotheses.yaml, FMI) ≈ 73 Md€ hors majoration.
   limites: "Recette très cyclique (bénéfices) ; la majoration exceptionnelle est temporaire en droit."
   verification:
@@ -466,7 +466,7 @@
     Aucune source publique récente ne publie le « point d'IS ». Deux calculs : (1) proportionnel, IS net hors
     majoration 59,9 Md€ / 25 points = 2,4 Md€ (valeur, prudente car les crédits d'impôt ne varient pas avec le
     taux) ; (2) bénéfices des sociétés bénéficiaires 2024, 284 Md€ × 1 % = 2,8 Md€ (haut, avant imputation des
-    déficits reportés et hors taux réduit PME de 15 %). Projection 2032 : × 1,2106.
+    déficits reportés et hors taux réduit PME de 15 %). Projection 2032 : × 1,2177.
   limites: >
     Statique ; ignore l'optimisation et la localisation des profits. Pour une surtaxe sur les grandes
     entreprises, se référer à la majoration exceptionnelle (7,5 Md€ en 2025).
@@ -502,7 +502,7 @@
     retiré) : taux maximal 0,28 % en 2026 et 2027, 0,19 % en 2028, 0,09 % en 2029, suppression en 2030. Une promesse
     de suppression n'a donc un coût qu'en 2027-2029 (≈ 3,7 à 4 Md€ en 2027, ≈ 2,5 à 2,7 en 2028 et ≈ 1,2 à 1,3 en
     2029 au prorata des taux), nul en 2032. Inversement, maintenir la CVAE après 2030 rapporterait
-    ≈ 3,7 × 1,2106 ≈ 4,5 Md€ en 2032.
+    ≈ 3,7 × 1,2177 ≈ 4,5 Md€ en 2032.
   limites: >
     CVAE affectée à l'État depuis 2023 (collectivités compensées en TVA). La recette budgétaire de l'État (4,0 à
     4,3 Md€ en 2024-2026) dépasse le montant prélevé l'année (3,7 Md€ en 2025) du fait des acomptes et soldes ;
@@ -527,8 +527,8 @@
   derivation: >
     Lecture directe (CCSS, M€ ; colonnes 2024, évolution, 2025, évolution, 2026 prévision) : 5 228 M€ en 2024,
     5 337 M€ en 2025, 5 454 M€ prévus en 2026. Valeur = 2024 (5,2) ; haut = 2025 (5,34). Affectée à la sécurité
-    sociale. Coût d'une suppression ≈ 5,2 à 5,3 Md€ ; projection 2032 : 5,2 × 1,2336 (facteur_pib_2024_2032)
-    ≈ 6,4 Md€, ou 5,34 × 1,2106 ≈ 6,5 Md€.
+    sociale. Coût d'une suppression ≈ 5,2 à 5,3 Md€ ; projection 2032 : 5,2 × 1,2408 (facteur_pib_2024_2032)
+    ≈ 6,5 Md€, ou 5,34 × 1,2177 ≈ 6,5 Md€.
   limites: "Seuil de chiffre d'affaires (19 M€ HT) non revalorisé : l'assiette croît un peu plus vite que le PIB."
   verification:
     statut: corrige
@@ -626,7 +626,7 @@
     Lecture directe : IR net (brut moins remboursements et dégrèvements) encaissé par l'État en 2025 = 94,9 Md€.
     Le PLF 2026 prévoyait 104,0 Md€ (dont + 4,2 Md€ d'évolution spontanée et + 4,4 Md€ de mesures nouvelles, notamment
     le gel du barème), retenu en `haut`. Pour 2032 à législation constante, multiplier au moins par le facteur PIB
-    nominal 1,2106 (≈ 115 Md€ depuis 2025) ; l'élasticité de l'IR au revenu étant supérieure à 1 quand le barème est
+    nominal 1,2177 (≈ 116 Md€ depuis 2025) ; l'élasticité de l'IR au revenu étant supérieure à 1 quand le barème est
     indexé sur les prix, c'est un minimum.
   limites: >
     Ne comprend ni la CSG ni la CRDS (voir csg_rendement) ni les prélèvements sociaux. Le PLF 2026 a été amendé ;
@@ -652,7 +652,7 @@
     Le gel du barème (absence d'indexation sur l'inflation 2025, estimée à 1,1 %) rapporte 1,9 Md€ selon le chiffrage
     des mesures nouvelles du PLF 2026. Un point d'indexation vaut donc 1,9 / 1,1 ≈ 1,7 Md€ (année 2026). `bas` et
     `haut` : même calcul avec une inflation de référence de 1,3 % (1,5 Md€) et 0,9 % (2,1 Md€), l'indice exact retenu
-    (IPC hors tabac) n'étant pas cité dans la source. Pour 2032, multiplier par le facteur PIB nominal 1,2106
+    (IPC hors tabac) n'étant pas cité dans la source. Pour 2032, multiplier par le facteur PIB nominal 1,2177
     (≈ 2,1 Md€).
   limites: >
     Relation supposée linéaire. Chiffre ex ante sans effet de comportement. Un relèvement ciblé sur certaines tranches
@@ -675,8 +675,8 @@
       extrait: "Les recettes nettes d’impôt sur le revenu (94,9 Md€)"
   derivation: >
     1 % du produit net de l'IR : 0,01 × 104,0 = 1,04 Md€ (PLF 2026). `bas` = 0,01 × 94,9 (exécution 2025).
-    Projection 2032 au PIB nominal, chacun avec le facteur de son année : 1,04 × 1,1842 (facteur_pib_2026_2032)
-    ≈ 1,23 Md€ ; 0,949 × 1,2106 (facteur_pib_2025_2032) ≈ 1,15 Md€. Pour une baisse de x % des taux de toutes les
+    Projection 2032 au PIB nominal, chacun avec le facteur de son année : 1,04 × 1,1921 (facteur_pib_2026_2032)
+    ≈ 1,24 Md€ ; 0,949 × 1,2177 (facteur_pib_2025_2032) ≈ 1,16 Md€. Pour une baisse de x % des taux de toutes les
     tranches, multiplier par x. (Jusqu'au 30 septembre 2026, un `haut` de 1,26 mêlait la projection 2032 aux
     montants 2025-2026 et appliquait le facteur 2025→2032 à un montant 2026 : retiré.) À distinguer de ir_indexation_1pct (relèvement des seuils).
   limites: >
@@ -696,7 +696,7 @@
       extrait: "Impôt sur la fortune immobilière 2,7 2,8 + 0,1 0 + 0,1"
   derivation: >
     Lecture du tableau des autres recettes fiscales brutes : exécution 2024 = 2,7 Md€, exécution 2025 = 2,8 Md€
-    (+ 0,1 Md€ d'évolution spontanée). Projection 2032 au PIB nominal : 2,8 × 1,2106 ≈ 3,4 Md€.
+    (+ 0,1 Md€ d'évolution spontanée). Projection 2032 au PIB nominal : 2,8 × 1,2177 ≈ 3,4 Md€.
   limites: >
     Comprend les rappels issus du contrôle fiscal (0,4 à 0,5 Md€ par an en 2018-2020 selon France Stratégie).
     La supprimer (rétablissement de l'ISF) est à déduire du rendement brut d'un ISF (voir isf_retabli_gain_net).
@@ -739,10 +739,10 @@
       extrait: "Impôt sur la fortune immobilière 2,7 2,8 + 0,1 0 + 0,1"
   derivation: >
     Gain net = ISF rétabli (paramètres 2017) − IFI supprimé. Central : ISF 2017 (4,1 Md€) revalorisé comme le PIB
-    nominal 2017 → 2032 (2 291,7 Md€ → 3 620,9 Md€, facteur 1,580 ; finances.pib_nominal@1.0.0 et
-    plan/hypotheses.yaml) = 6,48 Md€, moins l'IFI 2025 projeté en 2032 (2,8 × 1,2106 = 3,39 Md€) = 3,1 Md€.
+    nominal 2017 → 2032 (2 291,7 Md€ → 3 642,1 Md€, facteur 1,589 ; finances.pib_nominal@1.0.0 et
+    plan/hypotheses.yaml) = 6,52 Md€, moins l'IFI 2025 projeté en 2032 (2,8 × 1,2177 = 3,41 Md€) = 3,1 Md€.
     Haut : base ISF croissant comme de 2011 à 2017 (761 → 1 017 Md€, + 4,95 %/an), soit × 2,066 sur 15 ans :
-    4,1 × 2,066 = 8,47 Md€ − 3,39 = 5,1 Md€. Bas : rendement nominal 2017 non revalorisé (4,1 Md€), ce qui figure
+    4,1 × 2,066 = 8,47 Md€ − 3,41 = 5,1 Md€. Bas : rendement nominal 2017 non revalorisé (4,1 Md€), ce qui figure
     une érosion de l'assiette par départs et optimisation, moins l'IFI 2025 non projeté (2,8 Md€) = 1,3 Md€.
   limites: >
     Aucun chiffrage public récent d'un ISF rétabli n'a été trouvé ; les montants avancés dans le débat public
@@ -758,7 +758,7 @@
     commentaire: >
       Extraits France Stratégie (2021) relus : 4,1 Md€ d'ISF net en 2017, base nette 761 à 1 017 Md€ de 2011 à 2017
       ; IFI 2025 2,8 Md€ relu dans la NEB Recettes fiscales. Aucun chiffrage public d'un ISF rétabli : le central
-      est une projection au PIB et le bas une convention prudente (érosion de l'assiette), écrits comme tels.
+      est une projection au PIB et le bas une convention prudente (érosion de l'assiette), écrits comme tels. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : 6,52 − 3,41 = 3,11 et 8,47 − 3,41 = 5,06 : valeur 3,1, bas 1,3 et haut 5,1 inchangés.
 
 - id: dmtg_rendement
   libelle: Rendement des droits de mutation à titre gratuit (successions et donations)
@@ -778,7 +778,7 @@
   derivation: >
     PLF 2026 : successions 16 995 M€ + donations 4 423 M€ = 21,4 Md€ (tableau du rapport du Sénat, lignes 1706 et
     1705). 2025 : 20,8 Md€ selon la Cour (dépenses fiscales associées, dont pacte Dutreil : 4,5 Md€). Successions
-    seules ≈ 17,0 Md€. Projection 2032 au PIB nominal : 21,4 × 1,2106 / (1 + croissance nominale 2026 ≈ 2,2 %) ≈ 25 Md€ ;
+    seules ≈ 17,0 Md€. Projection 2032 au PIB nominal : 21,4 × 1,2177 / (1 + croissance nominale 2026 ≈ 2,1 %) ≈ 26 Md€ ;
     tendance historique plus rapide (× 2 entre 2014 et 2026).
   limites: >
     Recette volatile (marché immobilier et financier, décès). Une réforme du barème en ligne directe ou des
@@ -788,7 +788,7 @@
   libelle: Gain d'une suppression du prélèvement forfaitaire unique (retour au barème de l'IR des revenus mobiliers), en 2032
   valeur: 1.5
   bas: 0.0
-  haut: 3.1
+  haut: 3.2
   unite: Md€/an (2032)
   annee: "2022 (chiffrage Institut Montaigne) ; haut projeté en 2032"
   sources:
@@ -811,8 +811,8 @@
   derivation: >
     Central : Institut Montaigne (2022), 1,5 Md€ avec retour de l'assiette à son niveau de 2017 (seul chiffrage
     publié qui intègre la réaction des dividendes) ; non projeté, l'assiette étant ramenée à un niveau nominal
-    passé. Haut : chiffrage à assiette constante (2,3 Md€ en 2022) × PIB 2032 / PIB 2022 (3 620,9 / 2 654,0 =
-    1,364) ≈ 3,1 Md€. Bas : 0, France Stratégie montrant que la hausse des dividendes après 2018 (de 14 à 23 Md€)
+    passé. Haut : chiffrage à assiette constante (2,3 Md€ en 2022) × PIB 2032 / PIB 2022 (3 642,1 / 2 654,0 =
+    1,372) ≈ 3,2 Md€. Bas : 0, France Stratégie montrant que la hausse des dividendes après 2018 (de 14 à 23 Md€)
     dépasse le seuil d'autofinancement (2 à 3 Md€). Lecture basse alternative : coût statique du PFU en 2018 selon
     l'IPP et l'Insee (0,6 à 1,05 Md€ ; ≈ 0,6 Md€ en 2032 en retenant la moitié, ancienne convention de ce
     barème).
@@ -829,7 +829,7 @@
       assiette constante, 1,5 Md€ avec réaction des dividendes, page relue sur la Wayback Machine) et IPP / Insee
       via France Stratégie (0,6-1,05 Md€ de coût statique en 2018). Central 0,6 (convention) → 1,5 (seul chiffrage
       publié avec comportements) ; haut 1,7 → 3,1 (statique Montaigne projeté en 2032) ; bas 0 inchangé. Écart entre
-      sources non résolu.
+      sources non résolu. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : 2,3 × 1,372 = 3,16, haut 3,1 → 3,2 ; valeur et bas inchangés.
 
 - id: hs_exoneration_cout
   libelle: Coût des exonérations sur les heures supplémentaires (IR, cotisations salariales, déduction patronale)
@@ -861,10 +861,10 @@
     2026 : IR 2 250 M€ + exonération de cotisations salariales 2 306 M€ + déduction forfaitaire de cotisations
     patronales (entreprises de moins de 250 salariés) 872 M€ = 5 428 M€ ≈ 5,4 Md€. 2024 : 2 144 + 2 228 + 865 =
     5,24 Md€ (exécution, en euros 2024 : ne sert pas de borne d'une mesure en 2032). Suppression totale : + 5,4 Md€ ;
-    suppression du seul volet fiscal : + 2,25 Md€ ; du volet salarial : + 2,3 Md€. Projection 2032 : × 1,1842
+    suppression du seul volet fiscal : + 2,25 Md€ ; du volet salarial : + 2,3 Md€. Projection 2032 : × 1,1921
     (facteur_pib_2026_2032), soit ≈ 6,4 Md€. Réaction documentée à une suppression : l'OFCE (2012) attendait une
     baisse de 7,1 % du volume d'heures supplémentaires après la suppression de 2012, d'où un gain réduit
-    d'autant (≈ 5,9 Md€ en 2032).
+    d'autant (≈ 6,0 Md€ en 2032).
   limites: >
     Chiffrages statiques : une suppression réduirait le recours aux heures supplémentaires et donc le gain. La part
     salariale n'est pas compensée à la sécurité sociale, la déduction patronale l'est par l'État : le coût APU est la
@@ -896,7 +896,7 @@
   derivation: >
     Lecture directe, CSG brute avant charges de non-recouvrement (nette : 156,5 Md€). 2026 (p) : 156,2 Md€, en baisse
     du fait de la réforme de l'assiette des travailleurs indépendants. Répartition 2025 : revenus du capital 11,2 % du
-    total. Projection 2032 au PIB nominal : 157,2 × 1,2106 ≈ 190 Md€.
+    total. Projection 2032 au PIB nominal : 157,2 × 1,2177 ≈ 191 Md€.
   limites: Hors CRDS (0,5 %) et prélèvement de solidarité (7,5 % sur le capital, recette de l'État).
 
 - id: csg_point
@@ -913,7 +913,7 @@
     Valeur de point = rendement de la CSG de chaque assiette / taux facial (note de lecture du tableau). 2025, en
     M€ par point : activité 12 030, remplacement 3 900, capital 1 910 (patrimoine 810, placements 1 100), jeux 100 ;
     total 17 940 M€. Un point sur les seuls revenus du capital : 1,9 Md€. Projection 2032 au PIB nominal :
-    17,94 × 1,2106 ≈ 21,7 Md€.
+    17,94 × 1,2177 ≈ 21,8 Md€.
   limites: >
     Valeur mécanique sans effet de comportement. Sur les revenus de remplacement, un point au taux plein ne touche
     pas les retraités exonérés ou au taux réduit. Effet IR de la CSG déductible (non compté dans la valeur) : la
@@ -955,8 +955,8 @@
     2026 est retenu (et non 2025, 12 030 M€, haut) parce qu'il intègre la réforme de l'assiette des travailleurs
     indépendants et exploitants agricoles, en vigueur au 1er janvier 2026 et donc dans la législation de
     référence ; la baisse est ponctuelle (hors réforme, la CSG progresserait de 2,3 % en 2026). Sert aussi à
-    chiffrer une bascule cotisations salariales → CSG. Projection 2032 : 11,71 × 1,1842 (facteur_pib_2026_2032)
-    ≈ 13,9 Md€.
+    chiffrer une bascule cotisations salariales → CSG. Projection 2032 : 11,71 × 1,1921 (facteur_pib_2026_2032)
+    ≈ 14,0 Md€.
   limites: Voir csg_point (déductibilité partielle de l'IR, pas d'effet de comportement).
   verification:
     statut: ok
@@ -1066,7 +1066,7 @@
     Central : exécution 2025 selon la CCSS de mai 2026 (75,6 Md€, tous attributaires). Pour 2026, la CCSS prévoit
     +2,5 % (≈ 77,5 Md€, haut) avant le gel du paramètre Smic de la RGDU (décret n° 2026-509 du 12 juin 2026), qui
     annule cette hausse : ≈ 75,6 en 2026. Bas : prévision d'octobre 2025 citée par le Groupe d'experts (72,3 Md€).
-    Pour 2032 : indexer sur la masse salariale privée (à défaut, facteur_pib_2025_2032 = 1,2106).
+    Pour 2032 : indexer sur la masse salariale privée (à défaut, facteur_pib_2025_2032 = 1,2177).
   limites: >
     Le périmètre varie selon les sources (l'annexe 4 donne 64,9 Md€ en 2024 sur les seuls régimes de base).
     Supprimer les allègements ne rapporte pas le coût brut : le Groupe d'experts chiffre l'économie nette entre 33
@@ -1152,7 +1152,7 @@
       extrait: "En 2024, le salaire en équivalent temps plein (EQTP) dans le secteur privé s’établit en moyenne à 3 602 euros brut par mois, soit 2 733 euros net de cotisations et contributions sociales"
   derivation: >
     Lecture directe (base Tous salariés, DSN). Net moyen 2 733 € (rapport net/brut 0,759) ; médiane nette
-    2 190 €. Projection 2032 à part de PIB constante : 3 602 × 1,2336 (facteur_pib_2024_2032) ≈ 4 440 €.
+    2 190 €. Projection 2032 à part de PIB constante : 3 602 × 1,2408 (facteur_pib_2024_2032) ≈ 4 470 €.
   limites: >
     Champ élargi en 2024 aux apprentis, stagiaires et à Mayotte (rupture de série) ; secteur privé au sens
     large, entreprises publiques comprises, hors agriculture et particuliers employeurs. Moyenne tirée vers le
@@ -1170,7 +1170,7 @@
       extrait: "ms_t_50j_brut : 2025 T1 184 469 560 091 ; T2 186 690 337 736 ; T3 178 231 109 231 ; T4 190 642 417 196 (2024 : 180 530 071 137 ; 183 063 894 817 ; 175 033 486 224 ; 187 813 922 931)"
   derivation: >
     Somme des quatre trimestres bruts 2025 : 740,0 Md€ (726,4 Md€ en 2024). Un point de cotisation sur toute
-    la masse salariale privée vaut ≈ 7,4 Md€ (statique, avant IR et CSG induits) ; × 1,2106 en 2032 ≈ 9,0 Md€.
+    la masse salariale privée vaut ≈ 7,4 Md€ (statique, avant IR et CSG induits) ; × 1,2177 en 2032 ≈ 9,0 Md€.
   limites: >
     Secteur privé hors agriculture (MSA) et hors particuliers employeurs ; certaines cotisations sont
     plafonnées (vieillesse plafonnée, Agirc-Arrco par tranche) : le rendement d'un point dépend de l'assiette.
@@ -1345,7 +1345,7 @@
     (DREES), AAH maximale 1 041,59 € en 2026 ; hausse jusqu'au Smic net (1 477,93 € en 2026) ≈ 436 € par mois
     pour un allocataire au taux plein ; environ les deux tiers des allocataires au taux plein, d'où ≈ 1,4 M × 0,66
     × 436 × 12 ≈ 4,8 Md€, plus les allocations différentielles relevées d'autant et les entrées induites :
-    cohérent avec 7,3 Md€. Projection 2032 : × facteur_pib_2024_2032 (1,2336) si le Smic suit les salaires, ≈ 9 Md€.
+    cohérent avec 7,3 Md€. Projection 2032 : × facteur_pib_2024_2032 (1,2408) si le Smic suit les salaires, ≈ 9 Md€.
     Déconjugalisation (octobre 2023) : 0,28 Md€ par an (CNAF révisé, Sénat). Dépense totale : aah_depense.
   limites: Chiffrage d'un think tank ; l'objectif « Smic » à 1 600 € (2024) est inférieur au Smic net 2026 à 1 700 € (programmes).
 
@@ -1500,7 +1500,7 @@
     (2) Par l'annexe 9 du PLFSS 2026 (gel d'une revalorisation d'environ 0,8-0,9 %) : famille 0,3 + AAH 0,15
     + AEEH 0,01 + RSA et prime d'activité 0,5 (régime de croisière) ≈ 0,96 Md€ pour ~0,9 point, soit
     ≈ 1,07 Md€ par point hors APL, 1,15 avec les APL (haut). Central retenu : 1,0 Md€ par point. Pour 2032,
-    multiplier par le facteur PIB nominal 2025→2032 (1,2106, plan/hypotheses.yaml) : ≈ 1,2 Md€.
+    multiplier par le facteur PIB nominal 2025→2032 (1,2177, plan/hypotheses.yaml) : ≈ 1,2 Md€.
   limites: >
     Les chiffres de l'annexe 9 incluent le gel des plafonds de ressources (effet sur le nombre de
     bénéficiaires) et sont présentés comme des ordres de grandeur illustratifs. Hors pensions d'invalidité,
@@ -1535,7 +1535,7 @@
       extrait: "de 14,1 % en 2025, elle resterait à 14,1 % en 2030 pour atteindre 14,2 % en 2045."
   derivation: >
     Lu directement dans la synthèse du COR (422 Md€, 14,1 % du PIB en 2025). Projection 2032 : le COR donne une part
-    stable de 14,1 % du PIB jusqu'en 2030 ; 14,1 % × 3 621 Md€ (PIB 2032, plan/hypotheses.yaml) ≈ 511 Md€ courants
+    stable de 14,1 % du PIB jusqu'en 2030 ; 14,1 % × 3 642 Md€ (PIB 2032, plan/hypotheses.yaml) ≈ 514 Md€ courants
     en 2032, à législation de juin 2026 (suspension de la réforme 2023 incluse).
   indicateur: retraites.depense_vieillesse_survie@1.0.0
   limites: >
@@ -1576,11 +1576,11 @@
       date: "2026-06"
       extrait: "de 14,1 % en 2025, elle resterait à 14,1 % en 2030 pour atteindre 14,2 % en 2045."
   derivation: >
-    Central (tous régimes) : dépenses de retraite 2032 = 14,1 % × 3 621 Md€ ≈ 511 Md€ ; part des prestations dans
-    les dépenses = 376,8 / 388,4 = 0,97 (Cour, 2023) ; 1 % × 0,97 × 511 ≈ 4,95, arrondi à 5,0 Md€.
-    Bas (régimes de base seuls, seul levier direct de la loi) : 2,9 Md€ en 2025 (Cour) × 1,2106 ≈ 3,5 Md€.
+    Central (tous régimes) : dépenses de retraite 2032 = 14,1 % × 3 642 Md€ ≈ 514 Md€ ; part des prestations dans
+    les dépenses = 376,8 / 388,4 = 0,97 (Cour, 2023) ; 1 % × 0,97 × 514 ≈ 4,98, arrondi à 5,0 Md€.
+    Bas (régimes de base seuls, seul levier direct de la loi) : 2,9 Md€ en 2025 (Cour) × 1,2177 ≈ 3,5 Md€.
     Recoupement DSS (PLFSS 2026, art. 44) : 1 % des pensions de base et de la fonction publique = 2,7 Md€ en 2026
-    net du retour de CSG (≈ 2,9 brut), × 1,1842 ≈ 3,4 Md€ en 2032, cohérent avec le bas. L'effet est permanent :
+    net du retour de CSG (≈ 2,9 brut), × 1,1921 ≈ 3,5 Md€ en 2032, cohérent avec le bas. L'effet est permanent :
     une revalorisation de 1 % une année relève le niveau de toutes les pensions des années suivantes.
   limites: >
     Montant brut. CONVENTION : l'effet sur le solde est net des prélèvements qui reviennent aux APU (CSG, CRDS,
@@ -1595,12 +1595,12 @@
     commentaire: >
       Extraits de la Cour (2,9 Md€ pour 288 Md€ ; 388,4 / 376,8) relus. Ajout du recoupement DSS (PLFSS 2026, art.
       44 : 2,7 Md€ net de CSG pour 1 % en 2026), cohérent avec le bas. Valeurs inchangées ; net recalculé avec le
-      nouveau retour_prelevements_pensions (0,16).
+      nouveau retour_prelevements_pensions (0,16). Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : dépenses 2032 511 → 514 Md€, valeur (5,0) et bas (3,5) inchangés à l'arrondi.
 
 - id: retraites_retour_62_ans_2032
   libelle: "Coût en 2032 de l'annulation des mesures d'âge de la réforme 2023 (retour à 62 ans et au calendrier Touraine de durée), par rapport au droit au 1er janvier 2027 (réforme suspendue)"
   valeur: 13.9
-  bas: 11.4
+  bas: 11.5
   haut: 15.8
   unite: Md€ courants par an (solde du système de retraite), en 2032
   annee: "2032"
@@ -1638,8 +1638,8 @@
     par la Cnav à 15,7 Md€ courants en 2032 (colonnes 2025 à 2032, 2035, 2040 ; 2032 : prestations −11,2,
     cotisations +4,5), moins le coût de la suspension déjà inscrite dans le droit au 1er janvier 2027 (1,8 Md€ par an
     en moyenne jusqu'en 2032, COR 2026) : 15,7 − 1,8 = 13,9 Md€. Recoupement Cour (tableau n° 6) : 2 × 5,8 (âge)
-    + ≈ 0,5 × 3,9 (1 à 3 trimestres de durée) ≈ 13,6 Md€ 2024 en 2035, × 1,1386 (déflateur 2032/2024) − 1,8
-    ≈ 13,7. Bas : effet de l'âge seul, linéaire sur la Cour, 2 × 5,8 × 1,1386 − 1,8 ≈ 11,4 Md€. Haut : profil
+    + ≈ 0,5 × 3,9 (1 à 3 trimestres de durée) ≈ 13,6 Md€ 2024 en 2035, × 1,1506 (déflateur 2032/2024) − 1,8
+    ≈ 13,8. Bas : effet de l'âge seul, linéaire sur la Cour, 2 × 5,8 × 1,1506 − 1,8 ≈ 11,5 Md€. Haut : profil
     Cnav porté au périmètre tous régimes du rapport gouvernemental de 2023 (14,1 Md€ en 2030 contre 12,6 Md€ pour
     la Cnav) : 15,7 × 14,1 / 12,6 − 1,8 ≈ 15,8 Md€. PÉRIMÈTRE : solde du système de retraite (pensions et
     cotisations vieillesse), pas l'ensemble des APU : l'écart (Cour 2035, âge à 63 ans : 5,8 Md€ pour le système,
@@ -1668,7 +1668,7 @@
       confirmés : valeur 13,9 inchangée. Bornes corrigées : bas 8,9 → 11,4 (le 9,7 de la DG Trésor inclut les
       mesures d'accompagnement ; remplacé par l'âge seul selon la Cour, 2 × 5,8 × 1,1386 − 1,8) ; haut 20 → 15,8
       (l'IFRAP, sans méthode publiée et d'ampleur APU, est remplacée par le profil Cnav porté au périmètre tous
-      régimes du rapport gouvernemental de 2023, 14,1 Md€ en 2030).
+      régimes du rapport gouvernemental de 2023, 14,1 Md€ en 2030). Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : déflateur FMI 2032/2024 1,1386 → 1,1506 (indice NGDP_D 2032, 2031 reconduit, sur 2024) ; bas 11,4 → 11,5 ; valeur (Cnav, euros courants) et haut inchangés.
 
 - id: retraites_suspension_reforme_2023
   libelle: Coût de la suspension de la réforme 2023 par la LFSS 2026 (déjà dans le droit au 1er janvier 2027)
@@ -1704,7 +1704,7 @@
 
 - id: retraites_age_legal_1_an
   libelle: "Effet sur le solde du système de retraite d'une variation d'un an de l'âge d'ouverture des droits (baisse de 64 à 63 ans)"
-  valeur: 6.6
+  valeur: 6.7
   bas: 4.9
   haut: 7.9
   unite: Md€ courants 2032 par an et par année d'âge (coût d'une baisse ; ordre de grandeur du gain d'une hausse montée en charge)
@@ -1724,8 +1724,8 @@
       extrait: "Pour l’ensemble des finances publiques, l’avancée d’un an de l’âge d’ouverture des droits coûterait 13 Md€ en 2035, tandis qu’un recul rapporterait jusqu’à 17,7 Md€."
   derivation: >
     Central : 5,8 Md€ constants 2024 en 2035 (pensions tous régimes −4,2 dont base −3,0 et complémentaires −1,2 ;
-    cotisations −1,6 ; tableau n° 6, données Cnav et DG Trésor) × 1,1386 (déflateur FMI 2032/2024) ≈ 6,6 Md€.
-    Bas : régime de croisière 2045, 4,3 Md€ × 1,1386 ≈ 4,9 Md€. Haut : moitié de l'effet Cnav des deux ans de la
+    cotisations −1,6 ; tableau n° 6, données Cnav et DG Trésor) × 1,1506 (déflateur FMI 2032/2024) ≈ 6,7 Md€.
+    Bas : régime de croisière 2045, 4,3 Md€ × 1,1506 ≈ 4,9 Md€. Haut : moitié de l'effet Cnav des deux ans de la
     réforme 2023 en 2032 (15,7 / 2 ≈ 7,9 Md€, voir retraites_retour_62_ans_2032) ; ce haut inclut l'accélération
     de la durée (≈ 1 Md€ sur les 7,9), c'est une borne. Pour une hausse d'un an (65 ans), la Cour donne +4,7 à
     +8,4 Md€ en 2035 sur le système selon le calendrier.
@@ -1744,12 +1744,12 @@
     commentaire: >
       Tableau n° 6 de la Cour relu : 5,8 Md€ en 2035, en Md€ constants 2024 (pensions −4,2 dont base −3,0 ;
       cotisations −1,6 ; autres recettes −7,2 ; APU −13,0), et 4,3 Md€ en 2045. Valeurs inchangées ; le haut (7,9)
-      inclut un peu d'effet durée, désormais signalé.
+      inclut un peu d'effet durée, désormais signalé. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : déflateur 2032/2024 1,1386 → 1,1506 ; 5,8 × 1,1506 = 6,67, valeur 6,6 → 6,7 ; bas (4,9) et haut (7,9) inchangés.
 
 - id: retraites_duree_assurance_1_an
   libelle: "Coût pour le solde du système de retraite d'une BAISSE d'un an (4 trimestres) de la durée d'assurance requise (43 à 42 ans) ; pour une hausse, voir retraites_duree_assurance_hausse_1_an"
-  valeur: 4.4
-  haut: 8.8
+  valeur: 4.5
+  haut: 8.9
   unite: Md€ courants 2032 par an et par année de durée
   annee: "2032 (converti depuis 2035 et 2045 en euros constants 2024)"
   sources:
@@ -1762,8 +1762,8 @@
       date: "2025-02-20"
       extrait: "Sur le seul périmètre du système de retraites, la dégradation du solde serait de 7,7 Md€ en cas de diminution d’un an de la durée d’assurance requise, au lieu de 3,9 Md€ en 2035."
   derivation: >
-    Baisse d'un an : 3,9 Md€ constants 2024 en 2035 × 1,1386 (déflateur 2032/2024) ≈ 4,4 Md€. Haut : effet à
-    l'horizon 2045 (7,7 Md€ × 1,1386 ≈ 8,8 Md€), l'effet d'une variation de durée croissant avec le temps (cumul
+    Baisse d'un an : 3,9 Md€ constants 2024 en 2035 × 1,1506 (déflateur 2032/2024) ≈ 4,5 Md€. Haut : effet à
+    l'horizon 2045 (7,7 Md€ × 1,1506 ≈ 8,9 Md€), l'effet d'une variation de durée croissant avec le temps (cumul
     des générations). La Cour chiffre une hausse d'un an différemment (5,2 Md€ en 2035) : ne pas utiliser ce
     barème, en signe inversé, pour une hausse.
   limites: >
@@ -1777,12 +1777,12 @@
     commentaire: >
       Signalement de la coordination : ce barème ne vaut que pour une BAISSE de durée (Cour : 3,9 Md€ en 2035 ; 7,7
       en 2045, extraits relus). Libellé et dérivation précisés ; valeurs 4,4 et 8,8 inchangées. Une hausse se
-      chiffre avec le nouveau barème retraites_duree_assurance_hausse_1_an.
+      chiffre avec le nouveau barème retraites_duree_assurance_hausse_1_an. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : déflateur 2032/2024 1,1386 → 1,1506 ; valeur 4,4 → 4,5, haut 8,8 → 8,9.
 
 - id: retraites_duree_assurance_hausse_1_an
   libelle: "Gain pour le solde du système de retraite d'une HAUSSE d'un an (4 trimestres) de la durée d'assurance requise (43 à 44 ans)"
-  valeur: 5.9
-  haut: 9.1
+  valeur: 6.0
+  haut: 9.2
   unite: Md€ courants 2032 par an et par année de durée
   annee: "2032 (converti depuis 2035 et 2045 en euros constants 2024)"
   sources:
@@ -1795,8 +1795,8 @@
       date: "2025-02-20"
       extrait: "L’amélioration du solde serait de 8 Md€ en cas de relèvement, au lieu de 5,2 Md€ en 2035."
   derivation: >
-    Hausse d'un an : 5,2 Md€ constants 2024 en 2035 × 1,1386 (déflateur FMI 2032/2024) ≈ 5,9 Md€. Haut : horizon
-    2045, 8,0 × 1,1386 ≈ 9,1 Md€. Pas de bas publié : pour une hausse appliquée à partir de 2028, l'effet 2032 est
+    Hausse d'un an : 5,2 Md€ constants 2024 en 2035 × 1,1506 (déflateur FMI 2032/2024) ≈ 6,0 Md€. Haut : horizon
+    2045, 8,0 × 1,1506 ≈ 9,2 Md€. Pas de bas publié : pour une hausse appliquée à partir de 2028, l'effet 2032 est
     inférieur au point 2035 (montée en charge d'un trimestre par génération), à traiter dans la montée en charge de
     la mesure.
   limites: >
@@ -1809,12 +1809,12 @@
     date: "2026-09-29"
     commentaire: >
       Nouveau barème (signalement de la coordination) : Cour des comptes 2025, allongement d'un an = 5,2 Md€ en 2035
-      et 8 Md€ en 2045 (euros constants 2024), extraits relus ; × 1,1386 = 5,9 et 9,1 Md€ 2032.
+      et 8 Md€ en 2045 (euros constants 2024), extraits relus ; × 1,1386 = 5,9 et 9,1 Md€ 2032. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : × 1,1506 = 6,0 et 9,2 Md€.
 
 - id: retraites_age_60_depuis_62
   libelle: "Coût supplémentaire d'un âge légal à 60 ans par rapport à 62 ans (à ajouter à retraites_retour_62_ans_2032)"
   valeur: 18
-  bas: 13.2
+  bas: 13.3
   haut: 25
   unite: Md€ courants 2032 par an, en régime de croisière
   annee: "2032 (converti depuis 2035 et 2020)"
@@ -1837,13 +1837,13 @@
       extrait: "Le solde des régimes de retraite serait majoré de 0,5 point de PIB (soit environ 14 Md€ de 2023) du fait d’une diminution des pensions (0,4 point de PIB) et d’une hausse des cotisations (0,1 point)."
   derivation: >
     Deux sources primaires encadrent le coût. Bas : extrapolation linéaire de la Cour (un an d'âge = 5,8 Md€
-    constants 2024 en 2035 sur le système) : 2 × 5,8 × 1,1386 ≈ 13,2 Md€ ; c'est un minorant, les départs étant
+    constants 2024 en 2035 sur le système) : 2 × 5,8 × 1,1506 ≈ 13,3 Md€ ; c'est un minorant, les départs étant
     plus nombreux entre 60 et 62 ans qu'entre 63 et 64. Haut : effet du passage de 60 à 62 ans en 2010 (mesure
     « 62 ans », tous régimes : 16,7 Md€ de 2008 en 2020, ministère du travail repris par le Sénat), soit ≈ 0,7
-    point de PIB (PIB 2020 projeté alors ≈ 1,23 × PIB 2008 en euros 2008), × 36,2 Md€ par point en 2032 ≈ 25 Md€ ;
+    point de PIB (PIB 2020 projeté alors ≈ 1,23 × PIB 2008 en euros 2008), × 36,4 Md€ par point en 2032 ≈ 25 Md€ ;
     c'est un majorant, les départs étant alors concentrés à 60 ans alors que les carrières longues partent déjà à 60
     ans en droit actuel. Central : 18 Md€, milieu de la fourchette arrondi, égal à l'effet de long terme de deux
-    ans d'âge sur les seuls régimes de retraite selon FIPECO (0,5 point de PIB × 36,2). Le coût d'un âge légal à
+    ans d'âge sur les seuls régimes de retraite selon FIPECO (0,5 point de PIB × 36,4 ≈ 18,2). Le coût d'un âge légal à
     60 ans par rapport au droit au 1er janvier 2027 est la somme retraites_retour_62_ans_2032 +
     retraites_age_60_depuis_62 ≈ 32 Md€ en 2032 (fourchette 25 à 41).
   limites: >
@@ -1861,7 +1861,7 @@
       Audit : sources secondaires (FIPECO, IFRAP). Remplacées par deux sources primaires : Cour 2025 (linéaire, 13,2
       Md€, bas) et chiffrage 2010 du ministère du travail repris par le Sénat (mesure « 62 ans » : 16,7 Md€ de 2008
       en 2020, ≈ 25 Md€ en 2032, haut ; étude d'impact AN n° 2760 en recoupement). Valeur 18 inchangée (milieu, égal
-      à FIPECO) ; bas 13 → 13,2 ; haut 33 → 25 (l'ancien haut était un effet APU, exclu par la règle 3).
+      à FIPECO) ; bas 13 → 13,2 ; haut 33 → 25 (l'ancien haut était un effet APU, exclu par la règle 3). Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : bas 2 × 5,8 × 1,1506 = 13,3 (avant : 13,2) ; haut 0,7 × 36,4 = 25,5, arrondi à 25 comme avant ; valeur 18 (milieu arrondi, FIPECO 18,2) inchangée.
 
 # ----------------------------------------------------------------------------------------------------
 # Retraites (âge, durée) au périmètre de l'ensemble des administrations publiques (convention commune 4, 30/09/2026)
@@ -1870,14 +1870,14 @@
 # journalières, invalidité, minima). Cour des comptes 2025, tableaux n° 6 et 7 (Md€ constants 2024, exercice 2035,
 # données DG Trésor et Cnav) ; effets de bord : 20 % des moindres pensions (Drees et Dares, réforme de 2010, cités par
 # la Cour) au central, 50 % dans le bas (DG Trésor, COR janvier 2022 : 0,2 point de PIB pour 0,4 point de pensions),
-# aucun dans le haut. Conversion en euros 2032 : × 1,1386 (déflateur FMI 2032/2024), comme les barèmes système.
+# aucun dans le haut. Conversion en euros 2032 : × 1,1506 (déflateur FMI 2032/2024, WEO octobre 2026), comme les barèmes système.
 # ----------------------------------------------------------------------------------------------------
 
 - id: retraites_age_legal_1_an_apu
   libelle: "Effet sur le solde de l'ensemble des administrations publiques d'une BAISSE d'un an de l'âge d'ouverture des droits (64 à 63 ans), en 2032"
-  valeur: 13.8
-  bas: 12.4
-  haut: 14.8
+  valeur: 14.0
+  bas: 12.5
+  haut: 15.0
   unite: Md€ courants 2032 par an et par année d'âge (coût d'une baisse)
   annee: "2032 (converti depuis 2035 en euros constants 2024)"
   sources:
@@ -1904,9 +1904,9 @@
   derivation: >
     Central : 13,0 Md€ (A + B + C, tableau n° 6) moins les effets de bord sur les autres prestations, 20 % des
     moindres pensions (0,2 × 4,2 = 0,84 : les assurés qui partent plus tôt sortent du chômage, des indemnités
-    journalières, de l'invalidité et des minima) = 12,16 Md€ constants 2024, × 1,1386 ≈ 13,8 Md€ 2032. Bas : effets
-    de bord de la DG Trésor (0,2 point de PIB pour 0,4 point de pensions, soit 50 % : 13,0 − 2,1 = 10,9) × 1,1386 ≈
-    12,4. Haut : 13,0 × 1,1386 ≈ 14,8, sans effet de bord (les « autres recettes » du tableau n° 6 sont des
+    journalières, de l'invalidité et des minima) = 12,16 Md€ constants 2024, × 1,1506 ≈ 14,0 Md€ 2032. Bas : effets
+    de bord de la DG Trésor (0,2 point de PIB pour 0,4 point de pensions, soit 50 % : 13,0 − 2,1 = 10,9) × 1,1506 ≈
+    12,5. Haut : 13,0 × 1,1506 ≈ 15,0, sans effet de bord (les « autres recettes » du tableau n° 6 sont des
     recettes). Rapport au périmètre du système (retraites_age_legal_1_an, 6,6) : 2,10 au central (1,88 à 2,24),
     utilisé pour porter les barèmes système sans équivalent publié au périmètre APU. Montée en charge à l'horizon
     2032 : l'effet d'une variation d'âge monte vite et culmine vers 2032 (profil Cnav des mesures d'âge de 2023 :
@@ -1925,13 +1925,13 @@
     date: "2026-09-30"
     commentaire: >
       Extraits relus dans le PDF de la Cour (tableau n° 6, p. 72-73 ; chapitre II, p. 67), le rapport annexé au
-      PLFRSS 2023 (note 14) et FIPECO. 13,0 − 0,84 = 12,16 ; × 1,1386 = 13,85.
+      PLFRSS 2023 (note 14) et FIPECO. 13,0 − 0,84 = 12,16 ; × 1,1386 = 13,85. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : déflateur FMI 2032/2024 1,1386 → 1,1506 ; 12,16 × 1,1506 = 13,99 (valeur 13,8 → 14,0), bas 12,4 → 12,5, haut 14,8 → 15,0 ; rapport APU / système inchangé (2,10).
 
 - id: retraites_age_legal_hausse_1_an_apu
   libelle: "Effet sur le solde de l'ensemble des administrations publiques d'une HAUSSE d'un an de l'âge d'ouverture des droits (64 à 65 ans), en 2032"
-  valeur: 18.8
-  bas: 16.7
-  haut: 20.2
+  valeur: 19.0
+  bas: 16.9
+  haut: 20.4
   unite: Md€ courants 2032 par an et par année d'âge (gain d'une hausse)
   annee: "2032 (converti depuis 2035 en euros constants 2024)"
   sources:
@@ -1950,8 +1950,8 @@
   derivation: >
     Variante symétrique de la Cour (65 ans atteint par la génération 1968, montée en charge achevée avant 2035) :
     17,7 Md€ moins les effets de bord (20 % de 6,0 Md€ de moindres pensions = 1,2) = 16,5 Md€ constants 2024 ×
-    1,1386 ≈ 18,8 Md€ 2032. Bas : effets de bord à 50 % (DG Trésor), 17,7 − 3,0 = 14,7 × 1,1386 ≈ 16,7. Haut :
-    17,7 × 1,1386 ≈ 20,2. Même méthode que retraites_age_legal_1_an_apu ; l'asymétrie (hausse 18,8, baisse 13,8)
+    1,1506 ≈ 19,0 Md€ 2032. Bas : effets de bord à 50 % (DG Trésor), 17,7 − 3,0 = 14,7 × 1,1506 ≈ 16,9. Haut :
+    17,7 × 1,1506 ≈ 20,4. Même méthode que retraites_age_legal_1_an_apu ; l'asymétrie (hausse 19,0, baisse 14,0)
     est celle de la Cour.
   limites: >
     Le scénario central de la Cour (65 ans pour les générations 1968 à 1972, début en 2032) ne rapporte que 9,4 Md€
@@ -1963,13 +1963,13 @@
     par: "perimetre-apu"
     date: "2026-09-30"
     commentaire: >
-      Tableau n° 6 et p. 73 relus : 17,7 = 8,4 + 9,3 ; A = 6,0. 17,7 − 1,2 = 16,5 ; × 1,1386 = 18,79.
+      Tableau n° 6 et p. 73 relus : 17,7 = 8,4 + 9,3 ; A = 6,0. 17,7 − 1,2 = 16,5 ; × 1,1386 = 18,79. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : × 1,1506 = 18,98 (valeur 18,8 → 19,0), bas 16,7 → 16,9, haut 20,2 → 20,4.
 
 - id: retraites_duree_assurance_1_an_apu
   libelle: "Coût pour le solde de l'ensemble des administrations publiques d'une BAISSE d'un an (4 trimestres) de la durée d'assurance requise, en 2032"
-  valeur: 7.4
-  bas: 6.3
-  haut: 8.1
+  valeur: 7.5
+  bas: 6.4
+  haut: 8.2
   unite: Md€ courants 2032 par an et par année de durée
   annee: "2032 (converti depuis 2035 en euros constants 2024)"
   sources:
@@ -1983,8 +1983,8 @@
       extrait: "Dépenses de retraites tous régimes (A) - 3,1 + 3,9 Cotisations retraites tous régimes (B) - 0,8 + 1,3 Effet annuel sur le système de retraites (A + B) - 3,9 + 5,2 Autres recettes publiques (C) - 3,2 + 4,5 Effet annuel sur l’ensemble des finances publiques (A + B + C) - 7,1 + 9,7"
   derivation: >
     Central : 7,1 Md€ moins les effets de bord (20 % de 3,1 Md€ de pensions = 0,62) = 6,48 Md€ constants 2024 ×
-    1,1386 ≈ 7,4 Md€ 2032. Bas : effets de bord à 50 % (7,1 − 1,55 = 5,55) × 1,1386 ≈ 6,3. Haut : 7,1 × 1,1386 ≈
-    8,1. Horizon 2032 : l'effet d'une variation de durée croît avec le temps (système seul : 3,9 Md€ en 2035, 7,7 en
+    1,1506 ≈ 7,5 Md€ 2032. Bas : effets de bord à 50 % (7,1 − 1,55 = 5,55) × 1,1506 ≈ 6,4. Haut : 7,1 × 1,1506 ≈
+    8,2. Horizon 2032 : l'effet d'une variation de durée croît avec le temps (système seul : 3,9 Md€ en 2035, 7,7 en
     2045) ; le point 2035 est retenu, comme pour le barème système, et c'est plutôt un majorant pour 2032 (pas la
     maturité).
   limites: >
@@ -1995,13 +1995,13 @@
     par: "perimetre-apu"
     date: "2026-09-30"
     commentaire: >
-      Tableau n° 7 et p. 75 relus : 7,1 = 3,9 + 3,2 ; A = 3,1. 7,1 − 0,62 = 6,48 ; × 1,1386 = 7,38.
+      Tableau n° 7 et p. 75 relus : 7,1 = 3,9 + 3,2 ; A = 3,1. 7,1 − 0,62 = 6,48 ; × 1,1386 = 7,38. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : × 1,1506 = 7,46 (valeur 7,4 → 7,5), bas 6,3 → 6,4, haut 8,1 → 8,2.
 
 - id: retraites_duree_assurance_hausse_1_an_apu
   libelle: "Gain pour le solde de l'ensemble des administrations publiques d'une HAUSSE d'un an (4 trimestres) de la durée d'assurance requise, en 2032"
-  valeur: 10.2
-  bas: 8.8
-  haut: 11.0
+  valeur: 10.3
+  bas: 8.9
+  haut: 11.2
   unite: Md€ courants 2032 par an et par année de durée
   annee: "2032 (converti depuis 2035 en euros constants 2024)"
   sources:
@@ -2015,8 +2015,8 @@
       extrait: "Dépenses de retraites tous régimes (A) - 3,1 + 3,9 Cotisations retraites tous régimes (B) - 0,8 + 1,3 Effet annuel sur le système de retraites (A + B) - 3,9 + 5,2 Autres recettes publiques (C) - 3,2 + 4,5 Effet annuel sur l’ensemble des finances publiques (A + B + C) - 7,1 + 9,7"
   derivation: >
     Central : 9,7 Md€ moins les effets de bord (20 % de 3,9 Md€ de moindres pensions = 0,78) = 8,92 Md€ constants
-    2024 × 1,1386 ≈ 10,2 Md€ 2032. Bas : effets de bord à 50 % (9,7 − 1,95 = 7,75) × 1,1386 ≈ 8,8. Haut : 9,7 ×
-    1,1386 ≈ 11,0. Point 2035 retenu pour 2032, comme pour le barème système (majorant, l'effet croissant avec le
+    2024 × 1,1506 ≈ 10,3 Md€ 2032. Bas : effets de bord à 50 % (9,7 − 1,95 = 7,75) × 1,1506 ≈ 8,9. Haut : 9,7 ×
+    1,1506 ≈ 11,2. Point 2035 retenu pour 2032, comme pour le barème système (majorant, l'effet croissant avec le
     temps : 8 Md€ en 2045 sur le système seul).
   limites: >
     Effets de bord transposés des mesures d'âge. Au périmètre du système seul : retraites_duree_assurance_hausse_1_an
@@ -2026,7 +2026,7 @@
     par: "perimetre-apu"
     date: "2026-09-30"
     commentaire: >
-      Tableau n° 7 et p. 75 relus : 9,7 = 5,2 + 4,5 ; A = 3,9. 9,7 − 0,78 = 8,92 ; × 1,1386 = 10,16.
+      Tableau n° 7 et p. 75 relus : 9,7 = 5,2 + 4,5 ; A = 3,9. 9,7 − 0,78 = 8,92 ; × 1,1386 = 10,16. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : × 1,1506 = 10,26 (valeur 10,2 → 10,3), bas 8,8 → 8,9, haut 11,0 → 11,2.
 
 - id: retraites_retour_62_ans_2032_apu
   libelle: "Coût en 2032, pour l'ensemble des administrations publiques, de l'annulation des mesures d'âge de la réforme 2023 (retour à 62 ans et au calendrier Touraine), par rapport au droit au 1er janvier 2027"
@@ -2057,8 +2057,8 @@
     périmètre APU par le rapport APU / système des mesures d'âge de retraites_age_legal_1_an_apu : 12,16 / 5,8 = 2,10
     au central (effets de bord à 20 %), 1,88 dans le bas (effets de bord à 50 %), 2,24 dans le haut (sans effet de
     bord). 13,9 × 2,10 ≈ 29,1 Md€ ; bas 13,9 × 1,88 ≈ 26,1 ; haut 13,9 × 2,24 ≈ 31,2. La suspension déjà votée est
-    déduite au même rapport. Recoupement : deux ans d'âge au barème APU (2 × 13,8) + ≈ 0,5 an de durée (0,5 × 7,4) −
-    suspension (1,8 × 2,10) ≈ 27,5 Md€ ; DG Trésor (réforme de 2023 complète, mesures d'accompagnement comprises) :
+    déduite au même rapport. Recoupement : deux ans d'âge au barème APU (2 × 14,0) + ≈ 0,5 an de durée (0,5 × 7,5) −
+    suspension (1,8 × 2,10) ≈ 27,9 Md€ ; DG Trésor (réforme de 2023 complète, mesures d'accompagnement comprises) :
     24,2 Md€ constants 2024 en 2030 pour 9,7 sur le système (rapport 2,5), Rexecode 20 pour 11,8 (1,7). Horizon
     2032 : effet de la montée en charge des générations 1965-1968, proche du maximum du profil Cnav, pas la maturité.
   limites: >
@@ -2078,7 +2078,7 @@
 - id: retraites_age_60_depuis_62_apu
   libelle: "Coût supplémentaire, pour l'ensemble des administrations publiques, d'un âge légal à 60 ans par rapport à 62 ans (à ajouter à retraites_retour_62_ans_2032_apu), en 2032"
   valeur: 37.7
-  bas: 32.6
+  bas: 32.8
   haut: 40.3
   unite: Md€ courants 2032 par an
   annee: "2032"
@@ -2098,12 +2098,12 @@
   derivation: >
     Barème système retraites_age_60_depuis_62 (18 Md€ 2032) × rapport APU / système des mesures d'âge (2,10 au
     central, voir retraites_retour_62_ans_2032_apu) ≈ 37,7 Md€. Haut : × 2,24 (sans effet de bord) ≈ 40,3. Bas :
-    FIPECO, « pouvant atteindre 0,9 point de PIB » pour l'ensemble des APU, × PIB 2032 (3 621 Md€, 36,2 Md€ par
-    point) ≈ 32,6 Md€ ; au rapport de 1,88 le bas serait 33,8, au-dessus de FIPECO. Horizon 2032 : le barème système
+    FIPECO, « pouvant atteindre 0,9 point de PIB » pour l'ensemble des APU, × PIB 2032 (3 642 Md€, 36,4 Md€ par
+    point) ≈ 32,8 Md€ ; au rapport de 1,88 le bas serait 33,8, au-dessus de FIPECO. Horizon 2032 : le barème système
     est un régime de croisière atteint vite (l'effet d'âge monte en deux à quatre ans) ; la montée en charge se
     traite dans la mesure.
   limites: >
-    Le central hérite de la convention du barème système (milieu de 13,2 et 25 Md€). Les taux d'emploi à 60-61 ans
+    Le central hérite de la convention du barème système (milieu de 13,3 et 25 Md€). Les taux d'emploi à 60-61 ans
     diffèrent de ceux à 63 ans : le rapport APU / système peut s'écarter de celui de la Cour. Institut Montaigne
     (2022) chiffre le retour à 60 ans et 40 annuités au seul périmètre des régimes (36 Md€ en 2027 pour les mesures
     d'âge, 85,8 Md€ avec les autres volets) : ce n'est pas un chiffrage APU.
@@ -2112,7 +2112,7 @@
     par: "perimetre-apu"
     date: "2026-09-30"
     commentaire: >
-      Rejoué : 18 × 12,16 / 5,8 = 37,74 ; 18 × 13,0 / 5,8 = 40,34 ; 0,9 × 36,2 = 32,6. Extrait FIPECO relu.
+      Rejoué : 18 × 12,16 / 5,8 = 37,74 ; 18 × 13,0 / 5,8 = 40,34 ; 0,9 × 36,2 = 32,6. Extrait FIPECO relu. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : 0,9 × 36,42 = 32,8, bas 32,6 → 32,8 ; valeur et haut inchangés.
 
 - id: retraites_ratio_cotisants_retraites
   libelle: Rapport entre le nombre de cotisants et le nombre de retraités
@@ -2199,7 +2199,7 @@
     promesse : cotisation salariale sous plafond 6,2 ; salariale déplafonnée 7,6 (haut) ; patronale sous plafond
     4,8 (bas, rendement réduit par les allègements) ; patronale déplafonnée 6,2. Une promesse sans précision se lit
     au central. Projection 2032 :
-    × 1,2106 (croissance du PIB nominal 2025-2032, masse salariale supposée suivre le PIB) ≈ 7,5 Md€ (5,8 à 9,2).
+    × 1,2177 (croissance du PIB nominal 2025-2032, masse salariale supposée suivre le PIB) ≈ 7,5 Md€ (5,8 à 9,3).
   limites: >
     Rendement brut, sans effet sur l'emploi ni les salaires (règle 3). La hausse de cotisation salariale réduit
     l'assiette de l'impôt sur le revenu (retour négatif, retour_ir_cotisation_salariale : 0,16 du rendement) ; une hausse de cotisation patronale sur les employeurs publics est un
@@ -2297,7 +2297,7 @@
       extrait: "2022: 331171.0, 2023: 346293.3, 2024: 362149.3 (valeurs de la réponse JSON, millions d'euros)"
   derivation: >
     Valeur 2025 des comptes des APU de l'INSEE (370,0 Md€, provisoire) ; 2024 : 363,0 (INSEE) ou 362,1 (Eurostat,
-    bas). Projection 2032 à part de PIB constante : 370,0 × 1,2106 ≈ 448 Md€.
+    bas). Projection 2032 à part de PIB constante : 370,0 × 1,2177 ≈ 451 Md€.
   indicateur: etat.remuneration_agents_publics@1.0.0
   limites: >
     Salaires bruts et cotisations employeurs, y compris cotisations imputées finançant les pensions des
@@ -2434,9 +2434,9 @@
 
 - id: indexation_point_indice_2027_2032
   libelle: "Coût en 2032 d'une indexation du point d'indice sur l'inflation de 2027 à 2032, par rapport à un point gelé (droit constant), brut avant retours"
-  valeur: 20.6
-  bas: 17.0
-  haut: 22.2
+  valeur: 22.1
+  bas: 17.3
+  haut: 23.3
   unite: Md€ courants 2032 par an, rémunérations brutes hors cotisations employeurs
   annee: "2032"
   sources:
@@ -2444,23 +2444,23 @@
       url: https://api.insee.fr/melodi/file/DD_CNA_APU/DD_CNA_APU_CSV_FR
       date: "2026-08-31"
       extrait: "D11, S13, non consolidé (M€) : 2025 247 557"
-    - titre: "FMI, World Economic Outlook avril 2026, déflateur du PIB (NGDP_D, indice), France (API SDMX)"
+    - titre: "FMI, World Economic Outlook octobre 2026, déflateur du PIB (NGDP_D, indice), France (API SDMX)"
       url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
-      date: "2026-04-14"
-      extrait: "TIME_PERIOD=\"2026\" OBS_VALUE=\"114.61662\" TIME_PERIOD=\"2027\" OBS_VALUE=\"116.289465\" TIME_PERIOD=\"2028\" OBS_VALUE=\"118.45426\" TIME_PERIOD=\"2029\" OBS_VALUE=\"120.661422\" TIME_PERIOD=\"2030\" OBS_VALUE=\"122.905247\" TIME_PERIOD=\"2031\" OBS_VALUE=\"125.064171\""
-    - titre: "FMI, World Economic Outlook avril 2026, prix à la consommation harmonisés (PCPIPCH), France"
+      date: "2026-10-13"
+      extrait: "TIME_PERIOD=\"2026\" OBS_VALUE=\"114.963632\" TIME_PERIOD=\"2027\" OBS_VALUE=\"117.367453\" TIME_PERIOD=\"2028\" OBS_VALUE=\"119.555574\" TIME_PERIOD=\"2029\" OBS_VALUE=\"121.834016\" TIME_PERIOD=\"2030\" OBS_VALUE=\"124.110092\" TIME_PERIOD=\"2031\" OBS_VALUE=\"126.347864\""
+    - titre: "FMI, World Economic Outlook octobre 2026, prix à la consommation harmonisés (PCPIPCH), France"
       url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.PCPIPCH.A
-      date: "2026-04-14"
-      extrait: "TIME_PERIOD=\"2027\" OBS_VALUE=\"1.721117\" TIME_PERIOD=\"2028\" OBS_VALUE=\"1.855273\" TIME_PERIOD=\"2029\" OBS_VALUE=\"1.871195\" TIME_PERIOD=\"2030\" OBS_VALUE=\"1.910438\" TIME_PERIOD=\"2031\" OBS_VALUE=\"1.813523\""
+      date: "2026-10-13"
+      extrait: "TIME_PERIOD=\"2027\" OBS_VALUE=\"2.243378\" TIME_PERIOD=\"2028\" OBS_VALUE=\"1.878741\" TIME_PERIOD=\"2029\" OBS_VALUE=\"1.866168\" TIME_PERIOD=\"2030\" OBS_VALUE=\"1.910438\" TIME_PERIOD=\"2031\" OBS_VALUE=\"1.813523\""
   derivation: >
     Référence : point gelé de 2027 à 2032 (REFERENCE.md). Coût 2032 = coût de 1 % du point en 2032 à point gelé
     (point_indice_1pct_2032 : 1,864 Md€) × inflation cumulée 2027-2032 en points (inflation_cumulee_2027_2032 :
-    11,03) = 20,6 Md€ brut. Haut : prix à la consommation (IPCH, +11,50 %) sur la masse haute, 1,93 × 11,50 =
-    22,2. Bas : cinq revalorisations (2028-2032, +9,44 %) sans croissance de la masse, 1,8 × 9,44 = 17,0. Montée en
-    charge (part du coût 2032) : 2027 0,13 ; 2028 0,30 ; 2029 0,48 ; 2030 0,66 ; 2031 0,83 ; 2032 1. CONVENTION pour
-    l'effet sur le solde : coût net = 20,6 × (1 − 0,28) = 14,8 Md€ ; pensions induites (≈ 0,5 à 1 Md€ en 2032) dans
-    le bas de la mesure. Point déjà relevé de x % : ajouter la hausse (x × 1,86 Md€ brut) et l'effet croisé x × 20,6
-    Md€ ; pour +10 % : 18,6 + 20,6 + 2,1 = 41,3 Md€ brut, 29,7 Md€ net.
+    11,88) = 22,1 Md€ brut. Haut : prix à la consommation (IPCH, +12,09 %) sur la masse haute, 1,93 × 12,09 =
+    23,3. Bas : cinq revalorisations (2028-2032, +9,59 %) sans croissance de la masse, 1,8 × 9,59 = 17,3. Montée en
+    charge (part du coût 2032) : 2027 0,18 ; 2028 0,34 ; 2029 0,50 ; 2030 0,67 ; 2031 0,83 ; 2032 1. CONVENTION pour
+    l'effet sur le solde : coût net = 22,1 × (1 − 0,28) = 15,9 Md€ ; pensions induites (≈ 0,5 à 1 Md€ en 2032) dans
+    le bas de la mesure. Point déjà relevé de x % : ajouter la hausse (x × 1,86 Md€ brut) et l'effet croisé (x / 100) × 22,1
+    Md€ ; pour +10 % : 18,6 + 22,1 + 2,2 = 42,9 Md€ brut, 30,9 Md€ net.
   limites: >
     Hérite de l'estimation de la part indexée de la masse (point_indice_1pct). À point gelé, la GIPA et le
     relèvement du minimum de traitement auraient de toute façon coûté une partie de la somme (non chiffré). La
@@ -2472,7 +2472,7 @@
     commentaire: >
       Suit point_indice_1pct_2032 : 28,6 → 20,6 Md€ brut (1,864 × 11,03), soit 14,8 net au lieu de 20,6 ; bas 23,6 →
       17,0 ; haut 30,8 → 22,2. Exemple +10 % et indexation : 41,3 Md€ brut, 29,7 net (au lieu de 57,4 et 41,3).
-      REFERENCE.md (convention 2) cite encore 28,6 et 20,6 : à mettre à jour.
+      REFERENCE.md (convention 2) cite encore 28,6 et 20,6 : à mettre à jour. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : 1,864 × 11,88 = 22,1 Md€ brut (avant : 20,6), 15,9 net (avant : 14,8) ; bas 17,0 → 17,3 ; haut 22,2 → 23,3 ; montée en charge 0,13 / 0,30 / 0,48 / 0,66 / 0,83 → 0,18 / 0,34 / 0,50 / 0,67 / 0,83 ; exemple +10 % : 42,9 brut, 30,9 net.
 
 - id: retour_prelevements_salaires_publics
   libelle: "Part d'une hausse de rémunération brute publique (hors cotisations employeurs) qui revient aux administrations publiques"
@@ -3059,7 +3059,7 @@
 
 - id: pib_nominal_2032
   libelle: PIB nominal projeté en 2032 (base de conversion des points de PIB en Md€)
-  valeur: 3621
+  valeur: 3642
   unite: Md€ courants
   annee: "2032 (projection depuis 2025)"
   sources: &sources_pib
@@ -3067,21 +3067,21 @@
       url: https://api.insee.fr/melodi/file/DD_CNA_AGREGATS/DD_CNA_AGREGATS_CSV_FR
       date: "2026-08-31"
       extrait: "PIB aux prix courants, Md€ (data/indicateurs/finances.pib_nominal@1.0.0.parquet) : 2017 2 291,68 ; 2023 2 833,83 ; 2024 2 935,24 ; 2025 2 991,06"
-    - titre: "FMI, World Economic Outlook avril 2026, croissance du PIB en volume (NGDP_RPCH), France (API SDMX)"
+    - titre: "FMI, World Economic Outlook octobre 2026, croissance du PIB en volume (NGDP_RPCH), France (API SDMX)"
       url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_RPCH.A
-      date: "2026-04-14"
-      extrait: "TIME_PERIOD=\"2026\" OBS_VALUE=\"0.858141\" TIME_PERIOD=\"2027\" OBS_VALUE=\"0.876108\" TIME_PERIOD=\"2028\" OBS_VALUE=\"1.21676\" TIME_PERIOD=\"2029\" OBS_VALUE=\"1.160313\" TIME_PERIOD=\"2030\" OBS_VALUE=\"1.105977\" TIME_PERIOD=\"2031\" OBS_VALUE=\"1.057581\""
-    - titre: "FMI, World Economic Outlook avril 2026, déflateur du PIB (NGDP_D, indice), France (API SDMX)"
+      date: "2026-10-13"
+      extrait: "TIME_PERIOD=\"2026\" OBS_VALUE=\"0.411371\" TIME_PERIOD=\"2027\" OBS_VALUE=\"0.723549\" TIME_PERIOD=\"2028\" OBS_VALUE=\"1.217569\" TIME_PERIOD=\"2029\" OBS_VALUE=\"1.142157\" TIME_PERIOD=\"2030\" OBS_VALUE=\"1.109346\" TIME_PERIOD=\"2031\" OBS_VALUE=\"1.090192\""
+    - titre: "FMI, World Economic Outlook octobre 2026, déflateur du PIB (NGDP_D, indice), France (API SDMX)"
       url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
-      date: "2026-04-14"
-      extrait: "TIME_PERIOD=\"2025\" OBS_VALUE=\"113.080454\" TIME_PERIOD=\"2026\" OBS_VALUE=\"114.61662\" TIME_PERIOD=\"2027\" OBS_VALUE=\"116.289465\" TIME_PERIOD=\"2028\" OBS_VALUE=\"118.45426\" TIME_PERIOD=\"2029\" OBS_VALUE=\"120.661422\" TIME_PERIOD=\"2030\" OBS_VALUE=\"122.905247\" TIME_PERIOD=\"2031\" OBS_VALUE=\"125.064171\""
+      date: "2026-10-13"
+      extrait: "TIME_PERIOD=\"2025\" OBS_VALUE=\"113.00753\" TIME_PERIOD=\"2026\" OBS_VALUE=\"114.963632\" TIME_PERIOD=\"2027\" OBS_VALUE=\"117.367453\" TIME_PERIOD=\"2028\" OBS_VALUE=\"119.555574\" TIME_PERIOD=\"2029\" OBS_VALUE=\"121.834016\" TIME_PERIOD=\"2030\" OBS_VALUE=\"124.110092\" TIME_PERIOD=\"2031\" OBS_VALUE=\"126.347864\""
   derivation: >
-    Variations annuelles du déflateur tirées de l'indice NGDP_D (2026 : 114,61662 / 113,080454 − 1 = 1,358 % ;
-    2027 1,460 ; 2028 1,862 ; 2029 1,863 ; 2030 1,860 ; 2031 1,757 %). PIB 2025 observé (INSEE, indicateur finances.pib_nominal@1.0.0) = 2 991,06 Md€, multiplié par le produit des
+    Variations annuelles du déflateur tirées de l'indice NGDP_D (2026 : 114,963632 / 113,00753 − 1 = 1,731 % ;
+    2027 2,091 ; 2028 1,864 ; 2029 1,906 ; 2030 1,868 ; 2031 1,803 %). PIB 2025 observé (INSEE, indicateur finances.pib_nominal@1.0.0) = 2 991,06 Md€, multiplié par le produit des
     facteurs (1 + croissance en volume) × (1 + déflateur) de 2026 à 2032 retenus dans plan/hypotheses.yaml
-    (FMI WEO avril 2026 ; 2032 = valeurs 2031 reconduites) : facteur 1,2106, soit 3 620,9 Md€. C'est la valeur de
+    (FMI WEO octobre 2026 ; 2032 = valeurs 2031 reconduites) : facteur 1,2177, soit 3 642,1 Md€. C'est la valeur de
     la trajectoire de référence (data/plan/trajectoire_reference.parquet, année 2032). Facteur de passage
-    d'un montant 2025 à 2032 à part de PIB constante : 1,2106 ; d'un montant 2024 : 1,2336.
+    d'un montant 2025 à 2032 à part de PIB constante : 1,2177 ; d'un montant 2024 : 1,2408.
   indicateur: finances.pib_nominal@1.0.0
   limites: >
     Le WEO s'arrête en 2031 ; 2032 reconduit la croissance et le déflateur 2031 (convention a_trancher de
@@ -3093,16 +3093,16 @@
     commentaire: >
       Audit : aucun extrait verbatim. Ajout des valeurs lues dans l'API du FMI (NGDP_RPCH, NGDP_D, 29/09/2026) et du
       PIB INSEE base 2020 (fichier Melodi via l'indicateur du dépôt). Recalcul : 2 991,06 × 1,21058 = 3 620,9 Md€.
-      Confirmé ; la reconduction de 2031 en 2032 reste une convention (plan/hypotheses.yaml).
+      Confirmé ; la reconduction de 2031 en 2032 reste une convention (plan/hypotheses.yaml). Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : 2 991,06 × 1,21767 = 3 642,1 Md€ (avant : 3 620,9) ; valeur 3 621 → 3 642.
 
 - id: point_pib_2032
   libelle: Montant d'un point de PIB en 2032
-  valeur: 36.2
+  valeur: 36.4
   unite: Md€ courants 2032 par point de PIB
   annee: "2032"
   sources: *sources_pib
   derivation: >
-    1 % × pib_nominal_2032 (3 621 Md€) = 36,2 Md€. Un dixième de point de PIB en 2032 vaut 3,6 Md€. Sert à
+    1 % × pib_nominal_2032 (3 642 Md€) = 36,4 Md€. Un dixième de point de PIB en 2032 vaut 3,6 Md€. Sert à
     convertir en Md€ 2032 tout chiffrage exprimé en points de PIB (COR, FIPECO, OFCE...).
   indicateur: finances.pib_nominal@1.0.0
   limites: Hérite des limites de pib_nominal_2032.
@@ -3112,17 +3112,17 @@
     date: "2026-09-29"
     commentaire: >
       Audit : aucun extrait verbatim. Sources communes aux barèmes PIB (FMI et INSEE, extraits ajoutés). 1 % de 3
-      620,9 Md€ = 36,2 Md€, confirmé.
+      620,9 Md€ = 36,2 Md€, confirmé. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : 1 % de 3 642,1 Md€ = 36,4 Md€ (avant : 36,2).
 
 - id: facteur_pib_2023_2032
   libelle: Facteur de passage d'un montant 2023 en euros courants 2032, à part de PIB constante
-  valeur: 1.2777
+  valeur: 1.2852
   unite: facteur (PIB nominal 2032 / PIB nominal 2023)
   annee: "2023 → 2032"
   sources: *sources_pib
   derivation: >
-    PIB 2032 de la trajectoire de référence (pib_nominal_2032 : 3 620,9 Md€, soit PIB 2025 × Π(1 + croissance) ×
-    (1 + déflateur) de 2026 à 2032, 2032 = 2031 reconduit) divisé par le PIB 2023 observé (2 833,83 Md€) = 1,2777.
+    PIB 2032 de la trajectoire de référence (pib_nominal_2032 : 3 642,1 Md€, soit PIB 2025 × Π(1 + croissance) ×
+    (1 + déflateur) de 2026 à 2032, 2032 = 2031 reconduit) divisé par le PIB 2023 observé (2 833,83 Md€) = 1,2852.
   indicateur: finances.pib_nominal@1.0.0
   limites: >
     Convention « part de PIB constante » : juste pour une assiette qui suit le PIB (recettes, masse salariale,
@@ -3135,15 +3135,15 @@
     date: "2026-09-29"
     commentaire: >
       Recalculé à partir des séries FMI et du PIB INSEE : 3 620,91 / 2 833,83 = 1,2777. Limite (part de PIB
-      constante) conforme à la convention 11 de REFERENCE.md.
+      constante) conforme à la convention 11 de REFERENCE.md. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : 3 642,12 / 2 833,83 = 1,2852 (avant : 1,2777).
 
 - id: facteur_pib_2024_2032
   libelle: Facteur de passage d'un montant 2024 en euros courants 2032, à part de PIB constante
-  valeur: 1.2336
+  valeur: 1.2408
   unite: facteur (PIB nominal 2032 / PIB nominal 2024)
   annee: "2024 → 2032"
   sources: *sources_pib
-  derivation: 3 620,9 / 2 935,24 = 1,2336 (voir facteur_pib_2023_2032).
+  derivation: 3 642,1 / 2 935,24 = 1,2408 (voir facteur_pib_2023_2032).
   indicateur: finances.pib_nominal@1.0.0
   limites: Voir facteur_pib_2023_2032.
   verification:
@@ -3151,17 +3151,17 @@
     par: "passe-sources"
     date: "2026-09-29"
     commentaire: >
-      Recalculé : 3 620,91 / 2 935,24 = 1,2336.
+      Recalculé : 3 620,91 / 2 935,24 = 1,2336. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : 3 642,12 / 2 935,24 = 1,2408.
 
 - id: facteur_pib_2025_2032
   libelle: Facteur de passage d'un montant 2025 en euros courants 2032, à part de PIB constante
-  valeur: 1.2106
+  valeur: 1.2177
   unite: facteur (PIB nominal 2032 / PIB nominal 2025)
   annee: "2025 → 2032"
   sources: *sources_pib
   derivation: >
-    3 620,9 / 2 991,06 = 1,2106 : produit des facteurs (1 + croissance en volume) × (1 + déflateur) de 2026 à
-    2032 (FMI WEO avril 2026, 2032 = 2031 reconduit). C'est le facteur de la convention d'en-tête de ce fichier.
+    3 642,1 / 2 991,06 = 1,2177 : produit des facteurs (1 + croissance en volume) × (1 + déflateur) de 2026 à
+    2032 (FMI WEO octobre 2026, 2032 = 2031 reconduit). C'est le facteur de la convention d'en-tête de ce fichier.
   indicateur: finances.pib_nominal@1.0.0
   limites: Voir facteur_pib_2023_2032.
   verification:
@@ -3170,17 +3170,17 @@
     date: "2026-09-29"
     commentaire: >
       Recalculé : produit des (1 + croissance) × (1 + déflateur) FMI 2026-2032 (2032 = 2031) = 1,21058. Limite
-      conforme à la convention 11 de REFERENCE.md.
+      conforme à la convention 11 de REFERENCE.md. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : produit = 1,21767 (avant : 1,21058).
 
 - id: facteur_pib_2026_2032
   libelle: Facteur de passage d'un montant 2026 en euros courants 2032, à part de PIB constante
-  valeur: 1.1842
+  valeur: 1.1921
   unite: facteur (PIB nominal 2032 / PIB nominal 2026)
   annee: "2026 → 2032"
   sources: *sources_pib
   derivation: >
-    Produit de (1 + croissance) × (1 + déflateur) de 2027 à 2032 (FMI) = 1,1842 ; PIB 2026 projeté = 3 057,7 Md€
-    (2 991,06 × 1,00858 × 1,01358). Sert pour les montants des PLF et PLFSS 2026 et des contre-budgets 2026.
+    Produit de (1 + croissance) × (1 + déflateur) de 2027 à 2032 (FMI) = 1,1921 ; PIB 2026 projeté = 3 055,3 Md€
+    (2 991,06 × 1,00411 × 1,01731). Sert pour les montants des PLF et PLFSS 2026 et des contre-budgets 2026.
   indicateur: finances.pib_nominal@1.0.0
   limites: Voir facteur_pib_2023_2032 ; le PIB 2026 est une projection, pas une donnée observée.
   verification:
@@ -3188,16 +3188,16 @@
     par: "passe-sources"
     date: "2026-09-29"
     commentaire: >
-      Recalculé : produit 2027-2032 = 1,1842.
+      Recalculé : produit 2027-2032 = 1,1842. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : produit 2027-2032 = 1,1921.
 
 - id: facteur_pib_2027_2032
   libelle: Facteur de passage d'un montant 2027 en euros courants 2032, à part de PIB constante
-  valeur: 1.1570
+  valeur: 1.1592
   unite: facteur (PIB nominal 2032 / PIB nominal 2027)
   annee: "2027 → 2032"
   sources: *sources_pib
   derivation: >
-    Produit de (1 + croissance) × (1 + déflateur) de 2028 à 2032 (FMI) = 1,1570 ; PIB 2027 projeté = 3 129,5 Md€.
+    Produit de (1 + croissance) × (1 + déflateur) de 2028 à 2032 (FMI) = 1,1592 ; PIB 2027 projeté = 3 141,8 Md€.
   indicateur: finances.pib_nominal@1.0.0
   limites: Voir facteur_pib_2023_2032.
   verification:
@@ -3205,45 +3205,45 @@
     par: "passe-sources"
     date: "2026-09-29"
     commentaire: >
-      Recalculé : produit 2028-2032 = 1,1570.
+      Recalculé : produit 2028-2032 = 1,1570. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : produit 2028-2032 = 1,1592.
 
 - id: inflation_cumulee_2027_2032
   libelle: Inflation cumulée de 2027 à 2032 (six revalorisations annuelles), pour les indexations à droit constant
-  valeur: 11.03
-  bas: 9.44
-  haut: 11.50
+  valeur: 11.88
+  bas: 9.59
+  haut: 12.09
   unite: "% cumulés"
   annee: "2027-2032"
   sources:
-    - titre: "FMI, World Economic Outlook avril 2026, déflateur du PIB (NGDP_D), France (plan/hypotheses.yaml)"
+    - titre: "FMI, World Economic Outlook octobre 2026, déflateur du PIB (NGDP_D), France (plan/hypotheses.yaml)"
       url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
-      date: "2026-04-14"
-      extrait: "valeurs: {2026: 1.358, 2027: 1.460, 2028: 1.862, 2029: 1.863, 2030: 1.860, 2031: 1.757}"
-    - titre: "FMI, World Economic Outlook avril 2026, prix à la consommation harmonisés, moyenne annuelle (PCPIPCH), France"
+      date: "2026-10-13"
+      extrait: "valeurs: {2026: 1.731, 2027: 2.091, 2028: 1.864, 2029: 1.906, 2030: 1.868, 2031: 1.803}"
+    - titre: "FMI, World Economic Outlook octobre 2026, prix à la consommation harmonisés, moyenne annuelle (PCPIPCH), France"
       url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.PCPIPCH.A
-      date: "2026-04-14"
-      extrait: "PCPIPCH : 2026 1.843886 ; 2027 1.721117 ; 2028 1.855273 ; 2029 1.871195 ; 2030 1.910438 ; 2031 1.813523"
+      date: "2026-10-13"
+      extrait: "PCPIPCH : 2026 2.409226 ; 2027 2.243378 ; 2028 1.878741 ; 2029 1.866168 ; 2030 1.910438 ; 2031 1.813523"
   derivation: >
     Central : déflateur du PIB (convention de REFERENCE.md et de plan/hypotheses.yaml), 2027 à 2031 FMI et 2032 =
-    2031 reconduit : 1,01460 × 1,01862 × 1,01863 × 1,01860 × 1,01757 × 1,01757 = 1,1103, soit +11,03 %.
-    Haut : prix à la consommation harmonisés du FMI (2032 = 2031 reconduit) : +11,50 %. Bas : cinq
+    2031 reconduit : 1,02091 × 1,01864 × 1,01906 × 1,01868 × 1,01803 × 1,01803 = 1,1188, soit +11,88 %.
+    Haut : prix à la consommation harmonisés du FMI (2032 = 2031 reconduit) : +12,09 %. Bas : cinq
     revalorisations seulement (2028 à 2032, déflateur), cas d'une indexation sur l'inflation constatée de
-    l'année précédente appliquée à partir de 2028 : +9,44 %. Facteur multiplicatif = 1 + valeur / 100.
+    l'année précédente appliquée à partir de 2028 : +9,59 %. Facteur multiplicatif = 1 + valeur / 100.
   limites: >
     Une promesse d'indexation « sur l'inflation » vise les prix à la consommation, pas le déflateur : l'écart
-    (0,5 point sur six ans) reste dans la fourchette. Le chiffre ne dit rien de l'inflation 2026, déjà acquise
-    (1,36 % de déflateur, 1,84 % d'IPCH).
+    (0,2 point sur six ans) reste dans la fourchette. Le chiffre ne dit rien de l'inflation 2026, déjà acquise
+    (1,73 % de déflateur, 2,41 % d'IPCH).
   verification:
     statut: ok
     par: "passe-sources"
     date: "2026-09-29"
     commentaire: >
       Recalculé sur l'API du FMI (29/09/2026) : déflateur 2027-2032 +11,03 % ; IPCH (PCPIPCH) +11,50 % ; cinq
-      revalorisations 2028-2032 +9,44 %. Confirmé.
+      revalorisations 2028-2032 +9,44 %. Confirmé. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : déflateur +11,03 → +11,88 % ; IPCH +11,50 → +12,09 % ; cinq revalorisations +9,44 → +9,59 %.
 
 - id: rnb_nominal_2032
   libelle: Revenu national brut projeté en 2032 (base des objectifs d'APD en % du RNB)
-  valeur: 3685
+  valeur: 3706
   unite: Md€ courants
   annee: "2032 (projection depuis 2025)"
   sources:
@@ -3253,7 +3253,7 @@
       extrait: "1 Gross National Income (GNI), national currency (millions) : 2023 2875202 ; 2024 2988842 ; 2025 3043666"
   derivation: >
     RNB 2025 / PIB 2025 = 3 043,7 / 2 991,06 = 1,0176 (écart dû aux revenus nets reçus du reste du monde) ;
-    RNB 2032 ≈ 1,0176 × pib_nominal_2032 (3 620,9) = 3 684,6 Md€. Un point de RNB en 2032 ≈ 36,8 Md€.
+    RNB 2032 ≈ 1,0176 × pib_nominal_2032 (3 642,1) = 3 706,2 Md€. Un point de RNB en 2032 ≈ 37,1 Md€.
   indicateur: finances.pib_nominal@1.0.0
   limites: Ratio RNB/PIB supposé constant (1,015 à 1,02 depuis 2023).
   verification:
@@ -3261,7 +3261,7 @@
     par: "passe-sources"
     date: "2026-09-29"
     commentaire: >
-      RNB 2025 relu dans la série OCDE DAC1 (3 043 666 M€) ; 1,0176 × 3 620,9 = 3 684,6 Md€, confirmé.
+      RNB 2025 relu dans la série OCDE DAC1 (3 043 666 M€) ; 1,0176 × 3 620,9 = 3 684,6 Md€, confirmé. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : 1,0176 × 3 642,1 = 3 706,2 Md€ ; valeur 3 685 → 3 706.
 
 - id: apd_part_rnb
   libelle: Aide publique au développement (APD) de la France, en équivalent-don, montant et part du revenu national brut
@@ -3289,12 +3289,12 @@
       extrait: "Avec l'adoption de ce budget, l'aide publique au développement totale de la France, telle que comptabilisée par l'OCDE, pourrait retomber à 0,38 % du RNB en 2026"
   derivation: >
     APD 2025 = 12,88 Md€ en équivalent-don, RNB 2025 = 3 043,7 Md€, soit 0,42 % (14,28 Md€ et 0,48 % en 2024).
-    Projection : RNB 2032 ≈ PIB 2032 × (RNB / PIB 2025 = 3 043,7 / 2 991,1 = 1,0176) ≈ 3 685 Md€ ; un point de RNB
-    en 2032 vaut ≈ 36,8 Md€, un dixième ≈ 3,7 Md€. Atteindre 0,7 % en 2032 depuis 0,42 % coûte
-    (0,70 − 0,42) × 36,8 ≈ 10,3 Md€ par an en 2032 (depuis 0,48 % : 8,1 Md€). Haut = niveau 2024. Bas = 0,38 %,
+    Projection : RNB 2032 ≈ PIB 2032 × (RNB / PIB 2025 = 3 043,7 / 2 991,1 = 1,0176) ≈ 3 706 Md€ ; un point de RNB
+    en 2032 vaut ≈ 37,1 Md€, un dixième ≈ 3,7 Md€. Atteindre 0,7 % en 2032 depuis 0,42 % coûte
+    (0,70 − 0,42) × 37,1 ≈ 10,4 Md€ par an en 2032 (depuis 0,48 % : 8,2 Md€). Haut = niveau 2024. Bas = 0,38 %,
     projection 2026 de Focus 2030 après le vote de la LFI 2026 : aucune prévision officielle de l'APD 2026 en % du
     RNB n'est publiée au 30 septembre 2026 (le DPT du PLF 2026 s'arrête à 2025, 0,43 % prévu ; le Sénat écrit
-    « très probablement moins en 2026 ») ; depuis 0,38 %, atteindre 0,7 % coûte 0,32 × 36,8 ≈ 11,8 Md€.
+    « très probablement moins en 2026 ») ; depuis 0,38 %, atteindre 0,7 % coûte 0,32 × 37,1 ≈ 11,9 Md€.
   limites: >
     L'APD au sens du CAD n'est pas une dépense budgétaire : elle comprend des prêts (en équivalent-don), des
     annulations de dette, les frais d'écolage d'étudiants étrangers et l'accueil des réfugiés la première année.
@@ -3311,7 +3311,7 @@
       3 043 666 M€. Confirmé. Le caractère majorant (APD non entièrement budgétaire) est une limite documentée.
       Audit du 30/09/2026 : série relue à nouveau (0,42 % en 2025) ; le 0,38 % utilisé en borne défavorable par
       trois programmes, jusque-là attribué à la presse, vient de Focus 2030 (projection d'ONG) : inscrit en `bas`
-      avec sa source et son statut non officiel.
+      avec sa source et son statut non officiel. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : RNB 2032 3 685 → 3 706 Md€, point de RNB 36,8 → 37,1 Md€ ; valeurs inchangées.
 
 - id: psr_ue
   libelle: Contribution française au budget de l'Union européenne (prélèvement sur recettes, PSR-UE)
@@ -3393,10 +3393,10 @@
   unite: Md€ courants 2032 par an, par dixième de point de PIB
   annee: "2032"
   sources:
-    - titre: "FMI, World Economic Outlook avril 2026, croissance du PIB en volume (base de pib_nominal_2032, voir ses sources)"
+    - titre: "FMI, World Economic Outlook octobre 2026, croissance du PIB en volume (base de pib_nominal_2032, voir ses sources)"
       url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_RPCH.A
-      date: "2026-04-14"
-      extrait: "TIME_PERIOD=\"2030\" OBS_VALUE=\"1.105977\" TIME_PERIOD=\"2031\" OBS_VALUE=\"1.057581\""
+      date: "2026-10-13"
+      extrait: "TIME_PERIOD=\"2030\" OBS_VALUE=\"1.109346\" TIME_PERIOD=\"2031\" OBS_VALUE=\"1.090192\""
     - titre: "Loi n° 2026-791 du 16 août 2026 actualisant la programmation militaire, article 1er (rapport annexé)"
       url: https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054694832
       date: "2026-08-16"
@@ -3406,10 +3406,10 @@
       date: "2026-07-01"
       extrait: "en fixant l’objectif de porter l’effort national de défense de 2 % du produit intérieur brut en 2025 à 2,5 % au minimum en 2030, avec l’objectif d’atteindre 3,5 % à l’horizon 2035."
   derivation: >
-    0,1 % × 3 621 Md€ (pib_nominal_2032) = 3,6 Md€. Une promesse « 3 % du PIB en 2032 » se chiffre par l'écart
+    0,1 % × 3 642 Md€ (pib_nominal_2032) = 3,6 Md€. Une promesse « 3 % du PIB en 2032 » se chiffre par l'écart
     entre ce taux et la trajectoire de référence (2,5 % en 2030 dans la LPM actualisée, prolongée à 2032 par
     interpolation vers 3,5 % en 2035, soit environ 2,9 % en 2032 : convention à expliciter dans la mesure),
-    multiplié par 36,2 Md€ par point.
+    multiplié par 36,4 Md€ par point.
   indicateur: defense.depenses_defense_pib@1.0.0
   limites: >
     Le périmètre de l'objectif (OTAN, pensions comprises) diffère des crédits de la mission ; la trajectoire au-delà
@@ -3420,12 +3420,12 @@
     date: "2026-09-29"
     commentaire: >
       0,1 % × 3 620,9 = 3,6 Md€, confirmé ; objectifs 2,5 % en 2030 et 3,5 % en 2035 relus sur la page du Sénat.
-      L'interpolation 2030-2035 (≈ 2,9 % en 2032) reste une convention signalée.
+      L'interpolation 2030-2035 (≈ 2,9 % en 2032) reste une convention signalée. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : 0,1 % × 3 642,1 = 3,6 Md€, inchangé.
 
 - id: charge_interets_apu
   libelle: Charge d'intérêts des administrations publiques
   valeur: 66.6
-  haut: 127.5
+  haut: 143.0
   unite: Md€ courants par an
   annee: "2025 (observé) ; haut = 2032 (trajectoire de référence du dépôt)"
   sources:
@@ -3436,8 +3436,8 @@
   derivation: >
     Lecture directe : 66 636 M€ en 2025 (Eurostat), soit 2,225 % du PIB (indicateur finances.charge_interets@1.0.0 ;
     66,6 / 2 991,1 Md€).
-    Projection 2032 : 3,522 % du PIB dans data/plan/trajectoire_reference.parquet (plan/trajectoire.py, taux
-    apparent implicite du FMI appliqué à la dette, solde primaire gelé) × 3 620,9 Md€ = 127,5 Md€. Le coût
+    Projection 2032 : 3,927 % du PIB dans data/plan/trajectoire_reference.parquet (plan/trajectoire.py, taux
+    apparent implicite du FMI appliqué à la dette, solde primaire gelé) × 3 642,1 Md€ = 143,0 Md€. Le coût
     d'intérêts d'une mesure n'est pas à ajouter à son effet sur le solde primaire : la trajectoire de dette le
     calcule (outils/chiffrage.py).
   indicateur: finances.charge_interets@1.0.0
@@ -3451,7 +3451,7 @@
     commentaire: >
       Audit : aucun extrait verbatim. Source remplacée par l'API Eurostat gov_10dd_edpt1 (D41PAY, S13) qui donne
       directement 66 636 M€ en 2025 (60 131 en 2024). Valeur 66,6 confirmée ; haut 127,5 (trajectoire du dépôt)
-      inchangé.
+      inchangé. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : trajectoire de référence 2032 3,522 → 3,927 % du PIB (taux apparent 2031 du FMI 2,786 → 3,068 %), haut 127,5 → 143,0.
 
 - id: charge_dette_etat
   libelle: Charge de la dette de l'État (budget de l'État)
@@ -4507,14 +4507,14 @@
 
 - id: inflation_ipc_2027
   libelle: "Inflation des prix à la consommation en 2027 (FMI)"
-  valeur: 1.721
+  valeur: 2.243
   unite: "%"
   annee: "2027 (prévision)"
   sources:
-    - titre: "FMI, World Economic Outlook avril 2026, prix à la consommation (PCPIPCH), France"
+    - titre: "FMI, World Economic Outlook octobre 2026, prix à la consommation (PCPIPCH), France"
       url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.PCPIPCH.A
-      date: "2026-04-14"
-      extrait: "TIME_PERIOD=\"2027\" OBS_VALUE=\"1.721117\""
+      date: "2026-10-13"
+      extrait: "TIME_PERIOD=\"2027\" OBS_VALUE=\"2.243378\""
   derivation: >
     Lecture directe (série ingérée dans data/normalise/fmi-weo). Sert à la revalorisation légale de 2028 des
     pensions et prestations (inflation de l'année précédente).
@@ -4523,46 +4523,46 @@
     par: "harmonisation-parametres"
     date: "2026-09-30"
     commentaire: >
-      Valeur relue dans data/normalise/fmi-weo.parquet le 30/09/2026.
+      Valeur relue dans data/normalise/fmi-weo.parquet le 30/09/2026. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : 1,721 → 2,243.
 
 - id: deflateur_pib_2027
   libelle: "Évolution du déflateur du PIB en 2027 (FMI)"
-  valeur: 0.0146
+  valeur: 0.0209
   unite: "taux"
   annee: "2027 (prévision)"
   sources:
-    - titre: "FMI, World Economic Outlook avril 2026, déflateur du PIB (NGDP_D), France"
+    - titre: "FMI, World Economic Outlook octobre 2026, déflateur du PIB (NGDP_D), France"
       url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
-      date: "2026-04-14"
-      extrait: "TIME_PERIOD=\"2026\" OBS_VALUE=\"114.61662\" TIME_PERIOD=\"2027\" OBS_VALUE=\"116.289465\""
+      date: "2026-10-13"
+      extrait: "TIME_PERIOD=\"2026\" OBS_VALUE=\"114.963632\" TIME_PERIOD=\"2027\" OBS_VALUE=\"117.367453\""
   derivation: >
-    116,289465 / 114,61662 − 1 = 1,46 % (plan/hypotheses.yaml, hypothèse deflateur).
+    117,367453 / 114,963632 − 1 = 2,09 % (plan/hypotheses.yaml, hypothèse deflateur).
   verification:
     statut: ok
     par: "harmonisation-parametres"
     date: "2026-09-30"
     commentaire: >
-      Valeur relue dans data/normalise/fmi-weo.parquet et plan/hypotheses.yaml le 30/09/2026.
+      Valeur relue dans data/normalise/fmi-weo.parquet et plan/hypotheses.yaml le 30/09/2026. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : 1,46 % → 2,09 %.
 
 - id: deflateur_pib_cumule_2027_2029
   libelle: "Déflateur du PIB cumulé 2027-2029 (facteur)"
-  valeur: 1.0528
+  valeur: 1.0598
   unite: "facteur"
   annee: "2027-2029 (prévision)"
   sources:
-    - titre: "FMI, World Economic Outlook avril 2026, déflateur du PIB (NGDP_D), France"
+    - titre: "FMI, World Economic Outlook octobre 2026, déflateur du PIB (NGDP_D), France"
       url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
-      date: "2026-04-14"
-      extrait: "TIME_PERIOD=\"2026\" OBS_VALUE=\"114.61662\" TIME_PERIOD=\"2027\" OBS_VALUE=\"116.289465\" TIME_PERIOD=\"2028\" OBS_VALUE=\"118.45426\" TIME_PERIOD=\"2029\" OBS_VALUE=\"120.661422\""
+      date: "2026-10-13"
+      extrait: "TIME_PERIOD=\"2026\" OBS_VALUE=\"114.963632\" TIME_PERIOD=\"2027\" OBS_VALUE=\"117.367453\" TIME_PERIOD=\"2028\" OBS_VALUE=\"119.555574\" TIME_PERIOD=\"2029\" OBS_VALUE=\"121.834016\""
   derivation: >
-    1,0146 × 1,01862 × 1,01863 = 1,0528 (= 120,661422 / 114,61662). Revalorisation légale supposée du Smic de
+    1,02091 × 1,01864 × 1,01906 = 1,0598 (= 121,834016 / 114,963632). Revalorisation légale supposée du Smic de
     2027 à 2029.
   verification:
     statut: ok
     par: "harmonisation-parametres"
     date: "2026-09-30"
     commentaire: >
-      Valeur relue dans data/normalise/fmi-weo.parquet le 30/09/2026.
+      Valeur relue dans data/normalise/fmi-weo.parquet le 30/09/2026. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : 1,0528 → 1,0598.
 
 - id: retraites_age_legal_reference_2032
   libelle: "Âge légal d'ouverture des droits des assurés partant en 2032, à droit constant"
@@ -4798,7 +4798,7 @@
 
 - id: facteur_pib_2016_2032
   libelle: "Facteur de passage d'un montant 2016 en euros courants 2032, à part de PIB constante"
-  valeur: 1.6224
+  valeur: 1.6319
   unite: "facteur (PIB nominal 2032 / PIB nominal 2016)"
   annee: "2016 → 2032"
   sources:
@@ -4807,18 +4807,18 @@
       date: "2026-08-31"
       extrait: "PIB aux prix courants, Md€ (data/indicateurs/finances.pib_nominal@1.0.0.parquet) : 2016 2 231,82"
   derivation: >
-    pib_nominal_2032 (3 620,9 Md€) / PIB 2016 (2 231,82 Md€) = 1,6224 (voir facteur_pib_2023_2032).
+    pib_nominal_2032 (3 642,1 Md€) / PIB 2016 (2 231,82 Md€) = 1,6319 (voir facteur_pib_2023_2032).
   indicateur: finances.pib_nominal@1.0.0
   verification:
     statut: ok
     par: "harmonisation-parametres"
     date: "2026-09-30"
     commentaire: >
-      PIB relu dans data/indicateurs/finances.pib_nominal@1.0.0.parquet le 30/09/2026 et rapport recalculé.
+      PIB relu dans data/indicateurs/finances.pib_nominal@1.0.0.parquet le 30/09/2026 et rapport recalculé. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : 1,6224 → 1,6319.
 
 - id: facteur_pib_2017_2032
   libelle: "Facteur de passage d'un montant 2017 en euros courants 2032, à part de PIB constante"
-  valeur: 1.58
+  valeur: 1.5893
   unite: "facteur (PIB nominal 2032 / PIB nominal 2017)"
   annee: "2017 → 2032"
   sources:
@@ -4827,18 +4827,18 @@
       date: "2026-08-31"
       extrait: "PIB aux prix courants, Md€ (data/indicateurs/finances.pib_nominal@1.0.0.parquet) : 2017 2 291,68"
   derivation: >
-    pib_nominal_2032 (3 620,9 Md€) / PIB 2017 (2 291,68 Md€) = 1,58 (voir facteur_pib_2023_2032).
+    pib_nominal_2032 (3 642,1 Md€) / PIB 2017 (2 291,68 Md€) = 1,5893 (voir facteur_pib_2023_2032).
   indicateur: finances.pib_nominal@1.0.0
   verification:
     statut: ok
     par: "harmonisation-parametres"
     date: "2026-09-30"
     commentaire: >
-      PIB relu dans data/indicateurs/finances.pib_nominal@1.0.0.parquet le 30/09/2026 et rapport recalculé.
+      PIB relu dans data/indicateurs/finances.pib_nominal@1.0.0.parquet le 30/09/2026 et rapport recalculé. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : 1,58 → 1,5893.
 
 - id: facteur_pib_2019_2032
   libelle: "Facteur de passage d'un montant 2019 en euros courants 2032, à part de PIB constante"
-  valeur: 1.4887
+  valeur: 1.4975
   unite: "facteur (PIB nominal 2032 / PIB nominal 2019)"
   annee: "2019 → 2032"
   sources:
@@ -4847,18 +4847,18 @@
       date: "2026-08-31"
       extrait: "PIB aux prix courants, Md€ (data/indicateurs/finances.pib_nominal@1.0.0.parquet) : 2019 2 432,21"
   derivation: >
-    pib_nominal_2032 (3 620,9 Md€) / PIB 2019 (2 432,21 Md€) = 1,4887 (voir facteur_pib_2023_2032).
+    pib_nominal_2032 (3 642,1 Md€) / PIB 2019 (2 432,21 Md€) = 1,4975 (voir facteur_pib_2023_2032).
   indicateur: finances.pib_nominal@1.0.0
   verification:
     statut: ok
     par: "harmonisation-parametres"
     date: "2026-09-30"
     commentaire: >
-      PIB relu dans data/indicateurs/finances.pib_nominal@1.0.0.parquet le 30/09/2026 et rapport recalculé.
+      PIB relu dans data/indicateurs/finances.pib_nominal@1.0.0.parquet le 30/09/2026 et rapport recalculé. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : 1,4887 → 1,4975.
 
 - id: facteur_pib_2021_2032
   libelle: "Facteur de passage d'un montant 2021 en euros courants 2032, à part de PIB constante"
-  valeur: 1.4437
+  valeur: 1.4521
   unite: "facteur (PIB nominal 2032 / PIB nominal 2021)"
   annee: "2021 → 2032"
   sources:
@@ -4867,18 +4867,18 @@
       date: "2026-08-31"
       extrait: "PIB aux prix courants, Md€ (data/indicateurs/finances.pib_nominal@1.0.0.parquet) : 2021 2 508,10"
   derivation: >
-    pib_nominal_2032 (3 620,9 Md€) / PIB 2021 (2 508,10 Md€) = 1,4437 (voir facteur_pib_2023_2032).
+    pib_nominal_2032 (3 642,1 Md€) / PIB 2021 (2 508,10 Md€) = 1,4521 (voir facteur_pib_2023_2032).
   indicateur: finances.pib_nominal@1.0.0
   verification:
     statut: ok
     par: "harmonisation-parametres"
     date: "2026-09-30"
     commentaire: >
-      PIB relu dans data/indicateurs/finances.pib_nominal@1.0.0.parquet le 30/09/2026 et rapport recalculé.
+      PIB relu dans data/indicateurs/finances.pib_nominal@1.0.0.parquet le 30/09/2026 et rapport recalculé. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : 1,4437 → 1,4521.
 
 - id: facteur_pib_2022_2032
   libelle: "Facteur de passage d'un montant 2022 en euros courants 2032, à part de PIB constante"
-  valeur: 1.3643
+  valeur: 1.3723
   unite: "facteur (PIB nominal 2032 / PIB nominal 2022)"
   annee: "2022 → 2032"
   sources:
@@ -4887,38 +4887,38 @@
       date: "2026-08-31"
       extrait: "PIB aux prix courants, Md€ (data/indicateurs/finances.pib_nominal@1.0.0.parquet) : 2022 2 654,00"
   derivation: >
-    pib_nominal_2032 (3 620,9 Md€) / PIB 2022 (2 654,00 Md€) = 1,3643 (voir facteur_pib_2023_2032).
+    pib_nominal_2032 (3 642,1 Md€) / PIB 2022 (2 654,00 Md€) = 1,3723 (voir facteur_pib_2023_2032).
   indicateur: finances.pib_nominal@1.0.0
   verification:
     statut: ok
     par: "harmonisation-parametres"
     date: "2026-09-30"
     commentaire: >
-      PIB relu dans data/indicateurs/finances.pib_nominal@1.0.0.parquet le 30/09/2026 et rapport recalculé.
+      PIB relu dans data/indicateurs/finances.pib_nominal@1.0.0.parquet le 30/09/2026 et rapport recalculé. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : 1,3643 → 1,3723.
 
 - id: facteur_pib_2029_2032
   libelle: "Facteur de passage d'un montant 2029 en euros courants 2032, à part de PIB constante"
-  valeur: 1.0891
+  valeur: 1.0909
   unite: "facteur (PIB nominal 2032 / PIB nominal 2029)"
   annee: "2029 → 2032"
   sources:
-    - titre: "FMI, World Economic Outlook avril 2026, croissance du PIB en volume (NGDP_RPCH), France (API SDMX)"
+    - titre: "FMI, World Economic Outlook octobre 2026, croissance du PIB en volume (NGDP_RPCH), France (API SDMX)"
       url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_RPCH.A
-      date: "2026-04-14"
-      extrait: "TIME_PERIOD=\"2030\" OBS_VALUE=\"1.105977\" TIME_PERIOD=\"2031\" OBS_VALUE=\"1.057581\""
-    - titre: "FMI, World Economic Outlook avril 2026, déflateur du PIB (NGDP_D), France (API SDMX)"
+      date: "2026-10-13"
+      extrait: "TIME_PERIOD=\"2030\" OBS_VALUE=\"1.109346\" TIME_PERIOD=\"2031\" OBS_VALUE=\"1.090192\""
+    - titre: "FMI, World Economic Outlook octobre 2026, déflateur du PIB (NGDP_D), France (API SDMX)"
       url: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.NGDP_D.A
-      date: "2026-04-14"
-      extrait: "TIME_PERIOD=\"2029\" OBS_VALUE=\"120.661422\" TIME_PERIOD=\"2030\" OBS_VALUE=\"122.905247\" TIME_PERIOD=\"2031\" OBS_VALUE=\"125.064171\""
+      date: "2026-10-13"
+      extrait: "TIME_PERIOD=\"2029\" OBS_VALUE=\"121.834016\" TIME_PERIOD=\"2030\" OBS_VALUE=\"124.110092\" TIME_PERIOD=\"2031\" OBS_VALUE=\"126.347864\""
   derivation: >
-    Croissances nominales 2030-2032 de plan/hypotheses.yaml (2032 = 2031 reconduit) : 1,02988 × 1,02834 ×
-    1,02834 = 1,0891.
+    Croissances nominales 2030-2032 de plan/hypotheses.yaml (2032 = 2031 reconduit) : 1,02998 × 1,02913 ×
+    1,02913 = 1,0909.
   verification:
     statut: ok
     par: "harmonisation-parametres"
     date: "2026-09-30"
     commentaire: >
-      Recalculé depuis plan/hypotheses.yaml le 30/09/2026.
+      Recalculé depuis plan/hypotheses.yaml le 30/09/2026. Recalé sur le FMI WEO d'octobre 2026 (2 novembre 2026) : 1,0891 → 1,0909.
 
 - id: tzcld_cout_net_emploi
   libelle: "Coût net pour les finances publiques d'un emploi « Territoires zéro chômeur de longue durée »"

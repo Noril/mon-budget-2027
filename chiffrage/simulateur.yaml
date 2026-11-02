@@ -17,7 +17,7 @@ leviers:
   theme: Retraites
   question: À quel âge ouvrir le droit à la retraite ?
   aide: Le droit en vigueur reprend en 2028 la montée vers 64 ans. Un an d'âge légal en moins coûte environ 14 Md€ par an
-    en 2032 à l'ensemble des administrations publiques (6,6 Md€ pour le seul système de retraite, le reste en cotisations
+    en 2032 à l'ensemble des administrations publiques (6,7 Md€ pour le seul système de retraite, le reste en cotisations
     et impôts des seniors qui cessent de travailler).
   type: choix
   axe: depenses
@@ -27,14 +27,14 @@ leviers:
     axes:
       protection-sociale: 2
     effet:
-      central: -85.3
-      bas: -91.75
-      haut: -42.9
+      central: -85.55
+      bas: -92.0
+      haut: -43.15
     reprend:
     - melenchon-lfi/retraite-60-ans
     calcul: 'Chiffrage LFI repris, au périmètre de l''ensemble des administrations publiques : retour à 62 ans (29,1 Md€),
       passage de 62 à 60 ans (37,7 Md€) et à 40 annuités (18,5 Md€). [Recalé le 2026-09-30 sur le chiffrage de melenchon-lfi,
-      périmètre APU.]'
+      périmètre APU.] [Recalé le 2026-11-02 sur le chiffrage de melenchon-lfi.]'
     candidats:
     - melenchon-lfi
     montee:
@@ -49,15 +49,15 @@ leviers:
     axes:
       protection-sociale: 2
     effet:
-      central: -53.03
-      bas: -65.53
-      haut: -26.58
+      central: -53.17
+      bas: -65.7
+      haut: -26.72
     reprend:
     - le-pen-rn/retraites-60-62-ans
     calcul: 'Chiffrage RN repris, sur les mêmes barèmes que l''option 60 ans (périmètre de l''ensemble des administrations
       publiques) : retour à 62 ans (29,1 Md€), durée ramenée à 42 annuités (5,6 Md€) et, pour environ 35 % du coût d''un passage
       de tous à 60 ans et 40 annuités (convention appuyée sur la part des générations ayant commencé avant 20 ans), 18,4 Md€.
-      [Recalé le 2026-09-30 sur le chiffrage de le-pen-rn, périmètre APU.]'
+      [Recalé le 2026-09-30 sur le chiffrage de le-pen-rn, périmètre APU.] [Recalé le 2026-11-02 sur le chiffrage de le-pen-rn.]'
     candidats:
     - le-pen-rn
   - id: 62-ans
@@ -133,13 +133,13 @@ leviers:
     axes:
       protection-sociale: -1
     effet:
-      central: 6.36
-      bas: 5.48
-      haut: 8.93
+      central: 8.31
+      bas: 7.16
+      haut: 11.66
     reprend:
     - attal-renaissance/annee-blanche-2028
     calcul: Chiffrage Attal repris ; il couvre aussi les prestations sociales hors retraites. [Recalé le 2026-09-29 sur le
-      chiffrage de attal-renaissance.]
+      chiffrage de attal-renaissance.] [Recalé le 2026-11-02 sur le chiffrage de attal-renaissance.]
     candidats:
     - attal-renaissance
     montee:
@@ -184,15 +184,15 @@ leviers:
     axes:
       protection-sociale: 2
     effet:
-      central: -29.82
-      bas: -50.4
+      central: -29.92
+      bas: -50.45
       haut: -19.21
     reprend:
     - melenchon-lfi/indexation-pensions-salaires
     - melenchon-lfi/pension-minimale-smic
     - melenchon-lfi/minimum-vieillesse-seuil-pauvrete
     calcul: 'Somme des trois mesures LFI : indexation sur les salaires, pension minimale au Smic, Aspa au seuil de pauvreté.
-      [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.]'
+      [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.] [Recalé le 2026-11-02 sur le chiffrage de melenchon-lfi.]'
     candidats:
     - melenchon-lfi
     montee:
@@ -236,13 +236,13 @@ leviers:
     axes:
       services-agents-publics: 1
     effet:
-      central: -14.83
-      bas: -17.65
-      haut: -11.56
+      central: -15.91
+      bas: -18.48
+      haut: -11.76
     reprend:
     - glucksmann-place-publique/point-indice-indexe-inflation
-    calcul: 'Barème indexation_point_indice_2027_2032 : 20,6 Md€ brut × (1 − 0,28) ≈ 14,8 Md€ net ; chiffrage Glucksmann repris.
-      [Recalé le 2026-09-29 sur le chiffrage de glucksmann-place-publique.]'
+    calcul: 'Barème indexation_point_indice_2027_2032 : 22,1 Md€ brut × (1 − 0,28) ≈ 15,9 Md€ net ; chiffrage Glucksmann repris.
+      [Recalé le 2026-09-29 sur le chiffrage de glucksmann-place-publique.] [Recalé le 2026-11-02 sur le chiffrage de glucksmann-place-publique.]'
     candidats:
     - glucksmann-place-publique
     montee:
@@ -257,12 +257,13 @@ leviers:
     axes:
       services-agents-publics: 2
     effet:
-      central: -23.91
-      bas: -27.5
-      haut: -19.73
+      central: -25.05
+      bas: -28.37
+      haut: -19.95
     reprend:
     - tondelier-ecologistes/point-indice-fonctionnaires
     calcul: Chiffrage Tondelier repris (indexation + 10 % sur B et C). [Recalé le 2026-09-29 sur le chiffrage de tondelier-ecologistes.]
+      [Recalé le 2026-11-02 sur le chiffrage de tondelier-ecologistes.]
     candidats:
     - tondelier-ecologistes
     montee:
@@ -277,14 +278,14 @@ leviers:
     axes:
       services-agents-publics: 2
     effet:
-      central: -29.71
-      bas: -33.79
-      haut: -24.96
+      central: -30.89
+      bas: -34.7
+      haut: -25.18
     reprend:
     - melenchon-lfi/point-indice-10-pct
     - melenchon-lfi/echelle-mobile-salaires
     calcul: 'Somme des deux mesures LFI : +10 % du point (effet croisé compris) et indexation (échelle mobile). [Recalé le
-      2026-09-29 sur le chiffrage de melenchon-lfi.]'
+      2026-09-29 sur le chiffrage de melenchon-lfi.] [Recalé le 2026-11-02 sur le chiffrage de melenchon-lfi.]'
     candidats:
     - melenchon-lfi
     montee:
@@ -377,13 +378,13 @@ leviers:
   - id: suppression-activite
     libelle: La supprimer sur les revenus d'activité
     effet:
-      central: -112.49
-      bas: -120.12
-      haut: -110.13
+      central: -113.24
+      bas: -120.82
+      haut: -110.87
     reprend:
     - zemmour-reconquete/suppression-csg-activite
     calcul: Chiffrage Zemmour repris (CSG sur les revenus d'activité, nette du retour d'impôt sur le revenu). [Recalé le 2026-09-29
-      sur le chiffrage de zemmour-reconquete.]
+      sur le chiffrage de zemmour-reconquete.] [Recalé le 2026-11-02 sur le chiffrage de zemmour-reconquete.]
     candidats:
     - zemmour-reconquete
     montee:
@@ -396,13 +397,14 @@ leviers:
   - id: baisse-salaires
     libelle: La baisser sur les salaires (environ 15 Md€ rendus)
     effet:
-      central: -14.92
-      bas: -15.28
+      central: -15.02
+      bas: -15.38
       haut: -12.23
     reprend:
     - glucksmann-place-publique/baisse-csg-salaires
     calcul: 'Chiffrage Glucksmann repris : enveloppe de 15 Md€ annoncée en 2026, projetée en 2032, nette du retour d''impôt
-      sur le revenu (barème retour_ir_csg_deductible : 16 %). [Recalé le 2026-09-30 sur le chiffrage de glucksmann-place-publique.]'
+      sur le revenu (barème retour_ir_csg_deductible : 16 %). [Recalé le 2026-09-30 sur le chiffrage de glucksmann-place-publique.]
+      [Recalé le 2026-11-02 sur le chiffrage de glucksmann-place-publique.]'
     candidats:
     - glucksmann-place-publique
     montee:
@@ -426,13 +428,13 @@ leviers:
     axes:
       imposition-hauts-revenus-patrimoine: 1
     effet:
-      central: 18.24
-      bas: 11.3
-      haut: 18.68
+      central: 18.35
+      bas: 11.38
+      haut: 18.79
     reprend:
     - tondelier-ecologistes/csg-progressive-plus-un-point
     calcul: Chiffrage Tondelier repris (un point sur toutes les assiettes, net). [Recalé le 2026-09-29 sur le chiffrage de
-      tondelier-ecologistes.]
+      tondelier-ecologistes.] [Recalé le 2026-11-02 sur le chiffrage de tondelier-ecologistes.]
     candidats:
     - tondelier-ecologistes
     montee:
@@ -453,12 +455,13 @@ leviers:
   - id: baisse-forte
     libelle: Les baisser fortement (gain annoncé de 250 € nets par mois au salaire médian)
     effet:
-      central: -40.68
-      bas: -89.35
-      haut: -39.47
+      central: -40.91
+      bas: -89.87
+      haut: -39.7
     reprend:
     - attal-renaissance/droit-au-brut-13e-mois
-    calcul: Chiffrage Attal repris (« droit au brut »). [Recalé le 2026-09-29 sur le chiffrage de attal-renaissance.]
+    calcul: Chiffrage Attal repris (« droit au brut »). [Recalé le 2026-09-29 sur le chiffrage de attal-renaissance.] [Recalé
+      le 2026-11-02 sur le chiffrage de attal-renaissance.]
     candidats:
     - attal-renaissance
     montee:
@@ -471,13 +474,14 @@ leviers:
   - id: baisse-15-md
     libelle: Les baisser d'environ 15 Md€ (gain annoncé d'environ 500 € nets par an au salaire médian)
     effet:
-      central: -14.92
-      bas: -15.28
+      central: -15.02
+      bas: -15.38
       haut: -12.23
     reprend:
     - retailleau-lr/restitution-pouvoir-achat-salaries
     calcul: 'Chiffrage Retailleau repris : 15 Md€ de 2026 projetés en 2032, nets du retour d''impôt sur le revenu (barème
-      retour_ir_cotisation_salariale : 16 %). [Recalé le 2026-09-30 sur le chiffrage de retailleau-lr.]'
+      retour_ir_cotisation_salariale : 16 %). [Recalé le 2026-09-30 sur le chiffrage de retailleau-lr.] [Recalé le 2026-11-02
+      sur le chiffrage de retailleau-lr.]'
     candidats:
     - retailleau-lr
     montee:
@@ -521,12 +525,13 @@ leviers:
     axes:
       imposition-hauts-revenus-patrimoine: 1
     effet:
-      central: 19.65
-      bas: 15.77
-      haut: 23.29
+      central: 19.77
+      bas: 15.87
+      haut: 23.43
     reprend:
     - melenchon-lfi/hausse-cotisation-vieillesse
-    calcul: Chiffrage LFI repris. [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.]
+    calcul: Chiffrage LFI repris. [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.] [Recalé le 2026-11-02 sur le chiffrage
+      de melenchon-lfi.]
     candidats:
     - melenchon-lfi
     montee:
@@ -574,13 +579,13 @@ leviers:
   - id: fiscalisation
     libelle: Les soumettre à l'impôt et aux cotisations comme les autres heures
     effet:
-      central: 6.39
-      bas: 5.94
-      haut: 6.39
+      central: 6.44
+      bas: 5.98
+      haut: 6.44
     reprend:
     - melenchon-lfi/heures-sup-fiscalisation
     calcul: Chiffrage LFI repris ; Tondelier supprime aussi ces exonérations, compté dans le levier des cotisations patronales.
-      [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.]
+      [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.] [Recalé le 2026-11-02 sur le chiffrage de melenchon-lfi.]
     candidats:
     - melenchon-lfi
     montee:
@@ -603,23 +608,24 @@ leviers:
     axes:
       imposition-hauts-revenus-patrimoine: -1
     effet:
-      central: -12.32
-      bas: -13.15
-      haut: -11.49
-    calcul: '10 × ir_baisse_1pct (1,04 Md€ en 2026) × facteur_pib_2026_2032 (1,1842) ≈ 12,3 Md€ en 2032 ; haut : 10 × 0,949
-      (exécution 2025) × facteur_pib_2025_2032 (1,2106) ≈ 11,5 ; bas : écart symétrique (≈ 13,2), pour la part des crédits
-      d''impôt qu''une baisse des taux ne réduit pas (limites du barème).'
+      central: -12.4
+      bas: -13.24
+      haut: -11.56
+    calcul: '10 × ir_baisse_1pct (1,04 Md€ en 2026) × facteur_pib_2026_2032 (1,1921) ≈ 12,4 Md€ en 2032 ; haut : 10 × 0,949
+      (exécution 2025) × facteur_pib_2025_2032 (1,2177) ≈ 11,6 ; bas : écart symétrique (≈ 13,2), pour la part des crédits
+      d''impôt qu''une baisse des taux ne réduit pas (limites du barème). [Recalé le 2026-11-02 sur le FMI WEO d''octobre
+      2026 : −12,32 → −12,4.]'
     candidats: []
   - id: quotient-deuxieme-enfant
     libelle: Part fiscale entière dès le deuxième enfant
     effet:
-      central: -4.19
-      bas: -4.19
-      haut: -3.39
+      central: -4.22
+      bas: -4.22
+      haut: -3.41
     reprend:
     - le-pen-rn/ir-part-pleine-deuxieme-enfant
     - philippe-horizons/part-fiscale-deuxieme-enfant
-    calcul: Même chiffrage dans les deux programmes (4,19).
+    calcul: Même chiffrage dans les deux programmes (4,22 depuis le recalage sur le FMI WEO d'octobre 2026, 4,19 avant).
     candidats:
     - le-pen-rn
     - philippe-horizons
@@ -688,12 +694,12 @@ leviers:
     axes:
       imposition-hauts-revenus-patrimoine: -2
     effet:
-      central: -20.13
-      bas: -25.34
-      haut: -20.13
+      central: -20.26
+      bas: -25.51
+      haut: -20.26
     reprend:
     - zemmour-reconquete/suppression-droits-succession
-    calcul: Chiffrage Zemmour repris.
+    calcul: Chiffrage Zemmour repris. [Recalé le 2026-11-02 sur le chiffrage de zemmour-reconquete.]
     candidats:
     - zemmour-reconquete
     montee:
@@ -739,15 +745,16 @@ leviers:
     axes:
       imposition-hauts-revenus-patrimoine: 2
     effet:
-      central: 10.61
+      central: 10.67
       bas: 3.82
-      haut: 15.46
+      haut: 15.55
     reprend:
     - tondelier-ecologistes/successions-grands-heritages
     - melenchon-lfi/successions-heritage-maximal
     - melenchon-lfi/pacte-dutreil
     calcul: Chiffrage Tondelier repris (10,61) ; LFI (héritage maximal de 12 M€ et pacte Dutreil limité) est chiffré à 8,35.
       [Recalé le 2026-09-29 sur le chiffrage de tondelier-ecologistes.] [Recalé le 2026-09-30 sur le chiffrage de tondelier-ecologistes.]
+      [Recalé le 2026-11-02 sur le chiffrage de tondelier-ecologistes.]
     candidats:
     - tondelier-ecologistes
     - melenchon-lfi
@@ -898,12 +905,13 @@ leviers:
     axes:
       imposition-hauts-revenus-patrimoine: 2
     effet:
-      central: 11.36
+      central: 11.42
       bas: 7.37
-      haut: 11.63
+      haut: 11.7
     reprend:
     - tondelier-ecologistes/pfu-csg-capital-ttf
-    calcul: Chiffrage Tondelier repris. [Recalé le 2026-09-29 sur le chiffrage de tondelier-ecologistes.]
+    calcul: Chiffrage Tondelier repris. [Recalé le 2026-09-29 sur le chiffrage de tondelier-ecologistes.] [Recalé le 2026-11-02
+      sur le chiffrage de tondelier-ecologistes.]
     candidats:
     - tondelier-ecologistes
     montee:
@@ -947,12 +955,13 @@ leviers:
     axes:
       soutien-entreprises: 2
     effet:
-      central: -44.84
-      bas: -60.53
+      central: -45.1
+      bas: -60.88
       haut: -34.73
     reprend:
     - philippe-horizons/impots-production-moins-50md
-    calcul: Chiffrage Philippe repris (50 Md€ de 2025 projetés en 2032, net de l'impôt sur les sociétés induit).
+    calcul: Chiffrage Philippe repris (50 Md€ de 2025 projetés en 2032, net de l'impôt sur les sociétés induit). [Recalé le
+      2026-11-02 sur le chiffrage de philippe-horizons.]
     candidats:
     - philippe-horizons
     montee:
@@ -967,15 +976,15 @@ leviers:
     axes:
       soutien-entreprises: 1
     effet:
-      central: -13.06
-      bas: -16.32
-      haut: -13.06
+      central: -13.13
+      bas: -16.42
+      haut: -13.13
     reprend:
     - le-pen-rn/suppression-cfe
     - le-pen-rn/suppression-c3s
     - zemmour-reconquete/suppression-impots-production
     calcul: Somme des deux mesures RN (13,06), identique au chiffrage central de Zemmour. [Recalé le 2026-09-30 sur le chiffrage
-      de le-pen-rn.]
+      de le-pen-rn.] [Recalé le 2026-11-02 sur le chiffrage de le-pen-rn.]
     candidats:
     - le-pen-rn
     - zemmour-reconquete
@@ -1079,12 +1088,13 @@ leviers:
     axes:
       soutien-entreprises: -1
     effet:
-      central: 9.52
+      central: 9.59
       bas: 3.0
-      haut: 9.52
+      haut: 9.59
     reprend:
     - melenchon-lfi/suppression-cir
-    calcul: Chiffrage LFI repris. [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.]
+    calcul: Chiffrage LFI repris. [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.] [Recalé le 2026-11-02 sur le chiffrage
+      de melenchon-lfi.]
     candidats:
     - melenchon-lfi
     montee:
@@ -1099,13 +1109,13 @@ leviers:
     axes:
       soutien-entreprises: -2
     effet:
-      central: 55.34
+      central: 55.67
       bas: 0.0
-      haut: 55.34
+      haut: 55.67
     reprend:
     - philippe-horizons/aides-entreprises-moins-50md
     calcul: 'Chiffrage Philippe repris : 50 Md€ de 2025 projetés en 2032, bas = 0 si les aides visées ne sont pas identifiées.
-      [Recalé le 2026-09-29 sur le chiffrage de philippe-horizons.]'
+      [Recalé le 2026-09-29 sur le chiffrage de philippe-horizons.] [Recalé le 2026-11-02 sur le chiffrage de philippe-horizons.]'
     candidats:
     - philippe-horizons
     montee:
@@ -1127,12 +1137,12 @@ leviers:
     axes:
       soutien-entreprises: 2
     effet:
-      central: -17.76
-      bas: -17.76
+      central: -17.88
+      bas: -17.88
       haut: -15.0
     reprend:
     - retailleau-lr/baisse-cotisations-patronales-non-contributives
-    calcul: Chiffrage Retailleau repris.
+    calcul: Chiffrage Retailleau repris. [Recalé le 2026-11-02 sur le chiffrage de retailleau-lr.]
     candidats:
     - retailleau-lr
     montee:
@@ -1196,14 +1206,15 @@ leviers:
     axes:
       soutien-entreprises: -1
     effet:
-      central: 19.51
-      bas: 15.81
-      haut: 19.9
+      central: 19.62
+      bas: 15.9
+      haut: 20.02
     reprend:
     - tondelier-ecologistes/exonerations-cotisations-rationalisation
     - melenchon-lfi/exonerations-cotisations-2-smic
     calcul: Chiffrage Tondelier repris (au-delà de 1,6 Smic, heures supplémentaires comprises) ; LFI (au-delà de 2 Smic) est
-      chiffré à 5,6. [Recalé le 2026-09-29 sur le chiffrage de tondelier-ecologistes.]
+      chiffré à 5,6. [Recalé le 2026-09-29 sur le chiffrage de tondelier-ecologistes.] [Recalé le 2026-11-02 sur le chiffrage
+      de tondelier-ecologistes.]
     candidats:
     - tondelier-ecologistes
     - melenchon-lfi
@@ -1364,12 +1375,13 @@ leviers:
   - id: 1600-net
     libelle: Smic à 1 600 € nets en deux ans
     effet:
-      central: -3.08
-      bas: -17.0
-      haut: -1.06
+      central: -2.36
+      bas: -17.1
+      haut: -0.81
     reprend:
     - glucksmann-place-publique/smic-1600-net
-    calcul: Chiffrage Glucksmann repris. [Recalé le 2026-09-29 sur le chiffrage de glucksmann-place-publique.]
+    calcul: Chiffrage Glucksmann repris. [Recalé le 2026-09-29 sur le chiffrage de glucksmann-place-publique.] [Recalé le
+      2026-11-02 sur le chiffrage de glucksmann-place-publique.]
     candidats:
     - glucksmann-place-publique
     montee:
@@ -1382,12 +1394,13 @@ leviers:
   - id: 2000-brut
     libelle: Smic à 2 000 € bruts dès 2027, avec aide aux petites entreprises
     effet:
-      central: -6.08
-      bas: -11.49
-      haut: -2.09
+      central: -5.4
+      bas: -10.2
+      haut: -1.86
     reprend:
     - tondelier-ecologistes/smic-2000-brut
-    calcul: Chiffrage Tondelier repris. [Recalé le 2026-09-29 sur le chiffrage de tondelier-ecologistes.]
+    calcul: Chiffrage Tondelier repris. [Recalé le 2026-09-29 sur le chiffrage de tondelier-ecologistes.] [Recalé le 2026-11-02
+      sur le chiffrage de tondelier-ecologistes.]
     candidats:
     - tondelier-ecologistes
     montee:
@@ -1400,12 +1413,13 @@ leviers:
   - id: 1700-net
     libelle: Smic à 1 700 € nets
     effet:
-      central: -16.37
-      bas: -30.92
-      haut: -16.37
+      central: -16.47
+      bas: -31.1
+      haut: -16.47
     reprend:
     - melenchon-lfi/smic-1700-net
-    calcul: Chiffrage LFI repris. [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.]
+    calcul: Chiffrage LFI repris. [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.] [Recalé le 2026-11-02 sur le chiffrage
+      de melenchon-lfi.]
     candidats:
     - melenchon-lfi
     montee:
@@ -1491,13 +1505,14 @@ leviers:
     axes:
       protection-sociale: 2
     effet:
-      central: -54.49
-      bas: -73.41
-      haut: -30.91
+      central: -54.81
+      bas: -73.84
+      haut: -31.1
     reprend:
     - melenchon-lfi/garantie-autonomie
     - melenchon-lfi/aah-smic
-    calcul: Somme des deux mesures LFI. [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.]
+    calcul: Somme des deux mesures LFI. [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.] [Recalé le 2026-11-02 sur
+      le chiffrage de melenchon-lfi.]
     candidats:
     - melenchon-lfi
     montee:
@@ -1596,13 +1611,14 @@ leviers:
     axes:
       protection-sociale: 2
     effet:
-      central: -22.51
-      bas: -32.1
-      haut: -9.45
+      central: -22.61
+      bas: -32.25
+      haut: -9.49
     reprend:
     - melenchon-lfi/assurance-chomage-abrogation
     - melenchon-lfi/garantie-emploi
-    calcul: Somme des deux mesures LFI. [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.]
+    calcul: Somme des deux mesures LFI. [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.] [Recalé le 2026-11-02 sur
+      le chiffrage de melenchon-lfi.]
     candidats:
     - melenchon-lfi
     montee:
@@ -1627,14 +1643,15 @@ leviers:
     axes:
       conditions-etrangers: 2
     effet:
-      central: 9.71
+      central: 9.77
       bas: 0.0
-      haut: 9.71
+      haut: 9.77
     reprend:
     - zemmour-reconquete/prestations-non-contributives-francais
     - zemmour-reconquete/fin-ame
     - zemmour-reconquete/hebergement-urgence-irreguliers
-    calcul: Somme des trois mesures Zemmour ; constitutionnalité incertaine, bas = 0.
+    calcul: Somme des trois mesures Zemmour ; constitutionnalité incertaine, bas = 0. [Recalé le 2026-11-02 sur le chiffrage
+      de zemmour-reconquete.]
     candidats:
     - zemmour-reconquete
     montee:
@@ -1830,13 +1847,14 @@ leviers:
     axes:
       transition-ecologique: -1
     effet:
-      central: 1.78
-      bas: 0.0
-      haut: 1.78
+      central: 1.83
+      bas: -4.4
+      haut: 1.83
     reprend:
     - le-pen-rn/maprimerenov-en-pret-100-renov
     - zemmour-reconquete/suppression-anah
-    calcul: Chiffrage RN repris (1,78) ; Zemmour (suppression de l'Anah) est chiffré à 1,82 ; bas = 0.
+    calcul: Chiffrage RN repris (1,78) ; Zemmour (suppression de l'Anah) est chiffré à 1,82 ; bas = 0. [Recalé le 2026-11-02
+      sur le chiffrage de le-pen-rn.]
     candidats:
     - le-pen-rn
     - zemmour-reconquete
@@ -1861,12 +1879,12 @@ leviers:
     axes:
       transition-ecologique: 2
     effet:
-      central: -18.28
-      bas: -20.97
-      haut: -18.28
+      central: -18.39
+      bas: -25.35
+      haut: -16.69
     reprend:
     - tondelier-ecologistes/renovation-500000-maprimerenov
-    calcul: Chiffrage Tondelier repris.
+    calcul: Chiffrage Tondelier repris. [Recalé le 2026-11-02 sur le chiffrage de tondelier-ecologistes.]
     candidats:
     - tondelier-ecologistes
     montee:
@@ -1940,15 +1958,15 @@ leviers:
     axes:
       ouverture-internationale: 2
     effet:
-      central: -10.32
-      bas: -11.79
-      haut: -8.11
+      central: -10.38
+      bas: -11.86
+      haut: -8.15
     reprend:
     - glucksmann-place-publique/aide-publique-developpement-0-7
     - melenchon-lfi/aide-developpement-0-7
     - tondelier-ecologistes/apd-07-pnb
-    calcul: 'Même chiffrage dans les trois programmes (convention 10) : (0,7 − 0,42) % × 3 685 Md€ ; bas depuis 0,38 % (projection
-      2026 non officielle), haut propre à chaque lecture.'
+    calcul: 'Même chiffrage dans les trois programmes (convention 10) : (0,7 − 0,42) % × 3 706 Md€ ; bas depuis 0,38 % (projection
+      2026 non officielle), haut propre à chaque lecture. [Recalé le 2026-11-02 sur le chiffrage de glucksmann-place-publique.]'
     candidats:
     - glucksmann-place-publique
     - melenchon-lfi
@@ -1973,16 +1991,16 @@ leviers:
     axes:
       services-agents-publics: -2
     effet:
-      central: 21.18
+      central: 21.25
       bas: 0.0
-      haut: 21.18
+      haut: 21.25
     reprend:
     - le-pen-rn/agences-operateurs-moins-20
     - le-pen-rn/subventions-associations
     - le-pen-rn/train-de-vie-etat-et-petites-economies
     - le-pen-rn/dgf-regions-epci
     calcul: Somme des quatre mesures RN ; économies ciblées (règle 6), bas = 0. [Recalé le 2026-10-11 sur le chiffrage de
-      le-pen-rn.]
+      le-pen-rn.] [Recalé le 2026-11-02 sur le chiffrage de le-pen-rn.]
     candidats:
     - le-pen-rn
     montee:
@@ -2078,10 +2096,10 @@ leviers:
     unite: Md€
     md_par_unite: 1
     positions:
-      melenchon-lfi: 38.78
-      tondelier-ecologistes: 3.21
-      le-pen-rn: -1.18
-      zemmour-reconquete: -0.74
+      melenchon-lfi: 39.01
+      tondelier-ecologistes: 3.22
+      le-pen-rn: -1.19
+      zemmour-reconquete: -0.75
     reprend:
       melenchon-lfi:
       - cent-pour-cent-secu
@@ -2112,8 +2130,8 @@ leviers:
     unite: Md€
     md_par_unite: 1
     positions:
-      melenchon-lfi: 23.11
-      philippe-horizons: 3.69
+      melenchon-lfi: 23.26
+      philippe-horizons: 3.72
       glucksmann-place-publique: 4.49
     reprend:
       melenchon-lfi:
@@ -2138,8 +2156,8 @@ leviers:
     unite: Md€
     md_par_unite: 1
     positions:
-      melenchon-lfi: 33.73
-      tondelier-ecologistes: -2.23
+      melenchon-lfi: 33.9
+      tondelier-ecologistes: -2.26
       retailleau-lr: -0.88
       le-pen-rn: -0.12
       zemmour-reconquete: -0.12
@@ -2219,8 +2237,8 @@ leviers:
     md_par_unite: 1
     positions:
       attal-renaissance: 10.0
-      melenchon-lfi: 2.72
-      philippe-horizons: 3.39
+      melenchon-lfi: 2.74
+      philippe-horizons: 3.41
       retailleau-lr: 1.6
     reprend:
       attal-renaissance:

@@ -35,6 +35,9 @@ solde(t)           = solde_primaire(t) − charge_interets(t)
 - **Inflation** : c'est le déflateur du PIB (et non l'indice des prix à la consommation) qui fait passer du
   volume au nominal.
 - **Taux** : taux apparent implicite des projections du FMI (intérêts nets / dette de l'année précédente).
+- **Millésime** : FMI, Perspectives de l'économie mondiale (WEO) d'octobre 2026, publié le 13 octobre 2026
+  (`millesime` de `plan/hypotheses.yaml`). Un nouveau millésime se reporte aussi dans les barèmes qui en dérivent
+  (`chiffrage/baremes.yaml` : facteurs PIB, PIB et RNB 2032, inflation cumulée) puis dans les programmes.
 
 ## Ce que le modèle ne fait pas
 

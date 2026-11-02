@@ -116,13 +116,13 @@ mesures:
     150 Md€ en 2037), pas comme des cumuls (voir verification). Le 25 août (LCI) : « 120 milliards d’euros d’économies durant les cinq
     premières années » ; le 23 septembre : « 150 milliards d’euros d’économies, dont les deux tiers sur les dépenses sociales
     ». Les mesures identifiées sont chiffrées ligne à ligne ; cette ligne ne porte que l''écart d''affichage entre les
-    120 Md€ et ces mesures : central et bas nuls, haut = écart entier (105,97 Md€). Pas de double compte.'
+    120 Md€ et ces mesures : central et bas nuls, haut = écart entier (104,01 Md€). Pas de double compte.'
   chiffrable: true
   nature: economie
   effet_solde_primaire:
     central: 0.0
     bas: 0.0
-    haut: 105.97
+    haut: 104.01
     montee_en_charge: &id001
       '2027': 0
       '2028': 0.2
@@ -139,18 +139,18 @@ mesures:
         source: https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays
         note: « 120 milliards d’euros d’économies durant les cinq premières années » (150 Md€ jusqu'en 2037)
       documente:
-        valeur: 14.03
+        valeur: 15.99
         unite: Md€ 2032
         source: https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037
-        note: 'somme des économies centrales déjà chiffrées dans ce programme : annee-blanche-2028 (6,36), assurance-chomage-5md (5,44),
+        note: 'somme des économies centrales déjà chiffrées dans ce programme : annee-blanche-2028 (8,31), assurance-chomage-5md (5,45),
           fonctionnaires-moins-100000 (2,23)'
       part:
         valeur: 0.0
         unite: part de l'écart d'affichage réputée documentée
         source: https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037
         note: 'règle 6 : aucune autre économie identifiée'
-    explication: 'Règle 6 : les économies identifiées (paramètre documente, 14,03 Md€ en 2032) sont déjà comptées ligne à
-      ligne ; cette ligne ne porte que l''écart d''affichage, nul en central et en bas, entier en haut (120 − 14,03 = 105,97
+    explication: 'Règle 6 : les économies identifiées (paramètre documente, 15,99 Md€ en 2032) sont déjà comptées ligne à
+      ligne ; cette ligne ne porte que l''écart d''affichage, nul en central et en bas, entier en haut (120 − 15,99 = 104,01
       Md€). Les 120 Md€ du candidat
       se mesurent par rapport à une évolution tendancielle de la dépense ; notre référence est le droit voté sans tendanciel
       : l''écart d''affichage est donc un majorant.'
@@ -159,7 +159,7 @@ mesures:
     statut: ok
     par: passe-sources
     date: '2026-09-29'
-    commentaire: "Passe sources : cumul ou annuel tranché en faveur d'un niveau annuel. Sources relues : « 120 milliards d’euros d’économies durant les cinq premières années » (LCI, 25 août 2026), « 150 milliards d’euros d’économies [...] retour du déficit public sous les 3 % du PIB avant la fin du mandat [...] équilibre [...] en 2037 » (site, 23 sept. 2026 ; Politico, sept. 2026), « un montant d’économies de 120 à 150 milliards à réaliser sur cette période » (comparateur IFRAP, https://www.ifrap.org/comparateurs/presidentielles-2027). Aucune source ne dit « cumulé ». Lecture : 120 Md€ = niveau annuel d'économies atteint en 2032 par rapport au tendanciel, 150 Md€ = niveau en 2037 ; un cumul de 120 Md€ sur cinq ans (≈ 40 Md€ en 2032 au profil 0,2 à 1) ne suffirait pas à ramener le déficit sous 3 %, ni 150 Md€ cumulés à l'équilibre. Haut inchangé (106,86 = 120 − 13,14) ; il reste un majorant parce que les économies du candidat se mesurent contre un tendanciel et les nôtres contre le droit constant. Vérification précédente (verificateur-sonnet, 29/09, corrige) : Citation retrouvée dans la source (récupérée le 2026-09-29). Règle 6 (enveloppe globale) correctement appliquée : central 0, bas 0, haut = 120 − économies identifiées. Mise à jour du haut (103,11 → 103,70) après la correction de l'année blanche. Réserve d'interprétation : « 120 milliards durant les cinq premières années » est lu comme un effort annuel atteint en 2032 ; en cumul sur cinq ans (ramp 0,2 à 1), le haut serait de l'ordre de 40 − 16 Md€. L'unité du paramètre annonce est ambiguë. Recalé sur les conventions communes du 29/09 : économies identifiées ramenées de 16,3 à 13,14 Md€ (annee-blanche-2028 6,47, fonctionnaires-moins-100000 2,23) ; haut 103,7 → 106,86."
+    commentaire: "Passe sources : cumul ou annuel tranché en faveur d'un niveau annuel. Sources relues : « 120 milliards d’euros d’économies durant les cinq premières années » (LCI, 25 août 2026), « 150 milliards d’euros d’économies [...] retour du déficit public sous les 3 % du PIB avant la fin du mandat [...] équilibre [...] en 2037 » (site, 23 sept. 2026 ; Politico, sept. 2026), « un montant d’économies de 120 à 150 milliards à réaliser sur cette période » (comparateur IFRAP, https://www.ifrap.org/comparateurs/presidentielles-2027). Aucune source ne dit « cumulé ». Lecture : 120 Md€ = niveau annuel d'économies atteint en 2032 par rapport au tendanciel, 150 Md€ = niveau en 2037 ; un cumul de 120 Md€ sur cinq ans (≈ 40 Md€ en 2032 au profil 0,2 à 1) ne suffirait pas à ramener le déficit sous 3 %, ni 150 Md€ cumulés à l'équilibre. Haut inchangé (106,86 = 120 − 13,14) ; il reste un majorant parce que les économies du candidat se mesurent contre un tendanciel et les nôtres contre le droit constant. Vérification précédente (verificateur-sonnet, 29/09, corrige) : Citation retrouvée dans la source (récupérée le 2026-09-29). Règle 6 (enveloppe globale) correctement appliquée : central 0, bas 0, haut = 120 − économies identifiées. Mise à jour du haut (103,11 → 103,70) après la correction de l'année blanche. Réserve d'interprétation : « 120 milliards durant les cinq premières années » est lu comme un effort annuel atteint en 2032 ; en cumul sur cinq ans (ramp 0,2 à 1), le haut serait de l'ordre de 40 − 16 Md€. L'unité du paramètre annonce est ambiguë. Recalé sur les conventions communes du 29/09 : économies identifiées ramenées de 16,3 à 13,14 Md€ (annee-blanche-2028 6,47, fonctionnaires-moins-100000 2,23) ; haut 103,7 → 106,86. Recalé sur le FMI WEO d'octobre 2026 : économies documentées 14,03 → 15,99 Md€ (annee-blanche-2028 6,36 → 8,31, assurance-chomage-5md 5,44 → 5,45), haut 105,97 → 104,01 ; central et bas nuls inchangés."
 - id: annee-blanche-2028
   libelle: Année blanche sur l'ensemble des prestations sociales en 2028, sauf petites retraites
   domaine: prestations sociales / retraites
@@ -177,9 +177,9 @@ mesures:
   chiffrable: true
   nature: economie
   effet_solde_primaire:
-    central: 6.36
-    bas: 5.48
-    haut: 8.93
+    central: 8.31
+    bas: 7.16
+    haut: 11.66
     montee_en_charge:
       '2027': 0
       '2028': 0.8
@@ -191,22 +191,22 @@ mesures:
     formule: inflation_2028 * (prestations * f + pensions * (1 - part_petites) * (1 - retour_pensions))
     parametres:
       inflation_2028:
-        valeur: 1.721
+        valeur: 2.243
         bareme: inflation_ipc_2027
         unite: '% de revalorisation 2028 évitée'
         source: https://api.imf.org/external/sdmx/2.1/data/IMF.RES,WEO/FRA.PCPIPCH.A
         note: 'la revalorisation légale de 2028 (pensions au 1er janvier, prestations au 1er avril) suit l''inflation de 2027 :
-          prix à la consommation 2027 du FMI (WEO avril 2026, 1,72 %, série PCPIPCH ingérée dans data/normalise/fmi-weo).
+          prix à la consommation 2027 du FMI (WEO octobre 2026, 2,24 %, série PCPIPCH ingérée dans data/normalise/fmi-weo).
           Première rédaction : déflateur du PIB 2028 (1,862 %), qui n''est ni l''indice légal ni l''année de référence'
       prestations:
         valeur: 1.0
         unite: Md€ par point (2026)
         bareme: prestations_hors_retraites_revalo_1pct
       f: &id003
-        valeur: 1.2106
+        valeur: 1.2177
         bareme: facteur_pib_2025_2032
         unite: facteur 2025→2032
-        note: facteur PIB nominal (FMI WEO avril 2026, plan/hypotheses.yaml), indiqué en tête de chiffrage/baremes.yaml
+        note: facteur PIB nominal (FMI WEO octobre 2026, plan/hypotheses.yaml), indiqué en tête de chiffrage/baremes.yaml
       pensions:
         valeur: 3.5
         unite: Md€ 2032 par point (régimes de base)
@@ -225,19 +225,19 @@ mesures:
         bareme: retour_prelevements_pensions
         note: 'convention commune 3 ; bas 0,20 (haut du barème : petites pensions épargnées, pensions gelées plus imposées),
           haut 0,16 ; prestations hors retraites sans retour (minima et prestations non imposables)'
-    explication: 'Gel en 2028 de la revalorisation légale (inflation 2027 ≈ 1,72 %) : prestations hors retraites (1 Md€ par point,
-      × 1,2106) et pensions des régimes de base (3,5 Md€ par point en 2032) hors « petites retraites » (15,4 % de la
+    explication: 'Gel en 2028 de la revalorisation légale (inflation 2027 ≈ 2,24 %) : prestations hors retraites (1 Md€ par point,
+      × 1,2177) et pensions des régimes de base (3,5 Md€ par point en 2032) hors « petites retraites » (15,4 % de la
       masse, pensions < 1 200 €), nettes des prélèvements qui reviennent aux APU (convention commune 3 : × (1 − 0,16))
-      : 6,36 Md€. Effet de niveau permanent (pas de rattrapage annoncé). Haut : pensions complémentaires gelées aussi
-      (5,0 Md€ par point), seuil de petite retraite à 1 000 € (9,6 %) et masse de prestations haute (1,15) : 8,93 ; bas :
-      seuil à 1 400 € (23 %), masse de prestations basse (0,85) et retour de 0,20 : 5,48. Convention de droit constant :
+      : 8,31 Md€. Effet de niveau permanent (pas de rattrapage annoncé). Haut : pensions complémentaires gelées aussi
+      (5,0 Md€ par point), seuil de petite retraite à 1 000 € (9,6 %) et masse de prestations haute (1,15) : 11,66 ; bas :
+      seuil à 1 400 € (23 %), masse de prestations basse (0,85) et retour de 0,20 : 7,16. Convention de droit constant :
       l''indexation est la référence, la sous-indexation une économie.'
   confiance: moyenne
   verification:
     statut: corrige
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Source : « gèlera temporairement » (effet de niveau conservé). Correction : la revalorisation légale de 2028 suit l'inflation de 2027 (prix à la consommation 1,72 % selon le FMI, série PCPIPCH présente dans data/normalise), et non le déflateur du PIB de 2028 (1,862 %). Central 7,77 → 7,18 Md€ (bas 6,41, haut 10,18). Part des petites retraites (15,4 % pour < 1 200 €) recalculée à partir du tableau 5 de la DREES : exacte, mais la table porte sur la pension de base seule (les seuils en pension totale protègent moins de monde : bas 23 %, haut 9,6 % couvrent la fourchette). Barème retraites_revalo_1pct brut de CSG et d'IR (retour non déduit, environ 0,5 Md€). Recalé sur les conventions communes du 29/09 : économie sur les pensions nette de retour_prelevements_pensions (0,14 au central et au haut, 0,18 au bas, les pensions gelées étant les plus élevées ; prestations hors retraites sans retour) ; central 7,18 → 6,47, bas 6,41 → 5,57, haut 10,18 → 9,09. Facteur de projection renvoyé au barème facteur_pib_2025_2032 (valeur inchangée). Recalé sur les barèmes sourcés du 29/09 : retour_prelevements_pensions 0,14 → 0,16 (bas 0,18 → 0,20, haut du barème) ; central 6,47 → 6,36, bas 5,57 → 5,48, haut 9,09 → 8,93."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Source : « gèlera temporairement » (effet de niveau conservé). Correction : la revalorisation légale de 2028 suit l'inflation de 2027 (prix à la consommation 1,72 % selon le FMI, série PCPIPCH présente dans data/normalise), et non le déflateur du PIB de 2028 (1,862 %). Central 7,77 → 7,18 Md€ (bas 6,41, haut 10,18). Part des petites retraites (15,4 % pour < 1 200 €) recalculée à partir du tableau 5 de la DREES : exacte, mais la table porte sur la pension de base seule (les seuils en pension totale protègent moins de monde : bas 23 %, haut 9,6 % couvrent la fourchette). Barème retraites_revalo_1pct brut de CSG et d'IR (retour non déduit, environ 0,5 Md€). Recalé sur les conventions communes du 29/09 : économie sur les pensions nette de retour_prelevements_pensions (0,14 au central et au haut, 0,18 au bas, les pensions gelées étant les plus élevées ; prestations hors retraites sans retour) ; central 7,18 → 6,47, bas 6,41 → 5,57, haut 10,18 → 9,09. Facteur de projection renvoyé au barème facteur_pib_2025_2032 (valeur inchangée). Recalé sur les barèmes sourcés du 29/09 : retour_prelevements_pensions 0,14 → 0,16 (bas 0,18 → 0,20, haut du barème) ; central 6,47 → 6,36, bas 5,57 → 5,48, haut 9,09 → 8,93. Recalé sur le FMI WEO d'octobre 2026 : central 6,36 → 8,31 (bas 5,48 → 7,16, haut 8,93 → 11,66)."
 - id: assurance-chomage-5md
   libelle: Reprendre la réforme de l'assurance chômage (5 Md€ d'économies)
   domaine: assurance chômage
@@ -267,9 +267,9 @@ mesures:
   chiffrable: true
   nature: economie
   effet_solde_primaire:
-    central: 5.44
-    bas: 4.63
-    haut: 6.25
+    central: 5.45
+    bas: 4.64
+    haut: 6.26
     montee_en_charge:
       '2027': 0
       '2028': 0.5
@@ -286,15 +286,15 @@ mesures:
         unite: Md€/an (économie en régime de croisière, Unédic)
         note: barème commun (Unédic) ; le gouvernement affichait 3,6 Md€ en 2024 (HuffPost), chiffre sans source primaire publiée
       f:
-        valeur: 1.157
+        valeur: 1.1592
         bareme: facteur_pib_2027_2032
         unite: facteur PIB nominal 2027→2032
-        note: barème facteur_pib_2027_2032 (FMI WEO avril 2026, plan/hypotheses.yaml)
+        note: barème facteur_pib_2027_2032 (FMI WEO octobre 2026, plan/hypotheses.yaml)
     explication: >-
       Économie en régime de croisière des règles de juin 2024 selon l'Unédic (barème
       assurance_chomage_regles_2024_economie : 4,7 Md€ au centre d'une fourchette de 4,0 à 5,4 Md€), projetée de
-      2027 à 2032 comme les autres chiffrages de l'Unédic (facteur_pib_2027_2032, × 1,157) : 4,7 × 1,157 = 5,44 Md€.
-      Bas : 4,0 × 1,157 = 4,63 ; haut : 5,4 × 1,157 = 6,25, proche des 5 Md€ annoncés par le candidat. Les règles
+      2027 à 2032 comme les autres chiffrages de l'Unédic (facteur_pib_2027_2032, × 1,1592) : 4,7 × 1,1592 = 5,45 Md€.
+      Bas : 4,0 × 1,1592 = 4,64 ; haut : 5,4 × 1,1592 = 6,26, proche des 5 Md€ annoncés par le candidat. Les règles
       de la convention de 2025 ont repris d'autres paramètres (1,4 à 2,3 Md€ sur quatre ans, Unédic) sans modifier la
       condition d'affiliation. Même barème que Retailleau (chomage-regles-juin-2024).
   confiance: moyenne
@@ -312,6 +312,7 @@ mesures:
       projeté de 2027 à 2032 (facteur_pib_2027_2032, 1,157) comme les autres chiffrages de l'Unédic ; central 4,44 →
       5,44, bas 3,6 → 4,63 (4,0 × 1,157), haut 5,0 → 6,25 (5,4 × 1,157). Même barème que Retailleau (chomage-regles-
       juin-2024).
+      Recalé sur le FMI WEO d'octobre 2026 : central 5,44 → 5,45 (bas 4,63 → 4,64, haut 6,25 → 6,26).
 - id: arrets-maladie
   libelle: Plan d'action contre la dérive des arrêts maladie
   domaine: santé / indemnités journalières
@@ -533,9 +534,9 @@ mesures:
   chiffrable: true
   nature: baisse_recette
   effet_solde_primaire:
-    central: -40.68
-    bas: -89.35
-    haut: -39.47
+    central: -40.91
+    bas: -89.87
+    haut: -39.7
     montee_en_charge: *id002
   calcul:
     formule: -cout_2025 * f * (1 - retour_ir)
@@ -559,9 +560,9 @@ mesures:
           sa suppression accroît l''IR dans la même proportion (barème : 0,16 au central, 0,185 au haut, 0,14 au bas). Baisse
           induite de la prime d''activité non comptée (minorant du retour)'
     explication: 'Part salariale de la cotisation vieillesse du régime général (40 Md€ en 2025, chiffre du candidat) portée en
-      euros 2032 (× 1,2106), nette du retour d''impôt sur le revenu (× 0,84) : 40 × 1,2106 × 0,84 = 40,7 Md€. Haut : même
+      euros 2032 (× 1,2177), nette du retour d''impôt sur le revenu (× 0,84) : 40 × 1,2177 × 0,84 = 40,9 Md€. Haut : même
       assiette, retour de 0,185 (39,5). Bas : lecture « 250 € nets pour tous » (11,4 % du net) appliquée à toute la masse
-      salariale privée (740 × 0,759 × 11,4 % × 1,2106 ≈ 77,6 Md€) et étendue aux agents publics (× (1 + 5,8 / 17,1) = 103,9),
+      salariale privée (740 × 0,759 × 11,4 % × 1,2177 ≈ 78,0 Md€) et étendue aux agents publics (× (1 + 5,8 / 17,1) = 103,9),
       retour de 0,14 : 89,4. Les salariés dont la pension de base ne relève pas du régime général (fonctionnaires : retenue
       pour pension de 11,10 %) ne sont couverts que dans le bas.'
   effets_retour: Hausse du pouvoir d'achat et de l'offre de travail invoquée ; non comptée. Les droits à pension restant acquis
@@ -582,7 +583,7 @@ mesures:
     statut: corrige
     par: passe-sources
     date: '2026-09-29'
-    commentaire: "Passe sources : contestation tranchée. Le dispositif est défini par le candidat (suppression de la part salariale de la cotisation vieillesse : Les Échos / franceinfo-AFP 29 juin 2025, 40 Md€ ; France 2 31 août 2026, « cotisations vieillesse ») et s'applique à tous (« pour que chacun ait l'équivalent d'un 13ᵉ mois », site, Bretagne, juillet 2026). La convention part = 0,75 (non sourcée) et le salaire moyen tiré d'un site commercial (Raisin) sont abandonnés ; formule refaite sur le montant du candidat projeté en 2032 et net du retour d'IR (convention CSG déductible). Central −46,63 → −42,61 ; bas −103,9 → −93,51 (retour d'IR 0,10) ; haut −31,09 → −41,16 (la lecture « ciblée sur la moitié des salariés » n'a plus de support). Écart résiduel : 7,3 % du brut donne ≈ 206 € au médian contre 250 € promis. Vérification précédente (verificateur-sonnet, 29/09, conteste) : périmètre non défini, part 0,75 non défendable, masse 740 Md€ et salaire moyen vérifiés, bas corrigé de −77,6 à −103,9 (agents publics). Recalé sur les barèmes sourcés du 29/09 : retour d'IR renvoyé au barème retour_ir_cotisation_salariale, 0,12 (0,10-0,15, convention non sourcée) → 0,16 (0,14-0,185) ; central −42,61 → −40,68, bas −93,51 → −89,35, haut −41,16 → −39,47."
+    commentaire: "Passe sources : contestation tranchée. Le dispositif est défini par le candidat (suppression de la part salariale de la cotisation vieillesse : Les Échos / franceinfo-AFP 29 juin 2025, 40 Md€ ; France 2 31 août 2026, « cotisations vieillesse ») et s'applique à tous (« pour que chacun ait l'équivalent d'un 13ᵉ mois », site, Bretagne, juillet 2026). La convention part = 0,75 (non sourcée) et le salaire moyen tiré d'un site commercial (Raisin) sont abandonnés ; formule refaite sur le montant du candidat projeté en 2032 et net du retour d'IR (convention CSG déductible). Central −46,63 → −42,61 ; bas −103,9 → −93,51 (retour d'IR 0,10) ; haut −31,09 → −41,16 (la lecture « ciblée sur la moitié des salariés » n'a plus de support). Écart résiduel : 7,3 % du brut donne ≈ 206 € au médian contre 250 € promis. Vérification précédente (verificateur-sonnet, 29/09, conteste) : périmètre non défini, part 0,75 non défendable, masse 740 Md€ et salaire moyen vérifiés, bas corrigé de −77,6 à −103,9 (agents publics). Recalé sur les barèmes sourcés du 29/09 : retour d'IR renvoyé au barème retour_ir_cotisation_salariale, 0,12 (0,10-0,15, convention non sourcée) → 0,16 (0,14-0,185) ; central −42,61 → −40,68, bas −93,51 → −89,35, haut −41,16 → −39,47. Recalé sur le FMI WEO d'octobre 2026 : central −40,68 → −40,91 (bas −89,35 → −89,87, haut −39,47 → −39,7)."
 - id: cout-travail-hausses-2024
   libelle: Revenir sur les hausses du coût du travail intervenues depuis 2024
   domaine: prélèvements sociaux / entreprises
@@ -603,8 +604,8 @@ mesures:
   chiffrable: true
   nature: baisse_recette
   effet_solde_primaire:
-    central: -1.89
-    bas: -1.89
+    central: -1.91
+    bas: -1.91
     haut: -1.6
     montee_en_charge: *id002
   calcul:
@@ -617,10 +618,10 @@ mesures:
         note: « coup de rabot de 1,6 Md€ en 2026 » sur les allègements généraux (réduction générale dégressive unique), cité
           dans la dérivation du barème allegements_generaux_cout
       f:
-        valeur: 1.1842
+        valeur: 1.1921
         bareme: facteur_pib_2026_2032
         unite: facteur 2026→2032
-        note: 1,2106 / 1,0223 (croissance nominale 2026 = 0,858 % de volume et 1,358 % de déflateur, plan/hypotheses.yaml)
+        note: 1,2177 / 1,0215 (croissance nominale 2026 = 0,411 % de volume et 1,731 % de déflateur, plan/hypotheses.yaml)
     explication: 'Seule hausse identifiée et chiffrée : le rabot de 1,6 Md€ sur les allègements généraux en 2026, porté en
       euros 2032. Les autres hausses (aides à l''apprentissage, JEI…) ne sont pas chiffrées ici faute de barème (sous-estimation).'
   confiance: faible
@@ -628,7 +629,7 @@ mesures:
     statut: ok
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Rabot de 1,6 Md€ (allègements généraux 2026) repris ; le reste des hausses depuis 2024 (apprentissage, JEI, cotisations employeur) non inventorié : sous-estimation signalée par le chiffrage, pas d'erreur de calcul. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032 (valeur inchangée)."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Rabot de 1,6 Md€ (allègements généraux 2026) repris ; le reste des hausses depuis 2024 (apprentissage, JEI, cotisations employeur) non inventorié : sous-estimation signalée par le chiffrage, pas d'erreur de calcul. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032 (valeur inchangée). Recalé sur le FMI WEO d'octobre 2026 : central −1,89 → −1,91 (bas −1,89 → −1,91)."
 - id: cvae-suppression
   libelle: Mener à terme la suppression de la CVAE et poursuivre la baisse des impôts de production
   domaine: fiscalité des entreprises
@@ -675,7 +676,7 @@ mesures:
     statut: ok
     par: verificateur-sonnet
     date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Effet nul en 2032 exact : suppression de la CVAE déjà votée pour 2030 (REFERENCE.md). Aucun coût 2028-2029 non représenté n'est compté (choix explicite, règle du 2032). Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032 (valeur inchangée)."
+    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Effet nul en 2032 exact : suppression de la CVAE déjà votée pour 2030 (REFERENCE.md). Aucun coût 2028-2029 non représenté n'est compté (choix explicite, règle du 2032). Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032 (valeur inchangée). Recalé sur le FMI WEO d'octobre 2026 : central 0 inchangé (bornes inchangées)."
 - id: taxes-dissolution-surtaxe-is
   libelle: Revenir sur les taxes créées depuis la dissolution (dont surtaxe d'IS)
   domaine: fiscalité des entreprises

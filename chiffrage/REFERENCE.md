@@ -19,7 +19,8 @@ mesure prévue par la loi coûte ce que rapporte cette mesure.
 Les montants sont mesurés à **droit constant**, pas contre la trajectoire de `plan/` :
 
 - **Point d'indice** : aucune règle d'indexation dans la loi, donc gelé en référence. Promettre de l'indexer sur
-  l'inflation coûte la masse indiciaire × l'inflation cumulée 2027-2032 (déflateur du FMI, `plan/hypotheses.yaml`) ;
+  l'inflation coûte la masse indiciaire × l'inflation cumulée 2027-2032 (déflateur du FMI, WEO d'octobre 2026,
+  `plan/hypotheses.yaml`) ;
   une « échelle mobile » des salaires publics aussi. Un gel promis coûte zéro.
 - **Pensions et prestations** : indexées sur l'inflation selon la loi (code de la sécurité sociale). Promettre
   cette indexation coûte zéro ; une sous-indexation (« année blanche ») est une économie ; une indexation sur les
@@ -48,9 +49,9 @@ Elles s'appliquent à tous les programmes ; le détail et les sources sont dans 
    l'État, à ne plus utiliser pour le solde.
 2. **Point d'indice.** Gelé à droit constant ; aucune projection par le PIB. Hausse ponctuelle de x % :
    x × `point_indice_1pct_2032` (1,86 Md€) brut, × 0,72 en net. Indexation 2027-2032 :
-   `indexation_point_indice_2027_2032` (20,6 brut, 14,8 net), montée en charge 0,13 / 0,30 / 0,48 / 0,66 / 0,83 / 1.
-   Hausse de x % plus indexation : les deux, plus l'effet croisé (x / 100) × 20,6 (pour +10 % : 18,6 + 20,6 + 2,1
-   = 41,3 brut, 29,7 net). Les pensions induites vont dans le bas.
+   `indexation_point_indice_2027_2032` (22,1 brut, 15,9 net), montée en charge 0,18 / 0,34 / 0,50 / 0,67 / 0,83 / 1.
+   Hausse de x % plus indexation : les deux, plus l'effet croisé (x / 100) × 22,1 (pour +10 % : 18,6 + 22,1 + 2,2
+   = 42,9 brut, 30,9 net). Les pensions induites vont dans le bas.
 3. **Pensions.** Effet net = brut × (1 − `retour_prelevements_pensions`, 0,16) ; petites pensions 0,08 ; pensions
    élevées ou hausse proportionnelle avec IR plus fort 0,20 ; minima (ASPA, AAH, RSA) sans retour.
 4. **Retraites (âge, durée) : périmètre de l'ensemble des administrations publiques** (depuis le 30/09/2026). Le
@@ -58,12 +59,12 @@ Elles s'appliquent à tous les programmes ; le détail et les sources sont dans 
    et impôts que paient les seniors qui restent en emploi (ou ne paient plus s'ils partent plus tôt), moins les
    effets de bord sur les autres prestations (chômage, indemnités journalières, invalidité, minima). C'est un effet
    direct de la mesure, pas un effet macroéconomique : il est compté (Cour des comptes 2025, tableaux n° 6 et 7,
-   données DG Trésor et Cnav). Barèmes : `retraites_age_legal_1_an_apu` (baisse d'un an, 13,8 Md€),
-   `retraites_age_legal_hausse_1_an_apu` (hausse, 18,8), `retraites_retour_62_ans_2032_apu` (29,1),
-   `retraites_age_60_depuis_62_apu` (37,7), `retraites_duree_assurance_1_an_apu` (baisse d'un an de durée, 7,4),
-   `retraites_duree_assurance_hausse_1_an_apu` (hausse, 10,2). Bornes : du côté qui aggrave l'effet, hauts des
+   données DG Trésor et Cnav). Barèmes : `retraites_age_legal_1_an_apu` (baisse d'un an, 14,0 Md€),
+   `retraites_age_legal_hausse_1_an_apu` (hausse, 19,0), `retraites_retour_62_ans_2032_apu` (29,1),
+   `retraites_age_60_depuis_62_apu` (37,7), `retraites_duree_assurance_1_an_apu` (baisse d'un an de durée, 7,5),
+   `retraites_duree_assurance_hausse_1_an_apu` (hausse, 10,3). Bornes : du côté qui aggrave l'effet, hauts des
    barèmes `_apu` ; du côté qui l'atténue, le même calcul au **périmètre du seul système de retraite** (barèmes
-   sans suffixe : 13,9 ; 18 ; 6,6 ; 4,4 ; 5,9) : borne favorable (`haut`) d'un coût, borne défavorable (`bas`)
+   sans suffixe : 13,9 ; 18 ; 6,7 ; 4,5 ; 6,0) : borne favorable (`haut`) d'un coût, borne défavorable (`bas`)
    d'une économie, sauf quand la lecture de la promesse donne une borne plus large. Pas de retour d'impôt sur les
    pensions à ajouter (compris dans les autres recettes). Les effets de bouclage (chômage et salaires à dix ans,
    modèles Mésange ou e-mod) restent exclus (règle 3).
@@ -84,8 +85,8 @@ Elles s'appliquent à tous les programmes ; le détail et les sources sont dans 
       défavorable au solde.
     - Revalorisation ciblée d'agents en place : taux × effectifs × haut du barème `cout_*_apu`, sans facteur PIB.
     - Hausse de x % du point : borne défavorable = barème haut (x × 1,93) avec retour 0,25 ; borne favorable =
-      barème bas (x × 1,80) avec retour 0,32. Indexation : borne défavorable 22,2 × 0,75 (plus les pensions induites),
-      borne favorable 17,0 × 0,68. L'effet croisé avec une indexation promise va dans la ligne de la hausse.
+      barème bas (x × 1,80) avec retour 0,32. Indexation : borne défavorable 23,3 × 0,75 (plus les pensions induites),
+      borne favorable 17,3 × 0,68. L'effet croisé avec une indexation promise va dans la ligne de la hausse.
     - CSG déductible et cotisation salariale : retour d'impôt sur le revenu de 0,16 au central (0,14 à 0,185 : 0,14
       dans la borne défavorable d'une baisse, 0,185 dans celle d'une hausse) ; aucun sur la CSG non déductible ni sur
       la CSG du capital.

@@ -86,7 +86,8 @@ d'une personne. Aucune relecture par un économiste à ce jour ; le site l'affic
 
 Les effets annuels (régime de croisière × montée en charge) sont convertis en points de PIB et injectés dans
 `plan/trajectoire.py`, contre deux références : solde primaire gelé au dernier niveau observé, et solde primaire
-des projections du FMI. Le modèle n'a aucun effet en retour (voir `plan/README.md`) : il montre l'arithmétique
+des projections du FMI. Millésime retenu : FMI, Perspectives de l'économie mondiale (WEO) d'octobre 2026 (publié le
+13 octobre 2026), qui fixe aussi les facteurs de projection et l'inflation des barèmes (`baremes.yaml`). Le modèle n'a aucun effet en retour (voir `plan/README.md`) : il montre l'arithmétique
 des promesses, pas leur effet macroéconomique.
 
 ## Limites
