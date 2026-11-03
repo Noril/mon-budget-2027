@@ -174,6 +174,19 @@ def synchroniser() -> None:
     LEVIERS.write_text(entete + yaml.safe_dump(doc, allow_unicode=True, sort_keys=False, width=120), encoding="utf-8")
 
 
+def choix_candidat(doc: dict, id_programme: str) -> dict:
+    """Positions d'un programme sur les leviers : l'option qui le cite, ou sa valeur de curseur."""
+    choix = {}
+    for l in doc["leviers"]:
+        if l["type"] == "choix":
+            o = next((o["id"] for o in l["options"] if id_programme in o.get("candidats", [])), None)
+            if o:
+                choix[l["id"]] = o
+        elif id_programme in l["curseur"].get("positions", {}):
+            choix[l["id"]] = l["curseur"]["positions"][id_programme]
+    return choix
+
+
 def donnees() -> dict:
     doc = lire_leviers()
     hyp_doc = yaml.safe_load(tr.HYPOTHESES.read_text(encoding="utf-8"))
@@ -185,14 +198,7 @@ def donnees() -> dict:
         a = agreger(p)
         ajust = {an: 100 * v / next(l["pib"] for l in reference if l["annee"] == an) for an, v in a["par_annee"]["central"].items()}
         dette = tr.projeter(depart, hypotheses, ajust)[-1]["dette"]
-        choix = {}
-        for l in doc["leviers"]:
-            if l["type"] == "choix":
-                o = next((o["id"] for o in l["options"] if p["id"] in o.get("candidats", [])), None)
-                if o:
-                    choix[l["id"]] = o
-            elif p["id"] in l["curseur"].get("positions", {}):
-                choix[l["id"]] = l["curseur"]["positions"][p["id"]]
+        choix = choix_candidat(doc, p["id"])
         candidats.append({
             "id": p["id"], "nom": p["candidat"], "parti": p["parti"], "couleur": COULEURS[i % len(COULEURS)],
             "solde": a["croisiere"]["central"], "dette2032": dette, "choix": choix,
