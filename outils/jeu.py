@@ -63,6 +63,17 @@ def valider(doc: dict | None = None) -> list[str]:
     return erreurs
 
 
+ACCORD_JS = r"""const defaut = l => l.type === "choix" ? l.options.find(o => o.defaut).id : 0;
+function accord(c, choix) {  // part des leviers du programme sur lesquels le joueur fait le même choix
+  let s = 0, n = 0;
+  for (const l of D.leviers) {
+    if (!(l.id in c.choix)) continue; n++;
+    const v = choix[l.id] ?? defaut(l);
+    s += l.type === "choix" ? (c.choix[l.id] === v ? 1 : 0) : 1 - Math.abs(c.choix[l.id] - v) / (l.curseur.max - l.curseur.min);
+  }
+  return {pct: n ? 100 * s / n : 0, n};
+}"""
+
 PAGE = r"""<!doctype html><html lang="fr"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Élysée 2027 : le jeu du budget</title><style>
@@ -120,7 +131,6 @@ const C = __CARTES__;
 const fmt = (x, s = true) => (s && x > 0 ? "+" : "") + x.toFixed(1).replace(".", ",").replace("-", "−");
 const levier = id => D.leviers.find(l => l.id === id);
 const perso = id => C.personnages.find(p => p.id === id);
-const defaut = l => l.type === "choix" ? l.options.find(o => o.defaut).id : 0;
 const court = c => esc(c.nom.split(" ").slice(1).join(" "));  // déjà échappé : uniquement pour du HTML
 function placer(occupees, x, y) {  // décale verticalement une étiquette qui en chevauche une autre
   let yy = y;
@@ -146,15 +156,7 @@ function bilan(choix) {
   }
   return {dep, prel, solde, bas, haut, dette};
 }
-function accord(c, choix) {
-  let s = 0, n = 0;
-  for (const l of D.leviers) {
-    if (!(l.id in c.choix)) continue; n++;
-    const v = choix[l.id] ?? defaut(l);
-    s += l.type === "choix" ? (c.choix[l.id] === v ? 1 : 0) : 1 - Math.abs(c.choix[l.id] - v) / (l.curseur.max - l.curseur.min);
-  }
-  return {pct: n ? 100 * s / n : 0, n};
-}
+__ACCORD_JS__
 
 __COMMUN_JS__
 const JAUGES = [
@@ -329,7 +331,7 @@ function fin(partage = false) {
       ni identifiant (<a href="mentions-legales.html#donnees">détails</a>).</p>`}
     ${partage ? "" : `<div class="partager"><button class="principal" id="partager">Partager mon résultat</button><button id="copier">Copier le lien</button><button id="image">Télécharger l'image</button><span class="petit" id="msg-partage" role="status"></span></div>`}
     <h3>${partage ? "Ses mesures" : "Vos mesures"}</h3>${faits.length ? `<ul>${faits.map(f => `<li>${f.lib} <b class="${f.e < 0 ? "neg" : f.e > 0 ? "pos" : ""}">${fmt(f.e)} Md€</b></li>`).join("")}</ul>` : `<p class="petit">Aucun changement : le droit actuel est conservé.</p>`}
-    <h3>Les candidats les plus proches</h3><ol>${proches.slice(0, 5).map(r => `<li><b style="color:${esc(r.c.couleur)}">${esc(r.c.nom)}</b><span class="barre-acc" style="width:${r.pct * .6}px"></span><span class="petit">${Math.round(r.pct)} % d'accord (${r.n} décisions)</span></li>`).join("")}</ol>
+    <h3>Les candidats les plus proches</h3><ol>${proches.slice(0, 5).map(r => `<li><b style="color:${esc(r.c.couleur)}">${esc(r.c.nom)}</b><span class="barre-acc" style="width:${r.pct * .6}px"></span><span class="petit">${Math.round(r.pct)} % d'accord (${r.n} décisions)</span></li>`).join("")}</ol><p class="petit">Proximité sur les seules décisions budgétaires du jeu, pas sur l'ensemble des programmes : un programme se juge aussi sur ce qu'il change pour les gens, ses effets et sa faisabilité. <a href="methode.html#criteres">Le coût n'est pas le seul critère</a>.</p>
     <h3>Positions par thème</h3>${htmlAxes(choix)}
     <h3>Dépenses et impôts</h3>${carte(b)}
     <p>${partage ? "" : `<button id="retour">↶ Revenir à la dernière carte</button>`}<button id="rejouer">${partage ? "Faire le mien" : "Rejouer"}</button><a class="bt" href="${lien}">Ajuster dans le simulateur détaillé</a></p>
@@ -378,7 +380,7 @@ if (!resultatPartage()) accueil();
 
 
 def rendre(d: dict, cartes: dict) -> str:
-    return remplir(PAGE, THEME=theme.style(), ENTETE=theme.entete("jeu.html"), PIED=theme.pied(d["genere"]), COMMUN_JS=COMMUN_JS, COMMUN_CSS=COMMUN_CSS,
+    return remplir(PAGE, THEME=theme.style(), ENTETE=theme.entete("jeu.html"), PIED=theme.pied(d["genere"]), COMMUN_JS=COMMUN_JS, ACCORD_JS=ACCORD_JS, COMMUN_CSS=COMMUN_CSS,
                    DONNEES=json_pour_script(d), CARTES=json_pour_script(cartes))
 
 

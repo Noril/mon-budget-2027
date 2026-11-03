@@ -27,4 +27,4 @@ body:
     id: qualite
     attributes:
       label: Qui êtes-vous ? (facultatif)
-      description: Par exemple « équipe de campagne de… ». Cela ne change pas la méthode : seules les sources comptent.
+      description: "Par exemple « équipe de campagne de… ». Cela ne change pas la méthode : seules les sources comptent."

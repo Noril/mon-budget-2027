@@ -35,3 +35,14 @@ def test_apercus_de_partage(tmp_path, monkeypatch):
 
     im = partage.generique("Titre", "Texte de description")
     assert im.size == (1200, 630) and partage.png(im).startswith(b"\x89PNG")
+
+
+def test_modeles_d_issues_github_valides():
+    """Un YAML invalide fait disparaître le formulaire sur GitHub (dont celui du droit de réponse)."""
+    import yaml
+
+    for f in sorted((site.RACINE / ".github" / "ISSUE_TEMPLATE").glob("*.yml")):
+        d = yaml.safe_load(f.read_text(encoding="utf-8"))
+        assert isinstance(d, dict), f
+        if f.name != "config.yml":
+            assert d.get("name") and d.get("description") and d.get("body"), f

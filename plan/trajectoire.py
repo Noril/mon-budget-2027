@@ -235,6 +235,16 @@ def hypotheses_par_annee(doc: dict, depart: Depart, variante: str | None = None)
 # --- Sorties ------------------------------------------------------------------------------------------
 
 
+def sensibilite_croissance(doc: dict, depart: Depart, ecart: float = 0.5) -> dict[str, float]:
+    """Dette de référence en dernière année si la croissance réelle s'écarte de ±ecart point par an après le départ."""
+    hypotheses, _ = hypotheses_par_annee(doc, depart)
+    dette = {}
+    for nom, signe in (("basse", -1), ("centrale", 0), ("haute", 1)):
+        h = {a: v | {"croissance": v["croissance"] + signe * ecart} if a > depart.annee else v for a, v in hypotheses.items()}
+        dette[nom] = projeter(depart, h)[-1]["dette"]
+    return dette
+
+
 def ecrire_parquet(lignes: list[dict], sortie: Path) -> None:
     sortie.parent.mkdir(parents=True, exist_ok=True)
     con = duckdb.connect()
