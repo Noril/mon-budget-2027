@@ -210,7 +210,9 @@ let etatThemes = Object.fromEntries(C.themes.map(t => [t.id, 1]));
 const P = __PARAMS__;
 const themeDe = Object.fromEntries(C.themes.flatMap(t => t.leviers.map(l => [l, t.id])));
 const racines = () => C.cartes.filter(c => !c.suite_seulement && etatThemes[themeDe[c.levier]] > 0);
-const poidsJoues = () => Object.fromEntries(Object.keys(choix).map(l => [l, etatThemes[themeDe[l]] === 2 ? P.favori : 1]));
+// tous les leviers des thèmes choisis comptent, y compris ceux où le joueur a gardé le droit actuel (absents de choix)
+const poidsJoues = () => Object.fromEntries(C.themes.filter(t => etatThemes[t.id] > 0)
+  .flatMap(t => t.leviers.map(l => [l, etatThemes[t.id] === 2 ? P.favori : 1])));
 const melanger = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const SUITES_PAR_BASE = __SUITES_PAR_BASE__;
 const app = document.getElementById("app");
@@ -371,9 +373,8 @@ function deficit(s) {
   return ["0", "sans effet net sur le déficit (2032)"];
 }
 function themesJoues() {
-  // thèmes effectivement joués : ceux dont au moins un levier a été vu
-  const vus = new Set(Object.keys(choix).map(l => themeDe[l]));
-  return Object.fromEntries(C.themes.filter(t => vus.has(t.id)).map(t => [t.id, etatThemes[t.id]]));
+  // thèmes choisis pour la partie (inclus ou étoilés), qu'une réponse y change le droit actuel ou non
+  return Object.fromEntries(C.themes.filter(t => etatThemes[t.id] > 0).map(t => [t.id, etatThemes[t.id]]));
 }
 function lienResultat() {
   return location.origin + location.pathname + "#r=" + encodeURIComponent(JSON.stringify(choix)) + "&t=" + encodeURIComponent(JSON.stringify(themesJoues()));
