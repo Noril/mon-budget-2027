@@ -2,7 +2,7 @@ from outils import site
 
 
 def test_config_vide_renvoie_au_depot():
-    cfg = site.charger_config()
+    cfg = site.charger_config() | {"contact": ""}
     assert "issues/new/choose" in site.lien_contact(cfg)
     assert "issues/new/choose" in site.mentions(cfg)
     assert "à compléter" not in site.mentions(cfg)
@@ -14,6 +14,12 @@ def test_contact_et_editeur_renseignes():
     cfg["editeur"] = {"nom": "Jeanne", "qualite": "personne physique"}
     m = site.mentions(cfg)
     assert "mailto:a@b.fr" in m and "Jeanne, personne physique" in m
+
+
+def test_contact_du_site_publie():
+    cfg = site.charger_config()
+    assert cfg["contact"] == "mon-budget-2027@proton.me"
+    assert "mailto:mon-budget-2027@proton.me" in site.mentions(cfg)
 
 
 def test_pages_echappent_le_html():
