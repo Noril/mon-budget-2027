@@ -108,6 +108,6 @@ des promesses, pas leur effet macroéconomique.
 
 **Thèmes du jeu** : chaque question de base appartient à un thème (`themes` de `cartes.yaml`), d'au moins deux
 questions. Le joueur choisit ses thèmes (au moins 10 questions) et peut en étoiler : un thème étoilé compte double
-dans la proximité avec les candidats. Une partie ne dépasse pas 30 cartes : au-delà, les cartes « suite » ne sont
-plus proposées. La neutralité du calcul est testée (`tests/test_neutralite.py`) : qui joue comme un candidat le
+dans la proximité avec les candidats. Pas de plafond de cartes : couper les cartes « suite » rendrait inaccessibles
+les positions qu'elles seules permettent d'atteindre ; la longueur se règle par le choix des thèmes. La neutralité du calcul est testée (`tests/test_neutralite.py`) : qui joue comme un candidat le
 retrouve, sur le jeu complet comme sur une sélection de thèmes.

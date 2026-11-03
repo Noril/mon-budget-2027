@@ -125,27 +125,68 @@ def test_simulateur_et_jeu_calculent_la_meme_proximite():
     assert "1 - Math.abs(c.choix[l.id] - v) / (l.curseur.max - l.curseur.min)" in jeu.ACCORD_JS
 
 
-def test_toute_position_de_candidat_reste_atteignable_avec_le_plafond():
-    """Chaque option tenue par un candidat a une carte ; le chemin de suites qui y mène tient sous le plafond."""
+def test_toute_position_de_candidat_a_une_carte():
+    """Chaque option tenue par un candidat est proposée par une carte, principale ou « suite »."""
     cartes = jeu.lire_cartes()["cartes"]
-    par_id = {c["id"]: c for c in cartes}
-    profondeur = {}
-
-    def descendre(i, d):
-        c = par_id[i]
-        for cote in ("gauche", "droite"):
-            v = c[cote].get("option", c[cote].get("valeur"))
-            profondeur[(c["levier"], v)] = min(profondeur.get((c["levier"], v), 99), d)
-            if s := c[cote].get("suite"):
-                descendre(s, d + 1)
-
-    for c in cartes:
-        if not c.get("suite_seulement"):
-            descendre(c["id"], 1)
+    proposees = {(c["levier"], c[cote].get("option", c[cote].get("valeur"))) for c in cartes for cote in ("gauche", "droite")}
     leviers, candidats, _ = _contexte()
     a_choix = {l["id"] for l in leviers if l["type"] == "choix"}
-    manquantes = [(c["id"], l, v) for c in candidats for l, v in c["choix"].items() if l in a_choix and (l, v) not in profondeur]
+    manquantes = [(c["id"], l, v) for c in candidats for l, v in c["choix"].items() if l in a_choix and (l, v) not in proposees]
     assert not manquantes, f"positions de candidats sans carte : {manquantes}"
-    # une partie au minimum : la plus longue chaîne de suites doit tenir sous le plafond avec les autres questions
-    plus_long = max(profondeur.values())
-    assert jeu.MIN_QUESTIONS_PARTIE - 1 + plus_long <= jeu.MAX_DECISIONS
+
+
+def _jouer_carte_par_carte(cand, cartes, racines, hasard):
+    """Partie jouée carte par carte, dans un ordre aléatoire, par un joueur qui vise les positions du candidat :
+    à chaque carte, il prend le côté qui donne ou mène (par les suites) à la position visée ; sinon au hasard.
+    Même mécanique que jeu.html : une carte « suite » s'intercale juste après sa carte mère."""
+    par_id = {c["id"]: c for c in cartes}
+    val = lambda c, x: c[x].get("option", c[x].get("valeur"))  # noqa: E731
+
+    def mene(c, cote, cible):
+        vus, pile = set(), [c[cote].get("suite")]
+        while pile:
+            i = pile.pop()
+            if not i or i in vus:
+                continue
+            vus.add(i)
+            cc = par_id[i]
+            if cible in (val(cc, "gauche"), val(cc, "droite")):
+                return True
+            pile += [cc["gauche"].get("suite"), cc["droite"].get("suite")]
+        return False
+
+    choix, file = {}, hasard.sample(racines, len(racines))
+    while file:
+        c = par_id[file.pop(0)]
+        cible = cand["choix"].get(c["levier"], object())
+        if val(c, "droite") == cible or (val(c, "gauche") != cible and mene(c, "droite", cible)):
+            cote = "droite"
+        elif val(c, "gauche") == cible or mene(c, "gauche", cible):
+            cote = "gauche"
+        else:
+            cote = hasard.choice(["gauche", "droite"])
+        choix[c["levier"]] = val(c, cote)
+        if s := c[cote].get("suite"):
+            file.insert(0, s)
+    return choix
+
+
+@pytest.mark.skipif(shutil.which("node") is None, reason="node absent")
+def test_jouer_carte_par_carte_comme_un_candidat_le_retrouve():
+    """Le test qui aurait révélé le biais d'un plafond de cartes : il passe par l'enchaînement réel des cartes et des
+    suites, et pas seulement par des choix tout faits. Tous thèmes inclus, puis une sélection de thèmes."""
+    leviers, candidats, themes = _contexte()
+    cartes = jeu.lire_cartes()["cartes"]
+    hasard = random.Random(14)
+    parties = []
+    for c in candidats:
+        for k in range(60):
+            pris = themes if k % 2 == 0 else [t for t in themes if hasard.random() < 0.6]
+            joues = {l for t in pris for l in t["leviers"]}
+            if len(joues) < jeu.MIN_QUESTIONS_PARTIE or sum(l in c["choix"] for l in joues) < jeu.MIN_POSITIONS:
+                pris, joues = themes, {l for t in themes for l in t["leviers"]}
+            racines = [x["id"] for x in cartes if not x.get("suite_seulement") and x["levier"] in joues]
+            choix = _jouer_carte_par_carte(c, cartes, racines, hasard)
+            parties.append({"imite": c["id"], "choix": choix, "poids": {l: 1 for l in choix}, "min": jeu.MIN_POSITIONS})
+    faibles = {k: round(v, 3) for k, v in _taux(parties, _premiers(leviers, candidats, parties)).items() if v < SEUIL}
+    assert not faibles, f"candidats mal retrouvés en jouant carte par carte : {faibles}"

@@ -23,7 +23,6 @@ from .simulateur import COMMUN_CSS, COMMUN_JS, donnees, json_pour_script, lire_l
 CARTES = RACINE / "chiffrage" / "cartes.yaml"
 MIN_QUESTIONS_THEME = 2
 MIN_QUESTIONS_PARTIE = 10  # questions de base au minimum pour lancer une partie
-MAX_DECISIONS = 30  # au-delà, plus de cartes « suite »
 POIDS_FAVORI = 2  # un thème étoilé compte double dans la proximité
 MIN_POSITIONS = 3  # un candidat n'est classé que s'il a une position sur au moins 3 questions jouées
 SORTIE = RACINE / "build" / "jeu.html"
@@ -205,7 +204,7 @@ const JAUGES = [
   {id: "dep", ic: "🏛️", nom: "Dépenses", min: -120, max: 120, ref: 0, f: b => b.dep, u: " Md€"},
   {id: "prel", ic: "🧾", nom: "Impôts", min: -120, max: 120, ref: 0, f: b => b.prel, u: " Md€"},
 ];
-let envoye = false, choix = {}, file = [], vues = 0, total = 0, historique = [], bases = 0, basesVues = 0, plafond = false;
+let envoye = false, choix = {}, file = [], vues = 0, total = 0, historique = [], bases = 0, basesVues = 0;
 // état des thèmes : 0 exclu, 1 inclus, 2 favori (★, compte double) ; tous inclus par défaut
 let etatThemes = Object.fromEntries(C.themes.map(t => [t.id, 1]));
 const P = __PARAMS__;
@@ -271,18 +270,21 @@ function majThemes() {
   }).join("");
   for (const b of document.querySelectorAll(".theme")) b.onclick = () => { etatThemes[b.dataset.id] = (etatThemes[b.dataset.id] + 1) % 3; majThemes(); };
   const n = racines().length, ok = n >= P.min, go = document.getElementById("go");
-  const cartes = Math.min(P.max, Math.round(n * SUITES_PAR_BASE));
-  document.getElementById("resume").textContent = ok ? `${n} questions, environ ${cartes} cartes (2 à 4 minutes).`
+  // estimation moyenne : chaque question de base peut amener des cartes de précision selon les réponses
+  const cartes = Math.round(n * SUITES_PAR_BASE);
+  const minutes = Math.max(1, Math.round(cartes * 8 / 60));
+  document.getElementById("resume").textContent = ok ? `${n} questions, environ ${cartes} cartes (${minutes} min environ).`
     : `${n} question${n > 1 ? "s" : ""} : choisissez encore un thème (au moins ${P.min} questions pour un résultat fiable).`;
   go.disabled = !ok;
 }
 function demarrer() {
-  choix = {}; historique = []; vues = 0; envoye = false; basesVues = 0; plafond = false;
+  choix = {}; historique = []; vues = 0; envoye = false; basesVues = 0;
   file = melanger(racines().map(c => c.id));
   total = bases = file.length;
   app.innerHTML = htmlTable();
   document.getElementById("annuler").onclick = e => { e.preventDefault(); annuler(); };
   suivante();
+  window.scrollTo(0, 0);
 }
 function htmlTable() {
   return `<div class="progression" role="progressbar" aria-label="Avancement" aria-valuemin="0" aria-valuemax="100" id="progression"><i id="prog-barre"></i></div>`
@@ -294,7 +296,7 @@ function annuler() {
     app.innerHTML = htmlTable();
     document.getElementById("annuler").onclick = e => { e.preventDefault(); annuler(); };
   }
-  choix = h.choix; file = h.file; vues = h.vues; total = h.total; basesVues = h.basesVues; plafond = h.plafond; suivante();
+  choix = h.choix; file = h.file; vues = h.vues; total = h.total; basesVues = h.basesVues; suivante();
 }
 function suivante() {
   reinitGlossaire();
@@ -331,15 +333,14 @@ function suivante() {
   for (const [b, c] of [[bg, "gauche"], [bd, "droite"]]) { b.onmouseenter = () => majJauges(avec(carte, c)); b.onmouseleave = () => majJauges(); }
 }
 function decider(carte, cote) {
-  historique.push({choix: {...choix}, file: [...file], vues, total, basesVues, plafond});
+  historique.push({choix: {...choix}, file: [...file], vues, total, basesVues});
   const el = document.getElementById("carte");
   el.classList.add("anim"); el.style.transform = `translateX(${cote === "gauche" ? -600 : 600}px) rotate(${cote === "gauche" ? -30 : 30}deg)`; el.style.opacity = 0;
   choix[carte.levier] = valeur(carte, cote);
   file.shift(); vues++;
-  const s = carte[cote].suite;
-  // plafond : au-delà de P.max décisions, plus de suites ; les questions de base restantes sont toujours posées
-  if (s && vues + file.length < P.max) { file.unshift(s); total++; }
-  else if (s) plafond = true;
+  // pas de plafond : couper les cartes de précision ferait disparaître les positions qu'elles seules permettent
+  // d'atteindre ; la longueur se règle par le choix des thèmes
+  const s = carte[cote].suite; if (s) { file.unshift(s); total++; }
   if (!file.length || !C.cartes.find(c => c.id === file[0]).suite_seulement) basesVues++;
   setTimeout(suivante, 260);
 }
@@ -422,7 +423,7 @@ function fin(partage = false) {
     ${partage ? "" : `<div class="partager"><button class="principal" id="partager">Partager mon résultat</button><button id="copier">Copier le lien</button><button id="image">Télécharger l'image</button><span class="petit" id="msg-partage" role="status"></span></div>`}
     <h3>${partage ? "Ses mesures" : "Vos mesures"}</h3>${faits.length ? `<ul>${faits.map(f => `<li>${f.lib} <b class="${f.e < 0 ? "neg" : f.e > 0 ? "pos" : ""}">${fmt(f.e)} Md€</b></li>`).join("")}</ul>` : `<p class="petit">Aucun changement : le droit actuel est conservé.</p>`}
     <h3>Les candidats les plus proches</h3>
-    <p class="petit">${tous ? "Tous les thèmes" : "Thèmes joués : " + libThemes}${Object.values(tj).includes(2) ? " (★ compte double)" : ""}.${plafond ? " Partie raccourcie à " + P.max + " cartes : certaines précisions n'ont pas été posées." : ""}</p><ol>${proches.slice(0, 5).map(r => `<li><b style="color:${esc(r.c.couleur)}">${esc(r.c.nom)}</b><span class="barre-acc" style="width:${r.pct * .6}px"></span><span class="petit">${Math.round(r.pct)} % d'accord (${r.n} décisions)</span></li>`).join("")}</ol><p class="petit">Proximité sur les seules décisions budgétaires du jeu, pas sur l'ensemble des programmes : un programme se juge aussi sur ce qu'il change pour les gens, ses effets et sa faisabilité. <a href="methode.html#criteres">Le coût n'est pas le seul critère</a>.</p>
+    <p class="petit">${tous ? "Tous les thèmes" : "Thèmes joués : " + libThemes}${Object.values(tj).includes(2) ? " (★ compte double)" : ""}.</p><ol>${proches.slice(0, 5).map(r => `<li><b style="color:${esc(r.c.couleur)}">${esc(r.c.nom)}</b><span class="barre-acc" style="width:${r.pct * .6}px"></span><span class="petit">${Math.round(r.pct)} % d'accord (${r.n} décisions)</span></li>`).join("")}</ol><p class="petit">Proximité sur les seules décisions budgétaires du jeu, pas sur l'ensemble des programmes : un programme se juge aussi sur ce qu'il change pour les gens, ses effets et sa faisabilité. <a href="methode.html#criteres">Le coût n'est pas le seul critère</a>.</p>
     <h3>Positions par thème</h3>${htmlAxes(choix)}
     <h3>Dépenses et impôts</h3>${carte(b)}
     <p>${partage ? "" : `<button id="retour">↶ Revenir à la dernière carte</button>`}<button id="rejouer">${partage ? "Faire le mien" : "Rejouer"}</button><a class="bt" href="${lien}">Ajuster dans le simulateur détaillé</a></p>
@@ -433,7 +434,7 @@ function fin(partage = false) {
   if (!envoye) {  // enregistrement anonyme de la partie, une seule fois
     envoye = true;
     fetch("/api/resultat", {method: "POST", headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({choix, themes: themesJoues(), decisions: vues, plafond})}).catch(() => {});
+      body: JSON.stringify({choix, themes: themesJoues(), decisions: vues})}).catch(() => {});
   }
   const msg = t => { document.getElementById("msg-partage").textContent = t; };
   const telecharger = blob => { const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "mon-budget-2027.png"; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); };
@@ -488,7 +489,7 @@ def suites_par_base(cartes: dict) -> float:
 
 
 def rendre(d: dict, cartes: dict) -> str:
-    params = {"min": MIN_QUESTIONS_PARTIE, "max": MAX_DECISIONS, "favori": POIDS_FAVORI, "minPositions": MIN_POSITIONS}
+    params = {"min": MIN_QUESTIONS_PARTIE, "favori": POIDS_FAVORI, "minPositions": MIN_POSITIONS}
     return remplir(PAGE, THEME=theme.style(), ENTETE=theme.entete("jeu.html"), PIED=theme.pied(d["genere"]), COMMUN_JS=COMMUN_JS,
                    ACCORD_JS=ACCORD_JS, COMMUN_CSS=COMMUN_CSS, DONNEES=json_pour_script(d), CARTES=json_pour_script(cartes),
                    PARAMS=json.dumps(params), SUITES_PAR_BASE=str(suites_par_base(cartes)))

@@ -441,8 +441,7 @@ def fonctions() -> None:
     themes = [t["id"] for t in jeu.lire_cartes().get("themes", [])]
     version = f"{date.today().isoformat()}-themes"
     (api / "_leviers.js").write_text(f"export const VERSION = {json.dumps(version)};\nexport const LEVIERS = "
-                                     f"{json.dumps(leviers, ensure_ascii=False)};\nexport const THEMES = {json.dumps(themes)};\n"
-                                     f"export const MAX_DECISIONS = {jeu.MAX_DECISIONS};\n", encoding="utf-8")
+                                     f"{json.dumps(leviers, ensure_ascii=False)};\nexport const THEMES = {json.dumps(themes)};\n", encoding="utf-8")
     (SORTIE / "package.json").write_text('{"private": true, "type": "module"}\n', encoding="utf-8")
 
 

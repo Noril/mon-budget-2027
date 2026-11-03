@@ -1,7 +1,7 @@
 // Fonction Vercel : enregistre, de façon anonyme, les choix d'une partie terminée du jeu.
 // Aucune donnée personnelle : ni adresse IP, ni cookie, ni identifiant, ni heure (le jour seulement).
 // Base Postgres (Neon, région UE) jointe par son API HTTP : aucune dépendance à installer.
-import { LEVIERS, THEMES, VERSION, MAX_DECISIONS } from "./_leviers.js";
+import { LEVIERS, THEMES, VERSION } from "./_leviers.js";
 
 const LIMITE = new Map(); // anti-robots en mémoire de l'instance ; l'adresse IP n'est jamais écrite
 const FENETRE_MS = 60_000, MAX_PAR_FENETRE = 5;
@@ -60,15 +60,13 @@ export default async function handler(req, res) {
   if (!choix || Object.keys(choix).length < 10) return res.status(400).json({ erreur: "partie incomplète" });
   const themes = nettoyerThemes(corps.themes);
   const decisions = Number.isInteger(corps.decisions) && corps.decisions > 0 && corps.decisions <= 200 ? corps.decisions : null;
-  const plafond = corps.plafond === true;
   try {
     await sql(`CREATE TABLE IF NOT EXISTS parties (id BIGSERIAL PRIMARY KEY, jour DATE NOT NULL DEFAULT CURRENT_DATE,
       version TEXT NOT NULL, choix JSONB NOT NULL)`, []);
     // colonnes ajoutées avec le choix des thèmes (parties antérieures : NULL)
-    await sql(`ALTER TABLE parties ADD COLUMN IF NOT EXISTS themes JSONB, ADD COLUMN IF NOT EXISTS decisions INTEGER,
-      ADD COLUMN IF NOT EXISTS plafond BOOLEAN`, []);
-    await sql("INSERT INTO parties (version, choix, themes, decisions, plafond) VALUES ($1, $2, $3, $4, $5)",
-      [VERSION, JSON.stringify(choix), JSON.stringify(themes), decisions, plafond && decisions >= MAX_DECISIONS]);
+    await sql("ALTER TABLE parties ADD COLUMN IF NOT EXISTS themes JSONB, ADD COLUMN IF NOT EXISTS decisions INTEGER", []);
+    await sql("INSERT INTO parties (version, choix, themes, decisions) VALUES ($1, $2, $3, $4)",
+      [VERSION, JSON.stringify(choix), JSON.stringify(themes), decisions]);
     return res.status(204).end();
   } catch (e) {
     return res.status(500).json({ erreur: "enregistrement impossible" });

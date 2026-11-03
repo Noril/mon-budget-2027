@@ -9,7 +9,7 @@
     uv run python -m outils.statistiques --version 2026-11-03-themes   # une version du jeu seulement
 
 Les parties antérieures au choix des thèmes (version sans suffixe « -themes ») ont joué toutes les questions ; leurs
-colonnes themes, decisions et plafond sont vides. Les répartitions par levier ne comptent que les parties qui ont vu
+colonnes themes et decisions sont vides. Les répartitions par levier ne comptent que les parties qui ont vu
 le levier : une question d'un thème non choisi n'est pas « non vue » mais hors partie.
 
 Échantillon auto-sélectionné (les joueurs du site) : ce ne sont pas des sondages, à ne jamais présenter comme
@@ -56,11 +56,10 @@ def parties(version: str | None = None) -> list[dict]:
     # la table est créée par la fonction du site à la première partie enregistrée ; on la crée ici si besoin
     sql("""CREATE TABLE IF NOT EXISTS parties (id BIGSERIAL PRIMARY KEY, jour DATE NOT NULL DEFAULT CURRENT_DATE,
         version TEXT NOT NULL, choix JSONB NOT NULL)""")
-    sql("ALTER TABLE parties ADD COLUMN IF NOT EXISTS themes JSONB, ADD COLUMN IF NOT EXISTS decisions INTEGER, "
-        "ADD COLUMN IF NOT EXISTS plafond BOOLEAN")
+    sql("ALTER TABLE parties ADD COLUMN IF NOT EXISTS themes JSONB, ADD COLUMN IF NOT EXISTS decisions INTEGER")
     if version:
-        return sql("SELECT version, choix, themes, decisions, plafond FROM parties WHERE version = $1", [version])
-    return sql("SELECT version, choix, themes, decisions, plafond FROM parties")
+        return sql("SELECT version, choix, themes, decisions FROM parties WHERE version = $1", [version])
+    return sql("SELECT version, choix, themes, decisions FROM parties")
 
 
 def avec_themes(p: dict) -> bool:
@@ -105,7 +104,7 @@ def themes_joues(version: str | None = None) -> None:
         print(f"  {t['nom'][:36]:36}  joué {100 * joue / n:5.1f} %   étoilé {100 * etoile / n:5.1f} %")
     tous = sum(len(p["themes"]) == len(lire_cartes()["themes"]) for p in lignes)
     decisions = sorted(p["decisions"] for p in lignes if p.get("decisions"))
-    print(f"\n  tous les thèmes : {100 * tous / n:.1f} %   plafond de cartes atteint : {100 * sum(bool(p.get('plafond')) for p in lignes) / n:.1f} %")
+    print(f"\n  tous les thèmes : {100 * tous / n:.1f} %")
     if decisions:
         print(f"  décisions par partie : médiane {decisions[len(decisions) // 2]}, min {decisions[0]}, max {decisions[-1]}")
 
