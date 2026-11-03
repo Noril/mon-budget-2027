@@ -128,6 +128,17 @@ leviers:
   type: choix
   axe: depenses
   options:
+  - id: corrections-15-md
+    libelle: Corriger des règles jugées injustes ou inefficaces (15 à 20 Md€ d'économies annoncées, sans détail)
+    effet:
+      central: 15.44
+      bas: 0.0
+      haut: 15.44
+    reprend:
+    - le-pen-rn/retraites-corrections-15-20-md
+    calcul: Chiffrage RN repris ; annonce sans mesure détaillée, d'où le bas à 0.
+    candidats:
+    - le-pen-rn
   - id: gel-2028
     libelle: Une année sans revalorisation en 2028 (petites retraites protégées), étendue aux autres prestations
     axes:
@@ -347,6 +358,24 @@ leviers:
       '2030': 0.6
       '2031': 0.8
       '2032': 1.0
+  - id: moins-250000
+    libelle: Ne remplacer que deux départs sur trois (250 000 postes en cinq ans)
+    effet:
+      central: 5.09
+      bas: 2.54
+      haut: 8.02
+    reprend:
+    - philippe-horizons/fonction-publique-non-remplacement
+    calcul: Chiffrage Philippe repris.
+    candidats:
+    - philippe-horizons
+    montee:
+      '2027': 0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1
   - id: moins-800000
     libelle: Ne pas remplacer 800 000 départs dans les fonctions administratives
     axes:
@@ -682,6 +711,66 @@ leviers:
       '2030': 1.0
       '2031': 1.0
       '2032': 1.0
+- id: tva-premiere-necessite
+  theme: Fiscalité des ménages
+  question: Supprimer la TVA sur les produits de première nécessité ?
+  aide: La TVA sur l'alimentation et l'hygiène de base est déjà réduite (5,5 %). La supprimer sur une liste d'une centaine
+    de produits coûterait environ 6 Md€ par an en 2032.
+  type: choix
+  axe: prelevements
+  axes:
+    protection-sociale: 1
+  options:
+  - id: inchangee
+    libelle: TVA inchangée (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: suppression-100-produits
+    libelle: Supprimer la TVA sur 100 produits de première nécessité
+    effet:
+      central: -5.83
+      bas: -10.92
+      haut: -4.06
+    reprend:
+    - le-pen-rn/tva-100-produits-premiere-necessite
+    calcul: Chiffrage RN repris.
+    candidats:
+    - le-pen-rn
+- id: taxe-habitation
+  theme: Fiscalité des ménages
+  question: Rétablir la taxe d'habitation sur les résidences principales des ménages les plus aisés ?
+  aide: Supprimée en 2023 pour toutes les résidences principales. Son rétablissement pour les 20 % de ménages les plus aisés
+    rapporterait environ 8 Md€ selon LFI (près de 10 Md€ en 2032).
+  type: choix
+  axe: prelevements
+  axes:
+    imposition-hauts-revenus-patrimoine: 1
+  options:
+  - id: inchangee
+    libelle: Pas de taxe d'habitation sur les résidences principales (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: retablie-20-pct-aises
+    libelle: La rétablir pour les 20 % de ménages les plus aisés, avec un barème progressif
+    effet:
+      central: 9.68
+      bas: 7.8
+      haut: 9.68
+    reprend:
+    - melenchon-lfi/taxe-habitation-aises
+    calcul: Chiffrage LFI repris.
+    candidats:
+    - melenchon-lfi
 - id: successions
   theme: Fiscalité des ménages
   question: Faut-il modifier les droits de succession et de donation ?
@@ -1987,20 +2076,22 @@ leviers:
   axe: depenses
   options:
   - id: agences-subventions-dotations
-    libelle: Baisser de 20 % certaines agences, les subventions aux associations et la dotation des régions et intercommunalités
+    libelle: Baisser de 20 % certaines agences, les subventions aux associations et la dotation des régions et intercommunalités,
+      et effectifs des collectivités (suppression des intercommunalités et métropoles)
     axes:
       services-agents-publics: -2
     effet:
-      central: 21.25
+      central: 26.4
       bas: 0.0
-      haut: 21.25
+      haut: 26.4
     reprend:
     - le-pen-rn/agences-operateurs-moins-20
     - le-pen-rn/subventions-associations
     - le-pen-rn/train-de-vie-etat-et-petites-economies
     - le-pen-rn/dgf-regions-epci
+    - le-pen-rn/collectivites-effectifs-epci-metropoles
     calcul: Somme des quatre mesures RN ; économies ciblées (règle 6), bas = 0. [Recalé le 2026-10-11 sur le chiffrage de
-      le-pen-rn.] [Recalé le 2026-11-02 sur le chiffrage de le-pen-rn.]
+      le-pen-rn.] [Recalé le 2026-11-02 sur le chiffrage de le-pen-rn.] [Recalé le 2026-11-03 sur le chiffrage de le-pen-rn.]
     candidats:
     - le-pen-rn
     montee:
@@ -2081,7 +2172,7 @@ leviers:
       '2032': 1.0
 - id: sante
   theme: Santé
-  question: Combien de dépenses de santé en plus (ou en moins) par rapport à aujourd'hui ?
+  question: Combien de dépenses de santé et de dépendance en plus (ou en moins) par rapport à aujourd'hui ?
   aide: Pour comparer, un point de CSG sur toutes les assiettes rapporte environ 17,9 Md€. Remboursement intégral, franchises,
     recrutements de soignants et économies de gestion passent par ce curseur.
   type: curseur
@@ -2091,12 +2182,12 @@ leviers:
     protection-sociale: 1
   curseur:
     min: -10
-    max: 40
+    max: 50
     pas: 0.5
     unite: Md€
     md_par_unite: 1
     positions:
-      melenchon-lfi: 39.01
+      melenchon-lfi: 45.58
       tondelier-ecologistes: 3.22
       le-pen-rn: -1.19
       zemmour-reconquete: -0.75
@@ -2107,6 +2198,7 @@ leviers:
       - recrutement-soignants
       - franchises-medicales
       - centres-sante-deserts
+      - dependance-ehpad-publics
       tondelier-ecologistes:
       - sante-remboursement-100pct-franchises
       - sante-scolaire-plan-urgence
@@ -2198,7 +2290,7 @@ leviers:
     md_par_unite: 1
     positions:
       melenchon-lfi: 40.38
-      tondelier-ecologistes: 8.4
+      tondelier-ecologistes: 1.92
       philippe-horizons: 0.7
       le-pen-rn: -3.0
       zemmour-reconquete: -4.38
@@ -2210,6 +2302,7 @@ leviers:
       tondelier-ecologistes:
       - plan-adaptation-7md
       - leasing-social-million
+      - depenses-inutiles-fossiles
       philippe-horizons:
       - fonds-adaptation-2md
       - fonds-vert-doublement

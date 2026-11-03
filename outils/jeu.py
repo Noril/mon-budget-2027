@@ -10,6 +10,7 @@ trajectoire de dette et la proximité avec les candidats sont ceux du simulateur
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 
 import yaml
@@ -20,6 +21,10 @@ from pipelines.commun import RACINE
 from .simulateur import COMMUN_CSS, COMMUN_JS, donnees, json_pour_script, lire_leviers, remplir
 
 CARTES = RACINE / "chiffrage" / "cartes.yaml"
+MIN_QUESTIONS_THEME = 2
+MIN_QUESTIONS_PARTIE = 10  # questions de base au minimum pour lancer une partie
+POIDS_FAVORI = 2  # un thème étoilé compte double dans la proximité
+MIN_POSITIONS = 3  # un candidat n'est classé que s'il a une position sur au moins 3 questions jouées
 SORTIE = RACINE / "build" / "jeu.html"
 
 
@@ -60,18 +65,41 @@ def valider(doc: dict | None = None) -> list[str]:
                 erreurs.append(f"{ou} : {cote} demande une valeur dans les bornes du curseur")
             if (s := choix.get("suite")) and s not in ids:
                 erreurs.append(f"{ou} : suite inconnue « {s} »")
+    erreurs += valider_themes(doc, leviers)
+    return erreurs
+
+
+def valider_themes(doc: dict, leviers: dict) -> list[str]:
+    """Chaque carte principale appartient à un et un seul thème ; chaque thème a au moins MIN_QUESTIONS_THEME questions."""
+    themes = doc.get("themes", [])
+    if not themes:
+        return ["cartes.yaml : section « themes » absente"]
+    erreurs = []
+    dans = [l for t in themes for l in t.get("leviers", [])]
+    erreurs += [f"cartes.yaml : levier « {l} » dans plusieurs thèmes" for l in sorted({l for l in dans if dans.count(l) > 1})]
+    erreurs += [f"cartes.yaml : thème « {t['id']} » : levier inconnu « {l} »" for t in themes for l in t.get("leviers", []) if l not in leviers]
+    racines = {c["levier"] for c in doc.get("cartes", []) if not c.get("suite_seulement")}
+    erreurs += [f"cartes.yaml : la carte principale du levier « {l} » n'appartient à aucun thème" for l in sorted(racines - set(dans))]
+    erreurs += [f"cartes.yaml : thème « {t['id']} » sans carte principale pour « {l} »" for t in themes for l in t["leviers"] if l not in racines]
+    for t in themes:
+        if len(t.get("leviers", [])) < MIN_QUESTIONS_THEME:
+            erreurs.append(f"cartes.yaml : thème « {t['id']} » : moins de {MIN_QUESTIONS_THEME} questions")
     return erreurs
 
 
 ACCORD_JS = r"""const defaut = l => l.type === "choix" ? l.options.find(o => o.defaut).id : 0;
-function accord(c, choix) {  // part des leviers du programme sur lesquels le joueur fait le même choix
-  let s = 0, n = 0;
+// Proximité avec un programme : part pondérée des leviers joués sur lesquels le joueur fait le même choix que le
+// programme. Seuls comptent les leviers où le programme a une position ET que le joueur a vus (poids[levier] > 0) ;
+// un levier non joué n'est jamais compté. Sans poids, tous les leviers du programme comptent (simulateur, partage ancien).
+function accord(c, choix, poids) {
+  let s = 0, n = 0, k = 0;
   for (const l of D.leviers) {
-    if (!(l.id in c.choix)) continue; n++;
-    const v = choix[l.id] ?? defaut(l);
-    s += l.type === "choix" ? (c.choix[l.id] === v ? 1 : 0) : 1 - Math.abs(c.choix[l.id] - v) / (l.curseur.max - l.curseur.min);
+    if (!(l.id in c.choix)) continue;
+    const w = poids ? (poids[l.id] || 0) : 1; if (!w) continue;
+    const v = choix[l.id] ?? defaut(l); n++; k += w;
+    s += w * (l.type === "choix" ? (c.choix[l.id] === v ? 1 : 0) : 1 - Math.abs(c.choix[l.id] - v) / (l.curseur.max - l.curseur.min));
   }
-  return {pct: n ? 100 * s / n : 0, n};
+  return {pct: k ? 100 * s / k : 0, n};
 }"""
 
 PAGE = r"""<!doctype html><html lang="fr"><head><meta charset="utf-8">
@@ -114,6 +142,18 @@ __COMMUN_CSS__
 .accueil{text-align:center;padding-top:6vh}.accueil h1{font-size:clamp(2.8rem,11vw,4.4rem);line-height:.92;margin:.3em 0 .35em}
 .accueil p{color:var(--muted);max-width:30rem;margin-left:auto;margin-right:auto}
 .accueil button{font:inherit;font-weight:700;font-size:1.05rem;padding:12px 26px;border-radius:4px;border:0;background:var(--acc);color:#fff;cursor:pointer;margin-top:14px}
+.accueil button:disabled{opacity:.45;cursor:not-allowed}
+.t-themes{font-size:1.3rem;margin:1.4em 0 .2em}
+.themes{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px;text-align:left;margin:12px 0}
+.accueil .themes .theme{display:grid;grid-template-columns:auto 1fr auto;grid-template-rows:auto auto;column-gap:10px;align-items:center;margin:0;
+  padding:10px 12px;border-radius:6px;border:2px solid var(--line);background:var(--card);color:var(--fg);font-weight:400;font-size:.95rem}
+.theme .em{grid-row:1/3;font-size:1.5rem}.theme .nm{font-weight:700}.theme .nb{grid-column:2;color:var(--muted);font-size:.78rem}
+.theme .et{grid-row:1/3;grid-column:3;font-size:1.3rem;color:var(--acc);min-width:1.2em;text-align:center}
+.accueil .themes .theme.e0{opacity:.55;border-style:dashed}.accueil .themes .theme.e1{border-color:var(--acc)}
+.accueil .themes .theme.e2{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 12%,var(--card))}
+.resume{font-weight:700;color:var(--fg)!important}
+.progression{height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin:4px 0 10px}
+.progression i{display:block;height:100%;width:0;background:var(--acc);transition:width .3s}
 .pile{position:relative;width:120px;height:92px;margin:0 auto}
 .pile span{position:absolute;inset:0;background:var(--card);border:1px solid var(--line);box-shadow:var(--ombre)}
 .pile span:nth-child(1){transform:rotate(-7deg)}.pile span:nth-child(2){transform:rotate(4deg)}
@@ -164,7 +204,17 @@ const JAUGES = [
   {id: "dep", ic: "🏛️", nom: "Dépenses", min: -120, max: 120, ref: 0, f: b => b.dep, u: " Md€"},
   {id: "prel", ic: "🧾", nom: "Impôts", min: -120, max: 120, ref: 0, f: b => b.prel, u: " Md€"},
 ];
-let envoye = false, choix = {}, file = [], vues = 0, total = 0, historique = [];
+let envoye = false, choix = {}, file = [], vues = 0, total = 0, historique = [], bases = 0, basesVues = 0;
+// état des thèmes : 0 exclu, 1 inclus, 2 favori (★, compte double) ; tous inclus par défaut
+let etatThemes = Object.fromEntries(C.themes.map(t => [t.id, 1]));
+const P = __PARAMS__;
+const themeDe = Object.fromEntries(C.themes.flatMap(t => t.leviers.map(l => [l, t.id])));
+const racines = () => C.cartes.filter(c => !c.suite_seulement && etatThemes[themeDe[c.levier]] > 0);
+// tous les leviers des thèmes choisis comptent, y compris ceux où le joueur a gardé le droit actuel (absents de choix)
+const poidsJoues = () => Object.fromEntries(C.themes.filter(t => etatThemes[t.id] > 0)
+  .flatMap(t => t.leviers.map(l => [l, etatThemes[t.id] === 2 ? P.favori : 1])));
+const melanger = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const SUITES_PAR_BASE = __SUITES_PAR_BASE__;
 const app = document.getElementById("app");
 
 function htmlJauges() {
@@ -202,32 +252,64 @@ function accueil() {
   app.innerHTML = `<div class="accueil"><div class="pile" aria-hidden="true"><span></span><span></span><span></span></div><h1>Le jeu du budget</h1>
     <p>Vous venez d'être élu·e. Chaque carte pose une question débattue par les candidats. Glissez-la à gauche ou à droite.
     Votre programme se construit au fil des cartes, et sa facture avec lui.</p>
+    <h2 class="t-themes">Vos thèmes</h2>
+    <p class="petit">Touchez un thème pour l'inclure ou l'exclure. Touchez-le une deuxième fois pour l'étoiler ★ : il comptera double pour trouver les candidats qui vous ressemblent.</p>
+    <div class="themes" id="themes"></div>
+    <p class="resume" id="resume" aria-live="polite"></p>
+    <button id="go">Commencer</button>
     <p class="petit">Montants chiffrés avec la même méthode que les programmes des candidats (effet sur le solde public en 2032, sans
-    effet de second tour). Personnages fictifs.</p><button id="go">Commencer</button></div>`;
+    effet de second tour). Personnages fictifs.</p></div>`;
+  majThemes();
   document.getElementById("go").onclick = demarrer;
 }
+function majThemes() {
+  const lib = ["exclu", "inclus", "favori ★"];
+  document.getElementById("themes").innerHTML = C.themes.map(t => {
+    const e = etatThemes[t.id], n = t.leviers.length;
+    return `<button class="theme e${e}" data-id="${esc(t.id)}" aria-pressed="${e > 0}" aria-label="${esc(t.nom)} : ${lib[e]}, ${n} questions">
+      <span class="em" aria-hidden="true">${esc(t.emoji)}</span><span class="nm">${esc(t.nom)}</span>
+      <span class="nb">${n} questions · env. ${Math.round(n * SUITES_PAR_BASE)} cartes</span><span class="et" aria-hidden="true">${e === 2 ? "★" : e === 1 ? "✓" : ""}</span></button>`;
+  }).join("");
+  for (const b of document.querySelectorAll(".theme")) b.onclick = () => { etatThemes[b.dataset.id] = (etatThemes[b.dataset.id] + 1) % 3; majThemes(); };
+  const n = racines().length, ok = n >= P.min, go = document.getElementById("go");
+  // estimation moyenne : chaque question de base peut amener des cartes de précision selon les réponses
+  const cartes = Math.round(n * SUITES_PAR_BASE);
+  const minutes = Math.max(1, Math.round(cartes * 8 / 60));
+  document.getElementById("resume").textContent = ok ? `${n} questions, environ ${cartes} cartes (${minutes} min environ).`
+    : `${n} question${n > 1 ? "s" : ""} : choisissez encore un thème (au moins ${P.min} questions pour un résultat fiable).`;
+  go.disabled = !ok;
+}
 function demarrer() {
-  choix = {}; historique = []; vues = 0; envoye = false;
-  file = C.cartes.filter(c => !c.suite_seulement).map(c => c.id);
-  total = file.length;
-  app.innerHTML = htmlJauges() + `<div id="table"></div><div class="bas"><span id="compteur"></span><a href="#" id="annuler">↶ Carte précédente</a></div>`;
+  choix = {}; historique = []; vues = 0; envoye = false; basesVues = 0;
+  file = melanger(racines().map(c => c.id));
+  total = bases = file.length;
+  app.innerHTML = htmlTable();
   document.getElementById("annuler").onclick = e => { e.preventDefault(); annuler(); };
   suivante();
+  window.scrollTo(0, 0);
+}
+function htmlTable() {
+  return `<div class="progression" role="progressbar" aria-label="Avancement" aria-valuemin="0" aria-valuemax="100" id="progression"><i id="prog-barre"></i></div>`
+    + htmlJauges() + `<div id="table"></div><div class="bas"><span id="compteur"></span><a href="#" id="annuler">↶ Carte précédente</a></div>`;
 }
 function annuler() {
   const h = historique.pop(); if (!h) return;
   if (!document.getElementById("table")) {  // depuis l'écran final : on retrouve la table de jeu
-    app.innerHTML = htmlJauges() + `<div id="table"></div><div class="bas"><span id="compteur"></span><a href="#" id="annuler">↶ Carte précédente</a></div>`;
+    app.innerHTML = htmlTable();
     document.getElementById("annuler").onclick = e => { e.preventDefault(); annuler(); };
   }
-  choix = h.choix; file = h.file; vues = h.vues; total = h.total; suivante();
+  choix = h.choix; file = h.file; vues = h.vues; total = h.total; basesVues = h.basesVues; suivante();
 }
 function suivante() {
   reinitGlossaire();
   majJauges();
   if (!file.length) return fin();
   const carte = C.cartes.find(c => c.id === file[0]), p = perso(carte.personnage);
-  document.getElementById("compteur").textContent = `Décision ${vues + 1} / ${total}`;
+  // la progression suit les questions de base : elle n'avance qu'en passant à une nouvelle question, jamais en arrière
+  const pct = Math.round(100 * basesVues / bases);
+  document.getElementById("prog-barre").style.width = pct + "%";
+  document.getElementById("progression").setAttribute("aria-valuenow", pct);
+  document.getElementById("compteur").textContent = `Question ${Math.min(basesVues + (carte.suite_seulement ? 0 : 1), bases)} / ${bases}${carte.suite_seulement ? " · précision" : ""}`;
   const t = document.getElementById("table");
   t.innerHTML = `<div class="carte" id="carte" style="border-top:6px solid ${esc(p.couleur)}">
     <div class="choix-haut"><span class="g">← ${esc(carte.gauche.libelle)}</span><span class="d">${esc(carte.droite.libelle)} →</span></div>
@@ -253,12 +335,15 @@ function suivante() {
   for (const [b, c] of [[bg, "gauche"], [bd, "droite"]]) { b.onmouseenter = () => majJauges(avec(carte, c)); b.onmouseleave = () => majJauges(); }
 }
 function decider(carte, cote) {
-  historique.push({choix: {...choix}, file: [...file], vues, total});
+  historique.push({choix: {...choix}, file: [...file], vues, total, basesVues});
   const el = document.getElementById("carte");
   el.classList.add("anim"); el.style.transform = `translateX(${cote === "gauche" ? -600 : 600}px) rotate(${cote === "gauche" ? -30 : 30}deg)`; el.style.opacity = 0;
   choix[carte.levier] = valeur(carte, cote);
   file.shift(); vues++;
+  // pas de plafond : couper les cartes de précision ferait disparaître les positions qu'elles seules permettent
+  // d'atteindre ; la longueur se règle par le choix des thèmes
   const s = carte[cote].suite; if (s) { file.unshift(s); total++; }
+  if (!file.length || !C.cartes.find(c => c.id === file[0]).suite_seulement) basesVues++;
   setTimeout(suivante, 260);
 }
 document.addEventListener("keydown", e => {
@@ -287,8 +372,12 @@ function deficit(s) {
   if (s > 0.05) return [fmt(s, false), "Md€ de déficit en moins chaque année (2032)"];
   return ["0", "sans effet net sur le déficit (2032)"];
 }
+function themesJoues() {
+  // thèmes choisis pour la partie (inclus ou étoilés), qu'une réponse y change le droit actuel ou non
+  return Object.fromEntries(C.themes.filter(t => etatThemes[t.id] > 0).map(t => [t.id, etatThemes[t.id]]));
+}
 function lienResultat() {
-  return location.origin + location.pathname + "#r=" + encodeURIComponent(JSON.stringify(choix));
+  return location.origin + location.pathname + "#r=" + encodeURIComponent(JSON.stringify(choix)) + "&t=" + encodeURIComponent(JSON.stringify(themesJoues()));
 }
 async function imageResultat(b, proches) {
   try { await Promise.all(['800 80px "Big Shoulders Display"', '700 30px Luciole', '400 30px Luciole'].map(f => document.fonts.load(f))); } catch (e) {}
@@ -321,7 +410,10 @@ function fin(partage = false) {
     const lib = l.type === "choix" ? esc(l.options.find(o => o.id === v).libelle) : esc(`${l.question.replace(/ \?$/, "")} : ${v > 0 ? "+" : ""}${v} ${l.curseur.unite}`);
     return {lib, e};
   }).sort((a, b) => a.e - b.e);
-  const proches = D.candidats.map(c => ({c, ...accord(c, choix)})).filter(r => r.n).sort((a, b) => b.pct - a.pct);
+  const poids = poidsJoues();
+  const proches = D.candidats.map(c => ({c, ...accord(c, choix, poids)})).filter(r => r.n >= P.minPositions).sort((a, b) => b.pct - a.pct);
+  const tj = themesJoues(), tous = Object.keys(tj).length === C.themes.length;
+  const libThemes = C.themes.filter(t => t.id in tj).map(t => esc(t.nom) + (tj[t.id] === 2 ? " ★" : "")).join(", ");
   const lien = "simulateur.html#b=" + encodeURIComponent(JSON.stringify(choix));
   app.innerHTML = `<div class="fin">${partage ? `<p class="partage-recu">Voici le programme de quelqu'un qui a joué. <button class="principal" id="mien">Faire le mien</button></p>` : ""}
     <h1>${partage ? "Son programme" : "Votre programme"}</h1> <span class="tampon" aria-hidden="true">A voté</span>
@@ -331,7 +423,8 @@ function fin(partage = false) {
       ni identifiant (<a href="mentions-legales.html#donnees">détails</a>).</p>`}
     ${partage ? "" : `<div class="partager"><button class="principal" id="partager">Partager mon résultat</button><button id="copier">Copier le lien</button><button id="image">Télécharger l'image</button><span class="petit" id="msg-partage" role="status"></span></div>`}
     <h3>${partage ? "Ses mesures" : "Vos mesures"}</h3>${faits.length ? `<ul>${faits.map(f => `<li>${f.lib} <b class="${f.e < 0 ? "neg" : f.e > 0 ? "pos" : ""}">${fmt(f.e)} Md€</b></li>`).join("")}</ul>` : `<p class="petit">Aucun changement : le droit actuel est conservé.</p>`}
-    <h3>Les candidats les plus proches</h3><ol>${proches.slice(0, 5).map(r => `<li><b style="color:${esc(r.c.couleur)}">${esc(r.c.nom)}</b><span class="barre-acc" style="width:${r.pct * .6}px"></span><span class="petit">${Math.round(r.pct)} % d'accord (${r.n} décisions)</span></li>`).join("")}</ol><p class="petit">Proximité sur les seules décisions budgétaires du jeu, pas sur l'ensemble des programmes : un programme se juge aussi sur ce qu'il change pour les gens, ses effets et sa faisabilité. <a href="methode.html#criteres">Le coût n'est pas le seul critère</a>.</p>
+    <h3>Les candidats les plus proches</h3>
+    <p class="petit">${tous ? "Tous les thèmes" : "Thèmes joués : " + libThemes}${Object.values(tj).includes(2) ? " (★ compte double)" : ""}.</p><ol>${proches.slice(0, 5).map(r => `<li><b style="color:${esc(r.c.couleur)}">${esc(r.c.nom)}</b><span class="barre-acc" style="width:${r.pct * .6}px"></span><span class="petit">${Math.round(r.pct)} % d'accord (${r.n} décisions)</span></li>`).join("")}</ol><p class="petit">Proximité sur les seules décisions budgétaires du jeu, pas sur l'ensemble des programmes : un programme se juge aussi sur ce qu'il change pour les gens, ses effets et sa faisabilité. <a href="methode.html#criteres">Le coût n'est pas le seul critère</a>.</p>
     <h3>Positions par thème</h3>${htmlAxes(choix)}
     <h3>Dépenses et impôts</h3>${carte(b)}
     <p>${partage ? "" : `<button id="retour">↶ Revenir à la dernière carte</button>`}<button id="rejouer">${partage ? "Faire le mien" : "Rejouer"}</button><a class="bt" href="${lien}">Ajuster dans le simulateur détaillé</a></p>
@@ -341,7 +434,8 @@ function fin(partage = false) {
   document.getElementById("retour").onclick = annuler;
   if (!envoye) {  // enregistrement anonyme de la partie, une seule fois
     envoye = true;
-    fetch("/api/resultat", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({choix})}).catch(() => {});
+    fetch("/api/resultat", {method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({choix, themes: themesJoues(), decisions: vues})}).catch(() => {});
   }
   const msg = t => { document.getElementById("msg-partage").textContent = t; };
   const telecharger = blob => { const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "mon-budget-2027.png"; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); };
@@ -364,7 +458,11 @@ function fin(partage = false) {
 function resultatPartage() {
   if (!location.hash.startsWith("#r=")) return false;
   try {
-    const c = JSON.parse(decodeURIComponent(location.hash.slice(3)));
+    const [rc, rt] = location.hash.slice(3).split("&t=");
+    const c = JSON.parse(decodeURIComponent(rc));
+    let t = {}; try { t = rt ? JSON.parse(decodeURIComponent(rt)) : {}; } catch (e) { t = {}; }
+    // thèmes absents d'un lien ancien : tous inclus ; valeurs inconnues ignorées
+    etatThemes = Object.fromEntries(C.themes.map(x => [x.id, rt ? ([1, 2].includes(t[x.id]) ? t[x.id] : 0) : 1]));
     choix = {};
     for (const l of D.leviers) {
       if (!(l.id in c)) continue;
@@ -379,9 +477,23 @@ if (!resultatPartage()) accueil();
 </script></body></html>"""
 
 
+def suites_par_base(cartes: dict) -> float:
+    """Nombre moyen de cartes par question de base, si l'on répond au hasard (estimation exacte sur l'arbre des suites)."""
+    par_id = {c["id"]: c for c in cartes["cartes"]}
+
+    def attendu(i: str) -> float:
+        c = par_id[i]
+        return 1 + sum(attendu(c[s]["suite"]) for s in ("gauche", "droite") if c[s].get("suite")) / 2
+
+    racines = [c["id"] for c in cartes["cartes"] if not c.get("suite_seulement")]
+    return round(sum(attendu(i) for i in racines) / len(racines), 2)
+
+
 def rendre(d: dict, cartes: dict) -> str:
-    return remplir(PAGE, THEME=theme.style(), ENTETE=theme.entete("jeu.html"), PIED=theme.pied(d["genere"]), COMMUN_JS=COMMUN_JS, ACCORD_JS=ACCORD_JS, COMMUN_CSS=COMMUN_CSS,
-                   DONNEES=json_pour_script(d), CARTES=json_pour_script(cartes))
+    params = {"min": MIN_QUESTIONS_PARTIE, "favori": POIDS_FAVORI, "minPositions": MIN_POSITIONS}
+    return remplir(PAGE, THEME=theme.style(), ENTETE=theme.entete("jeu.html"), PIED=theme.pied(d["genere"]), COMMUN_JS=COMMUN_JS,
+                   ACCORD_JS=ACCORD_JS, COMMUN_CSS=COMMUN_CSS, DONNEES=json_pour_script(d), CARTES=json_pour_script(cartes),
+                   PARAMS=json.dumps(params), SUITES_PAR_BASE=str(suites_par_base(cartes)))
 
 
 def main(argv: list[str] | None = None) -> int:

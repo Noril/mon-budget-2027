@@ -3,13 +3,15 @@ name: Déploiement du site
 on:
   push:
     branches: [main]
+  # Lancement manuel : sur une autre branche que main, déploiement d'aperçu (URL Vercel de test, sans toucher au domaine) ;
+  # la fonction de statistiques n'y enregistre rien (VERCEL_ENV = preview).
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: deploiement
+  group: deploiement-${{ github.ref_name }}
   cancel-in-progress: false
 
 jobs:
@@ -60,7 +62,12 @@ jobs:
           # copie hors du dépôt git : sinon Vercel attribue le déploiement à l'auteur du commit et peut le bloquer
           cp -R build/site "$RUNNER_TEMP/site"
           cd "$RUNNER_TEMP"
-          npx --yes vercel@latest deploy "$RUNNER_TEMP/site" --prod --yes --token "$VERCEL_TOKEN"
+          if [ "$GITHUB_REF_NAME" = "main" ]; then
+            npx --yes vercel@latest deploy "$RUNNER_TEMP/site" --prod --yes --token "$VERCEL_TOKEN"
+          else
+            url=$(npx --yes vercel@latest deploy "$RUNNER_TEMP/site" --yes --token "$VERCEL_TOKEN")
+            echo "Aperçu : $url" | tee -a "$GITHUB_STEP_SUMMARY"
+          fi
       - uses: actions/upload-artifact@v7
         with:
           name: site
