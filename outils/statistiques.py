@@ -5,6 +5,12 @@
     # ne la renvoie pas.
     uv run python -m outils.statistiques                      # répartition des choix, décision par décision
     uv run python -m outils.statistiques --croiser retraites-age taxes-energie
+    uv run python -m outils.statistiques --themes                 # thèmes joués et étoilés, longueur des parties
+    uv run python -m outils.statistiques --version 2026-11-03-themes   # une version du jeu seulement
+
+Les parties antérieures au choix des thèmes (version sans suffixe « -themes ») ont joué toutes les questions ; leurs
+colonnes themes, decisions et plafond sont vides. Les répartitions par levier ne comptent que les parties qui ont vu
+le levier : une question d'un thème non choisi n'est pas « non vue » mais hors partie.
 
 Échantillon auto-sélectionné (les joueurs du site) : ce ne sont pas des sondages, à ne jamais présenter comme
 l'opinion des Français (loi n° 77-808 du 19 juillet 1977 relative aux sondages).
@@ -46,34 +52,67 @@ def sql(requete: str, params: list | None = None) -> list[dict]:
     return r.json().get("rows", [])
 
 
-def parties() -> list[dict]:
+def parties(version: str | None = None) -> list[dict]:
     # la table est créée par la fonction du site à la première partie enregistrée ; on la crée ici si besoin
     sql("""CREATE TABLE IF NOT EXISTS parties (id BIGSERIAL PRIMARY KEY, jour DATE NOT NULL DEFAULT CURRENT_DATE,
         version TEXT NOT NULL, choix JSONB NOT NULL)""")
-    return sql("SELECT choix FROM parties")
+    sql("ALTER TABLE parties ADD COLUMN IF NOT EXISTS themes JSONB, ADD COLUMN IF NOT EXISTS decisions INTEGER, "
+        "ADD COLUMN IF NOT EXISTS plafond BOOLEAN")
+    if version:
+        return sql("SELECT version, choix, themes, decisions, plafond FROM parties WHERE version = $1", [version])
+    return sql("SELECT version, choix, themes, decisions, plafond FROM parties")
+
+
+def avec_themes(p: dict) -> bool:
+    return p.get("themes") is not None
 
 
 def libelles() -> dict[str, tuple[str, dict[str, str]]]:
     return {l["id"]: (l["question"], {o["id"]: o["libelle"] for o in l.get("options", [])}) for l in lire_leviers()["leviers"]}
 
 
-def repartition() -> None:
-    lignes = parties()
+def repartition(version: str | None = None) -> None:
+    lignes = parties(version)
     n = len(lignes)
-    print(f"{n} parties enregistrées (joueurs du site : échantillon non représentatif)\n")
+    print(f"{n} parties enregistrées (joueurs du site : échantillon non représentatif)")
+    for v, k in sorted(Counter(p["version"] for p in lignes).items()):
+        print(f"  version {v} : {k}")
+    print()
     if not n:
         return
     for id_levier, (question, options) in libelles().items():
-        valeurs = Counter(str(p["choix"].get(id_levier, "non vue")) for p in lignes)
-        print(question)
+        vues = [p for p in lignes if id_levier in p["choix"]]
+        if not vues:
+            continue
+        valeurs = Counter(str(p["choix"][id_levier]) for p in vues)
+        print(f"{question}  ({len(vues)} parties)")
         for v, k in valeurs.most_common():
-            print(f"  {100 * k / n:5.1f} %  {options.get(v, v)}")
+            print(f"  {100 * k / len(vues):5.1f} %  {options.get(v, v)}")
         print()
+
+
+def themes_joues(version: str | None = None) -> None:
+    from .jeu import lire_cartes
+
+    lignes = [p for p in parties(version) if avec_themes(p)]
+    n = len(lignes)
+    print(f"{n} parties avec choix des thèmes\n")
+    if not n:
+        return
+    for t in lire_cartes()["themes"]:
+        joue = sum(t["id"] in p["themes"] for p in lignes)
+        etoile = sum(p["themes"].get(t["id"]) == 2 for p in lignes)
+        print(f"  {t['nom'][:36]:36}  joué {100 * joue / n:5.1f} %   étoilé {100 * etoile / n:5.1f} %")
+    tous = sum(len(p["themes"]) == len(lire_cartes()["themes"]) for p in lignes)
+    decisions = sorted(p["decisions"] for p in lignes if p.get("decisions"))
+    print(f"\n  tous les thèmes : {100 * tous / n:.1f} %   plafond de cartes atteint : {100 * sum(bool(p.get('plafond')) for p in lignes) / n:.1f} %")
+    if decisions:
+        print(f"  décisions par partie : médiane {decisions[len(decisions) // 2]}, min {decisions[0]}, max {decisions[-1]}")
 
 
 def croiser(a: str, b: str) -> None:
     lib = libelles()
-    table = Counter((str(p["choix"].get(a, "non vue")), str(p["choix"].get(b, "non vue"))) for p in parties())
+    table = Counter((str(p["choix"][a]), str(p["choix"][b])) for p in parties() if a in p["choix"] and b in p["choix"])
     totaux = Counter(x for x, _ in table.elements())
     print(f"{lib[a][0]}  ×  {lib[b][0]}\n")
     for (x, y), k in sorted(table.items(), key=lambda e: (-totaux[e[0][0]], -e[1])):
@@ -83,8 +122,15 @@ def croiser(a: str, b: str) -> None:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--croiser", nargs=2, metavar=("LEVIER_A", "LEVIER_B"))
+    parser.add_argument("--themes", action="store_true", help="thèmes joués et étoilés, longueur des parties")
+    parser.add_argument("--version", help="ne garder qu'une version du jeu")
     args = parser.parse_args(argv)
-    croiser(*args.croiser) if args.croiser else repartition()
+    if args.croiser:
+        croiser(*args.croiser)
+    elif args.themes:
+        themes_joues(args.version)
+    else:
+        repartition(args.version)
     return 0
 
 

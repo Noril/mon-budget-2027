@@ -237,6 +237,12 @@ pas pour autant meilleur. Une mesure se juge aussi sur ce qu'elle change pour le
 effets sur l'emploi, le climat, la santé ou les libertés, et sur sa faisabilité juridique et européenne. Ces critères relèvent du
 débat démocratique, pas d'un calcul. Dans le jeu, « le candidat le plus proche » compare vos décisions budgétaires aux
 siennes, et seulement celles-là.</p>
+<h2 id="questions">Comment les questions sont choisies</h2>
+<p>Une question entre dans le simulateur et le jeu si elle pèse au moins 5 Md€ par an en 2032 dans au moins un programme, ou si
+au moins trois candidats s'écartent du droit actuel sur ce sujet. À l'inverse, toute mesure chiffrée d'au moins 5 Md€ a sa
+question : aucune grosse promesse n'échappe au jeu. Chaque réponse possible reprend le chiffrage d'une mesure de programme.
+Dans le jeu, vous choisissez vos thèmes et pouvez en étoiler : un thème étoilé compte double pour trouver les candidats
+qui vous ressemblent. Un test automatique vérifie que quiconque répond comme un candidat le retrouve en tête.</p>
 <h2 id="croissance">Et si la croissance était différente ?</h2>
 <p>Les hypothèses de croissance, d'inflation et de taux sont celles du FMI (octobre 2026), les mêmes pour tous les programmes.
 Elles peuvent se révéler fausses, et les candidats annoncent souvent que leurs mesures relanceront la croissance. Trois points pour
@@ -430,9 +436,13 @@ def fonctions() -> None:
     for l in lire_leviers()["leviers"]:
         leviers[l["id"]] = ({"options": [o["id"] for o in l["options"]]} if l["type"] == "choix"
                             else {"min": l["curseur"]["min"], "max": l["curseur"]["max"]})
-    version = date.today().isoformat()
+    from outils import jeu
+
+    themes = [t["id"] for t in jeu.lire_cartes().get("themes", [])]
+    version = f"{date.today().isoformat()}-themes"
     (api / "_leviers.js").write_text(f"export const VERSION = {json.dumps(version)};\nexport const LEVIERS = "
-                                     f"{json.dumps(leviers, ensure_ascii=False)};\n", encoding="utf-8")
+                                     f"{json.dumps(leviers, ensure_ascii=False)};\nexport const THEMES = {json.dumps(themes)};\n"
+                                     f"export const MAX_DECISIONS = {jeu.MAX_DECISIONS};\n", encoding="utf-8")
     (SORTIE / "package.json").write_text('{"private": true, "type": "module"}\n', encoding="utf-8")
 
 

@@ -52,6 +52,38 @@ personnages:
     emoji: "🌍"
     couleur: "#943126"
 
+# Thèmes proposés au joueur avant la partie : chaque carte principale appartient au thème de son levier.
+# Au moins 2 questions de base par thème (vérifié par outils/jeu.py).
+themes:
+  - id: retraites
+    nom: Retraites
+    emoji: "🧓"
+    leviers: [retraites-age, pensions]
+  - id: travail-solidarite
+    nom: Travail et solidarité
+    emoji: "🤝"
+    leviers: [smic, assurance-chomage, minima-sociaux, conditions-prestations]
+  - id: impots-menages
+    nom: Impôts des ménages
+    emoji: "🧾"
+    leviers: [impot-revenu, tva-premiere-necessite, taxe-habitation, csg, cotisations-salaries, heures-supplementaires, successions, grands-patrimoines, revenus-capital]
+  - id: entreprises
+    nom: Entreprises
+    emoji: "🏭"
+    leviers: [impots-production, aides-entreprises, cotisations-patronales]
+  - id: services-publics
+    nom: Services publics et État
+    emoji: "🏫"
+    leviers: [effectifs-publics, point-indice, salaires-enseignants, education, sante, agences-dotations]
+  - id: ecologie-energie
+    nom: Écologie et énergie
+    emoji: "🌱"
+    leviers: [transition-ecologique, renovation-logements, taxes-energie, carburants]
+  - id: defense-international
+    nom: Défense, recherche et international
+    emoji: "🌍"
+    leviers: [defense, recherche-innovation, aide-developpement]
+
 cartes:
   # 1. Énergie
   - id: taxes-energie
@@ -125,7 +157,14 @@ cartes:
     levier: effectifs-publics
     texte: "136 700 agents publics partent à la retraite chaque année. On en remplace moins, pour environ 100 000 postes en moins ?"
     gauche: {libelle: "Effectifs stables", option: stables, suite: effectifs-creations}
-    droite: {libelle: "100 000 postes en moins", option: moins-100000, suite: effectifs-800000}
+    droite: {libelle: "100 000 postes en moins", option: moins-100000, suite: effectifs-250000}
+  - id: effectifs-250000
+    suite_seulement: true
+    personnage: economiste
+    levier: effectifs-publics
+    texte: "Et ne remplacer que deux départs à la retraite sur trois, soit 250 000 postes en cinq ans ?"
+    gauche: {libelle: "Environ 100 000 postes", option: moins-100000}
+    droite: {libelle: "250 000 postes en moins", option: moins-250000, suite: effectifs-800000}
   - id: effectifs-creations
     suite_seulement: true
     personnage: maire-rural
@@ -138,7 +177,7 @@ cartes:
     personnage: patronne-pme
     levier: effectifs-publics
     texte: "Pourquoi pas ne remplacer aucun départ dans les fonctions administratives, soit 800 000 postes ?"
-    gauche: {libelle: "Environ 100 000 postes", option: moins-100000}
+    gauche: {libelle: "250 000 postes", option: moins-250000}
     droite: {libelle: "800 000 postes en moins", option: moins-800000}
 
   # 5. Santé (curseur)
@@ -206,7 +245,14 @@ cartes:
     levier: pensions
     texte: "J'ai une bonne pension, payée par les cotisations des actifs d'aujourd'hui. Une année sans revalorisation en 2028, petites retraites protégées ?"
     gauche: {libelle: "Indexation sur l'inflation", option: inflation, suite: pensions-petites}
-    droite: {libelle: "Année blanche en 2028", option: gel-2028}
+    droite: {libelle: "Année blanche en 2028", option: gel-2028, suite: pensions-corrections}
+  - id: pensions-corrections
+    suite_seulement: true
+    personnage: directeur-budget
+    levier: pensions
+    texte: "Plutôt que geler les pensions, on corrige des règles jugées injustes ou inefficaces, pour 15 à 20 Md€ d'économies annoncées, sans détail à ce stade ?"
+    gauche: {libelle: "Année blanche en 2028", option: gel-2028}
+    droite: {libelle: "Corrections annoncées", option: corrections-15-md}
   - id: pensions-petites
     suite_seulement: true
     personnage: medecin-hospitaliere
@@ -339,6 +385,22 @@ cartes:
     gauche: {libelle: "Baisse classes moyennes", option: baisse-classes-moyennes}
     droite: {libelle: "Part entière au 2e enfant", option: quotient-deuxieme-enfant}
 
+  # 13 bis. TVA sur les produits de première nécessité
+  - id: tva-premiere-necessite
+    personnage: etudiante
+    levier: tva-premiere-necessite
+    texte: "Pâtes, couches, savon : tout augmente. On supprime la TVA sur une centaine de produits de première nécessité ? Environ 6 Md€ par an."
+    gauche: {libelle: "TVA inchangée", option: inchangee}
+    droite: {libelle: "Supprimer la TVA", option: suppression-100-produits}
+
+  # 13 ter. Taxe d'habitation
+  - id: taxe-habitation
+    personnage: syndicaliste
+    levier: taxe-habitation
+    texte: "La taxe d'habitation a été supprimée pour tout le monde, y compris les plus aisés. On la rétablit pour les 20 % de ménages les plus riches ? Près de 10 Md€."
+    gauche: {libelle: "Pas de taxe d'habitation", option: inchangee}
+    droite: {libelle: "La rétablir pour les plus aisés", option: retablie-20-pct-aises}
+
   # 14. Aide au développement
   - id: aide-developpement
     personnage: eurodeputee
@@ -430,7 +492,7 @@ cartes:
     suite_seulement: true
     personnage: directeur-budget
     levier: agences-dotations
-    texte: "Autre possibilité : baisser de 20 % certaines agences, les subventions aux associations et les dotations des régions et intercommunalités."
+    texte: "Autre possibilité : baisser de 20 % certaines agences, les subventions aux associations et les dotations des régions et intercommunalités, et supprimer les intercommunalités et les métropoles."
     gauche: {libelle: "Audiovisuel et agences", option: agences-audiovisuel}
     droite: {libelle: "Baisse de 20 %", option: agences-subventions-dotations}
 

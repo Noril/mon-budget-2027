@@ -96,3 +96,18 @@ des promesses, pas leur effet macroéconomique.
 - Un programme non encore publié en entier est chiffré sur ses mesures connues ; le nombre de mesures non
   chiffrables est affiché à côté du solde.
 - Le chiffrage ne juge pas l'opportunité des mesures ; il en donne le coût.
+
+## Questions du simulateur et du jeu (`simulateur.yaml`, `cartes.yaml`)
+
+**Règle d'inclusion**, vérifiée par `outils.simulateur --valider` (et donc par la CI) :
+
+1. un levier entre dans le simulateur et le jeu s'il reprend une mesure d'au moins **5 Md€** (2032, valeur absolue)
+   dans au moins un programme, **ou** si au moins **3 candidats** s'écartent du droit actuel sur ce sujet ;
+2. toute mesure chiffrée d'au moins 5 Md€ est reprise par un levier : aucune grosse promesse n'échappe au jeu ;
+3. chaque option reprend le chiffrage d'une mesure de programme (`reprend`), sauf l'option du droit en vigueur.
+
+**Thèmes du jeu** : chaque question de base appartient à un thème (`themes` de `cartes.yaml`), d'au moins deux
+questions. Le joueur choisit ses thèmes (au moins 10 questions) et peut en étoiler : un thème étoilé compte double
+dans la proximité avec les candidats. Une partie ne dépasse pas 30 cartes : au-delà, les cartes « suite » ne sont
+plus proposées. La neutralité du calcul est testée (`tests/test_neutralite.py`) : qui joue comme un candidat le
+retrouve, sur le jeu complet comme sur une sélection de thèmes.

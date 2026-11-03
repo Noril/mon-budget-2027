@@ -146,6 +146,52 @@ def valider(doc: dict | None = None) -> list[str]:
         for a in list(l.get("axes", {})) + [a for o in l.get("options", []) for a in o.get("axes", {})]:
             if a not in AXES:
                 erreurs.append(f"{ou} : axe inconnu « {a} »")
+    return erreurs + regle_inclusion(doc, programmes)
+
+
+SEUIL_INCLUSION_MD = 5.0  # Md€ (2032) : règle d'inclusion des leviers, voir chiffrage/README.md
+CANDIDATS_INCLUSION = 3
+
+
+def poids_levier(levier: dict, programmes: dict[str, dict]) -> dict[str, float]:
+    """Plus gros effet, en valeur absolue (Md€ 2032), qu'un levier reprend dans chaque programme."""
+    if levier["type"] == "choix":
+        poids: dict[str, float] = {}
+        for o in levier["options"]:
+            for prog, e in groupes_repris(o, programmes).items():
+                poids[prog] = max(poids.get(prog, 0.0), abs(e["central"]))
+        return poids
+    return {p: abs(v * levier["curseur"].get("md_par_unite", 1)) for p, v in positions_reprises(levier, programmes).items()}
+
+
+def candidats_ecartes(levier: dict) -> int:
+    """Nombre de programmes qui s'écartent du droit actuel sur ce levier."""
+    if levier["type"] == "choix":
+        return len({c for o in levier["options"] if not o.get("defaut") for c in o.get("candidats", [])})
+    return sum(abs(v) >= 0.5 for v in levier["curseur"].get("positions", {}).values())
+
+
+def mesures_reprises(doc: dict) -> set[str]:
+    repris = {r for l in doc["leviers"] for o in l.get("options", []) for r in o.get("reprend", [])}
+    repris |= {f"{p}/{m}" for l in doc["leviers"] if l["type"] == "curseur"
+               for p, ms in l["curseur"].get("reprend", {}).items() for m in ms}
+    return repris
+
+
+def regle_inclusion(doc: dict, programmes: dict[str, dict]) -> list[str]:
+    """Règle d'inclusion : chaque levier pèse au moins SEUIL_INCLUSION_MD dans un programme ou divise au moins
+    CANDIDATS_INCLUSION candidats ; chaque mesure chiffrée d'au moins SEUIL_INCLUSION_MD est reprise par un levier."""
+    erreurs = []
+    for l in doc["leviers"]:
+        if max(poids_levier(l, programmes).values(), default=0) < SEUIL_INCLUSION_MD and candidats_ecartes(l) < CANDIDATS_INCLUSION:
+            erreurs.append(f"simulateur.yaml:{l['id']} : levier sous la règle d'inclusion "
+                           f"(moins de {SEUIL_INCLUSION_MD:g} Md€ et moins de {CANDIDATS_INCLUSION} candidats)")
+    repris = mesures_reprises(doc)
+    for prog, mesures in programmes.items():
+        for mid, m in mesures.items():
+            e = m.get("effet_solde_primaire") or {}
+            if m.get("chiffrable") and abs(e.get("central") or 0) >= SEUIL_INCLUSION_MD and f"{prog}/{mid}" not in repris:
+                erreurs.append(f"simulateur.yaml : mesure « {prog}/{mid} » ({e['central']:+.1f} Md€) reprise par aucun levier")
     return erreurs
 
 
