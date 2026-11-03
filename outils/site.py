@@ -195,7 +195,8 @@ jusqu'en 2032.</p><a class="bouton" href="simulateur.html">Composer mon budget</
 <div class="bandeau">
 <div class="prose"><h2>Ce que ce chiffrage mesure</h2><p>Le coût des promesses, par rapport au droit voté
 au 29 septembre 2026 et hors effets de second tour : la croissance ou l'emploi invoqués par un candidat sont décrits,
-pas comptés. Les chiffres sont des ordres de grandeur. <a href="methode.html">Méthode et limites</a>.</p></div>
+pas comptés. Les chiffres sont des ordres de grandeur. Le coût n'est pas le seul critère pour juger un programme :
+c'est celui que ce site mesure. <a href="methode.html">Méthode et limites</a>.</p></div>
 <div class="prose"><h2>Vérifier, corriger</h2><p>Le code, les barèmes et chaque chiffrage sont publics
 <a href="{depot}">sur GitHub</a>. Une citation inexacte, un calcul contestable : <a href="{depot}/issues/new/choose">signalez-le</a>{ou_ecrivez(cfg)}.
 Les équipes de campagne disposent d'un <a href="mentions-legales.html">droit de réponse</a>. Données :
@@ -204,8 +205,18 @@ Les équipes de campagne disposent d'un <a href="mentions-legales.html">droit de
 </div>""", "Chiffrage indépendant, sourcé et rejouable des programmes de la présidentielle 2027.", "index.html")
 
 
-def methode(cfg):
+def sensibilite() -> dict[str, str]:
+    from plan import trajectoire as tr
+
+    doc = yaml.safe_load(tr.HYPOTHESES.read_text(encoding="utf-8"))
+    return {k: f"{v:.0f}" for k, v in tr.sensibilite_croissance(doc, tr.lire_depart()).items()}
+
+
+def methode(cfg, sens: dict[str, str] | None = None):
     d = html.escape(cfg["depot"])
+    sens = sens or sensibilite()
+    e = html.escape
+    ref, ref_basse, ref_haute = sens["centrale"], sens["basse"], sens["haute"]
     return page("Méthode et limites", f"""<div class="prose">
 <h1>Méthode et limites</h1>
 <h2>Principes</h2>
@@ -219,6 +230,25 @@ chiffre pas, c'est écrit, avec son sens probable, et la note de précision en t
 <li><b>Aucun effet de second tour</b> dans le solde : la croissance, l'emploi ou les taux invoqués par les
 candidats sont décrits, pas comptés.</li>
 <li><b>Neutralité.</b> Le chiffrage ne juge pas l'opportunité des mesures.</li>
+</ul>
+<h2 id="criteres">Le coût n'est pas le seul critère</h2>
+<p>Ce site mesure une seule dimension des programmes : leur effet sur les comptes publics. Un programme moins coûteux n'est
+pas pour autant meilleur. Une mesure se juge aussi sur ce qu'elle change pour les gens et sur qui en profite, sur ses
+effets sur l'emploi, le climat, la santé ou les libertés, et sur sa faisabilité juridique et européenne. Ces critères relèvent du
+débat démocratique, pas d'un calcul. Dans le jeu, « le candidat le plus proche » compare vos décisions budgétaires aux
+siennes, et seulement celles-là.</p>
+<h2 id="croissance">Et si la croissance était différente ?</h2>
+<p>Les hypothèses de croissance, d'inflation et de taux sont celles du FMI (octobre 2026), les mêmes pour tous les programmes.
+Elles peuvent se révéler fausses, et les candidats annoncent souvent que leurs mesures relanceront la croissance. Trois points pour
+lire les chiffres :</p>
+<ul>
+<li><b>Le coût des mesures change peu.</b> Il est exprimé en 2032, par rapport au droit actuel ; une croissance différente
+déplace un peu les montants, pas le classement entre programmes.</li>
+<li><b>La dette, elle, y est sensible.</b> Avec 0,5 point de croissance de moins chaque année de 2027 à 2032, la dette de
+référence atteindrait environ {e(ref_basse)} % du PIB en 2032 au lieu de {e(ref)} % ; avec 0,5 point de plus, environ {e(ref_haute)} %.
+Ce scénario déplace toutes les trajectoires de la même façon.</li>
+<li><b>Les effets de relance annoncés ne sont pas comptés.</b> Ils sont décrits, programme par programme, quand le
+candidat les invoque : il est difficile de les chiffrer de façon neutre, et presque tous les programmes en promettent.</li>
 </ul>
 <h2>Limites</h2>
 <ul>
