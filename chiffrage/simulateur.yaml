@@ -105,6 +105,7 @@ leviers:
     - philippe-horizons/retraites-travailler-plus-longtemps
     - retailleau-lr/retraites-age-63-taux-plein-65
     - zemmour-reconquete/retraite-64-voire-65
+    - lisnard-nouvelle-energie/retraites-age-65-ans
     calcul: Chiffrage Philippe repris (65 ans et 45 annuités en moins de dix ans) ; effet 2032 limité par le calendrier (allongement
       de durée seul, 10,2 Md€ par an de durée pour l'ensemble des administrations publiques). Retailleau (63 ans minimum,
       taux plein à 65 ans) est chiffré à 8,76 et Zemmour (64 voire 65 ans) à 4,7. [Recalé le 2026-09-30 sur le chiffrage de
@@ -113,6 +114,7 @@ leviers:
     - philippe-horizons
     - retailleau-lr
     - zemmour-reconquete
+    - lisnard-nouvelle-energie
     montee:
       '2027': 0.0
       '2028': 0.1
@@ -160,6 +162,26 @@ leviers:
       '2030': 1.0
       '2031': 1.0
       '2032': 1.0
+  - axes:
+      protection-sociale: -1
+    calcul: Chiffrage Lisnard repris. [Recalé le 2026-11-08 sur le chiffrage de lisnard-nouvelle-energie.]
+    candidats:
+    - lisnard-nouvelle-energie
+    effet:
+      central: 11.03
+      bas: 2.15
+      haut: 20.21
+    id: gel-plus-2200
+    libelle: Geler pendant le quinquennat les pensions supérieures à 2 200 € par mois
+    montee:
+      '2027': 0.0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1.0
+    reprend:
+    - lisnard-nouvelle-energie/gel-pensions-plus-2200
   - id: inflation
     libelle: Sur l'inflation (droit en vigueur)
     defaut: true
@@ -376,6 +398,27 @@ leviers:
       '2030': 0.6
       '2031': 0.8
       '2032': 1
+  - axes:
+      services-agents-publics: -2
+    calcul: Chiffrage Lisnard repris ; économie ciblée, bas = la moitié si les départs ne suffisent pas. [Recalé le 2026-11-08
+      sur le chiffrage de lisnard-nouvelle-energie.]
+    candidats:
+    - lisnard-nouvelle-energie
+    effet:
+      central: 8.93
+      bas: 4.46
+      haut: 12.83
+    id: moins-400000
+    libelle: Supprimer plus de 400 000 postes publics en ne remplaçant pas les départs
+    montee:
+      '2027': 0.0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1.0
+    reprend:
+    - lisnard-nouvelle-energie/suppressions-postes-400000
   - id: moins-800000
     libelle: Ne pas remplacer 800 000 départs dans les fonctions administratives
     axes:
@@ -424,18 +467,20 @@ leviers:
       '2031': 1.0
       '2032': 1.0
   - id: baisse-salaires
-    libelle: La baisser sur les salaires (environ 15 Md€ rendus)
+    libelle: La baisser sur les salaires ou les revenus d'activité (15 à 30 Md€ rendus)
     effet:
       central: -15.02
       bas: -15.38
       haut: -12.23
     reprend:
     - glucksmann-place-publique/baisse-csg-salaires
+    - lisnard-nouvelle-energie/csg-activite-9-2-a-6-6
     calcul: 'Chiffrage Glucksmann repris : enveloppe de 15 Md€ annoncée en 2026, projetée en 2032, nette du retour d''impôt
       sur le revenu (barème retour_ir_csg_deductible : 16 %). [Recalé le 2026-09-30 sur le chiffrage de glucksmann-place-publique.]
       [Recalé le 2026-11-02 sur le chiffrage de glucksmann-place-publique.]'
     candidats:
     - glucksmann-place-publique
+    - lisnard-nouvelle-energie
     montee:
       '2027': 0.0
       '2028': 1.0
@@ -482,17 +527,19 @@ leviers:
   axe: prelevements
   options:
   - id: baisse-forte
-    libelle: Les baisser fortement (gain annoncé de 250 € nets par mois au salaire médian)
+    libelle: Les baisser fortement (plus de 40 Md€ ; gains annoncés de 200 à 400 € nets par mois)
     effet:
       central: -40.91
       bas: -89.87
       haut: -39.7
     reprend:
     - attal-renaissance/droit-au-brut-13e-mois
+    - lisnard-nouvelle-energie/cotisations-salaires-120md
     calcul: Chiffrage Attal repris (« droit au brut »). [Recalé le 2026-09-29 sur le chiffrage de attal-renaissance.] [Recalé
       le 2026-11-02 sur le chiffrage de attal-renaissance.]
     candidats:
     - attal-renaissance
+    - lisnard-nouvelle-energie
     montee:
       '2027': 0.0
       '2028': 1.0
@@ -1040,7 +1087,7 @@ leviers:
   axe: prelevements
   options:
   - id: baisse-50-md
-    libelle: Les baisser de 50 Md€
+    libelle: Les baisser de 40 à 50 Md€
     axes:
       soutien-entreprises: 2
     effet:
@@ -1049,10 +1096,14 @@ leviers:
       haut: -34.73
     reprend:
     - philippe-horizons/impots-production-moins-50md
+    - lisnard-nouvelle-energie/suppression-c3s
+    - lisnard-nouvelle-energie/impots-production-40md
+    - lisnard-nouvelle-energie/suppression-cvae
     calcul: Chiffrage Philippe repris (50 Md€ de 2025 projetés en 2032, net de l'impôt sur les sociétés induit). [Recalé le
       2026-11-02 sur le chiffrage de philippe-horizons.]
     candidats:
     - philippe-horizons
+    - lisnard-nouvelle-energie
     montee:
       '2027': 0.0
       '2028': 1.0
@@ -1783,9 +1834,12 @@ leviers:
     - retailleau-lr/condition-residence-5-ans-aides
     - retailleau-lr/ame-reduction
     - retailleau-lr/hebergement-urgence-regularite-sejour
+    - lisnard-nouvelle-energie/prestations-non-contributives-5-ans
+    - lisnard-nouvelle-energie/ame-aide-urgence
     calcul: Somme des trois mesures Retailleau ; bas = 0. [Recalé le 2026-09-30 sur le chiffrage de retailleau-lr.]
     candidats:
     - retailleau-lr
+    - lisnard-nouvelle-energie
     montee:
       '2027': 0.0
       '2028': 0.45
@@ -1913,9 +1967,11 @@ leviers:
       haut: -4.72
     reprend:
     - philippe-horizons/enseignants-plus-20pct
+    - lisnard-nouvelle-energie/enseignants-plus-20pct
     calcul: Chiffrage Philippe repris. [Recalé le 2026-09-29 sur le chiffrage de philippe-horizons.]
     candidats:
     - philippe-horizons
+    - lisnard-nouvelle-energie
     montee:
       '2027': 0.0
       '2028': 0.2
