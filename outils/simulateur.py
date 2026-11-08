@@ -389,7 +389,8 @@ de second tour. La dette en 2032 et les candidats les plus proches de vos choix 
 en plus ou en moins. En Md€ par an en 2032, d'après les choix de cette page.</div>
 <h3>Vos positions par thème</h3><div id="axes"></div>
 <h3>Candidats les plus proches de vos choix</h3><ol class="proches" id="proches"></ol>
-<div class="petit">Part des décisions où vous faites le même choix que le candidat, parmi celles où son programme prend position.</div></aside></main>
+<div class="petit">Sur les décisions où son programme prend position : même choix, 1 point ; choix voisin, ½ point ; plus loin, 0.
+<a href="methode.html#proximite">Comment est calculé ce pourcentage ?</a></div></aside></main>
 <div id="mini"><span>Solde 2032 <b id="mini-solde"></b></span><span>Dette <b id="mini-dette"></b></span><a href="#resultats">Résultats ↓</a></div>
 <footer>Données du __GENERE__. Les mesures montent en charge selon une convention commune. La trajectoire de la dette repose sur des hypothèses tirées du World Economic Outlook du FMI (données transformées),
 avec un solde primaire de référence gelé. La méthode, les sources et le chiffrage détaillé des programmes sont dans le rapport.</footer>

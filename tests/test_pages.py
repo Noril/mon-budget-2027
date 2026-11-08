@@ -258,3 +258,13 @@ def test_couleurs_contraste_aa():
     assert not faibles
     assert len(set(theme.COULEURS_CANDIDATS)) == len(theme.COULEURS_CANDIDATS)
     assert len(set(theme.COULEURS_PROGRAMMES.values())) == len(theme.COULEURS_PROGRAMMES)
+
+
+def test_proximite_expliquee_et_liee(pages):
+    """Le calcul du % d'accord est expliqué dans une section dédiée de la page Méthode, liée depuis les deux résultats."""
+    from outils import site
+    m = site.methode({"depot": "x"}, {"centrale": "0", "basse": "0", "haute": "0"})
+    assert 'id="proximite"' in m and "½ point" in m and f"au\nmoins {jeu.MIN_POSITIONS} questions" in m
+    for nom in ("jeu", "simulateur"):
+        assert 'href="methode.html#proximite"' in pages[nom], nom
+    assert "même choix que le candidat, parmi" not in pages["simulateur"]  # ancienne définition (tout ou rien)
