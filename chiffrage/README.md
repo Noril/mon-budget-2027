@@ -109,5 +109,9 @@ des promesses, pas leur effet macroéconomique.
 **Thèmes du jeu** : chaque question de base appartient à un thème (`themes` de `cartes.yaml`), d'au moins deux
 questions. Le joueur choisit ses thèmes (au moins 10 questions) et peut en étoiler : un thème étoilé compte double
 dans la proximité avec les candidats. Pas de plafond de cartes : couper les cartes « suite » rendrait inaccessibles
-les positions qu'elles seules permettent d'atteindre ; la longueur se règle par le choix des thèmes. La neutralité du calcul est testée (`tests/test_neutralite.py`) : qui joue comme un candidat le
+les positions qu'elles seules permettent d'atteindre ; la longueur se règle par le choix des thèmes. **Proximité** : moyenne, sur les leviers joués où le candidat a une position, de 1 − écart. Levier à choix (options
+rangées d'un extrême à l'autre, effet central monotone, règle du validateur) : écart 0 pour la même option, 0,5 pour
+l'option voisine, 1 au-delà (et pour l'autre option d'un levier à deux options). Curseur : distance rapportée à
+l'amplitude. Un écart proportionnel au rang a été écarté : sur des réponses tirées au hasard, il faisait sortir premiers
+les programmes centraux bien plus souvent (simulation du 8 novembre 2026). La neutralité du calcul est testée (`tests/test_neutralite.py`) : qui joue comme un candidat le
 retrouve, sur le jeu complet comme sur une sélection de thèmes.

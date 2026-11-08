@@ -120,9 +120,53 @@ def test_levier_non_joue_ne_compte_pas():
 
 
 def test_simulateur_et_jeu_calculent_la_meme_proximite():
-    """Le simulateur garde sa propre copie d'accord() : elle doit rester la même formule (sans poids)."""
-    assert "1 - Math.abs(c.choix[l.id] - etat[l.id]) / (l.curseur.max - l.curseur.min)" in simulateur.PAGE
-    assert "1 - Math.abs(c.choix[l.id] - v) / (l.curseur.max - l.curseur.min)" in jeu.ACCORD_JS
+    """Le simulateur garde sa propre boucle accord() (sans poids) mais la même fonction d'écart que le jeu."""
+    assert "__ECART_JS__" in simulateur.PAGE and "s += 1 - ecart(l, c.choix[l.id], etat[l.id]);" in simulateur.PAGE
+    assert jeu.ACCORD_JS.startswith(simulateur.ECART_JS) and "s += w * (1 - ecart(l, c.choix[l.id], v));" in jeu.ACCORD_JS
+
+
+def _node(script):
+    return json.loads(subprocess.run(["node", "-"], input=script, capture_output=True, text=True, check=True).stdout)
+
+
+@pytest.mark.skipif(shutil.which("node") is None, reason="node absent")
+def test_ecart_par_paliers():
+    """Option voisine : demi-désaccord ; deux crans ou plus : désaccord entier ; levier à deux options : tout ou rien ;
+    curseur proportionnel."""
+    l = {"type": "choix", "options": [{"id": x} for x in "abcde"]}
+    deux = {"type": "choix", "options": [{"id": x} for x in "ab"]}
+    trois = {"type": "choix", "options": [{"id": x} for x in "abc"]}
+    cur = {"type": "curseur", "curseur": {"min": -10, "max": 10}}
+    r = _node(f"""{simulateur.ECART_JS}
+        const l = {json.dumps(l)}, deux = {json.dumps(deux)}, trois = {json.dumps(trois)}, cur = {json.dumps(cur)};
+        console.log(JSON.stringify([ecart(l, "a", "a"), ecart(l, "a", "b"), ecart(l, "d", "c"), ecart(l, "b", "d"),
+          ecart(l, "a", "e"), ecart(l, "a", "inconnue"), ecart(l, "x", "x"), ecart(deux, "a", "b"),
+          ecart(trois, "a", "b"), ecart(trois, "a", "c"), ecart(cur, -10, 10), ecart(cur, 0, 5)]));""")
+    assert r == [0, 0.5, 0.5, 1, 1, 1, 0, 1, 0.5, 1, 1, 0.25]
+
+
+@pytest.mark.skipif(shutil.which("node") is None, reason="node absent")
+def test_desaccord_oppose_eloigne_plus_qu_un_cran():
+    """Le cas qui motive le calcul : même nombre d'accords exacts, mais l'un est à l'opposé sur le reste et l'autre à
+    un cran ; le second doit être plus proche."""
+    leviers = [{"id": f"l{i}", "type": "choix", "options": [{"id": x, "defaut": x == "c"} for x in "abcde"]}
+               for i in range(4)]
+    joueur = {"l0": "a", "l1": "a", "l2": "a", "l3": "a"}
+    oppose = {"id": "oppose", "choix": {"l0": "a", "l1": "a", "l2": "e", "l3": "e"}}
+    voisin = {"id": "voisin", "choix": {"l0": "a", "l1": "a", "l2": "b", "l3": "b"}}
+    r = _node(f"""const D = {json.dumps({"leviers": leviers})};
+        {jeu.ACCORD_JS}
+        console.log(JSON.stringify([accord({json.dumps(oppose)}, {json.dumps(joueur)}), accord({json.dumps(voisin)}, {json.dumps(joueur)})]));""")
+    assert r[0] == {"pct": 50, "n": 4} and r[1] == {"pct": 75, "n": 4}
+
+
+def test_validateur_refuse_des_options_non_rangees():
+    doc = simulateur.lire_leviers()
+    l = next(l for l in doc["leviers"] if l["type"] == "choix" and len(l["options"]) >= 3)
+    l["options"][0], l["options"][1] = l["options"][1], l["options"][0]
+    if l["options"][0]["effet"]["central"] == l["options"][1]["effet"]["central"]:
+        pytest.skip("deux premières options de même effet")
+    assert any(e.startswith(f"simulateur.yaml:{l['id']} : options à ranger") for e in simulateur.valider(doc))
 
 
 def test_toute_position_de_candidat_a_une_carte():

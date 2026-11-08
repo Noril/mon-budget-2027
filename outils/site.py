@@ -14,7 +14,7 @@ from pathlib import Path
 
 import yaml
 
-from outils import partage, theme
+from outils import jeu, partage, theme
 
 RACINE = Path(__file__).resolve().parent.parent
 NOMBRES = {7: "Sept", 8: "Huit", 9: "Neuf", 10: "Dix", 11: "Onze", 12: "Douze"}
@@ -252,8 +252,33 @@ pour tous : un solde peut donc s'écarter beaucoup de celui qu'annonce le candid
 <p>Ce site mesure une seule dimension des programmes : leur effet sur les comptes publics. Un programme moins coûteux n'est
 pas pour autant meilleur. Une mesure se juge aussi sur ce qu'elle change pour les gens et sur qui en profite, sur ses
 effets sur l'emploi, le climat, la santé ou les libertés, et sur sa faisabilité juridique et européenne. Ces critères relèvent du
-débat démocratique, pas d'un calcul. Dans le jeu, « le candidat le plus proche » compare vos décisions budgétaires aux
-siennes, et seulement celles-là.</p>
+débat démocratique, pas d'un calcul. Dans le jeu et le simulateur, « les candidats les plus proches » comparent vos décisions budgétaires aux
+leurs, et seulement celles-là (<a href="#proximite">comment est calculée la proximité</a>).</p>
+<h2 id="proximite">Comment est calculée la proximité avec les candidats</h2>
+<p>Le pourcentage d'accord compare vos réponses aux positions des candidats, question par question, sur les seules
+décisions budgétaires du jeu et du simulateur.</p>
+<ul>
+<li><b>Position d'un candidat.</b> Sur chaque question, c'est la réponse qui reprend la mesure chiffrée de son programme.
+Sans mesure sur le sujet, le candidat n'a pas de position et la question ne compte pas pour lui : le nombre affiché à
+côté du score (« 8 décisions ») indique sur combien de questions il porte.</li>
+<li><b>Points par question.</b> Les réponses d'une question sont rangées d'un extrême à l'autre selon leur effet sur le
+solde public. Même réponse que le candidat : 1 point. Réponse voisine : ½ point. Réponse plus éloignée : 0. Quand une
+question n'a que deux réponses, l'autre réponse vaut 0. Sur les curseurs (santé, défense, éducation…), le point diminue
+en proportion de l'écart.</li>
+<li><b>Score.</b> Moyenne de ces points sur les questions où le candidat a une position. Dans le jeu, seules comptent
+les questions des thèmes joués, un thème étoilé compte double et un candidat n'est classé que s'il a une position sur au
+moins {jeu.MIN_POSITIONS} questions jouées. Dans le simulateur, toutes les questions comptent, celles que vous n'avez
+pas modifiées au droit actuel.</li>
+<li><b>Exemple.</b> Sur quatre questions, vous êtes d'accord avec A et avec B sur deux d'entre elles. Sur les deux
+autres, A est à l'opposé de vous, B à une réponse près : A obtient 50 %, B 75 %. Être d'accord sur quelques points et à
+l'opposé sur le reste éloigne davantage que des désaccords d'un cran.</li>
+<li><b>Prudence.</b> Un score calculé sur peu de questions est fragile : une seule réponse le fait beaucoup varier.
+Regardez aussi le nombre de décisions.</li>
+<li><b>Pourquoi des paliers.</b> Un accord partiel proportionnel à la distance (un quart de point en moins par cran sur
+une question à cinq réponses) a été testé : face à des réponses dispersées, il faisait sortir premiers les programmes
+les plus centraux bien plus souvent que les autres. Les paliers réduisent fortement cet effet. La neutralité du calcul
+est testée à chaque mise à jour : qui joue comme un candidat le retrouve.</li>
+</ul>
 <h2 id="questions">Comment les questions sont choisies</h2>
 <p>Une question entre dans le simulateur et le jeu si elle pèse au moins 5 Md€ par an en 2032 dans au moins un programme, ou si
 au moins trois candidats s'écartent du droit actuel sur ce sujet. À l'inverse, toute mesure chiffrée d'au moins 5 Md€ a sa

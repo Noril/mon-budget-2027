@@ -18,7 +18,7 @@ import yaml
 from outils import theme
 from pipelines.commun import RACINE
 
-from .simulateur import COMMUN_CSS, COMMUN_JS, donnees, json_pour_script, lire_leviers, remplir
+from .simulateur import COMMUN_CSS, COMMUN_JS, ECART_JS, donnees, json_pour_script, lire_leviers, remplir
 
 CARTES = RACINE / "chiffrage" / "cartes.yaml"
 MIN_QUESTIONS_THEME = 2
@@ -87,9 +87,10 @@ def valider_themes(doc: dict, leviers: dict) -> list[str]:
     return erreurs
 
 
-ACCORD_JS = r"""const defaut = l => l.type === "choix" ? l.options.find(o => o.defaut).id : 0;
-// Proximité avec un programme : part pondérée des leviers joués sur lesquels le joueur fait le même choix que le
-// programme. Seuls comptent les leviers où le programme a une position ET que le joueur a vus (poids[levier] > 0) ;
+ACCORD_JS = ECART_JS + r"""
+const defaut = l => l.type === "choix" ? l.options.find(o => o.defaut).id : 0;
+// Proximité avec un programme : moyenne pondérée, sur les leviers joués, de 1 − écart entre le choix du joueur et celui
+// du programme (1 = même choix, 0,5 = option voisine, 0 = plus loin). Seuls comptent les leviers où le programme a une position ET que le joueur a vus (poids[levier] > 0) ;
 // un levier non joué n'est jamais compté. Sans poids, tous les leviers du programme comptent (simulateur, partage ancien).
 function accord(c, choix, poids) {
   let s = 0, n = 0, k = 0;
@@ -97,7 +98,7 @@ function accord(c, choix, poids) {
     if (!(l.id in c.choix)) continue;
     const w = poids ? (poids[l.id] || 0) : 1; if (!w) continue;
     const v = choix[l.id] ?? defaut(l); n++; k += w;
-    s += w * (l.type === "choix" ? (c.choix[l.id] === v ? 1 : 0) : 1 - Math.abs(c.choix[l.id] - v) / (l.curseur.max - l.curseur.min));
+    s += w * (1 - ecart(l, c.choix[l.id], v));
   }
   return {pct: k ? 100 * s / k : 0, n};
 }"""
@@ -424,7 +425,7 @@ function fin(partage = false) {
     ${partage ? "" : `<div class="partager"><button class="principal" id="partager">Partager mon résultat</button><button id="copier">Copier le lien</button><button id="image">Télécharger l'image</button><span class="petit" id="msg-partage" role="status"></span></div>`}
     <h3>${partage ? "Ses mesures" : "Vos mesures"}</h3>${faits.length ? `<ul>${faits.map(f => `<li>${f.lib} <b class="${f.e < 0 ? "neg" : f.e > 0 ? "pos" : ""}">${fmt(f.e)} Md€</b></li>`).join("")}</ul>` : `<p class="petit">Aucun changement : le droit actuel est conservé.</p>`}
     <h3>Les candidats les plus proches</h3>
-    <p class="petit">${tous ? "Tous les thèmes" : "Thèmes joués : " + libThemes}${Object.values(tj).includes(2) ? " (★ compte double)" : ""}.</p><ol>${proches.slice(0, 5).map(r => `<li><b style="color:${esc(r.c.couleur)}">${esc(r.c.nom)}</b><span class="barre-acc" style="width:${r.pct * .6}px"></span><span class="petit">${Math.round(r.pct)} % d'accord (${r.n} décisions)</span></li>`).join("")}</ol><p class="petit">Proximité sur les seules décisions budgétaires du jeu, pas sur l'ensemble des programmes : un programme se juge aussi sur ce qu'il change pour les gens, ses effets et sa faisabilité. <a href="methode.html#criteres">Le coût n'est pas le seul critère</a>.</p>
+    <p class="petit">${tous ? "Tous les thèmes" : "Thèmes joués : " + libThemes}${Object.values(tj).includes(2) ? " (★ compte double)" : ""}.</p><ol>${proches.slice(0, 5).map(r => `<li><b style="color:${esc(r.c.couleur)}">${esc(r.c.nom)}</b><span class="barre-acc" style="width:${r.pct * .6}px"></span><span class="petit">${Math.round(r.pct)} % d'accord (${r.n} décisions)</span></li>`).join("")}</ol><p class="petit">Proximité sur les seules décisions budgétaires du jeu, pas sur l'ensemble des programmes : un programme se juge aussi sur ce qu'il change pour les gens, ses effets et sa faisabilité. <a href="methode.html#proximite">Comment est calculé ce pourcentage ?</a> · <a href="methode.html#criteres">Le coût n'est pas le seul critère</a>.</p>
     <h3>Positions par thème</h3>${htmlAxes(choix)}
     <h3>Dépenses et impôts</h3>${carte(b)}
     <p>${partage ? "" : `<button id="retour">↶ Revenir à la dernière carte</button>`}<button id="rejouer">${partage ? "Faire le mien" : "Rejouer"}</button><a class="bt" href="${lien}">Ajuster dans le simulateur détaillé</a></p>
