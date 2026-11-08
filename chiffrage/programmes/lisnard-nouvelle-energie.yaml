@@ -165,9 +165,11 @@ mesures:
     commentaire: 200 Md€ documentés, 300 Md€ visés ; 100 Md€ « sur le train de vie de l'État » dans une publication du 23 avril 2026.
   confiance: faible
   verification:
-    par: ajout-lisnard-2026-11-08
+    statut: ok
+    par: verificateur-2026-11-08
     date: '2026-11-08'
-    commentaire: Citation relue sur le site de Nouvelle Énergie (compte rendu du 28 octobre 2026) ; deja_compte égal à la somme des centraux listés ; vérification indépendante à faire.
+    commentaire: >-
+      Citation retrouvée mot pour mot sur la page du parti (compte rendu de l'émission du 27/10/2026, propos rapportés à la 3e personne). Règle 6 appliquée comme pour Retailleau/Zemmour : central 0, haut 200 - 29,56 = 170,44 ; deja_compte (8,93 + 11,03 + 4,75 + 3,23 + 0,87 + 0,75) = 29,56 relu.
 - id: csg-activite-9-2-a-6-6
   libelle: Baisser la CSG sur les revenus d'activité de 9,2 % à 6,6 % (alignement sur le taux des retraités)
   domaine: fiscalite
@@ -233,9 +235,11 @@ mesures:
   effets_retour: Hausse du salaire net et de l'offre de travail invoquée par le candidat ; non comptée.
   confiance: moyenne
   verification:
-    par: ajout-lisnard-2026-11-08
+    statut: ok
+    par: verificateur-2026-11-08
     date: '2026-11-08'
-    commentaire: Citation relue sur le site de Nouvelle Énergie (compte rendu, pas un verbatim du candidat) ; formule rejouée ; vérification indépendante à faire.
+    commentaire: >-
+      Citation retrouvée sur la page du parti (compte rendu, pas un verbatim). Formule rejouée : 2,6 x 11,71 x 1,1921 x 0,84 = 30,49 ; bas 35,90 et haut 24,81 recalculés ; barèmes csg_* et retour_ir_csg_deductible identiques à Zemmour/Glucksmann.
 - id: cotisations-salaires-120md
   libelle: Rendre 120 Md€ de salaire net aux actifs par une baisse des cotisations (reste après la baisse de CSG)
   domaine: fiscalite
@@ -308,9 +312,11 @@ mesures:
   effets_retour: Le candidat attend plus d'activité et d'emploi (« cotiser moins pour gagner plus ») ; non compté.
   confiance: faible
   verification:
-    par: ajout-lisnard-2026-11-08
+    statut: ok
+    par: verificateur-2026-11-08
     date: '2026-11-08'
-    commentaire: Citation relue sur le site de Nouvelle Énergie (verbatim attribué au Crayon, 11 octobre 2026 ; vidéo non transcrite ici) ; formule rejouée ; vérification indépendante à faire.
+    commentaire: >-
+      Citation retrouvée sur la page « questions » du parti (verbatim oral reproduit). Rejoué : (120 - 2,6 x 11,71) x 1,1921 x 0,84 = 89,68 ; pas de double compte avec la ligne CSG ; retour_ir_cotisation_salariale 0,16 conforme au barème.
 - id: suppression-c3s
   libelle: Suppression de la contribution sociale de solidarité des sociétés (C3S)
   domaine: fiscalite
@@ -357,9 +363,11 @@ mesures:
     explication: 'Rendement 2024 projeté au PIB, net du retour d''IS (20 %) : 5,2 × 1,2408 × 0,8 = 5,16. Bas : sans retour d''IS (6,45). Identique à le-pen-rn et retailleau-lr.'
   confiance: haute
   verification:
-    par: ajout-lisnard-2026-11-08
+    statut: ok
+    par: verificateur-2026-11-08
     date: '2026-11-08'
-    commentaire: Citation relue sur le site de Nouvelle Énergie ; mêmes paramètres que les lignes C3S des autres programmes ; vérification indépendante à faire.
+    commentaire: >-
+      Citation retrouvée sur la page du parti. Formule et barèmes (5,2 x 1,2408 x 0,8 = 5,16 ; bas 6,45) identiques à le-pen-rn, retailleau-lr et zemmour-reconquete.
 - id: suppression-cvae
   libelle: Suppression de la CVAE (avance sur le calendrier légal de 2030)
   domaine: fiscalite
@@ -406,9 +414,11 @@ mesures:
     explication: 'Suppression déjà votée pour 2030 : effet nul en 2032. L''avance coûte en 2028 et 2029 le rendement restant net de l''IS (3,7 × 0,8 = 2,96 Md€), porté par effet_solde_primaire.annuel, comme pour le RN.'
   confiance: haute
   verification:
-    par: ajout-lisnard-2026-11-08
+    statut: ok
+    par: verificateur-2026-11-08
     date: '2026-11-08'
-    commentaire: Citation relue sur le site de Nouvelle Énergie ; calendrier légal de REFERENCE.md ; vérification indépendante à faire.
+    commentaire: >-
+      Citation retrouvée sur la page du programme (axe 2). Effet nul en 2032 (suppression déjà votée pour 2030), même traitement que le-pen-rn et retailleau-lr.
 - id: impots-production-40md
   libelle: Baisser de 40 Md€ les impôts de production (hors C3S et CVAE, comptées à part)
   domaine: fiscalite
@@ -480,9 +490,11 @@ mesures:
   effets_retour: Compétitivité, réindustrialisation et emploi invoqués ; non comptés.
   confiance: moyenne
   verification:
-    par: ajout-lisnard-2026-11-08
+    statut: ok
+    par: verificateur-2026-11-08
     date: '2026-11-08'
-    commentaire: Citation relue sur le site de Nouvelle Énergie ; même méthode que philippe-horizons/impots-production-moins-50md ; vérification indépendante à faire.
+    commentaire: >-
+      Citation retrouvée sur la page du parti. Rejoué : (40 x 1,1921 - 5,2 x 1,2408 - 3,7 x 1,2177) x 0,8 = 29,38 ; C3S et CVAE déduites (pas de double compte avec leurs lignes), barèmes communs.
 - id: retraites-age-65-ans
   libelle: Âge légal de la retraite porté à 65 ans, préalable à la réforme par capitalisation
   domaine: retraites
@@ -540,9 +552,11 @@ mesures:
   effets_retour: 'Périmètre APU compté (convention commune 4) : prélèvements des seniors restant en emploi et effets de bord sur les autres prestations inclus. Bouclage macroéconomique non compté.'
   confiance: faible
   verification:
-    par: ajout-lisnard-2026-11-08
+    statut: ok
+    par: verificateur-2026-11-08
     date: '2026-11-08'
-    commentaire: Citation relue sur le site de Nouvelle Énergie ; lecture et paramètres alignés sur zemmour-reconquete/retraite-64-voire-65 ; vérification indépendante à faire.
+    commentaire: >-
+      Citation retrouvée dans la page du programme (axe 2). Formule 0,25 x 19,0 = 4,75, bas 0 et haut 15,3, montée identiques à zemmour-reconquete/retraite-64-voire-65 ; lecture centrale 64 ans prudente alors que le candidat vise 65 ans (le haut couvre la trajectoire).
 - id: gel-pensions-plus-2200
   libelle: Gel des pensions de retraite supérieures à 2 200 € par mois pendant le quinquennat
   domaine: retraites
@@ -617,9 +631,11 @@ mesures:
     commentaire: « entre 2 à 3 milliards d'euros dès la première année » pour le gel et la fin de l'abattement de 10 % (milieu consigné) ; ordre de grandeur cohérent avec un premier gel (2,2 à 3,2 Md€).
   confiance: faible
   verification:
-    par: ajout-lisnard-2026-11-08
+    statut: ok
+    par: verificateur-2026-11-08
     date: '2026-11-08'
-    commentaire: Verbatim relu sur Planet.fr et confirmé par le compte rendu du parti ; part de la masse au-dessus du seuil à recouper sur le fichier DREES (inaccessible le 8 novembre 2026) ; vérification indépendante à faire.
+    commentaire: >-
+      Citation retrouvée sur Planet.fr (propos du candidat entre guillemets). Rejoué : 350 x 0,45 x (1 - 1/1,0959) x 0,8 = 11,03. Convention 0,45 jugée plausible : la DREES (EIR 2016) donne 75 % des retraités sous 2 067 EUR bruts, soit un quart au-dessus en effectifs, et le haut de la distribution pèse davantage dans la masse (0,35 à 0,55 retenu en fourchette) ; fichier EIR 2020 non téléchargeable, pas de chiffre direct de masse trouvé. Retour 0,20 = haut du barème (pensions élevées), cohérent avec attal-renaissance (bas).
 - id: capitalisation-obligatoire-collective
   libelle: Étage de retraite par capitalisation obligatoire et collective (un tiers des pensions à terme)
   domaine: retraites
@@ -672,9 +688,11 @@ mesures:
   effets_retour: Financement des entreprises françaises et rendement de l'épargne invoqués ; non comptés.
   confiance: faible
   verification:
-    par: ajout-lisnard-2026-11-08
+    statut: ok
+    par: verificateur-2026-11-08
     date: '2026-11-08'
-    commentaire: Citation relue sur le site de Nouvelle Énergie ; vérification indépendante à faire.
+    commentaire: >-
+      Citation retrouvée sur la page du parti (Le Crayon, 11/10/2026). Central 0 et bas -7,55 (1 point x 6,2 x 1,2177), identiques à philippe-horizons/retraites-capitalisation-10-15pct.
 - id: abattement-10pct-pensions
   libelle: Remise en cause de l'abattement de 10 % sur les pensions à l'impôt sur le revenu
   domaine: fiscalite
@@ -763,9 +781,11 @@ mesures:
       candidat comprend les départs hors retraite. Recoupement possible avec la suppression des ARS (8 800 agents).
   confiance: moyenne
   verification:
-    par: ajout-lisnard-2026-11-08
+    statut: ok
+    par: verificateur-2026-11-08
     date: '2026-11-08'
-    commentaire: Citation relue sur le site de Nouvelle Énergie (compte rendu, pas un verbatim) ; formule rejouée ; vérification indépendante à faire.
+    commentaire: >-
+      Citation retrouvée sur la page du parti (compte rendu, propos rapportés). Rejoué : min(400 000 ; 136 700 x 5) x 31 000 x 0,72 = 8,93, même formule que zemmour-reconquete (800 000 -> 15,26) et mêmes barèmes que retailleau-lr.
 - id: agences-operateurs-suppression
   libelle: Suppression de « l'essentiel » des quelque 1 200 agences et opérateurs de l'État
   domaine: etat
@@ -829,9 +849,11 @@ mesures:
     explication: 'Subvention de l''État (0,627 Md€) projetée : 0,75 Md€. Bas = 0 (missions reprises par les préfectures et l''assurance maladie, économie recyclée en salaires de soignants), haut = central (règle 6).'
   confiance: faible
   verification:
-    par: ajout-lisnard-2026-11-08
+    statut: ok
+    par: verificateur-2026-11-08
     date: '2026-11-08'
-    commentaire: Citation relue sur le site de Nouvelle Énergie ; paramètres de zemmour-reconquete/suppression-ars ; vérification indépendante à faire.
+    commentaire: >-
+      Citation retrouvée sur la page santé du programme. 0,627 x 1,1921 = 0,75, identique à zemmour-reconquete/suppression-ars.
 - id: ame-aide-urgence
   libelle: Suppression de l'aide médicale d'État, remplacée par une aide d'urgence
   domaine: immigration
@@ -874,9 +896,11 @@ mesures:
     url: https://www.unenouvelleenergie.fr/notre-programme/immigration/
   confiance: moyenne
   verification:
-    par: ajout-lisnard-2026-11-08
+    statut: ok
+    par: verificateur-2026-11-08
     date: '2026-11-08'
-    commentaire: Citation relue sur le site de Nouvelle Énergie ; vérification indépendante à faire.
+    commentaire: >-
+      Citation retrouvée sur la page immigration du programme (700 M EUR annoncés). 0,7 x 1,2408 = 0,87, identique à zemmour-reconquete/fin-ame et le-pen-rn/ame-en-amu ; la lecture de retailleau-lr (ame-reduction, 0,78) est une autre mesure.
 - id: prestations-non-contributives-5-ans
   libelle: Prestations sociales non contributives réservées aux étrangers résidant régulièrement en France depuis au moins cinq ans
   domaine: immigration
@@ -922,9 +946,11 @@ mesures:
     commentaire: « Exiger cinq ans de résidence en France avant d’ouvrir droit à une allocation non contributive ferait économiser, selon lui, huit milliards d’euros par an. » Écart non expliqué par le candidat (périmètre non publié).
   confiance: faible
   verification:
-    par: ajout-lisnard-2026-11-08
+    statut: ok
+    par: verificateur-2026-11-08
     date: '2026-11-08'
-    commentaire: Citation relue sur le site de Nouvelle Énergie ; paramètres de retailleau-lr/condition-residence-5-ans-aides ; vérification indépendante à faire.
+    commentaire: >-
+      Citation retrouvée sur la page immigration du programme. 2,6 x 1,2408 = 3,23, haut 3,85, montée identiques à retailleau-lr/condition-residence-5-ans-aides.
 - id: prestations-non-contributives-etranger
   libelle: Fin du versement des prestations non contributives aux personnes parties vivre à l'étranger
   domaine: prestations sociales
@@ -1021,9 +1047,11 @@ mesures:
     explication: 'Identique à philippe-horizons/enseignants-plus-20pct : 0,2 × 793 863 × 32 800 € = 5,21 Md€. Bas : privé sous contrat et pensions induites (6,43). Haut : retour de prélèvements de 0,32 (4,72).'
   confiance: moyenne
   verification:
-    par: ajout-lisnard-2026-11-08
+    statut: ok
+    par: verificateur-2026-11-08
     date: '2026-11-08'
-    commentaire: Citation relue sur le site de Nouvelle Énergie ; paramètres de philippe-horizons/enseignants-plus-20pct ; vérification indépendante à faire.
+    commentaire: >-
+      Citation retrouvée sur la page éducation du programme. 0,2 x 793 863 x 32 800 = 5,21, bas 6,43, haut 4,72, identiques à philippe-horizons/enseignants-plus-20pct.
 - id: transmission-entreprises-exoneration
   libelle: Transmission des entreprises totalement exonérée de droits de succession (pacte Dutreil porté de 75 % à 100 %)
   domaine: fiscalite
@@ -1070,9 +1098,11 @@ mesures:
     explication: '25 points d''exonération en plus valent, par symétrie, les 25 points en moins chiffrés pour Glucksmann : 1,4 × 3,6 / 2,5 = 2,02 Md€. Pas de projection au PIB (dépense volatile). Bas : mise à l''échelle sur 2024 (5,5 Md€) : 3,08. Haut : gain du CAE non mis à l''échelle (1,4).'
   confiance: faible
   verification:
-    par: ajout-lisnard-2026-11-08
+    statut: ok
+    par: verificateur-2026-11-08
     date: '2026-11-08'
-    commentaire: Citation relue sur le site de Nouvelle Énergie ; paramètres de glucksmann-place-publique/successions-pacte-dutreil ; vérification indépendante à faire.
+    commentaire: >-
+      Citation retrouvée sur la page « questions » du parti. Lecture symétrique du Dutreil de Glucksmann : 1,4 x 3,6 / 2,5 = 2,02, paramètres identiques.
 - id: heritage-allegement-general
   libelle: « Totalement libérer l'héritage » (allègement général des droits de succession)
   domaine: fiscalite
