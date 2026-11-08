@@ -104,7 +104,7 @@ def valider(doc: dict | None = None) -> list[str]:
             if not (all(a <= b for a, b in zip(centraux, centraux[1:])) or all(a >= b for a, b in zip(centraux, centraux[1:]))):
                 erreurs.append(f"{ou} : options à ranger d'un extrême à l'autre (effet central monotone : "
                                f"{', '.join(f'{o['id']} {o['effet']['central']:+.1f}' for o in opts)}), la proximité "
-                               "mesurant l'écart en rang")
+                               "comptant l'option voisine comme un demi-accord")
             for o in opts:
                 e = o["effet"]
                 if o.get("defaut") and any(e.values()):
@@ -280,14 +280,17 @@ COMMUN_CSS = r""".gl{border-bottom:1px dotted currentColor;cursor:help;position:
 .legende{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:.75rem;margin:4px 0}.legende i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:3px}
 """
 
-ECART_JS = r"""// Écart entre deux positions sur un levier, de 0 (même position) à 1 (extrêmes opposés). Les options d'un levier
-// « choix » sont rangées d'un extrême à l'autre (règle du validateur) : l'écart est la distance en rang, rapportée au
-// nombre de crans ; un cran d'écart ne coûte qu'une fraction du point, deux positions opposées le coûtent en entier.
+ECART_JS = r"""// Écart entre deux positions sur un levier, de 0 (même position) à 1 (désaccord entier). Levier « choix » : options
+// rangées d'un extrême à l'autre (règle du validateur) ; l'option voisine vaut un demi-désaccord, toute autre option
+// (deux crans ou plus, ou l'autre option d'un levier à deux options) un désaccord entier. Des paliers plutôt qu'un écart
+// proportionnel au rang : celui-ci avantageait mécaniquement les programmes centraux face à des réponses dispersées.
+// Curseur : distance rapportée à l'amplitude.
 function ecart(l, a, b) {
   if (l.type !== "choix") return Math.abs(a - b) / (l.curseur.max - l.curseur.min);
   const ids = l.options.map(o => o.id), i = ids.indexOf(a), j = ids.indexOf(b);
-  if (i < 0 || j < 0 || ids.length < 2) return a === b ? 0 : 1;  // option inconnue (ancien lien) : tout ou rien
-  return Math.abs(i - j) / (ids.length - 1);
+  if (i < 0 || j < 0) return a === b ? 0 : 1;  // option inconnue (ancien lien) : tout ou rien
+  const d = Math.abs(i - j);
+  return d === 0 ? 0 : d === 1 && ids.length > 2 ? 0.5 : 1;
 }"""
 
 COMMUN_JS = r"""// --- Glossaire : première occurrence de chaque terme soulignée, définition au survol ou au toucher

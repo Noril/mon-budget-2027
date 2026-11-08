@@ -90,7 +90,7 @@ def valider_themes(doc: dict, leviers: dict) -> list[str]:
 ACCORD_JS = ECART_JS + r"""
 const defaut = l => l.type === "choix" ? l.options.find(o => o.defaut).id : 0;
 // Proximité avec un programme : moyenne pondérée, sur les leviers joués, de 1 − écart entre le choix du joueur et celui
-// du programme (1 = même choix, 0 = extrêmes opposés). Seuls comptent les leviers où le programme a une position ET que le joueur a vus (poids[levier] > 0) ;
+// du programme (1 = même choix, 0,5 = option voisine, 0 = plus loin). Seuls comptent les leviers où le programme a une position ET que le joueur a vus (poids[levier] > 0) ;
 // un levier non joué n'est jamais compté. Sans poids, tous les leviers du programme comptent (simulateur, partage ancien).
 function accord(c, choix, poids) {
   let s = 0, n = 0, k = 0;

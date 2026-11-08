@@ -254,8 +254,9 @@ pas pour autant meilleur. Une mesure se juge aussi sur ce qu'elle change pour le
 effets sur l'emploi, le climat, la santé ou les libertés, et sur sa faisabilité juridique et européenne. Ces critères relèvent du
 débat démocratique, pas d'un calcul. Dans le jeu, « le candidat le plus proche » compare vos décisions budgétaires aux
 siennes, et seulement celles-là. Sur chaque question, les réponses vont d'un extrême à l'autre : la même réponse vaut un
-accord complet, une réponse voisine un accord partiel, la réponse opposée aucun. Être d'accord sur quelques points et à
-l'opposé sur le reste éloigne donc davantage qu'un désaccord d'un cran.</p>
+accord complet, la réponse voisine un demi-accord, une réponse plus éloignée aucun. Être d'accord sur quelques points et à
+l'opposé sur le reste éloigne donc davantage que des désaccords d'un cran. Un accord partiel proportionnel à la distance
+avantagerait mécaniquement les programmes les plus centraux : il n'est pas retenu.</p>
 <h2 id="questions">Comment les questions sont choisies</h2>
 <p>Une question entre dans le simulateur et le jeu si elle pèse au moins 5 Md€ par an en 2032 dans au moins un programme, ou si
 au moins trois candidats s'écartent du droit actuel sur ce sujet. À l'inverse, toute mesure chiffrée d'au moins 5 Md€ a sa

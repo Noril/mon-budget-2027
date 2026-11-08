@@ -130,15 +130,19 @@ def _node(script):
 
 
 @pytest.mark.skipif(shutil.which("node") is None, reason="node absent")
-def test_ecart_gradue_selon_le_rang():
-    """Un cran d'écart coûte une fraction du point, deux extrêmes le coûtent en entier ; curseur proportionnel."""
+def test_ecart_par_paliers():
+    """Option voisine : demi-désaccord ; deux crans ou plus : désaccord entier ; levier à deux options : tout ou rien ;
+    curseur proportionnel."""
     l = {"type": "choix", "options": [{"id": x} for x in "abcde"]}
+    deux = {"type": "choix", "options": [{"id": x} for x in "ab"]}
+    trois = {"type": "choix", "options": [{"id": x} for x in "abc"]}
     cur = {"type": "curseur", "curseur": {"min": -10, "max": 10}}
     r = _node(f"""{simulateur.ECART_JS}
-        const l = {json.dumps(l)}, cur = {json.dumps(cur)};
-        console.log(JSON.stringify([ecart(l, "a", "a"), ecart(l, "a", "b"), ecart(l, "b", "d"), ecart(l, "a", "e"),
-          ecart(l, "e", "a"), ecart(l, "a", "inconnue"), ecart(l, "x", "x"), ecart(cur, -10, 10), ecart(cur, 0, 5)]));""")
-    assert r == [0, 0.25, 0.5, 1, 1, 1, 0, 1, 0.25]
+        const l = {json.dumps(l)}, deux = {json.dumps(deux)}, trois = {json.dumps(trois)}, cur = {json.dumps(cur)};
+        console.log(JSON.stringify([ecart(l, "a", "a"), ecart(l, "a", "b"), ecart(l, "d", "c"), ecart(l, "b", "d"),
+          ecart(l, "a", "e"), ecart(l, "a", "inconnue"), ecart(l, "x", "x"), ecart(deux, "a", "b"),
+          ecart(trois, "a", "b"), ecart(trois, "a", "c"), ecart(cur, -10, 10), ecart(cur, 0, 5)]));""")
+    assert r == [0, 0.5, 0.5, 1, 1, 1, 0, 1, 0.5, 1, 1, 0.25]
 
 
 @pytest.mark.skipif(shutil.which("node") is None, reason="node absent")
@@ -153,7 +157,7 @@ def test_desaccord_oppose_eloigne_plus_qu_un_cran():
     r = _node(f"""const D = {json.dumps({"leviers": leviers})};
         {jeu.ACCORD_JS}
         console.log(JSON.stringify([accord({json.dumps(oppose)}, {json.dumps(joueur)}), accord({json.dumps(voisin)}, {json.dumps(joueur)})]));""")
-    assert r[0] == {"pct": 50, "n": 4} and r[1] == {"pct": 87.5, "n": 4}
+    assert r[0] == {"pct": 50, "n": 4} and r[1] == {"pct": 75, "n": 4}
 
 
 def test_validateur_refuse_des_options_non_rangees():
