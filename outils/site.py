@@ -188,6 +188,9 @@ mot avec son lien, et son coût se recalcule à partir de barèmes publics. Cliq
 <p class="legende">Ce que chaque programme ajoute au déficit public ou en retire chaque année, une fois toutes ses mesures
 en place (2032). Scénario central, en milliards d'euros. Candidats dans l'ordre alphabétique. Le chiffrage ne juge pas
 l'opportunité des mesures, il en donne le coût.</p>
+<p class="legende">Les économies annoncées sans détail (une enveloppe de « 200 milliards d'économies » sans dire où) comptent
+zéro tant que le candidat ne les a pas détaillées ; les baisses d'impôts promises comptent en entier. C'est pourquoi un solde
+peut être très différent de celui qu'annonce le candidat. <a href="methode.html#enveloppes">Pourquoi</a></p>
 <section class="jeu" aria-labelledby="titre-jeu">
 <div class="pile" aria-hidden="true"><span></span><span></span><span></span></div>
 <div><h2 id="titre-jeu">À vous de choisir</h2><p>Une trentaine de choix sur les retraites, les impôts, les fonctionnaires ou l'énergie,
@@ -238,6 +241,12 @@ chiffre pas, c'est écrit, avec son sens probable, et la note de précision en t
 <li><b>Aucun effet de second tour</b> dans le solde : la croissance, l'emploi ou les taux invoqués par les
 candidats sont décrits, pas comptés.</li>
 <li><b>Neutralité.</b> Le chiffrage ne juge pas l'opportunité des mesures.</li>
+<li id="enveloppes"><b>Une économie compte quand elle est détaillée.</b> Une enveloppe d'économies annoncée sans mesure
+(« 200 milliards d'économies » sans dire où) compte zéro dans le scénario central, et en entier seulement dans le haut de
+la fourchette ; les économies qui visent un périmètre précis sans dire comment l'atteindre comptent au central, et pour
+moitié dans la « lecture prudente ». Les baisses d'impôts et les dépenses promises comptent en entier. La règle est la même
+pour tous : un solde peut donc s'écarter beaucoup de celui qu'annonce le candidat, et il se rapproche dès que les
+économies sont détaillées.</li>
 </ul>
 <h2 id="criteres">Le coût n'est pas le seul critère</h2>
 <p>Ce site mesure une seule dimension des programmes : leur effet sur les comptes publics. Un programme moins coûteux n'est
