@@ -328,7 +328,7 @@ def _pct(x: float | None) -> str:
 
 
 def _svg_dette(traj: dict, agregats: list[dict], couleurs: list[str] | None = None) -> str:
-    couleurs = couleurs or theme.COULEURS_CANDIDATS
+    couleurs = couleurs or [theme.couleur_programme(a["id"], i) for i, a in enumerate(agregats)]
     ref = traj["reference"]
     series = [(a["candidat"], traj["programmes"][a["id"]]["central"]) for a in agregats]
     toutes = [p["dette"] for _, s in series for p in s] + [p["dette"] for p in ref]
@@ -536,7 +536,7 @@ def programme_html(a: dict, agregats: list[dict], traj: dict) -> str:
 sa vérification.</p>
 <div class='scroll' tabindex='0' role='region' aria-label='Mesures du programme'><table><thead><tr><th>Mesure</th><th>Domaine</th><th>Effet central</th><th>Fourchette</th>
 <th>Confiance</th><th>Chiffrages tiers</th><th>Vérif.</th></tr></thead><tbody>{''.join(rows)}</tbody></table></div>
-<h2>Dette publique projetée (% du PIB)</h2>{_svg_dette(dette, [a], [theme.COULEURS_CANDIDATS[i_fichier % len(theme.COULEURS_CANDIDATS)]])}
+<h2>Dette publique projetée (% du PIB)</h2>{_svg_dette(dette, [a], [theme.couleur_programme(a['id'], i_fichier)])}
 <nav class="suite" aria-label="Autres programmes"><a href="{e(page_programme(prec['id']))}">← {e(prec['candidat'])}</a>
 <a href="rapport.html">Tous les programmes</a><a href="{e(page_programme(suiv['id']))}">{e(suiv['candidat'])} →</a></nav>""")
 

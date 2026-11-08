@@ -27,7 +27,6 @@ from .chiffrage import ANNEES, agreger, lire_programmes
 
 LEVIERS = RACINE / "chiffrage" / "simulateur.yaml"
 SORTIE = RACINE / "build" / "simulateur.html"
-COULEURS = theme.COULEURS_CANDIDATS
 TOLERANCE_REPRISE = 0.05  # Md€
 GLOSSAIRE = RACINE / "chiffrage" / "glossaire.yaml"
 # Axes de comparaison thématiques : des directions descriptives, jamais un jugement.
@@ -246,7 +245,7 @@ def donnees() -> dict:
         dette = tr.projeter(depart, hypotheses, ajust)[-1]["dette"]
         choix = choix_candidat(doc, p["id"])
         candidats.append({
-            "id": p["id"], "nom": p["candidat"], "parti": p["parti"], "couleur": COULEURS[i % len(COULEURS)],
+            "id": p["id"], "nom": p["candidat"], "parti": p["parti"], "couleur": theme.couleur_programme(p["id"], i),
             "solde": a["croisiere"]["central"], "dette2032": dette, "choix": choix,
         })
     glossaire = yaml.safe_load(GLOSSAIRE.read_text(encoding="utf-8")) if GLOSSAIRE.exists() else []

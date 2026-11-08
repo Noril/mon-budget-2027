@@ -164,7 +164,7 @@ cartes:
     levier: effectifs-publics
     texte: "Et ne remplacer que deux départs à la retraite sur trois, soit 250 000 postes en cinq ans ?"
     gauche: {libelle: "Environ 100 000 postes", option: moins-100000}
-    droite: {libelle: "250 000 postes en moins", option: moins-250000, suite: effectifs-800000}
+    droite: {libelle: "250 000 postes en moins", option: moins-250000, suite: effectifs-400000}
   - id: effectifs-creations
     suite_seulement: true
     personnage: maire-rural
@@ -172,12 +172,19 @@ cartes:
     texte: "Chez nous, l'école, les services de l'État et la gendarmerie manquent de bras. On crée des postes de proximité ?"
     gauche: {libelle: "Effectifs stables", option: stables}
     droite: {libelle: "Créer des postes", option: creations}
+  - id: effectifs-400000
+    suite_seulement: true
+    personnage: economiste
+    levier: effectifs-publics
+    texte: "Et aller jusqu'à plus de 400 000 postes en moins sur le quinquennat, en ne remplaçant pas les départs ?"
+    gauche: {libelle: "250 000 postes en moins", option: moins-250000}
+    droite: {libelle: "400 000 postes en moins", option: moins-400000, suite: effectifs-800000}
   - id: effectifs-800000
     suite_seulement: true
     personnage: patronne-pme
     levier: effectifs-publics
     texte: "Pourquoi pas ne remplacer aucun départ dans les fonctions administratives, soit 800 000 postes ?"
-    gauche: {libelle: "250 000 postes", option: moins-250000}
+    gauche: {libelle: "400 000 postes", option: moins-400000}
     droite: {libelle: "800 000 postes en moins", option: moins-800000}
 
   # 5. Santé (curseur)
@@ -245,7 +252,14 @@ cartes:
     levier: pensions
     texte: "J'ai une bonne pension, payée par les cotisations des actifs d'aujourd'hui. Une année sans revalorisation en 2028, petites retraites protégées ?"
     gauche: {libelle: "Indexation sur l'inflation", option: inflation, suite: pensions-petites}
-    droite: {libelle: "Année blanche en 2028", option: gel-2028, suite: pensions-corrections}
+    droite: {libelle: "Année blanche en 2028", option: gel-2028, suite: pensions-gel-2200}
+  - id: pensions-gel-2200
+    suite_seulement: true
+    personnage: economiste
+    levier: pensions
+    texte: "Ou plutôt geler pendant tout le quinquennat les seules pensions supérieures à 2 200 € par mois ?"
+    gauche: {libelle: "Année blanche en 2028", option: gel-2028, suite: pensions-corrections}
+    droite: {libelle: "Geler au-dessus de 2 200 €", option: gel-plus-2200}
   - id: pensions-corrections
     suite_seulement: true
     personnage: directeur-budget
@@ -696,7 +710,7 @@ cartes:
     suite_seulement: true
     personnage: etudiante
     levier: cotisations-salaries
-    texte: "Aller jusqu'à 250 € nets de plus par mois au salaire médian, comme certains le proposent ? Plus de 40 Md€ par an."
+    texte: "Aller jusqu'à 200 à 400 € nets de plus par mois, comme certains le proposent ? Plus de 40 Md€ par an."
     gauche: {libelle: "Baisse d'environ 15 Md€", option: baisse-15-md}
     droite: {libelle: "Baisse forte (plus de 40 Md€)", option: baisse-forte}
 
@@ -747,9 +761,9 @@ cartes:
     suite_seulement: true
     personnage: economiste
     levier: impots-production
-    texte: "Selon le Conseil d'analyse économique, les impôts de production pèsent plus en France que chez ses voisins. Les baisser de 50 Md€ ?"
+    texte: "Selon le Conseil d'analyse économique, les impôts de production pèsent plus en France que chez ses voisins. Les baisser de 40 à 50 Md€ ?"
     gauche: {libelle: "Supprimer C3S et CFE", option: suppression-c3s-cfe}
-    droite: {libelle: "Baisse de 50 Md€", option: baisse-50-md}
+    droite: {libelle: "Baisse de 40 à 50 Md€", option: baisse-50-md}
 
   # 28. Aides aux entreprises
   - id: aides-entreprises

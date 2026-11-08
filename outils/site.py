@@ -17,6 +17,13 @@ import yaml
 from outils import partage, theme
 
 RACINE = Path(__file__).resolve().parent.parent
+NOMBRES = {7: "Sept", 8: "Huit", 9: "Neuf", 10: "Dix", 11: "Onze", 12: "Douze"}
+
+
+def nombre_programmes() -> str:
+    """Nombre de programmes chiffrés, en lettres (« Neuf »), d'après chiffrage/programmes/."""
+    n = len(list((RACINE / "chiffrage" / "programmes").glob("*.yaml")))
+    return NOMBRES.get(n, str(n))
 BUILD = RACINE / "build"
 SORTIE = BUILD / "site"
 PAGES = {"chiffrage.html": "rapport.html", "simulateur.html": "simulateur.html", "jeu.html": "jeu.html"}
@@ -59,7 +66,7 @@ main{max-width:72rem;margin:0 auto;padding:0 16px}
 @media (prefers-color-scheme:dark){.urne{background:linear-gradient(180deg,#ffffff0d,#ffffff05);box-shadow:inset 0 0 0 6px #ffffff08}}
 .urne:before{content:"";position:absolute;top:-2px;left:50%;width:min(44%,18rem);height:12px;transform:translate(-50%,-50%);
   background:var(--encre);border-radius:6px;box-shadow:0 0 0 5px var(--bg)}
-.bulletins{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.4rem 1.2rem}
+.bulletins{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--colonnes,4),minmax(0,1fr));gap:1.4rem 1.2rem}
 @media (max-width:900px){.bulletins{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .bulletin{display:flex}.bulletin a{flex:1;display:flex;flex-direction:column;background:var(--card);color:var(--fg);text-decoration:none;border:1px solid var(--line);
   padding:1.1rem .9rem 1rem;text-align:center;box-shadow:var(--ombre);transform:rotate(var(--r));
@@ -164,7 +171,8 @@ def urne() -> str:
             f'<li class="bulletin" style="--i:{i};--r:{r:.2f}deg"><a href="programme-{html.escape(a["id"])}.html">'
             f'<span class="nom">{html.escape(a["candidat"])}</span><span class="parti">{html.escape(a["parti"])}</span>'
             f'<span class="solde {signe}">{effet_deficit(c)[0]}</span><span class="unite">{effet_deficit(c)[1]}</span></a></li>')
-    return f'<div class="urne"><ul class="bulletins">{"".join(items)}</ul></div>'
+    colonnes = 4 if len(items) % 4 == 0 or len(items) % 3 else 3  # 9 bulletins : trois rangées de trois
+    return f'<div class="urne"><ul class="bulletins" style="--colonnes:{colonnes}">{"".join(items)}</ul></div>'
 
 
 def accueil(cfg):
@@ -172,7 +180,7 @@ def accueil(cfg):
     return page("Mon budget 2027 : ce que coûteraient les programmes", f"""
 <section class="une">
 <h1>Ce que coûteraient les promesses</h1>
-<p>Huit programmes pour la présidentielle de 2027, chiffrés avec la même méthode. Chaque mesure est citée mot pour
+<p>{nombre_programmes()} programmes pour la présidentielle de 2027, chiffrés avec la même méthode. Chaque mesure est citée mot pour
 mot avec son lien, et son coût se recalcule à partir de barèmes publics. Cliquez sur un bulletin pour voir le détail.
 <span class="actions"><a class="bouton plein" href="jeu.html">Jouer : construire mon programme</a></span></p>
 </section>
@@ -332,10 +340,10 @@ d'analyse et d'information.</p></div>""", "Éditeur, hébergeur, droit de répon
 
 
 DESCRIPTIONS = {
-    "index.html": "Huit programmes pour la présidentielle 2027 chiffrés avec la même méthode, mesure par mesure, sources à l'appui.",
+    "index.html": f"{nombre_programmes()} programmes pour la présidentielle 2027 chiffrés avec la même méthode, mesure par mesure, sources à l'appui.",
     "jeu.html": "Une trentaine de dilemmes, à gauche ou à droite. À la fin, votre programme, sa facture et les candidats qui vous ressemblent.",
     "simulateur.html": "Composez votre budget 2027 décision par décision et voyez la dette bouger jusqu'en 2032.",
-    "rapport.html": "Le chiffrage des huit programmes : solde, fourchette, dette 2032, notes de précision et de confiance.",
+    "rapport.html": f"Le chiffrage des {nombre_programmes().lower()} programmes : solde, fourchette, dette 2032, notes de précision et de confiance.",
 }
 
 

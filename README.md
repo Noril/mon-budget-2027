@@ -9,7 +9,7 @@ vérifie le chiffrage, puis l'effet cumulé est projeté sur la dette publique j
 **Le site** (rapport, simulateur budgétaire, jeu du budget) est déployé sur Vercel à chaque mise à jour de `main`. Son
 adresse figure dans la description du dépôt. Tout le site se génère depuis ce dépôt.
 
-**Périmètre.** Huit candidats ou candidats pressentis (voir `chiffrage/programmes/`), droit de référence voté au
+**Périmètre.** Neuf candidats ou candidats pressentis (voir `chiffrage/programmes/`), droit de référence voté au
 29 septembre 2026. Les programmes ne sont pas tous arrêtés : chaque fichier dit d'où viennent les mesures et
 leur niveau de précision. Le chiffrage donne des ordres de grandeur comparables, pas une prévision. Les limites sont détaillées
 dans `chiffrage/README.md` et sur la page « Méthode et limites » du site.
