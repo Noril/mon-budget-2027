@@ -26,8 +26,19 @@ FACES = [
     ("Luciole", 400, "italic", "Luciole-Italic.woff2"),
 ]
 
-# Couleurs des candidats (ordre des fichiers de programme), contraste ≥ 4,5:1 sur le blanc.
+# Couleurs des candidats, contraste ≥ 4,5:1 sur le blanc. Attribuées par programme et non par rang, pour qu'un nouveau
+# programme ne change pas la couleur des autres ; un programme absent de la table prend une couleur de réserve.
 COULEURS_CANDIDATS = ["#c0392b", "#8e44ad", "#2471a3", "#117864", "#7d6608", "#a04000", "#566573", "#943126", "#1e8449", "#1f618d"]
+COULEURS_PROGRAMMES = {
+    "attal-renaissance": "#c0392b", "glucksmann-place-publique": "#8e44ad", "le-pen-rn": "#2471a3",
+    "melenchon-lfi": "#117864", "philippe-horizons": "#7d6608", "retailleau-lr": "#a04000",
+    "tondelier-ecologistes": "#566573", "zemmour-reconquete": "#943126", "lisnard-nouvelle-energie": "#1e8449",
+}
+
+
+def couleur_programme(id_programme: str, rang: int = 0) -> str:
+    """Couleur fixe d'un programme ; à défaut, couleur de réserve selon son rang dans l'ordre des fichiers."""
+    return COULEURS_PROGRAMMES.get(id_programme, COULEURS_CANDIDATS[rang % len(COULEURS_CANDIDATS)])
 
 # Directive CSP : les polices sont en data URI.
 CSP_POLICES = "font-src data:"
