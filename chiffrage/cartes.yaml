@@ -176,7 +176,7 @@ cartes:
     suite_seulement: true
     personnage: economiste
     levier: effectifs-publics
-    texte: "Et aller au-delà de 400 000 postes en moins sur le quinquennat, en ne remplaçant pas les départs ?"
+    texte: "Et aller jusqu'à plus de 400 000 postes en moins sur le quinquennat, en ne remplaçant pas les départs ?"
     gauche: {libelle: "250 000 postes en moins", option: moins-250000}
     droite: {libelle: "400 000 postes en moins", option: moins-400000, suite: effectifs-800000}
   - id: effectifs-800000
@@ -529,7 +529,7 @@ cartes:
     personnage: syndicaliste
     levier: csg
     texte: "Et la supprimer sur tous les revenus d'activité ? Plus de 100 Md€ rendus aux actifs."
-    gauche: {libelle: "Baisse de 15 à 30 Md€", option: baisse-salaires}
+    gauche: {libelle: "Baisse d'environ 15 Md€", option: baisse-salaires}
     droite: {libelle: "Suppression sur l'activité", option: suppression-activite}
 
   # 19. Transition écologique (curseur)

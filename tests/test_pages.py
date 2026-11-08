@@ -252,7 +252,9 @@ def test_couleurs_contraste_aa():
     """Pastilles des candidats (texte blanc) et noms des personnages (sur fond blanc) : WCAG AA, 4,5:1."""
     import yaml
     persos = yaml.safe_load((simulateur.RACINE / "chiffrage" / "cartes.yaml").read_text(encoding="utf-8"))["personnages"]
-    couleurs = list(simulateur.COULEURS) + [p["couleur"] for p in persos]
+    from outils import theme
+    couleurs = theme.COULEURS_CANDIDATS + list(theme.COULEURS_PROGRAMMES.values()) + [p["couleur"] for p in persos]
     faibles = {c: round(_contraste_blanc(c), 2) for c in couleurs if _contraste_blanc(c) < 4.5}
     assert not faibles
-    assert len(set(simulateur.COULEURS)) == len(simulateur.COULEURS)
+    assert len(set(theme.COULEURS_CANDIDATS)) == len(theme.COULEURS_CANDIDATS)
+    assert len(set(theme.COULEURS_PROGRAMMES.values())) == len(theme.COULEURS_PROGRAMMES)

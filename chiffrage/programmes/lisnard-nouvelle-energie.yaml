@@ -130,7 +130,7 @@ mesures:
   effet_solde_primaire:
     central: 0.0
     bas: 0.0
-    haut: 170.44
+    haut: 169.22
     montee_en_charge:
       '2027': 0
       '2028': 0.4
@@ -147,15 +147,15 @@ mesures:
         source: https://www.unenouvelleenergie.fr/david-lisnard-sur-cnews-et-europe-1-je-ne-suis-pas-candidat-pour-un-poste-je-viens-pour-redresser-le-pays/
         note: « 200 milliards d’euros à l’horizon 2032 » ; objectif de 300 Md€ non documenté selon le candidat
       deja_compte:
-        valeur: 29.56
+        valeur: 30.78
         unite: Md€
         source: chiffrage/programmes/lisnard-nouvelle-energie.yaml
         note: 'somme des centraux des économies de dépense chiffrées dans ce fichier : suppressions-postes-400000 (8,93),
-          gel-pensions-plus-2200 (11,03), retraites-age-65-ans (4,75), prestations-non-contributives-5-ans (3,23),
+          gel-pensions-plus-2200 (12,25), retraites-age-65-ans (4,75), prestations-non-contributives-5-ans (3,23),
           ame-aide-urgence (0,87), suppression-ars (0,75)'
     explication: >-
-      Règle 6 : central = 0, les économies documentées étant comptées dans leurs lignes (29,56 Md€) ; haut = 200 −
-      29,56 = 170,44 Md€, écart d'affichage non documenté ; bas = 0. Montée en charge au rythme annoncé : 80 Md€ la
+      Règle 6 : central = 0, les économies documentées étant comptées dans leurs lignes (30,78 Md€) ; haut = 200 −
+      30,78 = 169,22 Md€, écart d'affichage non documenté ; bas = 0. Montée en charge au rythme annoncé : 80 Md€ la
       première année (budget 2028), 200 Md€ en 2032. L'objectif de 300 Md€ n'est pas retenu (non documenté selon le
       candidat lui-même).
   chiffrages_tiers:
@@ -169,7 +169,7 @@ mesures:
     par: verificateur-2026-11-08
     date: '2026-11-08'
     commentaire: >-
-      Citation retrouvée mot pour mot sur la page du parti (compte rendu de l'émission du 27/10/2026, propos rapportés à la 3e personne). Règle 6 appliquée comme pour Retailleau/Zemmour : central 0, haut 200 - 29,56 = 170,44 ; deja_compte (8,93 + 11,03 + 4,75 + 3,23 + 0,87 + 0,75) = 29,56 relu.
+      Citation retrouvée mot pour mot sur la page du parti (compte rendu de l'émission du 27/10/2026, propos rapportés à la 3e personne). Règle 6 appliquée comme pour Retailleau/Zemmour : central 0, haut 200 - 30,78 = 169,22 ; deja_compte (8,93 + 12,25 + 4,75 + 3,23 + 0,87 + 0,75) = 30,78 relu.
 - id: csg-activite-9-2-a-6-6
   libelle: Baisser la CSG sur les revenus d'activité de 9,2 % à 6,6 % (alignement sur le taux des retraités)
   domaine: fiscalite
@@ -570,18 +570,18 @@ mesures:
   precision: partielle
   interpretation: >-
     Le compte rendu du parti confirme (« Ne pas revaloriser, à titre d’exemple, les pensions de retraite supérieures
-    à 2 200 euros. », 28 octobre 2026) ; seuil de 2 000 € jusqu'en 2025 (« Il va falloir, sur les retraites à
-    partir au moins de deux mille euros, ne plus indexer les retraites pour arriver à faire une transition », Le
-    Crayon, 11 octobre 2026). Lecture : pensions totales supérieures à 2 200 € bruts non revalorisées de 2028 à 2032
+    à 2 200 euros. », 28 octobre 2026) ; seuil de 2 000 € de novembre 2025 (entretien vidéo, 29 novembre 2025) au 11 octobre 2026 (« Il va
+    falloir, sur les retraites à partir au moins de deux mille euros, ne plus indexer les retraites pour arriver à
+    faire une transition », Le Crayon), porté à 2 200 € le 27 octobre 2026. Lecture : pensions totales supérieures à 2 200 € bruts non revalorisées de 2028 à 2032
     (« pour arriver à faire une transition »), pensions inférieures indexées. Levier direct de la loi : régimes de
     base (comme l'année blanche d'Attal) ; les complémentaires dans le haut. Le produit est affecté à la baisse de la
-    CSG (Planet.fr) ou à l'amorçage de la capitalisation (2025) : les deux emplois sont chiffrés dans leurs lignes.
+    CSG (Planet.fr) ou à l'amorçage de la capitalisation (entretien vidéo, 29 novembre 2025) : les deux emplois sont chiffrés dans leurs lignes.
   chiffrable: true
   nature: economie
   effet_solde_primaire:
-    central: 11.03
-    bas: 2.15
-    haut: 20.21
+    central: 12.25
+    bas: 2.45
+    haut: 22.05
     montee_en_charge:
       '2027': 0
       '2028': 0.21
@@ -598,16 +598,16 @@ mesures:
         unite: Md€ 2032 par point de revalorisation (régimes de base)
         note: borne basse du barème (régimes de base, seul levier direct de la loi), comme attal-renaissance/annee-blanche-2028
       part:
-        valeur: 0.45
+        valeur: 0.5
         unite: part de la masse des pensions versée aux retraités dont la pension totale dépasse 2 200 € bruts
         source: https://data.drees.solidarites-sante.gouv.fr/api/explore/v2.1/catalog/datasets/4178_distribution-des-pensions-mensuelles/attachments/eir2020_distribution_des_pensions_mensuelles_xlsx
         note: 'convention (fichier DREES non téléchargeable le 8 novembre 2026) : 2 200 € de 2026 ≈ 1 900 € de 2020
           ; points de la DREES (EIR 2020) : 36,1 % des retraités sous 1 200 € pour 15,4 % de la masse (barème
           pensions_part_masse_sous_1200), 8 % au-dessus de 3 000 € ; un ajustement log-normal sur ces deux points
-          donne ≈ 0,50 de la masse au-dessus de 1 900 € et ≈ 0,44 au-dessus de 2 050 € (seuil lu en net). Recoupement
+          donne ≈ 0,50 de la masse au-dessus de 1 900 € (seuil lu en brut, comme les montants de la DREES). Recoupement
           : le gel du PLFSS 2027 au-dessus de 1 281 € rapporterait 4 Md€ contre 6 Md€ pour l''indexation de toutes
-          les pensions (Public Sénat, 13 octobre 2026), soit ≈ 0,67 de la masse au-dessus de 1 281 €. Retenu 0,45 ;
-          bas 0,35, haut 0,55'
+          les pensions (Public Sénat, 13 octobre 2026), soit ≈ 0,67 de la masse au-dessus de 1 281 €. Retenu 0,50 ;
+          bas 0,40, haut 0,60'
       cumul:
         valeur: 9.59
         bareme: inflation_cumulee_2027_2032
@@ -619,10 +619,10 @@ mesures:
         unite: part de la revalorisation brute qui revient aux APU
         note: 'haut du barème : pensions élevées (convention commune 3)'
     explication: >-
-      Masse des pensions de base 2032 (350 Md€ = 3,5 Md€ par point) × 45 % au-dessus du seuil × perte de niveau
-      après cinq revalorisations évitées (1 − 1/1,0959 = 8,75 %) × (1 − 0,20) = 11,03 Md€ en 2032. Bas : un seul
-      gel (2028, inflation 2027 de 2,24 %, barème inflation_ipc_2027), part 0,35 : 350 × 0,35 × 2,19 % × 0,8 = 2,15.
-      Haut : complémentaires comprises (5,0 Md€ par point), part 0,55, retour 0,16 : 20,21. Montée : perte de niveau
+      Masse des pensions de base 2032 (350 Md€ = 3,5 Md€ par point) × 50 % au-dessus du seuil (brut) × perte de
+      niveau après cinq revalorisations évitées (1 − 1/1,0959 = 8,75 %) × (1 − 0,20) = 12,25 Md€ en 2032. Bas : un seul
+      gel (2028, inflation 2027 de 2,24 %, barème inflation_ipc_2027), part 0,40 : 350 × 0,40 × 2,19 % × 0,8 = 2,45.
+      Haut : complémentaires comprises (5,0 Md€ par point), part 0,60, retour 0,16 : 22,05. Montée : perte de niveau
       cumulée année par année. Les nouvelles pensions liquidées et le franchissement du seuil ne sont pas modélisés.
   chiffrages_tiers:
   - auteur: Équipe du candidat, selon Planet.fr
@@ -635,7 +635,7 @@ mesures:
     par: verificateur-2026-11-08
     date: '2026-11-08'
     commentaire: >-
-      Citation retrouvée sur Planet.fr (propos du candidat entre guillemets). Rejoué : 350 x 0,45 x (1 - 1/1,0959) x 0,8 = 11,03. Convention 0,45 jugée plausible : la DREES (EIR 2016) donne 75 % des retraités sous 2 067 EUR bruts, soit un quart au-dessus en effectifs, et le haut de la distribution pèse davantage dans la masse (0,35 à 0,55 retenu en fourchette) ; fichier EIR 2020 non téléchargeable, pas de chiffre direct de masse trouvé. Retour 0,20 = haut du barème (pensions élevées), cohérent avec attal-renaissance (bas).
+      Citation retrouvée sur Planet.fr (propos du candidat entre guillemets). Rejoué : 350 x 0,50 x (1 - 1/1,0959) x 0,8 = 12,25 (seuil lu en brut, harmonisé le 8 novembre 2026). Convention 0,50 jugée plausible : la DREES (EIR 2016) donne 75 % des retraités sous 2 067 EUR bruts, soit un quart au-dessus en effectifs, et le haut de la distribution pèse davantage dans la masse (0,40 à 0,60 retenu en fourchette) ; fichier EIR 2020 non téléchargeable, pas de chiffre direct de masse trouvé. Retour 0,20 = haut du barème (pensions élevées), cohérent avec attal-renaissance (bas).
 - id: capitalisation-obligatoire-collective
   libelle: Étage de retraite par capitalisation obligatoire et collective (un tiers des pensions à terme)
   domaine: retraites

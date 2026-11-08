@@ -29,8 +29,6 @@ LEVIERS = RACINE / "chiffrage" / "simulateur.yaml"
 SORTIE = RACINE / "build" / "simulateur.html"
 TOLERANCE_REPRISE = 0.05  # Md€
 GLOSSAIRE = RACINE / "chiffrage" / "glossaire.yaml"
-COULEURS = theme.COULEURS_CANDIDATS
-
 # Axes de comparaison thématiques : des directions descriptives, jamais un jugement.
 AXES = {
     "protection-sociale": ("Protection sociale", "prestations et retraites moins généreuses", "plus généreuses"),

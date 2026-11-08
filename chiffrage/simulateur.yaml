@@ -164,13 +164,13 @@ leviers:
       '2032': 1.0
   - axes:
       protection-sociale: -1
-    calcul: Chiffrage Lisnard repris. [Recalé le 2026-11-08 sur le chiffrage de lisnard-nouvelle-energie.]
+    calcul: Chiffrage Lisnard repris (seuil de 2 200 € lu en brut). [Recalé le 2026-11-08 sur le chiffrage de lisnard-nouvelle-energie.]
     candidats:
     - lisnard-nouvelle-energie
     effet:
-      central: 11.03
-      bas: 2.15
-      haut: 20.21
+      central: 12.25
+      bas: 2.45
+      haut: 22.05
     id: gel-plus-2200
     libelle: Geler pendant le quinquennat les pensions supérieures à 2 200 € par mois
     montee:
@@ -467,7 +467,7 @@ leviers:
       '2031': 1.0
       '2032': 1.0
   - id: baisse-salaires
-    libelle: La baisser sur les salaires ou les revenus d'activité (15 à 30 Md€ rendus)
+    libelle: La baisser sur les salaires ou les revenus d'activité (environ 15 Md€ rendus)
     effet:
       central: -15.02
       bas: -15.38

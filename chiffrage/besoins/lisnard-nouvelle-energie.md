@@ -8,7 +8,7 @@ Ce fichier recense les coûts unitaires et les paramètres dont le chiffrage du 
 - Rendement 2026-2032 des impôts de production autres que la C3S et la CVAE (CFE, taxe foncière des entreprises, versement mobilité, taxe sur les salaires) : pistes CPO, Voies et moyens, FIPECO. → `impots-production-40md`
 
 ## Retraites
-- Distribution de la masse des pensions par tranche de pension totale (DREES, EIR 2020 ou plus récent), au-dessus de 2 000 et 2 200 € : fichier DREES inaccessible le 8 novembre 2026 ; paramètre `part` (0,45) fixé par convention et à recouper. Pourrait devenir un barème commun (`pensions_part_masse_au_dessus_2200`). → `gel-pensions-plus-2200`
+- Distribution de la masse des pensions par tranche de pension totale (DREES, EIR 2020 ou plus récent), au-dessus de 2 000 et 2 200 € : fichier DREES inaccessible le 8 novembre 2026 ; paramètre `part` (0,50, seuil lu en brut) fixé par convention et à recouper. Pourrait devenir un barème commun (`pensions_part_masse_au_dessus_2200`). → `gel-pensions-plus-2200`
 - Coût d'amorçage d'un étage de capitalisation obligatoire (un tiers des pensions à terme) : pistes COR, Institut Molinari (cité par le candidat), rapports sur les fonds de pension. → `capitalisation-obligatoire-collective`
 
 ## État, effectifs, santé
@@ -26,6 +26,6 @@ Ce fichier recense les coûts unitaires et les paramètres dont le chiffrage du 
 
 | Paramètre | Valeur utilisée | Statut dans `baremes.yaml` et source |
 |---|---|---|
-| `part` (masse des pensions au-dessus de 2 200 €) | 0,45 (0,35 à 0,55) | Non inscrit ; convention à partir de la DREES (EIR 2020) et du PLFSS 2027 ([Public Sénat](https://www.publicsenat.fr/actualites/politique/gel-des-retraites-au-dela-de-1280-euros-un-effort-necessaire-pour-ne-pas-creer-de-fracture-generationnelle-justifie-le-ministre-david-amiel)) |
+| `part` (masse des pensions au-dessus de 2 200 €) | 0,50 (0,40 à 0,60), seuil en brut | Non inscrit ; convention à partir de la DREES (EIR 2020) et du PLFSS 2027 ([Public Sénat](https://www.publicsenat.fr/actualites/politique/gel-des-retraites-au-dela-de-1280-euros-un-effort-necessaire-pour-ne-pas-creer-de-fracture-generationnelle-justifie-le-ministre-david-amiel)) |
 | `subvention` (ARS) | 0,627 Md€ (PLF 2026) | Non inscrit, même paramètre que Reconquête ; [Sénat](https://www.senat.fr/rap/l25-139-331/l25-139-331_mono.html) |
 | `gain_cae`, `depense_cae` (pacte Dutreil) | 1,4 et 2,5 Md€ (2018-2019) | Non inscrits, mêmes paramètres que Glucksmann ; [CAE, note n° 69](https://www.cae-eco.fr/staticfiles/pdf/cae-note069.pdf) |
