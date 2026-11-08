@@ -141,6 +141,26 @@ leviers:
     calcul: Chiffrage RN repris ; annonce sans mesure détaillée, d'où le bas à 0.
     candidats:
     - le-pen-rn
+  - axes:
+      protection-sociale: -1
+    calcul: Chiffrage Lisnard repris (seuil de 2 200 € lu en brut). [Recalé le 2026-11-08 sur le chiffrage de lisnard-nouvelle-energie.]
+    candidats:
+    - lisnard-nouvelle-energie
+    effet:
+      central: 12.25
+      bas: 2.45
+      haut: 22.05
+    id: gel-plus-2200
+    libelle: Geler pendant le quinquennat les pensions supérieures à 2 200 € par mois
+    montee:
+      '2027': 0.0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
+      '2032': 1.0
+    reprend:
+    - lisnard-nouvelle-energie/gel-pensions-plus-2200
   - id: gel-2028
     libelle: Une année sans revalorisation en 2028 (petites retraites protégées), étendue aux autres prestations
     axes:
@@ -162,26 +182,6 @@ leviers:
       '2030': 1.0
       '2031': 1.0
       '2032': 1.0
-  - axes:
-      protection-sociale: -1
-    calcul: Chiffrage Lisnard repris (seuil de 2 200 € lu en brut). [Recalé le 2026-11-08 sur le chiffrage de lisnard-nouvelle-energie.]
-    candidats:
-    - lisnard-nouvelle-energie
-    effet:
-      central: 12.25
-      bas: 2.45
-      haut: 22.05
-    id: gel-plus-2200
-    libelle: Geler pendant le quinquennat les pensions supérieures à 2 200 € par mois
-    montee:
-      '2027': 0.0
-      '2028': 0.2
-      '2029': 0.4
-      '2030': 0.6
-      '2031': 0.8
-      '2032': 1.0
-    reprend:
-    - lisnard-nouvelle-energie/gel-pensions-plus-2200
   - id: inflation
     libelle: Sur l'inflation (droit en vigueur)
     defaut: true
@@ -1036,27 +1036,6 @@ leviers:
       '2030': 1.0
       '2031': 1.0
       '2032': 1.0
-  - id: pfu-plus-3
-    libelle: Prélèvement forfaitaire et CSG sur le capital relevés de 3 points, taxe sur les transactions renforcée
-    axes:
-      imposition-hauts-revenus-patrimoine: 2
-    effet:
-      central: 11.42
-      bas: 7.37
-      haut: 11.7
-    reprend:
-    - tondelier-ecologistes/pfu-csg-capital-ttf
-    calcul: Chiffrage Tondelier repris. [Recalé le 2026-09-29 sur le chiffrage de tondelier-ecologistes.] [Recalé le 2026-11-02
-      sur le chiffrage de tondelier-ecologistes.]
-    candidats:
-    - tondelier-ecologistes
-    montee:
-      '2027': 0.0
-      '2028': 1.0
-      '2029': 1.0
-      '2030': 1.0
-      '2031': 1.0
-      '2032': 1.0
   - id: bareme-et-taxes
     libelle: Imposition au barème, taxe sur les dividendes et les rachats d'actions, taxe sur les transactions renforcée
     axes:
@@ -1072,6 +1051,27 @@ leviers:
     calcul: Somme des trois mesures LFI. [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.]
     candidats:
     - melenchon-lfi
+    montee:
+      '2027': 0.0
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
+  - id: pfu-plus-3
+    libelle: Prélèvement forfaitaire et CSG sur le capital relevés de 3 points, taxe sur les transactions renforcée
+    axes:
+      imposition-hauts-revenus-patrimoine: 2
+    effet:
+      central: 11.42
+      bas: 7.37
+      haut: 11.7
+    reprend:
+    - tondelier-ecologistes/pfu-csg-capital-ttf
+    calcul: Chiffrage Tondelier repris. [Recalé le 2026-09-29 sur le chiffrage de tondelier-ecologistes.] [Recalé le 2026-11-02
+      sur le chiffrage de tondelier-ecologistes.]
+    candidats:
+    - tondelier-ecologistes
     montee:
       '2027': 0.0
       '2028': 1.0

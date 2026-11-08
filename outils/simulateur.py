@@ -100,6 +100,11 @@ def valider(doc: dict | None = None) -> list[str]:
                 erreurs.append(f"{ou} : un levier « choix » demande au moins deux options")
             if sum(bool(o.get("defaut")) for o in opts) != 1:
                 erreurs.append(f"{ou} : une et une seule option par défaut (droit constant)")
+            centraux = [o["effet"]["central"] for o in opts]
+            if not (all(a <= b for a, b in zip(centraux, centraux[1:])) or all(a >= b for a, b in zip(centraux, centraux[1:]))):
+                erreurs.append(f"{ou} : options à ranger d'un extrême à l'autre (effet central monotone : "
+                               f"{', '.join(f'{o['id']} {o['effet']['central']:+.1f}' for o in opts)}), la proximité "
+                               "mesurant l'écart en rang")
             for o in opts:
                 e = o["effet"]
                 if o.get("defaut") and any(e.values()):
@@ -275,6 +280,16 @@ COMMUN_CSS = r""".gl{border-bottom:1px dotted currentColor;cursor:help;position:
 .legende{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:.75rem;margin:4px 0}.legende i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:3px}
 """
 
+ECART_JS = r"""// Écart entre deux positions sur un levier, de 0 (même position) à 1 (extrêmes opposés). Les options d'un levier
+// « choix » sont rangées d'un extrême à l'autre (règle du validateur) : l'écart est la distance en rang, rapportée au
+// nombre de crans ; un cran d'écart ne coûte qu'une fraction du point, deux positions opposées le coûtent en entier.
+function ecart(l, a, b) {
+  if (l.type !== "choix") return Math.abs(a - b) / (l.curseur.max - l.curseur.min);
+  const ids = l.options.map(o => o.id), i = ids.indexOf(a), j = ids.indexOf(b);
+  if (i < 0 || j < 0 || ids.length < 2) return a === b ? 0 : 1;  // option inconnue (ancien lien) : tout ou rien
+  return Math.abs(i - j) / (ids.length - 1);
+}"""
+
 COMMUN_JS = r"""// --- Glossaire : première occurrence de chaque terme soulignée, définition au survol ou au toucher
 const GL = (D.glossaire || []).flatMap(g => [g.terme, ...(g.variantes || [])].map(f => ({f, g})))
   .sort((a, b) => b.f.length - a.f.length);
@@ -425,13 +440,13 @@ function calculer() {
   }
   return {tot, serie: projeter(par_annee)};
 }
+__ECART_JS__
 function accord(c) {
   let s = 0, n = 0;
   for (const l of D.leviers) {
     if (!(l.id in c.choix)) continue;
     n++;
-    if (l.type === "choix") s += c.choix[l.id] === etat[l.id] ? 1 : 0;
-    else s += 1 - Math.abs(c.choix[l.id] - etat[l.id]) / (l.curseur.max - l.curseur.min);
+    s += 1 - ecart(l, c.choix[l.id], etat[l.id]);
   }
   return n ? {pct: 100 * s / n, n} : {pct: 0, n: 0};
 }
@@ -539,7 +554,8 @@ charger(initial);
 
 def rendre(d: dict) -> str:
     return remplir(PAGE, THEME=theme.style(), ENTETE=theme.entete("simulateur.html"), PIED=theme.pied(d["genere"]),
-                   COMMUN_JS=COMMUN_JS, COMMUN_CSS=COMMUN_CSS, DONNEES=json_pour_script(d), GENERE=d["genere"])
+                   COMMUN_JS=COMMUN_JS, ECART_JS=ECART_JS, COMMUN_CSS=COMMUN_CSS, DONNEES=json_pour_script(d),
+                   GENERE=d["genere"])
 
 
 def main(argv: list[str] | None = None) -> int:

@@ -18,7 +18,7 @@ import yaml
 from outils import theme
 from pipelines.commun import RACINE
 
-from .simulateur import COMMUN_CSS, COMMUN_JS, donnees, json_pour_script, lire_leviers, remplir
+from .simulateur import COMMUN_CSS, COMMUN_JS, ECART_JS, donnees, json_pour_script, lire_leviers, remplir
 
 CARTES = RACINE / "chiffrage" / "cartes.yaml"
 MIN_QUESTIONS_THEME = 2
@@ -87,9 +87,10 @@ def valider_themes(doc: dict, leviers: dict) -> list[str]:
     return erreurs
 
 
-ACCORD_JS = r"""const defaut = l => l.type === "choix" ? l.options.find(o => o.defaut).id : 0;
-// Proximité avec un programme : part pondérée des leviers joués sur lesquels le joueur fait le même choix que le
-// programme. Seuls comptent les leviers où le programme a une position ET que le joueur a vus (poids[levier] > 0) ;
+ACCORD_JS = ECART_JS + r"""
+const defaut = l => l.type === "choix" ? l.options.find(o => o.defaut).id : 0;
+// Proximité avec un programme : moyenne pondérée, sur les leviers joués, de 1 − écart entre le choix du joueur et celui
+// du programme (1 = même choix, 0 = extrêmes opposés). Seuls comptent les leviers où le programme a une position ET que le joueur a vus (poids[levier] > 0) ;
 // un levier non joué n'est jamais compté. Sans poids, tous les leviers du programme comptent (simulateur, partage ancien).
 function accord(c, choix, poids) {
   let s = 0, n = 0, k = 0;
@@ -97,7 +98,7 @@ function accord(c, choix, poids) {
     if (!(l.id in c.choix)) continue;
     const w = poids ? (poids[l.id] || 0) : 1; if (!w) continue;
     const v = choix[l.id] ?? defaut(l); n++; k += w;
-    s += w * (l.type === "choix" ? (c.choix[l.id] === v ? 1 : 0) : 1 - Math.abs(c.choix[l.id] - v) / (l.curseur.max - l.curseur.min));
+    s += w * (1 - ecart(l, c.choix[l.id], v));
   }
   return {pct: k ? 100 * s / k : 0, n};
 }"""
