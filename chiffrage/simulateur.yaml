@@ -213,27 +213,26 @@ leviers:
       '2031': 0.8
       '2032': 1.0
   - id: salaires-et-minimum-smic
-    libelle: Indexation sur les salaires et pension minimale au niveau du Smic pour une carrière complète
+    libelle: Pension minimale au niveau du Smic pour une carrière complète, minimum vieillesse au seuil de pauvreté
     axes:
       protection-sociale: 2
     effet:
-      central: -29.92
-      bas: -50.45
-      haut: -19.21
+      central: -16.69
+      bas: -29.45
+      haut: -9.95
     reprend:
-    - melenchon-lfi/indexation-pensions-salaires
     - melenchon-lfi/pension-minimale-smic
     - melenchon-lfi/minimum-vieillesse-seuil-pauvrete
-    calcul: 'Somme des trois mesures LFI : indexation sur les salaires, pension minimale au Smic, Aspa au seuil de pauvreté.
-      [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.] [Recalé le 2026-11-02 sur le chiffrage de melenchon-lfi.]'
+    calcul: 'Somme des deux mesures LFI : pension minimale au Smic, Aspa au seuil de pauvreté (l''indexation sur les salaires,
+      retirée de L''Avenir en commun 2026, n''est plus reprise). [Recalé le 2026-11-11 sur le chiffrage de melenchon-lfi.]'
     candidats:
     - melenchon-lfi
     montee:
       '2027': 0.0
-      '2028': 0.62
-      '2029': 0.71
-      '2030': 0.81
-      '2031': 0.9
+      '2028': 1.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
       '2032': 1.0
 - id: point-indice
   theme: Fonction publique
@@ -595,27 +594,6 @@ leviers:
       '2029': 0.4
       '2030': 0.6
       '2031': 0.8
-      '2032': 1.0
-  - id: hausse-forte
-    libelle: Cotisation vieillesse relevée de 0,25 point par an et étendue aux dividendes et à l'intéressement
-    axes:
-      imposition-hauts-revenus-patrimoine: 1
-    effet:
-      central: 19.77
-      bas: 15.87
-      haut: 23.43
-    reprend:
-    - melenchon-lfi/hausse-cotisation-vieillesse
-    calcul: Chiffrage LFI repris. [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.] [Recalé le 2026-11-02 sur le chiffrage
-      de melenchon-lfi.]
-    candidats:
-    - melenchon-lfi
-    montee:
-      '2027': 0.0
-      '2028': 0.58
-      '2029': 0.69
-      '2030': 0.79
-      '2031': 0.9
       '2032': 1.0
 - id: heures-supplementaires
   theme: Fiscalité des ménages
@@ -1645,14 +1623,14 @@ leviers:
     axes:
       protection-sociale: 2
     effet:
-      central: -54.81
-      bas: -73.84
-      haut: -31.1
+      central: -54.7
+      bas: -73.64
+      haut: -32.83
     reprend:
     - melenchon-lfi/garantie-autonomie
     - melenchon-lfi/aah-smic
     calcul: Somme des deux mesures LFI. [Recalé le 2026-09-29 sur le chiffrage de melenchon-lfi.] [Recalé le 2026-11-02 sur
-      le chiffrage de melenchon-lfi.]
+      le chiffrage de melenchon-lfi.] [Recalé le 2026-11-11 sur le chiffrage de melenchon-lfi.]
     candidats:
     - melenchon-lfi
     montee:
@@ -2230,7 +2208,8 @@ leviers:
   theme: Santé
   question: Combien de dépenses de santé et de dépendance en plus (ou en moins) par rapport à aujourd'hui ?
   aide: Pour comparer, un point de CSG sur toutes les assiettes rapporte environ 17,9 Md€. Remboursement intégral, franchises,
-    recrutements de soignants et économies de gestion passent par ce curseur.
+    recrutements de soignants, indemnités journalières (arrêts maladie, congés d'accueil de l'enfant) et économies de gestion
+    passent par ce curseur.
   type: curseur
   axe: depenses
   axes:
@@ -2238,13 +2217,13 @@ leviers:
     protection-sociale: 1
   curseur:
     min: -10
-    max: 50
+    max: 80
     pas: 0.5
     unite: Md€
     md_par_unite: 1
     positions:
-      melenchon-lfi: 45.58
-      tondelier-ecologistes: 3.22
+      melenchon-lfi: 69.69
+      tondelier-ecologistes: 7.52
       le-pen-rn: -1.19
       zemmour-reconquete: -0.75
     reprend:
@@ -2255,9 +2234,12 @@ leviers:
       - franchises-medicales
       - centres-sante-deserts
       - dependance-ehpad-publics
+      - arret-maladie-100-pct
+      - conge-accueil-20-semaines
       tondelier-ecologistes:
       - sante-remboursement-100pct-franchises
       - sante-scolaire-plan-urgence
+      - conges-parentalite-egaux
       le-pen-rn:
       - sante-medicaments-unite-ald
       zemmour-reconquete:
@@ -2345,7 +2327,7 @@ leviers:
     unite: Md€
     md_par_unite: 1
     positions:
-      melenchon-lfi: 40.38
+      melenchon-lfi: 12.66
       tondelier-ecologistes: 1.92
       philippe-horizons: 0.7
       le-pen-rn: -3.0

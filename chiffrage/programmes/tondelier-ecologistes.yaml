@@ -2093,8 +2093,8 @@ mesures:
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -4.03
-    bas: -4.03
+    central: -4.3
+    bas: -4.3
     haut: -3.13
     montee_en_charge:
       '2027': 0
@@ -2104,7 +2104,7 @@ mesures:
       '2031': 1
       '2032': 1
   calcul:
-    formule: -cout_14_jours / 14 * jours_supplementaires * facteur23
+    formule: -cout_14_jours / 14 * jours_supplementaires * facteur22
     parametres:
       cout_14_jours:
         valeur: 0.522
@@ -2118,11 +2118,11 @@ mesures:
         source: >-
           https://web.archive.org/web/20260716153820/https://lesecologistes.fr/document/5ZhR2m5t2ZaGKqIdD1bJaD/vdef-programme-1.pdf
         note: 16 semaines (112 jours) contre 28 jours aujourd'hui
-      facteur23:
-        valeur: 1.2852
+      facteur22:
+        valeur: 1.3723
         unite: facteur
-        bareme: facteur_pib_2023_2032
-        note: PIB nominal 2023→2032
+        bareme: facteur_pib_2022_2032
+        note: PIB nominal 2022→2032 (coût du barème daté 2022)
     explication: >-
       Alignement du congé du second parent sur 16 semaines : coût par jour de l'allongement de 2021 × 84 jours, projeté
       en 2032 (haut : non projeté).
@@ -2137,6 +2137,7 @@ mesures:
       de naissance à 80 % sur trois mois ne sont pas comptés (minorant, signalé).
       Recalé sur les conventions communes du 29/09 : paramètres recopiés remplacés par le renvoi au barème facteur_pib_2023_2032 ; valeur inchangée.
       Recalé sur le FMI WEO d'octobre 2026 : central −4 → −4,03 (bas −4 → −4,03).
+      Corrigé le 11/11/2026 (vérification croisée avec melenchon-lfi/conge-accueil-20-semaines, verificateur-sonnet) : le coût du barème est daté 2022, projeté avec facteur_pib_2022_2032 (1,3723) au lieu de facteur_pib_2023_2032 : central et bas −4,03 → −4,30 ; haut (non projeté) inchangé.
 - id: etudiants-bourses-cvec-logement
   libelle: >-
     Bourses revalorisées et refondues, suppression de la CVEC, 150 000 logements étudiants et FJT, repas à 1 €

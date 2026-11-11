@@ -278,9 +278,9 @@ cartes:
     suite_seulement: true
     personnage: syndicaliste
     levier: pensions
-    texte: "Et indexer toutes les pensions sur les salaires, avec une pension minimale au Smic pour une carrière complète ?"
+    texte: "Et porter toutes les pensions d'une carrière complète au niveau du Smic ?"
     gauche: {libelle: "Petites pensions seulement", option: petites-pensions}
-    droite: {libelle: "Indexer sur les salaires", option: salaires-et-minimum-smic}
+    droite: {libelle: "Pension minimale au Smic", option: salaires-et-minimum-smic}
 
   # 9. Successions
   - id: successions
@@ -691,14 +691,7 @@ cartes:
     levier: cotisations-salaries
     texte: "Pour financer les retraites, on étend les cotisations vieillesse à l'épargne salariale, avec un point déplafonné en plus ?"
     gauche: {libelle: "Cotisations inchangées", option: inchangees, suite: cotisations-salaries-baisse}
-    droite: {libelle: "Cotisations élargies", option: hausse-ciblee, suite: cotisations-salaries-hausse-forte}
-  - id: cotisations-salaries-hausse-forte
-    suite_seulement: true
-    personnage: retraitee
-    levier: cotisations-salaries
-    texte: "Et relever la cotisation vieillesse de 0,25 point par an, en l'étendant aux dividendes et à l'intéressement ?"
-    gauche: {libelle: "Élargissement seul", option: hausse-ciblee}
-    droite: {libelle: "+0,25 point par an", option: hausse-forte}
+    droite: {libelle: "Cotisations élargies", option: hausse-ciblee}
   - id: cotisations-salaries-baisse
     suite_seulement: true
     personnage: patronne-pme
