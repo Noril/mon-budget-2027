@@ -3,11 +3,11 @@ candidat: Éric Zemmour
 parti: Reconquête
 statut_candidature: >-
   Candidat annoncé : « Je suis candidat à la présidence de la République, je serai candidat à l'élection présidentielle
-  » (Face à BFM, BFMTV, 17 septembre 2026) ; déclaration formelle attendue à l'automne 2026 (octobre selon son entourage).
+  » (Face à BFM, BFMTV, 17 septembre 2026) ; candidature confirmée au 20 heures de TF1 le 10 novembre 2026.
   Au 7 octobre 2026, il « n'a pas encore officialisé sa candidature » (AFP) ; LCP (24 septembre) considère en revanche
   qu'il l'a officialisée sur BFMTV le 17 septembre. Absent du recensement des candidats déclarés de franceinfo au 8 octobre
   2026. Sarah Knafo, vice-présidente de Reconquête et eurodéputée, n'est pas candidate.
-date_collecte: '2026-10-11'
+date_collecte: '2026-11-13'
 sources:
   - titre: >-
       Budget : le plan de Sarah Knafo – 24 mesures, 140 Md€ d'économies par an (site budget2026.fr / budget2027.fr, relayé
@@ -54,6 +54,14 @@ sources:
     url: >-
       https://www.lejdd.fr/politique/budget-2026-sarah-knafo-presente-un-plan-deconomies-choc-de-80-milliards-deuros-163182
     date: '2025-10-20'
+  - titre: >-
+      Politique Matin – Zemmour confirme sa candidature sur TF1 et détaille ses premières mesures (plan de redressement
+      de 280 Md€, 2 millions d'immigrés en moins, éloignement des étrangers au chômage depuis plus de six mois)
+    url: https://www.politiquematin.fr/zemmour-presidentielle-2027-confirme-candidature-tf1-programme-101126-2055
+    date: '2026-11-10'
+  - titre: i24NEWS – Éric Zemmour officialise sa candidature à l'élection présidentielle 2027 (TF1, 10 novembre 2026)
+    url: https://www.i24news.tv/fr/actu/france/artc-eric-zemmour-officialise-sa-candidature-a-l-election-presidentielle-2027
+    date: '2026-11-10'
   - titre: Public Sénat – Éric Zemmour officialise sa candidature à la présidentielle 2027
     url: >-
       https://www.publicsenat.fr/actualites/politique/eric-zemmour-officialise-sa-candidature-a-la-presidentielle-2027
@@ -90,7 +98,11 @@ annonce_candidat:
     après 130 Md€ dans « Le Casse du siècle » (Fayard, 2 septembre 2026) et 80 Md€ dans le contre-budget d'octobre 2025.
     Ces économies financent des baisses d'impôts : suppression de la CSG sur les revenus d'activité, des droits de succession
     et des impôts de production, baisse d'un tiers de l'accise sur les carburants (« 12 milliards d'euros de manque à
-    gagner pour l'État »). Pas de coût total publié pour ces baisses.
+    gagner pour l'État »). Pas de coût total publié pour ces baisses. Le 10 novembre 2026 (TF1), Éric Zemmour a chiffré
+    à 280 Md€ son « plan de redressement » des finances publiques, combinant baisse des dépenses et baisse des impôts,
+    sans ventilation entre les deux, ni période, ni liste de mesures (Politique Matin, i24NEWS) ; le site budget2027.fr
+    affiche toujours, au 13 novembre 2026, le plan de 140 Md€ d'économies en 24 mesures. Montant revendiqué, non additionné
+    : il ne modifie ni les mesures ni le solde.
   url: https://www.budget2026.fr/
 notes: >-
   Pas de programme présidentiel 2027 publié au 29 septembre 2026 ; la déclaration formelle est attendue en octobre. Hypothèse
@@ -101,7 +113,10 @@ notes: >-
   de ces mesures n'a encore été reprise mot pour mot par le candidat : toutes les citations Knafo sont marquées dans
   `interpretation`, et le fichier devra être revu à la publication du programme. Mesures propres au candidat en 2026
   : retraite à 64 voire 65 ans, « remigration » (expulsion des étrangers chômeurs depuis un an, des détenus et délinquants
-  étrangers, des clandestins), IA et nucléaire. Le programme présidentiel 2022 (baisse des impôts de production de 30
+  étrangers, des clandestins ; le 10 novembre 2026 sur TF1 : étrangers au chômage depuis plus de six mois, y compris
+  en situation régulière, et objectif de 2 millions d'immigrés en moins sur le quinquennat, sans mesure budgétaire chiffrable),
+  IA et nucléaire. Revu le 13 novembre 2026 après la confirmation de candidature sur TF1 : aucune mesure nouvelle chiffrable,
+  solde inchangé. Le programme présidentiel 2022 (baisse des impôts de production de 30
   Md€, 64 ans, etc.) n'est retenu que lorsqu'il a été reconfirmé. Le contre-budget d'octobre 2025 (rejet de mesures du
   PLF 2026 : surtaxe d'IS, CDHR, hausse de la contribution à l'UE) n'est pas repris : il visait la loi de finances 2026,
   non le programme 2027. Chiffrage (phase 2) : quand le seul chiffre disponible est celui du candidat (ou de Sarah Knafo),
@@ -2005,7 +2020,10 @@ mesures:
       septembre 2026, extrait vidéo CNews https://www.youtube.com/watch?v=hozCe9Dtlgc : « Aucune civilisation n’a jamais
       survécu à un changement de peuple ») porte la même ligne. Effet budgétaire = prestations et allocations chômage non versées moins coût des éloignements (rétention, transport)
       ; volumes non précisés. Recoupe fortement la mesure prestations-non-contributives-francais : ne chiffrer que l'assurance
-      chômage et le coût des éloignements pour éviter le double compte.
+      chômage et le coût des éloignements pour éviter le double compte. Le 10 novembre 2026 (TF1), le seuil est
+      ramené à « plus de six mois » de chômage, y compris pour les étrangers en situation régulière (Politique Matin,
+      https://www.politiquematin.fr/zemmour-presidentielle-2027-confirme-candidature-tf1-programme-101126-2055) : volume
+      visé plus large, toujours non publié ; estimation indicative inchangée.
     chiffrable: false
     raison_non_chiffrable: >-
       Volumes d'étrangers visés (chômeurs depuis un an, bénéficiaires exclusifs d'aides, délinquants) et allocations
