@@ -2378,10 +2378,26 @@ leviers:
     md_par_unite: 1
     positions:
       villepin-france-humaniste: 8.75
+      melenchon-lfi: 3.0
+      tondelier-ecologistes: 3.38
+      glucksmann-place-publique: 1.0
+      attal-renaissance: 0.09
+      zemmour-reconquete: -0.06
     reprend:
       villepin-france-humaniste:
       - structures-educatives-fermees-15000
       - violences-femmes-enfants-3md
+      melenchon-lfi:
+      - violences-sexistes-2-6-md
+      tondelier-ecologistes:
+      - loi-integrale-vss-3md
+      - justice-recrutements
+      glucksmann-place-publique:
+      - plan-violences-sexistes-1-md
+      attal-renaissance:
+      - justice-3000-magistrats-prisons
+      zemmour-reconquete:
+      - aide-juridictionnelle-francais
 - id: education
   theme: Éducation
   question: Combien de dépenses d'éducation et de petite enfance en plus, hors salaires des enseignants ?
