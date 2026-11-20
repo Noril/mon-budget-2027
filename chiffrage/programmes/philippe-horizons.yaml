@@ -3,8 +3,65 @@ id: philippe-horizons
 candidat: Édouard Philippe
 parti: Horizons
 statut_candidature: déclaré (Le Point, 3 septembre 2024) ; campagne lancée le 5 juillet 2026 (meeting de l'Adidas Arena)
-date_collecte: '2026-10-11'
+date_collecte: '2026-11-20'
 sources:
+- titre: Avec Édouard 2027, Le programme, volume 1 (17 pages thématiques, « Dernière mise à jour le 18 novembre 2026 »)
+  url: https://www.edouardphilippe.fr/programme
+  date: '2026-11-18'
+- titre: Avec Édouard 2027, Le programme, Finances publiques
+  url: https://www.edouardphilippe.fr/programme/comptes-publics
+  date: '2026-11-18'
+- titre: Avec Édouard 2027, Le programme, Travail et salaires
+  url: https://www.edouardphilippe.fr/programme/travail
+  date: '2026-11-18'
+- titre: Avec Édouard 2027, Le programme, Entreprises et industrie
+  url: https://www.edouardphilippe.fr/programme/entreprises
+  date: '2026-11-18'
+- titre: Avec Édouard 2027, Le programme, Retraites
+  url: https://www.edouardphilippe.fr/programme/retraites
+  date: '2026-11-18'
+- titre: Avec Édouard 2027, Le programme, École
+  url: https://www.edouardphilippe.fr/programme/ecole
+  date: '2026-11-18'
+- titre: Avec Édouard 2027, Le programme, Famille
+  url: https://www.edouardphilippe.fr/programme/famille
+  date: '2026-11-18'
+- titre: Avec Édouard 2027, Le programme, Logement
+  url: https://www.edouardphilippe.fr/programme/logement
+  date: '2026-11-18'
+- titre: Avec Édouard 2027, Le programme, Handicap
+  url: https://www.edouardphilippe.fr/programme/handicap
+  date: '2026-11-18'
+- titre: Avec Édouard 2027, Le programme, Défense
+  url: https://www.edouardphilippe.fr/programme/defense
+  date: '2026-11-18'
+- titre: Avec Édouard 2027, Le programme, Justice
+  url: https://www.edouardphilippe.fr/programme/justice
+  date: '2026-11-18'
+- titre: Avec Édouard 2027, Le programme, Sécurité
+  url: https://www.edouardphilippe.fr/programme/securite
+  date: '2026-11-18'
+- titre: Avec Édouard 2027, Le programme, Immigration
+  url: https://www.edouardphilippe.fr/programme/immigration
+  date: '2026-11-18'
+- titre: Avec Édouard 2027, Le programme, Énergie
+  url: https://www.edouardphilippe.fr/programme/energie
+  date: '2026-11-18'
+- titre: Avec Édouard 2027, Le programme, Adaptation climatique
+  url: https://www.edouardphilippe.fr/programme/adaptation-climatique
+  date: '2026-11-18'
+- titre: Avec Édouard 2027, Le programme, Intelligence artificielle
+  url: https://www.edouardphilippe.fr/programme/intelligence-artificielle
+  date: '2026-11-18'
+- titre: Avec Édouard 2027, Le programme, Outre-mer
+  url: https://www.edouardphilippe.fr/programme/outre-mer
+  date: '2026-11-18'
+- titre: Avec Édouard 2027, Le programme, Protection de l'enfance
+  url: https://www.edouardphilippe.fr/programme/protection-de-l-enfance
+  date: '2026-11-18'
+- titre: LCP, En présentant son programme, Édouard Philippe cherche une nouvelle dynamique
+  url: https://lcp.fr/actualites/presidentielle-2027-edouard-philippe-promet-des-reformes-radicales-pour-relancer-sa
+  date: '2026-11-18'
 - titre: Avec Édouard 2027, Pour une France plus prospère
   url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
   date: consulté le 2026-09-29
@@ -73,15 +130,28 @@ sources:
   date: '2026-10-09'
 annonce_candidat:
   cout_md: null
-  financement_md: null
-  texte: 'Pas de chiffrage global publié au 11 octobre 2026. Chiffrages partiels du 8 octobre 2026 : exonération d''impôt
-    des jeunes parents « qui coûte 3 Mds € par an financés par le plan de redressement des finances publiques » (non détaillé),
-    allocation familiale unique « à coût constant ». Objectif affiché : « ramener le déficit de plus de 5 % à 2
-    % du PIB en fin de quinquennat » ; « deal fiscal » présenté comme neutre (50 Md€ de baisse d''impôts de production contre
-    50 Md€ d''aides en moins) ; hausse des salaires enseignants présentée comme financée par la baisse démographique « sans
-    dégrader les finances publiques ».'
-  url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
-notes: 'Veille du 11 octobre 2026 : annonces de « L''Heure de vérité » (France 2, 8 octobre 2026) intégrées (communiqué
+  financement_md: 150
+  texte: 'Programme, volume 1 (18 novembre 2026) : « Ramener le déficit sous 2,5 % de la richesse nationale à la fin du
+    quinquennat, soit près de 150 milliards d''économies », l''effort portant « pour moitié sur les dépenses sociales (retraites,
+    chômage, arrêts maladie), pour un quart sur l''État et les collectivités. Le dernier quart viendra de la croissance
+    et de l''emploi » ; « aucun nouvel impôt » pendant le quinquennat. Pas de chiffrage mesure par mesure ni de coût total
+    des dépenses promises. Chiffrages partiels antérieurs (8 octobre 2026) : exonération d''impôt des jeunes parents « qui
+    coûte 3 Mds € par an », allocation familiale unique « à coût constant » (formule absente du programme du 18 novembre)
+    ; « deal fiscal » présenté comme neutre (50 Md€ d''impôts de production contre 50 Md€ d''aides en moins). Montant
+    revendiqué, non additionné : les 150 Md€ ne modifient ni les mesures ni le solde (règle 6, enveloppe globale).'
+  url: https://www.edouardphilippe.fr/programme/comptes-publics
+notes: 'Passe complète du 20 novembre 2026 sur le programme, volume 1 (présenté le 18 novembre 2026, 17 pages thématiques
+  du site, texte relu en entier ; le livret PDF n''est distribué que contre un formulaire de coordonnées et n''a pas été
+  téléchargé). Citations remplacées par celles du programme quand il reprend la mesure. Changements : part fiscale dès
+  le deuxième enfant retirée (absente du programme, déjà disparue du site en octobre) ; service militaire volontaire
+  remplacé par un service national obligatoire (non chiffrable, durée non publiée) et réservistes rechiffrés seuls ;
+  carence portée à trois jours dans la fonction publique (chiffrée) ; objectif de déficit ramené de 2 % à « sous 2,5 % »
+  avec « près de 150 milliards d''économies » (enveloppe, non additionnée). Mesures nouvelles chiffrées : baisse de 30 %
+  des allocataires du RSA (économie ciblée, règle 6), suppression de la réduction de loyer de solidarité, versement
+  de 500 € sur un plan d''épargne retraite au premier emploi. Mesures nouvelles non chiffrables (avec estimation indicative
+  quand l''objet est clair) : frais de notaire des moins de 35 ans, pérennisation du PTZ, PFU et IFI sur la location longue
+  durée, TVA des logements neufs aux maires, 30 000 places de prison, service national, handicap, petite enfance, école,
+  outre-mer, énergie, plan Horizon 2050. Veille du 11 octobre 2026 : annonces de « L''Heure de vérité » (France 2, 8 octobre 2026) intégrées (communiqué
   du site de campagne, franceinfo, AFP) : non-remplacement d''un départ à la retraite sur trois dans la fonction publique
   (chiffré), heures au-delà de 35 h par accord exonérées (nouveau), zéro impôt sur le revenu pour les jeunes parents (nouveau,
   3 Md€ selon le candidat), allocation familiale unique de 350 € (précisée, non chiffrable). La part fiscale dès le deuxième
@@ -98,11 +168,11 @@ mesures:
   libelle: Baisser de 50 Md€ par an les impôts de production
   domaine: fiscalité des entreprises
   citation:
-    texte: 'Conclure un pacte fiscal inédit avec les entreprises : 50 Md€ de baisses d''impôts de production contre 50 Md€
-      d''aides publiques improductives en moins, le plus grand choc de compétitivité jamais réalisé.'
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: 'Un pacte fiscal massif : 50 milliards d’euros d’impôts de production en moins contre 50 milliards d’euros d’aides
+      en moins.'
+    url: https://www.edouardphilippe.fr/programme/entreprises
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: precise
   interpretation: 'Baisse de 50 Md€/an des impôts de production (foncier, chiffre d''affaires, valeur ajoutée : catégories décrites
     par Public Sénat, 6 nov. 2025, sans liste d''impôts ; la CVAE en fait partie par hypothèse), dès le premier PLF. Chiffrée séparément de la contrepartie (baisse des aides) pour rendre visible l''hypothèse
@@ -166,18 +236,19 @@ mesures:
   confiance: moyenne
   verification:
     statut: corrige
-    par: verificateur-sonnet
-    date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Le montant (50 Md€) est bien celui de la source, mais la source ne liste pas les impôts (CVAE, C3S, CFE : pas cités). Correction : retour d'IS omis (impôts de production déductibles, règle 3, même traitement que RN et Retailleau) : central -56,05 → -44,84 (bas -60,53 sans retour, haut -34,73). Net de CVAE conservé (suppression 2030 déjà votée, CVAE 3,7 Md€ FIPECO). Effets annuels recalculés. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032 (valeur inchangée). Recalé sur le FMI WEO d'octobre 2026 : central −44,84 → −45,1 (bas −60,53 → −60,88)."
+    par: veille-2026-11-20
+    date: '2026-11-20'
+    commentaire: "Passe du 20/11/2026 : citation remplacée par le programme, volume 1 (18/11/2026), relu sur le site ; paramètres et montants inchangés. Trace précédente (verificateur-sonnet, 2026-09-29) : Citation retrouvée dans la source (récupérée le 2026-09-29). Le montant (50 Md€) est bien celui de la source, mais la source ne liste pas les impôts (CVAE, C3S, CFE : pas cités). Correction : retour d'IS omis (impôts de production déductibles, règle 3, même traitement que RN et Retailleau) : central -56,05 → -44,84 (bas -60,53 sans retour, haut -34,73). Net de CVAE conservé (suppression 2030 déjà votée, CVAE 3,7 Md€ FIPECO). Effets annuels recalculés. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032 (valeur inchangée). Recalé sur le FMI WEO d'octobre 2026 : central −44,84 → −45,1 (bas −60,53 → −60,88)."
 - id: aides-entreprises-moins-50md
   libelle: Supprimer 50 Md€ d'aides publiques « improductives » aux entreprises
   domaine: aides aux entreprises
   citation:
-    texte: 'Conclure un pacte fiscal inédit avec les entreprises : 50 Md€ de baisses d''impôts de production contre 50 Md€
-      d''aides publiques improductives en moins, le plus grand choc de compétitivité jamais réalisé.'
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: 'Oui. Édouard Philippe propose de baisser de 50 milliards d’euros les impôts de production, en supprimant autant
+      d’aides publiques improductives. Ce serait le plus grand choc de compétitivité jamais réalisé en France, sans creuser
+      le déficit.'
+    url: https://www.edouardphilippe.fr/programme/entreprises
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: partielle
   interpretation: 'Montant annuel (Public Sénat, 6 nov. 2025, d''après la publication LinkedIn du candidat : « réduire de
     50 milliards d''euros le montant annuel des aides versées aux entreprises », « dès le premier projet de loi de finances
@@ -239,29 +310,30 @@ mesures:
   confiance: faible
   verification:
     statut: corrige
-    par: passe-sources
-    date: '2026-09-29'
-    commentaire: "Passe sources : citation remplacée par la source primaire (site du candidat, « 50 Md€ d'aides publiques improductives en moins ») ; montant annuel et exclusion des allègements généraux relus dans Public Sénat (6 nov. 2025). Rapport du Sénat r24-808 relu (texte et graphiques 140 et 141) : 211 Md€ au sens large (41 Bpifrance, 88 dépenses fiscales, 75 allègements, 7 subventions), 108 Md€ au sens strict (26 dépenses fiscales, 75 allègements, 7 subventions) ; le sens strict INCLUT les allègements (le barème aides_publiques_entreprises le décrit à tort comme « hors allègements généraux »). Plafond tranché : aides hors allègements et hors Bpifrance, 70 Md€ (ministre, 2025) à 95 Md€ (Sénat, 2023) ; le sens strict (33 Md€) est une sensibilité. Correction : retour d'IS sur la part subventions (8,6 %), par symétrie avec la baisse d'impôts de production : central 60,53 → 55,34. Trace précédente (verificateur-sonnet, 29/09) : règle 6 révisée, central 0 → 60,53, plafond non contraignant. Recalé sur le FMI WEO d'octobre 2026 : central 55,34 → 55,67 (haut 55,34 → 55,67)."
+    par: veille-2026-11-20
+    date: '2026-11-20'
+    commentaire: "Passe du 20/11/2026 : citation remplacée par le programme, volume 1 (18/11/2026), relu sur le site ; paramètres et montants inchangés. Trace précédente (passe-sources, 2026-09-29) : Passe sources : citation remplacée par la source primaire (site du candidat, « 50 Md€ d'aides publiques improductives en moins ») ; montant annuel et exclusion des allègements généraux relus dans Public Sénat (6 nov. 2025). Rapport du Sénat r24-808 relu (texte et graphiques 140 et 141) : 211 Md€ au sens large (41 Bpifrance, 88 dépenses fiscales, 75 allègements, 7 subventions), 108 Md€ au sens strict (26 dépenses fiscales, 75 allègements, 7 subventions) ; le sens strict INCLUT les allègements (le barème aides_publiques_entreprises le décrit à tort comme « hors allègements généraux »). Plafond tranché : aides hors allègements et hors Bpifrance, 70 Md€ (ministre, 2025) à 95 Md€ (Sénat, 2023) ; le sens strict (33 Md€) est une sensibilité. Correction : retour d'IS sur la part subventions (8,6 %), par symétrie avec la baisse d'impôts de production : central 60,53 → 55,34. Trace précédente (verificateur-sonnet, 29/09) : règle 6 révisée, central 0 → 60,53, plafond non contraignant. Recalé sur le FMI WEO d'octobre 2026 : central 55,34 → 55,67 (haut 55,34 → 55,67)."
 - id: deficit-2pct-2032
-  libelle: Ramener le déficit public à 2 % du PIB en 2032 (enveloppe d'économies non détaillée)
+  libelle: Ramener le déficit public sous 2,5 % du PIB en fin de quinquennat, « près de 150 milliards d'économies » (enveloppe
+    non détaillée)
   domaine: finances publiques
   citation:
-    texte: Inscrire dans la Constitution une règle d’or de maîtrise des déficits, et ramener le déficit de plus de 5 % à 2
-      % du PIB en fin de quinquennat, comme l'ont fait l'Allemagne ou les Pays-Bas.
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: Ramener le déficit sous 2,5 % de la richesse nationale à la fin du quinquennat, soit près de 150 milliards d’économies.
+    url: https://www.edouardphilippe.fr/programme/comptes-publics
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: partielle
-  interpretation: 'Objectif de solde, pas une mesure : traité selon la règle 6 (enveloppe non détaillée). central = mesures
-    identifiées ci-dessous, haut = effort implicite pour passer de ~5 % à 2 % du PIB, bas = 0. La règle d''or est une mesure
-    institutionnelle (voir regle-or). Le candidat exclut les dépenses militaires de la règle (IFRAP). Le 8 octobre 2026
-    (France 2, AFP) : ramener « significativement » le déficit « en dessous de la barrière des 3%, c''est-à-dire 2% » en
-    fin de quinquennat, « en faisant porter l''effort pour 50% sur les dépenses sociales et à 25% sur les collectivités »
-    (formulation de l''AFP), sans montant.'
+  interpretation: 'Objectif de solde, pas une mesure : traité selon la règle 6 (enveloppe globale). L''identifiant garde
+    l''ancien objectif (2 % du PIB, site du candidat jusqu''en octobre 2026), remplacé le 18 novembre 2026 par « sous 2,5
+    % ». Répartition annoncée : « pour moitié sur les dépenses sociales (retraites, chômage, arrêts maladie), pour un quart
+    sur l''État et les collectivités. Le dernier quart viendra de la croissance et de l''emploi créés par le rebond économique
+    du pays » ; ce dernier quart (≈ 37 Md€) est un effet de croissance, non compté (règle 3). Les 150 Md€ sont inscrits
+    en montant revendiqué (annonce_candidat), non additionnés. La règle d''or est une mesure institutionnelle (voir regle-or-constitution).'
   chiffrable: false
-  raison_non_chiffrable: 'Objectif de solde (2 % du PIB en 2032) sans montant d''économies annoncé : ce n''est pas une mesure.
-    L''écart entre cet objectif et le solde obtenu par les mesures chiffrées se lit sur la trajectoire (outils.chiffrage)
-    ; l''ajouter comme enveloppe reviendrait à supposer l''objectif atteint.'
+  raison_non_chiffrable: 'Objectif de solde (sous 2,5 % du PIB en fin de quinquennat) et enveloppe de « près de 150 milliards
+    d''économies » sans liste de mesures chiffrées : ce n''est pas une mesure. L''écart entre cet objectif et le solde obtenu
+    par les mesures chiffrées se lit sur la trajectoire (outils.chiffrage) ; l''ajouter comme enveloppe reviendrait à supposer
+    l''objectif atteint.'
   sens_probable: economie
 - id: baisse-depenses-sociales-niches
   libelle: Baisser les dépenses sociales et supprimer des niches fiscales plutôt qu'augmenter les impôts
@@ -283,17 +355,17 @@ mesures:
   libelle: 'Réforme des retraites : âge légal à 65 ans et 45 annuités en moins de dix ans, après la reprise de la réforme de 2023'
   domaine: retraites
   citation:
-    texte: '"Pour retrouver l''équilibre de notre système par répartition, je propose de porter progressivement la durée
-      de cotisation à quarante-cinq ans et l''âge de départ à 65 ans pour les Français qui le peuvent", explique-t-il. "On
-      va reprendre la réforme de 2023 [qui avait été suspendue en 2025] qui plaçait l''âge légal de départ et la retraite à
-      64 ans au lieu des 62 et 9 mois aujourd''hui et qui plaçait la durée de cotisation à quarante-trois ans au lieu de
-      quarante-deux et demi aujourd''hui. Ensuite, on va poursuivre pour qu''en moins de dix ans, nous soyons passés à 65
-      ans pour l''âge légal de départ, et quarante-cinq annuités", détaille le maire du Havre.'
-    url: https://www.franceinfo.fr/elections/presidentielle/age-de-depart-a-65-ans-45-annuites-de-cotisation-edouard-philippe-candidat-horizons-a-la-presidentielle-devoile-son-projet-de-reforme-des-retraites_8214737.html
-    date: '2026-09-29'
-    support: presse (franceinfo avec AFP), transcription de la vidéo du candidat
+    texte: Porter progressivement l’âge de départ à 65 ans et la durée de cotisation à 45 ans, en moins de dix ans.
+    url: https://www.edouardphilippe.fr/programme/retraites
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: partielle
-  interpretation: 'Annonce du 29 septembre 2026 (vidéo YouTube https://www.youtube.com/watch?v=tZuZwWpT4ak, relayée par
+  interpretation: 'Programme du 18 novembre 2026 : même réforme, « sans hausse des cotisations ni baisse des pensions » ;
+    âges maintenus « 55 ans en situation de handicap, 60 ans en incapacité permanente, 62 ans en invalidité », carrières
+    longues maintenues, pénibilité négociée avec les partenaires sociaux ; toujours pas de calendrier par génération.
+    Verbatim de la vidéo du 29 septembre 2026 (franceinfo, AFP) : « On va reprendre la réforme de 2023 [...]. Ensuite,
+    on va poursuivre pour qu''en moins de dix ans, nous soyons passés à 65 ans pour l''âge légal de départ, et quarante-cinq
+    annuités ». Annonce du 29 septembre 2026 (vidéo YouTube https://www.youtube.com/watch?v=tZuZwWpT4ak, relayée par
     https://www.edouardphilippe.fr/actualites/retraites-la-reforme-que-je-propose-aux-francais ; la page du site ne reprend
     pas les chiffres et la vidéo n''a pas pu être transcrite ici : verbatim de l''AFP). Reprise de la réforme de 2023 (64
     ans, 43 ans de durée) : déjà dans la référence (reprise au 1er janvier 2028), coût nul. Au-delà : 65 ans et 45 annuités
@@ -357,21 +429,23 @@ mesures:
   confiance: faible
   verification:
     statut: corrige
-    par: perimetre-apu
-    date: '2026-09-30'
-    commentaire: "Périmètre APU (30/09) : barème retraites_duree_assurance_hausse_1_an_apu (10,2 ; haut 11,0) ; central 1,48 → 2,55 ; bas 0 inchangé (lecture d'un allongement après 2032, plus défavorable que le périmètre système, 1,48) ; haut 4,43 → 8,25. Passe sources : le candidat a publié sa réforme le 29 septembre 2026 (65 ans et 45 annuités en moins de dix ans, après reprise de la réforme 2023) ; citation remplacée (franceinfo/AFP, verbatim de la vidéo ; page du site relue, sans chiffres). Le chiffrage précédent (accélération de l'âge à 6 mois par génération dès 2028, 0,5 an × 6,6 = 3,3 Md€) ne correspond plus à l'annonce : l'âge au-delà de 64 ans ne joue pas en 2032. Remplacé par l'allongement de durée (extrait de la Cour des comptes relu) avec une convention de calendrier : central 3,3 → 1,48, bas 0, haut 7,9 → 4,44. Trace précédente (verificateur-sonnet, 29/09) : statut conteste, calendrier d'accélération non sourcé. Recalé sur les barèmes sourcés du 29/09 : gain de durée renvoyé au nouveau barème retraites_duree_assurance_hausse_1_an (5,92 recopié → 5,9) ; central 1,48 inchangé à l'arrondi (1,475), haut 4,44 → 4,43. Recalé sur le FMI WEO d'octobre 2026 : central 2,55 → 2,58 (haut 8,25 → 8,4)."
+    par: veille-2026-11-20
+    date: '2026-11-20'
+    commentaire: "Passe du 20/11/2026 : citation remplacée par le programme, volume 1 (18/11/2026), relu sur le site ; paramètres et montants inchangés. Trace précédente (perimetre-apu, 2026-09-30) : Périmètre APU (30/09) : barème retraites_duree_assurance_hausse_1_an_apu (10,2 ; haut 11,0) ; central 1,48 → 2,55 ; bas 0 inchangé (lecture d'un allongement après 2032, plus défavorable que le périmètre système, 1,48) ; haut 4,43 → 8,25. Passe sources : le candidat a publié sa réforme le 29 septembre 2026 (65 ans et 45 annuités en moins de dix ans, après reprise de la réforme 2023) ; citation remplacée (franceinfo/AFP, verbatim de la vidéo ; page du site relue, sans chiffres). Le chiffrage précédent (accélération de l'âge à 6 mois par génération dès 2028, 0,5 an × 6,6 = 3,3 Md€) ne correspond plus à l'annonce : l'âge au-delà de 64 ans ne joue pas en 2032. Remplacé par l'allongement de durée (extrait de la Cour des comptes relu) avec une convention de calendrier : central 3,3 → 1,48, bas 0, haut 7,9 → 4,44. Trace précédente (verificateur-sonnet, 29/09) : statut conteste, calendrier d'accélération non sourcé. Recalé sur les barèmes sourcés du 29/09 : gain de durée renvoyé au nouveau barème retraites_duree_assurance_hausse_1_an (5,92 recopié → 5,9) ; central 1,48 inchangé à l'arrondi (1,475), haut 4,44 → 4,43. Recalé sur le FMI WEO d'octobre 2026 : central 2,55 → 2,58 (haut 8,25 → 8,4)."
 - id: retraites-capitalisation-10-15pct
-  libelle: Créer un pilier de capitalisation représentant 10 à 15 % des pensions d'ici 15 ans
+  libelle: Généraliser la capitalisation collective à tous les salariés (pilier de capitalisation)
   domaine: retraites
   citation:
-    texte: 'Garantir l''équilibre de notre système de retraites pour protéger les générations futures : travailler plus tout
-      en prenant en compte la diversité des carrières, créer un pilier de capitalisation à 10-15 % des pensions d''ici quinze
-      ans, confier la gestion du régime à l’équilibre aux partenaires sociaux.'
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: Généraliser la capitalisation collective à tous les salariés et ouvrir un plan d’épargne retraite à chaque Français.
+    url: https://www.edouardphilippe.fr/programme/retraites
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: partielle
-  interpretation: 'Citation de presse (Le Figaro/Les Échos, 30 juin 2026) remplacée par le site du candidat. Financement
+  interpretation: 'Programme du 18 novembre 2026 : capitalisation collective « qui existe et fonctionne déjà très bien pour
+    les fonctionnaires » (régime additionnel de la fonction publique), étendue à tous les salariés, qui « s''ajoute à la
+    retraite par répartition » ; engagement « sans hausse des cotisations » ; financement non précisé. L''objectif de 10-15
+    % des pensions en quinze ans (site, septembre 2026) n''est plus écrit. Le versement de 500 € au premier emploi est
+    chiffré à part (per-500-euros-premier-emploi). Lecture centrale inchangée. Financement
     non précisé. Vidéo du 29 septembre 2026 (CNews, franceinfo) : le volet capitalisation ne sera enclenché « que lorsque
     « le système actuel sera rééquilibré » », et « tous les Français » doivent pouvoir « disposer d''un plan d''épargne-retraite
     », rendu « un des placements les plus attractifs du marché ». Lecture centrale : épargne nouvelle (PER, livret capital
@@ -412,9 +486,9 @@ mesures:
   confiance: faible
   verification:
     statut: corrige
-    par: passe-sources
-    date: '2026-09-29'
-    commentaire: "Passe sources (passe-sources, 29/09) : citation de presse remplacée par le site du candidat ; central 0 conforté par la vidéo du 29 septembre 2026 (capitalisation enclenchée seulement une fois le système rééquilibré, CNews) ; bas conservé comme borne de transition. Trace précédente : Citation retrouvée dans la source (récupérée le 2026-09-29). Central 0 (épargne nouvelle) défendable ; bas = un point de cotisation détourné (7,6 Md€ × 1,2106 = 9,2, borne haute du barème retraites_cotisation_vieillesse_1_point, extrait Cour des comptes relu). Le paramètre 'points' à 0 rend la formule triviale : le coût de transition d'un pilier de 10-15 % des pensions pourrait dépasser un point (non chiffrable sans financement précisé). Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032 (valeur inchangée). Bas recalé (convention 9, cotisation de type non précisé : central du barème retraites_cotisation_vieillesse_1_point, sans retour) : −9,2 → −7,51. Recalé sur le FMI WEO d'octobre 2026 : central 0 inchangé (bas −7,51 → −7,55)."
+    par: veille-2026-11-20
+    date: '2026-11-20'
+    commentaire: "Passe du 20/11/2026 : citation remplacée par le programme, volume 1 (18/11/2026), relu sur le site ; paramètres et montants inchangés. Trace précédente (passe-sources, 2026-09-29) : Passe sources (passe-sources, 29/09) : citation de presse remplacée par le site du candidat ; central 0 conforté par la vidéo du 29 septembre 2026 (capitalisation enclenchée seulement une fois le système rééquilibré, CNews) ; bas conservé comme borne de transition. Trace précédente : Citation retrouvée dans la source (récupérée le 2026-09-29). Central 0 (épargne nouvelle) défendable ; bas = un point de cotisation détourné (7,6 Md€ × 1,2106 = 9,2, borne haute du barème retraites_cotisation_vieillesse_1_point, extrait Cour des comptes relu). Le paramètre 'points' à 0 rend la formule triviale : le coût de transition d'un pilier de 10-15 % des pensions pourrait dépasser un point (non chiffrable sans financement précisé). Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2025_2032 (valeur inchangée). Bas recalé (convention 9, cotisation de type non précisé : central du barème retraites_cotisation_vieillesse_1_point, sans retour) : −9,2 → −7,51. Recalé sur le FMI WEO d'octobre 2026 : central 0 inchangé (bas −7,51 → −7,55)."
 - id: retraites-contribution-retraites
   libelle: Demander aux retraités de contribuer davantage au financement du système social
   domaine: retraites
@@ -424,7 +498,8 @@ mesures:
     date: '2026-07-05'
     support: discours (transcription sur le site du candidat)
   precision: vague
-  interpretation: 'Levier non précisé. Lectures possibles : alignement de la CSG des retraités imposables sur celle des actifs
+  interpretation: 'Absent du programme du 18 novembre 2026, qui « exclut toute baisse des pensions » et ne dit rien d''une
+    contribution des retraités : maintenu (discours du 5 juillet 2026, non démenti), central 0. Levier non précisé. Lectures possibles : alignement de la CSG des retraités imposables sur celle des actifs
     (8,3 % → 9,2 %), suppression ou plafonnement de l''abattement de 10 % à l''IR, sous-indexation des pensions. Presse (Planet)
     évoque ces pistes sans citation du candidat. Fourchette large : bas = 0, haut = une des pistes. Phase 2 : lecture en équivalent
     sous-indexation ; à revoir dès que le candidat précise le levier.'
@@ -469,13 +544,14 @@ mesures:
   libelle: Limiter à 12 mois la durée d'indemnisation chômage pour les moins de 50 ans
   domaine: assurance chômage
   citation:
-    texte: S'il est élu à l'Élysée en 2027, le candidat souhaite abaisser à "douze mois maximum pour les moins de 50 ans"
-      la durée d'indemnisation du chômage, a déclaré l'ancien Premier ministre.
-    url: https://lcp.fr/actualites/chomage-edouard-philippe-veut-abaisser-la-duree-d-indemnisation-a-douze-mois-maximum
-    date: '2026-08-27'
-    support: presse (propos à l'AFP)
+    texte: Oui, pour les moins de 50 ans. Édouard Philippe propose de limiter l’indemnisation chômage à 12 mois au maximum,
+      contre 18 mois aujourd’hui, comme en Allemagne. Les plus de 50 ans ne seront pas concernés.
+    url: https://www.edouardphilippe.fr/programme/travail
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: precise
-  interpretation: 'Source primaire introuvable (propos à l''AFP relayés par LCP). Durée maximale actuelle : 18 mois pour les moins de 55 ans (15 mois en cas de rupture conventionnelle à
+  interpretation: 'Source primaire : programme du 18 novembre 2026 (auparavant propos à l''AFP relayés par LCP, 27 août
+    2026). Les plus de 50 ans gardent leurs durées actuelles. Durée maximale actuelle : 18 mois pour les moins de 55 ans (15 mois en cas de rupture conventionnelle à
     partir du 1er sept. 2026). La borne d''âge passerait de 55 à 50 ans pour les durées longues (à préciser : les 50-54 ans
     gardent-ils 18 ou 22,5 mois ?).'
   chiffrable: true
@@ -527,60 +603,100 @@ mesures:
   confiance: faible
   verification:
     statut: ok
-    par: passe-sources
-    date: '2026-09-29'
-    commentaire: "Passe sources (29/09) : source primaire introuvable (propos à l'AFP, repris par LCP ; rien sur le site du candidat) ; extrait Unédic relu ; ratio 1,0 écrit comme convention, fourchette 0,5-1,5 inchangée. Trace précédente : Citation retrouvée dans la source (récupérée le 2026-09-29). Extrait Unédic relu (4,5 Md€ à l'horizon 2027 pour la réforme de contracyclicité : durée réduite de 25 %, tous âges). Ratio 1,0 défendable (baisse de 33 % de la durée mais champ limité aux moins de 50 ans). Facteur 1,157 = 1,2106 / 1,0463 exact. Réserve : l'économie Unédic est celle du régime ; une partie des allocataires en fin de droit bascule sur RSA/ASS (coût APU non déduit), ce qui pourrait retirer jusqu'à 10-20 % du chiffre. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2027_2032 (valeur inchangée). Recalé sur le FMI WEO d'octobre 2026 : central 5,21 → 5,22 (haut 7,81 → 7,82)."
+    par: veille-2026-11-20
+    date: '2026-11-20'
+    commentaire: "Passe du 20/11/2026 : citation remplacée par le programme, volume 1 (18/11/2026), relu sur le site ; paramètres et montants inchangés. Trace précédente (passe-sources, 2026-09-29) : Passe sources (29/09) : source primaire introuvable (propos à l'AFP, repris par LCP ; rien sur le site du candidat) ; extrait Unédic relu ; ratio 1,0 écrit comme convention, fourchette 0,5-1,5 inchangée. Trace précédente : Citation retrouvée dans la source (récupérée le 2026-09-29). Extrait Unédic relu (4,5 Md€ à l'horizon 2027 pour la réforme de contracyclicité : durée réduite de 25 %, tous âges). Ratio 1,0 défendable (baisse de 33 % de la durée mais champ limité aux moins de 50 ans). Facteur 1,157 = 1,2106 / 1,0463 exact. Réserve : l'économie Unédic est celle du régime ; une partie des allocataires en fin de droit bascule sur RSA/ASS (coût APU non déduit), ce qui pourrait retirer jusqu'à 10-20 % du chiffre. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2027_2032 (valeur inchangée). Recalé sur le FMI WEO d'octobre 2026 : central 5,21 → 5,22 (haut 7,81 → 7,82)."
 - id: arrets-maladie-carence
-  libelle: Renforcer les jours de carence d'ordre public sur les arrêts maladie courts
+  libelle: Trois jours de carence pour tous, dans le privé comme dans le public
   domaine: santé / indemnités journalières
   citation:
-    texte: '"En Espagne, on indemnise mieux les congés longs. En revanche, on est plus dur avec les congés courts. On peut
-      s''inspirer de cette logique et par exemple renforcer les journées de carence d''ordre public" : "le premier jour, les
-      deux premiers jours ne seront pas indemnisés lorsque c''est un arrêt ponctuel", défend le maire du Havre.'
-    url: https://lcp.fr/actualites/chomage-edouard-philippe-veut-abaisser-la-duree-d-indemnisation-a-douze-mois-maximum
-    date: '2026-08-27'
-    support: presse (propos à l'AFP)
-  precision: partielle
-  interpretation: Carence d'ordre public (non compensable par l'employeur) d'un à deux jours sur les arrêts courts, public
-    et privé. Les IJ « mieux indemnisées » pour les arrêts longs créent un coût partiel. Le candidat cite 17 Md€/an d'IJ maladie.
-  chiffrable: false
-  raison_non_chiffrable: 'Dans le privé, la Sécurité sociale n''indemnise déjà pas les trois premiers jours : rendre la carence
-    « d''ordre public » (non compensable) profite aux employeurs, pas aux APU. Dans la fonction publique, un jour de carence
-    rapporte environ 108 M€ (Public Sénat, 2025) et le passage à trois jours a été voté au Sénat pour 2026 : l''effet résiduel
-    est inférieur à 0,2 Md€ et dépend du droit 2026 exact ; la meilleure indemnisation des arrêts longs, en sens inverse,
-    n''est pas paramétrée.'
-  sens_probable: economie
+    texte: Trois. Édouard Philippe veut instaurer trois jours de carence pour tout le monde, dans le privé comme dans le public,
+      pour limiter les abus et mettre fin à « l’open bar » des arrêts maladie. La même règle s’appliquera à tous les actifs.
+    url: https://www.edouardphilippe.fr/programme/travail
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: precise
+  interpretation: 'Programme du 18 novembre 2026, qui remplace la piste d''août 2026 (« le premier jour, les deux premiers
+    jours ne seront pas indemnisés lorsque c''est un arrêt ponctuel », AFP, LCP). Droit de référence : un jour de carence
+    dans la fonction publique (rétabli en 2018) ; le passage à trois jours voté par le Sénat en décembre 2025 a été retiré
+    du budget 2026 (Acteurs publics). Dans le privé, la Sécurité sociale n''indemnise déjà pas les trois premiers jours
+    : la « même règle » ne change rien pour les APU, sauf si elle interdit le maintien de salaire par l''employeur (non
+    dit ; effet pour les employeurs, pas pour les APU). Seul compte l''écart dans la fonction publique : deux jours de plus.
+    Le délai de « 3 à 6 mois entre un arrêt maladie et une rupture conventionnelle » est une règle de droit du travail
+    (effet sur l''assurance chômage non documenté, non compté).'
+  chiffrable: true
+  nature: economie
+  effet_solde_primaire:
+    central: 0.13
+    bas: 0.11
+    haut: 0.26
+    montee_en_charge: *id001
+  calcul:
+    formule: (effort_3_jours - jour_actuel) * f
+    parametres:
+      effort_3_jours:
+        valeur: 0.216
+        unite: Md€/an, économie totale attendue de trois jours de carence dans la fonction publique (estimation du Sénat, PLF 2026)
+        source: https://www.publicsenat.fr/actualites/economie/arrets-maladie-les-senateurs-augmentent-a-trois-jours-le-delai-de-carence-dans-la-fonction-publique
+        note: le passage à trois jours « devrait porter les efforts à 216 millions d'euros » (Public Sénat, 6 déc. 2025)
+      jour_actuel:
+        valeur: 0.108
+        unite: Md€/an, économie du jour de carence en vigueur
+        source: https://www.publicsenat.fr/actualites/economie/arrets-maladie-les-senateurs-augmentent-a-trois-jours-le-delai-de-carence-dans-la-fonction-publique
+        note: réinstauré en 2018 pour « une économie estimée à 108 millions d'euros »
+      f:
+        valeur: 1.1921
+        bareme: facteur_pib_2026_2032
+        unite: facteur 2026→2032
+    explication: 'Estimation du Sénat (PLF 2026) : trois jours de carence portent l''économie de 108 à 216 M€, soit 108 M€
+      pour les deux jours ajoutés (rendement décroissant : beaucoup d''arrêts dépassent trois jours), portés en euros 2032
+      avec la masse salariale (≈ PIB) : 0,13 Md€. Bas : 108 M€ non projetés (0,11). Haut : lecture linéaire, 108 M€ par jour
+      ajouté (2 × 0,108 × 1,1921 = 0,26). Privé : sans effet pour les APU.'
+  effets_retour: Moindre absentéisme invoqué ; non compté.
+  confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-11-20'
+    commentaire: "Passe du 20/11/2026 : citation relue sur la page Travail du programme (18/11/2026) ; mesure repassée en chiffrable (trois jours, contre un à deux jours dans la piste d'août). Extraits de Public Sénat (6 déc. 2025 : 108 M€ pour un jour, « 216 millions » pour trois) relus ; retrait du passage à trois jours du budget 2026 lu dans Acteurs publics (https://acteurspublics.fr/articles/fonction-publique-le-gouvernement-ne-retient-pas-les-mesures-controversees-du-senat-dans-le-nouveau-budget-2026/), à confirmer au Journal officiel. Vérification (verificateur-sonnet, 20/11) : citation retrouvée, formule rejouée (0,1287 ; bas 0,108 ; haut 0,2575), extraits Public Sénat confirmés ; réserve : le périmètre des 108 M€ (trois versants ou État seul) n'est pas précisé par la source."
 - id: financement-social-hors-travail
-  libelle: Rééquilibrer le financement de la protection sociale hors du travail pour augmenter le salaire net
+  libelle: Augmenter le salaire net en redistribuant une partie des économies sur les retraites, le chômage et les arrêts
+    maladie
   domaine: prélèvements sociaux
   citation:
-    texte: Rééquilibrer le financement du modèle social pour qu'il ne repose plus uniquement sur le travail et augmenter le
-      salaire net des actifs.
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: 'Augmenter le salaire net en baissant la dépense sociale : une partie des économies sur les retraites, l’assurance
+      chômage et les arrêts maladie sera redistribuée en pouvoir d’achat.'
+    url: https://www.edouardphilippe.fr/programme/travail
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: vague
-  interpretation: 'Le 27 août 2026 : « Élargir la base, faire en sorte que toute la population contribue au financement de
-    la protection sociale, et pas seulement ceux qui travaillent, me paraît indispensable si on veut ramener le brut proche
-    du net » (Public Sénat, 2 sept. 2026). Bascule cotisations → impôt à large assiette (TVA ou CSG) : présumée neutre pour
-    le solde, montant de la bascule inconnu. À chiffrer en neutre avec fourchette si une asymétrie est documentée.'
+  interpretation: 'Le programme du 18 novembre 2026 remplace la bascule vers un impôt à large assiette (« Élargir la base
+    », 27 août 2026, Public Sénat) par une redistribution d''« une partie des économies » sociales, sans impôt nouveau («
+    On financera mieux avec plus de travail, pas avec plus d''impôts »). Lecture : baisse de cotisations salariales financée
+    par une fraction non précisée des économies chiffrées ailleurs (retraites, chômage, carence). C''est un coût qui réduit
+    d''autant ces économies.'
   chiffrable: false
-  raison_non_chiffrable: 'Bascule des cotisations vers un impôt à large assiette présentée comme à rendement constant, sans
-    montant : effet nul par construction sur le solde (rien à chiffrer tant que l''asymétrie n''est pas documentée).'
-  sens_probable: neutre
+  raison_non_chiffrable: '« Une partie des économies » : ni la part redistribuée ni l''instrument (cotisations salariales,
+    CSG) ne sont publiés. Le coût va de 0 à la totalité des économies retraites, chômage et carence chiffrées ici (2,6 +
+    5,2 + 0,1 Md€ en 2032).'
+  sens_probable: cout
 - id: temps-travail-accords-heures-exonerees
   libelle: Temps de travail fixé par accord d'entreprise, heures au-delà de 35 h défiscalisées et exonérées, plus aucune cotisation
     patronale au-delà de 37 h
   domaine: travail
   citation:
-    texte: Concrètement, si une entreprise trouve un accord pour élever sa durée du travail au-dessus de 35 heures, toutes
-      les heures travaillées au-dessus de 35 heures seront défiscalisées et exonérées de cotisation et il n'y aura plus une
-      seule cotisation pour les entreprises au-delà de 37 heures.
-    url: https://www.edouardphilippe.fr/actualites/trois-principales-annonces-dedouard-philippe-a-lheure-de-verite
-    date: '2026-10-08'
-    support: site du candidat (communiqué sur l'émission « L'Heure de vérité », France 2)
+    texte: Oui. Édouard Philippe veut alléger le poids des cotisations sur le travail. Les heures travaillées au-delà de 35
+      heures seront exonérées d’impôt et de cotisations salariales, et les entreprises ne paieront plus de cotisation patronale
+      au-delà de la 37e heure. Pour un salarié au SMIC qui travaille deux heures de plus par semaine, le gain sera de plus
+      de 1 000 € par an.
+    url: https://www.edouardphilippe.fr/programme/travail
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: partielle
-  interpretation: 'Sur France 2 : « si vous travaillez plus longtemps, le salarié va gagner plus, parce qu''il n''y aura
+  interpretation: 'Programme du 18 novembre 2026 : même dispositif, par accord d''entreprise (« Laisser les entreprises
+    organiser leur temps de travail »). Communiqué du 8 octobre 2026 : « si une entreprise trouve un accord pour élever
+    sa durée du travail au-dessus de 35 heures, toutes les heures travaillées au-dessus de 35 heures seront défiscalisées
+    et exonérées de cotisation ». Sur France 2 : « si vous travaillez plus longtemps, le salarié va gagner plus, parce qu''il n''y aura
     plus de cotisations sociales. Et l''entreprise va pouvoir disposer d''un coût du travail qui sera un peu moins élevé
     », « travailler deux heures de plus par semaine, c''est 1.000 euros de plus par an » au Smic (AFP). Droit en vigueur
     : les heures supplémentaires sont déjà exonérées d''impôt sur le revenu (jusqu''à 7 500 € par an) et de cotisations
@@ -638,24 +754,22 @@ mesures:
   confiance: faible
   verification:
     statut: ok
-    par: veille-2026-10-11
-    date: '2026-10-11'
-    commentaire: "Veille du 11/10/2026 : citation relue dans le communiqué du site de campagne (8 oct. 2026), recoupée par la dépêche AFP (Bourse Direct, Sud Radio), franceinfo et Euronews (« exonérer de cotisations sociales les salariés qui accepteraient de travailler deux heures supplémentaires par semaine »). Chiffrage nouveau : même grandeur de cotisations patronales sur les heures existantes que la mesure comparable du programme Retailleau ; part au-delà de 37 h par convention (non sourcée), d'où la confiance faible. Recalé sur le FMI WEO d'octobre 2026 : central −2,08 → −2,09 (bas −5,21 → −5,24, haut −1,3 → −1,31)."
+    par: veille-2026-11-20
+    date: '2026-11-20'
+    commentaire: "Passe du 20/11/2026 : citation remplacée par le programme, volume 1 (18/11/2026), relu sur le site ; paramètres et montants inchangés. Trace précédente (veille-2026-10-11, 2026-10-11) : Veille du 11/10/2026 : citation relue dans le communiqué du site de campagne (8 oct. 2026), recoupée par la dépêche AFP (Bourse Direct, Sud Radio), franceinfo et Euronews (« exonérer de cotisations sociales les salariés qui accepteraient de travailler deux heures supplémentaires par semaine »). Chiffrage nouveau : même grandeur de cotisations patronales sur les heures existantes que la mesure comparable du programme Retailleau ; part au-delà de 37 h par convention (non sourcée), d'où la confiance faible. Recalé sur le FMI WEO d'octobre 2026 : central −2,08 → −2,09 (bas −5,21 → −5,24, haut −1,3 → −1,31)."
 - id: enseignants-plus-20pct
   libelle: Augmenter de 20 % la rémunération moyenne des enseignants sur le quinquennat
   domaine: éducation
   citation:
-    texte: Le candidat d'Horizons pour l'élection présidentielle défend notamment "une augmentation de 20% de la rémunération
-      moyenne des enseignants" sur le quinquennat, pour la porter "au moins au niveau de la moyenne européenne, notamment
-      en milieu de carrière". "C'est massif, mais c'est indispensable pour redonner de la dignité à leur métier", estime-t-il.
-      "Avec près d'un million d'élèves en moins, nous avons les moyens de continuer à réduire les effectifs dans les classes
-      là où c'est nécessaire et de mieux rémunérer les professeurs sans dégrader les finances publiques", précise également
-      le maire du Havre.
-    url: https://lcp.fr/actualites/presidentielle-salaires-des-enseignants-sanctions-pour-les-parents-ce-que-propose
-    date: '2026-08-24'
-    support: presse (entretien au Figaro)
+    texte: De 20 % en moyenne sur le quinquennat. Édouard Philippe veut porter la rémunération des enseignants au moins au
+      niveau de la moyenne européenne, en particulier en milieu de carrière.
+    url: https://www.edouardphilippe.fr/programme/ecole
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: precise
-  interpretation: 'Hausse de 20 % de la rémunération moyenne, montée linéaire 2028-2032 ; financée selon le candidat par la
+  interpretation: 'Programme du 18 novembre 2026 : « Augmenter de 20 % en moyenne le salaire des enseignants pendant le
+    quinquennat ». Entretien au Figaro (24 août 2026, LCP) : « Avec près d''un million d''élèves en moins, nous avons les
+    moyens [...] de mieux rémunérer les professeurs sans dégrader les finances publiques ». Hausse de 20 % de la rémunération moyenne, montée linéaire 2028-2032 ; financée selon le candidat par la
     baisse démographique (non comptée en économie sauf mesure explicite de suppression de postes). Périmètre : enseignants
     du public (et du privé sous contrat ?) à préciser.'
   effets_retour: Attractivité du métier ; non compté.
@@ -697,10 +811,10 @@ mesures:
   confiance: moyenne
   verification:
     statut: corrige
-    par: verificateur-sonnet
-    date: '2026-09-29'
+    par: veille-2026-11-20
+    date: '2026-11-20'
     commentaire: >-
-      Citation retrouvée dans la source (récupérée le 2026-09-29). Calcul rejoué (0,2 × 0,793863 M × 85 000 € × 0,65
+      Passe du 20/11/2026 : citation remplacée par le programme, volume 1 (18/11/2026), relu sur le site ; paramètres et montants inchangés. Trace précédente (verificateur-sonnet, 2026-09-29) : Citation retrouvée dans la source (récupérée le 2026-09-29). Calcul rejoué (0,2 × 0,793863 M × 85 000 € × 0,65
       × 0,75 = 6,58 Md€), effectifs et coût par ETPT conformes au barème. Réserves : (1) le retour de prélèvements
       de 25 % est attribué au rapport du Sénat (a25-145-5) qui ne le contient pas : note du paramètre corrigée,
       ordre de grandeur plausible (CSG, retenue pension, cotisations employeur hors CAS, IR ≈ 30 % du coût hors CAS)
@@ -717,11 +831,11 @@ mesures:
   libelle: Créer un service public universel du soutien scolaire (assistant IA et brigades)
   domaine: éducation
   citation:
-    texte: Créer un service public universel du soutien scolaire , combinant assistant IA personnalisé et brigades d'anciens
-      professeurs et d'étudiants volontaires.
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: Oui. Édouard Philippe veut créer un service public universel du soutien scolaire. Il combinera des brigades d’anciens
+      professeurs et d’étudiants volontaires et un assistant d’intelligence artificielle personnalisé.
+    url: https://www.edouardphilippe.fr/programme/ecole
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: vague
   chiffrable: false
   raison_non_chiffrable: 'Ni volume d''heures ni rémunération des intervenants (bénévoles, anciens professeurs, IA) : trop
@@ -735,72 +849,23 @@ mesures:
       de l'ordre de « Devoirs faits » étendu à tous les élèves.
     sources:
     - cout_enseignant_apu
-    - https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants
-- id: part-fiscale-deuxieme-enfant
-  libelle: Accorder une part entière de quotient familial dès le deuxième enfant
-  domaine: fiscalité des ménages
-  citation:
-    texte: Accorder une part fiscale dès le deuxième enfant pour que chaque naissance soit reconnue et soutenue par la nation,
-      pas seulement à partir de la troisième.
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants
-    date: consulté le 2026-09-29
-    support: site du candidat
-  precision: precise
-  interpretation: 'Le deuxième enfant ouvrirait une part entière au lieu d''une demi-part ; plafonnement du quotient familial
-    supposé inchangé. Au 11 octobre 2026, la mesure ne figure plus sur la page « Pour une France plus attentive à ses enfants
-    » (les deux autres mesures familiales y sont toujours), et la refonte de la politique familiale présentée le 8 octobre
-    2026 (ir-zero-jeunes-parents, aide-unique-familles) ne la mentionne pas : retrait probable, non confirmé. Maintenue
-    en attendant (référencée par chiffrage/simulateur.yaml) ; si elle est retirée, le solde s''améliore de 4,19 Md€.'
-  chiffrable: true
-  nature: baisse_recette
-  effet_solde_primaire:
-    central: -4.22
-    bas: -4.22
-    haut: -3.4
-    montee_en_charge: *id001
-  calcul:
-    formule: -cout_2024 * f
-    parametres:
-      cout_2024:
-        valeur: 3.4
-        bareme: part_fiscale_entiere_deuxieme_enfant_cout
-        unite: Md€ (2024)
-        source: https://web.archive.org/web/2024id_/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/instituer-une-part-fiscale-complete-des-le-deuxieme-enfant/
-        note: « Le chiffrage de cette mesure sur la base du modèle LexImpact [...] aboutit à un coût de 3,4 Md€ en 2024 »
-      f: &id004
-        valeur: 1.2408
-        bareme: facteur_pib_2024_2032
-        unite: facteur 2024→2032
-        note: facteur PIB nominal (FMI WEO octobre 2026, plan/hypotheses.yaml), indiqué en tête de chiffrage/baremes.yaml (valeur
-          2024→2032 citée dans les barèmes c3s_rendement et masse_salariale_apu)
-    explication: 'Chiffrage LexImpact (Institut Montaigne) de la même mesure proposée par le RN en 2024, porté en euros 2032
-      (barème et plafonds du quotient familial indexés en référence, revenus au PIB). Haut : montant 2024 non projeté.'
-  chiffrages_tiers:
-  - auteur: Institut Montaigne (modèle LexImpact), mesure identique du RN
-    montant_md: 3.4
-    url: https://web.archive.org/web/2024id_/https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/instituer-une-part-fiscale-complete-des-le-deuxieme-enfant/
-    date: 2024-06
-    commentaire: Coût 2024 ; baisse d'IR pour 8 % des foyers.
-  effets_retour: Effet nataliste invoqué ; non compté.
-  confiance: moyenne
-  verification:
-    statut: conteste
-    par: veille-2026-10-11
-    date: '2026-10-11'
-    commentaire: "Veille du 11/10/2026 : la citation n'est plus sur la page du site relue ce jour (aucune archive de la page au 29/09 dans la Wayback Machine) ; la refonte familiale du 8 octobre ne la reprend pas. Statut ok → conteste : mesure probablement retirée ; montants inchangés en attendant une confirmation (retrait : +4,19 Md€ sur le solde 2032, et mise à jour de chiffrage/simulateur.yaml, impot-revenu/quotient-deuxieme-enfant). Trace précédente (verificateur-sonnet, 29/09, ok) : Citation retrouvée dans la source (récupérée le 2026-09-29). Extrait Institut Montaigne relu via la Wayback Machine (3,4 Md€ en 2024, LexImpact, 8 % des foyers). Facteur 2024→2032 1,2336 cohérent. Mesure identique à celle du RN. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032 (valeur inchangée). Recalé sur le FMI WEO d'octobre 2026 : central −4,19 → −4,22 (bas −4,19 → −4,22)."
+    - https://www.edouardphilippe.fr/programme/ecole
 - id: aide-unique-familles
-  libelle: Allocation familiale unique de 350 € par mois et par enfant dès le premier enfant, dégressive avec le revenu
+  libelle: Allocation familiale unique de 350 € par mois dès le premier enfant, dégressive avec le revenu
   domaine: politique familiale
   citation:
-    texte: Pour les plus modestes, Édouard Philippe mettra en place une allocation familiale unique dès le premier enfant
-      de 350 euros par mois et par enfant, dégressive avec le revenu, en fusionnant une dizaine de dispositifs complexes
-      et illisibles. Cette proposition est à coût constant en rationalisant les dispositifs existants (allocations familiales,
-      supplément familial de traitement, prime de naissance…).
-    url: https://www.edouardphilippe.fr/actualites/trois-principales-annonces-dedouard-philippe-a-lheure-de-verite
-    date: '2026-10-08'
-    support: site du candidat (communiqué sur l'émission « L'Heure de vérité », France 2)
+    texte: Oui, et c’est un changement fondamental qui correspond aux nouveaux modes de vie des Français. Édouard Philippe
+      veut verser l’allocation familiale dès le premier enfant, alors qu’elle n’est aujourd’hui versée qu’à partir du deuxième.
+      Elle atteindra 350 € pour les plus modestes et sera dégressive avec le revenu.
+    url: https://www.edouardphilippe.fr/programme/famille
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: partielle
-  interpretation: 'Précise l''« aide financière unique, lisible et universelle pour les familles » de la page « Pour une France
+  interpretation: 'Programme du 18 novembre 2026 : allocation unique qui « remplacera des aides aujourd’hui trop complexes
+    et trop éparpillées » ; ni la mention « par enfant » ni le « coût constant » du communiqué du 8 octobre 2026 n''y figurent
+    (« une allocation familiale unique dès le premier enfant de 350 euros par mois et par enfant, dégressive avec le revenu
+    [...]. Cette proposition est à coût constant en rationalisant les dispositifs existants (allocations familiales, supplément
+    familial de traitement, prime de naissance…) »). Précise l''« aide financière unique, lisible et universelle pour les familles » de la page « Pour une France
     plus attentive à ses enfants » (toujours en ligne le 11 octobre 2026). Sur France 2 : « revoir totalement le système
     des allocations familiales », « une allocation familiale unique qui permet de verser 350 € dès le premier enfant » (AFP,
     8 oct. 2026). Montant maximal, dispositifs fusionnés (« une dizaine », trois nommés) et barème de dégressivité non publiés
@@ -814,28 +879,29 @@ mesures:
   sens_probable: incertain
   verification:
     statut: corrige
-    par: veille-2026-10-11
-    date: '2026-10-11'
-    commentaire: "Veille du 11/10/2026 : communiqué du site de campagne (8 oct. 2026) relu ; citation remplacée (350 € par mois et par enfant dès le premier enfant, dégressive avec le revenu, « à coût constant ») ; précision vague → partielle. Recoupé par l'AFP (Bourse Direct), franceinfo, LCP et Euronews (« dégressif en fonction de l'impôt sur le revenu »). Reste non chiffrable (dégressivité inconnue), sens incertain. Ancienne citation (page « priorités », toujours en ligne) : « Créer une aide financière unique, lisible et universelle pour les familles, en fusionnant les dispositifs existants trop complexes et trop éparpillés. »"
+    par: veille-2026-11-20
+    date: '2026-11-20'
+    commentaire: "Passe du 20/11/2026 : citation remplacée par le programme, volume 1 (18/11/2026), relu sur le site ; paramètres et montants inchangés. Trace précédente (veille-2026-10-11, 2026-10-11) : Veille du 11/10/2026 : communiqué du site de campagne (8 oct. 2026) relu ; citation remplacée (350 € par mois et par enfant dès le premier enfant, dégressive avec le revenu, « à coût constant ») ; précision vague → partielle. Recoupé par l'AFP (Bourse Direct), franceinfo, LCP et Euronews (« dégressif en fonction de l'impôt sur le revenu »). Reste non chiffrable (dégressivité inconnue), sens incertain. Ancienne citation (page « priorités », toujours en ligne) : « Créer une aide financière unique, lisible et universelle pour les familles, en fusionnant les dispositifs existants trop complexes et trop éparpillés. »"
 - id: ir-zero-jeunes-parents
   libelle: Exonérer d'impôt sur le revenu les jeunes parents des classes moyennes pendant les trois premières années de l'enfant
     (réduction d'impôt plafonnée à 3 000 €)
   domaine: fiscalité des ménages
   citation:
-    texte: Concrètement, tous les foyers qui paient moins de 3 000 euros d'impôt sur le revenu seront exonérés d'impôt pendant
-      trois ans, et ceux qui en paient plus bénéficieront d'une réduction d'impôt de 3 000 euros. Ce dispositif, qui coûte
-      3 Mds € par an financés par le plan de redressement des finances publiques d'Édouard Philippe, permettra aux parents
-      qui travaillent de faire face aux dépenses et d'accueillir leur enfant sereinement.
-    url: https://www.edouardphilippe.fr/actualites/trois-principales-annonces-dedouard-philippe-a-lheure-de-verite
-    date: '2026-10-08'
-    support: site du candidat (communiqué sur l'émission « L'Heure de vérité », France 2)
+    texte: Oui, pour redonner du pouvoir d’achat aux familles des classes moyennes. Pendant les trois premières années de
+      l’enfant, Édouard Philippe veut supprimer l’impôt sur le revenu des ménages des classes moyennes, du 4e au 6e décile
+      et au début du 7e. Les familles plus aisées qui travaillent auront droit à 3 000 € de réduction d’impôt par an.
+    url: https://www.edouardphilippe.fr/programme/famille
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: precise
-  interpretation: 'Réduction d''impôt sur le revenu d''au plus 3 000 € par an pendant les trois années suivant une naissance
+  interpretation: 'Programme du 18 novembre 2026 : même dispositif, ciblage décrit en déciles (4e au 6e, début du 7e) ; le
+    coût n''y est pas repris. Communiqué du 8 octobre 2026 : « tous les foyers qui paient moins de 3 000 euros d''impôt
+    sur le revenu seront exonérés d''impôt pendant trois ans, et ceux qui en paient plus bénéficieront d''une réduction
+    d''impôt de 3 000 euros. Ce dispositif, qui coûte 3 Mds € par an [...] ». Réduction d''impôt sur le revenu d''au plus 3 000 € par an pendant les trois années suivant une naissance
     (« jusqu''à leur entrée à l''école »), pour chaque enfant (« un enfant, puis un deuxième, puis un troisième », France
     2, AFP). Lecture : un plafond par foyer et par an, non indexé ; non remboursable (« exonérés d''impôt »). Le candidat
     publie le coût (3 Md€ par an) ; le « plan de redressement » qui le financerait n''est pas détaillé et n''est pas compté
-    ici. La « part fiscale dès le deuxième enfant » a disparu de la page du site (voir part-fiscale-deuxieme-enfant,
-    maintenue et contestée) : les deux sont comptées tant que le retrait n''est pas confirmé.'
+    ici. La « part fiscale dès le deuxième enfant », absente du programme du 18 novembre 2026, est retirée.'
   chiffrable: true
   nature: baisse_recette
   effet_solde_primaire:
@@ -863,21 +929,23 @@ mesures:
   confiance: moyenne
   verification:
     statut: ok
-    par: veille-2026-10-11
-    date: '2026-10-11'
-    commentaire: "Veille du 11/10/2026 : citation et coût (3 Md€ par an) relus dans le communiqué du site de campagne du 8 octobre 2026 ; propos à l'antenne relus dans la dépêche AFP (Bourse Direct : « une réduction d'impôt d'environ 3.000 euros », « les trois années qui suivront la naissance d'un enfant »), LCP et franceinfo. Recoupement (naissances INSEE, part des foyers imposés DGFiP via MoneyVox) cohérent avec le chiffre annoncé. Recalé sur le FMI WEO d'octobre 2026 : bas −3,55 → −3,58 (central inchangé)."
+    par: veille-2026-11-20
+    date: '2026-11-20'
+    commentaire: "Passe du 20/11/2026 : citation remplacée par le programme, volume 1 (18/11/2026), relu sur le site ; paramètres et montants inchangés. Trace précédente (veille-2026-10-11, 2026-10-11) : Veille du 11/10/2026 : citation et coût (3 Md€ par an) relus dans le communiqué du site de campagne du 8 octobre 2026 ; propos à l'antenne relus dans la dépêche AFP (Bourse Direct : « une réduction d'impôt d'environ 3.000 euros », « les trois années qui suivront la naissance d'un enfant »), LCP et franceinfo. Recoupement (naissances INSEE, part des foyers imposés DGFiP via MoneyVox) cohérent avec le chiffre annoncé. Recalé sur le FMI WEO d'octobre 2026 : bas −3,55 → −3,58 (central inchangé)."
 - id: ptz-chaque-naissance
-  libelle: Prêt à taux zéro à chaque naissance
+  libelle: Prêt à taux zéro « famille » à chaque naissance
   domaine: politique familiale / logement
   citation:
-    texte: Faciliter le déménagement des familles qui s'agrandissent grâce à un prêt à taux zéro pour chaque naissance.
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: 'Oui. Édouard Philippe veut pérenniser le prêt à taux zéro et créer un prêt à taux zéro « famille » : les parents
+      auront droit à un nouveau prêt à taux zéro à la naissance de chaque enfant.'
+    url: https://www.edouardphilippe.fr/programme/logement
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: partielle
-  interpretation: Montant et durée du prêt non précisés ; coût = bonification d'intérêts (crédit d'impôt aux banques, comme
-    le PTZ). Rappelé le 8 octobre 2026 sur France 2 (« prêt à taux zéro pour les familles qui, ayant un enfant, doivent
-    changer d'appartement et décider de pouvoir acheter un appartement », AFP), sans montant.
+  interpretation: 'Montant et durée du prêt non précisés ; coût = bonification d''intérêts (crédit d''impôt aux banques, comme
+    le PTZ). Le PLF 2027 prévoit un PTZ « parentalité » (enfant à naître ou de moins de trois ans, une fois par bénéficiaire
+    : LégiFiscal, 6 oct. 2026), non voté au 29 septembre 2026 donc hors référence. La pérennisation du PTZ classique est
+    traitée à part (ptz-perennisation).'
   chiffrable: false
   raison_non_chiffrable: 'Montant et durée du prêt non précisés : le coût d''un PTZ (bonification d''intérêts) dépend entièrement
     de ces paramètres.'
@@ -889,16 +957,16 @@ mesures:
     lecture: Prêt à taux zéro de ≈ 30 000 € pour ≈ 20 % des ≈ 660 000 naissances annuelles, coût de bonification de ≈ 10 % du
       capital.
     sources:
-    - https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants
+    - https://www.edouardphilippe.fr/programme/logement
 - id: temps-partiel-parental
   libelle: 'Temps partiel parental : 80 % payé 100 % pendant 2 mois'
   domaine: politique familiale
   citation:
-    texte: 'Créer le temps partiel parental : passer à 80% payés 100 pendant 2 mois pour faciliter la reprise du travail des
-      parents après les congés parentaux.'
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: 'Édouard Philippe propose un temps partiel parental : après un congé parental, le parent pourra travailler à 80
+      % tout en étant payé 100 % pendant deux mois.'
+    url: https://www.edouardphilippe.fr/programme/famille
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: precise
   interpretation: 'Hypothèse : complément de 20 % du salaire pendant 2 mois pris en charge par la branche famille, pour les
     parents reprenant après congé parental.'
@@ -915,24 +983,25 @@ mesures:
     sources:
     - salaire_brut_moyen_prive
     - prestations_familiales_depense
-    - https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants
+    - https://www.edouardphilippe.fr/programme/famille
 - id: donations-plafonds-hausse
-  libelle: Augmenter très sensiblement les abattements sur les donations pendant les trois premières années
+  libelle: Doubler les plafonds de donation aux enfants et petits-enfants pendant les trois premières années du quinquennat
   domaine: fiscalité du patrimoine
   citation:
-    texte: '"Je pense au contraire qu''il faut permettre la transmission du patrimoine beaucoup plus vite et beaucoup plus
-      tôt pour aider la jeunesse" et "augmenter massivement la capacité d''effectuer, du vivant des personnes, les donations
-      aux enfants, aux petits-enfants et peut-être même plus largement qu''aux petits-enfants", déclare Édouard Philippe,
-      qui proposera "une augmentation très sensible des plafonds pendant les trois premières années du quinquennat".'
-    url: https://lcp.fr/actualites/chomage-edouard-philippe-veut-abaisser-la-duree-d-indemnisation-a-douze-mois-maximum
-    date: '2026-08-27'
-    support: presse (propos à l'AFP)
-  precision: partielle
+    texte: Oui. Édouard Philippe veut doubler les plafonds de donation du vivant aux enfants et aux petits-enfants pendant
+      les trois premières années du quinquennat.
+    url: https://www.edouardphilippe.fr/programme/famille
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: precise
   interpretation: 'Mesure temporaire (2027-2030) : effet d''anticipation (droits perdus sur donations avancées, droits de
-    succession ultérieurs réduits). Ampleur de la hausse non précisée.'
+    succession ultérieurs réduits). Programme du 18 novembre 2026 : doublement (100 000 € → 200 000 € par parent et par
+    enfant, lecture ; 31 865 € → 63 730 € par petit-enfant), au lieu d''« une augmentation très sensible des plafonds »
+    (AFP, 27 août 2026).'
   chiffrable: false
-  raison_non_chiffrable: Mesure temporaire (trois premières années du quinquennat) sans effet en régime de croisière 2032
-    ; ampleur de la hausse non précisée. Coût transitoire 2028-2030 et moindres droits de succession ultérieurs non chiffrés.
+  raison_non_chiffrable: Mesure temporaire (trois premières années du quinquennat) sans effet en régime de croisière 2032,
+    sauf les droits de succession perdus ensuite. Coût transitoire 2028-2030 et moindres droits de succession ultérieurs
+    non chiffrés (aucune élasticité publique des donations à l'abattement).
   sens_probable: cout
   estimation_indicative:
     central: -0.3
@@ -942,16 +1011,15 @@ mesures:
       donations anticipées rapportent en 2028-2030 moins que les successions qu''elles remplacent).'
     sources:
     - dmtg_rendement
-    - https://lcp.fr/actualites/chomage-edouard-philippe-veut-abaisser-la-duree-d-indemnisation-a-douze-mois-maximum
+    - https://www.edouardphilippe.fr/programme/famille
 - id: pacte-dutreil-maintien
   libelle: Maintenir le pacte Dutreil
   domaine: fiscalité du patrimoine
   citation:
-    texte: 'Autre message aux entreprises : "Il faut arrêter à intervalles réguliers de remettre en cause l''existence du
-      pacte Dutreil" pour la transmission des entreprises familiales.'
-    url: https://lcp.fr/actualites/chomage-edouard-philippe-veut-abaisser-la-duree-d-indemnisation-a-douze-mois-maximum
-    date: '2026-08-27'
-    support: presse (propos à l'AFP)
+    texte: Oui. Édouard Philippe défend le maintien du pacte Dutreil, qui facilite la transmission des entreprises familiales.
+    url: https://www.edouardphilippe.fr/programme/entreprises
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: precise
   chiffrable: false
   raison_non_chiffrable: 'Maintien de la législation en vigueur : aucun effet par rapport à la référence.'
@@ -960,10 +1028,11 @@ mesures:
   libelle: 'Moratoire normatif et fiscal : aucun nouvel impôt sur le quinquennat'
   domaine: fiscalité
   citation:
-    texte: 'Sceller un moratoire normatif et fiscal : pas de nouvelle norme et de nouvel impôt sur le quinquennat.'
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: 'Non. Édouard Philippe s’engage à un moratoire normatif et fiscal : aucune nouvelle norme et aucun nouvel impôt
+      pendant tout le quinquennat.'
+    url: https://www.edouardphilippe.fr/programme/entreprises
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: precise
   chiffrable: false
   raison_non_chiffrable: 'Engagement de ne pas créer d''impôt : pas d''effet par rapport à la législation ; contrainte pour
@@ -973,15 +1042,15 @@ mesures:
   libelle: Fonds unique d'adaptation au changement climatique de 2 Md€ par an (Fonds vert doublé et fonds Barnier réunis)
   domaine: écologie / adaptation
   citation:
-    texte: Édouard Philippe a expliqué, jeudi 17 septembre, lors d'un discours aux Ponts-de-Cé (Maine-et-Loire), vouloir "doter
-      la France d'une véritable politique de sécurité climatique" , avec plusieurs propositions, notamment la création d'un
-      "fonds unique d'adaptation au changement climatique" de 2 milliards d'euros par an.
-    url: https://www.franceinfo.fr/elections/presidentielle/edouard-philippe-souhaite-doter-la-france-d-une-veritable-politique-de-securite-climatique_8197976.html
-    date: '2026-09-17'
-    support: presse (discours des Ponts-de-Cé)
+    texte: Édouard Philippe veut créer un fonds d’adaptation au changement climatique doté de 2 milliards d’euros par an. Il
+      réunira le fonds Barnier et le Fonds vert, et financera des investissements dont l’impact devra être mesurable.
+    url: https://www.edouardphilippe.fr/programme/adaptation-climatique
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: precise
-  interpretation: 'Source primaire introuvable (discours des Ponts-de-Cé absent du site du candidat au 29 septembre 2026 ;
-    presse seulement). Selon l''AFP (France 24, 17 sept. 2026), le fonds « réunirait le Fonds Barnier et le Fonds vert existants,
+  interpretation: 'Source primaire : programme du 18 novembre 2026, qui confirme la lecture retenue en septembre (fonds
+    réunissant le fonds Barnier et le Fonds vert) ; le doublement du Fonds vert n''y figure plus en tant que tel. Le programme
+    ajoute « un opérateur public unique, fusionnant quatre agences existantes » (neutre). Selon l''AFP (France 24, 17 sept. 2026), le fonds « réunirait le Fonds Barnier et le Fonds vert existants,
     doté de 2 milliards d''euros annuels » ; le candidat : « Deux milliards, c''est une somme importante. Mais rapportée aux
     5 milliards d''euros que coûtent chaque année les catastrophes naturelles, c''est de l''argent bien investi ». Le doublement
     du Fonds vert (site du candidat) se lit donc à l''intérieur de ce fonds : en autorisations d''engagement, 2 × 0,837 +
@@ -1022,9 +1091,9 @@ mesures:
   confiance: moyenne
   verification:
     statut: corrige
-    par: passe-sources
-    date: '2026-09-29'
-    commentaire: "Passe sources : source primaire introuvable (discours non publié sur le site du candidat) ; dépêche AFP relue (France 24) : le fonds réunit le Fonds vert et le fonds Barnier. Correction : seuls les crédits nouveaux sont comptés (2 − 1,07 − 0,229), et le doublement du Fonds vert est inclus dans ce fonds au lieu d'être ajouté : fonds-adaptation-2md −2,0 → −0,70 et fonds-vert-doublement −1,07 → non chiffrable (inclus), soit −3,07 → −0,70 Md€ au total. Trace précédente (verificateur-sonnet, 29/09) : ok, recoupement avec le Fonds vert signalé mais non retranché. Recalé sur le FMI WEO d'octobre 2026 : bas −3,64 → −3,66 (central inchangé)."
+    par: veille-2026-11-20
+    date: '2026-11-20'
+    commentaire: "Passe du 20/11/2026 : citation remplacée par le programme, volume 1 (18/11/2026), relu sur le site ; paramètres et montants inchangés. Trace précédente (passe-sources, 2026-09-29) : Passe sources : source primaire introuvable (discours non publié sur le site du candidat) ; dépêche AFP relue (France 24) : le fonds réunit le Fonds vert et le fonds Barnier. Correction : seuls les crédits nouveaux sont comptés (2 − 1,07 − 0,229), et le doublement du Fonds vert est inclus dans ce fonds au lieu d'être ajouté : fonds-adaptation-2md −2,0 → −0,70 et fonds-vert-doublement −1,07 → non chiffrable (inclus), soit −3,07 → −0,70 Md€ au total. Trace précédente (verificateur-sonnet, 29/09) : ok, recoupement avec le Fonds vert signalé mais non retranché. Recalé sur le FMI WEO d'octobre 2026 : bas −3,64 → −3,66 (central inchangé)."
 - id: fonds-vert-doublement
   libelle: Doubler le Fonds vert, recentré sur l'adaptation et la climatisation des bâtiments publics
   domaine: écologie / adaptation
@@ -1047,31 +1116,34 @@ mesures:
     date: '2026-09-29'
     commentaire: "Passe sources : dépêche AFP du 17 septembre 2026 (France 24) relue : le fonds unique de 2 Md€ « réunirait le Fonds Barnier et le Fonds vert existants ». Mesure repassée en non chiffrable, incluse dans fonds-adaptation-2md (−1,07 Md€ retirés). Trace précédente (verificateur-sonnet, 29/09) : ok, extrait Banque des Territoires relu (837 M€ AE, 1,070 Md€ CP) ; risque de double compte signalé."
 - id: climatisation-lieux-fragiles
-  libelle: Climatiser massivement les lieux accueillant des personnes fragiles
+  libelle: Climatiser massivement les lieux accueillant des personnes fragiles, fonds chaleur étendu aux réseaux de froid
   domaine: écologie / adaptation
   citation:
-    texte: Climatiser massivement les lieux accueillant des personnes fragiles.
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: Oui. Édouard Philippe veut climatiser massivement les lieux qui accueillent des personnes fragiles. Il veut aussi
+      étendre le soutien du fonds chaleur aux réseaux de froid, pour rafraîchir notamment les EHPAD et les logements sociaux.
+    url: https://www.edouardphilippe.fr/programme/adaptation-climatique
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: vague
   chiffrable: false
-  raison_non_chiffrable: 'Financé par le doublement du Fonds vert (IFRAP) : compté dans fonds-vert-doublement.'
+  raison_non_chiffrable: 'Supposé financé par le fonds d''adaptation de 2 Md€ (compté dans fonds-adaptation-2md) ; extension
+    du fonds chaleur aux réseaux de froid sans montant.'
   sens_probable: neutre
 - id: canadair-plans-adaptation
   libelle: Canadair français, plan baignade, plan infrastructures, plan montagne
   domaine: écologie / sécurité civile
   citation:
-    texte: 'Le maire du Havre a présenté les mesures de la "politique de sécurité climatique" qu''il entend mettre en place
-      depuis l''Élysée : la production d''un "Canadair français" lors du prochain quinquennat, l''instauration d''une "journée
-      nationale d''alerte" et le lancement de "trois grands chantiers" - un plan baignade, un plan d''adaptation des infrastructures
-      et un plan montagne.'
-    url: https://www.franceinfo.fr/elections/presidentielle/edouard-philippe-souhaite-doter-la-france-d-une-veritable-politique-de-securite-climatique_8197976.html
-    date: '2026-09-17'
-    support: presse (discours des Ponts-de-Cé)
+    texte: Édouard Philippe veut une France prête à faire face. Il propose de construire en France nos propres « Canadairs
+      » contre les incendies, de créer dans les communes des réserves de citoyens volontaires formés et d’organiser chaque
+      année une journée nationale d’alerte, comme en Allemagne. Il veut aussi former tous les Français aux premiers secours,
+      pour que chacun sache réagir en attendant les secours.
+    url: https://www.edouardphilippe.fr/programme/adaptation-climatique
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: vague
-  interpretation: 'Source primaire introuvable (discours non publié sur le site du candidat ; le plan baignade figure sur
-    la page « Pour une France plus conquérante »). Les trois plans sont supposés financés par le fonds d''adaptation de
+  interpretation: 'Programme du 18 novembre 2026 (pages Adaptation climatique et Défense) : Canadairs français, réserves
+    communales, journée d''alerte, premiers secours pour tous ; le plan infrastructures et le plan montagne du discours
+    des Ponts-de-Cé (17 septembre 2026, franceinfo) n''y figurent pas. Les plans sont supposés financés par le fonds d''adaptation de
     2 Md€. Le « Canadair français » (objectif : « ne plus attendre, quand la France brûle, qu''un autre pays veuille bien
     nous vendre des avions pour l''éteindre », AFP) est un programme industriel distinct.'
   chiffrable: false
@@ -1099,11 +1171,11 @@ mesures:
   libelle: 'Plan baignade national : rivières baignables et rénovation des piscines'
   domaine: écologie
   citation:
-    texte: Rendre aux Français l'accès à l'eau en lançant un plan baignade national pour rendre baignables toutes nos rivières
-      et rénover nos piscines.
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: Oui. Édouard Philippe veut lancer un plan baignade national pour rendre baignables toutes nos rivières et rénover
+      nos piscines.
+    url: https://www.edouardphilippe.fr/programme/adaptation-climatique
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: vague
   chiffrable: false
   raison_non_chiffrable: 'Compris dans canadair-plans-adaptation (même plan) : pas de double compte.'
@@ -1112,30 +1184,29 @@ mesures:
   libelle: Investir massivement dans la capture de carbone
   domaine: écologie
   citation:
-    texte: Accélérer la décarbonation du pays et investir massivement dans la capture de carbone pour limiter l'ampleur du
-      réchauffement.
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: Il propose d’accélérer sa décarbonation, d’investir massivement dans la capture de carbone et de la protéger par
+      un prix du carbone aux frontières européennes.
+    url: https://www.edouardphilippe.fr/programme/energie
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: vague
   chiffrable: false
   raison_non_chiffrable: 'Trop vague : ni montant ni instrument.'
   sens_probable: cout
 - id: fret-ferroviaire
-  libelle: Grand plan fret ferroviaire
+  libelle: Grand plan fret ferroviaire (part modale de 20 % en fin de quinquennat)
   domaine: transports
   citation:
-    texte: Sur les infrastructures, Édouard Philippe entend lancer "un grand plan fret-ferroviaire", "indispensable pour notre
-      compétitivité par rapport aux autres pays européens" et qui va "réduire très très considérablement les émissions de
-      CO2".
-    url: https://lcp.fr/actualites/chomage-edouard-philippe-veut-abaisser-la-duree-d-indemnisation-a-douze-mois-maximum
-    date: '2026-08-27'
-    support: presse (propos à l'AFP)
-  precision: vague
-  interpretation: Montant non annoncé ; la phase 2 peut s'appuyer sur un plan de référence public (plan fret 2021, stratégie
-    nationale) si le candidat ne précise pas.
+    texte: 'Lancer un grand plan fret ferroviaire : porter sa part à 20 % à la fin du quinquennat, contre moins de 10 % aujourd’hui.'
+    url: https://www.edouardphilippe.fr/programme/energie
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: partielle
+  interpretation: 'Programme du 18 novembre 2026 : objectif de part modale (20 %, contre « moins de 10 % »), sans montant.
+    La stratégie nationale de 2021 visait déjà 18 % en 2030.'
   chiffrable: false
-  raison_non_chiffrable: 'Aucun montant ni objectif chiffré (part modale, crédits) : trop vague pour être chiffré.'
+  raison_non_chiffrable: 'Objectif de part modale sans crédits ni instrument : aucun lien public entre un point de part modale
+    et un montant d''aides.'
   sens_probable: cout
   estimation_indicative:
     central: -0.5
@@ -1144,41 +1215,51 @@ mesures:
     lecture: 'Grand plan fret : doublement des aides publiques de la stratégie nationale de 2021 (≈ 0,25 Md€ par an d''investissement
       et d''aides à l''exploitation).'
     sources:
-    - https://lcp.fr/actualites/chomage-edouard-philippe-veut-abaisser-la-duree-d-indemnisation-a-douze-mois-maximum
+    - https://www.edouardphilippe.fr/programme/energie
 - id: stockage-eau
-  libelle: Développer le stockage de l'eau
+  libelle: Stocker davantage l'eau et réutiliser 10 % des eaux usées traitées
   domaine: écologie
   citation:
-    texte: A ses yeux, il est aussi "indispensable de développer le stockage de l'eau, sans aller puiser de façon inconsidérée
-      dans les nappes".
-    url: https://lcp.fr/actualites/chomage-edouard-philippe-veut-abaisser-la-duree-d-indemnisation-a-douze-mois-maximum
-    date: '2026-08-27'
-    support: presse (propos à l'AFP)
+    texte: Édouard Philippe veut accélérer le stockage de l’eau agricole, en plaçant « la protection avant la procédure ».
+      Il veut aussi réutiliser 10 % des eaux usées traitées pour les usages qui ne demandent pas d’eau potable, contre moins
+      de 1 % aujourd’hui.
+    url: https://www.edouardphilippe.fr/programme/adaptation-climatique
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: vague
   chiffrable: false
-  raison_non_chiffrable: 'Trop vague : ni montant ni instrument.'
+  raison_non_chiffrable: 'Procédures et objectif de réutilisation sans montant ni financeur (agences de l''eau, collectivités,
+    exploitants) : trop vague.'
   sens_probable: cout
 - id: ia-capacite-calcul
-  libelle: Doubler la capacité de calcul d'IA en cinq ans, soutien aux champions européens
+  libelle: Leader européen de la puissance de calcul (zones d'accélération de l'IA), plan Horizon 2050, Bouclier Cyber
   domaine: numérique
   citation:
-    texte: Développer une infrastructure d'intelligence artificielle européenne souveraine, en soutenant nos champions et
-      en doublant notre capacité de calcul en cinq ans.
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: 'Lancer le plan Horizon 2050 pour succéder à France 2030 : un euro public pour un euro privé.'
+    url: https://www.edouardphilippe.fr/programme/intelligence-artificielle
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: vague
+  interpretation: 'Programme du 18 novembre 2026 : « Faire de la France le leader européen de la puissance de calcul et des
+    data centers, avec des « zones d’accélération de l’IA » » (raccordements facilités, permis accélérés), plan de transformation
+    des services publics par l''IA, « Bouclier Cyber », « droit à la reconversion » (voir apprentissage-reconversion-seniors).
+    Horizon 2050 succède à France 2030 (≈ 54 Md€ sur 2022-2030) et concentre « l''argent public sur les fonds propres des
+    acteurs technologiques critiques », sans montant ; au-delà de 2030, la référence ne prévoit plus de crédits France 2030
+    : un plan successeur est un coût en 2031-2032. Le doublement de la capacité de calcul en cinq ans (site, septembre
+    2026) n''est plus écrit.'
   chiffrable: false
-  raison_non_chiffrable: 'Part publique et instrument non définis : trop vague.'
+  raison_non_chiffrable: 'Ni montant public d''Horizon 2050, ni part publique des zones d''accélération et du Bouclier Cyber
+    : trop vague.'
   sens_probable: cout
 - id: ingenieurs-100000
   libelle: Porter la formation d'ingénieurs de 40 000 à 100 000 par an en cinq ans
   domaine: enseignement supérieur
   citation:
-    texte: Massifier la production d'ingénieurs, de 40 000 à 100 000 par an en cinq ans.
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: Oui. Édouard Philippe veut faire passer le nombre d’ingénieurs formés chaque année de 40 000 à 100 000 en cinq
+      ans.
+    url: https://www.edouardphilippe.fr/programme/intelligence-artificielle
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: precise
   interpretation: Coût = places supplémentaires en écoles/universités publiques × coût annuel par étudiant ingénieur × durée
     des études.
@@ -1195,7 +1276,7 @@ mesures:
       diplomes_supp:
         valeur: 60000
         unite: diplômés supplémentaires par an
-        source: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante
+        source: https://www.edouardphilippe.fr/programme/intelligence-artificielle
         note: de 40 000 à 100 000 par an
       duree_cycle:
         valeur: 3
@@ -1205,7 +1286,7 @@ mesures:
       part_montee:
         valeur: 0.8
         unite: part de l'effectif supplémentaire présente en 2032
-        source: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante
+        source: https://www.edouardphilippe.fr/programme/intelligence-artificielle
         note: 'objectif atteint « en cinq ans » : entrées supplémentaires linéaires de 2028 (+12 000) à 2032 (+60 000) ; en
           2032 les trois promotions en cours (entrées 2030, 2031, 2032) représentent (0,6 + 0,8 + 1,0) / 3 = 0,8 de l''effectif
           supplémentaire à terme (la première rédaction retenait 0,5)'
@@ -1216,7 +1297,12 @@ mesures:
         source: https://publication.enseignementsup-recherche.gouv.fr/eesr/FR/T496/la_depense_d_education_pour_l_enseignement_superieur/
         note: '« 19 070 euros pour un élève en CPGE » : faute de chiffre publié pour les écoles d''ingénieurs, la CPGE sert
           de proxy'
-      f: *id004
+      f: &id004
+        valeur: 1.2408
+        bareme: facteur_pib_2024_2032
+        unite: facteur 2024→2032
+        note: facteur PIB nominal (FMI WEO octobre 2026, plan/hypotheses.yaml), indiqué en tête de chiffrage/baremes.yaml (valeur
+          2024→2032 citée dans les barèmes c3s_rendement et masse_salariale_apu)
     explication: '60 000 diplômés de plus par an sur un cycle de trois ans, dont 80 % en cours en 2032 (entrées supplémentaires
       linéaires 2028-2032), au coût d''un élève de CPGE (proxy), porté en euros 2032. Suppose un financement public intégral
       (écoles privées et consulaires : surestimation). Bas : effectif complet (100 % en 2032 si les diplômés atteignent 100 000
@@ -1224,97 +1310,116 @@ mesures:
   confiance: faible
   verification:
     statut: corrige
-    par: verificateur-sonnet
-    date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Extraits EESR relus (19 070 € CPGE, 12 460 € université). Erreur d'arithmétique de montée en charge : avec des entrées supplémentaires linéaires sur cinq ans (+12 000 en 2028 à +60 000 en 2032), les trois promotions en cours en 2032 valent (0,6 + 0,8 + 1)/3 = 0,8 de l'effectif à terme, pas 0,5. Central -2,12 → -3,39 Md€ ; bas -4,23 (100 % en 2032) inchangé ; haut -1,38 (50 %, coût université) inchangé. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032 (valeur inchangée). Recalé sur le FMI WEO d'octobre 2026 : central −3,39 → −3,41 (bas −4,23 → −4,25, haut −1,38 → −1,39)."
+    par: veille-2026-11-20
+    date: '2026-11-20'
+    commentaire: "Passe du 20/11/2026 : citation remplacée par le programme, volume 1 (18/11/2026), relu sur le site ; paramètres et montants inchangés. Trace précédente (verificateur-sonnet, 2026-09-29) : Citation retrouvée dans la source (récupérée le 2026-09-29). Extraits EESR relus (19 070 € CPGE, 12 460 € université). Erreur d'arithmétique de montée en charge : avec des entrées supplémentaires linéaires sur cinq ans (+12 000 en 2028 à +60 000 en 2032), les trois promotions en cours en 2032 valent (0,6 + 0,8 + 1)/3 = 0,8 de l'effectif à terme, pas 0,5. Central -2,12 → -3,39 Md€ ; bas -4,23 (100 % en 2032) inchangé ; haut -1,38 (50 %, coût université) inchangé. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2024_2032 (valeur inchangée). Recalé sur le FMI WEO d'octobre 2026 : central −3,39 → −3,41 (bas −4,23 → −4,25, haut −1,38 → −1,39)."
 - id: livret-capital-france
   libelle: Livret capital France et capitalisation retraite pour financer les champions technologiques
   domaine: épargne
   citation:
-    texte: Créer un « livret capital France » pour mobiliser l'épargne dormante des Français, et utiliser la capitalisation
-      retraite pour financer nos champions technologiques.
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: C’est un livret d’épargne qu’Édouard Philippe veut créer pour mobiliser l’épargne qui dort sur les comptes des
+      Français et la diriger vers nos champions technologiques.
+    url: https://www.edouardphilippe.fr/programme/entreprises
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: vague
   chiffrable: false
   raison_non_chiffrable: 'Paramètres (exonération, plafond) inconnus : trop vague.'
   sens_probable: cout
-- id: reservistes-smv
-  libelle: Réservistes de 45 000 à 250 000, service militaire volontaire de 3 000 à 50 000 places par an
+- id: reservistes-250000
+  libelle: Porter le nombre de réservistes de 45 000 à 250 000
   domaine: défense
   citation:
-    texte: Porter le nombre de réservistes de 45 000 à 250 000 et le service militaire volontaire de 3 000 à 50 000 places
-      par an.
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: Oui. Édouard Philippe veut porter le nombre de réservistes de 45 000 à 250 000.
+    url: https://www.edouardphilippe.fr/programme/defense
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: precise
-  interpretation: Coût = réservistes supplémentaires × coût annuel moyen d'un réserviste + volontaires SMV supplémentaires
-    × coût annuel par volontaire.
+  interpretation: 'Coût = réservistes supplémentaires × coût annuel moyen d''un réserviste. Le service militaire volontaire
+    porté de 3 000 à 50 000 places (site, septembre 2026) n''est plus dans le programme du 18 novembre 2026, qui le remplace
+    par un service national obligatoire (service-national-obligatoire, non chiffrable) : il est retiré de cette ligne (identifiant
+    précédent : reservistes-smv).'
   chiffrable: true
   nature: depense
   effet_solde_primaire:
-    central: -3.72
-    bas: -3.72
-    haut: -2.05
+    central: -1.5
+    bas: -1.5
+    haut: -1.24
     montee_en_charge: *id003
   calcul:
-    formule: -(reservistes_supp * cout_reserviste * f26 + volontaires_supp * cout_smv * f24) / 1e9
+    formule: -reservistes_supp * cout_reserviste * f26 / 1e9
     parametres:
       reservistes_supp:
         valeur: 205000
         unite: réservistes
-        source: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
+        source: https://www.edouardphilippe.fr/programme/defense
         note: de 45 000 à 250 000
       cout_reserviste:
-        valeur: 6135
+        valeur: 6131
         unite: € par réserviste et par an (2026)
         source: https://www.senat.fr/rap/a25-141-7/a25-141-7_mono.html
-        note: '« presque 319 millions d''euros » de masse salariale pour « 52 000 réservistes à fin 2026 » (rapports du Sénat
-          sur le PLF 2026) : 319 / 52 000'
-      volontaires_supp:
-        valeur: 47000
-        unite: volontaires par an
-        source: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
-        note: de 3 000 à 50 000
-      cout_smv:
-        valeur: 38000
-        unite: € par volontaire (2022)
-        source: https://www.senat.fr/rap/r23-034/r23-034_mono.html
-        note: « Le SMV a coûté 53 millions d'euros en 2022 [...] Cela représente un coût d'environ 38 000 euros par volontaire
-          »
+        note: 'masse salariale de la réserve « à presque 319 millions d''euros » (318,8 M€, PLF 2026) pour environ 52 000 réservistes
+          fin 2026 (déduit : objectif de 47 600 et cible LPM de + 4 400 en 2026, même rapport) : 318,8 / 52 000'
       f26:
         valeur: 1.1921
         bareme: facteur_pib_2026_2032
         unite: facteur 2026→2032
         note: 1,2177 / 1,0215 (croissance nominale 2026 = 0,411 % de volume et 1,731 % de déflateur, plan/hypotheses.yaml)
-      f24: *id004
-    explication: 'Réservistes supplémentaires × masse salariale moyenne par réserviste (2026), plus volontaires supplémentaires
-      × coût par volontaire du SMV (2022, porté avec le facteur 2024→2032, prudent). Haut : volontaires comptés à leur seule
-      solde (≈ 9 500 €, 279 M€ pour 29 500 appelés du service national 2026-2030), l''encadrement et l''infrastructure étant
-      mutualisés. Une partie de la montée de la réserve et le service national de 2026 figurent déjà dans la LPM actualisée
-      (référence) : surestimation possible.'
+    explication: '205 000 réservistes supplémentaires (de 45 000 à 250 000, chiffres du candidat) × masse salariale moyenne
+      par réserviste (2026), portée en euros 2032 : 205 000 × 6 131 € × 1,1921 = 1,50 Md€. Haut : la LPM actualisée (référence)
+      prévoit déjà 80 000 réservistes en 2030 : seuls 170 000 sont nouveaux (1,24). Bas = central. Équipement et entraînement
+      hors solde : sous-estimation possible.'
   confiance: moyenne
   verification:
-    statut: ok
+    statut: corrige
     par: verificateur-sonnet
-    date: '2026-09-29'
-    commentaire: "Citation retrouvée dans la source (récupérée le 2026-09-29). Masse salariale 318,8 M€ en 2026 relue dans le rapport du Sénat ; « 52 000 réservistes à fin 2026 » non retrouvé (48 595 réservistes opérationnels fin 2025 : le coût unitaire serait ≈ 6 560 €, écart < 0,3 Md€). Extrait SMV (53 M€ en 2022) relu. Surestimation possible : la LPM prévoit déjà 80 000 réservistes en 2030 (référence). Coût unitaire du SMV (38 000 €) tiré d'un dispositif de 1 200 places : prudent. Recalé sur les conventions communes du 29/09 : facteur de projection renvoyé au barème facteur_pib_2026_2032 (valeur inchangée). Recalé sur le FMI WEO d'octobre 2026 : central −3,69 → −3,72 (bas −3,69 → −3,72, haut −2,04 → −2,05)."
+    date: '2026-11-20'
+    commentaire: "Vérification du 20/11/2026 : citation retrouvée, formule rejouée (1,4993 ; haut 1,243), 318,8 M€ et 80 000 réservistes LPM relus dans le rapport du Sénat ; « 52 000 réservistes à fin 2026 » absent du rapport (déduit de 47 600 + 4 400) : note réécrite, coût unitaire 6 135 → 6 131 € (central et haut inchangés). Passe du 20/11/2026 : citation relue sur la page Défense du programme (18/11/2026) ; le service militaire volontaire (47 000 places de plus, 2,22 Md€) est retiré, absent du programme qui le remplace par un service national obligatoire ; central −3,72 → −1,50 (bas −3,72 → −1,50, haut −2,05 → −1,24, borne haute désormais tirée des 80 000 réservistes de la LPM). Identifiant reservistes-smv → reservistes-250000. Trace précédente (verificateur-sonnet, 29/09, ok) : masse salariale 318,8 M€ en 2026 relue dans le rapport du Sénat ; « 52 000 réservistes à fin 2026 » non retrouvé (48 595 réservistes opérationnels fin 2025 : le coût unitaire serait ≈ 6 560 €, écart < 0,3 Md€)."
+- id: service-national-obligatoire
+  libelle: Rétablir un service national obligatoire (option militaire ou options civiles)
+  domaine: défense / jeunesse
+  citation:
+    texte: 'Oui. Édouard Philippe veut rétablir le service national. Un service national obligatoire sera recréé : il permettra
+      aux jeunes Français de choisir entre une option militaire et plusieurs options civiles.'
+    url: https://www.edouardphilippe.fr/programme/defense
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: partielle
+  interpretation: 'Classe d''âge entière, option militaire ou civiles (dont un « volet environnemental » : débroussaillage,
+    entretien des forêts, page Adaptation climatique). Durée, indemnité et calendrier non publiés. Le service national
+    volontaire de la LPM actualisée (2026-2030) est dans la référence.'
+  chiffrable: false
+  raison_non_chiffrable: 'Durée et indemnisation non publiées : le coût va de quelques centaines de millions (un mois) à près
+    de 5 Md€ (dix mois) par classe d''âge.'
+  sens_probable: cout
+  estimation_indicative:
+    central: -1.49
+    bas: -4.95
+    haut: -0.5
+    lecture: 'Convention : trois mois pour une classe d''âge (818 565 jeunes en 2032) au coût mensuel d''un volontaire du service
+      civique pour l''État (604,98 €, indemnité et tutorat), soit 1,49 Md€ ; bas : dix mois (lecture du service civique
+      obligatoire de Raphaël Glucksmann, mêmes barèmes : 4,95) ; haut : un mois (0,50). Encadrement, hébergement et formation
+      militaire non comptés (sous-estimation).'
+    sources:
+    - classe_age_18_ans_2032
+    - service_civique_cout_mensuel_etat
+    - https://www.edouardphilippe.fr/programme/defense
 - id: lpm-massification
   libelle: 'Nouvelle LPM de la massification : drones, munitions, flotte navale'
   domaine: défense
   citation:
-    texte: Massifier notre production et nos achats de drones tactiques , sur le modèle du programme américain de 300 000
-      drones. Lancer un grand plan munitions pour dépasser l'objectif actuel de 100 000 obus par an et atteindre l'échelle
-      des 700 000 produits par l'Allemagne. Renforcer notre flotte navale , notamment en doublant le nombre de navires aux
-      Antilles pour lutter contre le narcotrafic et sécuriser nos outre-mer. Lancer une nouvelle LPM de la massification ,
-      au-delà de la LPM actuelle qui épaissit les armées sans les étendre.
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: 'Édouard Philippe veut une nouvelle loi de programmation militaire (LPM), celle de la massification. La loi actuelle
+      épaissit nos armées sans les étendre : il veut aller plus loin, avec plus de soldats, plus de réservistes, plus de
+      drones, plus de munitions et plus de navires.'
+    url: https://www.edouardphilippe.fr/programme/defense
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: vague
-  interpretation: 'Au-delà de la LPM actualisée (référence), qui consacre déjà 26,3 Md€ aux munitions sur 2024-2030 (+8,5
+  interpretation: 'Programme du 18 novembre 2026 : mêmes cibles (« dépasser l’objectif actuel de 100 000 obus par an et
+    atteindre l’échelle des 700 000 produits par l’Allemagne », drones « sur le modèle du programme américain de 300 000
+    drones », « doublant le nombre de navires aux Antilles »), plus « une dissuasion nucléaire modernisée » et au moins
+    1 % du PIB des pays de l''Union consacré à des équipements fabriqués en Europe (objectif européen, pas une dépense
+    française nouvelle). Au-delà de la LPM actualisée (référence), qui consacre déjà 26,3 Md€ aux munitions sur 2024-2030 (+8,5
     Md€ par l''actualisation). Cibles de volume sans montant ni calendrier : « dépasser » 100 000 obus par an « et atteindre
     l''échelle » de 700 000 (production allemande, pas nécessairement achat français) ; drones « sur le modèle » d''un programme
     américain de 300 000 ; doublement des navires aux Antilles.'
@@ -1344,35 +1449,39 @@ mesures:
     date: '2026-09-29'
     commentaire: "Passe sources : sources Wikipédia retirées. Relus : rapport AN n° 2695 (LPM actualisée : « Au total, sur la période 2024‑2030, ce sont 26,3 milliards d'euros qui seront dédiés à l'acquisition de munitions », dont 8,5 Md€ ajoutés) et avis du Sénat n° 141 (2025-2026) (KNDS « significativement au-delà de 100.000 » obus de 155 mm par an). Aucun coût unitaire officiel d'obus ou de drone trouvé (Sénat, AN, Cour des comptes) : le chiffrage reste une convention explicite, hors solde principal. Estimation indicative recalculée : bas −6,0 → −6,6, haut −1,5 → −1,0, central inchangé (−2,5). Statut conteste maintenu : cibles de volume lisibles, mais sans prix unitaire public. Trace précédente (verificateur-sonnet, 29/09) : chiffrable par coût unitaire (≈ 2 Md€/an), non modifié faute de source de coût vérifiée."
 - id: sante-stabiliser-depenses
-  libelle: Stabiliser les dépenses de santé (prévention, technologies)
+  libelle: Mieux dépenser en santé sans baisser la dépense (prévention, technologies)
   domaine: santé
   citation:
-    texte: Stabiliser les dépenses de santé en dépensant mieux, en misant sur la prévention et les transformations technologiques
-      plutôt que sur la seule hausse des moyens.
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: Édouard Philippe ne veut pas diminuer les dépenses de santé, mais mieux dépenser. Il mise sur la prévention et sur
+      les transformations technologiques.
+    url: https://www.edouardphilippe.fr/programme/comptes-publics
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: vague
-  interpretation: '« Stabiliser » : lecture en volume (ONDAM progressant comme l''inflation) ou en valeur ; économie = écart
-    à la tendance de l''ONDAM de la référence.'
+  interpretation: 'Le programme du 18 novembre 2026 ne parle plus de « stabiliser » les dépenses de santé (site, septembre
+    2026) : il exclut de les « diminuer ». Aucun montant.'
   chiffrable: false
   raison_non_chiffrable: 'Aucune mesure identifiée ; la référence n''a pas de tendanciel de dépense (REFERENCE.md) : « stabiliser
     » une dépense sans mesure n''a pas d''effet mesurable par rapport à la référence.'
   sens_probable: neutre
 - id: reorganisation-etat-agences
-  libelle: Regrouper ou privatiser agences et opérateurs de l'État
+  libelle: Fusionner, supprimer ou privatiser une trentaine d'agences et d'opérateurs de l'État (France Travail privatisé, CESE
+    supprimé)
   domaine: État
   citation:
-    texte: Réorganiser massivement l'État en regroupant ou privatisant les agences et opérateurs enchevêtrés, et en simplifiant
-      drastiquement les procédures.
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
-    date: consulté le 2026-09-29
-    support: site du candidat
-  precision: vague
-  interpretation: Aucun montant ; à rapprocher de l'appel aux agences et collectivités à « se serrer la ceinture » (meeting
-    du 5 juillet).
+    texte: Oui. Édouard Philippe veut fusionner, supprimer ou privatiser une trentaine d’agences et d’opérateurs de l’État
+      qui font doublon, avec par exemple la privatisation de France Travail et la suppression du CESE.
+    url: https://www.edouardphilippe.fr/programme/comptes-publics
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: partielle
+  interpretation: 'Programme du 18 novembre 2026 : une « trentaine » d''agences et d''opérateurs, deux nommés. Privatiser
+    France Travail ne supprime pas le service d''accompagnement des demandeurs d''emploi, que l''État et l''Unédic continueraient
+    de financer : l''effet sur le solde est celui d''un éventuel gain de gestion, non documenté. Le CESE coûte de l''ordre
+    de 45 M€ par an. Le programme prévoit aussi la suppression de la Commission nationale du débat public (page Entreprises).'
   chiffrable: false
-  raison_non_chiffrable: 'Ni agences nommées ni montant : trop vague pour être chiffré.'
+  raison_non_chiffrable: 'Vingt-huit agences sur trente non nommées et aucun montant : trop vague pour être chiffré (les deux
+    nommées pèsent moins de 0,1 Md€ en économie nette).'
   sens_probable: economie
   estimation_indicative:
     central: 1.0
@@ -1381,19 +1490,25 @@ mesures:
     lecture: 'Regroupement et privatisation d''agences et d''opérateurs : ≈ 1 Md€ d''économies de fonctionnement (haut : 2 à
       3 Md€ annoncés en 2025 par le gouvernement pour la réforme des agences).'
     sources:
-    - https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
+    - https://www.edouardphilippe.fr/programme/comptes-publics
 - id: fonction-publique-non-remplacement
   libelle: Ne remplacer que deux départs à la retraite sur trois dans la fonction publique (250 000 postes en cinq ans)
   domaine: fonction publique
   citation:
-    texte: Il entend aussi réorganiser les agences de l'Etat et souhaite ne renouveler, durant son quinquennat, que deux
-      départs sur trois concernant les 750 000 départs à la retraite prévus dans la fonction publique.
-    url: https://www.franceinfo.fr/politique/edouard-philippe/immigration-retraites-allocations-familiales-parcoursup-ce-qu-il-faut-retenir-de-l-interview-d-edouard-philippe-dans-l-emission-l-heure-de-verite_8228416.html
-    date: '2026-10-08'
-    support: presse (franceinfo, émission « L'Heure de vérité », France 2)
+    texte: Réduire de 250 000 le nombre de postes de fonctionnaires sur le quinquennat, en ne remplaçant pas un fonctionnaire
+      sur trois partant à la retraite dans les fonctions de bureau, grâce aux gains de productivité de l’IA.
+    url: https://www.edouardphilippe.fr/programme/comptes-publics
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: precise
-  interpretation: 'Annonce du 8 octobre 2026 sur France 2 (« L''Heure de vérité ») ; non reprise dans le communiqué du site
-    de campagne sur l''émission (source primaire introuvable). AFP (Bourse Direct, 8 oct. 2026) : « M. Philippe a par ailleurs
+  interpretation: 'Source primaire : programme du 18 novembre 2026 (« Personne ne sera licencié : l’État se réorganisera
+    au fil des départs »). Il restreint le non-remplacement aux « fonctions de bureau » tout en gardant l''objectif de 250
+    000 postes, qui correspond à un départ sur trois dans toute la fonction publique (750 000 départs annoncés le 8 octobre
+    2026) : les deux ne sont compatibles que si d''autres leviers complètent le non-remplacement. Le chiffrage garde l''objectif
+    annoncé (plafonné par les départs observés) ; la lecture restrictive (fonctions de bureau seulement) donnerait moins,
+    sans source publique sur la part de ces fonctions dans les départs. Annonce du 8 octobre 2026 sur France 2 (« L''Heure
+    de vérité », franceinfo : « ne renouveler, durant son quinquennat, que deux départs sur trois concernant les 750 000
+    départs à la retraite prévus dans la fonction publique »). AFP (Bourse Direct, 8 oct. 2026) : « M. Philippe a par ailleurs
     indiqué ne pas vouloir remplacer un fonctionnaire sur trois partant à la retraite, ce qui équivaut à 250.000 postes supprimés
     sur cinq ans. » Lecture : un départ à la retraite sur trois non remplacé dans les trois versants, de 2028 à 2032 (premier
     budget du quinquennat : LFI 2028). Les trois versants sont visés (« la fonction publique ») ; l''État ne décide pas
@@ -1455,121 +1570,526 @@ mesures:
   confiance: moyenne
   verification:
     statut: corrige
-    par: veille-2026-10-11
-    date: '2026-10-11'
-    commentaire: "Veille du 11/10/2026 : annonce du 8 octobre 2026 (France 2) relue dans franceinfo (« ne renouveler, durant son quinquennat, que deux départs sur trois concernant les 750 000 départs à la retraite prévus dans la fonction publique ») et dans la dépêche AFP (Bourse Direct : « 250.000 postes supprimés sur cinq ans ») ; Euronews concorde. Mesure repassée en chiffrable (convention commune 1, barèmes fp_departs_retraite_annuels, fp_salaire_brut_entrant, retour_prelevements_salaires_publics) : estimation indicative 0,17 (7 000 postes, hors solde) → 5,09 Md€ (bas 2,54, haut 8,02). Citation précédente (BFM, RTL, 24/09/2026, 7 000 recrutements de moins en 2027) gardée dans l'interprétation. Trace précédente (passe-sources, 29/09) : citation BFM relue, source primaire introuvable ; non chiffrable (suggestion pour le budget 2027)."
+    par: veille-2026-11-20
+    date: '2026-11-20'
+    commentaire: "Passe du 20/11/2026 : citation remplacée par le programme, volume 1 (18/11/2026), relu sur le site ; paramètres et montants inchangés. Trace précédente (veille-2026-10-11, 2026-10-11) : Veille du 11/10/2026 : annonce du 8 octobre 2026 (France 2) relue dans franceinfo (« ne renouveler, durant son quinquennat, que deux départs sur trois concernant les 750 000 départs à la retraite prévus dans la fonction publique ») et dans la dépêche AFP (Bourse Direct : « 250.000 postes supprimés sur cinq ans ») ; Euronews concorde. Mesure repassée en chiffrable (convention commune 1, barèmes fp_departs_retraite_annuels, fp_salaire_brut_entrant, retour_prelevements_salaires_publics) : estimation indicative 0,17 (7 000 postes, hors solde) → 5,09 Md€ (bas 2,54, haut 8,02). Citation précédente (BFM, RTL, 24/09/2026, 7 000 recrutements de moins en 2027) gardée dans l'interprétation. Trace précédente (passe-sources, 29/09) : citation BFM relue, source primaire introuvable ; non chiffrable (suggestion pour le budget 2027)."
 - id: amendes-prestations-sociales
-  libelle: Recouvrement forcé des amendes non payées sur les prestations sociales
+  libelle: Recouvrement forcé des amendes impayées sur les prestations sociales, RSA suspendu pour les délinquants condamnés
   domaine: justice / recettes
   citation:
-    texte: 'Lutter contre le scandale des amendes non-recouvrées : permettre le recouvrement forcé des amendes sur les prestations
-      sociales.'
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: Oui, pour les délinquants condamnés. Édouard Philippe veut suspendre automatiquement leur RSA, sauf si le maire en
+      décide autrement au terme d’un examen individuel de la situation.
+    url: https://www.edouardphilippe.fr/programme/securite
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: precise
+  interpretation: 'Programme du 18 novembre 2026 (page Sécurité) : « Le prélèvement des amendes impayées sur les aides
+    sociales » et la suspension automatique du RSA des délinquants condamnés, sauf décision contraire du maire.'
   chiffrable: false
-  raison_non_chiffrable: Montant des amendes non recouvrées sur des allocataires non documenté ; effet vraisemblablement inférieur
-    à 0,1 Md€.
+  raison_non_chiffrable: Montant des amendes non recouvrées sur des allocataires et nombre d'allocataires du RSA condamnés
+    non documentés ; effet vraisemblablement inférieur à 0,1 Md€.
   sens_probable: economie
 - id: mineurs-narco-etablissements
   libelle: Établissements de réinsertion et de soin pour mineurs condamnés pour narcotrafic
   domaine: justice
   citation:
-    texte: Créer des établissements de réinsertion et de soin pour les mineurs condamnés pour narcotrafic.
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: Il propose aussi des établissements de réinsertion et de soin pour les mineurs condamnés, afin de les sortir durablement
+      de l’emprise des trafiquants.
+    url: https://www.edouardphilippe.fr/programme/securite
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: vague
   chiffrable: false
   raison_non_chiffrable: Nombre de places non précisé ; effet vraisemblablement inférieur à 0,1 Md€.
   sens_probable: cout
 - id: agriculture-plan-transmission
-  libelle: Plan de transmission et modernisation agricole, 100 territoires de souveraineté alimentaire
+  libelle: « Super Dutreil agricole », plan de transmission et modernisation, 100 territoires de souveraineté alimentaire
   domaine: agriculture
   citation:
-    texte: 'Renforcer la compétitivité de notre agriculture : zéro surtransposition agricole, grand plan de transmission et
-      de modernisation, création de 100 territoires de souveraineté alimentaire, inscription du développement agricole dans
-      la Charte de l’environnement.'
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: Un « super Dutreil agricole » pour transmettre et moderniser les exploitations agricoles.
+    url: https://www.edouardphilippe.fr/programme/entreprises
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: vague
+  interpretation: 'Programme du 18 novembre 2026 : « un « super Dutreil agricole » qui défiscalise les transmissions et aide
+    les jeunes à s’installer, 100 territoires de souveraineté alimentaire », zéro surtransposition agricole, accords-cadres
+    pluriannuels au lieu des négociations commerciales annuelles. La défiscalisation des transmissions est une baisse de
+    droits de mutation à titre gratuit sur les exploitations, sans paramètre publié.'
   chiffrable: false
-  raison_non_chiffrable: 'Ni montant ni instrument : trop vague pour être chiffré.'
+  raison_non_chiffrable: 'Ni taux d''exonération, ni plafond, ni montant des aides à l''installation : trop vague pour être
+    chiffré.'
   sens_probable: cout
 - id: regle-or-constitution
-  libelle: Règle d'or de maîtrise des déficits dans la Constitution
+  libelle: Règle d'or budgétaire dans la Constitution, adoptée par référendum
   domaine: institutions
   citation:
-    texte: Inscrire dans la Constitution une règle d’or de maîtrise des déficits
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: Inscrire dans la Constitution une « règle d’or » budgétaire adoptée par référendum dès le début du quinquennat.
+    url: https://www.edouardphilippe.fr/programme/comptes-publics
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: partielle
   chiffrable: false
   raison_non_chiffrable: 'NON_BUDGETAIRE : règle constitutionnelle, sans effet mécanique sur le solde.'
   sens_probable: neutre
 - id: justice-peines
-  libelle: Peines planchers, courtes peines dès la première infraction, suppression du juge d'application des peines
+  libelle: Peines planchers, courtes peines dès la première infraction, suppression du juge d'application des peines, juges
+    de paix
   domaine: justice
   citation:
-    texte: Mettre en place des courtes peines en s'inspirant des pays du Nord qui condamnent dès la première infraction à
-      une peine courte et dissuasive plutôt que d'enfermer trop tard et trop longtemps. Mettre en place des peines planchers
-      pour les infractions les plus graves , en particulier lorsqu'elles portent atteinte à l'intégrité physique des personnes
-      dépositaires de l'autorité publique. Supprimer le juge d'application des peines afin de garantir que ce qu'un juge a
-      décidé ne soit pas défait par un autre que lui.
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: 'Le rétablissement des peines planchers. Des peines de prison courtes, dès la première infraction. La suppression
+      du juge d’application des peines : une peine prononcée sera une peine exécutée.'
+    url: https://www.edouardphilippe.fr/programme/justice
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: precise
+  interpretation: 'Propositions phares de la page Justice (18 novembre 2026), qui ajoute le « retour des juges de paix »,
+    l''interdiction du syndicalisme des magistrats et une refonte du code de procédure pénale « en 100 jours ». Les 30 000
+    places de prison sont traitées à part (prisons-30000-places).'
   chiffrable: false
   raison_non_chiffrable: 'NON_BUDGETAIRE : réforme pénale ; effet sur la population carcérale (et le besoin de places) non
-    chiffrable à ce stade.'
+    chiffrable à ce stade ; nombre et statut des juges de paix non publiés.'
+  sens_probable: cout
+- id: prisons-30000-places
+  libelle: Construire 30 000 places de prison pour les peines courtes
+  domaine: justice
+  citation:
+    texte: Construire 30 000 places de prison pour les peines courtes, avec une loi d’accélération des prisons.
+    url: https://www.edouardphilippe.fr/programme/justice
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: partielle
+  interpretation: 'Places nouvelles « pour les peines courtes », au-delà du programme immobilier pénitentiaire déjà engagé
+    (15 000 places, en partie dans la référence) ; calendrier, type d''établissement (modulaire ou classique) et coût non
+    publiés. Investissement et fonctionnement (personnels, détention) pèsent sur le solde dès l''ouverture.'
+  chiffrable: false
+  raison_non_chiffrable: 'Calendrier et type de places non précisés ; pas de barème commun du coût d''une place construite
+    ni d''une journée de détention (même traitement que les places de prison de David Lisnard et de Gabriel Attal).'
   sens_probable: cout
 - id: immigration-quotas-algerie
-  libelle: Dénoncer l'accord franco-algérien de 1968, liste de pays sûrs, quotas d'immigration économique
+  libelle: Diviser l'immigration légale par deux, moratoire sur le regroupement familial, accord de 1968 dénoncé, quotas,
+    centres de retour
   domaine: immigration
   citation:
-    texte: Dénoncer l’accord de 1968 avec l’Algérie pour reprendre le contrôle des flux migratoires avec ce pays. Mettre fin
-      au dévoiement de l’asile en faisant voter chaque année par le Parlement une liste de pays sûrs. Restreindre l’immigration
-      familiale. Mettre en place une politique de quotas migratoires permettant de choisir notre immigration économique.
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: Diviser l’immigration légale par deux, pour la ramener au niveau d’il y a 15 ans. Des quotas pour choisir l’immigration
+      de travail. Un moratoire sur le regroupement familial.
+    url: https://www.edouardphilippe.fr/programme/immigration
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: precise
-  interpretation: 'Le 8 octobre 2026, objectif chiffré ajouté : « Édouard Philippe se fixe donc l''objectif de diviser au
-    moins l''immigration par deux sur le quinquennat », avec, outre les leviers ci-dessus, une « preuve financière obligatoire
-    pour les étudiants étrangers » et une « liste de pays sûrs XXL pour l''asile » (communiqué du site de campagne,
-    https://www.edouardphilippe.fr/actualites/trois-principales-annonces-dedouard-philippe-a-lheure-de-verite).'
+  interpretation: 'Programme du 18 novembre 2026 : s''y ajoutent « L’utilisation de « centres de retour » à l’étranger »,
+    la dénonciation de l’accord franco-algérien de 1968, le retour de la double peine et, outre-mer, un moratoire total
+    sur l’immigration et la suspension des nouvelles demandes d’asile à Mayotte (et en Guyane pour l''asile). Les centres
+    de retour à l''étranger ont un coût (accords avec des pays tiers), sans montant publié.'
   chiffrable: false
-  raison_non_chiffrable: 'NON_BUDGETAIRE : mesures juridiques et diplomatiques.'
+  raison_non_chiffrable: 'NON_BUDGETAIRE : mesures juridiques et diplomatiques ; le coût des centres de retour à l''étranger
+    n''est pas documenté.'
   sens_probable: neutre
 - id: etrangers-delinquants-aides
-  libelle: Expulsion immédiate et fin des aides sociales pour les étrangers délinquants
+  libelle: Expulsion et fin des aides sociales pour les étrangers condamnés (double peine)
   domaine: immigration
   citation:
-    texte: 'Être intraitables avec les étrangers délinquants : expulsion immédiate et fin des aides sociales.'
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: Les étrangers condamnés pour un délit perdront, eux, leurs aides sociales et seront expulsés grâce au rétablissement
+      de la double peine.
+    url: https://www.edouardphilippe.fr/programme/immigration
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: partielle
   chiffrable: false
   raison_non_chiffrable: Effet budgétaire probablement inférieur à 0,1 Md€ et non documenté.
   sens_probable: economie
+- id: aides-etrangers-moyenne-europeenne
+  libelle: Aligner les aides sociales versées aux étrangers sur la moyenne européenne
+  domaine: immigration / prestations
+  citation:
+    texte: Oui. Édouard Philippe veut aligner les aides sociales versées aux étrangers sur la moyenne européenne.
+    url: https://www.edouardphilippe.fr/programme/immigration
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: vague
+  interpretation: Ni les aides visées ni la « moyenne européenne » de référence ne sont définies ; une condition d'antériorité
+    de résidence est le levier le plus probable (comparable à prestations_residence_5_ans_economie), sans que le programme
+    le dise.
+  chiffrable: false
+  raison_non_chiffrable: 'Aides, critère et niveau de référence non définis : trop vague pour être chiffré.'
+  sens_probable: economie
 - id: ecole-autonomie-rythmes
-  libelle: Autonomie des chefs d'établissement, rythmes scolaires, vacances d'été raccourcies
+  libelle: Statut d'école publique autonome (méthodes, horaires, rentrée avancée), uniforme et discipline au choix des établissements
   domaine: éducation
   citation:
-    texte: 'Faire des chefs d''établissements les véritables patrons de l''école : liberté d''adapter les méthodes et les
-      horaires, d''imposer l''uniforme, de fixer les règles de discipline, de choisir et d''évaluer les enseignants. Revaloriser
-      massivement le métier de professeur en augmentant les rémunérations et en révisant le recrutement, la formation et l''accompagnement
-      tout au long de la carrière. Adapter les rythmes scolaires aux seuls besoins des enfants : journées moins longues, plus
-      de sport et de culture, vacances d''été raccourcies pour éviter la déperdition des savoirs.'
-    url: https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants
-    date: consulté le 2026-09-29
-    support: site du candidat
+    texte: 'Créer un nouveau statut d’école publique autonome : chaque établissement volontaire sera libre d’adapter ses méthodes,
+      ses horaires, l’organisation de ses classes et d’avancer la rentrée d’une à deux semaines pour les élèves qui en ont
+      besoin.'
+    url: https://www.edouardphilippe.fr/programme/ecole
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
   precision: partielle
+  interpretation: 'Programme du 18 novembre 2026 : les vacances d''été raccourcies (site, septembre 2026) deviennent une rentrée
+    avancée d''une à deux semaines, au choix des établissements ; interdiction du portable, notes de juin reportées, amende
+    de responsabilisation scolaire, sélection à l''université par chaque établissement.'
   chiffrable: false
-  raison_non_chiffrable: 'NON_BUDGETAIRE : organisation scolaire ; coût éventuel des vacances raccourcies non documenté.'
+  raison_non_chiffrable: 'NON_BUDGETAIRE : organisation scolaire ; coût éventuel de la rentrée avancée (heures des enseignants)
+    non documenté.'
   sens_probable: neutre
+- id: ecole-classes-ecoles-normales-aesh
+  libelle: Classes réduites en maternelle et en primaire, écoles normales, métier d'AESH reconnu, service public de l'orientation
+  domaine: éducation
+  citation:
+    texte: Diminuer la taille des classes en maternelle et en primaire.
+    url: https://www.edouardphilippe.fr/programme/ecole
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: vague
+  interpretation: 'Le candidat lie la baisse des effectifs par classe à la baisse démographique (« près d''un million d''élèves
+    en moins », Figaro, 24 août 2026) : à postes constants, coût nul. Écoles normales (« Recréer des écoles normales pour
+    former les professeurs »), reconnaissance du métier d''AESH, service public de l''orientation et tutorat dès le collège
+    : sans paramètres.'
+  chiffrable: false
+  raison_non_chiffrable: 'Ni cible d''effectif par classe ni nombre de postes ; statut des AESH et coût des écoles normales
+    non précisés.'
+  sens_probable: cout
+- id: rsa-moins-30pct-allocataires
+  libelle: Diminuer de 30 % le nombre d'allocataires du RSA (suivi individuel, insertion, lutte contre les abus)
+  domaine: minima sociaux
+  citation:
+    texte: Ses choix sont ciblés [...] diminuer de 30 % le nombre d’allocataires du RSA en intensifiant le suivi individuel,
+      en améliorant l’insertion dans les métiers en tension et en luttant contre les abus.
+    url: https://www.edouardphilippe.fr/programme/comptes-publics
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: partielle
+  interpretation: 'Objectif chiffré sur un périmètre nommé (allocataires du RSA) : économie ciblée, règle 6 (central = montant
+    implicite, plafonné par le périmètre ; bas = 0 ; haut = central). Lecture : 30 % des allocations de RSA en moins en 2032,
+    montée linéaire sur le quinquennat. Leviers nommés sans paramètres (suivi, insertion, contrôles). La suspension du RSA
+    des délinquants condamnés est à part (amendes-prestations-sociales).'
+  chiffrable: true
+  economie_non_detaillee: true
+  nature: economie
+  effet_solde_primaire:
+    central: 4.51
+    bas: 0.0
+    haut: 4.51
+    montee_en_charge: *id003
+  calcul:
+    formule: baisse * rsa * f
+    parametres:
+      baisse:
+        valeur: 0.3
+        unite: part des allocataires (et des allocations) en moins
+        source: https://www.edouardphilippe.fr/programme/comptes-publics
+        note: « diminuer de 30 % le nombre d’allocataires du RSA »
+      rsa:
+        valeur: 11.7
+        bareme: rsa_depense
+        unite: Md€/an (2023, allocations versées par les CAF)
+      f:
+        valeur: 1.2852
+        bareme: facteur_pib_2023_2032
+        unite: facteur 2023→2032
+    explication: '30 % des allocations de RSA (11,7 Md€ en 2023) portées en euros 2032 avec le PIB : 0,3 × 11,7 × 1,2852 = 4,51
+      Md€, sous le plafond du périmètre (le RSA entier). Les allocataires qui reprennent un emploi peu payé touchent souvent
+      la prime d''activité, et le suivi renforcé a un coût : ni l''un ni l''autre n''est publié, donc pas déduit (le central
+      surestime l''économie nette). Bas 0 : objectif non atteint. Haut = central (règle 6).'
+  effets_retour: Retour à l'emploi invoqué (métiers en tension) ; recettes induites non comptées.
+  confiance: faible
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-11-20'
+    commentaire: "Passe du 20/11/2026 : mesure nouvelle (page Finances publiques du programme, 18/11/2026). Chiffrée selon la règle 6 (économie ciblée sur un périmètre nommé), comme le RSA limité à trois ans d'Éric Zemmour. Vérification (verificateur-sonnet, 20/11) : citation retrouvée, formule rejouée (4,511), barèmes concordants, règle 6 respectée."
+- id: rls-suppression
+  libelle: Supprimer intégralement la réduction de loyer de solidarité (RLS)
+  domaine: logement
+  citation:
+    texte: Édouard Philippe va-t-il supprimer la réduction de loyer de solidarité (RLS) ? Oui, intégralement. Édouard Philippe
+      veut redonner des marges de manœuvre au logement social, en contrepartie d’objectifs élevés de production à négocier
+      avec les bailleurs.
+    url: https://www.edouardphilippe.fr/programme/logement
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: precise
+  interpretation: 'Question et réponse de la page Logement. La RLS réduit les loyers HLM et, d''autant, les APL versées par
+    l''État : la supprimer rend cette économie d''APL. Même chiffrage que la mesure identique de Marine Tondelier (tondelier-ecologistes/logement-social-rls-tva).'
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -0.88
+    bas: -0.88
+    haut: -0.81
+    montee_en_charge: *id001
+  calcul:
+    formule: -rls * part_apl
+    parametres:
+      rls:
+        valeur: 0.9
+        unite: Md€/an
+        source: https://www.batiweb.com/actualites/legislation/budget-2027-allegements-bailleurs-sociaux-rls-49328
+        note: niveau de la RLS en 2026-2027
+      part_apl:
+        valeur: 0.98
+        unite: part
+        source: https://www.anil.org/aj-reduction-loyer-solidarite-rls-apl/
+        note: baisse d'APL comprise entre 90 et 98 % de la RLS
+    explication: 'Suppression de la RLS : l''État reprend la baisse d''APL associée (98 % de 0,9 Md€). Montant fixé en euros
+      courants, non projeté. Haut : 90 % (0,81).'
+  confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-11-20'
+    commentaire: "Passe du 20/11/2026 : mesure nouvelle (page Logement, 18/11/2026) ; paramètres repris de la mesure identique de Tondelier (vérifiée le 29/09). Vérification (verificateur-sonnet, 20/11) : citation retrouvée, extraits Batiweb (900 M€ en 2027) et ANIL (90 à 98 %) confirmés, formule rejouée."
+- id: per-500-euros-premier-emploi
+  libelle: Ouvrir un plan d'épargne retraite à chaque Français, avec un premier versement de 500 € par l'État dès le premier
+    emploi
+  domaine: retraites / épargne
+  citation:
+    texte: Édouard Philippe veut ouvrir un plan d’épargne retraite à chaque Français, avec un premier versement de 500 € par
+      l’État dès le premier emploi.
+    url: https://www.edouardphilippe.fr/programme/retraites
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: precise
+  interpretation: 'Versement unique de 500 € par personne à son premier emploi ; lecture : une classe d''âge par an, montant
+    nominal non indexé, à partir du premier budget (2028).'
+  chiffrable: true
+  nature: depense
+  effet_solde_primaire:
+    central: -0.41
+    bas: -0.41
+    haut: -0.33
+    montee_en_charge: *id001
+  calcul:
+    formule: -cohorte * versement / 1e9
+    parametres:
+      cohorte:
+        valeur: 818565
+        bareme: classe_age_18_ans_2032
+        unite: jeunes par an
+      versement:
+        valeur: 500
+        unite: € par personne
+        source: https://www.edouardphilippe.fr/programme/retraites
+    explication: 'Une classe d''âge (818 565 jeunes) × 500 € = 0,41 Md€ par an. Haut : 80 % d''une classe d''âge prenant un premier
+      emploi salarié en France chaque année (0,33). Bas = central.'
+  confiance: moyenne
+  verification:
+    statut: ok
+    par: verificateur-sonnet
+    date: '2026-11-20'
+    commentaire: "Passe du 20/11/2026 : mesure nouvelle (page Retraites, 18/11/2026). Vérification (verificateur-sonnet, 20/11) : citation retrouvée, formule rejouée (0,4093 ; haut 0,327) ; réserve : premiers emplois étalés entre 16 et 25 ans, la classe d'âge reste le bon ordre de grandeur."
+- id: frais-notaire-moins-35-ans
+  libelle: Supprimer les droits de mutation (« frais de notaire ») sur le premier achat de résidence principale des moins
+    de 35 ans
+  domaine: fiscalité du logement
+  citation:
+    texte: Oui. Édouard Philippe veut supprimer les « frais de notaire » pour le premier achat des moins de 35 ans, en exonérant
+      de droits de mutation l’achat de la première résidence principale. Pour un appartement de 100 000 €, le gain est de
+      7 000 €.
+    url: https://www.edouardphilippe.fr/programme/logement
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: precise
+  interpretation: 'Exonération totale des droits de mutation à titre onéreux (part départementale, taxe communale, frais
+    d''assiette de l''État) pour une première résidence principale achetée par un moins de 35 ans. Les départements perdent
+    l''essentiel : compensation éventuelle (transfert entre APU) sans effet sur le solde.'
+  chiffrable: false
+  raison_non_chiffrable: 'Promesse précise, mais aucune source publique ne donne la part des droits de mutation payée par les
+    primo-accédants de moins de 35 ans (les notaires publient l''âge des acquéreurs par tranche de dix ans, sans croisement
+    avec la primo-accession) : chiffrage seulement indicatif.'
+  sens_probable: cout
+  estimation_indicative:
+    central: -2.1
+    bas: -2.9
+    haut: -1.3
+    lecture: 'Droits de mutation des départements en 2024 : 9,9 Md€ (OFGL) ; avec la taxe communale (1,20 %) et les frais
+      d''assiette de l''État (2,37 % du droit départemental), environ 1,29 fois ce montant. Convention : 13 % de l''assiette
+      pour les premiers achats de résidence principale des moins de 35 ans (acquéreurs jeunes, prix plus bas que la moyenne ;
+      bas 18 %, haut 8 %), projeté au PIB 2024→2032 (1,2408) : 9,9 × 1,29 × 0,13 × 1,2408 ≈ 2,1 Md€.'
+    sources:
+    - https://www.collectivites-locales.gouv.fr/files/files/Etudes-et-statistiques/OFGL/rapport%202025/Rapport%20OFGL%202025%203%20Fiches%20d%C3%A9partements.pdf
+    - facteur_pib_2024_2032
+    - https://www.edouardphilippe.fr/programme/logement
+- id: ptz-perennisation
+  libelle: Pérenniser le prêt à taux zéro au-delà de 2027
+  domaine: logement
+  citation:
+    texte: Oui. Édouard Philippe veut pérenniser le prêt à taux zéro et créer un prêt à taux zéro « famille ».
+    url: https://www.edouardphilippe.fr/programme/logement
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: precise
+  interpretation: 'Le PTZ est prorogé jusqu''au 31 décembre 2027 (loi de finances pour 2024) : la référence ne le prévoit plus
+    à partir de 2028, le pérenniser coûte donc son crédit d''impôt annuel. Le PLF 2027 propose une prorogation et la suppression
+    du plafond annuel de 2,1 Md€ de crédits d''impôt (LégiFiscal, 6 oct. 2026), non votés au 29 septembre 2026.'
+  chiffrable: false
+  raison_non_chiffrable: 'Coût budgétaire annuel du PTZ (dépense fiscale) non retrouvé dans une source publique récente ; seul
+    le plafond légal (2,1 Md€ par an) est connu.'
+  sens_probable: cout
+  estimation_indicative:
+    central: -1.0
+    bas: -2.1
+    haut: -0.5
+    lecture: 'Convention : une génération de PTZ coûte de l''ordre de 1 Md€ de crédit d''impôt aux banques ; bas = plafond
+      annuel légal de 2,1 Md€ ; haut 0,5 Md€ (production de prêts faible). Le crédit d''impôt est étalé sur cinq ans : en
+      2032, les générations 2028-2032 pèsent ensemble.'
+    sources:
+    - https://www.legifiscal.fr/actualites-fiscales/4669-plf-2027-pret-taux-zero-parentalite-familles-agrandissent.html
+    - https://www.notaires.fr/fr/actualites/le-pret-taux-zero-ptz-est-prolonge-jusquau-31-decembre-2027
+- id: fiscalite-locative-pfu-ifi
+  libelle: Prélèvement forfaitaire unique sur les revenus de la location longue durée, IFI supprimé sur ces logements
+  domaine: fiscalité du logement
+  citation:
+    texte: Il propose un prélèvement forfaitaire unique sur les revenus de la location longue durée, dans le neuf comme dans
+      l’ancien, après déduction des charges et d’un amortissement accéléré par rapport au « Jeanbrun ».
+    url: https://www.edouardphilippe.fr/programme/logement
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: partielle
+  interpretation: 'Revenus fonciers de la location longue durée imposés au PFU (12,8 % d''impôt sur le revenu et 17,2 % de
+    prélèvements sociaux, lecture) au lieu du barème, après charges et amortissement accéléré ; IFI supprimé sur ces logements
+    (« Oui, pour les logements mis en location de longue durée [...] dans le cadre d’un alignement de la fiscalité locative
+    sur celle du capital »). Taux du PFU, durée minimale de location et amortissement non précisés.'
+  chiffrable: false
+  raison_non_chiffrable: 'Pas de microsimulation publique des revenus fonciers par tranche d''imposition ni de la part de l''IFI
+    assise sur des logements loués ; amortissement non paramétré.'
+  sens_probable: cout
+  estimation_indicative:
+    central: -0.7
+    bas: -1.1
+    haut: -0.4
+    lecture: 'IFI seulement (le PFU et l''amortissement, non estimés, s''ajoutent) : convention de 25 % du rendement de l''IFI
+      (2,8 Md€) assis sur des logements loués longue durée (bas 40 %, haut 15 %).'
+    sources:
+    - ifi_rendement
+    - https://www.edouardphilippe.fr/programme/logement
+- id: tva-logements-neufs-communes
+  libelle: Affecter aux maires la TVA sur les logements neufs construits dans leur commune
+  domaine: logement / collectivités
+  citation:
+    texte: 'Édouard Philippe veut soutenir les maires qui construisent : la TVA sur les logements neufs construits dans leur
+      commune lui reviendra. Plus une commune construit, plus elle en bénéficie.'
+    url: https://www.edouardphilippe.fr/programme/logement
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: partielle
+  interpretation: 'Transfert de TVA de l''État (et de la sécurité sociale) vers les communes : neutre sur le solde des APU
+    en soi (règle 6 bis), sauf la dépense nouvelle que les communes en feraient. Le montant transféré (TVA sur les ventes
+    de logements neufs et la construction) n''est pas publié.'
+  chiffrable: false
+  raison_non_chiffrable: 'Transfert entre administrations (règle 6 bis) : coût égal à la dépense communale nouvelle qu''il finance,
+    inconnue ; ni le périmètre (ventes, travaux) ni une éventuelle compensation à l''État ne sont précisés.'
+  sens_probable: cout
+- id: donations-premier-achat-perennisation
+  libelle: Pérenniser l'exonération des donations aux enfants et petits-enfants pour un premier achat
+  domaine: fiscalité du patrimoine
+  citation:
+    texte: Oui. Édouard Philippe veut pérenniser la défiscalisation des donations aux enfants et petits-enfants pour un premier
+      achat.
+    url: https://www.edouardphilippe.fr/programme/logement
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: partielle
+  interpretation: 'L''exonération temporaire des dons familiaux pour l''achat d''un logement neuf ou sa rénovation (loi de
+    finances pour 2025, jusqu''au 31 décembre 2026) n''est plus dans la référence en 2032 : la pérenniser, élargie au premier
+    achat, coûte les droits de donation correspondants.'
+  chiffrable: false
+  raison_non_chiffrable: 'Plafond, conditions (neuf, ancien) et coût du dispositif temporaire non publiés.'
+  sens_probable: cout
+- id: logement-normes-moratoire
+  libelle: Moratoire de cinq ans sur les normes de construction, RE2020 et interdiction de louer les passoires suspendues, foncières
+    HLM, pouvoirs des maires
+  domaine: logement
+  citation:
+    texte: Oui. Édouard Philippe veut un moratoire de cinq ans sur l’ensemble des normes relatives à la construction et à l’habitation
+      des logements.
+    url: https://www.edouardphilippe.fr/programme/logement
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: precise
+  interpretation: 'Page Logement (18 novembre 2026) : « 4 millions de logements en dix ans » (objectif), moratoire sur les
+    paliers de la RE2020 et sur l''interdiction de louer les passoires thermiques, « zones d’accélération du logement »
+    (« fiscalité allégée », non paramétrée), foncières de 100 000 logements, surloyers systématiques, vente HLM, encadrement
+    des loyers et attribution des logements sociaux confiés aux maires, procédures d''impayés raccourcies.'
+  chiffrable: false
+  raison_non_chiffrable: 'NON_BUDGETAIRE pour l''essentiel (normes, organisation) ; l''allègement fiscal des zones d''accélération
+    n''est pas paramétré.'
+  sens_probable: neutre
+- id: handicap-solutions-aidants-aah
+  libelle: 'Handicap : une solution pour chacun, 15 jours de répit pour les aidants, cumul AAH et salaire pendant un an, 100 000
+    places en habitat inclusif'
+  domaine: handicap
+  citation:
+    texte: 'Une garantie nationale pour les aidants : 15 jours de répit par an pour les proches aidants les plus mobilisés.
+      Le cumul intégral de l’AAH et des revenus du travail pendant un an après la reprise d’un emploi.'
+    url: https://www.edouardphilippe.fr/programme/handicap
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: partielle
+  interpretation: 'Page Handicap (18 novembre 2026) : solution d''accompagnement pour chaque enfant et adulte (fin des listes
+    d''attente en IME), répit de 15 jours pour les « proches aidants les plus mobilisés », cumul AAH et salaire porté de six
+    mois à un an, délais de la MDPH (organisation), 100 000 places en habitat partagé et inclusif « d’ici 2035 ». « D’autres
+    propositions concrètes seront annoncées bientôt. »'
+  chiffrable: false
+  raison_non_chiffrable: 'Nombre d''aidants visés, de places créées par an et de bénéficiaires du cumul non publiés.'
+  sens_probable: cout
+- id: petite-enfance-plan-marshall
+  libelle: Plan Marshall pour la garde d'enfants
+  domaine: politique familiale
+  citation:
+    texte: Édouard Philippe veut lancer un plan Marshall pour la garde d’enfants. Trouver un mode de garde ne doit plus être
+      un parcours du combattant pour les jeunes parents.
+    url: https://www.edouardphilippe.fr/programme/famille
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: vague
+  chiffrable: false
+  raison_non_chiffrable: 'Ni nombre de places ni montant : trop vague pour être chiffré.'
+  sens_probable: cout
+- id: apprentissage-reconversion-seniors
+  libelle: Développer l'apprentissage, droit à la reconversion face à l'IA, emploi des seniors
+  domaine: emploi / formation
+  citation:
+    texte: Édouard Philippe veut que personne ne reste au bord du chemin. Il propose d’adapter l’enseignement, le recrutement
+      et la formation continue à l’intelligence artificielle, avec notamment un véritable droit à la reconversion pour les
+      salariés dont le métier est menacé.
+    url: https://www.edouardphilippe.fr/programme/travail
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: vague
+  interpretation: '« Développer l’apprentissage » (proposition phare de la page Travail), sans paramètre des aides à l''embauche
+    d''apprentis ; retraite progressive et cumul emploi-retraite développés.'
+  chiffrable: false
+  raison_non_chiffrable: 'Ni montant ni paramètres (aides à l''apprentissage, financement de la reconversion) : trop vague.'
+  sens_probable: cout
+- id: outre-mer-infrastructures-smic-mayotte
+  libelle: 'Outre-mer : piste d''aéroport en Guadeloupe, deuxième hôpital à Mayotte, convergence du Smic mahorais, octroi
+    de mer modernisé'
+  domaine: outre-mer
+  citation:
+    texte: Lancement d’une nouvelle piste d’aéroport sur Grande-Terre et un deuxième hôpital de plein exercice à Mayotte.
+    url: https://www.edouardphilippe.fr/programme/outre-mer
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: partielle
+  interpretation: 'Page Outre-mer (18 novembre 2026) : convergence du Smic mahorais (87,5 % du niveau national) « jusqu’à
+    l’égalité, de façon maîtrisée et financée, en accompagnant les petites entreprises » ; financements de l''eau à Mayotte
+    garantis jusqu''en 2032 ; « modernisation de l’octroi de mer ». Doublement des navires aux Antilles compté dans lpm-massification.'
+  chiffrable: false
+  raison_non_chiffrable: 'Ni coût des équipements ni calendrier de convergence du Smic et des aides aux entreprises publiés.'
+  sens_probable: cout
+- id: nucleaire-epr-vehicule-occasion
+  libelle: Huit EPR supplémentaires, même aide pour le véhicule électrique d'occasion que pour le neuf
+  domaine: énergie
+  citation:
+    texte: Édouard Philippe propose de lancer 8 EPR supplémentaires, en plus des 6 déjà prévus, soit 14 nouveaux réacteurs.
+    url: https://www.edouardphilippe.fr/programme/energie
+    date: '2026-11-18'
+    support: programme, volume 1 (site du candidat)
+  precision: precise
+  interpretation: 'EPR construits et financés par EDF (hors administrations publiques) ; un soutien public (prêt de l''État,
+    contrat d''écart compensatoire) pèserait surtout après 2032. L''aide à l''achat d''un véhicule électrique est financée
+    depuis 2025 par les certificats d''économies d''énergie (hors budget) : étendre « la même aide » à l''occasion (« Édouard
+    Philippe veut verser la même aide pour l’achat d’une voiture électrique d’occasion que pour une neuve ») ne coûte aux
+    APU que si elle passe par le budget. Plan géothermie et biométhane, électrification et BEI sans montant.'
+  chiffrable: false
+  raison_non_chiffrable: 'Financements hors APU (EDF, certificats d''économies d''énergie) ; aucun montant public annoncé.'
+  sens_probable: incertain

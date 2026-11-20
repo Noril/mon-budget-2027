@@ -678,11 +678,10 @@ leviers:
       haut: -3.41
     reprend:
     - le-pen-rn/ir-part-pleine-deuxieme-enfant
-    - philippe-horizons/part-fiscale-deuxieme-enfant
-    calcul: Même chiffrage dans les deux programmes (4,22 depuis le recalage sur le FMI WEO d'octobre 2026, 4,19 avant).
+    calcul: Chiffrage Le Pen (4,22 depuis le recalage sur le FMI WEO d'octobre 2026, 4,19 avant). Philippe retiré le 20/11/2026
+      (mesure absente de son programme du 18 novembre).
     candidats:
     - le-pen-rn
-    - philippe-horizons
     montee:
       '2027': 0.0
       '2028': 1.0
@@ -2261,13 +2260,13 @@ leviers:
     md_par_unite: 1
     positions:
       melenchon-lfi: 23.26
-      philippe-horizons: 3.72
+      philippe-horizons: 1.5
       glucksmann-place-publique: 4.49
     reprend:
       melenchon-lfi:
       - conscription-citoyenne
       philippe-horizons:
-      - reservistes-smv
+      - reservistes-250000
       glucksmann-place-publique:
       - service-civique-obligatoire
 - id: education
