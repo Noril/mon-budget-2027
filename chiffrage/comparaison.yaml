@@ -285,3 +285,19 @@ candidats:
       l'enveloppe de 200 Md€ d'économies, faute de ventilation publiée, n'est comptée que pour ses mesures documentées
       (retraite à 65 ans, gel des pensions au-dessus de 2 200 €, suppressions de postes, AME, conditions de résidence),
       le reste à zéro (règle des enveloppes globales). D'où l'écart avec le solde de +40 Md€ annoncé.
+  - programme: villepin-france-humaniste
+    annonce:
+      texte: >-
+        Pas de chiffrage global du coût ni du financement publié avec le programme « Réussir à nouveau » (20 novembre
+        2026). Objectif de déficit sous 3 % du PIB en 2031 (2,9 %), avec une croissance de 0,8 % les premières années ;
+        extinction des niches fiscales et sociales par paliers d'environ 35 Md€ par an, affectés par tiers à la
+        compensation, à des politiques publiques et au déficit.
+      source: https://lafrancehumaniste.fr/programme/reussir-a-nouveau/chapitre-1.html
+    references: []
+    ecarts: >-
+      Dominique de Villepin n'était pas candidat en 2022 ni en 2024 : aucun organisme indépendant n'a chiffré son
+      programme. L'extinction des niches est comptée pour le seul tiers affecté au déficit, comme économie ciblée non
+      détaillée (pleine au central, nulle dans le bas) ; les deux autres tiers financent des compensations et des
+      dépenses et n'améliorent pas le solde. Le budget de décarbonation est lu comme une hausse cumulative de 4,5 Md€ par
+      an, et les 15 Md€ annuels de capitalisation publique comme une dépense. L'objectif de déficit n'est pas une mesure :
+      l'écart avec le solde des mesures chiffrées se lit sur la trajectoire.

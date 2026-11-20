@@ -58,7 +58,7 @@ themes:
   - id: retraites
     nom: Retraites
     emoji: "🧓"
-    leviers: [retraites-age, pensions]
+    leviers: [retraites-age, pensions, capitalisation-publique]
   - id: travail-solidarite
     nom: Travail et solidarité
     emoji: "🤝"
@@ -70,11 +70,11 @@ themes:
   - id: entreprises
     nom: Entreprises
     emoji: "🏭"
-    leviers: [impots-production, aides-entreprises, cotisations-patronales]
+    leviers: [impots-production, aides-entreprises, cotisations-patronales, niches]
   - id: services-publics
     nom: Services publics et État
     emoji: "🏫"
-    leviers: [effectifs-publics, point-indice, salaires-enseignants, education, sante, agences-dotations]
+    leviers: [effectifs-publics, point-indice, salaires-enseignants, education, sante, agences-dotations, securite-justice]
   - id: ecologie-energie
     nom: Écologie et énergie
     emoji: "🌱"
@@ -246,6 +246,21 @@ cartes:
     gauche: {libelle: "+7 Md€ sans conscription", valeur: 7}
     droite: {libelle: "Conscription : +23 Md€", valeur: 23}
 
+  # 7 bis. Justice et sécurité (curseur)
+  - id: securite-justice
+    personnage: maire-rural
+    levier: securite-justice
+    texte: "Les tribunaux sont engorgés et les victimes de violences attendent des mois. +3 Md€ par an pour la justice et la lutte contre les violences faites aux femmes et aux enfants ?"
+    gauche: {libelle: "Budget actuel", valeur: 0}
+    droite: {libelle: "+3 Md€", valeur: 3, suite: securite-justice-plus}
+  - id: securite-justice-plus
+    suite_seulement: true
+    personnage: directeur-budget
+    levier: securite-justice
+    texte: "Et créer en plus 15 000 places en structures éducatives fermées pour les mineurs primo-délinquants ? Environ 9 Md€ par an au total."
+    gauche: {libelle: "+3 Md€", valeur: 3}
+    droite: {libelle: "+9 Md€", valeur: 9}
+
   # 8. Pensions
   - id: pensions
     personnage: retraitee
@@ -281,6 +296,14 @@ cartes:
     texte: "Et porter toutes les pensions d'une carrière complète au niveau du Smic ?"
     gauche: {libelle: "Petites pensions seulement", option: petites-pensions}
     droite: {libelle: "Pension minimale au Smic", option: salaires-et-minimum-smic}
+
+  # 8 bis. Capitalisation publique
+  - id: capitalisation-publique
+    personnage: etudiante
+    levier: capitalisation-publique
+    texte: "Je doute de toucher un jour une retraite suffisante. L'État verse 15 Md€ par an sur des comptes individuels de retraite par capitalisation ?"
+    gauche: {libelle: "Pas d'apport public", option: aucun}
+    droite: {libelle: "15 Md€ par an sur des comptes", option: 15-md-par-an}
 
   # 9. Successions
   - id: successions
@@ -757,6 +780,14 @@ cartes:
     texte: "Selon le Conseil d'analyse économique, les impôts de production pèsent plus en France que chez ses voisins. Les baisser de 40 à 50 Md€ ?"
     gauche: {libelle: "Supprimer C3S et CFE", option: suppression-c3s-cfe}
     droite: {libelle: "Baisse de 40 à 50 Md€", option: baisse-50-md}
+
+  # 27 bis. Niches fiscales et sociales
+  - id: niches
+    personnage: directeur-budget
+    levier: niches
+    texte: "Les niches fiscales et les allègements de cotisations coûtent plus de 160 Md€ par an. On les éteint toutes en cinq ans, en consacrant un tiers des recettes à réduire le déficit ?"
+    gauche: {libelle: "Niches actuelles", option: inchangees}
+    droite: {libelle: "Tout éteindre en cinq ans", option: extinction-cinq-ans}
 
   # 28. Aides aux entreprises
   - id: aides-entreprises

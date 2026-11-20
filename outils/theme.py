@@ -33,6 +33,7 @@ COULEURS_PROGRAMMES = {
     "attal-renaissance": "#c0392b", "glucksmann-place-publique": "#8e44ad", "le-pen-rn": "#2471a3",
     "melenchon-lfi": "#117864", "philippe-horizons": "#7d6608", "retailleau-lr": "#a04000",
     "tondelier-ecologistes": "#1e8449", "zemmour-reconquete": "#943126", "lisnard-nouvelle-energie": "#566573",
+    "villepin-france-humaniste": "#1f618d",
 }
 
 

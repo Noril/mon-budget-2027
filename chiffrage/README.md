@@ -17,6 +17,13 @@ uv run python -m outils.chiffrage             # build/chiffrage.md, build/chiffr
 - `programmes/<id>.yaml` : un programme (schéma `schemas/programme.schema.json`) : sources, annonce globale du
   candidat telle quelle, et mesures.
 
+## Choix des candidats
+
+Un candidat entre dans le chiffrage quand il est déclaré **et** qu'il a publié un programme, ou des propositions
+chiffrables en nombre suffisant pour que le solde ait un sens. Un candidat déclaré sans programme publié attend son
+programme (Teddy Riner, déclaré le 9 novembre 2026, au 20 novembre 2026). La même règle vaut pour tous ; chaque fichier
+de programme dit, dans `statut_candidature`, la date et la source de la déclaration.
+
 ## Règles de chiffrage
 
 1. **Citation d'abord.** Une mesure n'entre que citée verbatim avec son URL (site du candidat ou du parti,
