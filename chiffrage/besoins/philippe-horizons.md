@@ -1,6 +1,6 @@
 # Barèmes complémentaires : Édouard Philippe (Horizons)
 
-Ce fichier recense les coûts unitaires et les paramètres dont le chiffrage du programme (`chiffrage/programmes/philippe-horizons.yaml`) avait besoin, et indique lesquels figurent désormais dans les barèmes communs (`chiffrage/baremes.yaml`). **Statut (état au 29 septembre 2026) : toutes les mesures du programme sont chiffrées ou classées non chiffrables ; aucune n'est en attente.** Les listes par domaine sont les recherches menées, avec des pistes de sources (ce ne sont pas des sources citées : chaque paramètre retenu porte sa propre source dans la mesure qui l'utilise) ; l'identifiant entre parenthèses ou après la flèche est celui de la mesure concernée. Un paramètre « non inscrit » est sourcé directement dans la mesure : il pourrait devenir un barème commun. Montants en Md€ courants, régime de croisière 2032, référence : législation au 1er janvier 2027 (`chiffrage/REFERENCE.md`).
+Ce fichier recense les coûts unitaires et les paramètres dont le chiffrage du programme (`chiffrage/programmes/philippe-horizons.yaml`) avait besoin, et indique lesquels figurent désormais dans les barèmes communs (`chiffrage/baremes.yaml`). **Statut (état au 20 novembre 2026, programme volume 1 du 18 novembre) : toutes les mesures du programme sont chiffrées ou classées non chiffrables ; aucune n'est en attente.** Manques identifiés lors de la passe du 20 novembre : part des droits de mutation payée par les primo-accédants de moins de 35 ans (`frais-notaire-moins-35-ans`), coût annuel du PTZ (`ptz-perennisation`), coût d'une place de prison et d'une journée de détention (`prisons-30000-places`), durée du service national (`service-national-obligatoire`) : ces mesures restent en estimation indicative ou non chiffrables. Les listes par domaine sont les recherches menées, avec des pistes de sources (ce ne sont pas des sources citées : chaque paramètre retenu porte sa propre source dans la mesure qui l'utilise) ; l'identifiant entre parenthèses ou après la flèche est celui de la mesure concernée. Un paramètre « non inscrit » est sourcé directement dans la mesure : il pourrait devenir un barème commun. Montants en Md€ courants, régime de croisière 2032, référence : législation au 1er janvier 2027 (`chiffrage/REFERENCE.md`).
 
 ## Fiscalité des entreprises
 - Rendement 2027-2032 de chaque impôt de production : CVAE (et calendrier de suppression en vigueur), CFE, C3S, taxe foncière sur les propriétés bâties des entreprises, versement mobilité (PLF/Voies et moyens, DGFiP, Conseil des prélèvements obligatoires). → `impots-production-moins-50md`
@@ -21,7 +21,6 @@ Ce fichier recense les coûts unitaires et les paramètres dont le chiffrage du 
 - Masse salariale des enseignants (public, privé sous contrat), coût employeur d'une hausse de 1 % de la rémunération moyenne, taux de retour (cotisations et impôts). → `enseignants-plus-20pct`
 - Coût annuel d'un étudiant en école d'ingénieur publique ; durée moyenne des études. → `ingenieurs-100000`
 - Coût d'un dispositif de soutien scolaire (référence : devoirs faits, stages de réussite). → `soutien-scolaire-universel`
-- Coût d'une demi-part supplémentaire pour le 2e enfant (IPP/OpenFisca, DGFiP : nombre de foyers à deux enfants, plafonnement du quotient familial). → `part-fiscale-deuxieme-enfant`
 - Coût budgétaire d'un PTZ (crédit d'impôt par prêt) et nombre de naissances. → `ptz-chaque-naissance`
 - Nombre de parents reprenant après un congé parental, salaire moyen ; coût d'un complément de 20 % sur 2 mois. → `temps-partiel-parental`
 - Rendement des droits de mutation à titre gratuit sur donations ; élasticité aux abattements (réforme 2011-2012). → `donations-plafonds-hausse`
@@ -32,7 +31,7 @@ Ce fichier recense les coûts unitaires et les paramètres dont le chiffrage du 
 - Crédits du plan fret ferroviaire en vigueur (programme 203, SNCF Réseau). → `fret-ferroviaire`
 
 ## Défense, État, justice
-- Coût annuel moyen d'un réserviste opérationnel ; coût annuel d'un volontaire du service militaire volontaire (LPM, rapports parlementaires). → `reservistes-smv`
+- Coût annuel moyen d'un réserviste opérationnel (LPM, rapports parlementaires). → `reservistes-250000` (le service militaire volontaire, retiré du programme le 18 novembre 2026, n'est plus chiffré)
 - Montant annuel de la LPM 2024-2030 actualisée et trajectoire 2031-2032. → `lpm-massification`
 - Coût moyen chargé d'un ETP de la fonction publique d'État (pension incluse). → `fonction-publique-non-remplacement`
 - Montant des amendes non recouvrées. → `amendes-prestations-sociales`
@@ -47,7 +46,6 @@ Ce fichier recense les coûts unitaires et les paramètres dont le chiffrage du 
 |---|---|---|
 | `fonds_vert_credits` | 1,07 Md€ de crédits de paiement, 0,837 Md€ d'autorisations d'engagement (LFI 2026) | Non inscrit ; [Banque des territoires](https://www.banquedesterritoires.fr/budget-2026-les-derniers-arbitrages-du-gouvernement-sur-les-finances-locales-dont-le-dilico) |
 | `cout_reserviste` | ≈ 6 135 € par an (319 M€ pour 52 000 réservistes, PLF 2026) | Non inscrit ; [Sénat](https://www.senat.fr/rap/a25-141-7/a25-141-7_mono.html) |
-| `cout_volontaire_smv` | ≈ 38 000 € par an (2022) | Non inscrit ; [Sénat](https://www.senat.fr/rap/r23-034/r23-034_mono.html) |
 | `cout_etudiant_superieur` | 12 460 € (université), 2024 | Non inscrit (la classe préparatoire, 19 070 €, est le barème `cout_etudiant_cpge`) ; [MESR](https://publication.enseignementsup-recherche.gouv.fr/eesr/FR/T496/la_depense_d_education_pour_l_enseignement_superieur/) |
 | `jour_carence_fonction_publique` | ≈ 108 M€ par jour de carence (2018) | Non inscrit ; [Public Sénat](https://www.publicsenat.fr/actualites/economie/arrets-maladie-les-senateurs-augmentent-a-trois-jours-le-delai-de-carence-dans-la-fonction-publique) |
 | `ij_maladie_depense` | 12,1 Md€ (2024) | Non inscrit ; [DREES](https://drees.solidarites-sante.gouv.fr/sites/default/files/2025-09/CNS%20-%20Fiche%2025%20-%20Les%20indemnit%C3%A9s%20journali%C3%A8res_0.pdf) |
