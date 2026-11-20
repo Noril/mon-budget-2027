@@ -184,10 +184,10 @@ mesures:
       fiscale n''est pas le gain de sa suppression (comportements) : le plafond par le périmètre est un majorant.'
   confiance: faible
   verification:
-    statut: ok
-    par: auteur-villepin
+    statut: conteste
+    par: verificateur-sonnet
     date: '2026-11-20'
-    commentaire: Chiffrage de l'auteur, à vérifier indépendamment. Citation relue dans le chapitre 5 ; formule rejouée (58,33).
+    commentaire: Vérification indépendante du 20/11/2026 (conteste) — formule rejouée (58,33 = min(175 ; 203,8) / 3), règle 6 respectée ; lecture contestée, le texte dit « paliers de l'ordre de 35 milliards d'euros par an » sans total, cinq paliers cumulés (175 Md€, 86 % des dépenses fiscales et allègements généraux) non prouvés, lecture d'un seul palier 11,7 Md€. Trace de l'auteur — Chiffrage de l'auteur, à vérifier indépendamment. Citation relue dans le chapitre 5 ; formule rejouée (58,33).
 - id: capitalisation-publique-15md
   libelle: 'Retraite par capitalisation publique : 15 Md€ par an versés sur des comptes individuels au Fonds France'
   domaine: retraites
@@ -231,9 +231,9 @@ mesures:
   confiance: faible
   verification:
     statut: ok
-    par: auteur-villepin
+    par: verificateur-sonnet
     date: '2026-11-20'
-    commentaire: Chiffrage de l'auteur, à vérifier indépendamment. Citation relue (chapitre 16). Classement comptable du Fonds
+    commentaire: Vérification indépendante du 20/11/2026 (ok) — citation retrouvée mot pour mot, formule rejouée, barèmes et sources contrôlés. Trace de l'auteur — Chiffrage de l'auteur, à vérifier indépendamment. Citation relue (chapitre 16). Classement comptable du Fonds
       France à établir.
 - id: budget-decarbonation-4-5md-par-an
   libelle: Budget d'atténuation et d'adaptation augmenté d'environ 4,5 Md€ chaque année
@@ -277,9 +277,9 @@ mesures:
   confiance: faible
   verification:
     statut: ok
-    par: auteur-villepin
+    par: verificateur-sonnet
     date: '2026-11-20'
-    commentaire: Chiffrage de l'auteur, à vérifier indépendamment. Citation relue (chapitre 1) ; lecture cumulative à confirmer
+    commentaire: Vérification indépendante du 20/11/2026 (ok) — citation retrouvée mot pour mot, formule rejouée, barèmes et sources contrôlés. Trace de l'auteur — Chiffrage de l'auteur, à vérifier indépendamment. Citation relue (chapitre 1) ; lecture cumulative à confirmer
       auprès de la campagne.
 - id: point-indice-indexation
   libelle: Réindexer le point d'indice sur l'inflation, à effectifs stables
@@ -326,9 +326,9 @@ mesures:
   confiance: haute
   verification:
     statut: ok
-    par: auteur-villepin
+    par: verificateur-sonnet
     date: '2026-11-20'
-    commentaire: Chiffrage de l'auteur, à vérifier indépendamment. Paramètres identiques à glucksmann-place-publique/point-indice-indexe-inflation.
+    commentaire: Vérification indépendante du 20/11/2026 (ok) — citation retrouvée mot pour mot, formule rejouée, barèmes et sources contrôlés. Trace de l'auteur — Chiffrage de l'auteur, à vérifier indépendamment. Paramètres identiques à glucksmann-place-publique/point-indice-indexe-inflation.
 - id: aide-developpement-0-7-pib
   libelle: Aide publique au développement portée à 0,7 % du PIB
   domaine: international
@@ -373,9 +373,9 @@ mesures:
   confiance: moyenne
   verification:
     statut: ok
-    par: auteur-villepin
+    par: verificateur-sonnet
     date: '2026-11-20'
-    commentaire: Chiffrage de l'auteur, à vérifier indépendamment. Formule rejouée ; même convention que les trois autres
+    commentaire: Vérification indépendante du 20/11/2026 (ok) — écart avec Glucksmann et Tondelier (−10,38) dû au dénominateur (PIB au lieu du RNB, comme écrit dans le programme) ; haut à harmoniser. Trace de l'auteur — Chiffrage de l'auteur, à vérifier indépendamment. Formule rejouée ; même convention que les trois autres
       programmes à 0,7 %.
 - id: structures-educatives-fermees-15000
   libelle: Créer 15 000 places en structures éducatives fermées pour les primo-délinquants
@@ -425,9 +425,9 @@ mesures:
   confiance: faible
   verification:
     statut: ok
-    par: auteur-villepin
+    par: verificateur-sonnet
     date: '2026-11-20'
-    commentaire: Chiffrage de l'auteur, à vérifier indépendamment. Prix de journée relu dans le rapport du Sénat (r17-726-1)
+    commentaire: Vérification indépendante du 20/11/2026 (ok) — citation retrouvée mot pour mot, formule rejouée, barèmes et sources contrôlés. Trace de l'auteur — Chiffrage de l'auteur, à vérifier indépendamment. Prix de journée relu dans le rapport du Sénat (r17-726-1)
       ; formule rejouée.
 - id: prevention-sante-plus-50pct
   libelle: Accroître de 50 % les dépenses de prévention en santé au cours du quinquennat
@@ -473,9 +473,9 @@ mesures:
   confiance: moyenne
   verification:
     statut: ok
-    par: auteur-villepin
+    par: verificateur-sonnet
     date: '2026-11-20'
-    commentaire: 'Chiffrage de l''auteur, à vérifier indépendamment. Montant de la DREES lu dans la synthèse de la fiche 23
+    commentaire: 'Vérification indépendante du 20/11/2026 (ok) — formule rejouée ; base DREES de 8,7 Md€ non relue (PDF indisponible). Trace de l''auteur — Chiffrage de l''auteur, à vérifier indépendamment. Montant de la DREES lu dans la synthèse de la fiche 23
       (PDF non téléchargeable le 20/11/2026) : à relire.'
 - id: recherche-5md-fin-quinquennat
   libelle: 'Plan recherche et enseignement supérieur : 5 Md€ de crédits annuels en fin de quinquennat'
@@ -514,9 +514,9 @@ mesures:
   confiance: moyenne
   verification:
     statut: ok
-    par: auteur-villepin
+    par: verificateur-sonnet
     date: '2026-11-20'
-    commentaire: Chiffrage de l'auteur, à vérifier indépendamment.
+    commentaire: Vérification indépendante du 20/11/2026 (ok) — citation retrouvée mot pour mot, formule rejouée, barèmes et sources contrôlés. Trace de l'auteur — Chiffrage de l'auteur, à vérifier indépendamment.
 - id: violences-femmes-enfants-3md
   libelle: 'Loi de programmation contre les violences faites aux femmes et aux enfants : 3 Md€ par an jusqu''en 2032'
   domaine: justice
@@ -553,9 +553,9 @@ mesures:
   confiance: haute
   verification:
     statut: ok
-    par: auteur-villepin
+    par: verificateur-sonnet
     date: '2026-11-20'
-    commentaire: Chiffrage de l'auteur, à vérifier indépendamment.
+    commentaire: Vérification indépendante du 20/11/2026 (ok) — citation retrouvée mot pour mot, formule rejouée, barèmes et sources contrôlés. Trace de l'auteur — Chiffrage de l'auteur, à vérifier indépendamment.
 - id: isf-retabli
   libelle: Rétablir l'impôt sur la fortune (barème proche de 2016) dans un impôt unique sur le patrimoine
   domaine: fiscalité du patrimoine
@@ -587,9 +587,9 @@ mesures:
   confiance: moyenne
   verification:
     statut: ok
-    par: auteur-villepin
+    par: verificateur-sonnet
     date: '2026-11-20'
-    commentaire: Chiffrage de l'auteur, à vérifier indépendamment.
+    commentaire: Vérification indépendante du 20/11/2026 (ok) — citation retrouvée mot pour mot, formule rejouée, barèmes et sources contrôlés. Trace de l'auteur — Chiffrage de l'auteur, à vérifier indépendamment.
 - id: enseignants-plus-10pct
   libelle: Revaloriser d'au moins 10 % les métiers pédagogiques
   domaine: éducation
@@ -627,9 +627,9 @@ mesures:
   confiance: moyenne
   verification:
     statut: ok
-    par: auteur-villepin
+    par: verificateur-sonnet
     date: '2026-11-20'
-    commentaire: Chiffrage de l'auteur, à vérifier indépendamment.
+    commentaire: Vérification indépendante du 20/11/2026 (ok) — central identique à Glucksmann ; bas (−2,99) moins défavorable que celui de Glucksmann (−6,0, carrière comprise), bornes à harmoniser. Trace de l'auteur — Chiffrage de l'auteur, à vérifier indépendamment.
 - id: leasing-social-un-million
   libelle: Un million de véhicules électriques en leasing social sur le quinquennat
   domaine: transports
@@ -664,9 +664,9 @@ mesures:
   confiance: moyenne
   verification:
     statut: ok
-    par: auteur-villepin
+    par: verificateur-sonnet
     date: '2026-11-20'
-    commentaire: Chiffrage de l'auteur, à vérifier indépendamment.
+    commentaire: Vérification indépendante du 20/11/2026 (ok) — formule rejouée ; aide de 7 000 € recoupée (Journal de l'Auto), page Largus citée non relue ; haut 0 (financement par les CEE). Trace de l'auteur — Chiffrage de l'auteur, à vérifier indépendamment.
 - id: agriculture-1-5md
   libelle: 'Stratégie nationale de transformation de l''agriculture : 1,5 Md€ supplémentaires par an'
   domaine: agriculture
@@ -695,9 +695,9 @@ mesures:
   confiance: haute
   verification:
     statut: ok
-    par: auteur-villepin
+    par: verificateur-sonnet
     date: '2026-11-20'
-    commentaire: Chiffrage de l'auteur, à vérifier indépendamment.
+    commentaire: Vérification indépendante du 20/11/2026 (ok) — citation retrouvée mot pour mot, formule rejouée, barèmes et sources contrôlés. Trace de l'auteur — Chiffrage de l'auteur, à vérifier indépendamment.
 - id: hebergement-30000-places
   libelle: Créer 30 000 places d'hébergement (« logement d'abord »)
   domaine: logement
@@ -739,9 +739,9 @@ mesures:
   confiance: moyenne
   verification:
     statut: ok
-    par: auteur-villepin
+    par: verificateur-sonnet
     date: '2026-11-20'
-    commentaire: 'Chiffrage de l''auteur, à vérifier indépendamment. Ordres de grandeur du programme 177 tirés de la synthèse
+    commentaire: 'Vérification indépendante du 20/11/2026 (ok) — citation retrouvée mot pour mot, formule rejouée, barèmes et sources contrôlés. Trace de l''auteur — Chiffrage de l''auteur, à vérifier indépendamment. Ordres de grandeur du programme 177 tirés de la synthèse
       de l''avis du Sénat : à relire.'
 - id: service-militaire-volontaire-5000
   libelle: Porter le service militaire volontaire de 1 600 à 5 000 places
@@ -779,9 +779,9 @@ mesures:
   confiance: moyenne
   verification:
     statut: ok
-    par: auteur-villepin
+    par: verificateur-sonnet
     date: '2026-11-20'
-    commentaire: Chiffrage de l'auteur, à vérifier indépendamment.
+    commentaire: Vérification indépendante du 20/11/2026 (ok) — citation retrouvée mot pour mot, formule rejouée, barèmes et sources contrôlés. Trace de l'auteur — Chiffrage de l'auteur, à vérifier indépendamment.
 - id: trajectoire-deficit-2-9-2031
   libelle: Loi organique de trajectoire pluriannuelle et déficit à 2,9 % du PIB en 2031
   domaine: finances publiques
