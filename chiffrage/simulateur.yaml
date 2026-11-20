@@ -234,6 +234,43 @@ leviers:
       '2030': 1.0
       '2031': 1.0
       '2032': 1.0
+- id: capitalisation-publique
+  theme: Retraites
+  question: Verser chaque année de l'argent public sur des comptes individuels de retraite par capitalisation ?
+  aide: Les dépenses de retraite des régimes obligatoires atteignent environ 422 Md€ par an. Un apport public à des comptes
+    individuels pèse sur le déficit dès son versement, la rente n'étant servie que des décennies plus tard.
+  type: choix
+  axe: depenses
+  options:
+  - id: aucun
+    libelle: Pas d'apport public à des comptes de capitalisation (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: 15-md-par-an
+    libelle: 15 Md€ par an versés sur des comptes individuels (capitalisation publique)
+    axes:
+      protection-sociale: 1
+    effet:
+      central: -15.0
+      bas: -15.0
+      haut: 0.0
+    reprend:
+    - villepin-france-humaniste/capitalisation-publique-15md
+    calcul: Chiffrage Villepin repris (premiers versements en 2029, après le référendum sur les retraites).
+    candidats:
+    - villepin-france-humaniste
+    montee:
+      '2027': 0.0
+      '2028': 0.0
+      '2029': 1.0
+      '2030': 1.0
+      '2031': 1.0
+      '2032': 1.0
 - id: point-indice
   theme: Fonction publique
   question: Comment faire évoluer la rémunération des agents publics (point d'indice) ?
@@ -273,10 +310,12 @@ leviers:
       haut: -11.76
     reprend:
     - glucksmann-place-publique/point-indice-indexe-inflation
+    - villepin-france-humaniste/point-indice-indexation
     calcul: 'Barème indexation_point_indice_2027_2032 : 22,1 Md€ brut × (1 − 0,28) ≈ 15,9 Md€ net ; chiffrage Glucksmann repris.
       [Recalé le 2026-09-29 sur le chiffrage de glucksmann-place-publique.] [Recalé le 2026-11-02 sur le chiffrage de glucksmann-place-publique.]'
     candidats:
     - glucksmann-place-publique
+    - villepin-france-humaniste
     montee:
       '2027': 0.13
       '2028': 0.3
@@ -906,8 +945,10 @@ leviers:
     reprend:
     - tondelier-ecologistes/isf-climatique
     - melenchon-lfi/isf-climatique
+    - villepin-france-humaniste/isf-retabli
     calcul: Barème isf_retabli_gain_net ; LFI et Tondelier le proposent avec un impôt plancher (options suivantes).
-    candidats: []
+    candidats:
+    - villepin-france-humaniste
     montee:
       '2027': 0.0
       '2028': 1.0
@@ -1241,6 +1282,46 @@ leviers:
       '2029': 1.0
       '2030': 1.0
       '2031': 1.0
+      '2032': 1.0
+- id: niches
+  theme: Entreprises
+  question: Éteindre les niches fiscales et sociales ?
+  aide: Les dépenses fiscales de l'État coûtent 91,8 Md€ en 2025 (Cour des comptes) et les allègements généraux de cotisations
+    75,6 Md€ (Commission des comptes de la sécurité sociale). Le coût d'une niche n'est pas le gain de sa suppression, à cause
+    des changements de comportement.
+  type: choix
+  axe: prelevements
+  options:
+  - id: inchangees
+    libelle: Niches actuelles (droit en vigueur)
+    defaut: true
+    effet:
+      central: 0
+      bas: 0
+      haut: 0
+    calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
+    candidats: []
+  - id: extinction-cinq-ans
+    libelle: Les éteindre toutes en cinq ans (175 Md€), un tiers pour réduire le déficit
+    axes:
+      soutien-entreprises: -1
+      imposition-hauts-revenus-patrimoine: 1
+    effet:
+      central: 58.33
+      bas: 0.0
+      haut: 58.33
+    reprend:
+    - villepin-france-humaniste/extinction-niches-fiscales-sociales
+    calcul: 'Chiffrage Villepin repris : cinq paliers de 35 Md€, dont un tiers affecté au déficit (les deux autres tiers compensent
+      ou financent des politiques publiques) ; économie ciblée non détaillée, bas = 0.'
+    candidats:
+    - villepin-france-humaniste
+    montee:
+      '2027': 0.0
+      '2028': 0.2
+      '2029': 0.4
+      '2030': 0.6
+      '2031': 0.8
       '2032': 1.0
 - id: cotisations-patronales
   theme: Entreprises
@@ -1902,11 +1983,13 @@ leviers:
     reprend:
     - glucksmann-place-publique/salaires-enseignants-10-pct
     - melenchon-lfi/revalorisation-enseignants
+    - villepin-france-humaniste/enseignants-plus-10pct
     calcul: Chiffrage Glucksmann repris (2,6) ; LFI (rattrapage du gel du point) est chiffré à 3,6. [Recalé le 2026-09-29
       sur le chiffrage de glucksmann-place-publique.]
     candidats:
     - glucksmann-place-publique
     - melenchon-lfi
+    - villepin-france-humaniste
     montee:
       '2027': 0.0
       '2028': 0.2
@@ -2076,7 +2159,7 @@ leviers:
     calcul: 'Droit en vigueur au 29 septembre 2026 : effet nul par construction.'
     candidats: []
   - id: 0-7-pct
-    libelle: 0,7 % du revenu national brut
+    libelle: 0,7 % du revenu national brut (ou du PIB)
     axes:
       ouverture-internationale: 2
     effet:
@@ -2087,12 +2170,14 @@ leviers:
     - glucksmann-place-publique/aide-publique-developpement-0-7
     - melenchon-lfi/aide-developpement-0-7
     - tondelier-ecologistes/apd-07-pnb
+    - villepin-france-humaniste/aide-developpement-0-7-pib
     calcul: 'Même chiffrage dans les trois programmes (convention 10) : (0,7 − 0,42) % × 3 706 Md€ ; bas depuis 0,38 % (projection
       2026 non officielle), haut propre à chaque lecture. [Recalé le 2026-11-02 sur le chiffrage de glucksmann-place-publique.]'
     candidats:
     - glucksmann-place-publique
     - melenchon-lfi
     - tondelier-ecologistes
+    - villepin-france-humaniste
     montee:
       '2027': 0.0
       '2028': 0.2
@@ -2225,6 +2310,7 @@ leviers:
       tondelier-ecologistes: 7.52
       le-pen-rn: -1.19
       zemmour-reconquete: -0.75
+      villepin-france-humaniste: 5.4
     reprend:
       melenchon-lfi:
       - cent-pour-cent-secu
@@ -2243,6 +2329,8 @@ leviers:
       - sante-medicaments-unite-ald
       zemmour-reconquete:
       - suppression-ars
+      villepin-france-humaniste:
+      - prevention-sante-plus-50pct
 - id: defense
   theme: Défense
   question: Combien de dépenses de défense et de service national en plus de la loi de programmation militaire ?
@@ -2262,6 +2350,7 @@ leviers:
       melenchon-lfi: 23.26
       philippe-horizons: 1.5
       glucksmann-place-publique: 4.49
+      villepin-france-humaniste: 0.16
     reprend:
       melenchon-lfi:
       - conscription-citoyenne
@@ -2269,6 +2358,30 @@ leviers:
       - reservistes-250000
       glucksmann-place-publique:
       - service-civique-obligatoire
+      villepin-france-humaniste:
+      - service-militaire-volontaire-5000
+- id: securite-justice
+  theme: État et collectivités
+  question: Combien de dépenses de justice, de sécurité et de lutte contre les violences en plus ?
+  aide: Une journée en centre éducatif fermé coûtait 661 € par mineur en 2017 (Sénat) ; un poste de magistrat pèse environ
+    37 000 € par an sur le solde public. Plans contre les violences faites aux femmes et aux enfants, recrutements et places
+    de prise en charge passent par ce curseur.
+  type: curseur
+  axe: depenses
+  axes:
+    services-agents-publics: 1
+  curseur:
+    min: -5
+    max: 15
+    pas: 0.5
+    unite: Md€
+    md_par_unite: 1
+    positions:
+      villepin-france-humaniste: 8.75
+    reprend:
+      villepin-france-humaniste:
+      - structures-educatives-fermees-15000
+      - violences-femmes-enfants-3md
 - id: education
   theme: Éducation
   question: Combien de dépenses d'éducation et de petite enfance en plus, hors salaires des enseignants ?
@@ -2332,6 +2445,7 @@ leviers:
       le-pen-rn: -3.0
       zemmour-reconquete: -4.38
       retailleau-lr: -3.12
+      villepin-france-humaniste: 25.4
     reprend:
       melenchon-lfi:
       - plan-investissement-200-md
@@ -2351,6 +2465,10 @@ leviers:
       - suppression-ademe
       retailleau-lr:
       - fin-soutien-nouvelles-enr
+      villepin-france-humaniste:
+      - budget-decarbonation-4-5md-par-an
+      - leasing-social-un-million
+      - agriculture-1-5md
 - id: recherche-innovation
   theme: Recherche
   question: Combien de dépenses de recherche, d'enseignement supérieur et d'innovation en plus ?
@@ -2370,6 +2488,7 @@ leviers:
       melenchon-lfi: 2.74
       philippe-horizons: 3.41
       retailleau-lr: 1.6
+      villepin-france-humaniste: 5.0
     reprend:
       attal-renaissance:
       - plan-ia-france-2040
@@ -2380,3 +2499,5 @@ leviers:
       retailleau-lr:
       - programme-ia-cout
       - fonds-france-production
+      villepin-france-humaniste:
+      - recherche-5md-fin-quinquennat
